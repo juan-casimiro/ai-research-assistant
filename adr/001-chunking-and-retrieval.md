@@ -169,3 +169,19 @@ caught before shipping. This reinforces a recurring lesson from this
 project: once any function in a call chain becomes `async def`, every
 caller up the chain must be updated consistently — partial conversions
 are a common, easy-to-miss source of bugs.
+
+**Correction (Session 4):** direct inspection of retrieved candidates
+revealed the two remaining failures are not the same failure mode.
+The "disabilities" query is a genuine **recall** failure — the
+relevant chunk (discussing support for neurodivergent students) does
+not appear anywhere in the top-20 embedding-retrieved candidates, so
+no amount of reranking can recover it; reranking only reorders
+candidates that were already retrieved. The "bias" query is closer to
+a **precision/selection** issue — the relevant EDI paragraph was
+present among the retrieved candidates, so its continued absence from
+the final top-N is a ranking/selection question, not a retrieval-recall
+one. This distinction matters because the two failure modes call for
+different fixes: recall failures need either a better embedding model
+or a larger candidate pool (n_results in the initial retrieval stage,
+not the final n_results), while precision failures are exactly what
+reranking is meant to address.
