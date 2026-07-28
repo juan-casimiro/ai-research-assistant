@@ -13,11 +13,6 @@ load_dotenv()
 app = FastAPI()
 embed_model = TextEmbedding()
 chroma_client = chromadb.PersistentClient(path="./chroma_db")
-try:
-    chroma_client.delete_collection("documents")  # clear any stale data from prior runs
-    print("reseting collection..")
-except:
-    print("no collection to reset on first run")
 collection = chroma_client.get_or_create_collection("documents")
 anthropic_client = AsyncAnthropic()
 
@@ -35,9 +30,17 @@ def chunk_text(text: str, chunk_size: int = 1000, overlap: int = 150) -> list[st
         para = para.strip()
         if not para:
             continue
+
+        if len(para) > chunk_size:
+            if current:
+                chunks.append(current.strip())
+                current = ""
+            for i in range(0, len(para), chunk_size):
+                chunks.append(para[i : i + chunk_size])
+            continue
+
         if current and len(current) + len(para) > chunk_size:
             chunks.append(current.strip())
-            # start next chunk with the tail of the previous one, for overlap
             current = current[-overlap:] + "\n\n" + para
         else:
             current += ("\n\n" if current else "") + para
