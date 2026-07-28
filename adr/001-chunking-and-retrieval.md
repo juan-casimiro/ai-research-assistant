@@ -76,3 +76,50 @@ added back.
 retrieval misses (the Minnesota Law School case), broadening
 `n_results` does not help — this specifically requires reranking or a
 larger/better embedding model, neither implemented in this session.
+
+## Update: Reranking implementation and results (Session 3)
+
+Implemented two-stage retrieval: broad candidate retrieval via
+embeddings (`n_results=20`), followed by reranking with a cross-encoder
+(`Xenova/ms-marco-MiniLM-L-6-v2`, via FastEmbed) to re-score and select
+the final top-N. The retrieval logic was refactored into a shared
+`retrieve()` function used by both the `/query` endpoint and the
+evaluation harness, ensuring evaluation tests the exact same code path
+as production — avoiding drift between what is measured and what is
+shipped.
+
+**Result, tested against the same 8-query evaluation set used in
+Session 2 (AI-in-education paper):**
+
+| Configuration | Accuracy |
+|---|---|
+| Embeddings only, n_results=3 | 62% (5/8) |
+| Embeddings only, n_results=8 | 62% (5/8) |
+| Embeddings + reranking, n_results=8 | 75% (6/8) |
+
+Reranking resolved the Minnesota Law School case — the specific,
+citation-dense factual query that broadening `n_results` alone could
+not fix (Session 2 finding). This confirms the hypothesized mechanism:
+the relevant chunk existed within the top-20 embedding-retrieved
+candidates, but was not ranked highly enough by fast embedding
+similarity alone; the more precise (but slower) cross-encoder correctly
+identified it once given the opportunity to evaluate the candidate set
+directly. No regressions were observed — all previously-passing queries
+remained correct.
+
+**Remaining limitation:** two queries (disabilities/neurodivergent
+support, and bias) were not resolved by reranking. Hypothesis, not yet
+tested: these queries use vocabulary that differs from the source
+paper's own phrasing (e.g., the paper uses "EDI" as a section heading
+rather than "disabilities," and describes a "left-libertarian
+orientation" rather than "bias" as a plain term). Reranking improves
+selection *among retrieved candidates* but cannot recover a chunk whose
+content doesn't share query vocabulary in a form the model recognizes
+as relevant — this points to query rewriting/expansion as a distinct,
+separate technique from reranking, not yet implemented.
+
+**Trade-off, worth noting:** reranking adds a second model inference
+pass per query (cross-encoder scoring of 20 candidates), increasing
+latency compared to embeddings-only retrieval. Not benchmarked
+precisely in this session, but a real, expected cost of the accuracy
+gain — consistent with reranking's known trade-off profile.

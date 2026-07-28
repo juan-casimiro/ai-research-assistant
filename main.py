@@ -1,9 +1,9 @@
-import os
 import re
 from dotenv import load_dotenv
 from anthropic import AsyncAnthropic
 from anthropic.types import TextBlock
 from fastembed import TextEmbedding
+from fastembed.rerank.cross_encoder import TextCrossEncoder
 import chromadb
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
@@ -12,6 +12,7 @@ load_dotenv()
 
 app = FastAPI()
 embed_model = TextEmbedding()
+reranker = TextCrossEncoder(model_name="Xenova/ms-marco-MiniLM-L-6-v2")
 chroma_client = chromadb.PersistentClient(path="./chroma_db")
 collection = chroma_client.get_or_create_collection("documents")
 anthropic_client = AsyncAnthropic()
@@ -81,18 +82,30 @@ def ingest(request: IngestRequest):
     return {"chunks_ingested": len(chunks)}
 
 
-@app.post("/query")
-async def query(request: QueryRequest) -> QueryResponse:
-    query_embedding = embed(request.question)
+def retrieve(question: str, n_results: int = 3) -> tuple[list[str], list[str]]:
+    query_embedding = embed(question)
 
     results = collection.query(
         query_embeddings=[query_embedding],
-        n_results=request.n_results,
+        n_results=20,
     )
+    candidates = results["documents"][0]
+    candidate_sources = [m["source"] for m in results["metadatas"][0]]
 
-    retrieved_chunks = results["documents"][0]
+    scores = list(reranker.rerank(question, candidates))
+    ranked = sorted(
+        zip(candidates, candidate_sources, scores), key=lambda x: x[2], reverse=True
+    )
+    top_n = ranked[:n_results]
 
-    sources = [m["source"] for m in results["metadatas"][0]]
+    retrieved_chunks = [chunk for chunk, _, _ in top_n]
+    sources = [src for _, src, _ in top_n]
+    return retrieved_chunks, sources
+
+
+@app.post("/query")
+async def query(request: QueryRequest) -> QueryResponse:
+    retrieved_chunks, sources = retrieve(request.question, request.n_results)
 
     context = "\n\n---\n\n".join(retrieved_chunks)
 
