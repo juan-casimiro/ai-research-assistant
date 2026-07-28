@@ -1,3 +1,4 @@
+import asyncio
 import re
 from dotenv import load_dotenv
 from anthropic import AsyncAnthropic
@@ -60,6 +61,7 @@ class IngestRequest(BaseModel):
 class QueryRequest(BaseModel):
     question: str
     n_results: int = 3
+    use_query_rewriting: bool = False  # opt-in, not default — see ADR-001
 
 
 class QueryResponse(BaseModel):
@@ -82,30 +84,87 @@ def ingest(request: IngestRequest):
     return {"chunks_ingested": len(chunks)}
 
 
-def retrieve(question: str, n_results: int = 3) -> tuple[list[str], list[str]]:
-    query_embedding = embed(question)
-
-    results = collection.query(
-        query_embeddings=[query_embedding],
-        n_results=20,
+async def rewrite_query(question: str) -> str:
+    system_prompt = (
+        "You are helping improve semantic search retrieval for a RAG system. "
+        "The user's question will be converted into an embedding and compared "
+        "against chunks of a document using vector similarity search. "
+        "Academic and technical documents often use different terminology than "
+        "everyday questions — for example, a paper might discuss 'EDI' or "
+        "'diversity and inclusion' rather than 'disabilities,' or describe a "
+        "'left-libertarian orientation' rather than simply 'bias.'\n\n"
+        "Your job: rewrite the user's question to maximize the chance of "
+        "matching how a formal academic or technical source would actually "
+        "phrase the relevant content. Consider: domain-specific terminology, "
+        "formal/academic phrasing instead of conversational phrasing, and "
+        "likely section headings or technical terms an author would use. "
+        "Return only the rewritten query, nothing else — no explanation, "
+        "no preamble."
     )
-    candidates = results["documents"][0]
-    candidate_sources = [m["source"] for m in results["metadatas"][0]]
 
+    response = await anthropic_client.messages.create(
+        model="claude-haiku-4-5-20251001",
+        max_tokens=100,
+        system=system_prompt,
+        messages=[{"role": "user", "content": question}],
+    )
+    match response.content[0]:
+        case TextBlock(text=rewritten):
+            return rewritten
+        case _:
+            return question  # fall back to original on unexpected response
+
+
+def _retrieve_candidates(query_text: str, n: int = 20) -> tuple[list[str], list[str]]:
+    query_embedding = embed(query_text)
+    results = collection.query(query_embeddings=[query_embedding], n_results=n)
+    return results["documents"][0], [m["source"] for m in results["metadatas"][0]]
+
+
+async def retrieve(
+    question: str, n_results: int = 3, use_query_rewriting: bool = False
+) -> tuple[list[str], list[str]]:
+
+    seen = {}
+    if use_query_rewriting:
+        rewritten = await rewrite_query(question)
+        # retrieve for both phrasings concurrently — cheap, since it's just embedding + Chroma
+        (orig_docs, orig_sources), (rewritten_docs, rewritten_sources) = (
+            await asyncio.gather(
+                asyncio.to_thread(_retrieve_candidates, question),
+                asyncio.to_thread(_retrieve_candidates, rewritten),
+            )
+        )
+        # merge, deduping by chunk text
+        for doc, src in zip(
+            orig_docs + rewritten_docs, orig_sources + rewritten_sources
+        ):
+            seen[doc] = (
+                src  # last write wins; fine since content is identical for dupes
+            )
+    else:
+        orig_docs, orig_sources = _retrieve_candidates(question)
+        for doc, src in zip(orig_docs, orig_sources):
+            seen[doc] = src
+
+    candidates = list(seen.keys())
+    candidate_sources = list(seen.values())
+
+    # rerank the MERGED pool against the ORIGINAL question — that's the true user intent
     scores = list(reranker.rerank(question, candidates))
     ranked = sorted(
         zip(candidates, candidate_sources, scores), key=lambda x: x[2], reverse=True
     )
     top_n = ranked[:n_results]
 
-    retrieved_chunks = [chunk for chunk, _, _ in top_n]
-    sources = [src for _, src, _ in top_n]
-    return retrieved_chunks, sources
+    return [c for c, _, _ in top_n], [s for _, s, _ in top_n]
 
 
 @app.post("/query")
 async def query(request: QueryRequest) -> QueryResponse:
-    retrieved_chunks, sources = retrieve(request.question, request.n_results)
+    retrieved_chunks, sources = await retrieve(
+        request.question, request.n_results, request.use_query_rewriting
+    )
 
     context = "\n\n---\n\n".join(retrieved_chunks)
 

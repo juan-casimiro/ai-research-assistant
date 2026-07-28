@@ -1,3 +1,5 @@
+import asyncio
+
 from main import retrieve
 
 # eval_retrieval.py — replace test_cases
@@ -39,10 +41,10 @@ test_cases = [
 from main import retrieve
 
 
-def evaluate(n_results: int = 3) -> None:
+async def evaluate(n_results: int = 3) -> None:
     hits = 0
     for case in test_cases:
-        retrieved_chunks, _ = retrieve(case["query"], n_results)
+        retrieved_chunks, _ = await retrieve(case["query"], n_results, False)
         retrieved_text = " ".join(retrieved_chunks).lower()
 
         found = all(kw.lower() in retrieved_text for kw in case["expected_keywords"])
@@ -57,5 +59,5 @@ def evaluate(n_results: int = 3) -> None:
 
 
 if __name__ == "__main__":
-    evaluate(n_results=3)
-    evaluate(n_results=8)
+    asyncio.run(evaluate(n_results=3))
+    asyncio.run(evaluate(n_results=8))

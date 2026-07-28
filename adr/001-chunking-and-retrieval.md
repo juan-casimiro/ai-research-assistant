@@ -123,3 +123,49 @@ pass per query (cross-encoder scoring of 20 candidates), increasing
 latency compared to embeddings-only retrieval. Not benchmarked
 precisely in this session, but a real, expected cost of the accuracy
 gain — consistent with reranking's known trade-off profile.
+
+## Update: Query rewriting — implemented, evaluated, not enabled by default
+
+Query rewriting (using Claude to reformulate the question toward more
+formal/academic phrasing before retrieval, then merging results from
+both the original and rewritten query before reranking) was
+implemented and tested against the same 8-query evaluation set.
+
+**Result: identical to reranking alone (75% at n=8) — no additional
+queries were fixed.**
+
+Diagnosis: the two remaining failures (disabilities/EDI, bias) are
+vocabulary-specific mismatches — the source paper uses "EDI" and
+"left-libertarian orientation" rather than "disabilities" or "bias."
+Inspecting the actual rewrites Claude produced confirmed this: they
+were well-formed, plausible academic paraphrases (e.g., "accessibility
+accommodations," "algorithmic bias and fairness concerns"), but never
+landed on the paper's specific terminology. This is a structural
+limitation, not a prompting failure — Claude has no access to the
+source corpus, so it can only guess at "how a formal source would
+phrase this" in general, not "how *this* source actually phrased it."
+
+This suggests query rewriting without corpus awareness helps with
+*register* mismatches (casual vs. formal phrasing) but not *specific
+vocabulary* mismatches — a different failure mode, better addressed by
+techniques such as HyDE (Hypothetical Document Embeddings, where a
+generated hypothetical answer is embedded instead of the question
+itself) or corpus-aware rewriting (extracting real vocabulary from an
+initial broad retrieval pass to inform the rewrite). Neither is
+implemented in this session.
+
+**Decision:** kept as an opt-in parameter (`use_query_rewriting`,
+default `False`) rather than the default retrieval path, since it adds
+real latency and cost (an additional LLM call) with no measured benefit
+on this corpus. Available for cases where register mismatch, rather
+than vocabulary specificity, is the dominant retrieval problem.
+
+**Implementation note:** mixing synchronous and asynchronous retrieval
+paths (single retrieval vs. dual retrieval-with-rewriting) introduced
+two real bugs during development — a missing `await` on the `retrieve()`
+call site, and a mismatched sync/async calling convention on
+`_retrieve_candidates` depending on which code path executed. Both were
+caught before shipping. This reinforces a recurring lesson from this
+project: once any function in a call chain becomes `async def`, every
+caller up the chain must be updated consistently — partial conversions
+are a common, easy-to-miss source of bugs.
