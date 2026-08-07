@@ -39,7 +39,7 @@ def _rebuild_bm25_index() -> None:
         if bm25_documents
         else None
     )
-    
+
 _rebuild_bm25_index()  # populate at startup, not just after /ingest
 
 
@@ -85,7 +85,8 @@ class IngestRequest(BaseModel):
 class QueryRequest(BaseModel):
     question: str
     n_results: int = 3
-    use_query_rewriting: bool = False  # opt-in, not default — see ADR-001
+    use_query_rewriting: bool = False  # opt-in — LLM query expansion
+    use_bm25: bool = False             # opt-in — sparse lexical retrieval
 
 
 class QueryResponse(BaseModel):
@@ -144,12 +145,14 @@ def _retrieve_candidates(query_text: str, n: int = 20) -> tuple[list[str], list[
     results = collection.query(query_embeddings=[query_embedding], n_results=n)
     return results["documents"][0], [m["source"] for m in results["metadatas"][0]]
 
+
 def _retrieve_bm25_candidates(query_text: str, n: int = 20) -> tuple[list[str], list[str]]:
     if bm25_index is None:
         return [], []
     scores = bm25_index.get_scores(_tokenize(query_text))
     top_idx = sorted(range(len(scores)), key=lambda i: scores[i], reverse=True)[:n]
     return [bm25_documents[i] for i in top_idx], [bm25_sources[i] for i in top_idx]
+
 
 def reciprocal_rank_fusion(ranked_lists: list[list[str]], k: int = 60) -> list[str]:
     scores: dict[str, float] = {}
@@ -163,37 +166,61 @@ def reciprocal_rank_fusion(ranked_lists: list[list[str]], k: int = 60) -> list[s
 assert reciprocal_rank_fusion([["a", "b"], ["a", "c"]])[0] == "a"
 assert reciprocal_rank_fusion([["x", "y"], []]) == ["x", "y"]
 
+
 async def retrieve(
-    question: str, n_results: int = 3, use_query_rewriting: bool = False
+    question: str,
+    n_results: int = 3,
+    use_query_rewriting: bool = False,
+    use_bm25: bool = False,
 ) -> tuple[list[str], list[str]]:
-
+    """
+    Composable retrieval pipeline.
+    
+    Baseline: dense vector search only.
+    Incremental strategies:
+      - use_bm25=True           → adds BM25 sparse retrieval via RRF fusion
+      - use_query_rewriting=True → adds LLM-rewritten dense (+ BM25 if enabled)
+    """
     doc_to_source: dict[str, str] = {}
+    ranked_lists: list[list[str]] = []
 
-    (dense_docs, dense_sources), (bm25_docs, bm25_sources) = await asyncio.gather(
-        asyncio.to_thread(_retrieve_candidates, question),
-        asyncio.to_thread(_retrieve_bm25_candidates, question),
-    )
-    ranked_lists = [dense_docs, bm25_docs]
-    for doc, src in zip(dense_docs + bm25_docs, dense_sources + bm25_sources):
-        doc_to_source.setdefault(doc, src)
+    async def _fetch_all(query: str) -> None:
+        """Run every enabled retriever for this query variant concurrently."""
+        tasks = [asyncio.to_thread(_retrieve_candidates, query)]
+        if use_bm25 and bm25_index is not None:
+            tasks.append(asyncio.to_thread(_retrieve_bm25_candidates, query))
 
+        for docs, sources in await asyncio.gather(*tasks):
+            if docs:                       # skip empty results to keep RRF clean
+                ranked_lists.append(docs)
+            for doc, src in zip(docs, sources):
+                doc_to_source.setdefault(doc, src)
+
+    # 1. Base query retrieval
+    await _fetch_all(question)
+
+    # 2. Optional query-rewriting branch
     if use_query_rewriting:
         rewritten = await rewrite_query(question)
-        (rw_dense_docs, rw_dense_sources), (rw_bm25_docs, rw_bm25_sources) = await asyncio.gather(
-            asyncio.to_thread(_retrieve_candidates, rewritten),
-            asyncio.to_thread(_retrieve_bm25_candidates, rewritten),
-        )
-        ranked_lists.extend([rw_dense_docs, rw_bm25_docs])
-        for doc, src in zip(
-            rw_dense_docs + rw_bm25_docs, rw_dense_sources + rw_bm25_sources
-        ):
-            doc_to_source.setdefault(doc, src)
+        await _fetch_all(rewritten)
+
+    # 3. Fuse — guard against empty corpus
+    if not ranked_lists:
+        return [], []
 
     fused = reciprocal_rank_fusion(ranked_lists)[:FUSED_CANDIDATE_POOL]
+    if not fused:
+        return [], []
+
     candidate_sources = [doc_to_source[d] for d in fused]
 
+    # 4. Cross-encoder rerank
     scores = list(reranker.rerank(question, fused))
-    ranked = sorted(zip(fused, candidate_sources, scores), key=lambda x: x[2], reverse=True)
+    ranked = sorted(
+        zip(fused, candidate_sources, scores),
+        key=lambda x: x[2],
+        reverse=True,
+    )
     top_n = ranked[:n_results]
 
     return [c for c, _, _ in top_n], [s for _, s, _ in top_n]
@@ -202,7 +229,10 @@ async def retrieve(
 @app.post("/query")
 async def query(request: QueryRequest) -> QueryResponse:
     retrieved_chunks, sources = await retrieve(
-        request.question, request.n_results, request.use_query_rewriting
+        question=request.question,
+        n_results=request.n_results,
+        use_query_rewriting=request.use_query_rewriting,
+        use_bm25=request.use_bm25,
     )
 
     context = "\n\n---\n\n".join(retrieved_chunks)
