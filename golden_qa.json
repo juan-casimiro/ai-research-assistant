@@ -1,0 +1,1237 @@
+{
+  "schema_notes": {
+    "expected_location": "Since real chunk IDs depend on the RAG pipeline's chunker (unknown at authoring time), location is given as page + section + a paraphrased description of the relevant content, NOT a verbatim quote. Map to real chunk_id(s) once the corpus is indexed.",
+    "categories": [
+      "direct_lookup",
+      "multi_hop",
+      "cross_doc_distractor",
+      "unanswerable"
+    ],
+    "reference_answer": "Paraphrased summary of the correct answer, safe to use as an LLM-judge reference (e.g. for RAGAS faithfulness/answer-relevancy scoring). Not a verbatim excerpt from the source."
+  },
+  "queries": [
+    {
+      "id": "q001",
+      "question": "What was the primary outcome measured in this meta-analysis of GQD plus metformin trials?",
+      "category": "direct_lookup",
+      "expected_doc": "diabetes-pharmacotherapy-rct.pdf",
+      "expected_location": {
+        "page": 1,
+        "section": "Abstract / Methods > Outcomes"
+      },
+      "reference_answer": "HbA1c (glycated hemoglobin) was the primary outcome. FPG and 2-hour postprandial glucose were secondary outcomes."
+    },
+    {
+      "id": "q002",
+      "question": "How many randomized controlled trials and total participants were included in this systematic review?",
+      "category": "direct_lookup",
+      "expected_doc": "diabetes-pharmacotherapy-rct.pdf",
+      "expected_location": {
+        "page": 3,
+        "section": "Results > Study selection"
+      },
+      "reference_answer": "Eight randomized controlled trials involving 725 total participants were included."
+    },
+    {
+      "id": "q003",
+      "question": "In the primary change-score analysis, did GQD plus metformin produce a statistically significant reduction in HbA1c compared with metformin alone?",
+      "category": "direct_lookup",
+      "expected_doc": "diabetes-pharmacotherapy-rct.pdf",
+      "expected_location": {
+        "page": 7,
+        "section": "Results > Primary analysis of change-from-baseline values"
+      },
+      "reference_answer": "No. The mean difference was -1.92 (95% CI -4.43 to 0.59, P = 0.13), which was not statistically significant, based on only two trials with sufficient data."
+    },
+    {
+      "id": "q004",
+      "question": "How do the HbA1c results from the primary change-score analysis compare with the post-treatment sensitivity analysis that used all eight trials?",
+      "category": "multi_hop",
+      "expected_doc": "diabetes-pharmacotherapy-rct.pdf",
+      "expected_location": {
+        "page": 7,
+        "section": "Results > Primary analysis (change-score) AND Sensitivity analysis 2 (post-treatment, S1-S8)"
+      },
+      "reference_answer": "The primary change-score analysis (based on only 2 trials) found no statistically significant HbA1c reduction. In contrast, the post-treatment sensitivity analysis using all 8 trials did show a statistically significant reduction (MD -1.21, 95% CI -1.99 to -0.43). However, the authors treat the sensitivity result as supportive rather than confirmatory, since post-treatment values are more vulnerable to baseline imbalance and none of the trials used blinding."
+    },
+    {
+      "id": "q005",
+      "question": "What was the overall GRADE certainty rating for the three glycemic outcomes, and what were the main reasons for downgrading?",
+      "category": "multi_hop",
+      "expected_doc": "diabetes-pharmacotherapy-rct.pdf",
+      "expected_location": {
+        "page": 6,
+        "section": "Results > Certainty of evidence AND Table 2 (Summary of Findings)"
+      },
+      "reference_answer": "All three outcomes (HbA1c, FPG, 2hPG) were rated as 'very low' certainty. Downgrading reasons included high risk of bias across trials, substantial to extreme inconsistency (heterogeneity), and imprecision due to the small number of trials and participants."
+    },
+    {
+      "id": "q006",
+      "question": "Which trials used random-number tables for randomization, giving them clearer evidence of proper randomization than the others?",
+      "category": "direct_lookup",
+      "expected_doc": "diabetes-pharmacotherapy-rct.pdf",
+      "expected_location": {
+        "page": 4,
+        "section": "Results > Risk of bias assessment; also Table 1"
+      },
+      "reference_answer": "Trials S1, S2, and S3 (Li H 2018; Li WJ and Li M 2021; Xiong QJ 2019) used random-number tables. Allocation concealment, however, was not described for any of them."
+    },
+    {
+      "id": "q007",
+      "question": "What specific commercial brand of metformin was administered to patients in the included trials?",
+      "category": "unanswerable",
+      "expected_doc": "diabetes-pharmacotherapy-rct.pdf",
+      "expected_location": {
+        "page": null,
+        "section": "Not present in main text -- dosing detail is referenced as being in Appendix S3, which is not part of the retrievable article body"
+      },
+      "reference_answer": "Not stated. The article references metformin dosing details as being documented in a supplementary appendix (S3) not included in the main text. A well-behaved RAG system should decline to answer or flag the information as unavailable, rather than fabricating a brand name."
+    },
+    {
+      "id": "q008",
+      "question": "What HbA1c level or role does HbA1c play in relation to diabetic complications like retinopathy or nephropathy?",
+      "category": "cross_doc_distractor",
+      "expected_doc": "diabetes-epidemiology-prevalence.pdf",
+      "distractor_doc": "diabetes-pharmacotherapy-rct.pdf",
+      "expected_location": {
+        "page": 6,
+        "section": "Results > Table 7 (multiple logistic regression) and Discussion"
+      },
+      "reference_answer": "In the Raman et al. epidemiology study, glycosylated hemoglobin (HbA1c) was identified as an independent risk factor for both diabetic retinopathy (OR 1.16) and diabetic nephropathy (OR 1.24) via multivariate regression. This is distinct from the GQD/metformin meta-analysis, where HbA1c appears only as a treatment-outcome measure (whether a drug lowers it), not as a risk factor for complications. A system should retrieve the Raman et al. article for this query, not the GQD meta-analysis, despite both documents mentioning HbA1c and type 2 diabetes prominently.",
+      "notes": "Genuine lexical-overlap distractor: both docs are diabetes-cluster and both discuss HbA1c heavily, but in different roles (risk factor vs. treatment outcome). Tests whether retrieval distinguishes semantic framing, not just keyword co-occurrence."
+    },
+    {
+      "id": "q009",
+      "question": "What was the age and gender adjusted prevalence of Metabolic Syndrome in this South Indian population with type 2 diabetes?",
+      "category": "direct_lookup",
+      "expected_doc": "diabetes-epidemiology-prevalence.pdf",
+      "expected_location": {
+        "page": 1,
+        "section": "Abstract / Results"
+      },
+      "reference_answer": "73.3% (95% CI 73.2-73.3), higher in women (83.3%) than men (65.3%)."
+    },
+    {
+      "id": "q010",
+      "question": "How was diabetic nephropathy diagnosed in this study?",
+      "category": "direct_lookup",
+      "expected_doc": "diabetes-epidemiology-prevalence.pdf",
+      "expected_location": {
+        "page": 2,
+        "section": "Methods > Definitions > Diabetic Nephropathy"
+      },
+      "reference_answer": "By the presence of microalbuminuria in the first morning urine sample, defined as an Albumin Creatinine Ratio (ACR) between 30 and 299 mg/g."
+    },
+    {
+      "id": "q011",
+      "question": "What criteria were used to define Metabolic Syndrome in this study?",
+      "category": "direct_lookup",
+      "expected_doc": "diabetes-epidemiology-prevalence.pdf",
+      "expected_location": {
+        "page": 2,
+        "section": "Methods > Definitions > Metabolic syndrome"
+      },
+      "reference_answer": "The IDF consensus criteria: abdominal obesity (waist circumference thresholds by sex) plus two or more of: blood pressure >= 130/85 mmHg, fasting plasma glucose >= 5.6 mmol/l or pre-existing diabetes, elevated triglycerides, and reduced HDL cholesterol (sex-specific thresholds)."
+    },
+    {
+      "id": "q012",
+      "question": "How did the prevalence of Metabolic Syndrome change with increasing duration of diabetes, and did this trend differ between men and women?",
+      "category": "multi_hop",
+      "expected_doc": "diabetes-epidemiology-prevalence.pdf",
+      "expected_location": {
+        "page": 3,
+        "section": "Results (Table 1 and surrounding text)"
+      },
+      "reference_answer": "In men, MS prevalence declined significantly as diabetes duration increased (67.4% in <10 years, down to 39.1% in >20 years, trend p=0.002). In women, prevalence stayed roughly stable across duration groups (83.8%, 79.1%, 81.8%, trend p=0.401 -- not significant). So the trend was sex-specific: significant decline in men, no significant trend in women."
+    },
+    {
+      "id": "q013",
+      "question": "What were the independent risk factors identified for diabetic nephropathy versus diabetic neuropathy in the multivariate regression analysis?",
+      "category": "multi_hop",
+      "expected_doc": "diabetes-epidemiology-prevalence.pdf",
+      "expected_location": {
+        "page": 6,
+        "section": "Results > Table 7 and surrounding text"
+      },
+      "reference_answer": "For nephropathy: HbA1c (OR 1.24), duration of diabetes (OR 1.04), and hypertension (OR 1.80). For neuropathy: reduced serum HDL cholesterol (OR 1.03) and increased waist circumference (OR 1.02). The risk factor profiles are distinct between the two complications."
+    },
+    {
+      "id": "q014",
+      "question": "What proportion of the study's participants had type 1 diabetes?",
+      "category": "unanswerable",
+      "expected_doc": null,
+      "expected_location": null,
+      "reference_answer": "Not applicable / not reported. The study population was specifically adults with type 2 diabetes mellitus (identified via American Diabetes Association criteria); type 1 diabetes was outside the study's scope. A well-behaved system should recognize the question doesn't apply to this cohort rather than inventing a percentage."
+    },
+    {
+      "id": "q015",
+      "question": "What percentage of individuals with type 2 diabetes mellitus develop diabetic kidney disease (DKD)?",
+      "category": "direct_lookup",
+      "expected_doc": "diabetes-nephropathy-complications.pdf",
+      "expected_location": {
+        "page": 2,
+        "section": "Introduction"
+      },
+      "reference_answer": "Approximately 30-40% of individuals with T2DM develop DKD."
+    },
+    {
+      "id": "q016",
+      "question": "What is described as the fundamental pathogenetic mechanism underlying the onset and progression of diabetic kidney disease in this review?",
+      "category": "direct_lookup",
+      "expected_doc": "diabetes-nephropathy-complications.pdf",
+      "expected_location": {
+        "page": 2,
+        "section": "Introduction; also Zinc and diabetic kidney disease > Pathophysiology of DKD, p9-10"
+      },
+      "reference_answer": "Renal hypoxia, driven by chronic hyperglycemia, is presented as the fundamental pathogenetic mechanism underlying both onset and progression of DKD."
+    },
+    {
+      "id": "q017",
+      "question": "Which zinc transporter has an expression profile largely restricted to pancreatic islets, and what is its functional role?",
+      "category": "direct_lookup",
+      "expected_doc": "diabetes-nephropathy-complications.pdf",
+      "expected_location": {
+        "page": 4,
+        "section": "SLC30A/ZnT transporters"
+      },
+      "reference_answer": "ZnT8. It is embedded in the membrane of dense insulin granules, where it mediates zinc accumulation, storage, and preparation of insulin for secretion. Its expression profile is unusually restricted to pancreatic islets compared with other zinc transporters."
+    },
+    {
+      "id": "q018",
+      "question": "How does zinc modulate HIF-1a activity, and what downstream effect does this have on renal fibrosis in DKD?",
+      "category": "multi_hop",
+      "expected_doc": "diabetes-nephropathy-complications.pdf",
+      "expected_location": {
+        "page": 12,
+        "section": "The role of zinc in the pathophysiology of DKD (and Figure 5)"
+      },
+      "reference_answer": "Zinc induces HIF-1a proteasomal degradation and inhibits its translocation into the cell nucleus, preventing DNA binding and target gene transcription. This reduces activation of the HIF-1a/VEGF signalling pathway, decreasing angiogenesis, fibrosis, and inflammation. In animal DKD models, zinc administration reduced fibrotic markers and tubulointerstitial fibrosis via the PI3K/AKT/GSK-3b pathway, accompanied by decreased HIF-1a expression."
+    },
+    {
+      "id": "q019",
+      "question": "Compare the roles of ZnT7 and ZnT8 in protecting kidney tissue against diabetes-related fibrosis.",
+      "category": "multi_hop",
+      "expected_doc": "diabetes-nephropathy-complications.pdf",
+      "expected_location": {
+        "page": 11,
+        "section": "The role of zinc in the pathophysiology of DKD"
+      },
+      "reference_answer": "ZnT7 (localized in the perinuclear region/Golgi of rat kidney tubular cells) inhibits high-glucose-induced epithelial-mesenchymal transition (EMT) when overexpressed; its knockdown promotes EMT via activation of MAPK/ERK and TGF-b/Smad pathways. ZnT8 (predominantly in renal tubular epithelial cells) separately protects against EMT and tubulointerstitial fibrosis by restraining TGF-b1/Smads signalling, and additionally protects tubular cells from apoptosis via TNFAIP3-mediated suppression of NF-kB. Both transporters are renoprotective but act through distinct, non-identical signalling routes."
+    },
+    {
+      "id": "q020",
+      "question": "What is the recommended daily zinc supplementation dosage for patients with diabetic kidney disease, according to this review?",
+      "category": "unanswerable",
+      "expected_doc": null,
+      "expected_location": null,
+      "reference_answer": "Not stated. The review explicitly says questions about optimal zinc form, dosage, and duration of administration in T2DM/DKD patients are beyond its scope. A well-behaved system should decline to give a specific dosage here rather than fabricating one -- especially since inventing dosing information would be actively unsafe."
+    },
+    {
+      "id": "q021",
+      "question": "What is the molecular mechanism by which hyperglycemia leads to progression of diabetic kidney disease?",
+      "category": "cross_doc_distractor",
+      "expected_doc": "diabetes-nephropathy-complications.pdf",
+      "distractor_doc": "diabetes-epidemiology-prevalence.pdf",
+      "expected_location": {
+        "page": 9,
+        "section": "Pathophysiology of DKD"
+      },
+      "reference_answer": "Chronic hyperglycemia drives renal hypoxia (via mechanisms including increased tubular sodium/glucose reabsorption and impaired oxygen delivery), which activates HIF-1a signalling; sustained overactivation of HIF-1a promotes epithelial-mesenchymal transition, pathological angiogenesis, and extracellular matrix accumulation, leading to renal fibrosis. This is a distinct question from the Raman et al. epidemiology study, which reports statistical/epidemiological risk factors for nephropathy (e.g. HbA1c, hypertension, duration of diabetes as regression predictors) without explaining the underlying biological mechanism. A retrieval system should favor the Lebedeva et al. mechanistic review here despite both documents using terms like 'diabetic nephropathy' and 'risk factors'.",
+      "notes": "Second cross-doc distractor pair in the diabetes cluster. Tests whether retrieval distinguishes 'statistical risk factor' framing (epidemiology) from 'biological mechanism' framing (molecular review) despite shared vocabulary around nephropathy/kidney complications."
+    },
+    {
+      "id": "q022",
+      "question": "What was the primary finding regarding sex-specific genetic effects at the TMEM64/NECAB1 locus?",
+      "category": "direct_lookup",
+      "expected_doc": "diabetes-genetic-risk-gwas.pdf",
+      "expected_location": {
+        "page": 6,
+        "section": "Results > Direct variant replication and meta-analysis support with PMET1; Functional role of the replicated sex-specific locus"
+      },
+      "reference_answer": "Variants at TMEM64/NECAB1 (rs80334907, rs6471250) were associated with reduced sulfonylurea effectiveness specifically in males, and this was directly replicated in an independent male-only cohort (PMET1). The rs6471250-C variant additionally showed functional evidence of reduced peak insulin secretion in males (but not females) after a glipizide dose in the SUGAR-MGH cohort, confirming a male-specific effect."
+    },
+    {
+      "id": "q023",
+      "question": "What was the estimated heritability of HbA1c response to sulfonylureas in the male-only versus female-only strata?",
+      "category": "direct_lookup",
+      "expected_doc": "diabetes-genetic-risk-gwas.pdf",
+      "expected_location": {
+        "page": 4,
+        "section": "Results (opening paragraph)"
+      },
+      "reference_answer": "Male-only stratum: h2 = 0.87 (SE 0.22, P = 4.9x10^-5), a substantial and statistically significant heritability. Female-only stratum: h2 = 0.01 (SE 0.44, P = 0.50), not statistically significant."
+    },
+    {
+      "id": "q024",
+      "question": "How many ACCORD trial participants were included in this sex-stratified GWAS, and how were they split by sex?",
+      "category": "direct_lookup",
+      "expected_doc": "diabetes-genetic-risk-gwas.pdf",
+      "expected_location": {
+        "page": 4,
+        "section": "Table 1 / Common variant analysis"
+      },
+      "reference_answer": "N=871 total participants (multi-ancestry combined-sex); 520 male-only and 351 female-only in the sex-stratified analyses."
+    },
+    {
+      "id": "q025",
+      "question": "How did the researchers validate the ACCORD GWAS findings, and what was the outcome specifically for the TMEM64/NECAB1 locus?",
+      "category": "multi_hop",
+      "expected_doc": "diabetes-genetic-risk-gwas.pdf",
+      "expected_location": {
+        "page": 6,
+        "section": "Direct variant replication with PMET1 AND Functional role of TMEM64/NECAB1 (SUGAR-MGH)"
+      },
+      "reference_answer": "Validation used a two-stage approach: (1) statistical replication in PMET1, an independent EHR-derived cohort, and (2) functional validation in SUGAR-MGH, where participants received an actual glipizide dose with measured insulin/glucose response. For TMEM64/NECAB1, both replicated variants showed consistent direction of effect in PMET1's male-only stratum, and rs6471250-C additionally showed a real functional effect: male-specific reduction in peak insulin after glipizide dosing."
+    },
+    {
+      "id": "q026",
+      "question": "What specific sulfonylurea dosing adjustment does this study recommend for carriers of the TMEM64/NECAB1 risk variant?",
+      "category": "unanswerable",
+      "expected_doc": null,
+      "expected_location": null,
+      "reference_answer": "Not stated. The study describes its findings as 'biologically plausible leads' that 'support further validation before clinical implementation' -- it does not provide a specific dosing protocol or adjustment recommendation. A well-behaved system should decline to invent a dosing recommendation, particularly given the clinical stakes of fabricating drug-dosing guidance."
+    },
+    {
+      "id": "q027",
+      "question": "What is the mechanistic link between ATP-sensitive potassium (KATP) channels, calcium influx, and insulin secretion in pancreatic beta-cells?",
+      "category": "cross_doc_synthesis",
+      "expected_docs": [
+        "diabetes-genetic-risk-gwas.pdf",
+        "diabetes-nephropathy-complications.pdf"
+      ],
+      "expected_location": {
+        "page": "GWAS doc p.2 (Introduction, sulfonylurea mechanism); zinc/DKD review p.4-5 (SLC39A/ZIP transporters and ZnR/GPR39 sections)",
+        "section": "Complementary mechanistic descriptions in both documents"
+      },
+      "reference_answer": "Both documents describe the same core mechanism from different angles. The GWAS paper explains that sulfonylureas bind the sulfonylurea receptor (SUR) on beta-cells, inhibit KATP channel potassium influx, depolarize the membrane, and trigger calcium influx that promotes insulin exocytosis; it also identifies genetic variants in calcium-signaling genes (CRACR2A, TMEM64/NECAB1) that modulate this pathway. The zinc/DKD review separately explains that zinc, acting as an intracellular signalling molecule, activates KATP channels at micromolar concentrations, suppressing calcium channel opening and providing a negative feedback loop on insulin release. A complete answer requires synthesizing both sources rather than treating either as sufficient alone.",
+      "notes": "This is NOT a 'wrong-doc' distractor like q008/q021 -- it's a genuine cross-document synthesis case where the two sources are complementary rather than competing. Useful for testing whether the RAG system's agentic layer can retrieve and combine chunks from multiple documents for one answer, rather than only testing single-document precision."
+    },
+    {
+      "id": "q028",
+      "question": "Which racial/ethnic group showed significantly better HbA1c response to sulfonylureas compared to non-Hispanic Black individuals?",
+      "category": "direct_lookup",
+      "expected_doc": "diabetes-genetic-risk-gwas.pdf",
+      "expected_location": {
+        "page": 4,
+        "section": "Results (opening paragraph) and Figure 1"
+      },
+      "reference_answer": "Non-Hispanic White (NHW) individuals showed significantly better response than non-Hispanic Black (NHB) individuals (P=0.0013). No significant difference was found between NHW and Hispanic individuals (P=0.14)."
+    },
+    {
+      "id": "q029",
+      "question": "How many studies were included in the final qualitative synthesis of this narrative review, and what search methodology was used?",
+      "category": "direct_lookup",
+      "expected_doc": "diabetes-cardiovascular-outcomes.pdf",
+      "expected_location": {
+        "page": 2,
+        "section": "Methods"
+      },
+      "reference_answer": "102 studies were included. The authors searched PubMed, Scopus, and Google Scholar using chronobiology- and cardiometabolic-related keywords/MeSH terms, prioritizing the past 10 years. This was a narrative review, not a systematic review -- no PRISMA protocol was used, and intermediate screening counts were not prospectively recorded."
+    },
+    {
+      "id": "q030",
+      "question": "What increase in myocardial infarction and stroke risk was found by Cappuccio et al. (2011) for habitual short sleep (<6 hours) in a large longitudinal study?",
+      "category": "direct_lookup",
+      "expected_doc": "diabetes-cardiovascular-outcomes.pdf",
+      "expected_location": {
+        "page": 3,
+        "section": "Results > Sleep deprivation and cardiovascular disease"
+      },
+      "reference_answer": "Habitual sleep duration under 6 hours per night was associated with a 48% higher risk of developing and/or dying from heart disease and a 15% increased chance of developing and/or dying from stroke, based on data from over 474,000 participants across 8 countries."
+    },
+    {
+      "id": "q031",
+      "question": "How did fasting glucose, insulin, and insulin sensitivity change with sleep extension in the Leproult et al. study?",
+      "category": "direct_lookup",
+      "expected_doc": "diabetes-cardiovascular-outcomes.pdf",
+      "expected_location": {
+        "page": 9,
+        "section": "Results > Sleep loss and cardiometabolic disease"
+      },
+      "reference_answer": "There was no significant change in overall insulin and glucose levels before versus after sleep extension. However, percent changes were more pronounced with sleep extension: a positive correlation for glucose (r=+0.53, P=0.041) and a negative correlation for insulin (r=-0.60, P=0.025). Insulin sensitivity improved significantly with sleep extension (r=+0.76, P=0.002)."
+    },
+    {
+      "id": "q032",
+      "question": "What hormonal mechanisms link sleep deprivation to both increased appetite/obesity risk and impaired glucose metabolism?",
+      "category": "multi_hop",
+      "expected_doc": "diabetes-cardiovascular-outcomes.pdf",
+      "expected_location": {
+        "page": 5,
+        "section": "Sleep loss and metabolic syndrome; Sleep problems and the development of obesity"
+      },
+      "reference_answer": "Sleep loss increases ghrelin and reduces leptin (raising the ghrelin/leptin ratio), which drives hunger and caloric intake. It also upregulates the endocannabinoid system, further increasing appetite and craving for energy-dense foods. Separately, sleep restriction disrupts cortisol secretion (evening rise, slower decline, higher nadir), which affects glucose homeostasis and insulin sensitivity. Experimentally, one week of sleep restriction produced a 40% drop in glucose clearance rate and a 30% lower insulin response on an intravenous glucose tolerance test, comparable to a prediabetic state -- linking the same hormonal disruption to both appetite dysregulation and impaired glucose handling."
+    },
+    {
+      "id": "q033",
+      "question": "What specific pharmacological treatment does this review recommend for reversing sleep-related cardiometabolic dysfunction?",
+      "category": "unanswerable",
+      "expected_doc": null,
+      "expected_location": null,
+      "reference_answer": "Not stated. This is a narrative review of associations and mechanisms, not a treatment guideline. It calls for future randomized trials of sleep-focused interventions (sleep extension, CBT for insomnia, treatment of sleep-disordered breathing) but does not recommend any specific pharmacological treatment. A system should recognize this falls outside the review's scope rather than inventing a drug recommendation."
+    },
+    {
+      "id": "q034",
+      "question": "According to the evidence reviewed, what relative risks of coronary artery disease, myocardial infarction, and stroke are associated with metabolic syndrome?",
+      "category": "cross_doc_distractor",
+      "expected_doc": "diabetes-cardiovascular-outcomes.pdf",
+      "distractor_doc": "diabetes-epidemiology-prevalence.pdf",
+      "expected_location": {
+        "page": 9,
+        "section": "Results > Sleep loss and cardiometabolic disease (citing Isomaa et al. 2001)"
+      },
+      "reference_answer": "Citing Isomaa et al. (2001), metabolic syndrome significantly increased the risk of coronary artery disease, MI, and stroke, with relative risks of 2.96, 2.63, and 2.27 respectively (P<0.001). This is distinct from the Raman et al. epidemiology study, which examines metabolic syndrome's association with MICROvascular complications (retinopathy, nephropathy, neuropathy) in an existing diabetic population, not these macrovascular relative risks. A retrieval system should favor this sleep/cardiometabolic review for a question specifically about CAD/MI/stroke risk ratios, despite both documents discussing metabolic syndrome extensively.",
+      "notes": "Third cross-doc distractor pair in the diabetes cluster. Same underlying confusability pattern as q008/q021: shared vocabulary ('metabolic syndrome', 'cardiovascular risk') but different outcome focus (macrovascular RRs here vs. microvascular complication prevalence in Raman et al.)."
+    },
+    {
+      "id": "q035",
+      "question": "What effect did daylight saving time transitions have on myocardial infarction rates, according to the Sadhu et al. analysis discussed in this review?",
+      "category": "direct_lookup",
+      "expected_doc": "diabetes-cardiovascular-outcomes.pdf",
+      "expected_location": {
+        "page": 4,
+        "section": "Results > Sleep deprivation and cardiovascular disease"
+      },
+      "reference_answer": "The spring transition (losing ~1 hour of sleep) was associated with a 24% increase in MIs the following day (RR 1.24, 95% CI 1.05-1.46, P=0.011). The fall transition (gaining ~1 hour of sleep) was associated with a 21% decrease in MIs the following day (RR 0.79, 95% CI 0.62-0.99, P=0.044). The review notes these findings should be interpreted cautiously given modest, transient effect sizes and some conflicting more recent large-scale studies."
+    },
+    {
+      "id": "q036",
+      "question": "What retrieval architecture (vector index, chunking strategy, embedding model) did the conversational agent system in this study use?",
+      "category": "direct_lookup",
+      "expected_doc": "diabetes-cgm-management.pdf",
+      "expected_location": {
+        "page": 5,
+        "section": "Methods > CA Design"
+      },
+      "reference_answer": "Documents were split into approximately 500-character segments with 100-character overlap using a recursive character-based splitter, embedded using OpenAI's text-embedding-3-small model, and stored in a FAISS (Facebook AI Similarity Search) vector index. At inference time, the top 2 nearest segments (top_k=2) were retrieved by L2 (Euclidean) distance using the current question as the query.",
+      "notes": "SANITY-CHECK CASE: this is the only document in the corpus discussing RAG/vector-retrieval architecture at all. No other document should plausibly compete for this query -- if retrieval pulls from any other document for this question, that's a clear signal of a retrieval pipeline problem, not genuine ambiguity."
+    },
+    {
+      "id": "q037",
+      "question": "What was the estimated mean difference in overall quality score between CA-generated and clinician-authored responses in this study?",
+      "category": "direct_lookup",
+      "expected_doc": "diabetes-cgm-management.pdf",
+      "expected_location": {
+        "page": 10,
+        "section": "Results > Quality Comparisons"
+      },
+      "reference_answer": "0.782 points on a 5-point scale (95% CI 0.692-0.872, P<.001), with CA responses averaging 4.37 (SD 0.57) versus clinician responses averaging 3.58 (SD 0.90)."
+    },
+    {
+      "id": "q038",
+      "question": "On which two quality dimensions was the difference between CA and clinician responses the largest?",
+      "category": "direct_lookup",
+      "expected_doc": "diabetes-cgm-management.pdf",
+      "expected_location": {
+        "page": 11,
+        "section": "Results > Quality Comparisons"
+      },
+      "reference_answer": "Empathy (mean difference 1.062, 95% CI 0.948-1.177) and actionability (mean difference 0.992, 95% CI 0.877-1.106)."
+    },
+    {
+      "id": "q039",
+      "question": "How accurately could clinicians identify whether a given response was written by the CA or a human clinician, and what does this imply about the source-masking design?",
+      "category": "multi_hop",
+      "expected_doc": "diabetes-cgm-management.pdf",
+      "expected_location": {
+        "page": 15,
+        "section": "Results > Safety and Source Identification; Discussion > Limitations"
+      },
+      "reference_answer": "Among definitive judgments, overall identification accuracy was 87.5%, significantly above the 50% chance level (P<.001). Five of six clinicians showed high discrimination accuracy (82.3%-100%), while one performed at chance. This means that although the rating task was source-masked by design, responses were often practically distinguishable in practice -- likely due to consistent CA response style, structure, and length -- which the authors explicitly flag as a limitation affecting how the quality comparison should be interpreted."
+    },
+    {
+      "id": "q040",
+      "question": "What was the CA's accuracy in recommending specific insulin dose adjustments compared to clinicians?",
+      "category": "unanswerable",
+      "expected_doc": null,
+      "expected_location": null,
+      "reference_answer": "Not applicable / not measured. The CA was explicitly designed and instructed to avoid directive or individualized medical advice, including medication initiation, dose adjustment, or regimen changes -- this was outside its intended scope and was not one of the study's quality dimensions. A system should recognize the question falls outside what this study evaluated rather than inventing an accuracy figure for something the system was deliberately restricted from doing."
+    },
+    {
+      "id": "q041",
+      "question": "What AUC did Attia et al.'s CNN model achieve for identifying patients with prevalent AF during sinus rhythm from standard 12-lead ECGs?",
+      "category": "direct_lookup",
+      "expected_doc": "cardio-afib-ml-detection.pdf",
+      "expected_location": {
+        "page": 6,
+        "section": "AI-Based AF Detection and Population Screening"
+      },
+      "reference_answer": "Attia et al. reported a CNN applied to standard 12-lead ECGs identified patients with prevalent AF during sinus rhythm with an AUC of approximately 0.87."
+    },
+    {
+      "id": "q042",
+      "question": "In the TAILORED-AF randomized controlled trial, how did 12-month freedom from AF compare between AI-guided ablation and PVI-only?",
+      "category": "direct_lookup",
+      "expected_doc": "cardio-afib-ml-detection.pdf",
+      "expected_location": {
+        "page": 9,
+        "section": "AI in Catheter Ablation and Interventional AF Management"
+      },
+      "reference_answer": "In TAILORED-AF, 374 patients were randomized to AI-tailored ablation (targeting spatiotemporal electrogram dispersion plus PVI) versus PVI alone. Freedom from AF at 12 months was significantly higher with the AI-guided strategy (88%) than with PVI alone (70%), with the greatest benefit in patients with long-standing persistent AF; however, the secondary endpoint of freedom from any atrial arrhythmia was not statistically significant on per-protocol analysis."
+    },
+    {
+      "id": "q043",
+      "question": "According to the review's discussion of explainable AI, what specific ECG features did an explainable deep-learning model trained on over 128,000 recordings link its AF-detection outputs to?",
+      "category": "multi_hop",
+      "expected_doc": "cardio-afib-ml-detection.pdf",
+      "expected_location": {
+        "page": 5,
+        "section": "Foundations of AI in Cardiovascular Medicine > Explainable AI and clinical trust, cross-referenced with AI-Based AF Detection section"
+      },
+      "reference_answer": "The explainable deep-learning model (Jo et al.) trained on more than 128,000 ECG recordings achieved strong diagnostic performance while linking its predictions to two core electrophysiological markers of AF: rhythm irregularity and the absence of P waves, identified via attribution/interpretability techniques such as Grad-CAM."
+    },
+    {
+      "id": "q044",
+      "question": "The review notes that CHA2DS2-VASc has only modest discriminative performance for stroke risk in AF. How does this compare to the CHA2DS2-VA score's performance for predicting no-reflow after STEMI PCI discussed in the Clinical Cardiology no-reflow study?",
+      "category": "cross_doc_distractor",
+      "expected_doc": "cardio-mi-risk-stratification.pdf",
+      "distractor_doc": "cardio-afib-ml-detection.pdf",
+      "expected_location": {
+        "page": 3,
+        "section": "Results > ROC Curve for the CV Score to Determine NRP"
+      },
+      "reference_answer": "These are two different scores applied to two different problems and should not be conflated. The AF review reports that CHA2DS2-VASc has modest discriminative performance for AF stroke risk (C-statistic approximately 0.60). Separately, the no-reflow study reports that the newer CHA2DS2-VA score (which drops the sex category from CHA2DS2-VASc) had an overall AUC of 0.613 for predicting no-reflow after primary PCI in STEMI -- and that this predictive value was essentially confined to female patients (AUC 0.673) with no significant discrimination in males (AUC 0.569). A system should not merge these two distinct score variants, diseases, or outcomes into one figure.",
+      "notes": "Genuine lexical-overlap distractor: both documents discuss a CHA2DS2-family score and cite modest-to-moderate AUC/C-statistic values, but for different score variants (VASc vs VA), different diseases (AF vs STEMI), and different predicted outcomes (stroke vs no-reflow)."
+    },
+    {
+      "id": "q045",
+      "question": "What was the exact per-unit cost of the Volta software used for AI-guided electrogram dispersion mapping in the TAILORED-AF trial?",
+      "category": "unanswerable",
+      "expected_doc": null,
+      "expected_location": null,
+      "reference_answer": "Not stated. The review names the Volta software as the AI algorithm used for spatiotemporal electrogram dispersion detection in TAILORED-AF but does not report any cost, licensing, or pricing information. A system should decline to answer rather than inventing a figure."
+    },
+    {
+      "id": "q046",
+      "question": "What reduction in fluoroscopy exposure did AI-based ECG mapping achieve, and what other procedural efficiency metrics improved alongside it?",
+      "category": "direct_lookup",
+      "expected_doc": "cardio-afib-ml-detection.pdf",
+      "expected_location": {
+        "page": 10,
+        "section": "AI in Catheter Ablation and Interventional AF Management"
+      },
+      "reference_answer": "Fox et al.'s AI-based ECG mapping system was associated with a 43.7% reduction in fluoroscopy exposure, alongside a 19% reduction in time to first ablation and a 22.6% reduction in total procedure duration, without compromising clinical outcomes; the review cautions that these are surrogate procedural-efficiency measures rather than hard clinical endpoints."
+    },
+    {
+      "id": "q047",
+      "question": "What AUC did the combined CCTA-derived nomogram achieve for predicting MACE in the derivation cohort, and how did it compare to the best single predictor?",
+      "category": "direct_lookup",
+      "expected_doc": "cardio-cad-ct-angiography.pdf",
+      "expected_location": {
+        "page": 7,
+        "section": "Results > Performance analysis and evaluation of predictive models"
+      },
+      "reference_answer": "The combined 8-parameter nomogram achieved an AUC of 0.936 in the derivation cohort, significantly higher than any individual predictor -- the best single predictor (plaque length) reached only AUC 0.823, and the combined model outperformed all eight individual parameters with statistically significant DeLong test comparisons."
+    },
+    {
+      "id": "q048",
+      "question": "How did the nomogram's discrimination and calibration hold up in the external validation cohort compared to the derivation cohort, including the MACE incidence rate difference between cohorts?",
+      "category": "multi_hop",
+      "expected_doc": "cardio-cad-ct-angiography.pdf",
+      "expected_location": {
+        "page": 8,
+        "section": "External case-based validation"
+      },
+      "reference_answer": "The external validation cohort (n=288) had roughly double the MACE incidence of the derivation cohort (31.6% vs 16.4%), attributed to a higher comorbidity burden (more male, smoking, hypertensive, COPD, and diabetic patients). Despite this shift, the nomogram maintained strong discrimination (AUC 0.932) and good calibration (Hosmer-Lemeshow P=0.382) in the external cohort, closely matching derivation-cohort performance (AUC 0.936), supporting generalizability though the authors note recalibration may be needed for lower-risk outpatient settings."
+    },
+    {
+      "id": "q049",
+      "question": "Which quantitative CCTA parameters were identified as independent risk factors for MACE in the multivariable analysis, and which single parameter was protective?",
+      "category": "direct_lookup",
+      "expected_doc": "cardio-cad-ct-angiography.pdf",
+      "expected_location": {
+        "page": 6,
+        "section": "Results > Multivariable analysis of factors associated with MACE"
+      },
+      "reference_answer": "Coronary stenosis degree, plaque length, fibrous plaque volume, plaque burden (PB), coronary artery calcium score (CACS), pericoronary fat attenuation index (FAI), and maximum area stenosis (MAS) were independent risk factors for MACE. Minimal lumen area (MLA) was the sole protective factor -- larger MLA was associated with lower MACE risk."
+    },
+    {
+      "id": "q050",
+      "question": "The no-reflow study and the CCTA-MACE study both report combined-model AUCs near 0.93 for predicting adverse cardiac outcomes. Which study reports which figure, and for which specific outcome?",
+      "category": "cross_doc_distractor",
+      "expected_doc": "cardio-cad-ct-angiography.pdf",
+      "distractor_doc": "cardio-mi-risk-stratification.pdf",
+      "expected_location": {
+        "page": 7,
+        "section": "Results > Performance analysis and evaluation of predictive models"
+      },
+      "reference_answer": "These belong to two different studies and outcomes. The CCTA-derived nomogram (Gao et al.) predicts 1-year MACE (a composite of cardiac death, MI, and revascularization/rehospitalization for unstable angina) in stable CAD patients, with combined-model AUC of 0.936 (derivation) and 0.932 (external validation). The CHA2DS2-VA no-reflow study (Sun et al.) predicts the no-reflow phenomenon after primary PCI in STEMI patients, and its CV-score-alone AUC was much lower (0.613 overall, 0.673 in females) -- its ~0.72 combined-model AUC (male subgroup, incorporating laboratory/procedural markers) is still notably below the CCTA-MACE nomogram's figures. A system should not average or conflate these two AUC figures.",
+      "notes": "Both papers are cardiology risk-prediction studies with headline AUC figures near or above 0.9 for a combined model, but the models predict different things (composite MACE vs no-reflow) in different populations (stable CAD vs STEMI)."
+    },
+    {
+      "id": "q051",
+      "question": "What was the events-per-variable (EPV) ratio in the derivation cohort, and how did the authors frame this limitation?",
+      "category": "direct_lookup",
+      "expected_doc": "cardio-cad-ct-angiography.pdf",
+      "expected_location": {
+        "page": 10,
+        "section": "Discussion"
+      },
+      "reference_answer": "The derivation cohort had a relatively small sample size (n=131 in the original derivation subset referenced in Discussion, distinct from the 280-patient full derivation cohort described in Methods) and an events-per-variable ratio of approximately 3.3, which the authors say limits model stability. They frame the study's findings as proof-of-concept evidence requiring further validation in larger-scale studies before clinical translation."
+    },
+    {
+      "id": "q052",
+      "question": "What was the mean age of patients in the MACE-negative group of the placebo arm of a randomized drug trial embedded in this study?",
+      "category": "unanswerable",
+      "expected_doc": null,
+      "expected_location": null,
+      "reference_answer": "Not applicable. This is an observational nomogram-development study with a derivation and external validation cohort, not a randomized drug trial, and it has no placebo arm. A system should recognize the question's premise does not match the study design rather than fabricating an age figure."
+    },
+    {
+      "id": "q053",
+      "question": "How much did global longitudinal strain (GLS) change after 6 months of SGLT2i treatment compared to control in HFpEF patients?",
+      "category": "direct_lookup",
+      "expected_doc": "cardio-heartfailure-biomarkers.pdf",
+      "expected_location": {
+        "page": 5,
+        "section": "Results > Primary endpoint: change in left ventricular global longitudinal strain"
+      },
+      "reference_answer": "GLS improved significantly more in the SGLT2i group than in controls: change (ΔGLS) of about −2.49% versus −0.44% in the primary reported cohort figures (a separately reported baseline/follow-up recompute gives −2.48% vs −0.53%), a difference of roughly 2 percentage points, P<0.001."
+    },
+    {
+      "id": "q054",
+      "question": "What was the heart failure rehospitalization rate in the SGLT2i group versus the control group over the follow-up period?",
+      "category": "direct_lookup",
+      "expected_doc": "cardio-heartfailure-biomarkers.pdf",
+      "expected_location": {
+        "page": 5,
+        "section": "Results > Clinical outcomes: heart failure rehospitalization rate"
+      },
+      "reference_answer": "During the median 12-month follow-up, 24.7% of the SGLT2i group were rehospitalized for heart failure versus 55.4% of the control group -- roughly a 55% relative risk reduction, statistically significant."
+    },
+    {
+      "id": "q055",
+      "question": "Did the correlation between GLS improvement and PIIINP reduction hold true within the SGLT2i-treated group alone, or only across the whole study population?",
+      "category": "multi_hop",
+      "expected_doc": "cardio-heartfailure-biomarkers.pdf",
+      "expected_location": {
+        "page": 9,
+        "section": "Results > Correlation analysis, cross-referenced with Discussion"
+      },
+      "reference_answer": "Only across the whole population, driven by the between-group difference. In the overall cohort, ΔGLS correlated significantly with ΔPIIINP (r=0.554, P<0.001). But within the SGLT2i group alone, this correlation essentially disappeared (r=0.013, P=0.896), and the same was true within the control group alone. The authors interpret this as showing that GLS improvement and fibrosis-marker reduction, while both driven by SGLT2i at the group level, are not tightly linearly coupled at the individual-patient level -- other mechanisms (endothelial function, oxidative stress, energy metabolism) likely contribute independently."
+    },
+    {
+      "id": "q056",
+      "question": "By what percentage did NT-proBNP, PIIINP, and GDF-15 decrease in the SGLT2i group compared to control?",
+      "category": "direct_lookup",
+      "expected_doc": "cardio-heartfailure-biomarkers.pdf",
+      "expected_location": {
+        "page": 5,
+        "section": "Results > Changes in serum biomarkers"
+      },
+      "reference_answer": "NT-proBNP decreased 30.4% in the SGLT2i group vs 9.7% in controls; PIIINP decreased 15.1% vs 5.8%; GDF-15 decreased 20.5% vs 8.6%. All differences were statistically significant (P<0.001)."
+    },
+    {
+      "id": "q057",
+      "question": "What effect did SGLT2i treatment have on patients' hemoglobin A1c levels over the study period?",
+      "category": "unanswerable",
+      "expected_doc": null,
+      "expected_location": null,
+      "reference_answer": "Not reported. The study measured echocardiographic parameters (GLS, E/e', LAVI, LVMI, TRV) and serum biomarkers (NT-proBNP, PIIINP, GDF-15), plus heart failure rehospitalization, but did not report HbA1c as an outcome measure -- glycemic control is discussed only as a subgroup-stratifying variable (diabetic vs non-diabetic), with the finding that SGLT2i's cardiac benefits were independent of diabetes status, not that HbA1c itself changed."
+    },
+    {
+      "id": "q058",
+      "question": "Were the beneficial effects of SGLT2i on GLS, E/e', and LAVI consistent across diabetic and non-diabetic subgroups, and was there a significant interaction with diabetes status?",
+      "category": "direct_lookup",
+      "expected_doc": "cardio-heartfailure-biomarkers.pdf",
+      "expected_location": {
+        "page": 6,
+        "section": "Results > Subgroup analysis by diabetes status"
+      },
+      "reference_answer": "Yes -- the beneficial effects on ΔGLS, ΔE/e', ΔLAVI, ΔNT-proBNP, and ΔPIIINP were consistently observed in both diabetic and non-diabetic subgroups (all P<0.001 within each subgroup), and no significant treatment-by-diabetes-status interaction was found for any outcome (all interaction P>0.05), indicating the cardioprotective effects of SGLT2i are independent of glycemic control."
+    },
+    {
+      "id": "q059",
+      "question": "What percentage of surveyed primary care physicians in Singapore correctly defined resistant hypertension according to international guidelines?",
+      "category": "direct_lookup",
+      "expected_doc": "cardio-hypertension-guidelines.pdf",
+      "expected_location": {
+        "page": 3,
+        "section": "Results > Definition of resistant hypertension and diagnosis"
+      },
+      "reference_answer": "74% (63 of 85 respondents) correctly defined resistant hypertension as blood pressure remaining elevated despite concurrent use of three antihypertensive agents of different classes at adequate doses, one of which is a diuretic."
+    },
+    {
+      "id": "q060",
+      "question": "What was the most commonly prescribed first-line antihypertensive medication among survey respondents, and what were the second and third most common first-choice drug classes?",
+      "category": "direct_lookup",
+      "expected_doc": "cardio-hypertension-guidelines.pdf",
+      "expected_location": {
+        "page": 3,
+        "section": "Results > Prescribing practices, Table 1"
+      },
+      "reference_answer": "Calcium channel blockers (CCBs) were the most common first-choice antihypertensive (51%), followed by angiotensin receptor blockers (ARBs, 26%) and ACE inhibitors (24%)."
+    },
+    {
+      "id": "q061",
+      "question": "Combining the survey's findings on definitional accuracy and on secondary-cause work-up, how well do primary care physicians in this study identify and investigate curable causes of resistant hypertension?",
+      "category": "multi_hop",
+      "expected_doc": "cardio-hypertension-guidelines.pdf",
+      "expected_location": {
+        "page": 3,
+        "section": "Results > Definition of resistant hypertension, cross-referenced with Investigations and referral patterns"
+      },
+      "reference_answer": "There is a gap between definitional knowledge and secondary-cause work-up: while 74% of physicians correctly defined resistant hypertension, only 27% (23/85) considered the aldosterone-renin ratio test needed to screen for primary aldosteronism, the most common secondary cause of resistant hypertension. Most physicians did order broader tests like urine albumin-creatinine ratio (92%) and thyroid function tests (75%) before referral, but the low uptake of aldosterone-renin testing specifically suggests under-recognition of primary aldosteronism as a target for work-up."
+    },
+    {
+      "id": "q062",
+      "question": "What proportion of respondents opted to perform spot urine sampling to assess antihypertensive medication compliance, and to which specialties did physicians most commonly refer patients with resistant hypertension?",
+      "category": "direct_lookup",
+      "expected_doc": "cardio-hypertension-guidelines.pdf",
+      "expected_location": {
+        "page": 4,
+        "section": "Results > Investigations and referral patterns"
+      },
+      "reference_answer": "Only 36% (31/85) of respondents opted to perform spot urine sampling to assess antihypertensive compliance. The most common referral specialty was Endocrinology (43-55% depending on the reported figure), followed by Cardiology (35-45%); a minority (16%) chose to continue management in primary care rather than refer."
+    },
+    {
+      "id": "q063",
+      "question": "What was the survey's response rate -- how many primary care physicians were invited to participate versus how many actually completed the survey?",
+      "category": "unanswerable",
+      "expected_doc": null,
+      "expected_location": null,
+      "reference_answer": "Not stated. The paper reports 85 completed responses and describes the distribution method (email to all public polyclinics and private GPs, open July 2021-October 2023), but does not give the total number of physicians invited or contacted, so a response rate cannot be calculated from this document."
+    },
+    {
+      "id": "q064",
+      "question": "What percentage of patients with primary aldosteronism have hypokalemia for more than a year before diagnosis, according to this study?",
+      "category": "unanswerable",
+      "expected_doc": null,
+      "expected_location": null,
+      "reference_answer": "This figure (as many as 50%) is mentioned in the introduction, but it is cited from a separate prior study (referenced elsewhere in the literature), not a finding generated by this survey. The survey itself did not measure diagnostic delay in primary aldosteronism patients -- a well-behaved system should attribute this figure to background literature rather than presenting it as this paper's own result.",
+      "notes": "Trap/attribution-precision query: the number appears in the document's introduction as background context from a cited source, not as a result of the survey being reported. Tests whether retrieval/generation correctly distinguishes cited background facts from the paper's own findings."
+    },
+    {
+      "id": "q065",
+      "question": "What was the overall incidence of no-reflow phenomenon (NRP) among the STEMI patients in this study, and how did the AUC of the CHA2DS2-VA score for predicting NRP differ between the overall cohort and the female subgroup?",
+      "category": "multi_hop",
+      "expected_doc": "cardio-mi-risk-stratification.pdf",
+      "expected_location": {
+        "page": 3,
+        "section": "Results > Rate of NRP, cross-referenced with ROC Curve for the CV Score"
+      },
+      "reference_answer": "NRP occurred in 11.7% of patients overall (85 of 725). The CHA2DS2-VA (CV) score's AUC for predicting NRP was 0.613 in the overall cohort but rose to 0.673 in the female subgroup (78.1% sensitivity, 47.6% specificity) -- and was not statistically significant in males (AUC 0.569, P=0.099), reflecting the study's central finding that the CV score's predictive value is sex-specific."
+    },
+    {
+      "id": "q066",
+      "question": "In the multivariable logistic regression, what was the adjusted odds ratio for the CHA2DS2-VA score predicting no-reflow in the overall cohort versus in the female-only subgroup?",
+      "category": "direct_lookup",
+      "expected_doc": "cardio-mi-risk-stratification.pdf",
+      "expected_location": {
+        "page": 6,
+        "section": "Results > Analysis to Illustrate Predictors of the NRP; Table 4 and Table 5"
+      },
+      "reference_answer": "In the overall cohort, the adjusted OR for the CV score was 1.295 (95% CI 1.098-1.527, P=0.002). In the female-only subgroup, it was higher at 1.597 (95% CI 1.187-2.149, P=0.002), while in the male-only subgroup the CV score was not an independent predictor at all -- only platelet count was significant for males."
+    },
+    {
+      "id": "q067",
+      "question": "What was the incidence rate of no-reflow phenomenon (11.7%) in this STEMI/PCI cohort study?",
+      "category": "direct_lookup",
+      "expected_doc": "cardio-mi-risk-stratification.pdf",
+      "expected_location": {
+        "page": 3,
+        "section": "Results > Rate of NRP Among the Studied Subjects"
+      },
+      "reference_answer": "No-reflow occurred in 85 of 725 STEMI patients undergoing primary PCI, an incidence of 11.7%.",
+      "notes": "Sanity-check query: only this document in the corpus reports a STEMI no-reflow incidence figure, providing an easy single-source baseline retrieval case."
+    },
+    {
+      "id": "q068",
+      "question": "The AF-management review discusses CHA2DS2-VASc's modest C-statistic (~0.60) for AF stroke risk. How does the CHA2DS2-VA score's sex-specific behavior for STEMI no-reflow prediction complement or contrast with that picture of CHA2DS2-based scores in cardiology?",
+      "category": "cross_doc_synthesis",
+      "expected_docs": [
+        "cardio-afib-ml-detection.pdf",
+        "cardio-mi-risk-stratification.pdf"
+      ],
+      "expected_location": {
+        "page": "AF review p.8 (AI-Based Risk Stratification and Clinical Outcome Prediction); no-reflow study p.3-7 (Results, ROC and subgroup tables)",
+        "section": "Complementary discussions of CHA2DS2-family score performance across different cardiovascular contexts"
+      },
+      "reference_answer": "Both documents illustrate that CHA2DS2-family scores, originally designed for AF stroke risk, have only modest-to-moderate discrimination when applied to cardiovascular risk prediction generally. The AF review reports CHA2DS2-VASc has a C-statistic of only about 0.60 for its original purpose (AF stroke risk). The no-reflow study extends this family of scores to a completely different problem (predicting no-reflow after primary PCI in STEMI) using the newer CHA2DS2-VA variant, finding an overall AUC of 0.613 -- similarly modest -- but importantly reveals that this modest overall figure masks a strong sex interaction: the score performs meaningfully better in women (AUC 0.673, independent predictor) than in men (AUC 0.569, not significant). A complete synthesis would note that both papers support the same general conclusion (comorbidity-based CHA2DS2-type scores alone have limited discriminative power for many cardiovascular outcomes) while the no-reflow paper adds a specific, actionable refinement (sex-stratification matters) not explored in the AF review.",
+      "notes": "Genuine cross-doc synthesis: the two documents are complementary rather than competing -- one gives general background on CHA2DS2-family score performance in AF, the other extends and nuances that picture with a sex-stratified STEMI application. Distinct from the cross_doc_distractor queries pairing the same two documents, which instead test whether retrieval correctly separates the two specific score variants/diseases when only one is asked about."
+    },
+    {
+      "id": "q069",
+      "question": "What was the platelet count's role as a predictor of no-reflow in the male-only subgroup analysis?",
+      "category": "direct_lookup",
+      "expected_doc": "cardio-mi-risk-stratification.pdf",
+      "expected_location": {
+        "page": 8,
+        "section": "Results > Table 6, Logistic regression analysis of predictors of no-reflow in the male population"
+      },
+      "reference_answer": "In males, platelet count was the only independent predictor of no-reflow in the multivariable model (adjusted OR 0.993, 95% CI 0.987-0.999, P=0.033) -- higher platelet counts were associated with slightly lower no-reflow odds. The CHA2DS2-VA score itself was not a significant independent predictor in the male subgroup."
+    },
+    {
+      "id": "q070",
+      "question": "What was the exact date and time of the first patient's coronary angiography procedure in this STEMI cohort?",
+      "category": "unanswerable",
+      "expected_doc": null,
+      "expected_location": null,
+      "reference_answer": "Not stated. The study reports the overall enrollment window (July 2015 to August 2019) but does not give individual patient procedure timestamps or identify a 'first patient' -- this level of patient-specific detail is not present in the article."
+    },
+    {
+      "id": "q078",
+      "question": "How much does combining ctDNA and ctRNA analysis improve gene fusion detection yield compared with ctDNA alone in lung cancer liquid biopsy?",
+      "category": "direct_lookup",
+      "expected_doc": "onco-lung-liquidbiopsy.pdf",
+      "expected_location": {
+        "page": 2,
+        "section": "Introduction"
+      },
+      "reference_answer": "Combined ctDNA/ctRNA approaches increase fusion detection yield by approximately 28%-37% compared with ctDNA alone, which is why current NCCN NSCLC guidelines recommend RNA-based testing when DNA-based profiling fails to identify a driver oncogene."
+    },
+    {
+      "id": "q079",
+      "question": "What sensitivity and specificity did cerebrospinal fluid (CSF) ctDNA show for detecting CNS metastases in NSCLC, and how did its detection rate compare with CSF cytology?",
+      "category": "direct_lookup",
+      "expected_doc": "onco-lung-liquidbiopsy.pdf",
+      "expected_location": {
+        "page": 11,
+        "section": "Current challenges and future directions > CSF ctDNA for CNS involvement"
+      },
+      "reference_answer": "Pooled sensitivity was 91.8% and specificity was 93.5% for detecting CNS metastases in NSCLC using CSF ctDNA. The pooled CSF ctDNA detection rate was 86% (95% CI 79%-91%), significantly higher than CSF cytology's 60% (95% CI 36%-81%), based on a meta-analysis of 26 studies."
+    },
+    {
+      "id": "q080",
+      "question": "In the NILE study, how did plasma cfDNA genotyping compare with physician-selected tissue testing in terms of turnaround time and biomarker identification rate?",
+      "category": "direct_lookup",
+      "expected_doc": "onco-lung-liquidbiopsy.pdf",
+      "expected_location": {
+        "page": 6,
+        "section": "Molecular diagnostics and treatment selection in advanced NSCLC"
+      },
+      "reference_answer": "In the NILE study (282 untreated metastatic NSCLC patients), comprehensive plasma cfDNA genotyping via Guardant360 was noninferior to physician-selected tissue testing, identified at least one guideline-recommended biomarker in more patients than tissue alone, and had a faster median turnaround time (9 days vs. 15 days for tissue), with high concordance when both were available."
+    },
+    {
+      "id": "q081",
+      "question": "Based on the review's discussion of screening modalities, which lung cancer screening approach currently has a demonstrated mortality benefit, and how do current blood-based (liquid biopsy) screening strategies compare in terms of evidence maturity?",
+      "category": "multi_hop",
+      "expected_doc": "onco-lung-liquidbiopsy.pdf",
+      "expected_location": {
+        "page": 3,
+        "section": "Lung cancer screening and early detection; Table 1"
+      },
+      "reference_answer": "Low-dose CT (LDCT) is the only lung cancer screening modality with a demonstrated mortality benefit (a 20% relative reduction shown in the National Lung Screening Trial, confirmed by NELSON). Blood-based liquid biopsy strategies -- ctDNA methylation/MCED tests (e.g., Galleri), plasma mutation panels (e.g., Lung-CLiP), and tumor-autoantibody panels (e.g., EarlyCDT-Lung) -- remain investigational; per Table 1, they show varying but generally modest early-stage sensitivity (roughly 13%-55% depending on approach and stage) with no blood-based strategy yet showing a mortality benefit. The review frames these as potential complements to LDCT (risk stratification, adjunctive detection) rather than replacements."
+    },
+    {
+      "id": "q082",
+      "question": "Comparing tumor-informed and tumor-agnostic ctDNA MRD assays, how do their sensitivity, specificity, and turnaround times trade off against each other according to the meta-analysis discussed in this review?",
+      "category": "multi_hop",
+      "expected_doc": "onco-lung-liquidbiopsy.pdf",
+      "expected_location": {
+        "page": 6,
+        "section": "Tumor evolution, serial monitoring, and resistance"
+      },
+      "reference_answer": "In a meta-analysis of 30 NSCLC studies (n=3,287), landmark and longitudinal MRD sensitivity were similar between tumor-informed and tumor-agnostic assays (42% vs. 44% landmark; 76% vs. 79% longitudinal). However, tumor-informed assays showed higher specificity at both timepoints (97% vs. 93% landmark; 96% vs. 88% longitudinal). The trade-off is turnaround time: tumor-informed assays require upfront tumor sequencing and 2-4 weeks for personalized panel design, while tumor-agnostic (fixed-panel) assays deploy faster (7-10 days) and can be used when tumor tissue is unavailable."
+    },
+    {
+      "id": "q083",
+      "question": "According to this review, what FDA approval status does the EarlyCDT-Lung autoantibody test hold, and what real-world sensitivity has the FDA validated for it in early-stage disease?",
+      "category": "unanswerable",
+      "expected_doc": null,
+      "expected_location": null,
+      "reference_answer": "Not stated. The review discusses EarlyCDT-Lung's performance in the ECLS randomized trial and LUSI cohort (sensitivity roughly 13%-41%, variable by setting), and separately lists three FDA-approved companion diagnostic liquid biopsy assays for advanced NSCLC treatment selection (cobas EGFR Mutation Test v2, FoundationOne Liquid CDx, Guardant360 CDx) -- but EarlyCDT-Lung is not among those FDA-approved companion diagnostics, and the review does not state any FDA approval or validation for it. A correct system should recognize this as unanswerable rather than conflating EarlyCDT-Lung's trial-reported sensitivity with an FDA-validated figure, or borrowing the FDA-approval status of the unrelated companion diagnostics."
+    },
+    {
+      "id": "q084",
+      "question": "What CSF ctDNA detection rate did the meta-analysis of 26 studies report for identifying CNS metastases in NSCLC?",
+      "category": "direct_lookup",
+      "expected_doc": "onco-lung-liquidbiopsy.pdf",
+      "expected_location": {
+        "page": 11,
+        "section": "Current challenges and future directions > CSF ctDNA for CNS involvement"
+      },
+      "reference_answer": "The pooled CSF ctDNA detection rate was 86% (95% CI 79%-91%) across the 26-study meta-analysis, with individual study detection rates ranging from 82% to 100%.",
+      "notes": "Sanity-check query: only this document in the corpus reports CSF ctDNA detection statistics, providing an easy single-source baseline retrieval case."
+    },
+    {
+      "id": "q085",
+      "question": "According to this review, what is the biological distinction between 'immune-desert' and 'immune-excluded' cold tumors?",
+      "category": "direct_lookup",
+      "expected_doc": "onco-tumor-microenvironment.pdf",
+      "expected_location": {
+        "page": 3,
+        "section": "Introduction / 3.2 Immune Landscape and Spatial Organization of Cold and Hot States"
+      },
+      "reference_answer": "Immune-desert tumors lack meaningful immune infiltration entirely -- effective T-cell priming never occurs. Immune-excluded tumors, by contrast, do have lymphocytes present, but these remain confined to the stroma or the tumor's invasive margin and fail to penetrate the tumor core/nests. The distinction matters therapeutically: immune-desert tumors are more likely to need restoration of immune priming, while immune-excluded tumors may instead need disruption of stromal and vascular barriers to let immune cells in."
+    },
+    {
+      "id": "q086",
+      "question": "In the RELATIVITY-047 trial discussed in this review, what was the median progression-free survival for relatlimab plus nivolumab compared with nivolumab alone in untreated advanced melanoma?",
+      "category": "direct_lookup",
+      "expected_doc": "onco-tumor-microenvironment.pdf",
+      "expected_location": {
+        "page": 21,
+        "section": "Table 3 (Safety constraints); 8.3 How Safety Compression Manifests Across Conversion Strategies"
+      },
+      "reference_answer": "Median PFS was 10.1 months with relatlimab plus nivolumab versus 4.6 months with nivolumab alone (HR 0.75), though this came with more high-grade immune-related adverse events (18.9% vs 9.7% grade 3/4 treatment-related AEs)."
+    },
+    {
+      "id": "q087",
+      "question": "What 18-month recurrence-free survival results did the KEYNOTE-942 trial of mRNA-4157/V940 plus pembrolizumab show in resected high-risk melanoma, according to this review?",
+      "category": "direct_lookup",
+      "expected_doc": "onco-tumor-microenvironment.pdf",
+      "expected_location": {
+        "page": 10,
+        "section": "Table 1 > Insufficient patient-specific neoantigen priming"
+      },
+      "reference_answer": "18-month recurrence-free survival was 79% with the mRNA-4157/V940 plus pembrolizumab combination versus 62% with pembrolizumab alone; recurrence or death occurred in 22% versus 40% of patients, respectively. The review notes this supports de novo neoantigen immunity but still needs Phase III confirmation."
+    },
+    {
+      "id": "q088",
+      "question": "Why did late-stage clinical trials of IDO1 inhibitors fail to deliver the benefit predicted by strong preclinical rationale, according to this review?",
+      "category": "direct_lookup",
+      "expected_doc": "onco-tumor-microenvironment.pdf",
+      "expected_location": {
+        "page": 17,
+        "section": "6.4 Clinical Reprogramming of Suppressive TME States > The IDO1 experience"
+      },
+      "reference_answer": "Tryptophan metabolism was not uniformly dominant across the enrolled tumors and could be buffered by TDO (an alternative enzyme) and parallel immunosuppressive circuits. Pharmacodynamic markers of pathway dependence were limited, and patients were not selected using a validated biomarker framework capable of identifying truly IDO-dependent lesions -- illustrating that mechanistic plausibility alone is insufficient without prospective evidence of pathway dominance and biomarker-defined patient selection."
+    },
+    {
+      "id": "q089",
+      "question": "How does the review's framework explain why static (baseline) biomarkers like TMB, MSI, and PD-L1 are necessary but insufficient for documenting cold-to-hot tumor conversion, and what role do dynamic markers like ctDNA and CXCL13 play instead?",
+      "category": "multi_hop",
+      "expected_doc": "onco-tumor-microenvironment.pdf",
+      "expected_location": {
+        "page": 18,
+        "section": "7.1 Baseline Biomarkers AND 7.2 Dynamic Biomarkers"
+      },
+      "reference_answer": "Baseline markers (TMB, MSI, PD-L1, transcriptomic/histomorphological features) are useful for estimating a tumor's dominant barrier architecture and for stratifying patients before treatment, but they are static snapshots -- they cannot capture the dynamic remodeling that defines successful conversion, since a tumor with low baseline inflammation may still become immunologically engaged under treatment (or vice versa). Dynamic markers address this gap: serial ctDNA decline can provide early evidence of effective tumor debulking and successful microenvironmental remodeling, often preceding radiographic response, while persistent ctDNA may signal failed conversion or adaptive resistance. CXCL13 induction during therapy is highlighted as a marker of intratumoral immune activation, lymphoid recruitment, and tertiary lymphoid structure formation -- capturing the transition point where a cold lesion begins acquiring local immune organization. The review frames baseline markers as stratification tools, not conversion-confirmation tools."
+    },
+    {
+      "id": "q090",
+      "question": "According to the review's discussion of established versus emerging immune-priming strategies, why is chemo/radiotherapy considered a more mature clinical platform for cold-to-hot conversion than newer approaches like T-VEC or personalized mRNA vaccines?",
+      "category": "multi_hop",
+      "expected_doc": "onco-tumor-microenvironment.pdf",
+      "expected_location": {
+        "page": 16,
+        "section": "6.1.1 Established Immune-Conditioning Backbones AND 6.1.2 Emerging Priming-Oriented Strategies"
+      },
+      "reference_answer": "Chemotherapy and radiotherapy are already part of standard care and can be directly evaluated in combination with checkpoint blockade in large randomized Phase III trials -- for example, KEYNOTE-189 and IMpower132 showed prolonged overall survival when PD-1/PD-L1 inhibitors were added to chemotherapy in NSCLC, and the PACIFIC trial showed durvalumab consolidation after chemoradiotherapy improved outcomes in unresectable NSCLC. By contrast, T-VEC (16.3% durable response rate in melanoma), personalized mRNA vaccines (mRNA-4157, BNT111, autogene cevumeran), and epigenetic modulators have shown immune activity but remain supported mainly by early-phase or signal-generating studies -- they parallel chemo/radiotherapy's goal of restoring tumor immune visibility, but durable phenotypic conversion from these newer approaches remains clinically unproven."
+    },
+    {
+      "id": "q091",
+      "question": "What preprocedural response rate did this review report from its own prospective clinical trial testing STING agonist plus PD-1 blockade in a cohort the authors enrolled?",
+      "category": "unanswerable",
+      "expected_doc": null,
+      "expected_location": null,
+      "reference_answer": "Not applicable -- this is a narrative review, not a primary clinical study. It has no patient cohort of its own; all response rates, PFS/OS data, and trial results it reports (including STING agonist combinations like MK-1454, ADU-S100/spartalizumab, or the STING-ADC platform) are drawn from and attributed to other groups' preclinical and clinical trials (e.g., NCT numbers in Tables 1 and 3). A correct system should recognize there is no 'the review's own trial' to report a response rate from."
+    },
+    {
+      "id": "q092",
+      "question": "What exception to the general syngeneic-mouse-model limitation does the review note when discussing translational relevance of preclinical cold tumor models?",
+      "category": "direct_lookup",
+      "expected_doc": "onco-tumor-microenvironment.pdf",
+      "expected_location": {
+        "page": 15,
+        "section": "5 Preclinical Models and Evidence for Converting Cold Tumors"
+      },
+      "reference_answer": "RENCA is noted as an exception to the general finding that syngeneic models are myeloid-biased and don't fully recapitulate human cold-tumor biology: in RENCA, the conserved T3-My2 axis correlates with survival, and the review suggests TME state (not tissue origin) should guide model selection.",
+      "notes": "Sanity-check query: only this document in the corpus discusses the RENCA model exception, giving an easy single-source baseline retrieval case."
+    },
+    {
+      "id": "q093",
+      "question": "Between the corpus's lung liquid biopsy review and the cold-to-hot tumor conversion review, which document uses ctDNA specifically as a serial marker for tracking a tumor's transition from immunologically 'cold' to 'hot' during immunotherapy, as opposed to using it for NSCLC molecular diagnosis, genotyping, or resistance-mutation detection?",
+      "category": "cross_doc_distractor",
+      "expected_doc": "onco-tumor-microenvironment.pdf",
+      "expected_location": {
+        "page": 18,
+        "section": "7.2 Dynamic Biomarkers: Monitoring Conversion in Real-Time"
+      },
+      "reference_answer": "The cold-to-hot tumor conversion review (onco-tumor-microenvironment.pdf) is the one that frames ctDNA as a dynamic conversion-monitoring marker -- serial ctDNA decline as early evidence of effective tumor debulking and successful immune remodeling, often preceding radiographic response. The lung liquid biopsy review (onco-lung-liquidbiopsy.pdf) also discusses ctDNA extensively, but for a different purpose: NSCLC screening, actionable-mutation genotyping, MRD detection after curative-intent therapy, and resistance-mechanism profiling at progression. Both documents share the analyte (ctDNA) and even overlapping language ('dynamic marker,' 'serial monitoring,' 'kinetics'), which makes it easy to misattribute a fact from one document's ctDNA discussion to the other.",
+      "notes": "Distractor: same analyte (ctDNA) discussed in both documents but for genuinely different clinical purposes -- immunotherapy response/conversion monitoring vs. NSCLC diagnostic and resistance profiling."
+    },
+    {
+      "id": "q094",
+      "question": "Drawing on both the lung liquid biopsy review and the cold-to-hot tumor conversion review, what common theme emerges about ctDNA's role and limitations as a dynamic monitoring biomarker across these two different oncology contexts?",
+      "category": "cross_doc_synthesis",
+      "expected_docs": [
+        "onco-lung-liquidbiopsy.pdf",
+        "onco-tumor-microenvironment.pdf"
+      ],
+      "expected_location": {
+        "page": "liquid biopsy review p.6, p.11 (Tumor evolution/serial monitoring; CSF ctDNA); TME review p.18-19 (7.2 Dynamic Biomarkers)",
+        "section": "Complementary discussions of ctDNA as a serial/dynamic biomarker"
+      },
+      "reference_answer": "In both contexts, ctDNA is valued precisely because it is serially trackable and can register biological change earlier than imaging: in the lung liquid biopsy review, ctDNA kinetics help detect MRD and resistance mechanisms often before radiographic progression is visible; in the TME/cold-to-hot review, serial ctDNA decline can precede radiographic response and signal successful immune remodeling. Both documents also converge on a shared limitation: thresholds and interpretation are not standardized. The liquid biopsy review notes that below ~0.5% variant allele frequency, sensitivity diverges widely across assay platforms, and that tumor fraction is not directly equivalent to VAF. The TME review similarly notes that ctDNA-based conversion-monitoring thresholds 'are not standardized across indications.' Together, the two documents support a common conclusion: ctDNA's core clinical value across very different oncology applications is its ability to serve as an early, serial, minimally invasive readout of biological change, but its clinical utility remains constrained by a lack of assay and interpretive standardization.",
+      "notes": "Genuine cross-doc synthesis: the two documents examine the same underlying analyte class (ctDNA as dynamic biomarker) in different disease/therapeutic contexts, and a complete answer needs both the strength (early serial signal) and the shared limitation (standardization) drawn from each."
+    },
+    {
+      "id": "q095",
+      "question": "What percentage of women aged 50-64 in this study were up-to-date with both cervical and colorectal cancer screening ('dual-screening'), and how does this compare with the traditionally calculated single-cancer screening rates?",
+      "category": "direct_lookup",
+      "expected_doc": "onco-colorectal-screening.pdf",
+      "expected_location": {
+        "page": 4,
+        "section": "Results > Main results"
+      },
+      "reference_answer": "58.2% (95% CI 57.1-59.4) of women were up-to-date for dual-screening (both cervical and CRC screening). By contrast, traditional single-cancer calculations -- which count each screening type independently rather than per-woman -- showed cervical cancer screening at 86% (85.4-86.1) and CRC screening at 66% (65.9-66.8). The dual-screening figure is substantially lower because it requires the same woman to be current on both screens simultaneously, not just any woman being current on either one."
+    },
+    {
+      "id": "q096",
+      "question": "Among women 50-64 who chose only one cancer screen, which screen did they choose more often, and by how much?",
+      "category": "direct_lookup",
+      "expected_doc": "onco-colorectal-screening.pdf",
+      "expected_location": {
+        "page": 5,
+        "section": "Results > Main results"
+      },
+      "reference_answer": "Women who chose only one screen chose cervical cancer screening about five times more often than CRC screening (27.1% cervical-only versus 5.4% CRC-only)."
+    },
+    {
+      "id": "q097",
+      "question": "In the multivariate multinomial regression, what were the adjusted odds ratios for college graduation and for having the highest income level, in predicting dual-screening versus neither screen?",
+      "category": "direct_lookup",
+      "expected_doc": "onco-colorectal-screening.pdf",
+      "expected_location": {
+        "page": 6,
+        "section": "Results > Screening compared to neither screening (1a)"
+      },
+      "reference_answer": "Women who graduated from college (versus less than high school) had an adjusted OR of 3.35 (95% CI 2.33-4.81) for dual-screening versus neither screen. Women in the highest income bracket had an adjusted OR of 3.32 (95% CI 2.64-4.18) -- these were the two strongest predictors identified, alongside having a prior cancer history (aOR 2.90)."
+    },
+    {
+      "id": "q098",
+      "question": "How did the screening patterns of Hispanic women differ from those of Black women in this study, when comparing dual-screening to single-screen or no-screen outcomes?",
+      "category": "multi_hop",
+      "expected_doc": "onco-colorectal-screening.pdf",
+      "expected_location": {
+        "page": 6,
+        "section": "Results > 1a-1b Screening compared to neither screening AND 2a No or single screen compared to dual-screening"
+      },
+      "reference_answer": "The two groups showed different patterns relative to White women. Black women had significantly higher adjusted odds of dual-screening compared to neither screen (aOR 2.25) and of cervical-only screening compared to neither screen (aOR 1.73) -- both screening categories looked more favorable relative to no screening at all. Hispanic women, by contrast, had higher odds of dual-screening versus neither screen too (aOR 1.68), but uniquely, Hispanic women were also significantly more likely to have cervical cancer screening alone rather than dual-screening (aOR 1.39) -- meaning that even among Hispanic women who were engaged with screening, they were disproportionately choosing cervical screening only rather than completing both, a pattern not seen for Black women."
+    },
+    {
+      "id": "q099",
+      "question": "What three levels of decision-making does the paper propose to explain why screening behavior diverges by age between cervical cancer screening and CRC screening?",
+      "category": "multi_hop",
+      "expected_doc": "onco-colorectal-screening.pdf",
+      "expected_location": {
+        "page": 11,
+        "section": "Discussion > Screening decision making at multiple levels driven by age of the woman"
+      },
+      "reference_answer": "The paper proposes three levels: (1) physician level -- the specialty of the provider seen (gynecologist vs. primary care physician) may influence which screening is offered, since visits to gynecologists drop sharply after age 45 while PCP visits rise; (2) patient level -- women may stop cervical screening due to menopause-related factors (painful exams, no longer sexually active, past trauma) and may delay CRC screening until 65, when Medicare's Welcome Visit explicitly raises it; (3) health system level -- systemic factors like mailed FIT test outreach programs (as seen during COVID) or the availability of home-based test options can shift which screening gets completed, and the authors note that if a home-based cervical screening test were FDA approved, it might boost uptake to match the already-approved home CRC test."
+    },
+    {
+      "id": "q100",
+      "question": "According to this study's own results, what dual-screening rate did the Basque Country's national FIT program achieve?",
+      "category": "unanswerable",
+      "expected_doc": null,
+      "expected_location": null,
+      "reference_answer": "Not applicable -- this study does not analyze or reference any Basque Country screening program. It is a US-based cross-sectional analysis of BRFSS survey data (2018) on cervical and colorectal cancer dual-screening among American women aged 50-64. This appears to conflate the corpus's earlier (now-excluded) Basque FIT screening material with this document; the two are unrelated."
+    },
+    {
+      "id": "q101",
+      "question": "What HP2030 (Healthy People 2030) screening goals does the paper cite for cervical and colorectal cancer, and are these the study's own achieved rates?",
+      "category": "unanswerable",
+      "expected_doc": null,
+      "expected_location": null,
+      "reference_answer": "This is an attribution trap. The paper cites HP2030 targets of 84.3% for cervical cancer screening and 74.4% for CRC screening -- but these are external national policy goals (from the US Department of Health & Human Services), not this study's own measured rates. The study's own measured dual-screening rate (58.2%) is explicitly described as 'far below' these targets. A correct system should not present the HP2030 percentages as findings this study achieved or measured -- they are the benchmark the study's results fall short of, not the study's result itself."
+    },
+    {
+      "id": "q102",
+      "question": "In the study's exclusion flow (Consort diagram), how many of the initial 67,473 women were excluded specifically for having had a hysterectomy?",
+      "category": "direct_lookup",
+      "expected_doc": "onco-colorectal-screening.pdf",
+      "expected_location": {
+        "page": 17,
+        "section": "Appendix 1 > Appendix 1-figure 1 (Consort diagram)"
+      },
+      "reference_answer": "19,011 women were excluded for having had a hysterectomy -- by far the largest exclusion category, compared to endometrial cancer (N=1), cervical cancer (N=29), colon cancer (N=17), and rectal cancer (N=6). A further 7,898 were excluded afterward for incomplete screening outcome data, leaving the final analysis group of 40,511.",
+      "notes": "Sanity-check query: only this document in the corpus reports this specific exclusion breakdown, giving an easy single-source baseline retrieval case."
+    },
+    {
+      "id": "q103",
+      "question": "What four perioperative treatment strategies were compared in this real-world study, and how many patients were in each group?",
+      "category": "direct_lookup",
+      "expected_doc": "onco-breast-immunotherapy.pdf",
+      "expected_location": {
+        "page": 5,
+        "section": "Figure 1 flowchart / Results > Baseline patient characteristics"
+      },
+      "reference_answer": "The four strategies were neoadjuvant chemoimmunotherapy (NCIT, n=94), neoadjuvant chemotherapy (NCT, n=61), neoadjuvant targeted therapy (NTT, n=43), and upfront surgery followed by adjuvant targeted therapy (US+ATT, n=92), totaling 290 patients."
+    },
+    {
+      "id": "q104",
+      "question": "In the overall cohort, how did event-free survival (EFS) compare between the NCIT and NCT groups, and was there a corresponding overall survival (OS) benefit?",
+      "category": "direct_lookup",
+      "expected_doc": "onco-breast-immunotherapy.pdf",
+      "expected_location": {
+        "page": 5,
+        "section": "Comparison of outcomes between NCIT and NCT"
+      },
+      "reference_answer": "NCIT was associated with longer EFS than NCT (median not reached vs 22.8 months; HR=0.64, 95% CI 0.40-1.02, p=0.048). OS showed only a nonsignificant favorable trend for NCIT (HR=0.65, 95% CI 0.36-1.17, p=0.135)."
+    },
+    {
+      "id": "q105",
+      "question": "What pathological complete response (pCR) and major pathological response (MPR) rates were observed with NCIT compared to NCT?",
+      "category": "direct_lookup",
+      "expected_doc": "onco-breast-immunotherapy.pdf",
+      "expected_location": {
+        "page": 5,
+        "section": "Comparison of outcomes between NCIT and NCT"
+      },
+      "reference_answer": "pCR was 29.8% (28/94) in the NCIT group vs 4.9% (3/61) in the NCT group. MPR was 52.1% (49/94) in NCIT vs 16.4% (10/61) in NCT. R0 resection rates were comparable between the two groups (96.8% vs 93.4%)."
+    },
+    {
+      "id": "q106",
+      "question": "Within the EGFR-mutant subgroup, how did combining chemotherapy with neoadjuvant targeted therapy (NTT+chemotherapy) compare to both NTT alone and to NCT alone in terms of EFS?",
+      "category": "multi_hop",
+      "expected_doc": "onco-breast-immunotherapy.pdf",
+      "expected_location": {
+        "page": 8,
+        "section": "Upon further stratification of NTT... (EGFR-mutant subgroup analysis)"
+      },
+      "reference_answer": "NTT+chemotherapy was associated with significantly better EFS than NCT alone (HR=0.45, 95% CI 0.23-0.91, p=0.038) and a trend toward better EFS than NTT alone (HR=0.43, 95% CI 0.16-1.17, p=0.062). The 2-year EFS rate was 70.4% for NTT+chemotherapy versus 46.2% for NTT alone."
+    },
+    {
+      "id": "q107",
+      "question": "How did achieving major pathological response (MPR) relate to survival outcomes in the NCIT and NTT treatment groups, including in the EGFR-mutant NCIT subgroup specifically?",
+      "category": "multi_hop",
+      "expected_doc": "onco-breast-immunotherapy.pdf",
+      "expected_location": {
+        "page": 10,
+        "section": "Subgroup analysis by pathological response and PD-L1 expression"
+      },
+      "reference_answer": "In the NCIT group, patients who achieved MPR had significantly improved EFS (HR=0.35, p=0.001) and OS (HR=0.33, p=0.009) versus those who did not. In the NTT group, MPR was associated with markedly longer EFS (HR=0.31, p=0.049), though OS did not differ significantly. Within the EGFR-mutant NCIT subgroup specifically, MPR showed only a trend toward improved EFS (HR=0.43, p=0.088) and no significant OS association -- likely due to limited sample size and follow-up in that narrower subgroup."
+    },
+    {
+      "id": "q108",
+      "question": "According to this article, what hazard ratio for disease-free survival did osimertinib show versus placebo, and is this a result generated by this study's own cohort?",
+      "category": "unanswerable",
+      "expected_doc": null,
+      "expected_location": null,
+      "reference_answer": "The introduction cites an HR of 0.23 (p<0.001), with median DFS of 65.8 vs 21.9 months for osimertinib vs placebo -- but this is background context cited from the ADAURA trial (an external randomized controlled trial), not a result this study generated. This is a real-world retrospective cohort without a placebo arm; its own comparisons were among the NTT/NCIT/NCT/US+ATT groups. A well-behaved system should attribute this HR to the cited ADAURA trial rather than presenting it as this paper's own finding.",
+      "notes": "Attribution trap: the ADAURA HR appears in the introduction as cited background for a completely separate trial, not this retrospective cohort's own result. Tests whether the system distinguishes cited trial data from this study's primary findings."
+    },
+    {
+      "id": "q109",
+      "question": "Which specific tyrosine kinase inhibitor agents and dosing regimens were used for neoadjuvant targeted therapy (NTT) in this study?",
+      "category": "unanswerable",
+      "expected_doc": "onco-breast-immunotherapy.pdf",
+      "expected_location": {
+        "page": null,
+        "section": "Not present in main text -- regimens/agents are referenced as being detailed in Supplemental Table 2, which is not part of the retrievable article body"
+      },
+      "reference_answer": "Not stated in the main text. The article notes that detailed regimens and targeted agents are summarized in Supplemental Table 2, which is not included in the retrievable body. A well-behaved system should decline to name specific agents (e.g. assuming osimertinib) rather than fabricating them, since the article only states broadly that alteration-matched TKIs (EGFR-TKIs and ALK-TKIs) were used."
+    },
+    {
+      "id": "q110",
+      "question": "What correlation did the RADON EUROPE study find between indoor radon exposure and ALK fusion frequency across European countries, and was a similar correlation found for EGFR mutations?",
+      "category": "direct_lookup",
+      "expected_doc": "onco-genomics-precision-medicine.pdf",
+      "expected_location": {
+        "page": 2,
+        "section": "Discussion of García-Pardo and colleagues' RADON EUROPE study"
+      },
+      "reference_answer": "The RADON EUROPE study found a statistically significant positive correlation between ALK fusion frequency and the proportion of dwellings exceeding 400 Bq/m3 of indoor radon (r=0.72, p=0.001) across 21 European countries. No such correlation was observed for EGFR mutations at the country level."
+    },
+    {
+      "id": "q111",
+      "question": "What perioperative assessment gaps did Marjanski and colleagues identify in real-world NSCLC surgical care in Poland?",
+      "category": "direct_lookup",
+      "expected_doc": "onco-genomics-precision-medicine.pdf",
+      "expected_location": {
+        "page": 2,
+        "section": "Discussion of Marjanski and colleagues' Polish multicenter survey"
+      },
+      "reference_answer": "Across 459 surgically treated NSCLC patients at seven Polish thoracic surgery centers: brain imaging was performed in a negligible proportion of patients even at stage III (where ~10% harbor occult brain metastases); the median CT-to-surgery interval was 61 days, more than double the 30-day ESMO benchmark; and preoperative PD-L1 and NGS testing were virtually absent, with molecular profiling done almost exclusively on postoperative specimens."
+    },
+    {
+      "id": "q112",
+      "question": "According to Mo and colleagues' SEER-based analysis, how much did cardiovascular disease-specific mortality rise annually among lung adenocarcinoma patients between 2012-2016, and what treatment was identified as an independent risk factor for cardiovascular death?",
+      "category": "direct_lookup",
+      "expected_doc": "onco-genomics-precision-medicine.pdf",
+      "expected_location": {
+        "page": 3,
+        "section": "Discussion of Mo and colleagues' SEER/FDA AERS analysis"
+      },
+      "reference_answer": "Cardiovascular disease-specific mortality rose 3.82% annually between 2012 and 2016 in lung adenocarcinoma patients, coinciding with expanded EGFR-targeted therapy adoption; pulmonary disease-specific mortality rose 6.54% annually over the same period. Multivariate analysis identified immune checkpoint blockade as an independent risk factor for cardiovascular disease-specific death (HR=4.602, p=0.031)."
+    },
+    {
+      "id": "q113",
+      "question": "In the Vietnamese afatinib cohort study by Pham and colleagues, what dosing pattern was associated with the best treatment outcomes?",
+      "category": "direct_lookup",
+      "expected_doc": "onco-genomics-precision-medicine.pdf",
+      "expected_location": {
+        "page": 3,
+        "section": "Discussion of Pham and colleagues' Vietnamese afatinib cohort"
+      },
+      "reference_answer": "Patients who started at the recommended 40 mg dose but de-escalated to below 40 mg due to toxicity achieved the longest median time-to-treatment-failure (21.5 months) and overall survival (37.9 months), outperforming patients who remained on 40 mg throughout. Only 39.9% of patients initiated treatment at the recommended 40 mg dose; most started at 30 mg."
+    },
+    {
+      "id": "q114",
+      "question": "How do the findings from Laguna and colleagues' global review and García-Pardo and colleagues' RADON EUROPE study together illustrate that environmental exposures may shape specific molecular subtypes of NSCLC, not just overall cancer risk?",
+      "category": "multi_hop",
+      "expected_doc": "onco-genomics-precision-medicine.pdf",
+      "expected_location": {
+        "page": 2,
+        "section": "Discussion of Laguna and colleagues, followed by García-Pardo and colleagues"
+      },
+      "reference_answer": "Laguna and colleagues' review shows regional carcinogens correlate with specific molecular subtypes: arsenic exposure in Chile's Antofagasta region is associated with squamous cell histology, wood smoke exposure in Mexico correlates with high EGFR mutation rates, and Native American ancestry is positively correlated with EGFR mutations. García-Pardo and colleagues' RADON EUROPE study extends this pattern with a different exposure-subtype link: indoor radon exposure correlates specifically with ALK fusion prevalence (not EGFR mutations), consistent with radon's known mechanism of causing DNA double-strand breaks and chromosomal rearrangements -- the kind of genomic event that could produce a fusion like ALK rather than a point mutation like EGFR."
+    },
+    {
+      "id": "q115",
+      "question": "What is the exact ALK fusion frequency percentage reported for each of the 21 individual European countries in the RADON EUROPE study?",
+      "category": "unanswerable",
+      "expected_doc": "onco-genomics-precision-medicine.pdf",
+      "expected_location": {
+        "page": null,
+        "section": "Not present -- only the aggregate correlation coefficient is reported in this editorial"
+      },
+      "reference_answer": "Not given in this editorial. Only the aggregate ecological correlation (r=0.72, p=0.001) between radon exposure and ALK fusion frequency is reported here, not a country-by-country breakdown. Those granular per-country figures, if reported at all, would be in García-Pardo and colleagues' underlying primary study, which is not part of this corpus. A well-behaved system should not fabricate per-country percentages."
+    },
+    {
+      "id": "q116",
+      "question": "Does the RADON EUROPE study's finding prove that radon exposure causes ALK fusions in lung cancer?",
+      "category": "direct_lookup",
+      "expected_doc": "onco-genomics-precision-medicine.pdf",
+      "expected_location": {
+        "page": 2,
+        "section": "Discussion of García-Pardo and colleagues' RADON EUROPE study"
+      },
+      "reference_answer": "No. The editorial explicitly states that the ecological study design 'precludes causal inference' -- the correlation is described as hypothesis-generating, consistent with prior smaller cohort findings and a plausible biological mechanism, but not proof of causation. The ongoing prospective EORTC 1920 BIORADON study is noted as the next step to test this with individual-level exposure data.",
+      "notes": "Precision test: the article explicitly disclaims causal inference. Tests whether the system correctly reports this stated limitation rather than overclaiming a causal relationship from a correlational finding."
+    },
+    {
+      "id": "q117",
+      "question": "What tension exists between the demonstrated clinical benefit of neoadjuvant chemoimmunotherapy for resectable NSCLC and real-world barriers to delivering it?",
+      "category": "cross_doc_synthesis",
+      "expected_docs": [
+        "onco-breast-immunotherapy.pdf",
+        "onco-genomics-precision-medicine.pdf"
+      ],
+      "expected_location": {
+        "page": "Shandong study p.5-6 (NCIT outcomes); editorial p.2 (Marjanski/Poland discussion)",
+        "section": "Complementary evidence in both documents"
+      },
+      "reference_answer": "The Shandong real-world cohort study demonstrates NCIT's clinical benefit directly -- improved EFS and substantially higher pCR/MPR rates than NCT -- supporting NCIT as a promising perioperative strategy for driver gene-positive resectable NSCLC, contingent on knowing a patient's driver-mutation and PD-L1 status upfront. The 'Lung cancer across borders' editorial, summarizing Marjanski and colleagues' Polish multicenter survey, shows that in real-world practice this prerequisite often isn't met: preoperative PD-L1 and NGS testing are virtually absent (done almost exclusively after surgery) and CT-to-surgery intervals run more than double the recommended benchmark. Read together, these two documents describe the same clinical problem from complementary angles -- one supplies outcomes evidence for a biomarker-driven strategy, the other supplies evidence that the biomarker testing needed to identify eligible patients frequently isn't happening before surgery -- and a complete answer needs both, not just one.",
+      "notes": "Genuine cross-doc synthesis, not a wrong-doc distractor: efficacy evidence (doc A) and implementation-gap evidence (doc B) are complementary, describing the same underlying clinical problem from different angles."
+    },
+    {
+      "id": "q118",
+      "question": "What does the available evidence say about EGFR-TKI dosing and its relationship to patient outcomes in EGFR-mutant NSCLC?",
+      "category": "cross_doc_distractor",
+      "expected_doc": "onco-genomics-precision-medicine.pdf",
+      "distractor_doc": "onco-breast-immunotherapy.pdf",
+      "expected_location": {
+        "page": 3,
+        "section": "Discussion of Pham and colleagues' Vietnamese afatinib dosing cohort"
+      },
+      "reference_answer": "The 'Lung cancer across borders' editorial (summarizing Pham and colleagues) is the correct source: it reports that individualized afatinib dose de-escalation for toxicity was associated with better time-to-treatment-failure and OS than staying on the full 40 mg dose, in patients with advanced/metastatic EGFR-mutant NSCLC. This is distinct from the Shandong perioperative study, which discusses EGFR-TKIs only in the context of which perioperative treatment sequence to use (NTT vs NCIT vs NCT vs US+ATT) in resectable, curative-intent disease -- it does not address dose optimization or de-escalation. A retrieval system should favor the editorial here despite both documents discussing EGFR-TKIs and NSCLC outcomes extensively.",
+      "notes": "Distractor pair: both docs discuss 'EGFR-TKI' and 'outcomes' in EGFR-mutant NSCLC, but one is about treatment-sequencing strategy in the resectable/perioperative setting (doc A) and the other is about dose optimization in the advanced/metastatic setting (doc B). Tests whether the system distinguishes these despite shared vocabulary."
+    },
+    {
+      "id": "q119",
+      "question": "How is genomic testing used to detect emerging treatment resistance in NSCLC patients over the course of their disease?",
+      "category": "cross_doc_distractor",
+      "expected_doc": "onco-lung-liquidbiopsy.pdf",
+      "distractor_doc": "onco-breast-immunotherapy.pdf",
+      "expected_location": {
+        "page": 1,
+        "section": "Liquid biopsy across the lung cancer continuum -- resistance profiling"
+      },
+      "reference_answer": "The liquid biopsy review (Batra et al.) is the correct source: it describes serial ctDNA-based testing used for resistance profiling -- detecting acquired resistance mutations as they emerge during targeted therapy so treatment can be adapted. This is distinct from the Shandong perioperative study, where NGS testing (of biopsy tissue or peripheral blood) is performed once, at baseline, to identify driver-gene status and select an initial perioperative treatment strategy -- that study does not describe serial monitoring for resistance emergence. A retrieval system should favor the liquid biopsy review for a question specifically about resistance monitoring over time, despite both documents discussing NGS/genomic testing and driver mutations in NSCLC.",
+      "notes": "Distractor pair: both discuss NGS-based genomic testing in NSCLC, but one-time baseline driver-mutation ID (doc A) is a different application from longitudinal resistance monitoring via serial liquid biopsy (onco-lung-liquidbiopsy.pdf)."
+    }
+  ]
+}
