@@ -8,6 +8,7 @@ from fastembed.rerank.cross_encoder import TextCrossEncoder
 import chromadb
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
+from rank_bm25 import BM25Okapi
 
 load_dotenv()
 
@@ -17,6 +18,29 @@ reranker = TextCrossEncoder(model_name="Xenova/ms-marco-MiniLM-L-6-v2")
 chroma_client = chromadb.PersistentClient(path="./chroma_db")
 collection = chroma_client.get_or_create_collection("documents")
 anthropic_client = AsyncAnthropic()
+
+bm25_index: BM25Okapi | None = None
+bm25_documents: list[str] = []
+bm25_sources: list[str] = []
+
+FUSED_CANDIDATE_POOL = 20  # cap before reranking — bounds cross-encoder latency
+
+def _tokenize(text: str) -> list[str]:
+    return re.findall(r"\w+", text.lower())
+
+
+def _rebuild_bm25_index() -> None:
+    global bm25_index, bm25_documents, bm25_sources
+    data = collection.get()
+    bm25_documents = data["documents"]
+    bm25_sources = [m["source"] for m in data["metadatas"]]
+    bm25_index = (
+        BM25Okapi([_tokenize(doc) for doc in bm25_documents])
+        if bm25_documents
+        else None
+    )
+    
+_rebuild_bm25_index()  # populate at startup, not just after /ingest
 
 
 def embed(text: str) -> list[float]:
@@ -80,7 +104,7 @@ def ingest(request: IngestRequest):
         documents=chunks,
         metadatas=[{"source": request.source} for _ in chunks],
     )
-
+    _rebuild_bm25_index()
     return {"chunks_ingested": len(chunks)}
 
 
@@ -120,41 +144,56 @@ def _retrieve_candidates(query_text: str, n: int = 20) -> tuple[list[str], list[
     results = collection.query(query_embeddings=[query_embedding], n_results=n)
     return results["documents"][0], [m["source"] for m in results["metadatas"][0]]
 
+def _retrieve_bm25_candidates(query_text: str, n: int = 20) -> tuple[list[str], list[str]]:
+    if bm25_index is None:
+        return [], []
+    scores = bm25_index.get_scores(_tokenize(query_text))
+    top_idx = sorted(range(len(scores)), key=lambda i: scores[i], reverse=True)[:n]
+    return [bm25_documents[i] for i in top_idx], [bm25_sources[i] for i in top_idx]
+
+def reciprocal_rank_fusion(ranked_lists: list[list[str]], k: int = 60) -> list[str]:
+    scores: dict[str, float] = {}
+    for ranked_list in ranked_lists:
+        for rank, doc in enumerate(ranked_list, start=1):
+            scores[doc] = scores.get(doc, 0.0) + 1.0 / (k + rank)
+    return sorted(scores, key=lambda d: scores[d], reverse=True)
+
+
+# Sanity check against a silent fusion bug corrupting eval results downstream
+assert reciprocal_rank_fusion([["a", "b"], ["a", "c"]])[0] == "a"
+assert reciprocal_rank_fusion([["x", "y"], []]) == ["x", "y"]
 
 async def retrieve(
     question: str, n_results: int = 3, use_query_rewriting: bool = False
 ) -> tuple[list[str], list[str]]:
 
-    seen = {}
+    doc_to_source: dict[str, str] = {}
+
+    (dense_docs, dense_sources), (bm25_docs, bm25_sources) = await asyncio.gather(
+        asyncio.to_thread(_retrieve_candidates, question),
+        asyncio.to_thread(_retrieve_bm25_candidates, question),
+    )
+    ranked_lists = [dense_docs, bm25_docs]
+    for doc, src in zip(dense_docs + bm25_docs, dense_sources + bm25_sources):
+        doc_to_source.setdefault(doc, src)
+
     if use_query_rewriting:
         rewritten = await rewrite_query(question)
-        # retrieve for both phrasings concurrently — cheap, since it's just embedding + Chroma
-        (orig_docs, orig_sources), (rewritten_docs, rewritten_sources) = (
-            await asyncio.gather(
-                asyncio.to_thread(_retrieve_candidates, question),
-                asyncio.to_thread(_retrieve_candidates, rewritten),
-            )
+        (rw_dense_docs, rw_dense_sources), (rw_bm25_docs, rw_bm25_sources) = await asyncio.gather(
+            asyncio.to_thread(_retrieve_candidates, rewritten),
+            asyncio.to_thread(_retrieve_bm25_candidates, rewritten),
         )
-        # merge, deduping by chunk text
+        ranked_lists.extend([rw_dense_docs, rw_bm25_docs])
         for doc, src in zip(
-            orig_docs + rewritten_docs, orig_sources + rewritten_sources
+            rw_dense_docs + rw_bm25_docs, rw_dense_sources + rw_bm25_sources
         ):
-            seen[doc] = (
-                src  # last write wins; fine since content is identical for dupes
-            )
-    else:
-        orig_docs, orig_sources = _retrieve_candidates(question)
-        for doc, src in zip(orig_docs, orig_sources):
-            seen[doc] = src
+            doc_to_source.setdefault(doc, src)
 
-    candidates = list(seen.keys())
-    candidate_sources = list(seen.values())
+    fused = reciprocal_rank_fusion(ranked_lists)[:FUSED_CANDIDATE_POOL]
+    candidate_sources = [doc_to_source[d] for d in fused]
 
-    # rerank the MERGED pool against the ORIGINAL question — that's the true user intent
-    scores = list(reranker.rerank(question, candidates))
-    ranked = sorted(
-        zip(candidates, candidate_sources, scores), key=lambda x: x[2], reverse=True
-    )
+    scores = list(reranker.rerank(question, fused))
+    ranked = sorted(zip(fused, candidate_sources, scores), key=lambda x: x[2], reverse=True)
     top_n = ranked[:n_results]
 
     return [c for c, _, _ in top_n], [s for _, s, _ in top_n]
