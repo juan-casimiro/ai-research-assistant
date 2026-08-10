@@ -1362,6 +1362,140 @@
       },
       "reference_answer": "No -- in univariate comparison between the normal-flow and no-reflow groups, hypertension prevalence did not differ significantly (56.5% in the no-reflow group vs 52.7% in the normal-flow group, P=0.508), unlike age and hemoglobin level, which were significant.",
       "notes": "Confirmed: this specific null finding (hypertension not significantly associated with no-reflow, P=0.508) appears only in cardio-mi-risk-stratification.pdf, Table 3. Confirmed distractor: cardio-hypertension-guidelines.pdf has overwhelming lexical/topical overlap since hypertension is its entire subject, making it the obvious vector-similarity pick, but that survey never discusses STEMI, no-reflow, or PCI outcomes -- it covers primary-care definitions and prescribing practices. BM25 wins because 'no-reflow phenomenon' and 'STEMI' appear only in the mi-risk doc."
+    },
+    {
+      "id": "q130",
+      "question": "In the memory clinic cohort, what was the median plasma P-tau 217-informed diagnostic accuracy achieved by physicians compared to GPT-5?",
+      "category": "direct_lookup",
+      "expected_doc": "outlier-gpt5-tau217-diagnosis.pdf",
+      "expected_docs": null,
+      "distractor_doc": null,
+      "expected_location": {
+        "section": "Results, paragraph on Table 3 comparison"
+      },
+      "reference_answer": "With plasma P-tau 217 available, physicians achieved 81.1% diagnostic accuracy compared to GPT-5's 45.9% (P < 0.001).",
+      "notes": "Confirmed: the 81.1%/45.9% figures appear only in outlier-gpt5-tau217-diagnosis.pdf. Tests basic retrieval of a specific numeric comparison from the newly-ingested outlier corpus."
+    },
+    {
+      "id": "q131",
+      "question": "How many amyloid-positive and amyloid-negative patients were included in this retrospective memory clinic study, and where was it conducted?",
+      "category": "direct_lookup",
+      "expected_doc": "outlier-gpt5-tau217-diagnosis.pdf",
+      "expected_docs": null,
+      "distractor_doc": null,
+      "expected_location": {
+        "section": "Abstract / Methods"
+      },
+      "reference_answer": "The study comprised 74 patients (40 amyloid-positive, 34 amyloid-negative) from a memory clinic at Queen Mary Hospital, Hong Kong.",
+      "notes": "Confirmed in abstract and methods. Straightforward cohort-description lookup."
+    },
+    {
+      "id": "q132",
+      "question": "How did GPT-5's rate of diagnosing mixed AD/non-AD aetiologies compare to physicians', both before and after plasma P-tau 217 was made available?",
+      "category": "multi_hop",
+      "expected_doc": "outlier-gpt5-tau217-diagnosis.pdf",
+      "expected_docs": null,
+      "distractor_doc": null,
+      "expected_location": {
+        "section": "Results, three-group classification paragraph"
+      },
+      "reference_answer": "GPT-5 diagnosed mixed AD/non-AD aetiologies far more often than physicians both before P-tau 217 (48.9% vs. 5.4%, P < 0.001) and after (23.0% vs. 8.1%, P = 0.04).",
+      "notes": "Requires combining two separate before/after figures from the same paragraph -- genuine multi-hop within a single document, not just a single-sentence lookup."
+    },
+    {
+      "id": "q133",
+      "question": "What was the FDA approval status of donanemab at the time this study was conducted, and what specific dosing regimen was used in the memory clinic cohort?",
+      "category": "unanswerable",
+      "expected_doc": "outlier-gpt5-tau217-diagnosis.pdf",
+      "expected_docs": null,
+      "distractor_doc": null,
+      "reference_answer": null,
+      "notes": "The paper mentions donanemab and lecanemab only in passing as FDA-approved anti-amyloid therapies with ~25% cognitive-decline slowing -- it does not report a dosing regimen used in this specific cohort, since the study is about diagnostic accuracy, not treatment administration. Tests whether the system correctly declines rather than fabricating a plausible-sounding dosing answer."
+    },
+    {
+      "id": "q135",
+      "question": "What role does the gut-lung axis play in tuberculosis pathogenesis, and what host processes does the gut microbiome modulate along this axis?",
+      "category": "direct_lookup",
+      "expected_doc": "outlier-microbiome-tuberculosis.pdf",
+      "expected_docs": null,
+      "distractor_doc": null,
+      "expected_location": {
+        "section": "Introduction / gut-lung axis section"
+      },
+      "reference_answer": "The gut microbiome modulates host immunity and metabolism via the gut-lung axis; TB patients typically show reduced microbial diversity and enriched pro-inflammatory taxa, which are closely linked to disease severity and treatment response.",
+      "notes": "Confirmed in abstract and gut-lung axis section. Tests core-concept retrieval on the paper's actual subject."
+    },
+    {
+      "id": "q136",
+      "question": "What three types of gut-microbiome-targeted interventions does this review describe as capable of enhancing anti-TB therapeutic efficacy?",
+      "category": "direct_lookup",
+      "expected_doc": "outlier-microbiome-tuberculosis.pdf",
+      "expected_docs": null,
+      "distractor_doc": null,
+      "expected_location": {
+        "section": "Abstract"
+      },
+      "reference_answer": "Probiotics, dietary adjustment, and fecal microbiota transplantation (FMT).",
+      "notes": "Confirmed in abstract. Short enumerable list -- good direct_lookup sanity check. Note: 'dietary adjustment' is the one point of genuine overlap with the original (inaccurate) filename/search_query framing of this document as diet-focused."
+    },
+    {
+      "id": "q137",
+      "question": "According to this review, what are the current limitations in translating gut microbiome research into clinical TB management?",
+      "category": "multi_hop",
+      "expected_doc": "outlier-microbiome-tuberculosis.pdf",
+      "expected_docs": null,
+      "distractor_doc": null,
+      "expected_location": {
+        "section": "Abstract / Discussion"
+      },
+      "reference_answer": "Insufficient validation of the gut-lung axis's causal mechanisms, lagged clinical translation of biomarkers, biases and errors in diagnosis and prediction, data privacy and security concerns, gaps in intervention research, and poor accessibility of related technologies in resource-scarce medical regions.",
+      "notes": "Multi-part enumerated answer from the abstract's limitations sentence -- tests whether the full list is retrieved rather than a partial subset."
+    },
+    {
+      "id": "q138",
+      "question": "What percentage reduction in tuberculosis treatment duration was achieved using fecal microbiota transplantation as an adjunct therapy in the clinical trials reviewed?",
+      "category": "unanswerable",
+      "expected_doc": "outlier-microbiome-tuberculosis.pdf",
+      "expected_docs": null,
+      "distractor_doc": null,
+      "reference_answer": null,
+      "notes": "This is a review synthesizing GM-TB mechanisms and interventions narratively; it does not report a specific treatment-duration-reduction percentage for FMT as adjunct TB therapy. Tests refusal to fabricate a precise-sounding statistic the source doesn't contain."
+    },
+    {
+      "id": "q139",
+      "question": "In the Galápagos wastewater study, what percentage of lactose-fermenting Enterobacteriaceae isolates collected near wastewater outfall sites exhibited multidrug resistance?",
+      "category": "direct_lookup",
+      "expected_doc": "outlier-amr-surveillance.pdf",
+      "expected_docs": null,
+      "distractor_doc": null,
+      "expected_location": {
+        "section": "Abstract"
+      },
+      "reference_answer": "Over 40% of lactose-fermenting Enterobacteriaceae isolates collected directly from sewage or marine environments near wastewater outfall sites exhibited multidrug resistance.",
+      "notes": "Confirmed verbatim in abstract. Good BM25-favoring candidate: 'Enterobacteriaceae' and '40%' are specific, low-ambiguity lexical tokens."
+    },
+    {
+      "id": "q140",
+      "question": "How did the San Cristóbal wastewater treatment plant's effluent E. coli levels compare to the Ecuadorian regulatory standard, despite meeting standards for other pollutants?",
+      "category": "multi_hop",
+      "expected_doc": "outlier-amr-surveillance.pdf",
+      "expected_docs": null,
+      "distractor_doc": null,
+      "expected_location": {
+        "section": "Introduction, WWTP performance paragraph"
+      },
+      "reference_answer": "A 2020 study found the WWTP met Ecuadorian standards for ammonium, phosphate, sulfur, total solids, total suspended solids, and turbidity, but had no measurable effect on total coliforms or E. coli counts -- resulting in effluent E. coli levels 25 times the Ecuadorian standard of 2000 MPN/100 mL.",
+      "notes": "Requires combining the 'met other standards' fact with the specific 25x E. coli exceedance figure from the same paragraph -- genuine multi-hop, tests whether the system surfaces the contrast rather than just one half of it."
+    },
+    {
+      "id": "q141",
+      "question": "What was the exact number of confirmed cholera cases linked to the San Cristóbal wastewater contamination during the study period?",
+      "category": "unanswerable",
+      "expected_doc": "outlier-amr-surveillance.pdf",
+      "expected_docs": null,
+      "distractor_doc": null,
+      "reference_answer": null,
+      "notes": "The study focuses on antimicrobial resistance gene prevalence and microbial community shifts via metagenomic/qPCR/culture methods, not clinical disease case counts, and cholera is not mentioned. Tests refusal on a plausible-sounding but fabricated premise (cholera is a genuine wastewater-linked disease, making this a harder unanswerable case than an obviously unrelated question)."
     }
   ]
 }

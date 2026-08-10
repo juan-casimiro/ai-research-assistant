@@ -69,7 +69,6 @@ def main() -> int:
 
     stats = {
         "ingested": 0,
-        "skipped_outlier": 0,
         "missing": 0,
         "total_chunks": 0,
     }
@@ -80,11 +79,6 @@ def main() -> int:
         for article in articles:
             filename = article["filename"]
             cluster = article.get("cluster", "unknown")
-
-            if cluster == "outlier":    # temp
-                print(f"SKIP (outlier, no PDF yet): {filename}")
-                stats["skipped_outlier"] += 1
-                continue
 
             pdf_path = args.corpus_dir / filename
             if not pdf_path.exists():
@@ -106,7 +100,6 @@ def main() -> int:
     print("SUMMARY")
     print("=" * 60)
     print(f"  Ingested:        {stats['ingested']}")
-    print(f"  Skipped outlier: {stats['skipped_outlier']}")
     print(f"  Missing/empty:   {stats['missing']}")
     print(f"  Total chunks:    {stats['total_chunks']}")
     print("=" * 60)

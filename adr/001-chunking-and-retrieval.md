@@ -297,3 +297,23 @@ code change.
   gap being small; the rewrite prompt targets academic-vs-conversational
   terminology mismatches, which this golden set's queries mostly already
   avoid.
+
+### Update: re-confirmed on expanded corpus (22 documents, 133 queries)
+
+The same four configurations were re-run after the corpus and golden QA
+set grew to 22 documents and 133 queries (111 scored). Results:
+
+| Config                 | n=3 overall     | n=8 overall     | Δ vs baseline |
+|------------------------|-----------------|------------------|---------------|
+| vector-only (baseline) | 107/111 (96.4%) | 109/111 (98.2%)  | —             |
+| BM25 only              | 106/111 (95.5%) | 108/111 (97.3%)  | **−1**        |
+| rewrite only           | 107/111 (96.4%) | 109/111 (98.2%)  | 0             |
+| BM25 + rewrite         | 107/111 (96.4%) | 109/111 (98.2%)  | 0             |
+
+q008 is again the only query affected across all three configurations,
+with the identical regress-under-BM25/recover-under-combined pattern
+described above. No other query — including the queries added for the
+expanded corpus — was affected by any configuration. This confirms the
+original finding is a stable property of this pipeline and this query,
+not an artifact of corpus size, and supports the decision to keep both
+flags opt-in.

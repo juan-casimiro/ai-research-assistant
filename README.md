@@ -100,7 +100,7 @@ rewriting recovered it.
 ## Retrieval evaluation
 
 `python eval_golden.py [--bm25] [--rewrite]` runs the golden QA
-evaluation harness (`golden_qa.json`, 103 scored queries across 4
+evaluation harness (`golden_qa.json`, 140 scored queries across 4
 categories) against the live `retrieve()` pipeline, so evaluation always
 tests the exact code path used in production. Results are written to
 `eval_results.json` with a config label and per-query verdicts.
@@ -109,9 +109,10 @@ tests the exact code path used in production. Results are written to
 result files and prints per-query pass/fail flips, for isolating the
 effect of a single change.
 
-Raw results for all four tested configurations (vector-only, BM25,
-rewrite, BM25+rewrite) are committed under `eval_results/` for
-inspection.
+Raw per-query results for all four tested configurations are committed
+under `eval_results/` for inspection: `eval_results_baseline.json`,
+`eval_results_bm25.json`, `eval_results_rewrite.json`, and
+`eval_results_bm25_rewrite.json`.
 
 ## Possible future improvements
 

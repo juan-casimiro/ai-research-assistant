@@ -1512,9 +1512,9 @@
           "diabetes-pharmacotherapy-rct.pdf",
           "diabetes-pharmacotherapy-rct.pdf",
           "onco-breast-immunotherapy.pdf",
+          "outlier-gpt5-tau217-diagnosis.pdf",
           "diabetes-pharmacotherapy-rct.pdf",
           "diabetes-cgm-management.pdf",
-          "diabetes-pharmacotherapy-rct.pdf",
           "diabetes-pharmacotherapy-rct.pdf"
         ],
         "verdict": "not_scored"
@@ -3087,7 +3087,7 @@
           "onco-genomics-precision-medicine.pdf",
           "onco-genomics-precision-medicine.pdf",
           "onco-genomics-precision-medicine.pdf",
-          "onco-lung-liquidbiopsy.pdf"
+          "outlier-microbiome-tuberculosis.pdf"
         ],
         "verdict": "pass"
       }
@@ -3557,6 +3557,325 @@
           "cardio-mi-risk-stratification.pdf"
         ],
         "verdict": "pass"
+      }
+    },
+    {
+      "id": "q130",
+      "question": "In the memory clinic cohort, what was the median plasma P-tau 217-informed diagnostic accuracy achieved by physicians compared to GPT-5?",
+      "category": "direct_lookup",
+      "expected_doc": "outlier-gpt5-tau217-diagnosis.pdf",
+      "expected_docs": null,
+      "distractor_doc": null,
+      "n3": {
+        "retrieved_sources": [
+          "outlier-gpt5-tau217-diagnosis.pdf",
+          "outlier-gpt5-tau217-diagnosis.pdf",
+          "outlier-gpt5-tau217-diagnosis.pdf"
+        ],
+        "verdict": "pass"
+      },
+      "n8": {
+        "retrieved_sources": [
+          "outlier-gpt5-tau217-diagnosis.pdf",
+          "outlier-gpt5-tau217-diagnosis.pdf",
+          "outlier-gpt5-tau217-diagnosis.pdf",
+          "outlier-gpt5-tau217-diagnosis.pdf",
+          "outlier-gpt5-tau217-diagnosis.pdf",
+          "outlier-gpt5-tau217-diagnosis.pdf",
+          "outlier-gpt5-tau217-diagnosis.pdf",
+          "outlier-gpt5-tau217-diagnosis.pdf"
+        ],
+        "verdict": "pass"
+      }
+    },
+    {
+      "id": "q131",
+      "question": "How many amyloid-positive and amyloid-negative patients were included in this retrospective memory clinic study, and where was it conducted?",
+      "category": "direct_lookup",
+      "expected_doc": "outlier-gpt5-tau217-diagnosis.pdf",
+      "expected_docs": null,
+      "distractor_doc": null,
+      "n3": {
+        "retrieved_sources": [
+          "outlier-gpt5-tau217-diagnosis.pdf",
+          "outlier-gpt5-tau217-diagnosis.pdf",
+          "outlier-gpt5-tau217-diagnosis.pdf"
+        ],
+        "verdict": "pass"
+      },
+      "n8": {
+        "retrieved_sources": [
+          "outlier-gpt5-tau217-diagnosis.pdf",
+          "outlier-gpt5-tau217-diagnosis.pdf",
+          "outlier-gpt5-tau217-diagnosis.pdf",
+          "outlier-gpt5-tau217-diagnosis.pdf",
+          "outlier-gpt5-tau217-diagnosis.pdf",
+          "outlier-gpt5-tau217-diagnosis.pdf",
+          "outlier-gpt5-tau217-diagnosis.pdf",
+          "outlier-gpt5-tau217-diagnosis.pdf"
+        ],
+        "verdict": "pass"
+      }
+    },
+    {
+      "id": "q132",
+      "question": "How did GPT-5's rate of diagnosing mixed AD/non-AD aetiologies compare to physicians', both before and after plasma P-tau 217 was made available?",
+      "category": "multi_hop",
+      "expected_doc": "outlier-gpt5-tau217-diagnosis.pdf",
+      "expected_docs": null,
+      "distractor_doc": null,
+      "n3": {
+        "retrieved_sources": [
+          "outlier-gpt5-tau217-diagnosis.pdf",
+          "outlier-gpt5-tau217-diagnosis.pdf",
+          "outlier-gpt5-tau217-diagnosis.pdf"
+        ],
+        "verdict": "pass"
+      },
+      "n8": {
+        "retrieved_sources": [
+          "outlier-gpt5-tau217-diagnosis.pdf",
+          "outlier-gpt5-tau217-diagnosis.pdf",
+          "outlier-gpt5-tau217-diagnosis.pdf",
+          "outlier-gpt5-tau217-diagnosis.pdf",
+          "outlier-gpt5-tau217-diagnosis.pdf",
+          "outlier-gpt5-tau217-diagnosis.pdf",
+          "outlier-gpt5-tau217-diagnosis.pdf",
+          "outlier-gpt5-tau217-diagnosis.pdf"
+        ],
+        "verdict": "pass"
+      }
+    },
+    {
+      "id": "q133",
+      "question": "What was the FDA approval status of donanemab at the time this study was conducted, and what specific dosing regimen was used in the memory clinic cohort?",
+      "category": "unanswerable",
+      "expected_doc": "outlier-gpt5-tau217-diagnosis.pdf",
+      "expected_docs": null,
+      "distractor_doc": null,
+      "n3": {
+        "retrieved_sources": [
+          "outlier-gpt5-tau217-diagnosis.pdf",
+          "outlier-gpt5-tau217-diagnosis.pdf",
+          "diabetes-cgm-management.pdf"
+        ],
+        "verdict": "not_scored"
+      },
+      "n8": {
+        "retrieved_sources": [
+          "outlier-gpt5-tau217-diagnosis.pdf",
+          "outlier-gpt5-tau217-diagnosis.pdf",
+          "diabetes-cgm-management.pdf",
+          "outlier-gpt5-tau217-diagnosis.pdf",
+          "outlier-gpt5-tau217-diagnosis.pdf",
+          "outlier-gpt5-tau217-diagnosis.pdf",
+          "outlier-gpt5-tau217-diagnosis.pdf",
+          "diabetes-cgm-management.pdf"
+        ],
+        "verdict": "not_scored"
+      }
+    },
+    {
+      "id": "q135",
+      "question": "What role does the gut-lung axis play in tuberculosis pathogenesis, and what host processes does the gut microbiome modulate along this axis?",
+      "category": "direct_lookup",
+      "expected_doc": "outlier-microbiome-tuberculosis.pdf",
+      "expected_docs": null,
+      "distractor_doc": null,
+      "n3": {
+        "retrieved_sources": [
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf"
+        ],
+        "verdict": "pass"
+      },
+      "n8": {
+        "retrieved_sources": [
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf"
+        ],
+        "verdict": "pass"
+      }
+    },
+    {
+      "id": "q136",
+      "question": "What three types of gut-microbiome-targeted interventions does this review describe as capable of enhancing anti-TB therapeutic efficacy?",
+      "category": "direct_lookup",
+      "expected_doc": "outlier-microbiome-tuberculosis.pdf",
+      "expected_docs": null,
+      "distractor_doc": null,
+      "n3": {
+        "retrieved_sources": [
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf"
+        ],
+        "verdict": "pass"
+      },
+      "n8": {
+        "retrieved_sources": [
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf"
+        ],
+        "verdict": "pass"
+      }
+    },
+    {
+      "id": "q137",
+      "question": "According to this review, what are the current limitations in translating gut microbiome research into clinical TB management?",
+      "category": "multi_hop",
+      "expected_doc": "outlier-microbiome-tuberculosis.pdf",
+      "expected_docs": null,
+      "distractor_doc": null,
+      "n3": {
+        "retrieved_sources": [
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf"
+        ],
+        "verdict": "pass"
+      },
+      "n8": {
+        "retrieved_sources": [
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf"
+        ],
+        "verdict": "pass"
+      }
+    },
+    {
+      "id": "q138",
+      "question": "What percentage reduction in tuberculosis treatment duration was achieved using fecal microbiota transplantation as an adjunct therapy in the clinical trials reviewed?",
+      "category": "unanswerable",
+      "expected_doc": "outlier-microbiome-tuberculosis.pdf",
+      "expected_docs": null,
+      "distractor_doc": null,
+      "n3": {
+        "retrieved_sources": [
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf"
+        ],
+        "verdict": "not_scored"
+      },
+      "n8": {
+        "retrieved_sources": [
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf"
+        ],
+        "verdict": "not_scored"
+      }
+    },
+    {
+      "id": "q139",
+      "question": "In the Gal\u00e1pagos wastewater study, what percentage of lactose-fermenting Enterobacteriaceae isolates collected near wastewater outfall sites exhibited multidrug resistance?",
+      "category": "direct_lookup",
+      "expected_doc": "outlier-amr-surveillance.pdf",
+      "expected_docs": null,
+      "distractor_doc": null,
+      "n3": {
+        "retrieved_sources": [
+          "outlier-amr-surveillance.pdf",
+          "outlier-amr-surveillance.pdf",
+          "outlier-amr-surveillance.pdf"
+        ],
+        "verdict": "pass"
+      },
+      "n8": {
+        "retrieved_sources": [
+          "outlier-amr-surveillance.pdf",
+          "outlier-amr-surveillance.pdf",
+          "outlier-amr-surveillance.pdf",
+          "outlier-amr-surveillance.pdf",
+          "outlier-amr-surveillance.pdf",
+          "outlier-amr-surveillance.pdf",
+          "outlier-amr-surveillance.pdf",
+          "outlier-amr-surveillance.pdf"
+        ],
+        "verdict": "pass"
+      }
+    },
+    {
+      "id": "q140",
+      "question": "How did the San Crist\u00f3bal wastewater treatment plant's effluent E. coli levels compare to the Ecuadorian regulatory standard, despite meeting standards for other pollutants?",
+      "category": "multi_hop",
+      "expected_doc": "outlier-amr-surveillance.pdf",
+      "expected_docs": null,
+      "distractor_doc": null,
+      "n3": {
+        "retrieved_sources": [
+          "outlier-amr-surveillance.pdf",
+          "outlier-amr-surveillance.pdf",
+          "outlier-amr-surveillance.pdf"
+        ],
+        "verdict": "pass"
+      },
+      "n8": {
+        "retrieved_sources": [
+          "outlier-amr-surveillance.pdf",
+          "outlier-amr-surveillance.pdf",
+          "outlier-amr-surveillance.pdf",
+          "outlier-amr-surveillance.pdf",
+          "outlier-amr-surveillance.pdf",
+          "outlier-amr-surveillance.pdf",
+          "outlier-amr-surveillance.pdf",
+          "outlier-amr-surveillance.pdf"
+        ],
+        "verdict": "pass"
+      }
+    },
+    {
+      "id": "q141",
+      "question": "What was the exact number of confirmed cholera cases linked to the San Crist\u00f3bal wastewater contamination during the study period?",
+      "category": "unanswerable",
+      "expected_doc": "outlier-amr-surveillance.pdf",
+      "expected_docs": null,
+      "distractor_doc": null,
+      "n3": {
+        "retrieved_sources": [
+          "outlier-amr-surveillance.pdf",
+          "outlier-amr-surveillance.pdf",
+          "outlier-amr-surveillance.pdf"
+        ],
+        "verdict": "not_scored"
+      },
+      "n8": {
+        "retrieved_sources": [
+          "outlier-amr-surveillance.pdf",
+          "outlier-amr-surveillance.pdf",
+          "outlier-amr-surveillance.pdf",
+          "outlier-amr-surveillance.pdf",
+          "outlier-amr-surveillance.pdf",
+          "outlier-amr-surveillance.pdf",
+          "outlier-amr-surveillance.pdf",
+          "outlier-amr-surveillance.pdf"
+        ],
+        "verdict": "not_scored"
       }
     }
   ]
