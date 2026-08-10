@@ -2,19 +2,20 @@
 """Batch ingestion script for the biomedical RAG corpus.
 
 Usage:
-    The FastAPI server must be up: uvicorn main:app --reload
+    1. Run `python reset_collection.py` to reset the collection when
+       ingesting the corpus from scratch.
+    2. Start the FastAPI server:
+       `uvicorn main:app --reload`
+    3. Run this script to ingest the corpus.
 """
 import argparse
 import json
 import sys
 from pathlib import Path
 
-import chromadb
 import httpx
 from pypdf import PdfReader
 
-CHROMA_PATH = "./chroma_db"
-COLLECTION_NAME = "documents"
 INGEST_URL = "http://localhost:8000/ingest"
 DEFAULT_MANIFEST = Path("./corpus_manifest.json")
 DEFAULT_CORPUS_DIR = Path("./corpus")
@@ -29,6 +30,7 @@ def ingest_file(client: httpx.Client, pdf_path: Path, source: str) -> int | None
         return None
 
     text = "\n".join(page.extract_text() or "" for page in reader.pages)
+    pdf_path.with_suffix(".txt").write_text(text, encoding="utf-8") # saves the parsed pdf txt for reference
     if not text.strip():
         print(f"  WARNING: {pdf_path.name} extracted empty text — skipping.")
         return 0
@@ -78,6 +80,11 @@ def main() -> int:
         for article in articles:
             filename = article["filename"]
             cluster = article.get("cluster", "unknown")
+
+            if cluster == "outlier":    # temp
+                print(f"SKIP (outlier, no PDF yet): {filename}")
+                stats["skipped_outlier"] += 1
+                continue
 
             pdf_path = args.corpus_dir / filename
             if not pdf_path.exists():
