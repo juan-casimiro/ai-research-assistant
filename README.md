@@ -22,25 +22,46 @@ Embed each chunk (local model, FastEmbed/bge-small-en-v1.5)
 │
 ▼
 Store in Chroma (embedded mode, persisted locally)
+│
+▼
+Rebuild BM25 index (rank_bm25, in-memory, rebuilt on every ingest
+and at startup)
+
 
 Question
 │
 ▼
-Embed the question (same model)
+Embed the question (same model) ──► Chroma dense search (top-20)
+│
+├─ [if use_bm25]     BM25 sparse search (top-20)
+│
+├─ [if use_query_rewriting]  Claude rewrites the question,
+│                             then repeats both searches above
+│                             on the rewritten query
 │
 ▼
-Retrieve top-N most similar chunks
+Reciprocal Rank Fusion — merges all enabled ranked lists (k=60),
+capped to top 20 candidates
+│
+▼
+Cross-encoder reranking (Xenova/ms-marco-MiniLM-L-6-v2) — re-scores
+the fused candidates, selects final top-N
 │
 ▼
 Chunks + question → Claude → grounded answer + sources
 ```
+BM25 and query rewriting are opt-in (use_bm25, use_query_rewriting on /query, both default False) — see ADR-001 for why they're not enabled by default. The diagram above shows the full pipeline with both enabled; with both off, retrieval is dense search → reranking only.
 
 ## Tech stack
 
 - **FastAPI** — async web framework
 - **FastEmbed** (`bge-small-en-v1.5`) — local, ONNX-based embeddings, no API cost
 - **Chroma** — embedded-mode vector database, no server required
-- **Anthropic SDK** — Claude for grounded generation
+- **rank_bm25** (`BM25Okapi`) — in-memory sparse lexical retrieval, fused
+  with dense search via reciprocal rank fusion (opt-in, `use_bm25`)
+- **Anthropic SDK** — Claude for grounded generation, and for opt-in
+  query rewriting (`use_query_rewriting`)
+
 
 ## Setup
 
@@ -61,15 +82,49 @@ uvicorn main:app --reload
 
 ## Design decisions and known limitations
 
-See [ADR-001](./adr/001-chunking-and-retrieval.md). In short: retrieval
-works well for broad questions but can miss highly specific facts in
-citation-dense text, due to the local embedding model's precision
-limits. Reranking is identified as the standard next step to address
-this, not yet implemented.
+See [ADR-001](./adr/001-chunking-and-retrieval.md) for the full history:
+chunking approach, the two-stage retrieval pipeline (dense embeddings +
+cross-encoder reranking), BM25 hybrid search via reciprocal rank fusion,
+and LLM-based query rewriting — including a full evaluation of BM25 and
+rewriting against the 103-query golden QA set, with results and the
+decision to keep both opt-in rather than default-on.
+
+In short: two-stage retrieval (embeddings + reranking) scores 96.1%
+(n=3) / 98.1% (n=8) on the golden QA set. BM25 and query rewriting were
+implemented and evaluated as opt-in additions but did not improve
+retrieval on this corpus — see ADR-001 for the full breakdown, including
+one attributable regression from BM25 alone and why combining it with
+rewriting recovered it.
+
+
+## Retrieval evaluation
+
+`python eval_golden.py [--bm25] [--rewrite]` runs the golden QA
+evaluation harness (`golden_qa.json`, 103 scored queries across 4
+categories) against the live `retrieve()` pipeline, so evaluation always
+tests the exact code path used in production. Results are written to
+`eval_results.json` with a config label and per-query verdicts.
+
+`python compare_evals.py <baseline.json> <experiment.json>` diffs two
+result files and prints per-query pass/fail flips, for isolating the
+effect of a single change.
+
+Raw results for all four tested configurations (vector-only, BM25,
+rewrite, BM25+rewrite) are committed under `eval_results/` for
+inspection.
 
 ## Possible future improvements
 
-- Reranking step (cross-encoder re-scoring of a broader candidate set)
+- Isolate BM25 as a standalone retrieval signal (no vector search in the
+  fusion) to measure lexical-only retrieval quality on this corpus,
+  separate from the "does adding BM25 to vector help" question already
+  answered
+- Add eval queries where dense retrieval + reranking demonstrably fails
+  and lexical exact-match would succeed, to test BM25's upside fairly
+  (the current BM25-favoring queries already pass on vector-only)
+- HyDE (Hypothetical Document Embeddings) or corpus-aware query rewriting,
+  as a way to address vocabulary-specific mismatches that generic
+  rewriting does not fix (see ADR-001)
 - File upload endpoint (currently text-only via JSON)
-- Comparison against a larger embedding model or OpenAI embeddings
-- Query rewriting/expansion for better recall on narrow factual questions
+- Ingest the three outlier documents once source PDFs are available
+  (currently skipped by `ingest_corpus.py`, see corpus manifest)

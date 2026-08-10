@@ -1,8 +1,8 @@
 {
-  "config_label": "vector-bm25-rewrite",
+  "config_label": "vector-only-baseline",
   "config": {
-    "use_bm25": true,
-    "use_query_rewriting": true,
+    "use_bm25": false,
+    "use_query_rewriting": false,
     "n_values": [
       3,
       8
@@ -62,7 +62,7 @@
           "diabetes-pharmacotherapy-rct.pdf",
           "diabetes-pharmacotherapy-rct.pdf",
           "diabetes-pharmacotherapy-rct.pdf",
-          "diabetes-nephropathy-complications.pdf"
+          "diabetes-pharmacotherapy-rct.pdf"
         ],
         "verdict": "pass"
       }
@@ -235,7 +235,7 @@
           "diabetes-epidemiology-prevalence.pdf",
           "diabetes-epidemiology-prevalence.pdf",
           "diabetes-epidemiology-prevalence.pdf",
-          "diabetes-epidemiology-prevalence.pdf",
+          "diabetes-nephropathy-complications.pdf",
           "diabetes-epidemiology-prevalence.pdf"
         ],
         "verdict": "pass"
@@ -407,9 +407,9 @@
           "diabetes-epidemiology-prevalence.pdf",
           "diabetes-epidemiology-prevalence.pdf",
           "diabetes-cgm-management.pdf",
-          "diabetes-epidemiology-prevalence.pdf",
           "diabetes-cgm-management.pdf",
           "diabetes-epidemiology-prevalence.pdf",
+          "diabetes-genetic-risk-gwas.pdf",
           "diabetes-epidemiology-prevalence.pdf"
         ],
         "verdict": "not_scored"
@@ -437,7 +437,7 @@
           "diabetes-epidemiology-prevalence.pdf",
           "diabetes-epidemiology-prevalence.pdf",
           "diabetes-epidemiology-prevalence.pdf",
-          "diabetes-epidemiology-prevalence.pdf",
+          "diabetes-nephropathy-complications.pdf",
           "diabetes-nephropathy-complications.pdf",
           "diabetes-nephropathy-complications.pdf"
         ],
@@ -787,8 +787,8 @@
           "diabetes-genetic-risk-gwas.pdf",
           "diabetes-nephropathy-complications.pdf",
           "diabetes-genetic-risk-gwas.pdf",
-          "diabetes-genetic-risk-gwas.pdf",
-          "diabetes-genetic-risk-gwas.pdf",
+          "diabetes-nephropathy-complications.pdf",
+          "diabetes-nephropathy-complications.pdf",
           "diabetes-nephropathy-complications.pdf",
           "diabetes-nephropathy-complications.pdf"
         ],
@@ -834,21 +834,21 @@
       "n3": {
         "retrieved_sources": [
           "diabetes-cardiovascular-outcomes.pdf",
-          "diabetes-cardiovascular-outcomes.pdf",
-          "diabetes-cardiovascular-outcomes.pdf"
+          "diabetes-pharmacotherapy-rct.pdf",
+          "diabetes-pharmacotherapy-rct.pdf"
         ],
         "verdict": "pass"
       },
       "n8": {
         "retrieved_sources": [
           "diabetes-cardiovascular-outcomes.pdf",
-          "diabetes-cardiovascular-outcomes.pdf",
-          "diabetes-cardiovascular-outcomes.pdf",
-          "diabetes-cardiovascular-outcomes.pdf",
-          "diabetes-cardiovascular-outcomes.pdf",
-          "cardio-afib-ml-detection.pdf",
           "diabetes-pharmacotherapy-rct.pdf",
-          "diabetes-pharmacotherapy-rct.pdf"
+          "diabetes-pharmacotherapy-rct.pdf",
+          "diabetes-cgm-management.pdf",
+          "cardio-hypertension-guidelines.pdf",
+          "diabetes-cardiovascular-outcomes.pdf",
+          "diabetes-cgm-management.pdf",
+          "diabetes-cgm-management.pdf"
         ],
         "verdict": "pass"
       }
@@ -906,7 +906,7 @@
           "diabetes-cardiovascular-outcomes.pdf",
           "diabetes-cardiovascular-outcomes.pdf",
           "diabetes-cardiovascular-outcomes.pdf",
-          "diabetes-nephropathy-complications.pdf"
+          "diabetes-cardiovascular-outcomes.pdf"
         ],
         "verdict": "pass"
       }
@@ -979,7 +979,7 @@
       "n3": {
         "retrieved_sources": [
           "diabetes-cardiovascular-outcomes.pdf",
-          "cardio-mi-risk-stratification.pdf",
+          "diabetes-cardiovascular-outcomes.pdf",
           "diabetes-cardiovascular-outcomes.pdf"
         ],
         "verdict": "pass"
@@ -987,13 +987,13 @@
       "n8": {
         "retrieved_sources": [
           "diabetes-cardiovascular-outcomes.pdf",
-          "cardio-mi-risk-stratification.pdf",
           "diabetes-cardiovascular-outcomes.pdf",
           "diabetes-cardiovascular-outcomes.pdf",
-          "cardio-mi-risk-stratification.pdf",
+          "diabetes-epidemiology-prevalence.pdf",
+          "diabetes-epidemiology-prevalence.pdf",
+          "diabetes-epidemiology-prevalence.pdf",
           "diabetes-cardiovascular-outcomes.pdf",
-          "cardio-mi-risk-stratification.pdf",
-          "cardio-mi-risk-stratification.pdf"
+          "diabetes-cardiovascular-outcomes.pdf"
         ],
         "verdict": "pass"
       }
@@ -1222,7 +1222,7 @@
           "cardio-afib-ml-detection.pdf",
           "cardio-afib-ml-detection.pdf",
           "cardio-afib-ml-detection.pdf",
-          "onco-breast-immunotherapy.pdf",
+          "cardio-afib-ml-detection.pdf",
           "cardio-afib-ml-detection.pdf",
           "cardio-afib-ml-detection.pdf",
           "cardio-afib-ml-detection.pdf"
@@ -1280,7 +1280,7 @@
           "cardio-mi-risk-stratification.pdf",
           "cardio-mi-risk-stratification.pdf",
           "cardio-afib-ml-detection.pdf",
-          "cardio-afib-ml-detection.pdf",
+          "cardio-mi-risk-stratification.pdf",
           "cardio-mi-risk-stratification.pdf",
           "cardio-afib-ml-detection.pdf",
           "cardio-mi-risk-stratification.pdf"
@@ -1367,7 +1367,7 @@
           "cardio-cad-ct-angiography.pdf",
           "cardio-cad-ct-angiography.pdf",
           "cardio-cad-ct-angiography.pdf",
-          "cardio-cad-ct-angiography.pdf",
+          "cardio-mi-risk-stratification.pdf",
           "cardio-cad-ct-angiography.pdf",
           "cardio-cad-ct-angiography.pdf",
           "cardio-cad-ct-angiography.pdf"
@@ -1426,8 +1426,8 @@
           "cardio-cad-ct-angiography.pdf",
           "cardio-cad-ct-angiography.pdf",
           "cardio-cad-ct-angiography.pdf",
-          "cardio-mi-risk-stratification.pdf",
           "cardio-cad-ct-angiography.pdf",
+          "cardio-mi-risk-stratification.pdf",
           "cardio-cad-ct-angiography.pdf"
         ],
         "verdict": "pass"
@@ -1453,7 +1453,7 @@
           "cardio-mi-risk-stratification.pdf",
           "cardio-mi-risk-stratification.pdf",
           "cardio-mi-risk-stratification.pdf",
-          "cardio-cad-ct-angiography.pdf",
+          "cardio-mi-risk-stratification.pdf",
           "cardio-mi-risk-stratification.pdf",
           "cardio-mi-risk-stratification.pdf",
           "cardio-mi-risk-stratification.pdf",
@@ -1473,7 +1473,7 @@
         "retrieved_sources": [
           "cardio-mi-risk-stratification.pdf",
           "cardio-cad-ct-angiography.pdf",
-          "diabetes-genetic-risk-gwas.pdf"
+          "cardio-cad-ct-angiography.pdf"
         ],
         "verdict": "pass"
       },
@@ -1483,10 +1483,10 @@
           "cardio-cad-ct-angiography.pdf",
           "cardio-cad-ct-angiography.pdf",
           "cardio-cad-ct-angiography.pdf",
-          "diabetes-genetic-risk-gwas.pdf",
           "cardio-cad-ct-angiography.pdf",
+          "cardio-mi-risk-stratification.pdf",
           "cardio-cad-ct-angiography.pdf",
-          "cardio-mi-risk-stratification.pdf"
+          "cardio-cad-ct-angiography.pdf"
         ],
         "verdict": "pass"
       }
@@ -1500,22 +1500,22 @@
       "distractor_doc": null,
       "n3": {
         "retrieved_sources": [
-          "onco-tumor-microenvironment.pdf",
-          "onco-breast-immunotherapy.pdf",
+          "diabetes-pharmacotherapy-rct.pdf",
+          "diabetes-pharmacotherapy-rct.pdf",
           "diabetes-pharmacotherapy-rct.pdf"
         ],
         "verdict": "not_scored"
       },
       "n8": {
         "retrieved_sources": [
-          "onco-tumor-microenvironment.pdf",
+          "diabetes-pharmacotherapy-rct.pdf",
+          "diabetes-pharmacotherapy-rct.pdf",
+          "diabetes-pharmacotherapy-rct.pdf",
           "onco-breast-immunotherapy.pdf",
           "diabetes-pharmacotherapy-rct.pdf",
+          "diabetes-cgm-management.pdf",
           "diabetes-pharmacotherapy-rct.pdf",
-          "diabetes-nephropathy-complications.pdf",
-          "cardio-cad-ct-angiography.pdf",
-          "diabetes-cardiovascular-outcomes.pdf",
-          "onco-lung-liquidbiopsy.pdf"
+          "diabetes-pharmacotherapy-rct.pdf"
         ],
         "verdict": "not_scored"
       }
@@ -1646,7 +1646,7 @@
       "n3": {
         "retrieved_sources": [
           "cardio-heartfailure-biomarkers.pdf",
-          "diabetes-genetic-risk-gwas.pdf",
+          "cardio-heartfailure-biomarkers.pdf",
           "cardio-heartfailure-biomarkers.pdf"
         ],
         "verdict": "not_scored"
@@ -1654,13 +1654,13 @@
       "n8": {
         "retrieved_sources": [
           "cardio-heartfailure-biomarkers.pdf",
+          "cardio-heartfailure-biomarkers.pdf",
+          "cardio-heartfailure-biomarkers.pdf",
           "diabetes-genetic-risk-gwas.pdf",
           "cardio-heartfailure-biomarkers.pdf",
           "diabetes-pharmacotherapy-rct.pdf",
-          "diabetes-pharmacotherapy-rct.pdf",
           "cardio-heartfailure-biomarkers.pdf",
-          "diabetes-pharmacotherapy-rct.pdf",
-          "diabetes-pharmacotherapy-rct.pdf"
+          "cardio-heartfailure-biomarkers.pdf"
         ],
         "verdict": "not_scored"
       }
@@ -1831,9 +1831,9 @@
           "cardio-hypertension-guidelines.pdf",
           "cardio-hypertension-guidelines.pdf",
           "cardio-hypertension-guidelines.pdf",
-          "cardio-hypertension-guidelines.pdf",
-          "cardio-hypertension-guidelines.pdf",
-          "cardio-hypertension-guidelines.pdf",
+          "diabetes-cgm-management.pdf",
+          "diabetes-cgm-management.pdf",
+          "diabetes-cgm-management.pdf",
           "diabetes-cgm-management.pdf"
         ],
         "verdict": "not_scored"
@@ -1967,20 +1967,20 @@
       "distractor_doc": null,
       "n3": {
         "retrieved_sources": [
-          "cardio-afib-ml-detection.pdf",
           "cardio-mi-risk-stratification.pdf",
-          "cardio-mi-risk-stratification.pdf"
+          "cardio-mi-risk-stratification.pdf",
+          "cardio-afib-ml-detection.pdf"
         ],
         "verdict": "pass"
       },
       "n8": {
         "retrieved_sources": [
-          "cardio-afib-ml-detection.pdf",
           "cardio-mi-risk-stratification.pdf",
           "cardio-mi-risk-stratification.pdf",
           "cardio-afib-ml-detection.pdf",
-          "cardio-afib-ml-detection.pdf",
-          "cardio-afib-ml-detection.pdf",
+          "cardio-mi-risk-stratification.pdf",
+          "cardio-mi-risk-stratification.pdf",
+          "cardio-mi-risk-stratification.pdf",
           "cardio-mi-risk-stratification.pdf",
           "cardio-mi-risk-stratification.pdf"
         ],
@@ -2038,9 +2038,9 @@
           "cardio-mi-risk-stratification.pdf",
           "cardio-mi-risk-stratification.pdf",
           "cardio-mi-risk-stratification.pdf",
+          "cardio-cad-ct-angiography.pdf",
           "cardio-mi-risk-stratification.pdf",
-          "cardio-mi-risk-stratification.pdf",
-          "cardio-cad-ct-angiography.pdf"
+          "cardio-mi-risk-stratification.pdf"
         ],
         "verdict": "not_scored"
       }
@@ -2300,8 +2300,8 @@
           "onco-tumor-microenvironment.pdf",
           "onco-tumor-microenvironment.pdf",
           "onco-tumor-microenvironment.pdf",
-          "onco-tumor-microenvironment.pdf",
-          "onco-lung-liquidbiopsy.pdf"
+          "onco-lung-liquidbiopsy.pdf",
+          "onco-breast-immunotherapy.pdf"
         ],
         "verdict": "pass"
       }
@@ -2317,7 +2317,7 @@
         "retrieved_sources": [
           "onco-tumor-microenvironment.pdf",
           "onco-tumor-microenvironment.pdf",
-          "onco-lung-liquidbiopsy.pdf"
+          "onco-tumor-microenvironment.pdf"
         ],
         "verdict": "pass"
       },
@@ -2325,10 +2325,10 @@
         "retrieved_sources": [
           "onco-tumor-microenvironment.pdf",
           "onco-tumor-microenvironment.pdf",
+          "onco-tumor-microenvironment.pdf",
+          "onco-tumor-microenvironment.pdf",
+          "onco-tumor-microenvironment.pdf",
           "onco-lung-liquidbiopsy.pdf",
-          "onco-tumor-microenvironment.pdf",
-          "onco-tumor-microenvironment.pdf",
-          "onco-tumor-microenvironment.pdf",
           "onco-tumor-microenvironment.pdf",
           "onco-tumor-microenvironment.pdf"
         ],
@@ -2355,11 +2355,11 @@
           "onco-tumor-microenvironment.pdf",
           "onco-tumor-microenvironment.pdf",
           "onco-tumor-microenvironment.pdf",
-          "onco-tumor-microenvironment.pdf",
-          "onco-tumor-microenvironment.pdf",
           "cardio-heartfailure-biomarkers.pdf",
           "onco-tumor-microenvironment.pdf",
-          "cardio-heartfailure-biomarkers.pdf"
+          "onco-tumor-microenvironment.pdf",
+          "onco-breast-immunotherapy.pdf",
+          "onco-tumor-microenvironment.pdf"
         ],
         "verdict": "pass"
       }
@@ -2432,21 +2432,21 @@
       "n3": {
         "retrieved_sources": [
           "onco-tumor-microenvironment.pdf",
-          "onco-breast-immunotherapy.pdf",
-          "onco-tumor-microenvironment.pdf"
+          "onco-tumor-microenvironment.pdf",
+          "onco-breast-immunotherapy.pdf"
         ],
         "verdict": "not_scored"
       },
       "n8": {
         "retrieved_sources": [
           "onco-tumor-microenvironment.pdf",
+          "onco-tumor-microenvironment.pdf",
           "onco-breast-immunotherapy.pdf",
           "onco-tumor-microenvironment.pdf",
           "onco-tumor-microenvironment.pdf",
           "onco-tumor-microenvironment.pdf",
-          "onco-tumor-microenvironment.pdf",
-          "onco-tumor-microenvironment.pdf",
-          "onco-breast-immunotherapy.pdf"
+          "onco-lung-liquidbiopsy.pdf",
+          "diabetes-cgm-management.pdf"
         ],
         "verdict": "not_scored"
       }
@@ -2500,11 +2500,11 @@
           "onco-lung-liquidbiopsy.pdf",
           "onco-tumor-microenvironment.pdf",
           "onco-tumor-microenvironment.pdf",
-          "onco-tumor-microenvironment.pdf",
           "onco-lung-liquidbiopsy.pdf",
           "onco-lung-liquidbiopsy.pdf",
-          "onco-tumor-microenvironment.pdf",
-          "onco-tumor-microenvironment.pdf"
+          "onco-lung-liquidbiopsy.pdf",
+          "onco-lung-liquidbiopsy.pdf",
+          "onco-lung-liquidbiopsy.pdf"
         ],
         "verdict": "pass"
       }
@@ -2620,8 +2620,8 @@
           "onco-colorectal-screening.pdf",
           "onco-colorectal-screening.pdf",
           "onco-colorectal-screening.pdf",
-          "onco-colorectal-screening.pdf",
           "cardio-mi-risk-stratification.pdf",
+          "onco-colorectal-screening.pdf",
           "onco-colorectal-screening.pdf",
           "onco-colorectal-screening.pdf"
         ],
@@ -2764,11 +2764,11 @@
           "onco-colorectal-screening.pdf",
           "onco-colorectal-screening.pdf",
           "diabetes-pharmacotherapy-rct.pdf",
+          "diabetes-pharmacotherapy-rct.pdf",
           "cardio-cad-ct-angiography.pdf",
           "cardio-cad-ct-angiography.pdf",
-          "diabetes-cardiovascular-outcomes.pdf",
-          "onco-breast-immunotherapy.pdf",
-          "onco-colorectal-screening.pdf"
+          "onco-colorectal-screening.pdf",
+          "diabetes-epidemiology-prevalence.pdf"
         ],
         "verdict": "pass"
       }
@@ -2791,11 +2791,11 @@
       "n8": {
         "retrieved_sources": [
           "onco-breast-immunotherapy.pdf",
-          "onco-genomics-precision-medicine.pdf",
           "onco-breast-immunotherapy.pdf",
           "onco-breast-immunotherapy.pdf",
           "onco-breast-immunotherapy.pdf",
-          "onco-genomics-precision-medicine.pdf",
+          "onco-breast-immunotherapy.pdf",
+          "onco-breast-immunotherapy.pdf",
           "onco-breast-immunotherapy.pdf",
           "onco-breast-immunotherapy.pdf"
         ],
@@ -2940,9 +2940,9 @@
           "onco-lung-liquidbiopsy.pdf",
           "onco-breast-immunotherapy.pdf",
           "onco-lung-liquidbiopsy.pdf",
-          "onco-lung-liquidbiopsy.pdf",
           "cardio-heartfailure-biomarkers.pdf",
-          "onco-lung-liquidbiopsy.pdf"
+          "onco-breast-immunotherapy.pdf",
+          "diabetes-pharmacotherapy-rct.pdf"
         ],
         "verdict": "not_scored"
       }
@@ -3027,7 +3027,7 @@
           "onco-genomics-precision-medicine.pdf",
           "onco-breast-immunotherapy.pdf",
           "onco-genomics-precision-medicine.pdf",
-          "onco-genomics-precision-medicine.pdf",
+          "onco-breast-immunotherapy.pdf",
           "onco-genomics-precision-medicine.pdf",
           "onco-breast-immunotherapy.pdf"
         ],
@@ -3054,11 +3054,11 @@
           "onco-genomics-precision-medicine.pdf",
           "onco-genomics-precision-medicine.pdf",
           "onco-genomics-precision-medicine.pdf",
-          "diabetes-cardiovascular-outcomes.pdf",
-          "onco-lung-liquidbiopsy.pdf",
           "onco-lung-liquidbiopsy.pdf",
           "onco-genomics-precision-medicine.pdf",
-          "onco-breast-immunotherapy.pdf"
+          "onco-tumor-microenvironment.pdf",
+          "onco-breast-immunotherapy.pdf",
+          "onco-genomics-precision-medicine.pdf"
         ],
         "verdict": "pass"
       }
@@ -3087,7 +3087,7 @@
           "onco-genomics-precision-medicine.pdf",
           "onco-genomics-precision-medicine.pdf",
           "onco-genomics-precision-medicine.pdf",
-          "onco-breast-immunotherapy.pdf"
+          "onco-lung-liquidbiopsy.pdf"
         ],
         "verdict": "pass"
       }
@@ -3202,7 +3202,7 @@
           "onco-breast-immunotherapy.pdf",
           "onco-breast-immunotherapy.pdf",
           "onco-breast-immunotherapy.pdf",
-          "onco-genomics-precision-medicine.pdf",
+          "onco-breast-immunotherapy.pdf",
           "onco-genomics-precision-medicine.pdf",
           "onco-breast-immunotherapy.pdf",
           "onco-breast-immunotherapy.pdf",
@@ -3221,7 +3221,7 @@
       "n3": {
         "retrieved_sources": [
           "onco-genomics-precision-medicine.pdf",
-          "onco-tumor-microenvironment.pdf",
+          "onco-breast-immunotherapy.pdf",
           "onco-breast-immunotherapy.pdf"
         ],
         "verdict": "pass"
@@ -3229,13 +3229,13 @@
       "n8": {
         "retrieved_sources": [
           "onco-genomics-precision-medicine.pdf",
-          "onco-tumor-microenvironment.pdf",
           "onco-breast-immunotherapy.pdf",
           "onco-breast-immunotherapy.pdf",
           "onco-genomics-precision-medicine.pdf",
           "onco-breast-immunotherapy.pdf",
           "onco-breast-immunotherapy.pdf",
-          "onco-genomics-precision-medicine.pdf"
+          "onco-genomics-precision-medicine.pdf",
+          "onco-breast-immunotherapy.pdf"
         ],
         "verdict": "pass"
       }
@@ -3264,7 +3264,7 @@
           "onco-lung-liquidbiopsy.pdf",
           "onco-lung-liquidbiopsy.pdf",
           "onco-lung-liquidbiopsy.pdf",
-          "onco-lung-liquidbiopsy.pdf"
+          "onco-genomics-precision-medicine.pdf"
         ],
         "verdict": "pass"
       }
@@ -3396,7 +3396,7 @@
         "retrieved_sources": [
           "cardio-mi-risk-stratification.pdf",
           "cardio-cad-ct-angiography.pdf",
-          "cardio-mi-risk-stratification.pdf"
+          "cardio-afib-ml-detection.pdf"
         ],
         "verdict": "pass"
       },
@@ -3464,10 +3464,10 @@
           "cardio-cad-ct-angiography.pdf",
           "cardio-cad-ct-angiography.pdf",
           "cardio-cad-ct-angiography.pdf",
-          "cardio-mi-risk-stratification.pdf",
           "cardio-cad-ct-angiography.pdf",
           "cardio-cad-ct-angiography.pdf",
-          "cardio-cad-ct-angiography.pdf"
+          "cardio-cad-ct-angiography.pdf",
+          "cardio-heartfailure-biomarkers.pdf"
         ],
         "verdict": "pass"
       }

@@ -185,3 +185,115 @@ different fixes: recall failures need either a better embedding model
 or a larger candidate pool (n_results in the initial retrieval stage,
 not the final n_results), while precision failures are exactly what
 reranking is meant to address.
+
+## Hybrid Search Evaluation (BM25 + Query Rewriting)
+
+### Context
+
+Following the baseline vector-only evaluation, BM25 sparse retrieval (via
+reciprocal rank fusion, k=60) and LLM-based query rewriting were already
+implemented as opt-in flags on `/query` (`use_bm25`, `use_query_rewriting`).
+They were evaluated against the golden QA set (103 scored queries, 4
+categories) in isolation and combined, to measure their actual effect
+rather than assume a hybrid approach would outperform vector-only search.
+
+New `cross_doc_distractor` queries were added to `golden_qa.json`
+specifically to exercise exact-term matching (model names, biomarkers,
+numeric thresholds) where BM25 should have a structural advantage over
+dense embeddings.
+
+Both flags are strictly additive to vector search, never a replacement
+for it. `retrieve()`'s internal `_fetch_all` always runs dense retrieval;
+`use_bm25=True` adds a BM25 candidate list alongside it via
+`asyncio.gather`, and `use_query_rewriting=True` repeats the entire
+`_fetch_all` step a second time on the rewritten query. All resulting
+lists are fused together in one `reciprocal_rank_fusion` call before
+reranking — so "BM25 enabled" means "vector + BM25 fused," and
+"BM25 + rewrite" means four ranked lists (original-dense, original-BM25,
+rewritten-dense, rewritten-BM25) fused at once, not BM25 running alone
+at any point.
+
+### Results
+
+| Config                 | n=3 overall     | n=8 overall     | Δ vs baseline |
+|------------------------|-----------------|------------------|---------------|
+| vector-only (baseline) | 99/103 (96.1%)  | 101/103 (98.1%)  | —             |
+| BM25 only              | 98/103 (95.1%)  | 100/103 (97.1%)  | **−1**        |
+| rewrite only           | 99/103 (96.1%)  | 101/103 (98.1%)  | 0             |
+| BM25 + rewrite         | 99/103 (96.1%)  | 101/103 (98.1%)  | 0             |
+
+Full per-query results for all four configurations are committed under
+`eval_results/` for inspection.
+
+### Findings
+
+1. **Neither technique improved retrieval on this corpus.** Query
+   rewriting alone produced zero verdict changes across all 103 queries at
+   both n=3 and n=8 — the rewritten queries retrieved byte-identical
+   source lists to the original phrasing in every case tested.
+
+2. **BM25 alone caused one regression.** Query q008 ("What HbA1c level or
+   role does HbA1c play in relation to diabetic complications like
+   retinopathy or nephropathy?") flipped pass→fail at both n=3 and n=8.
+   The distractor document (`diabetes-pharmacotherapy-rct.pdf`) is an RCT
+   whose primary subject is HbA1c reduction — dense, repeated use of the
+   query's exact terms. In the two-list fusion (dense + BM25), BM25's
+   term-frequency signal ranked the distractor above the correct document
+   (`diabetes-epidemiology-prevalence.pdf`), inverting an ordering that
+   vector search got right by weighting semantic intent ("HbA1c's role in
+   complications") over raw lexical overlap. This is the predictable
+   failure mode of lexical retrieval against a distractor that happens to
+   be topically dense in the query's own vocabulary.
+
+3. **Combining BM25 with rewriting recovered the regression.** With both
+   enabled, q008 passed again. Confirmed against the code: the rewrite
+   path expands the fusion from 2 ranked lists to 4 (original-dense,
+   original-BM25, rewritten-dense, rewritten-BM25). Confirmed separately
+   that rewriting alone (no BM25) leaves q008 byte-identical to baseline —
+   isolating the fix to the larger fused candidate pool diluting BM25's
+   single-query term-frequency pull, not to any change in what the
+   rewritten query itself retrieves.
+
+4. **The two known hard failures (q044, q050) did not move under any
+   configuration.** Neither BM25, rewriting, nor the combination changed
+   their verdicts. Having now tested three retrieval strategies against
+   them without effect, these are best characterized as genuine embedding
+   space / semantic ambiguity cases rather than a retrieval-strategy gap.
+
+5. **The BM25-favoring queries did not exercise BM25's advantage.**
+   Queries added specifically to showcase lexical exact-match
+   (`q120`–`q124`: exact model names, biomarker tokens, numeric
+   thresholds) already passed under vector-only search plus cross-encoder
+   reranking — the reranker's contextual scoring was sufficient to
+   surface them without needing lexical retrieval. The current eval set
+   can demonstrate BM25's downside (q008) but not a clear upside.
+
+### Decision
+
+**`use_bm25` and `use_query_rewriting` remain opt-in and default to
+`False`.** On this corpus and query set, hybrid search did not provide a
+measurable net benefit and introduced one attributable regression in
+isolation. Enabling it by default would trade a proven vector-only
+baseline for added latency and complexity without evidence of improved
+retrieval quality. The RRF fusion, BM25 index, and rewrite path remain
+fully implemented and available for callers who want them (e.g. corpora
+with more acronym-, ID-, or number-dense content than this one), and the
+opt-in design means this decision can be revisited per-corpus without a
+code change.
+
+### Limitations of this evaluation
+
+- Single corpus (19 biomedical papers, 4 topic clusters). Results may not
+  generalize to corpora with denser exact-term retrieval needs (legal,
+  codebases, structured IDs).
+- **BM25 was not evaluated in isolation from vector search.** Every
+  configuration includes the dense retrieval list in the fusion; no run
+  tested BM25 as the sole retrieval signal. This would require a
+  `retrieve()` change to skip dense retrieval entirely and is left as
+  future work — it would answer "how good is lexical-only retrieval on
+  this corpus" rather than "does adding BM25 to vector search help,"
+  which is the question this evaluation actually answers.
+- The rewrite-alone null result is based on this query set's phrasing
+  gap being small; the rewrite prompt targets academic-vs-conversational
+  terminology mismatches, which this golden set's queries mostly already
+  avoid.
