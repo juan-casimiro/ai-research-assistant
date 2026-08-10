@@ -1,8 +1,8 @@
-# Research Assistant (RAG)
+Research Assistant (RAG)
 
-A FastAPI service for semantic search and question-answering over
-ingested documents, using local embeddings, Chroma for vector storage,
-and Claude for grounded generation.
+A FastAPI service for semantic search and question-answering over ingested documents, using local embeddings, Chroma for vector storage, and Claude for grounded generation.
+
+The test corpus is 22 open-access biomedical research articles (PubMed Central Open Access subset and equivalent open-access journals), spanning diabetes, cardiology, oncology, and an outlier cluster covering antimicrobial resistance, gut microbiome/tuberculosis, and AI-assisted diagnosis — see corpus_manifest.json for full per-article metadata, licenses, and sourcing notes. The RAG pipeline itself is domain-agnostic; biomedical literature was chosen as a corpus with genuinely dense, citation-heavy, and terminology-specific text, useful for stress-testing retrieval precision.
 
 ## Features
 
@@ -81,29 +81,31 @@ uvicorn main:app --reload
 ```
 
 ## Design decisions and known limitations
-
+ 
 See [ADR-001](./adr/001-chunking-and-retrieval.md) for the full history:
 chunking approach, the two-stage retrieval pipeline (dense embeddings +
 cross-encoder reranking), BM25 hybrid search via reciprocal rank fusion,
 and LLM-based query rewriting — including a full evaluation of BM25 and
-rewriting against the 103-query golden QA set, with results and the
-decision to keep both opt-in rather than default-on.
-
-In short: two-stage retrieval (embeddings + reranking) scores 96.1%
-(n=3) / 98.1% (n=8) on the golden QA set. BM25 and query rewriting were
-implemented and evaluated as opt-in additions but did not improve
-retrieval on this corpus — see ADR-001 for the full breakdown, including
-one attributable regression from BM25 alone and why combining it with
-rewriting recovered it.
+rewriting against the golden QA set, with results and the decision to
+keep both opt-in rather than default-on.
+ 
+In short: two-stage retrieval (embeddings + reranking) scores 96.4%
+(n=3) / 98.2% (n=8) on the golden QA set (133 queries, 111 scored). BM25
+and query rewriting were implemented and evaluated as opt-in additions
+but did not improve retrieval on this corpus — see ADR-001 for the full
+breakdown, including one attributable regression from BM25 alone and
+why combining it with rewriting recovered it, re-confirmed after the
+corpus expanded to 22 documents.
 
 
 ## Retrieval evaluation
 
 `python eval_golden.py [--bm25] [--rewrite]` runs the golden QA
-evaluation harness (`golden_qa.json`, 140 scored queries across 4
-categories) against the live `retrieve()` pipeline, so evaluation always
-tests the exact code path used in production. Results are written to
-`eval_results.json` with a config label and per-query verdicts.
+evaluation harness (`golden_qa.json`, 133 queries, 111 scored across 4
+categories plus unanswerable) against the live `retrieve()` pipeline, so
+evaluation always tests the exact code path used in production. Results
+are written to `eval_results.json` with a config label and per-query
+verdicts.
 
 `python compare_evals.py <baseline.json> <experiment.json>` diffs two
 result files and prints per-query pass/fail flips, for isolating the
@@ -127,5 +129,3 @@ under `eval_results/` for inspection: `eval_results_baseline.json`,
   as a way to address vocabulary-specific mismatches that generic
   rewriting does not fix (see ADR-001)
 - File upload endpoint (currently text-only via JSON)
-- Ingest the three outlier documents once source PDFs are available
-  (currently skipped by `ingest_corpus.py`, see corpus manifest)
