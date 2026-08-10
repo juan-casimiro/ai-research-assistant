@@ -88,6 +88,11 @@ cross-encoder reranking), BM25 hybrid search via reciprocal rank fusion,
 and LLM-based query rewriting — including a full evaluation of BM25 and
 rewriting against the golden QA set, with results and the decision to
 keep both opt-in rather than default-on.
+
+See [ADR-002](./adr/002-evaluation-methodology.md) for the golden QA
+category design (what each of the five categories tests, and the
+scoring logic behind them) and the evaluation harness's known
+limitations.
  
 In short: two-stage retrieval (embeddings + reranking) scores 96.4%
 (n=3) / 98.2% (n=8) on the golden QA set (133 queries, 111 scored). BM25
