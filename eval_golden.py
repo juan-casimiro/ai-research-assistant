@@ -2,10 +2,12 @@
 """Category-aware retrieval evaluation harness against golden_qa.json.
 
 Usage:
-    uvicorn main:app --reload          # server must be running for /ingest
-    python ingest_corpus.py            # corpus must be ingested first
-    python eval_golden.py              # this script (server NOT needed)
+    python eval_golden.py                  # vector-only baseline
+    python eval_golden.py --bm25           # enable BM25 hybrid fusion
+    python eval_golden.py --rewrite        # enable LLM query rewriting
+    python eval_golden.py --bm25 --rewrite # both strategies on
 """
+import argparse
 import asyncio
 import json
 from pathlib import Path
@@ -14,8 +16,17 @@ from main import retrieve
 
 GOLDEN_QA_PATH = Path("./golden_qa.json")
 RESULTS_PATH = Path("./eval_results.json")
-CONFIG_LABEL = "vector-only-baseline"
 N_VALUES = [3, 8]
+
+
+def build_config_label(use_bm25: bool, use_rewrite: bool) -> str:
+    """Generate a human-readable config label from runtime flags."""
+    parts = ["vector"]
+    if use_bm25:
+        parts.append("bm25")
+    if use_rewrite:
+        parts.append("rewrite")
+    return "-".join(parts) if len(parts) > 1 else "vector-only-baseline"
 
 
 def score_query(sources: list[str], query: dict) -> str:
@@ -39,7 +50,6 @@ def score_query(sources: list[str], query: dict) -> str:
         if expected not in sources:
             return "fail"
         if distractor and distractor in sources:
-            # expected_doc must rank strictly ahead of distractor_doc
             if sources.index(expected) >= sources.index(distractor):
                 return "fail"
         return "pass"
@@ -53,10 +63,44 @@ def score_query(sources: list[str], query: dict) -> str:
     return "fail"
 
 
-async def main() -> None:
+async def main() -> int:
+    parser = argparse.ArgumentParser(
+        description="Evaluate retrieval against the golden QA dataset."
+    )
+    parser.add_argument(
+        "--bm25",
+        action="store_true",
+        default=False,
+        help="Enable BM25 sparse retrieval via reciprocal rank fusion",
+    )
+    parser.add_argument(
+        "--rewrite",
+        action="store_true",
+        default=False,
+        help="Enable LLM query rewriting before retrieval",
+    )
+    args = parser.parse_args()
+
+    use_bm25: bool = args.bm25
+    use_rewrite: bool = args.rewrite
+    config_label = build_config_label(use_bm25, use_rewrite)
+
+    # ------------------------------------------------------------------
+    # Runtime config banner
+    # ------------------------------------------------------------------
+    print("=" * 70)
+    print("RETRIEVAL EVALUATION HARNESS")
+    print("=" * 70)
+    print(f"  Config label : {config_label}")
+    print(f"  BM25         : {use_bm25}")
+    print(f"  Query rewrite: {use_rewrite}")
+    print(f"  N values     : {N_VALUES}")
+    print("=" * 70)
+    print()
+
     if not GOLDEN_QA_PATH.exists():
         print(f"Golden QA file not found: {GOLDEN_QA_PATH}")
-        return
+        return 1
 
     golden = json.loads(GOLDEN_QA_PATH.read_text())
     queries = golden.get("queries", [])
@@ -92,8 +136,8 @@ async def main() -> None:
             _, sources = await retrieve(
                 question,
                 n_results=n,
-                use_query_rewriting=False,
-                use_bm25=False,
+                use_query_rewriting=use_rewrite,
+                use_bm25=use_bm25,
             )
             verdict = score_query(sources, q)
             entry[f"n{n}"] = {
@@ -135,7 +179,8 @@ async def main() -> None:
     # ------------------------------------------------------------------
     print("\n" + "=" * 70)
     print("RETRIEVAL EVALUATION SUMMARY")
-    print(f"Config: {CONFIG_LABEL}")
+    print(f"Config: {config_label}")
+    print(f"BM25: {use_bm25} | Rewrite: {use_rewrite}")
     print("=" * 70)
     print(f"{'Category':<25} {'n=3':>20} {'n=8':>20}")
     print("-" * 70)
@@ -161,12 +206,19 @@ async def main() -> None:
     # Write JSON artifact
     # ------------------------------------------------------------------
     output = {
-        "config_label": CONFIG_LABEL,
+        "config_label": config_label,
+        "config": {
+            "use_bm25": use_bm25,
+            "use_query_rewriting": use_rewrite,
+            "n_values": N_VALUES,
+        },
         "results": results,
     }
     RESULTS_PATH.write_text(json.dumps(output, indent=2))
     print(f"\nPer-query details written to {RESULTS_PATH}")
 
+    return 0
+
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    raise SystemExit(asyncio.run(main()))
