@@ -152,3 +152,17 @@ doesn't auto-score that today.
   LLM-judge pass over generated answers — a natural next step, and one
   that would also address the broader "evaluation methodology" gap
   flagged as unaddressed AI-theory ground.
+
+  ## Update: `abstract_summary` field for golden QA authoring
+
+`corpus_manifest.json` entries include an `abstract_summary` field to
+support drafting new golden QA cases without opening full text for
+every candidate query. It's sufficient for `direct_lookup` and
+`cross_doc_distractor` first drafts (top-line findings, primary
+outcomes), but not for cases depending on subgroup results or
+table-level figures — e.g. `q128`/`q129`
+(`cardio-mi-risk-stratification.pdf`) needed full-text verification
+since the abstract didn't name the specific lab marker or mention
+hypertension at all. Use the abstract for a first draft; verify
+against full text before adding table/subgroup-dependent cases to
+`golden_qa.json`.
