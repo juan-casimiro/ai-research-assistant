@@ -457,6 +457,31 @@
       "has_structured_sections": true,
       "notes": "Matches its filename/search_query well, unlike the other two outliers. Primary field study: mobile-laboratory environmental AMR surveillance in the Galápagos (San Cristóbal island), using metagenomic sequencing, qPCR, and long-read plasmid assembly to characterize multidrug-resistant Enterobacteriaceae and E. coli linked to wastewater contamination. Rich in specific lexical tokens well suited to BM25 test cases: 'Galápagos', 'San Cristóbal', 'Enterobacteriaceae', 'resistome', specific gene/plasmid nomenclature, numeric findings (e.g. '40% of lactose-fermenting Enterobacteriaceae isolates... exhibit multidrug resistance', WWTP effluent '25 times the Ecuadorian standard'). Received 22 September 2025, accepted 1 June 2026.",
       "license_notes": "Confirmed from article: \"Open Access This article is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License, which permits any non-commercial use, sharing, distribution and reproduction in any medium or format... You do not have permission under this licence to share adapted material derived from this article or parts of it.\""
+    },
+    {
+      "filename": "cardio-mi-risk-stratification.pdf",
+      "cluster": "cardio",
+      "search_query": "CHA2DS2-VA score AND no-reflow AND STEMI AND primary PCI",
+      "doi": "10.1002/clc.70439",
+      "title": "Predictive Ability of the CHA2DS2-VA Score for No-Reflow Phenomenon in ST-Elevation Myocardial Infarction Patients Undergoing Primary PCI",
+      "authors": [
+        "Ying Sun",
+        "Jian Ren",
+        "Wei Wang",
+        "Chunsong Wang",
+        "Min Liu",
+        "Jiahui Liu",
+        "Xuewen Qi",
+        "Hengchen Yao"
+      ],
+      "journal": "Clinical Cardiology",
+      "abstract_summary": "No-reflow phenomenon (NRP) frequently complicates ST-elevation myocardial infarction (STEMI). This study evaluated the CHA2DS2-VA score (CV score) as a predictor of NRP in STEMI patients undergoing primary PCI. A total of 725 STEMI patients were retrospectively enrolled and stratified by median CV score (≤2 vs. >2). Predictive ability was assessed using logistic regression, ROC analysis, and DeLong tests. NRP incidence was higher in the high CV score group (15.2% vs. 8.7%, p=0.007). The CV score predicted NRP overall (adjusted OR: 1.295, p=0.002), but this effect was confined to females (AOR: 1.597, p=0.002), with no significant association in males. AUC of the CV score for predicting NRP was 0.613 in all patients (38.8% sensitivity, 79.1% specificity, p=0.001) and 0.673 in females (78.1% sensitivity, 47.6% specificity, p=0.002). A significant sex × CV score interaction (p=0.017) confirmed sex-modified predictive value. Combining the CV score with laboratory markers improved prediction in males (AUC > 0.7) but not females. The CV score is a sex-specific predictor of NRP in STEMI, supporting a tailored risk stratification approach: CV score alone for females, integrating laboratory and procedural markers for males.",
+      "year": 2026,
+      "license": "CC BY",
+      "page_count": 12,
+      "has_structured_sections": true,
+      "notes": "Retrospective single-center cohort, 725 STEMI patients (550 male, 175 female). Sex-stratified multivariable logistic regression (Tables 5-6): in females, CHA2DS2-VA score is independently predictive (AOR 1.597, p=0.002) and creatinine is also significant (AOR 1.037, p=0.009); in males, the CV score itself is not significant (AOR not reported as significant, p=0.052 unadjusted), and among lab/procedural variables the ONLY significant adjusted predictor is platelet count (PLT, AOR 0.993, 95% CI 0.987-0.999, p=0.033). Hypertension was NOT significantly associated with NRP in the overall normal-flow vs. no-reflow comparison (Table 3, p=0.508). Was referenced only in a note on cardio-afib-ml-detection.pdf prior to this entry being added -- missing its own manifest entry despite being ingested and referenced 7 times across golden_qa.json (q044, q050, q068, q123, q126, q128, q129).",
+      "license_notes": "Confirmed from article: \"This is an open access article under the terms of the Creative Commons Attribution License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited.\""
     }
   ]
 }
