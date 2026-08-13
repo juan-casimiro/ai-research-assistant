@@ -5,7 +5,7 @@ from langchain.chat_models import init_chat_model
 from fastembed import TextEmbedding
 from fastembed.rerank.cross_encoder import TextCrossEncoder
 import chromadb
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
 from pydantic import BaseModel, Field
 from rank_bm25 import BM25Okapi
 
@@ -94,7 +94,7 @@ class QueryResponse(BaseModel):
     answer: str
     sources: list[str]
     context_sufficient: bool
-    insufficiency_reason: str | None = None
+    insufficiency_reason: str | None = None    # Debug/demo only — no consumer branches on this value.
 
 class GroundedAnswer(BaseModel):
     answer: str = Field(
@@ -107,10 +107,11 @@ class GroundedAnswer(BaseModel):
             "empty, or covers a related topic without addressing what was asked."
         )
     )
+    # Debug/demo only — no consumer branches on this value.
     insufficiency_reason: str | None = Field(
         default=None,
         description=(
-            "Debug only field. When context_sufficient is False, one short sentence naming what the "
+            "When context_sufficient is False, one short sentence naming what the "
             "context covered instead of what was asked. Null otherwise."
         ),
     )
