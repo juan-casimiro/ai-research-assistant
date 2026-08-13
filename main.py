@@ -1,8 +1,7 @@
 import asyncio
 import re
 from dotenv import load_dotenv
-from anthropic import AsyncAnthropic
-from anthropic.types import TextBlock
+from langchain.chat_models import init_chat_model
 from fastembed import TextEmbedding
 from fastembed.rerank.cross_encoder import TextCrossEncoder
 import chromadb
@@ -13,11 +12,13 @@ from rank_bm25 import BM25Okapi
 load_dotenv()
 
 app = FastAPI()
+LLM_MODEL = "anthropic:claude-haiku-4-5-20251001"
+
 embed_model = TextEmbedding()
 reranker = TextCrossEncoder(model_name="Xenova/ms-marco-MiniLM-L-6-v2")
 chroma_client = chromadb.PersistentClient(path="./chroma_db")
 collection = chroma_client.get_or_create_collection("documents")
-anthropic_client = AsyncAnthropic()
+llm = init_chat_model(LLM_MODEL, max_tokens=1024)
 
 bm25_index: BM25Okapi | None = None
 bm25_documents: list[str] = []
@@ -127,17 +128,14 @@ async def rewrite_query(question: str) -> str:
         "no preamble."
     )
 
-    response = await anthropic_client.messages.create(
-        model="claude-haiku-4-5-20251001",
-        max_tokens=100,
-        system=system_prompt,
-        messages=[{"role": "user", "content": question}],
+    response = await llm.bind(max_tokens=100).ainvoke(
+        [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": question},
+        ]
     )
-    match response.content[0]:
-        case TextBlock(text=rewritten):
-            return rewritten
-        case _:
-            return question  # fall back to original on unexpected response
+    content = response.content
+    return content if isinstance(content, str) else question  # fall back to original
 
 
 def _retrieve_candidates(query_text: str, n: int = 20) -> tuple[list[str], list[str]]:
@@ -243,17 +241,14 @@ async def query(request: QueryRequest) -> QueryResponse:
     )
     prompt = f"Context:\n{context}\n\nQuestion: {request.question}"
 
-    response = await anthropic_client.messages.create(
-        model="claude-haiku-4-5-20251001",
-        max_tokens=1024,
-        system=system_prompt,
-        messages=[{"role": "user", "content": prompt}],
+    response = await llm.ainvoke(
+        [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": prompt},
+        ]
     )
 
-    match response.content[0]:
-        case TextBlock(text=answer):
-            pass
-        case _:
-            raise HTTPException(500, "Unexpected response type from Claude")
+    if not isinstance(response.content, str):
+        raise HTTPException(500, "Unexpected response type from the model")
 
-    return QueryResponse(answer=answer, sources=list(set(sources)))
+    return QueryResponse(answer=response.content, sources=list(set(sources)))
