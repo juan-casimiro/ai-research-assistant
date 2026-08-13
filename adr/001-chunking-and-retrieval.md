@@ -325,3 +325,74 @@ expanded corpus — was affected by any configuration. This confirms the
 original finding is a stable property of this pipeline and this query,
 not an artifact of corpus size, and supports the decision to keep both
 flags opt-in.
+
+## Update: LangChain replaces the Anthropic SDK
+
+Both LLM call sites (grounded answering, query rewriting) moved from
+`anthropic.AsyncAnthropic` to LangChain's `init_chat_model`. The provider
+is now one model-string constant instead of an SDK choice spread across
+code.
+
+**Honest scope:** this makes the *code* provider-agnostic, not the
+dependency tree — `anthropic` remains installed transitively via
+`langchain-anthropic`, and switching providers also requires installing
+the target integration package. What changes is that no repo code
+imports a vendor SDK.
+
+Verified non-regressive: `eval_golden.py --rewrite` produced no per-query
+verdict changes across 111 scored queries at n=3 and n=8, covering both
+the LLM call paths and a concurrent upgrade of the retrieval stack
+(`fastembed`, `chromadb`). Note the harness compares verdicts, not raw
+`retrieved_sources` ordering.
+
+## Update: `context_sufficient` — retrieval sufficiency as structured output
+
+### The problem: source-emptiness is not a retrieval-failure signal
+
+Chroma's `collection.query()` returns the n nearest neighbours by
+distance with **no relevance cutoff** — there is always a "nearest"
+chunk. `retrieve()` returns empty lists only when `ranked_lists` is
+entirely empty (empty corpus or transient failure), never on a relevance
+miss.
+
+Measured: "What is the capital of Peru?" returns a correct refusal
+alongside `sources: ["outlier-amr-surveillance.pdf"]`. Corroborated by
+`eval_results/eval_results_baseline.json`, where `unanswerable` queries
+return fully-populated `retrieved_sources`.
+
+**The failure mode is low-relevance results, not zero results.**
+
+### Decision
+
+The answering model is the only component that reads the chunks
+*alongside* the question, and it already makes the sufficiency judgement
+correctly — it was just trapped in prose. `/query` now captures it via
+`with_structured_output` over a `GroundedAnswer` schema, returning
+`context_sufficient` and an optional `insufficiency_reason`.
+
+Field order in the schema is deliberate (`answer` before the flag) so the
+judgement follows the answer rather than preceding it.
+
+
+### Known limitations (both measured, not hypothetical)
+
+1. **Two states are sometimes too few.** A query against
+   `cardio-mi-risk-stratification.pdf` asking which lab marker was used
+   returned `false` — correctly, since the marker isn't named — but the
+   answer was grounded, accurate, and useful. Consumers cannot
+   distinguish "partial answer from the right document" from "total
+   retrieval miss." An enum was considered and rejected: no clean third
+   state is definable without a consumer that needs it.
+
+2. **False-premise questions diverge from the golden labels.** `q083`
+   presupposes an FDA validation that doesn't exist. The model rejected
+   the premise and answered what the corpus does establish, returning
+   `true`, while the golden set labels the query `unanswerable`. Both
+   readings are defensible: the flag answers "was this context enough to
+   produce a good answer," the label answers "does the corpus contain the
+   requested fact." For the flag's actual consumer — a retry decision —
+   `true` is the better outcome, since retrying would discard a correct
+   answer.
+
+3. **The flag depends on LLM self-assessment**, which is not perfectly
+   reliable in either direction.

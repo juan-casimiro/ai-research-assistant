@@ -132,6 +132,22 @@ review whether retrieval at least avoided confidently surfacing an
 unrelated document as if it were relevant, even though the harness
 doesn't auto-score that today.
 
+**Update: the category is not a clean sufficiency-flag oracle.** With
+`context_sufficient` now returned by `/query` (ADR-001), it was expected
+that `unanswerable` queries would all report `false`. They do not, and
+the category is not at fault — it conflates two distinct cases:
+
+- **Fact genuinely absent** (e.g. `q138`, FMT treatment-duration
+  reduction): reports `false`, as expected.
+- **False premise** (e.g. `q083`, EarlyCDT-Lung FDA validation): the
+  question presupposes something untrue. Correctly rejecting the premise
+  *is* a sufficient answer, so the flag reports `true`.
+
+Scoring the category as an all-false expectation would therefore
+mislabel correct behaviour as a flag failure. Splitting `false_premise`
+into its own category is the natural fix, deferred as it would require
+re-labelling existing entries.
+
 ## Consequences
 
 - Evaluation always exercises the same `retrieve()` code path used in

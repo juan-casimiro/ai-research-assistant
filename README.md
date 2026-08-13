@@ -1,6 +1,6 @@
 Research Assistant (RAG)
 
-A FastAPI service for semantic search and question-answering over ingested documents, using local embeddings, Chroma for vector storage, and Claude for grounded generation.
+A FastAPI service for semantic search and question-answering over ingested documents, using local embeddings, Chroma for vector storage, and an LLM (via LangChain) for grounded generation.
 
 The test corpus is 22 open-access biomedical research articles (PubMed Central Open Access subset and equivalent open-access journals), spanning diabetes, cardiology, oncology, and an outlier cluster covering antimicrobial resistance, gut microbiome/tuberculosis, and AI-assisted diagnosis — see corpus_manifest.json for full per-article metadata, licenses, and sourcing notes. The RAG pipeline itself is domain-agnostic; biomedical literature was chosen as a corpus with genuinely dense, citation-heavy, and terminology-specific text, useful for stress-testing retrieval precision.
 
@@ -8,7 +8,21 @@ The test corpus is 22 open-access biomedical research articles (PubMed Central O
 
 - **POST /ingest** — chunk and embed a document, storing it for retrieval
 - **POST /query** — retrieve relevant chunks for a question and generate
-  a grounded answer, citing sources
+  a grounded answer, citing sources and reporting whether the retrieved
+  context was sufficient to answer
+
+## Response contract
+
+`/query` returns:
+
+| Field | Type | Meaning |
+|---|---|---|
+| `answer` | `str` | Grounded answer from the retrieved context |
+| `sources` | `list[str]` | Source documents for the retrieved chunks |
+| `context_sufficient` | `bool` | Whether the retrieved context was enough to answer |
+| `insufficiency_reason` | `str \| null` | Set when `context_sufficient` is false |
+
+`sources` is **not** a retrieval-quality signal — see ADR-001.
 
 ## Architecture
 ```
@@ -35,7 +49,7 @@ Embed the question (same model) ──► Chroma dense search (top-20)
 │
 ├─ [if use_bm25]     BM25 sparse search (top-20)
 │
-├─ [if use_query_rewriting]  Claude rewrites the question,
+├─ [if use_query_rewriting]  the LLM rewrites the question,
 │                             then repeats both searches above
 │                             on the rewritten query
 │
@@ -48,7 +62,7 @@ Cross-encoder reranking (Xenova/ms-marco-MiniLM-L-6-v2) — re-scores
 the fused candidates, selects final top-N
 │
 ▼
-Chunks + question → Claude → grounded answer + sources
+Chunks + question → LLM → grounded answer + sources + sufficiency flag
 ```
 BM25 and query rewriting are opt-in (use_bm25, use_query_rewriting on /query, both default False) — see ADR-001 for why they're not enabled by default. The diagram above shows the full pipeline with both enabled; with both off, retrieval is dense search → reranking only.
 
@@ -59,8 +73,11 @@ BM25 and query rewriting are opt-in (use_bm25, use_query_rewriting on /query, bo
 - **Chroma** — embedded-mode vector database, no server required
 - **rank_bm25** (`BM25Okapi`) — in-memory sparse lexical retrieval, fused
   with dense search via reciprocal rank fusion (opt-in, `use_bm25`)
-- **Anthropic SDK** — Claude for grounded generation, and for opt-in
-  query rewriting (`use_query_rewriting`)
+- **LangChain** (`init_chat_model`) — provider-agnostic LLM access for
+  grounded generation, opt-in query rewriting, and structured output.
+  The provider is a single model-string constant (`LLM_MODEL`); switching
+  providers means changing that string and installing the matching
+  integration package (e.g. `langchain-openai`)
 
 
 ## Setup
