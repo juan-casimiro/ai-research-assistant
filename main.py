@@ -6,7 +6,7 @@ from fastembed import TextEmbedding
 from fastembed.rerank.cross_encoder import TextCrossEncoder
 import chromadb
 from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from rank_bm25 import BM25Okapi
 
 load_dotenv()
@@ -93,8 +93,28 @@ class QueryRequest(BaseModel):
 class QueryResponse(BaseModel):
     answer: str
     sources: list[str]
+    context_sufficient: bool
+    insufficiency_reason: str | None = None
 
-
+class GroundedAnswer(BaseModel):
+    answer: str = Field(
+        description="The answer to the user's question, using only the provided context."
+    )
+    context_sufficient: bool = Field(
+        description=(
+            "True if the provided context contained enough information to answer "
+            "the question. False if it did not — including when the context is "
+            "empty, or covers a related topic without addressing what was asked."
+        )
+    )
+    insufficiency_reason: str | None = Field(
+        default=None,
+        description=(
+            "Debug only field. When context_sufficient is False, one short sentence naming what the "
+            "context covered instead of what was asked. Null otherwise."
+        ),
+    )
+    
 @app.post("/ingest")
 def ingest(request: IngestRequest):
     chunks = chunk_text(request.text)
@@ -237,18 +257,23 @@ async def query(request: QueryRequest) -> QueryResponse:
 
     system_prompt = (
         "Answer the user's question using only the provided context. "
-        "If the context doesn't contain enough information to answer, say so clearly."
+        "If the context doesn't contain enough information to answer, say so "
+        "clearly in your answer and set context_sufficient to false. Judge "
+        "sufficiency against what was actually asked — context on a related "
+        "topic that doesn't address the specific question is not sufficient."
     )
     prompt = f"Context:\n{context}\n\nQuestion: {request.question}"
 
-    response = await llm.ainvoke(
+    result = await llm.with_structured_output(GroundedAnswer).ainvoke(
         [
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": prompt},
         ]
     )
 
-    if not isinstance(response.content, str):
-        raise HTTPException(500, "Unexpected response type from the model")
-
-    return QueryResponse(answer=response.content, sources=list(set(sources)))
+    return QueryResponse(
+        answer=result.answer,
+        sources=list(set(sources)),
+        context_sufficient=result.context_sufficient,
+        insufficiency_reason=result.insufficiency_reason,
+    )
