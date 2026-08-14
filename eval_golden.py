@@ -6,6 +6,8 @@ Usage:
     python eval_golden.py --bm25           # enable BM25 hybrid fusion
     python eval_golden.py --rewrite        # enable LLM query rewriting
     python eval_golden.py --bm25 --rewrite # both strategies on
+    python eval_golden.py --ids q139,q140  # only these query ids
+    python eval_golden.py --rewrite --ids q139,q140
 """
 import argparse
 import asyncio
@@ -79,6 +81,13 @@ async def main() -> int:
         default=False,
         help="Enable LLM query rewriting before retrieval",
     )
+    parser.add_argument(
+        "--ids",
+        type=str,
+        default=None,
+        help="Comma-separated query ids to evaluate, e.g. q139,q140. "
+             "Runs only these instead of the full golden set.",
+    )
     args = parser.parse_args()
 
     use_bm25: bool = args.bm25
@@ -105,6 +114,17 @@ async def main() -> int:
     golden = json.loads(GOLDEN_QA_PATH.read_text())
     queries = golden.get("queries", [])
 
+    id_filter: set[str] | None = None
+    if args.ids:
+        id_filter = {qid.strip() for qid in args.ids.split(",") if qid.strip()}
+        queries = [q for q in queries if q["id"] in id_filter]
+        missing = id_filter - {q["id"] for q in queries}
+        if missing:
+            print(f"WARNING: ids not found in golden set: {sorted(missing)}")
+        if not queries:
+            print("No matching queries for --ids. Nothing to evaluate.")
+            return 1
+        
     results: list[dict] = []
     scored_categories = [
         "direct_lookup",
@@ -211,11 +231,15 @@ async def main() -> int:
             "use_bm25": use_bm25,
             "use_query_rewriting": use_rewrite,
             "n_values": N_VALUES,
+            "query_ids_filter": sorted(id_filter) if id_filter else None,
         },
         "results": results,
     }
-    RESULTS_PATH.write_text(json.dumps(output, indent=2))
-    print(f"\nPer-query details written to {RESULTS_PATH}")
+    output_path = (
+        Path(f"./eval_results_subset_{config_label}.json") if id_filter else RESULTS_PATH
+    )
+    output_path.write_text(json.dumps(output, indent=2))
+    print(f"\nPer-query details written to {output_path}")  
 
     return 0
 
