@@ -94,8 +94,8 @@ class QueryResponse(BaseModel):
     answer: str
     sources: list[str]
     context_sufficient: bool
-    insufficiency_reason: str | None = None    # Debug/demo only — no consumer branches on this value.
-
+    insufficiency_reason: str | None = None  # debug/demo only — not a routing signal
+    
 class GroundedAnswer(BaseModel):
     answer: str = Field(
         description="The answer to the user's question, using only the provided context."
