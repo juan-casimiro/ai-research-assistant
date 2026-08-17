@@ -306,10 +306,10 @@ code change.
   terminology mismatches, which this golden set's queries mostly already
   avoid.
 
-### Update: re-confirmed on expanded corpus (22 documents, 133 queries)
+### Update: re-confirmed on expanded corpus (19 documents, 133 queries)
 
 The same four configurations were re-run after the corpus and golden QA
-set grew to 22 documents and 133 queries (111 scored). Results:
+set grew to 19 documents and 133 queries (111 scored). Results:
 
 | Config                 | n=3 overall     | n=8 overall     | Δ vs baseline |
 |------------------------|-----------------|------------------|---------------|
