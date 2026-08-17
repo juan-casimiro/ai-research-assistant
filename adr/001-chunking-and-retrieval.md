@@ -345,6 +345,25 @@ the LLM call paths and a concurrent upgrade of the retrieval stack
 (`fastembed`, `chromadb`). Note the harness compares verdicts, not raw
 `retrieved_sources` ordering.
 
+## Update: `sources` now preserves reranked order
+
+`/query` previously deduplicated `sources` with `list(set(sources))`.
+Python sets don't preserve insertion order, so the response silently
+discarded the cross-encoder's relevance ranking — the same order
+`sources` is documented (and, since this fix, correctly) as reflecting.
+
+**Fix:** `list(dict.fromkeys(sources))`. Dicts preserve insertion order
+(Python 3.7+), so the first — i.e. most relevant, post-rerank —
+occurrence of each source is kept, and later duplicate chunks from the
+same document are dropped without disturbing order.
+
+**Correction to a note above:** the "harness compares verdicts, not raw
+`retrieved_sources` ordering" note (LangChain migration update) is still
+true of the evaluation harness, but should not be read as "sources
+order carries no meaning" — it never carried meaning *at the API layer*
+only because of this bug, not by design. The response contract (README)
+has been updated accordingly.
+
 ## Update: `context_sufficient` — retrieval sufficiency as structured output
 
 ### The problem: source-emptiness is not a retrieval-failure signal
