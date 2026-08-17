@@ -2,9 +2,35 @@ Research Assistant (RAG)
 
 A FastAPI service for semantic search and question-answering over ingested documents, using local embeddings, Chroma for vector storage, and an LLM (via LangChain) for grounded generation.
 
-The test corpus is 22 open-access biomedical research articles (PubMed Central Open Access subset and equivalent open-access journals), spanning diabetes, cardiology, oncology, and an outlier cluster covering antimicrobial resistance, gut microbiome/tuberculosis, and AI-assisted diagnosis — see corpus_manifest.json for full per-article metadata, licenses, and sourcing notes. The RAG pipeline itself is domain-agnostic; biomedical literature was chosen as a corpus with genuinely dense, citation-heavy, and terminology-specific text, useful for stress-testing retrieval precision.
+The test corpus is 19 open-access biomedical research articles (PubMed Central Open Access subset and equivalent open-access journals), spanning diabetes, cardiology, oncology, and an outlier cluster covering antimicrobial resistance, gut microbiome/tuberculosis, and AI-assisted diagnosis — see corpus_manifest.json for full per-article metadata, licenses, and sourcing notes. The RAG pipeline itself is domain-agnostic; biomedical literature was chosen as a corpus with genuinely dense, citation-heavy, and terminology-specific text, useful for stress-testing retrieval precision.
 
 **Retrieval accuracy: 96.4% @ n=3, 98.2% @ n=8** on a 133-query golden QA set (111 scored), spanning direct lookup, multi-hop, cross-document distractor, and cross-document synthesis cases. BM25 hybrid search and LLM query rewriting were implemented and evaluated as opt-in additions but measured no net benefit on this corpus — see [ADR-001](./adr/001-chunking-and-retrieval.md) for the full evaluation, including one attributable regression from BM25 alone.
+
+## Loading the corpus
+
+The corpus PDFs are not committed to this repo (see `.gitignore`) — some
+are under licenses that don't permit redistribution. To populate a local
+corpus:
+
+1. Open `corpus_manifest.json`. Each entry lists a `doi` and a `filename`.
+2. For each article, resolve the DOI (e.g. `https://doi.org/<doi>`) and
+   download the PDF from the publisher/journal page.
+3. Save it into `./corpus/` using the **exact filename** from the
+   manifest (e.g. `diabetes-cgm-management.pdf`) — `ingest_corpus.py`
+   matches files by this name.
+4. Once all PDFs are in place, ingest them:
+
+```bash
+   python reset_collection.py      # resets the vector store (safe on a fresh clone)
+   uvicorn main:app --reload       # start the server, separate terminal
+   python ingest_corpus.py         # ingests every PDF listed in the manifest
+```
+
+   Expect one `INGESTED` line per file; `SKIP (file not found)` means
+   that PDF hasn't been downloaded yet.
+
+This is a manual step by design — some articles carry NC/ND license
+terms, so downloading is left to the reader rather than automated.
 
 ## Features
 
@@ -91,6 +117,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
+The default configuration uses Anthropic via LangChain.
 `.env`:
 ANTHROPIC_API_KEY=your-key-here
 
@@ -120,7 +147,7 @@ and query rewriting were implemented and evaluated as opt-in additions
 but did not improve retrieval on this corpus — see ADR-001 for the full
 breakdown, including one attributable regression from BM25 alone and
 why combining it with rewriting recovered it, re-confirmed after the
-corpus expanded to 22 documents.
+corpus expanded from 16 to 19 documents (outliner cluster).
 
 
 ## Retrieval evaluation
