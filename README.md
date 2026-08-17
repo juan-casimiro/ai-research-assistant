@@ -147,7 +147,7 @@ and query rewriting were implemented and evaluated as opt-in additions
 but did not improve retrieval on this corpus — see ADR-001 for the full
 breakdown, including one attributable regression from BM25 alone and
 why combining it with rewriting recovered it, re-confirmed after the
-corpus expanded from 16 to 19 documents (outliner cluster).
+corpus expanded from 16 to 19 documents (outlier cluster).
 
 
 ## Retrieval evaluation
