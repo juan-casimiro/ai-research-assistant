@@ -22,7 +22,8 @@ The test corpus is 22 open-access biomedical research articles (PubMed Central O
 | `context_sufficient` | `bool` | Whether the retrieved context was enough to answer |
 | `insufficiency_reason` | `str \| null` | Set when `context_sufficient` is false |
 
-`sources` is **not** a retrieval-quality signal — see ADR-001.
+`sources` is ordered by relevance, most-relevant first, as determined by the
+cross-encoder reranker — see ADR-001.
 
 ## Architecture
 ```

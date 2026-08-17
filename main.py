@@ -274,7 +274,7 @@ async def query(request: QueryRequest) -> QueryResponse:
 
     return QueryResponse(
         answer=result.answer,
-        sources=list(set(sources)),
+        sources=list(dict.fromkeys(sources)),
         context_sufficient=result.context_sufficient,
         insufficiency_reason=result.insufficiency_reason,
     )
