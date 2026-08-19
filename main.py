@@ -1,30 +1,145 @@
 import asyncio
+import os
 import re
+from contextlib import asynccontextmanager
+from pathlib import Path
+
 from dotenv import load_dotenv
 from langchain.chat_models import init_chat_model
 from fastembed import TextEmbedding
 from fastembed.rerank.cross_encoder import TextCrossEncoder
 import chromadb
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 from rank_bm25 import BM25Okapi
 
 load_dotenv()
 
-app = FastAPI()
 LLM_MODEL = "anthropic:claude-haiku-4-5-20251001"
+CHROMA_PATH = os.getenv("CHROMA_PATH", "./chroma_db")
+SEED_CORPUS_DIR = Path(os.getenv("SEED_CORPUS_DIR", "./seed_corpus"))
+SEED_ON_EMPTY = os.getenv("SEED_ON_EMPTY", "true").lower() != "false"
 
-embed_model = TextEmbedding()
-reranker = TextCrossEncoder(model_name="Xenova/ms-marco-MiniLM-L-6-v2")
-chroma_client = chromadb.PersistentClient(path="./chroma_db")
-collection = chroma_client.get_or_create_collection("documents")
-llm = init_chat_model(LLM_MODEL, max_tokens=1024)
+# Built during startup, not at import time — see lifespan below.
+embed_model = None
+reranker = None
+chroma_client = None
+collection = None
+llm = None
+
+_ready = False
+_startup_error: str | None = None
 
 bm25_index: BM25Okapi | None = None
 bm25_documents: list[str] = []
 bm25_sources: list[str] = []
 
 FUSED_CANDIDATE_POOL = 20  # cap before reranking — bounds cross-encoder latency
+
+def _log(message: str) -> None:
+    """Startup/seed progress — plain stdout, visible in the same terminal
+    running `uvicorn`, interleaved with its own request logs."""
+    print(f"[startup] {message}")
+
+
+def _load_models() -> None:
+    """Blocking model construction — runs in a worker thread, not the event loop."""
+    global embed_model, reranker, chroma_client, collection, llm
+    _log("loading embedding model (FastEmbed bge-small-en-v1.5)...")
+    embed_model = TextEmbedding()
+    _log("loading cross-encoder reranker (Xenova/ms-marco-MiniLM-L-6-v2)...")
+    reranker = TextCrossEncoder(model_name="Xenova/ms-marco-MiniLM-L-6-v2")
+    _log(f"connecting to Chroma at {CHROMA_PATH}...")
+    chroma_client = chromadb.PersistentClient(path=CHROMA_PATH)
+    collection = chroma_client.get_or_create_collection("documents")
+    _log(f"collection ready — {collection.count()} chunks already stored")
+    _log(f"initializing LLM client ({LLM_MODEL})...")
+    llm = init_chat_model(LLM_MODEL, max_tokens=1024)
+    _log("models loaded")
+
+
+def _seed_if_empty() -> int:
+    """First run only: ingest the committed demo corpus into an empty store."""
+    if collection.count() > 0:
+        _log("collection already has data — skipping seed corpus")
+        return 0
+    _log(f"collection is empty — seeding from {SEED_CORPUS_DIR}...")
+    seeded = 0
+    for path in sorted(SEED_CORPUS_DIR.glob("*.txt")):
+        text = path.read_text(encoding="utf-8")
+        if not text.strip():
+            _log(f"  skipping {path.name} — empty file")
+            continue
+        chunks = chunk_text(text)
+        collection.add(
+            ids=[f"{path.name}_{i}" for i in range(len(chunks))],
+            embeddings=[embed(c) for c in chunks],
+            documents=chunks,
+            metadatas=[{"source": path.name} for _ in chunks],
+        )
+        _log(f"  seeded {path.name} — {len(chunks)} chunks")
+        seeded += 1
+    _log(f"seeding complete — {seeded} document(s) added")
+    return seeded
+
+def _load_models_and_index() -> None:
+    """Build models and the BM25 index, synchronously.
+
+    Used by two callers with different needs:
+      - _startup() calls this, then optionally seeds, then rebuilds the BM25
+        index a second time so seeded chunks are included.
+      - Scripts that import main directly without going through the ASGI
+        app (e.g. eval_golden.py) call this alone — they assume the
+        corpus is already populated and deliberately skip seeding.
+    """
+    _load_models()
+    _log("building BM25 index...")
+    _rebuild_bm25_index()
+    _log(f"BM25 index built — {len(bm25_documents)} chunks indexed")
+
+
+def _startup() -> None:
+    global _ready, _startup_error
+    _log("startup beginning (background thread)")
+    try:
+        _load_models_and_index()
+        if SEED_ON_EMPTY:
+            seeded = _seed_if_empty()
+            if seeded:
+                _log("rebuilding BM25 index to include seeded chunks...")
+                _rebuild_bm25_index()
+        else:
+            _log("SEED_ON_EMPTY=false — skipping seed check")
+        _ready = True
+        _log(f"startup complete — ready, {collection.count()} chunks total")
+    except Exception as exc:
+        _startup_error = f"{type(exc).__name__}: {exc}"
+        _log(f"startup FAILED — {_startup_error}")
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    asyncio.create_task(asyncio.to_thread(_startup))
+    yield
+
+
+app = FastAPI(lifespan=lifespan)
+
+def _require_ready() -> None:
+    if _startup_error:
+        raise HTTPException(status_code=503, detail=f"startup failed: {_startup_error}")
+    if not _ready:
+        raise HTTPException(status_code=503, detail="models still loading")
+
+
+@app.get("/health")
+def health():
+    if _startup_error:
+        return JSONResponse(status_code=503, content={"status": "error", "detail": _startup_error})
+    if not _ready:
+        return JSONResponse(status_code=503, content={"status": "loading"})
+    return {"status": "ready", "chunks": collection.count()}
 
 def _tokenize(text: str) -> list[str]:
     return re.findall(r"\w+", text.lower())
@@ -40,9 +155,6 @@ def _rebuild_bm25_index() -> None:
         if bm25_documents
         else None
     )
-
-_rebuild_bm25_index()  # populate at startup, not just after /ingest
-
 
 def embed(text: str) -> list[float]:
     return list(embed_model.embed([text]))[0].tolist()
@@ -118,6 +230,8 @@ class GroundedAnswer(BaseModel):
     
 @app.post("/ingest")
 def ingest(request: IngestRequest):
+    _require_ready()
+
     chunks = chunk_text(request.text)
     embeddings = [embed(chunk) for chunk in chunks]
 
@@ -247,6 +361,8 @@ async def retrieve(
 
 @app.post("/query")
 async def query(request: QueryRequest) -> QueryResponse:
+    _require_ready()
+
     retrieved_chunks, sources = await retrieve(
         question=request.question,
         n_results=request.n_results,
