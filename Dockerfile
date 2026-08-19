@@ -11,8 +11,15 @@ RUN python -c "from fastembed import TextEmbedding; from fastembed.rerank.cross_
 
 COPY seed_corpus/ ./seed_corpus/
 
+# Forces fastembed to use the weights baked in above — fails loudly on a
+# cache-path mismatch instead of silently downloading at runtime. See ADR-003.
 ENV HF_HUB_OFFLINE=1
+
 ENV CHROMA_PATH=/data/chroma_db
+
+# Without this, print() output is line-buffered on a non-TTY stdout and
+# doesn't reach `docker compose logs` until the buffer flushes. See ADR-003.
+ENV PYTHONUNBUFFERED=1
 
 EXPOSE 8000
 
