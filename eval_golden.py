@@ -14,7 +14,7 @@ import asyncio
 import json
 from pathlib import Path
 
-from main import retrieve
+from main import retrieve, _load_models_and_index
 
 GOLDEN_QA_PATH = Path("./golden_qa.json")
 RESULTS_PATH = Path("./eval_results.json")
@@ -132,7 +132,7 @@ async def main() -> int:
         "cross_doc_distractor",
         "cross_doc_synthesis",
     ]
-
+    _load_models_and_index()
     # ------------------------------------------------------------------
     # Run every query at both n=3 and n=8
     # ------------------------------------------------------------------
