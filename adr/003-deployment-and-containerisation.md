@@ -64,6 +64,14 @@ and there is no orchestrator here to ask either question. One endpoint
 answering "is this usable yet" is the right amount of health check for
 a `docker compose up` demo target.
 
+**`PYTHONUNBUFFERED=1` in the image.** Python line-buffers stdout when
+it isn't attached to a TTY, which is always the case inside a
+container. Without this, the `[startup]` progress logging in `main.py`
+buffers and never reaches `docker compose logs`, so the loading → ready
+sequence the health check exposes has no visible narration alongside
+it. Found after JUA-32's verification pass, which checked `/health`
+status transitions but not log output.
+
 **Module-level globals over `app.state`.** `embed_model`, `reranker`,
 `chroma_client`, `collection`, `llm`, and the BM25 index are module
 globals, set once by `_startup()`. `app.state` is the more idiomatic
