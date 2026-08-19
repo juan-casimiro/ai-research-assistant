@@ -1,0 +1,1764 @@
+TYPE Review
+PUBLISHED 20 July 2026
+DOI 10.3389/fcell.2026.1874565
+Liquid biopsy biomarkers for 
+cancer detection, treatment 
+monitoring, and clinical outcome 
+prediction
+Akshee Batra
+1
+, Xena Zheng
+1
+, Dan Morgenstern-Kaplan
+1
+, 
+Carey C. Thomson
+2 , 3
+, Gilberto Lopes
+1
+and Chinmay Jani
+1
+*
+1
+Department of Medical Oncology, Sylvester Comprehensive Cancer Center, University of Miami, Miami, 
+FL, United States, 
+2
+Department of Medicine, Mount Auburn Hospital, Beth Israel Lahey Health, Cambridge, 
+MA, United States, 
+3
+Department of Medicine, Harvard Medical School, Boston, MA, United States
+Liquid biopsy now provides minimally invasive access to tumor-derived genomic 
+and epigenetic information across the lung cancer continuum, and its clinical role 
+continues to expand. This review examines that role across cancer detection 
+(screening and diagnosis), treatment monitoring (advanced-disease genotyping, 
+minimal residual disease (MRD) assessment, and resistance profiling at 
+progression), and clinical outcome prediction. Plasma-based genotyping is 
+now well established in advanced non-small cell lung cancer (NSCLC), while 
+circulating tumor DNA (ctDNA)-based MRD detection in the curative-intent 
+setting has accumulated a substantial evidence base over the past 5 years. 
+Cell-free DNA (cfDNA) methylation, fragmentomics, and circulating tumor RNA 
+(ctRNA) are emerging as complementary modalities, particularly when tumor 
+shedding is low. We also consider concordance between liquid and tissue 
+biopsies, the use of cerebrospinal fluid (CSF) ctDNA in central nervous system 
+(CNS)-involved disease, and the practical issues of cost, reimbursement, and 
+access that shape clinical adoption. The current state of the field can be framed 
+across three tiers of evidence, with established applications, applications under 
+prospective evaluation, and applications not yet ready for routine clinical use. No 
+multi-cancer early detection (MCED) test has shown a mortality benefit to date, 
+and ctDNA-guided treatment changes in metastatic disease still lack randomized 
+overall-survival data.
+KEYWORDS
+circulating tumor cell (CTC), circulating tumor RNA, liquid biopsy, lung cancer, 
+methylation and prognosis
+Introduction
+Lung cancer remains the leading cause of cancer-related mortality worldwide and is 
+often diagnosed at advanced stages. Although low-dose computed tomography (LDCT) 
+screening has improved early detection in high-risk populations, important gaps persist in 
+screening, risk stratification, diagnostic precision, and disease monitoring. Treatment 
+selection now hinges on histology, stage, and the identification of actionable genomic 
+alterations, epigenetic signals, and resistance mechanisms ( Rolfo et al., 2021 ; Baca 
+et al., 2023 ).
+Tissue and liquid biopsy are increasingly used in an integrative rather than competitive 
+fashion. Tissue retains primacy for histologic confirmation and immunophenotyping, 
+whereas liquid biopsy analyzes tumor-derived material shed into body fluids, most often 
+OPEN ACCESS
+EDITED BY 
+Keerthi Kurma, 
+Centre Hospitalier Universitaire de 
+Montpellier, France
+REVIEWED BY 
+Elisa De Paolis, 
+Fondazione Policlinico Universitario A. 
+Gemelli IRCCS, Italy 
+Liqun Tu, 
+Stanford University, United States
+*CORRESPONDENCE 
+Chinmay Jani, 
+ctj36@miami.edu
+RECEIVED 07 May 2026
+REVISED 23 June 2026
+ACCEPTED 30 June 2026
+PUBLISHED 20 July 2026
+CITATION 
+Batra A, Zheng X, Morgenstern-Kaplan D, 
+Thomson CC, Lopes G and Jani C (2026) 
+Liquid biopsy biomarkers for cancer 
+detection, treatment monitoring, and 
+clinical outcome prediction. 
+Front. Cell Dev. Biol. 14:1874565. 
+doi: 10.3389/fcell.2026.1874565
+COPYRIGHT 
+© 2026 Batra, Zheng, Morgenstern- 
+Kaplan, Thomson, Lopes and Jani. This is 
+an open-access article distributed under 
+the terms of the Creative Commons 
+Attribution License (CC BY) . The use, 
+distribution or reproduction in other 
+forums is permitted, provided the original 
+author(s) and the copyright owner(s) are 
+credited and that the original publication 
+in this journal is cited, in accordance with 
+accepted academic practice. No use, 
+distribution or reproduction is permitted 
+which does not comply with these terms.
+Frontiers in Cell and Developmental Biology frontiersin.org01
+blood, including ctDNA, circulating tumor cells (CTCs), ctRNA, 
+extracellular vesicles (EVs), and tumor-educated platelets (TEPs), 
+providing dynamic genomic, epigenomic, and transcriptomic 
+insights that complement and extend what tissue can capture 
+( Rolfo et al., 2021 ; Yin et al., 2020 ; Roweth and Battinelli, 2021 ) 
+( Figure 1 ). Tissue biopsy, although foundational, is invasive, may be 
+unsafe depending on tumor location and patient condition, often 
+yields insufficient material, captures only a single spatial site, and 
+can be difficult to repeat at progression in some patients ( Rolfo et al., 
+2021 ). Advances in ultrasensitive PCR, next-generation sequencing 
+(NGS), and epigenomic profiling have enabled the integration of 
+liquid biopsy into routine clinical practice. The first plasma-based 
+companion diagnostic, the cobas EGFR Mutation Test v2, was FDA- 
+approved for metastatic NSCLC in 2016, and additional plasma- 
+based assays have since followed ( U.S. Food and Drug 
+Administration, 2026 ).
+Although liquid biopsy has historically centered on ctDNA 
+mutation profiling and resistance monitoring, two 
+complementary modalities are becoming increasingly important. 
+ctRNA enhances detection of actionable gene fusions and splice 
+variants that may be missed by DNA-based assays, with combined 
+ctDNA/ctRNA approaches increasing fusion detection yield by 
+approximately 28%–37% compared with ctDNA alone ( Giménez- 
+Capitán et al., 2023 ; Hasegawa et al., 2021 ; Heeke et al., 2025 ; Samol 
+et al., 2025 ; Poh et al., 2025 ); accordingly, current NCCN NSCLC 
+Guidelines recommend RNA-based testing when DNA-based 
+profiling does not identify a driver oncogene ( National 
+Comprehensive Cancer Network, 2026 ). In parallel, cfDNA 
+epigenetic profiling provides an additional layer of tumor biology 
+through assessment of methylation patterns, fragmentomic features, 
+tumor-suppressor locus hypermethylation, microRNAs, 
+extracellular-vesicle- associated analytes, non-coding RNAs, and 
+histone-modification signatures, capturing chromatin-level 
+information across thousands of genome-wide CpG sites 
+( Vaisvila et al., 2021 ; Hu et al., 2023 ; Ramazi et al., 2021 ). These 
+approaches are particularly informative in low-shedding settings, 
+including screening, early-stage disease, and MRD detection, where 
+mutation-based ctDNA fractions are often very low ( Metzenmacher 
+et al., 2022 ; Wang et al., 2023 ; Bie et al., 2023 ).
+In NCCN-supported practice, liquid biopsy is most established 
+in advanced or metastatic NSCLC. Common indications include 
+situations where tissue is inaccessible or insufficient for molecular 
+testing (approximately 18%–25% of cases), when invasive biopsy 
+carries unacceptable risk, and for serial detection of resistance 
+alterations and spatial tumor heterogeneity across metastatic sites 
+( Rolfo et al., 2021 ; National Comprehensive Cancer Network, 2026 ; 
+Butrynski et al., 2023 ; Guibert et al., 2020 ; Marchetti et al., 2025 ).
+This review examines liquid biopsy biomarkers across three core 
+applications in lung cancer: cancer detection (screening and 
+diagnosis), treatment monitoring (including advanced-disease 
+genotyping, MRD assessment, and resistance profiling), and 
+clinical outcome prediction (including recurrence risk and 
+prognostication). For each application, we discuss the roles of 
+genomic, epigenetic, and emerging analytes, as well as the 
+complementary relationship between liquid and tissue biopsy. 
+For this narrative review, PubMed and Embase were searched 
+from January 2015 through April 2026 using terms related to 
+liquid biopsy, ctDNA, cfDNA, CTCs, ctRNA, DNA methylation, 
+FIGURE 1 
+Liquid biopsy analytes, biology and information layers. Schematic of tumor-derived material released into circulation and the molecular information 
+accessible from each analyte. The tumor cell (left) releases material into plasma via apoptosis, necrosis, and active secretion of vesicles, generating six 
+classes of analytes. These include cell-free/circulating tumor DNA (cfDNA/ctDNA), circulating tumor cells (CTCs), circulating tumor RNA (ctRNA), 
+extracellular vesicles (EVs) including exosomes and microvesicles, tumor-educated platelets (TEPs), and tumor-associated autoantibodies and 
+circulating proteins. To the right of each analyte, color-coded pills indicate the principal information layers accessible, including genomic (mutations, 
+copy number alterations, fusions), epigenetic (DNA methylation, histone modifications, microRNAs), fragmentomic (fragment size, end motifs, coverage), 
+quantitative (tumor fraction, dynamics over time), transcriptomic (expression, splicing, non-coding RNAs), single-cell (intact tumor-cell phenotype), and 
+other (immune, proteomic, and systemic signals). Abbreviations: cfDNA, cell-free DNA; ctDNA, circulating tumor DNA; CTCs, circulating tumor cells; 
+ctRNA, circulating tumor RNA; TEPs, tumor-educated platelets.
+Frontiers in Cell and Developmental Biology frontiersin.org02
+Batra et al. 10.3389/fcell.2026.1874565
+fragmentomics, and MRD. Ongoing prospective trials registered on 
+ClinicalTrials.gov , as well as current NCCN, USPSTF, and ESMO 
+guidelines and FDA companion diagnostic listings, were also 
+reviewed. Studies were prioritized based on prospective design, 
+sample size, and lung cancer-specific relevance, while non- 
+English publications and studies focused on other malignancies 
+were excluded.
+Figure 2 maps liquid biopsy modalities to clinical stages across 
+the lung cancer continuum.
+Circulating proteins and integrative multi-omic strategies are 
+increasingly being explored in lung cancer alongside established 
+nucleic-acid analytes. Plasma proteomic profiling, increasingly 
+coupled with high-throughput sequencing in multi-analyte 
+frameworks, can complement genomic and epigenomic signals. 
+For example, multi-analyte blood tests that combine circulating 
+protein biomarkers with ctDNA mutation analysis have improved 
+early cancer detection ( Cohen et al., 2018 ), and deep plasma 
+proteomic platforms are now being applied specifically to lung 
+cancer detection and risk stratification ( Liang et al., 2025 ). 
+Looking further ahead, efforts to integrate genomic, 
+transcriptomic, and methylomic data into unified patient-level 
+models, often described as multi-omics digital human avatars, are 
+emerging as a framework for individualized prediction in lung 
+cancer. Such models may ultimately incorporate serial liquid 
+biopsy data alongside clinical and imaging variables ( Lococo 
+et al., 2023 ).
+Lung cancer screening and 
+early detection
+LDCT remains the only screening modality with a 
+demonstrated mortality benefit in lung cancer. The National 
+Lung Screening Trial showed a 20% relative reduction in lung 
+cancer mortality with LDCT compared with chest radiography, 
+and the NELSON trial confirmed these findings in a European 
+cohort with lower smoking exposure ( de Koning et al., 2020 ; 
+National Lung Screening Trial Research Team et al., 2011 ). 
+Based on this, the U.S. Preventive Services Task Force 
+recommends annual LDCT for individuals aged 50–80 years 
+with a ≥20 pack-year smoking history who currently smoke or 
+have quit within the past 15 years ( US Preventive Services Task 
+FIGURE 2 
+Liquid biopsy across the lung cancer continuum. Plasma-based analyte classes are mapped to five clinical stages of lung cancer: screening, early- 
+stage perioperative care, post-curative MRD monitoring, advanced metastatic disease, and on-therapy progression. Within each stage, analytes are 
+divided into two tiers, those in routine clinical use and those still investigational. Vial fill height shows the relative strength of clinical validation. Only 
+advanced disease and progression currently have liquid biopsy modalities in routine clinical practice. At both stages, ctDNA next-generation 
+sequencing identifies actionable mutations and ctRNA-based assays detect fusions, and both are FDA-approved companion diagnostics for genotyping 
+and resistance assessment. No liquid biopsy modality is yet routine for screening, early-stage disease, or MRD. Cell-free DNA methylation profiling, 
+fragmentomic readouts, autoantibody panels, tumor-informed quantitative ctDNA, and cerebrospinal fluid ctDNA all remain investigational. Color coding 
+matches the analyte class legend. Abbreviations: cfDNA, cell-free DNA; CSF, cerebrospinal fluid; ctDNA, circulating tumor DNA; ctRNA, circulating tumor 
+RNA; MCED, multi-cancer early detection; MRD, minimal residual disease; mut., mutations; quant., quantitative.
+Frontiers in Cell and Developmental Biology frontiersin.org03
+Batra et al. 10.3389/fcell.2026.1874565
+Force et al., 2021 ). Despite this, uptake remains modest, with 
+2024 National Health Interview Survey data indicating that only 
+18.7% of screening-eligible adults in the US report being up to 
+date with LDCT ( Bandi et al., 2025 ). In 2023, the American 
+Cancer Society (ACS) recommendations eliminated the years 
+since quitting requirement for eligibility ( Wolf et al., 2024 ). The 
+NCCN updated their guidelines to align with the ACS in 2025 
+( Wood et al., 2025 ). Smoking-based eligibility also misses a 
+substantial proportion of patients, including those who have 
+never smoked, who account for approximately 20% of lung 
+cancer diagnoses in the United States ( Chung et al., 2025 ).
+Plasma mutation profiling represents an alternative screening 
+strategy with biological limits in the early-detection context. 
+Localized NSCLC sheds ctDNA at low levels that correlate with 
+tumor size, stage, and histology (higher in non-adenocarcinomas 
+and in solid radiologic patterns), and a further challenge is 
+distinguishing true tumor-derived mutations from clonal 
+hematopoiesis. Machine-learning panels such as Lung-CLiP 
+integrate mutational signatures and fragment-length features to 
+address this challenge ( Table 1 ), but mutation-based approaches 
+remain analytically constrained in the pre-symptomatic, low- 
+volume setting and are unlikely to serve as standalone population 
+screening tools in their current form ( Chabon et al., 2020 ).
+In contrast, epigenetic profiling of cfDNA, particularly genome- 
+wide DNA methylation analysis, overcomes several of these 
+limitations and represents the most clinically validated blood- 
+based approach for early lung cancer detection. Tumor-specific 
+methylation patterns arise early in oncogenesis and remain 
+detectable even when ctDNA fractions are very low. The 
+Circulating Cell-free Genome Atlas, a prospective multicenter 
+case-control study of over 15,000 participants, demonstrated that 
+whole-genome bisulfite sequencing outperformed mutation-based 
+approaches and informed the development of targeted methylation 
+assays incorporating machine-learning classifiers for cancer 
+detection and tissue-of-origin prediction ( Klein et al., 2021 ). 
+Although early-stage sensitivity remains modest, high specificity 
+is critical in low-prevalence populations to preserve positive 
+predictive value. In lung cancer–specific CCGA analyses, 
+methylation-based approaches outperformed mutation-based 
+classifiers for stage I–II detection, underscoring the central role 
+of epigenetics in blood-based screening. The Galleri test has been 
+evaluated in the PATHFINDER study and NHS-Galleri trial 
+TABLE 1 Current and emerging screening strategies in lung cancer.
+Strategy Mechanism Key studies Sensitivity 
+(early stage)
+Specificity Strengths Limitations Status
+LDCT ( de Koning 
+et al., 2020 ; 
+National Lung 
+Screening Trial 
+Research Team 
+et al., 2011 )
+Anatomic imaging of 
+pulmonary nodules
+NLST, NELSON ( de 
+Koning et al., 2020 ; 
+National Lung 
+Screening Trial 
+Research Team 
+et al., 2011 )
+~70–85% (Early 
+stage) ~93% (Any 
+stage)
+~73–90% Only proven 
+mortality benefit; 
+guideline- 
+endorsed
+High false-positive 
+rate, radiation; 
+limited compliance 
+(~19%); excludes 
+those who never 
+smoked
+Standard of Care
+ctDNA 
+Methylation/ 
+MCED ( Klein 
+et al., 2021 ; Schrag 
+et al., 2023 )
+Targeted 
+methylation 
+sequencing of 
+cfDNA; ML-based 
+cancer signal 
+detection
+CCGA, 
+PATHFINDER, 
+PATHFINDER 2, 
+NHS-Galleri ( Klein 
+et al., 2021 ; 
+Nabavizadeh et al., 
+2025 ; GRAIL, Inc, 
+2026 ; Schrag et al., 
+2023 )
+~17% (Stage I) 
+~40% (Stage II)
+~99.5% High specificity; 
+tissue-of-origin 
+prediction; covers 
+50+ cancers
+Low sensitivity at 
+Stage I; costly; no 
+mortality data yet
+Investigational/ 
+Commercially 
+available
+ctDNA 
+mutational 
+( Chabon et al., 
+2020 )
+Plasma NGS for 
+somatic mutations; 
+ML to distinguish 
+from clonal 
+hematopoiesis
+Lung-CLiP ( Chabon 
+et al., 2020 )
+~40% (Stage I) 
+~55% (Stage II)
+~95% Can provide 
+histology- 
+associated signal; 
+tumor shedding 
+data informative
+low ctDNA levels at 
+early stage; clonal 
+hematopoiesis 
+interference; 
+histology-dependent 
+shedding
+Investigational
+Tumor-Aab panel 
+( Sullivan et al., 
+2021 ; González 
+et al., 2021 )
+Detection of host 
+immune response to 
+tumor antigens
+ECLS trial 
+(EarlyCDT-Lung), 
+LUSI trial evaluation 
+( Sullivan et al., 2021 ; 
+González et al., 
+2021 )
+~13–41% (variable 
+by setting)
+~88–91% Detects immune 
+response that may 
+precede 
+radiographic 
+appearance; 
+inexpensive; non- 
+invasive
+Modest sensitivity, 
+especially for small 
+LDCT-detectable 
+tumors; panel- 
+dependent; limited 
+stage-shift data
+Investigational 
+Commercially 
+available in limited 
+settings
+Abbreviations: AAb, autoantibodies; ctDNA, circulating tumor DNA; LDCT, low-dose computed tomography; MCED, multi-cancer early detection; ML, machine learning.
+Frontiers in Cell and Developmental Biology frontiersin.org04
+Batra et al. 10.3389/fcell.2026.1874565
+( Nabavizadeh et al., 2025 ; GRAIL, Inc, 2026 ; Schrag et al., 2023 ). In 
+PATHFINDER 2, adding Galleri to USPSTF-recommended 
+screening resulted in more than a seven-fold increase in cancer 
+detection ( Nabavizadeh et al., 2025 ) ( Table 1 ). The NHS-Galleri trial 
+reported a four-fold higher cancer detection rate and a reduction in 
+stage IV diagnoses at interim analysis, although the prespecified 
+primary endpoint of reducing combined stage III–IV cancers was 
+not met ( GRAIL, Inc, 2026 ).
+Tumor-associated autoantibody (AAb) panels represent another 
+complementary strategy, leveraging early immune responses to 
+tumor antigens. The EarlyCDT-Lung test is the most extensively 
+studied panel; in the ECLS randomized trial, AAb-positive 
+individuals referred for LDCT demonstrated a stage shift toward 
+earlier diagnosis, although performance in other cohorts has raised 
+concerns regarding sensitivity for small early-stage lesions ( Sullivan 
+et al., 2021 ; González et al., 2021 ) ( Table 1 ). AAb panels are therefore 
+best viewed as risk-enrichment tools rather than standalone 
+screening modalities. Combinatorial strategies integrating AAb, 
+methylation, and fragmentomic signals are under active 
+investigation.
+Overall, blood-based biomarkers are unlikely to replace LDCT 
+but may add value in two complementary roles: upstream risk 
+stratification to refine LDCT eligibility and adjunctive testing 
+alongside LDCT to improve detection of cancers missed by 
+imaging ( Table 1 ). At present, no blood-based screening strategy 
+has demonstrated a mortality benefit, and these approaches remain 
+investigational, requiring prospective validation in diverse real- 
+world populations.
+Molecular diagnostics and treatment 
+selection in advanced NSCLC
+The NCCN guidelines recommend comprehensive genomic 
+profiling for all patients with advanced NSCLC, including testing 
+for EGFR, ALK, ROS1, BRAF, KRAS, RET, MET exon 14 skipping, 
+NTRK1/2/3, HER2, NRG1, and PD-L1 ( National Comprehensive 
+Cancer Network, 2026 ). Given the limitations of tissue biopsy, 
+including insufficient material in 15%–30% of cases and 
+challenges with repeat sampling at progression, plasma-based 
+testing is increasingly used as a complementary approach ( Lin 
+et al., 2023 ; García-Pardo et al., 2023 ).
+Plasma ctDNA testing enables rapid detection of actionable 
+alterations, with shorter turnaround times than tissue (median 
+~8 vs. 20 days) ( Armas et al., 2025 ). Specificity is high, 
+with >95% concordance for detected mutations, although 
+sensitivity is lower (approximately 70%–80% for mutations and 
+30%–50% for fusions) ( Lin et al., 2023 ; García-Pardo et al., 2023 ). In 
+the ACCELERATE trial, a plasma-first strategy reduced median 
+time to treatment initiation from 62 to 39 days ( García-Pardo et al., 
+2023 ). In EGFR-mutant NSCLC progressing on earlier-generation 
+TKIs, plasma testing facilitates rapid identification of resistance 
+mechanisms, including T790M, MET amplification, 
+ERBB2 amplification, and emergent fusions ( National 
+Comprehensive Cancer Network, 2026 ).
+In patients with stage I–III lung cancer, routine use of ctDNA is 
+not advised, and tissue-based molecular testing remains the 
+standard and preferred method for biomarker evaluation. In 
+advanced disease, combined tissue and plasma testing performed 
+concurrently or sequentially may improve the detection of 
+actionable alterations. A positive plasma result identifying a 
+known driver is actionable without tissue confirmation, whereas 
+a negative result should prompt tissue testing to rule out a false- 
+negative plasma assay ( National Comprehensive Cancer 
+Network, 2026 ).
+The most established clinical role of liquid biopsy in advanced 
+NSCLC is to accelerate identification of actionable alterations when 
+treatment decisions are time-sensitive. NCCN guidelines support 
+plasma genotyping as complementary to tissue testing, particularly 
+when tissue is limited or delayed ( National Comprehensive Cancer 
+Network, 2026 ). This role is supported by prospective trials. In the 
+NILE study, comprehensive plasma cfDNA genotyping 
+(Guardant360) in 282 untreated patients with metastatic NSCLC 
+was noninferior to physician-selected tissue testing for guideline- 
+recommended biomarkers, identifying at least one biomarker in 
+more patients than tissue alone, with faster turnaround (median 
+9 vs. 15 days) and high concordance when both were available 
+( Leighl et al., 2019 ). Similarly, the BFAST trial provided clinical 
+validation of a blood-first strategy, with first-line alectinib in plasma- 
+identified ALK-positive patients achieving high response rates 
+(87.4% by investigator assessment; 92.0% by independent review). 
+Among over 2,200 screened patients, blood-based NGS yielded 
+results in 98.6%, supporting the feasibility of plasma-only 
+screening and demonstrating that liquid biopsy can directly guide 
+targeted therapy selection rather than serve solely as a 
+complementary tool ( Dziadziuszko et al., 2021 ). Building on this, 
+the LIQUIK study further highlights an important evolution in 
+liquid biopsy, demonstrating that while ctDNA alone did not 
+achieve noninferiority to tissue NGS, outcomes based on liquid 
+biopsy-guided therapy were comparable to tissue-based approaches; 
+notably, incorporation of ctRNA alongside ctDNA improved the 
+detection of actionable gene rearrangements and increased overall 
+diagnostic yield, highlighting the clinical value of multi-analyte 
+plasma profiling in capturing alterations less reliably detected by 
+ctDNA alone ( Samol et al., 2025 ).
+Tumor evolution, serial monitoring, 
+and resistance
+Emerging “molecular” MRD assays now incorporate 
+methylation and fragmentomic patterns alongside mutation 
+tracking, improving detection sensitivity in low-ctDNA-burden 
+scenarios ( Vaisvila et al., 2021 ; Wang et al., 2023 ). Tumor- 
+informed assays sequence the patient’s tumor to identify 
+personalized cancer mutations and then design individualized 
+panels that track 16–50 plasma variants ( Zhao et al., 2023 ; Chen 
+and Zhou, 2023 ). This approach achieves higher specificity (96%– 
+98%) and PPV but requires upfront tumor tissue and a longer 
+development time of 2–4 weeks ( Dong et al., 2023 ; Lu et al., 2025 ; 
+Boukouris et al., 2025 ). Tumor-agnostic assays use a predetermined 
+gene panel without prior tumor sequencing, and for that reason are 
+also referred to as fixed-panel assays ( Chen et al., 2023a ). They 
+enable faster deployment (7–10 days) and can be used when tissue is 
+unavailable. In a recent meta-analysis of 30 NSCLC studies (n = 
+3,287), landmark MRD sensitivity was similar for tumor-informed 
+Frontiers in Cell and Developmental Biology frontiersin.org05
+Batra et al. 10.3389/fcell.2026.1874565
+and tumor-agnostic assays (42% vs. 44%), as was longitudinal 
+sensitivity (76% vs. 79%). Tumor-informed assays showed higher 
+specificity at both timepoints (landmark 97% vs. 93%; longitudinal 
+96% vs. 88%) ( Lu et al., 2025 ).
+The TRACERx study demonstrated that postoperative ctDNA 
+reliably identifies persistent microscopic disease after resection, 
+particularly in patients who subsequently relapse ( Black et al., 
+2025a ) ( Table 2 ). Parallel studies suggest that methylation-based 
+MRD detection can identify recurrence even when mutation-based 
+ctDNA is undetectable ( Chen et al., 2023a ; Li et al., 2021 ), 
+highlighting the complementary role of epigenetic signals. 
+Accordingly, newer assays are increasingly integrating 
+methylation-derived features to enhance sensitivity without 
+requiring prior tumor sequencing. Across studies of localized 
+NSCLC, MRD-positive patients have an approximately 6- to 21- 
+fold higher risk of recurrence compared with MRD-negative 
+patients, with a pooled meta-analytic HR ~6 (95% CI 4.48–8.18) 
+( Schuurbiers et al., 2025 ; Li et al., 2022 ; Tan et al., 2024 ; Zhang C. 
+et al., 2025 ; Xia et al., 2025 ).
+Taken together, ctDNA-based MRD assessment represents a 
+powerful tool for early risk stratification and may help identify 
+patients who could benefit from closer surveillance or treatment 
+intensification. In the LUNGCA study, post–comprehensive- 
+treatment MRD status (after surgery plus adjuvant therapy) was 
+a stronger predictor of recurrence than immediate postoperative 
+status (PPV 100% vs. 90%; NPV 90.3% vs. 90.1%). Among MRD- 
+positive patients with targetable alterations, adjuvant TKI therapy 
+improved recurrence-free survival, whereas adjuvant chemotherapy 
+did not ( Xia et al., 2025 ) ( Table 2 ). Ongoing trials are evaluating 
+MRD-guided strategies in resected NSCLC, including treatment 
+intensification for MRD-positive patients and de-escalation for 
+MRD-negative patients ( Zhang et al., 2024 ; AstraZeneca, 2024 ). 
+The MERMAID-1 trial (NCT04642469) is a phase III study 
+assessing durvalumab versus placebo in ctDNA-positive patients 
+after curative-intent therapy ( AstraZeneca, 2024 ). Similarly, the 
+ADAURA trial MRD analysis (NCT02511106) demonstrated that 
+most DFS/MRD events in the osimertinib arm occurred after 
+treatment cessation (68%) ( Herbst et al., 2025 ), supporting 
+investigation of extended adjuvant therapy durations, as being 
+explored in ADAURA2 (NCT05120349) and TARGET 
+(NCT05526755) ( Soo et al., 2024 ). Additional de-escalation 
+strategies are under evaluation in studies such as CTONG 2201 
+(NCT05457049) which is prospectively evaluating an adjuvant-free 
+strategy for patients with longitudinally undetectable MRD after 
+radical resection of stage IB–IIIA NSCLC ( Zhang et al., 2024 ). 
+Similarly, the DNA-PREDICT trial is a phase II study evaluating 
+whether ctDNA can predict response to neoadjuvant therapy and 
+guide adjuvant pembrolizumab use or de-escalation strategies in 
+early-stage NSCLC (NCT06902272).
+In metastatic disease, serial ctDNA monitoring enables 
+identification of resistance mechanisms and informs treatment 
+sequencing ( Takahama et al., 2020 ). In EGFR-mutant NSCLC, 
+plasma-based detection of acquired T790M using the cobas 
+EGFR Mutation Test v2 has been practice-changing, supported 
+by the AURA3 trial, which demonstrated superior PFS with 
+osimertinib compared with platinum–pemetrexed after prior TKI 
+failure ( May et al., 2024 ; Rotow et al., 2024 ; Mok et al., 2017 ). At 
+progression on osimertinib, NGS-based liquid biopsy platforms 
+identify both on-target resistance mutations such as C797S 
+(approximately 13%) and off-target mechanisms including MET 
+amplification and histologic transformation ( Rotow et al., 2024 ; 
+Abbosh et al., 2023 ; Piotrowska et al., 2026 ). These insights have 
+therapeutic implications, as demonstrated in the INSIGHT-2 trial, 
+where patients with MET amplification after first-line osimertinib 
+showed encouraging responses to the combination of tepotinib and 
+osimertinib, supporting plasma-based resistance profiling for 
+chemotherapy-sparing strategies ( Wu et al., 2024 ).
+Consistent with this, NCCN guidelines for NSCLC recommend 
+parallel ctDNA and tissue-based testing at progression to optimize 
+detection of resistance mechanisms ( National Comprehensive 
+Cancer Network, 2026 ). Although molecular progression may 
+precede radiographic progression, prospective evidence 
+supporting pre-emptive treatment changes based on ctDNA 
+findings alone before radiographic progression remains limited 
+( National Comprehensive Cancer Network, 2026 ).
+Two intrinsic limitations of liquid biopsy warrant emphasis in 
+the resistance setting. First, standard genomic and transcriptomic 
+plasma assays cannot directly identify histologic transformation, 
+such as the conversion of EGFR-mutant adenocarcinoma to a small 
+cell or neuroendocrine phenotype, which is a well-recognized 
+mechanism of acquired resistance under TKI pressure. Although 
+concurrent RB1 and TP53 loss detected in plasma can raise 
+suspicion, tissue re-biopsy remains necessary to confirm 
+transformed histology ( Vendrell et al., 2020 ). Second, plasma 
+analysis cannot currently replace tissue-based assessment of 
+markers required for immunotherapy selection, most notably 
+PD-L1 expression, which is still determined by 
+immunohistochemistry on tissue. Emerging plasma approaches 
+such as cell-free RNA-based PD-L1 quantification remain 
+investigational ( National Comprehensive Cancer Network, 2026 ; 
+Walker et al., 2024 ).
+Concordance and complementary role 
+of liquid biopsy with tissue biopsy
+Concordance between tissue and liquid biopsy in NSCLC is high 
+overall and has improved with successive NGS platforms. A multi- 
+institutional U.S. study of 425 stage III NSCLC cases reported EGFR 
+concordance of 93% ( Lin et al., 2023 ; Malapelle et al., 2026 ; 
+Sugimoto et al., 2023 ) ( Table 3 ). Alteration type is a key 
+determinant, with the highest concordance observed for single- 
+nucleotide variants (SNVs) and indels. In the LC-SCRUM-Liquid 
+study, a prospective analysis of 1,062 paired plasma and tissue 
+samples, concordance for common SNV/indel mutations ranged 
+from 72% to 85%, whereas structural rearrangements showed lower 
+concordance with DNA-based assays ( Sugimoto et al., 2023 ). RNA- 
+based NGS improves detection of gene fusions and can identify 
+alterations such as NTRK, NRG1, and MET exon 14 skipping that 
+may be missed by DNA-only panels, supporting its use when no 
+driver alteration is detected ( Keller-Evans et al., 2026 ; Benayed 
+et al., 2019 ).
+Methylation-based cfDNA profiling adds a complementary 
+dimension by capturing genome-wide epigenetic alterations 
+rather than focal sequence changes ( Table 4 ). Tumor-specific 
+methylation signatures identified in tissue are reproducibly 
+Frontiers in Cell and Developmental Biology frontiersin.org06
+Batra et al. 10.3389/fcell.2026.1874565
+TABLE 2 Summary of key studies evaluating ctDNA-based MRD detection in resected and locally advanced NSCLC.
+Study Design/N/Stage MRD assay/Panel Sampling timepoints Key findings
+TRACERx (Abbosh 2023; Black 
+2025) ( Black et al., 2025a ; Abbosh 
+et al., 2023 ; Black et al., 2025b )
+Prospective cohort; N = 
+197→431; Stage I-III
+Tumor-informed; WES 
+(200 variants) → WGS/NeXT 
+Personal (1,800 variants)
+Preoperative; ≤120 days 
+postoperative; every 3–6 months
+Landmark ctDNA+ in 25% of 
+patients (49% of relapses). 
+Ultrasensitive assay: 81% LUAD 
+preoperative (53% stage I). ctDNA 
+clearance associated with 
+improved outcomes
+LUNGCA (Xia 2022, 2025) ( Xia 
+et al., 2025 ; Xia et al., 2022 )
+Prospective multicenter; 
+N = 330/233; Stage I-III
+Tumor-agnostic; 769-gene/ 
+customized panel
+Preoperative; postoperative day 
+3 and month 1; every 3–6 months × 
+3 years
+MRD + HR 11.1. Post-treatment 
+MRD: PPV 100%, NPV 90.3%. 
+Targetable mutations + TKI: HR 
+0.01 (p = 0.005)
+Qiu 2021/Zhang 2025 ( Qiu et al., 
+2021 ; Zhang et al., 2025b )
+Prospective cohort; N = 
+261; Stage I-III
+Tumor-informed; ultradeep 
+NGS, patient-specific variants
+Postoperative; post-ACT; every 
+3–6 months
+Lead time 88 days. Stage II-III 
+MRD + benefited from ACT. 
+Updated: PPV 91.3%, NPV 92.8%, 
+lead time 5.2 months
+LUCID (Gale 2022) ( Gale et al., 
+2022 )
+Prospective; N = 88; Stage 
+I-III
+Tumor-informed (RaDaR); 
+WES, 48 patient-specific variants
+Pre-treatment; 1–3 days 
+postoperative; 2 weeks-4 months 
+post-treatment
+MRD + HR 14.8 (RFS), HR 5.48 
+(OS). Lead time 212.5 days. 
+Specificity >98.5%
+LEMA (Schuurbiers 2025) 
+( Schuurbiers et al., 2025 )
+Retrospective validation; 
+N = 130; Stage 0-III
+Tumor-informed (RaDaR); 
+WES, patient-specific
+Pre-treatment; ≥14 days post- 
+treatment; longitudinal
+Specificity 97%, PPV 92%, NPV 
+84%. Combined with LUCID: HR 
+11.4 (RFS), HR 8.1 (OS). Lead time 
+204 days
+Tan 2024 ( Tan et al., 2024 ) Retrospective; N = 57; 
+Stage I-III
+Tumor-informed (Signatera); 
+WES, 16 patient-specific SNVs
+Preoperative; postoperative; 
+longitudinal
+Preoperative ctDNA + HR 3.54. 
+Postoperative ctDNA+ → 100% 
+recurrence. Longitudinal HR 16.1. 
+Lead time 2.8 months
+Li 2022 ( Li et al., 2022 ) Prospective; N = 119; Stage 
+I-IIIA
+Tumor-agnostic; 425 cancer- 
+related genes
+Preoperative; ≤1 month 
+postoperative; every 3–6 months × 
+3 years
+Preoperative HR 2.42 (RFS). 
+Postoperative HR 3.04. 
+Longitudinal HR 3.46 (RFS), HR 
+9.99 (OS). Lead time 8.7 months
+NADIM II MRD (Provencio 
+2026) ( Provencio et al., 2026 )
+Prospective trial substudy; 
+N = 60; Stage IIIA-IIIB
+Tumor-agnostic (Guardant 
+Reveal)
+Pre-NAT; postoperative; adjuvant MRD + HR 10.2 (EFS), HR 10.0 
+(OS). MRD− at ≥2 timepoints: 
+100% alive. Prognostic 
+beyond pCR.
+Chaudhuri 2017 (CAPP-Seq) 
+( Chaudhuri et al., 2017 )
+Prospective; N = 40; Stage 
+I-III
+Tumor-informed (CAPP-Seq); 
+128-gene selector
+Pre-treatment; post-treatment; 
+longitudinal
+MRD detected in 94% of patients 
+with recurrence. Lead time 
+5.2 months. Specificity 96%. 
+Actionable mutations 53%
+PROPHET (Chen 2023) ( Chen 
+et al., 2023b )
+Prospective; N = 181; Early 
+stage
+Tumor-informed (PROPHET); 
+50 patient-specific variants
+Preoperative; postoperative; 
+longitudinal
+LOD 0.004%. Lead time 299 days. 
+Proposed TNMB staging 
+outperformed TNM.
+Jung 2023 (EGFR-mutant) ( Jung 
+et al., 2023 )
+Prospective; N = 278; Stage 
+I-IIIA
+Tumor-informed (ddPCR); 
+EGFR ex19del/L858 R
+Preoperative; 4 weeks 
+postoperative; every 6 months × 
+5 years
+MRD+ 3-year DFS 50% vs. 84%. 
+Lead time: 69% (ex19del) vs. 20% 
+(L858 R)
+Pan 2023 (CRT, locally 
+advanced) ( Pan et al., 2023 )
+Prospective; N = 139; 
+Locally advanced
+Tumor-informed (targeted 
+NGS); patient-specific variants
+Baseline; on-RT; after RT; 
+longitudinal
+Undetectable MRD (on-RT + 
+after RT) associated with 
+improved survival. Longitudinal 
+MRD−: 2-year csPFS 88.4%
+(Continued)
+Frontiers in Cell and Developmental Biology frontiersin.org07
+Batra et al. 10.3389/fcell.2026.1874565
+detected in plasma, with diagnostic models achieving AUCs above 
+0.93 in validation cohorts ( Machado et al., 2025 ; Du et al., 2024 ). 
+Although overall sensitivity remains modest, particularly in early- 
+stage and low-shedding disease ( Hu et al., 2023 ), methylation-based 
+approaches provide additional signal when mutation-based ctDNA 
+is limited, and combined methylation and mutation profiling 
+demonstrates independent prognostic value ( Wang et al., 2023 ; 
+Jiang et al., 2020 ; Pathak et al., 2025 ).
+Disease stage and resectability significantly affect concordance 
+( Keller-Evans et al., 2026 ; Pathak et al., 2025 ). Concordance 
+increases progressively with stage, from very low values in stage I 
+to high concordance in stage IV, although the most extreme 
+reported values are not consistently replicated ( Qvick et al., 2021 ; 
+Bontoux et al., 2025 ) ( Table 3 ). Patients with stage IIIB disease or 
+isolated brain metastases are more likely to have low or undetectable 
+ctDNA due to limited tumor shedding ( Normanno et al., 2025 ; 
+Zhang et al., 2019 ), and ctDNA testing is therefore not routinely 
+recommended in stages I–III, where tissue remains the standard 
+( National Comprehensive Cancer Network, 2026 ). Histology also 
+contributes to variability. In early-stage disease, lung squamous cell 
+carcinoma demonstrates higher ctDNA detection rates and tumor 
+methylated fractions than adenocarcinoma ( Driussi et al., 2025 ; Cai 
+et al., 2021 ), whereas in advanced disease, mutational concordance 
+may be higher in adenocarcinoma, likely reflecting differences in 
+genomic architecture and panel design ( Botticelli et al., 2026 ). 
+Notably, when ctDNA is detectable, concordance can exceed 90% 
+irrespective of histology ( Lin et al., 2023 ; Chen et al., 2024 ).
+Beyond static concordance metrics, prospective data support an 
+integrated diagnostic approach. In the ROME trial, among 
+1,794 screened patients (400 randomized), those with actionable 
+alterations identified in both tissue and plasma who received 
+matched therapy had improved outcomes compared with 
+standard care (median OS 11.05 vs. 7.70 months; HR 0.74; 95% 
+CI 0.51–1.07; median PFS 4.93 vs. 2.80 months; HR 0.55; 95% CI 
+0.40–0.76). Outcomes were intermediate when alterations were 
+detected in tissue alone and poorest when identified only in 
+plasma ( Marchetti et al., 2025 ; Botticelli et al., 2026 ).
+Taken together, these findings support an integrative rather than 
+competitive diagnostic strategy. High concordance reinforces 
+confidence in clinical decision-making, while discordant findings, 
+when interpreted in appropriate clinical context, may still provide 
+actionable insights ( Rolfo et al., 2021 ; Lin et al., 2023 ; Keller-Evans 
+et al., 2026 ; Chen et al., 2024 ).
+Cost, reimbursement, and access
+In the United States, three liquid biopsy assays (cobas EGFR 
+Mutation Test v2, FoundationOne Liquid CDx, and 
+Guardant360 CDx) have been approved by the FDA as 
+companion diagnostics ( U.S. Food and Drug Administration, 
+2026 ). This regulatory framework has helped establish a clearer 
+reimbursement pathway for plasma-based genomic profiling when 
+used to identify actionable alterations and guide targeted therapy in 
+TABLE 2 Continued
+Study Design/N/Stage MRD assay/Panel Sampling timepoints Key findings
+PhasED-Seq ( Isbell et al., 2024 ) Prospective; N = 46; Early 
+stage
+Tumor-informed (PhasED-Seq); 
+WGS, phased variant panels
+Postoperative landmark; 
+longitudinal
+LOD95 1 ppm. MRD+ → 100% 
+recurrence. Sensitivity 67% vs. 
+28% (CAPP-Seq). Adjuvant 
+HR 8.2
+Rosenlund 2025 ( Rosenlund 
+et al., 2025 )
+Prospective multicenter; 
+N = 45; Stage I-III
+Tumor-agnostic (CAPP-Seq) Pre-treatment; FU1 
+(0.5–4.5 months); FU2 
+(4.5–7.5 months)
+Post-treatment ctDNA + 
+associated with shorter RFS. 
+FU2 sensitivity 50%. Timing 
+depends on treatment type
+MRD-EDGE (Widman 2024) 
+( Widman et al., 2024 )
+Prospective; multiple 
+cohorts
+Tumor-informed (WGS + ML); 
+SNV + CNV enrichment
+Preoperative; postoperative; on- 
+treatment
+~300× signal enrichment. CNV 
+detection from 200 Mb 
+aneuploidy. Enables plasma-only 
+monitoring
+DART ( Horndalsveen et al., 
+2025 )
+Prospective phase II; N = 
+86; Stage III
+Tumor-agnostic; 293 genes 
+(hybrid capture)
+Baseline; 1 month post-CRT; 
+during durvalumab
+ctDNA+ within 4 months post- 
+CRT: HR 4.7 (PFS). Death within 
+24 months: OR 16.48
+MEDAL (Chen 2023) - 
+Methylation ( Chen et al., 2023a )
+Prospective + validation; 
+N = 195 + 36; surgical
+Tumor-informed methylation 
+(timMRD); ultra-deep bisulfite 
+sequencing
+Baseline; postoperative timMRD HR 3.08 (p = 0.002); 
+validated HR 2.80. Outperformed 
+mutation-based ctDNA in stage I. 
+NPV 97.2%
+Abbreviations: ACT, adjuvant chemotherapy; CAPP-Seq, Cancer Personalized Profiling by Deep Sequencing; CNV, copy number variation; CRT, chemoradiotherapy; csPFS, cancer-specific 
+progression-free survival; ddPCR, droplet digital PCR; DFS, disease-free survival; EFS, event-free survival; EGFR, epidermal growth factor receptor; ex19del, exon 19 deletion; HR, hazard ratio; 
+LOD, limit of detection; LUAD, lung adenocarcinoma; MRD, minimal residual disease; NGS, next-generation sequencing; NPV, negative predictive value; OS, overall survival; pCR, pathological 
+complete response; PFS, progression-free survival; PPV, positive predictive value; RaDaR, rare and deep sequencing for residual disease; RFS, recurrence-free survival; RT, radiotherapy; SNV, 
+single nucleotide variant; TKI, tyrosine kinase inhibitor; TNMB, tumor-node-metastasis-blood; WES, whole-exome sequencing; WGS, whole-genome sequencing.
+Frontiers in Cell and Developmental Biology frontiersin.org08
+Batra et al. 10.3389/fcell.2026.1874565
+TABLE 4 Emerging epigenetic and methylation technologies for cfDNA analysis in lung cancer.
+Technology Principle/Input DNA Key advantages Key limitations Lung cancer 
+applications
+Whole-genome bisulfite sequencing 
+(WGBS) ( Klein et al., 2021 )
+Chemical conversion of 
+unmethylated C→U; 5–30 ng 
+input
+Comprehensive genome-wide 
+coverage; foundational for 
+CCGA/Galleri
+DNA degradation; high 
+cost; high input 
+requirement
+MCED screening; tissue-of- 
+origin prediction
+Enzymatic methyl-seq (EM-seq) 
+( Vaisvila et al., 2021 ; Olova and 
+Andrews, 2025 ; Zeng et al., 2026 )
+Enzymatic (TET2/APOBEC) 
+conversion preserving DNA 
+integrity; 1–10 ng input
+Less DNA damage; multimodal 
+(methylation + fragmentation 
++ CNA)
+Lower DNA recovery vs. 
+bisulfite (34%–47% vs. 
+61%–81%)
+Early detection; multimodal 
+cancer classification
+cfMeDIP-seq ( Shen et al., 2018 ) Antibody enrichment of 
+methylated fragments; 1–10 ng 
+input
+Ultra-low input; genome-wide; 
+tissue-agnostic MRD
+Enrichment bias; requires 
+bioinformatic 
+deconvolution
+MRD detection; 
+immunotherapy monitoring; 
+pan-cancer detection
+MRE-seq ( Kwon et al., 2023 ) Restriction enzyme digestion at 
+unmethylated CpGs; 5–20 ng 
+input
+Detects global hypomethylation; 
+cancer signal origin
+Limited to enzyme 
+recognition sites
+Cancer detection and tissue- 
+of-origin classification
+Targeted methylation panels ( Thursby 
+et al., 2026 ; Maansson et al., 2026 )
+Amplicon or hybrid-capture of 
+cancer-specific loci; 1–20 ng 
+input
+High depth; quantitative; fast 
+turnaround
+Limited genomic coverage Treatment response 
+monitoring; neoadjuvant 
+response prediction
+Nanopore sequencing ( Katsman et al., 
+2022 )
+Direct reading of native 
+methylation marks; variable 
+input
+No conversion step; 
+simultaneous base and 
+modification calling
+Early development for 
+cfDNA; higher error rates
+Investigational; potential for 
+simplified workflows
+Abbreviations: APOBEC, apolipoprotein B mRNA, editing enzyme catalytic polypeptide; CCGA, Circulating Cell-Free Genome Atlas; cfDNA, cell-free DNA; cfMeDIP-seq, cell-free methylated 
+DNA, immunoprecipitation sequencing; CNA, copy number alteration; CpG, cytosine-phosphate-guanine; EM-seq, enzymatic methyl sequencing; MCED, multi-cancer early detection; MRE- 
+seq, methylation-sensitive restriction enzyme sequencing; TET2, ten-eleven translocation 2; WGBS, whole-genome bisulfite sequencing.
+TABLE 3 Concordance of ctDNA versus tissue biopsy in NSCLC.
+Clinical scenario Concordance/Sensitivity Clinical significance
+Stage III NSCLC (EGFR, all methods) ( Sugimoto et al., 2023 ) Concordance 93%; sensitivity 45% Performance improved with contemporary NGS platforms
+Stage III NSCLC (NGS 2020–2023) ( Sugimoto et al., 2023 ) Concordance 96%; sensitivity 53% Reflects adoption of advanced NGS technologies
+Stage III NSCLC (NGS 2017–2019) ( Sugimoto et al., 2023 ) Concordance 85%; sensitivity 45% Reduced concordance with earlier-generation platforms
+Unresectable NSCLC ( National Comprehensive Cancer 
+Network, 2026 ; Zhang et al., 2019 )
+Increased concordance and sensitivity 
+compared with resectable disease
+Higher ctDNA shedding; liquid biopsy is clinically acceptable
+Resectable NSCLC ( Qvick et al., 2021 ; Zhang et al., 2019 ) Reduced concordance; stage-dependent 
+(0%–45%)
+Limited ctDNA shedding; tissue remains the reference standard
+Point mutations (EGFR, KRAS, BRAF) ( Keller-Evans et al., 
+2026 ; L et al., 2023 ; Borg et al., 2023 )
+PPA 77%–85%; pooled sensitivity 69%; 
+specificity 96%–99%
+Highest concordance among alteration types; EGFR 78%–82%, 
+KRAS 71%–75%, BRAF 75%–85%
+Gene fusions (DNA-based ctDNA) ( Sugimoto et al., 2023 ; 
+Keller-Evans et al., 2026 )
+PPA 18%–57% Limited sensitivity for fusion detection; ALK 46%–74%, RET 
+57%–60%, ROS1 18%–33%
+Gene fusions (tissue RNA vs. DNA) ( Keller-Evans et al., 
+2026 )
+RNA detects 15%–26% more fusions RNA is essential for comprehensive fusion profiling; combined 
+DNA and RNA comprehensive genomic profiling is 
+recommended
+Adenocarcinoma ( Qvick et al., 2021 ; Cai et al., 2021 ) Concordance 64%–72% (stage-dependent) Higher than squamous (64% vs. 47%); concordance increases with 
+stage (0% in stage I to 75% in stage IV)
+Advanced/metastatic NSCLC ( Chen et al., 2024 ; L et al., 
+2023 )
+Increased concordance and sensitivity; 
+specificity ≥96%
+High tumor burden enhances ctDNA yield; liquid biopsy is most 
+reliable in this setting
+cfDNA methylation ( Borg et al., 2023 ; Liang et al., 2019 ; 
+Ezegbogu et al., 2024 ; Maf et al., 2024 ; Hsiao et al., 2025 )
+Pooled sensitivity 47%–62%; specificity 
+87%–93%
+Captures global tumor biology; informative even at low ctDNA 
+fractions
+Abbreviations: BRAF, B-Raf proto-oncogene; EGFR, epidermal growth factor receptor; KRAS, kirsten rat sarcoma viral oncogene homolog; NGS, next-generation sequencing; PPA, positive 
+percent agreement; SNV, single nucleotide variant.
+Frontiers in Cell and Developmental Biology frontiersin.org09
+Batra et al. 10.3389/fcell.2026.1874565
+advanced NSCLC. Consistent with this, Medicare’s CMS NCD 
+90.2 provides broad Medicare coverage for FDA-approved or 
+cleared CDx NGS assays in patients with advanced cancer when 
+used to inform treatment decisions, thereby supporting 
+reimbursement for liquid biopsy in this setting ( Centers for 
+Medicare and Medicaid Services, 2020 ).
+By contrast, coverage for MRD testing, surveillance, and 
+screening remains more limited and fragmented. No national 
+coverage determination (NCD) exists for liquid biopsy MRD or 
+surveillance testing, and Medicare coverage is instead largely 
+determined through local coverage determinations (LCDs), 
+particularly the MolDX framework, including LCD L38835 
+( Centers for Medicare and Medicaid Services, 2021 ). This policy 
+provides limited coverage for minimally invasive MRD assays, 
+including ctDNA-based liquid biopsy tests, but only for patients 
+with a personal history of cancer and only when the assay meets 
+defined criteria for clinical validity and utility. Coverage requires 
+evidence that the assay can detect molecular recurrence before 
+clinical, laboratory, or radiographic recurrence, and that 
+identification of recurrence or progression would lead to a 
+guideline-supported change in patient management. MolDX 
+coverage has been reported for Signatera ( Natera, Inc, 2025 ) in 
+stage I–III NSCLC surveillance and for immunotherapy monitoring, 
+but this represents assay- and indication-specific coverage rather 
+than a broad endorsement of liquid biopsy MRD across lung cancer 
+care. Screening is the most constrained access setting, as liquid 
+biopsy screening tests lack an NCD or LCD pathway, so early- 
+detection applications remain largely investigational or available 
+only through clinical trials, research protocols, or self-pay or 
+commercial channels.
+Commercial payer coverage adds another layer of variability. 
+In a 2023 review of private payer and Medicare coverage policies 
+for ctDNA testing, Douglas et al. found that 89% of private 
+policies ( Douglas et al., 2023 ) specified coverage of ctDNA 
+testing for at least one indication. Among 57 private payer 
+policies, 69% covered ctDNA testing for initial treatment 
+selection, whereas coverage was less consistent for 
+progression and MRD. Only 28% of policies addressing 
+progression provided coverage, while 65% of policies 
+addressing MRD provided coverage ( Douglas et al., 2023 ).
+Globally, access to liquid biopsy remains uneven and is closely 
+tied to broader reimbursement challenges facing advanced genomic 
+testing. In the 2023 ESMO survey of biomolecular technology access 
+( Bayle et al., 2023 ) across 48 European countries, liquid biopsy was 
+grouped among the more advanced technologies with generally low 
+availability, often limited to clinical trials or research programs in 
+high-income countries and frequently unavailable in low- and 
+middle-income countries. Lung cancer was an important 
+exception, reflecting the more established role of plasma-based 
+genotyping in advanced NSCLC; even within lung cancer, 
+however, access remains concentrated around treatment selection 
+rather than broader applications such as MRD detection, 
+surveillance, or screening. Cost is a major constraint. While 
+prices for single-gene techniques generally ranged from a few 
+tens to a few hundred euros, more complex NGS approaches had 
+much wider price ranges, reaching up to €3,000 per patient, and the 
+proportion of out-of- pocket expenses increased as testing became 
+more advanced. Reimbursement was the leading barrier to 
+multigene testing, cited more often than for single-gene testing 
+(59% versus 24%) ( Bayle et al., 2023 ).
+Current challenges and future 
+directions
+Liquid biopsy in the United States continues to face important 
+biological, technical, and regulatory challenges that limit broader 
+application in early detection and post-treatment decision-making. 
+A key biological constraint is the “shedding limit” for small tumors 
+( Deveson et al., 2021 ; Avanzini et al., 2020 ). Most FDA-approved 
+broad-panel assays reliably detect variants at ≥0.5% allele frequency, 
+with some achieving ~0.1% under optimal conditions ( Northcott 
+et al., 2024 ). Newer ultrasensitive technologies such as PhasED-Seq 
+and NeXT Personal achieve detection in the parts-per-million range 
+(~0.0001%), and tumor-informed mPCR assays such as Signatera 
+report detection down to ~0.01% ( Northcott et al., 2024 ; Verma 
+et al., 2020 ; Reinert et al., 2019 ). Despite these advances, early-stage 
+detection remains constrained by very low tumor fraction.
+Pre-analytical and analytical variables also affect test 
+performance. CAP/CLIA standards govern laboratory workflows, 
+and sample handling is critical (for example, Streck BCT tubes 
+preserve cfDNA stability for up to 5–7 days at room temperature) 
+( Medina et al., 2016 ). Clonal hematopoiesis of indeterminate 
+potential (CHIP) remains a major confounder, generating false- 
+positive mutation signals and present in approximately 10%–15% of 
+individuals over age 70 ( Razavi et al., 2019 ). Bioinformatic filtering 
+and paired white blood cell sequencing mitigate this in mutation- 
+based assays, while methylation-based assays are inherently less 
+susceptible to CHIP-related interference ( Razavi et al., 2019 ). 
+Turnaround time also constrains clinical utility, as tumor- 
+informed assays offer high specificity but require 2–4 weeks for 
+personalized panel design, whereas tumor-agnostic and 
+methylation-based platforms enable faster results with tradeoffs 
+in sensitivity ( Lu et al., 2025 ). Regulatory pathways are evolving, 
+including FDA consideration of MRD as a surrogate endpoint, 
+which may accelerate adoption.
+Artificial intelligence and machine learning are increasingly 
+used to integrate genomic, epigenomic, and fragmentomic data. 
+Meta-analyses of independent validation datasets report pooled 
+sensitivities of ~78–90% and specificities of 94%–99% for early- 
+stage cancer detection using ML-based models ( Cohen et al., 2018 ; 
+Filis et al., 2026 ). Combining these data streams will be central to 
+comprehensive tumor characterization from a single blood sample.
+The use of ctDNA in CSF is also changing how CNS 
+involvement is evaluated. Because the blood-brain barrier 
+restricts the passage of tumor DNA into the bloodstream, 
+standard blood-based liquid biopsies often miss brain metastases 
+or leptomeningeal disease (LMD). Sampling CSF directly bypasses 
+this barrier. A systematic review and meta-analysis of 26 studies 
+reported a pooled CSF ctDNA detection rate of 86% (95% CI 79%– 
+91%), significantly higher than CSF cytology at 60% (95% CI 36%– 
+81%). Pooled sensitivity was 91.8% and specificity 93.5% for 
+detecting CNS metastases in NSCLC, although individual study 
+detection rates ranged from 82% to 100% ( Olayode et al., 2025 ).
+Clinicians increasingly use CSF ctDNA to evaluate CNS 
+metastases including leptomeningeal disease, to monitor disease 
+Frontiers in Cell and Developmental Biology frontiersin.org10
+Batra et al. 10.3389/fcell.2026.1874565
+progression in the brain, and to detect resistance mechanisms such 
+as EGFR T790M that may be invisible in plasma ( Zheng et al., 2025 ). 
+A landmark study of 584 NSCLC patients with CNS metastases 
+found that CSF ctDNA positivity was independently associated with 
+shorter survival (HR 1.9, 95% CI 1.56–2.39; P < 0.0001), and patients 
+with a driver alteration detected by CSF ctDNA derived a survival 
+benefit from CSF-matched therapy (HR 0.78, 95% CI 0.65–0.92; P = 
+0.003) ( Zheng et al., 2025 ). CSF testing has also shown that the 
+genomic profile of brain metastases can differ from extracranial 
+disease, with more driver alterations, more copy-number variations, 
+and distinct resistance mechanisms ( Sun et al., 2025 ; Brastianos 
+et al., 2015 ). The current NCCN CNS Cancers Guidelines (v3.2025) 
+note that “when available, assessment of CSF-tDNA increases 
+sensitivity of tumor cell detection and assessment of response to 
+treatment” ( National Comprehensive Cancer Network, 2025 ). CSF 
+ctDNA is not yet FDA-approved as a formal CDx, but institutions 
+are increasingly incorporating these protocols into clinical practice 
+as part of precision neuro-oncology in lung cancer ( Seoane 
+et al., 2019 ).
+A further barrier to cross-study comparison is the lack of 
+harmonization across commercial assays and research pipelines. 
+Differences in gene panel content and breadth of coverage mean that 
+the same plasma sample may yield different actionable findings 
+depending on the assay used, which constrains the interpretation of 
+tissue and plasma concordance studies ( Deveson et al., 2021 ; Stetson 
+et al., 2019 ). Analytical performance is itself heterogeneous. Multi-site 
+benchmarking has shown that above approximately 0.5% VAF 
+mutations are detected reproducibly across platforms, but below this 
+threshold sensitivity diverges widely between assays, and technical rather 
+than biological factors are a major source of inter-assay discordance 
+( Deveson et al., 2021 ; Stetson et al., 2019 ). Methodological heterogeneity 
+in bioinformatics compounds this problem, because variability in 
+variant-calling algorithms, filtering thresholds, and quality-control 
+metrics makes direct comparison of datasets generated by different 
+pipelines unreliable in the absence of shared reference standards and 
+reporting frameworks ( Deveson et al., 2021 ).
+Related to this is the absence of standardized metrics for the 
+absolute tumor fraction of circulating DNA, a key factor for correct 
+interpretation of results, including the meaning of a negative test. 
+Variant allele frequency (VAF) is frequently used as a surrogate but 
+does not equate to absolute tumor fraction, because it is influenced 
+by copy-number state, clonality, and clonal hematopoiesis. 
+Orthogonal genomic approaches such as genome-wide copy- 
+number-based tumor-fraction estimation (for example, 
+ichorCNA) and epigenomic, methylation-based quantification 
+provide assay-independent estimates of circulating tumor content 
+( Adalsteinsson et al., 2017 ; Ye et al., 2025 ). Robust tumor-fraction 
+estimation is the quantitative keystone for interpreting ctDNA 
+clearance dynamics in longitudinal monitoring and for 
+distinguishing a true negative from a low tumor-fraction sample 
+that falls below the assay limit of detection ( Adalsteinsson et al., 
+2017 ; Ye et al., 2025 ).
+Conclusion
+Liquid biopsy has matured into a clinically deployed tool across 
+the lung cancer continuum, with evidence strength varying 
+considerably by application. The field can be framed across three 
+tiers, including established applications, applications under 
+prospective evaluation, and applications not yet ready for routine 
+use. At the established end, plasma genomic profiling for actionable 
+alterations in advanced NSCLC is the only application supported by 
+FDA-approved companion diagnostics, NCCN guideline 
+endorsement, and randomized clinical utility data. It accelerates 
+time to first-line targeted therapy, identifies acquired resistance and 
+supports treatment sequencing through detection of bypass 
+alterations with broad reimbursement through CMS NCD 90.2.
+A second tier, including ctDNA-based MRD detection after 
+curative-intent therapy, is the most actively studied application 
+beyond advanced disease. Tumor-informed assays achieve high 
+specificity in established cohorts, while methylation- and 
+fragmentomics-based multimodal assays are extending sensitivity 
+into low-shedding settings; phase III MRD-guided trials evaluating 
+treatment escalation and de-escalation have yet to report. CSF 
+ctDNA for CNS-restricted disease, ctRNA for fusion detection, 
+and methylation-based tissue-of-origin classifiers sit in this same 
+emerging-evidence tier.
+Several other applications are not ready for routine practice. 
+Multi-cancer early detection has shown analytical feasibility 
+but no mortality benefit. The NHS-Galleri trial reported 
+increased early-stage detection but missed its primary 
+endpoint of reducing combined stage III–IV cancers. 
+ctDNA-guided treatment changes in metastatic disease lack 
+randomized OS data, and tumor-associated autoantibody 
+panels and fragmentomics-only screening assays remain 
+investigational and largely uncovered by payers.
+The next phase of liquid biopsy in lung cancer will be defined 
+less by new analytes than by disciplined integration of existing 
+modalities (genomics, methylation, fragmentomics, and ctRNA), the 
+completion of randomized MRD and screening trials, and 
+reimbursement frameworks aligned with the evidence. Until then, 
+the principal value of liquid biopsy lies where the evidence is 
+strongest, in advanced-NSCLC molecular profiling and treatment 
+selection, while emerging roles in early detection and MRD await 
+trial readouts and regulatory pathways that will determine whether 
+they become standard care.
+Author contributions
+AB: Validation, Conceptualization, Writing – review and 
+editing, Resources, Writing – original draft, Visualization. XZ: 
+Writing – original draft, Conceptualization, Writing – review and 
+editing, Resources. DM-K: Writing – review and editing, 
+Writing – original draft. CT: Writing – review and editing, 
+Supervision, Writing – original draft. GL: Writing – review and 
+editing, Writing – original draft, Supervision. CJ: Writing – original 
+draft, Visualization, Conceptualization, Writing – review and 
+editing, Supervision.
+Funding
+The author(s) declared that financial support was not received 
+for this work and/or its publication.
+Frontiers in Cell and Developmental Biology frontiersin.org11
+Batra et al. 10.3389/fcell.2026.1874565
+Conflict of interest
+The author(s) declared that this work was conducted in the 
+absence of any commercial or financial relationships that could be 
+construed as a potential conflict of interest.
+Generative AI statement
+The author(s) declared that generative AI was not used in the 
+creation of this manuscript.
+Any alternative text (alt text) provided alongside figures in this 
+article has been generated by Frontiers with the support of artificial 
+intelligence and reasonable efforts have been made to ensure 
+accuracy, including review by the authors wherever possible. If 
+you identify any issues, please contact us.
+Publisher’s note
+All claims expressed in this article are solely those of the authors 
+and do not necessarily represent those of their affiliated 
+organizations, or those of the publisher, the editors and the 
+reviewers. Any product that may be evaluated in this article, or 
+claim that may be made by its manufacturer, is not guaranteed or 
+endorsed by the publisher.
+References
+Abbosh, C., Frankell, A. M., Harrison, T., Kisistok, J., Garnett, A., Johnson, L., et al. 
+(2023). Tracking early lung cancer metastatic dissemination in TRACERx using ctDNA. 
+Nature 616 (7958), 553–562. doi: 10.1038/s41586-023-05776-4
+Adalsteinsson, V. A., Ha, G., Freeman, S. S., Choudhury, A. D., Stover, D. G., Parsons, H. 
+A., et al. (2017). Scalable whole-exome sequencing of cell-free DNA reveals high 
+concordance with metastatic tumors. Nat. Commun. 8 (1), 1324. doi: 10.1038/ 
+s41467-017-00965-y
+Armas, S., Atallah, S., and Brice, K. (2025). Accelerating treatment decisions with liquid 
+biopsy NGS in non-small cell lung cancer. J. Clin. Oncol. 43, e20536. doi: 10.1200/JCO. 
+2025.43.16_suppl.e20536
+AstraZeneca (2024). A Phase III, Randomized, Multicenter, Double-blind, Placebo- 
+controlled Study of Durvalumab for the Treatment of Stage II-III NSCLC Patients 
+With Minimal Residual Disease Following Surgery and Curative Intent Therapy. 
+Available online at: https://clinicaltrials.gov/study/NCT04642469 (Accessed April 
+19, 2026).
+Avanzini, S., Kurtz, D. M., Chabon, J. J., Moding, E. J., Hori, S. S., Gambhir, S. S., et al. 
+(2020). A mathematical model of ctDNA shedding predicts tumor detection size. Sci. 
+Adv. 6 (50), eabc4308. doi: 10.1126/sciadv.abc4308
+Baca, S. C., Seo, J. H., Davidsohn, M. P., Fortunato, B., Semaan, K., Sotudian, S., et al. 
+(2023). Liquid biopsy epigenomic profiling for cancer subtyping. Nat. Med. 29 (11), 
+2737–2741. doi: 10.1038/s41591-023-02605-z
+Bandi, P., Landy, R., Star, J., Kratzer, T. B., Smith, R. A., and Jemal, A. (2025). Lung 
+cancer deaths prevented and life-years gained from lung cancer screening. JAMA 334 
+(24), 2225–2227. doi: 10.1001/jama.2025.19798
+Bayle, A., Bonastre, J., Chaltiel, D., Latino, N., Rouleau, E., Pages, A., et al. (2023). ESMO 
+study on the availability and accessibility of biomolecular technologies in oncology in 
+Europe. Ann. Oncol. 34 (10), 934–945. doi: 10.1016/j.annonc.2023.06.011
+Benayed, R., Offin, M., Mullaney, K., Sukhadia, P., Rios, K., Desmeules, P., et al. (2019). 
+High yield of RNA sequencing for targetable kinase fusions in lung adenocarcinomas 
+with no mitogenic driver alteration detected by DNA sequencing and low tumor 
+mutation burden. Clin. Cancer Res. 25 (15), 4712–4722. doi: 10.1158/1078-0432. 
+CCR-19-0225
+Bie, F., Wang, Z., Li, Y., Guo, W., Hong, Y., Han, T., et al. (2023). Multimodal analysis of 
+cell-free DNA whole-methylome sequencing for cancer detection and localization. Nat. 
+Commun. 14 (1), 6042. doi: 10.1038/s41467-023-41774-w
+Black, J. R. M., Bartha, G., Abbott, C. W., Boyle, S. M., Karasaki, T., Li, B., et al. (2025a). 
+Ultrasensitive ctDNA detection for preoperative disease stratification in early-stage lung 
+adenocarcinoma. Nat. Med. 31 (1), 70–76. doi: 10.1038/s41591-024-03216-y
+Black, J. R. M., Karasaki, T., Abbott, C. W., Li, B., Veeriah, S., Al Bakir, M., et al. (2025b). 
+Longitudinal ultrasensitive ctDNA monitoring for high-resolution lung cancer risk 
+prediction. Cell 188 (25), 7083–7098.e18. doi: 10.1016/j.cell.2025.10.020
+Bontoux, C., Lacoux, C., Benzaquen, J., Boutros, J., Rignol, G., Long-Mira, E., et al. 
+(2025). Detecting actionable mutations from matched plasma-based versus tissue next- 
+generation sequencing in advanced non-small cell lung cancer: a retrospective single 
+center analysis on site. J. Exp. Clin. Cancer Res. CR 44 (1), 229. doi: 10.1186/s13046-025- 
+03480-x
+Borg, M., Wen, S. W. C., Andersen, R. F., Timm, S., Hansen, T. F., and Hilberg, O. 
+(2023). Methylated circulating tumor DNA in blood as a tool for diagnosing lung cancer: 
+a systematic review and meta-analysis. Cancers 15 (15), 3959. doi: 10.3390/ 
+cancers15153959
+Botticelli, A., Cremolini, C., Scagnoli, S., Biffoni, M., Lonardi, S., Fornaro, L., et al. 
+(2026). The impact of concordance between liquid and tissue biopsy for actionable 
+mutations: insights from the ROME trial. Clin. Cancer Res. Off. J. Am. Assoc. Cancer Res. 
+32 (1), 45–55. doi: 10.1158/1078-0432.CCR-25-0430
+Boukouris, A. E., Michaelidou, K., Joosse, S. A., Charpidou, A., Mavroudis, D., Syrigos, 
+K. N., et al. (2025). A comprehensive overview of minimal residual disease in the 
+management of early-stage and locally advanced non-small cell lung cancer. NPJ Precis. 
+Oncol. 9 (1), 178. doi: 10.1038/s41698-025-00984-9
+Brastianos, P. K., Carter, S. L., Santagata, S., Cahill, D. P., Taylor-Weiner, A., Jones, R. T., 
+et al. (2015). Genomic characterization of brain metastases reveals branched evolution 
+and potential therapeutic targets. Cancer Discov. 5 (11), 1164–1177. doi: 10.1158/2159- 
+8290.CD-15-0369
+Butrynski, J. E., Paschold, J. C., Ward, P. J., Spira, A. I., Ali, K., Espirito, J. L., et al. (2023). 
+Contemporary biomarker testing rates in both early and advanced NSCLC: results from 
+the MYLUNG pragmatic study. J. Clin. Oncol. 41 (16), 9109. doi: 10.1200/JCO.2023.41. 
+16_suppl.9109
+Cai, J., Jiang, H., Li, S., Yan, X., Wang, M., Li, N., et al. (2021). The landscape of 
+actionable genomic alterations by Next- generation sequencing in tumor tissue Versus 
+circulating tumor DNA in Chinese patients with non-small cell lung cancer. Front. 
+Oncol. 11, 751106. doi: 10.3389/fonc.2021.751106
+Centers for Medicare and Medicaid Services (2020). National Coverage Determination 
+(NCD): Next Generation Sequencing (NGS) (90.2). Baltimore (MD): CMS Medicare 
+Coverage Database. Available online at: https://www.cms.gov/medicare-coverage- 
+database/view/ncd.aspx?NCDId=372 (Accessed April 19, 2026).
+Centers for Medicare and Medicaid Services (2021). Local Coverage Determination 
+(LCD): MolDX – Minimal Residual Disease Testing for Cancer (L38835). Baltimore 
+(MD): CMS Medicare Coverage Database. Available online at: https://www.cms.gov/ 
+medicare-coverage-database/view/lcd.aspx?lcdId=38835 (Accessed April 19, 2026).
+Chabon, J. J., Hamilton, E. G., Kurtz, D. M., Esfahani, M. S., Moding, E. J., Stehr, H., et al. 
+(2020). Integrating genomic features for non-invasive early lung cancer detection. 
+Nature 580 (7803), 245–251. doi: 10.1038/s41586-020-2140-0
+Chaudhuri, A. A., Chabon, J. J., Lovejoy, A. F., Newman, A. M., Stehr, H., Azad, T. D., 
+et al. (2017). Early detection of molecular residual disease in localized lung cancer by 
+circulating tumor DNA profiling. Cancer Discov. 7 (12), 1394–1403. doi: 10.1158/2159- 
+8290.CD-17-0716
+Chen, H., and Zhou, Q. (2023). Detecting liquid remnants of solid tumors treated with 
+curative intent: circulating tumor DNA as a biomarker of minimal residual disease. 
+Oncol. Rep. 49 (5), 106. doi: 10.3892/or.2023.8543
+Chen, K., Kang, G., Zhang, Z., Lizaso, A., Beck, S., Lyskjær, I., et al. (2023a). 
+Individualized dynamic methylation-based analysis of cell-free DNA in postoperative 
+monitoring of lung cancer. BMC Med. 21 (1), 255. doi: 10.1186/s12916-023-02954-z
+Chen, K., Yang, F., Shen, H., Wang, C., Li, X., Chervova, O., et al. (2023b). 
+Individualized tumor-informed circulating tumor DNA analysis for postoperative 
+monitoring of non-small cell lung cancer. Cancer Cell 41 (10), 1749–1762.e6. doi: 
+10.1016/j.ccell.2023.08.010
+Chen, C., Douglas, M. P., Ragavan, M. V., Phillips, K. A., and Jansen, J. P. (2024). Clinical 
+validity and utility of circulating tumor DNA (ctDNA) testing in advanced non-small 
+cell lung cancer (aNSCLC): a systematic literature review and meta-analysis. Mol. Diagn 
+Ther. 28 (5), 525–536. doi: 10.1007/s40291-024-00725-x
+Chung, S. N., Hurr, R., Chen, H. W., Kao, T. N., Lin, M. W., and Yang, C. F. J. (2025). 
+Low-dose computed tomography lung cancer screening for individuals who have never 
+smoked: a review of recent updates in Taiwan and the United States. J. Chest Surg. 58 (5), 
+175–184. doi: 10.5090/jcs.25.017
+Cohen, J. D., Li, L., Wang, Y., Thoburn, C., Afsari, B., Danilova, L., et al. (2018). 
+Detection and localization of surgically resectable cancers with a multi-analyte blood 
+test. Science 359 (6378), 926–930. doi: 10.1126/science.aar3247
+de Koning, H. J., van der Aalst, C. M., de Jong, P. A., Scholten, E. T., Nackaerts, K., 
+Heuvelmans, M. A., et al. (2020). Reduced lung-cancer mortality with volume CT 
+Frontiers in Cell and Developmental Biology frontiersin.org12
+Batra et al. 10.3389/fcell.2026.1874565
+screening in a randomized trial. N. Engl. J. Med. 382 (6), 503–513. doi: 10.1056/ 
+NEJMoa1911793
+Deveson, I. W., Gong, B., Lai, K., LoCoco, J. S., Richmond, T. A., Schageman, J., et al. 
+(2021). Evaluating the analytical validity of circulating tumor DNA sequencing assays 
+for precision oncology. Nat. Biotechnol. 39 (9), 1115–1128. doi: 10.1038/s41587-021- 
+00857-z
+Dong, Q., Chen, C., Hu, Y., Zhang, W., Yang, X., Qi, Y., et al. (2023). Clinical application 
+of molecular residual disease detection by circulation tumor DNA in solid cancers and a 
+comparison of technologies: review article. Cancer Biol. Ther. 24 (1), 2274123. doi: 10. 
+1080/15384047.2023.2274123
+Douglas, M. P., Ragavan, M. V., Chen, C., Kumar, A., Gray, S. W., Blakely, C. M., et al. 
+(2023). Private payer and medicare coverage policies for use of circulating tumor DNA 
+tests in cancer diagnostics and treatment. J. Natl. Compr. Cancer Netw. JNCCN 21 (6), 
+609–616.e4. doi: 10.6004/jnccn.2023.7011
+Driussi, A., Lamaze, F. C., Kordahi, M., Armero, V. S., Gaudreault, N., Orain, M., et al. 
+(2025). Clinicopathological predictors of the presence of blood circulating tumor DNA 
+in early-stage non-small cell lung cancers. Mod. Pathol. Off. J. U. S. Can. Acad. Pathol. 
+Inc. 38 (6), 100744. doi: 10.1016/j.modpat.2025.100744
+Du, C., Cai, J., Tang, J., Chen, Y., Díaz-Peña, R., Tomita, Y., et al. (2024). Cell-free DNA 
+methylation profile potential in the diagnosis of lung squamous cell carcinoma. 
+J. Thorac. Dis. 16 (1), 553–563. doi: 10.21037/jtd-23-1827
+Dziadziuszko, R., Mok, T., Peters, S., Han, J. Y., Alatorre-Alexander, J., Leighl, N., et al. 
+(2021). Blood first assay screening trial (BFAST) in treatment-naive advanced or 
+metastatic NSCLC: initial results of the phase 2 ALK-positive cohort. J. Thorac. 
+Oncol. Off. Publ. Int. Assoc. Study Lung Cancer 16 (12), 2040–2050. doi: 10.1016/j. 
+jtho.2021.07.008
+Ezegbogu, M., Wilkinson, E., Reid, G., Rodger, E. J., Brockway, B., Russell-Camp, T., 
+et al. (2024). Cell-free DNA methylation in the clinical management of lung cancer. 
+Trends Mol. Med. 30 (5), 499–515. doi: 10.1016/j.molmed.2024.03.007
+Filis, P., Markozannes, G., Salgkamis, D., Tsiknakis, N., Zerdes, I., Pagkalidou, E., et al. 
+(2026). Integrating liquid biopsies and artificial intelligence for early cancer detection: a 
+systematic review and meta-analysis. Eur. J. Cancer 239, 116699. doi: 10.1016/j.ejca.2026. 
+116699
+Gale, D., Heider, K., Ruiz-Valdepenas, A., Hackinger, S., Perry, M., Marsico, G., et al. 
+(2022). Residual ctDNA after treatment predicts early relapse in patients with early-stage 
+non-small cell lung cancer. Ann. Oncol. Off. J. Eur. Soc. Med. Oncol. 33 (5), 500–510. doi: 
+10.1016/j.annonc.2022.02.007
+García-Pardo, M., Czarnecka-Kujawa, K., Law, J. H., Salvarrey, A. M., Fernandes, R., 
+Fan, Z. J., et al. (2023). Association of circulating tumor DNA testing before tissue 
+diagnosis with time to treatment among patients with suspected advanced lung cancer: 
+the ACCELERATE nonrandomized clinical trial. JAMA Netw. Open 6 (7), e2325332. 
+doi: 10.1001/jamanetworkopen.2023.25332
+Giménez-Capitán, A., Sánchez-Herrero, E., Robado de Lope, L., Aguilar-Hernández, A., 
+Sullivan, I., Calvo, V., et al. (2023). Detecting ALK, ROS1, and RET fusions and the 
+METΔex14 splicing variant in liquid biopsies of non-small-cell lung cancer patients 
+using RNA-based techniques. Mol. Oncol. 17 (9), 1884–1897. doi: 10.1002/1878-0261. 
+13468
+González, M. S., Johnson, T., Motsch, E., Delorme, S., and Kaaks, R. (2021). Can 
+autoantibody tests enhance lung cancer screening? an evaluation of EarlyCDT
+®
+-Lung in 
+context of the German lung cancer screening intervention trial (LUSI). Transl. Lung 
+Cancer Res. 10 (1), 233–242. doi: 10.21037/tlcr-20-727
+GRAIL, Inc (2026). Landmark NHS-Galleri Trial Demonstrates a Substantial Reduction 
+in Stage IV Cancer Diagnoses, Increased Stage I and II Detection of Deadly Cancers, and 
+Four-Fold Higher Cancer Detection Rate [Press Release]. Menlo Park (CA): GRAIL. 
+Available online at: https://grail.com/press-releases/landmark-nhs-galleri-trial- 
+demonstrates-a-substantial-reduction-in-stage-iv-cancer-diagnoses-increased-stage-i- 
+and-ii-detection-of-deadly-cancers-and-four-fold-higher-cancer-detection-rate/
+(Accessed April 19, 2026).
+Guibert, N., Pradines, A., Favre, G., and Mazieres, J. (2020). Current and future 
+applications of liquid biopsy in nonsmall cell lung cancer from early to advanced 
+stages. Eur. Respir. Rev. Off. J. Eur. Respir. Soc. 29 (156), 190052. doi: 10.1183/16000617. 
+0052-2019
+Hasegawa, N., Kohsaka, S., Kurokawa, K., Shinno, Y., Takeda Nakamura, I., Ueno, T., 
+et al. (2021). Highly sensitive fusion detection using plasma cell-free RNA in non-small- 
+cell lung cancers. Cancer Sci. 112 (10), 4393–4403. doi: 10.1111/cas.15084
+Heeke, S., Gandhi, S., Tran, H. T., Lam, V. K., Byers, L. A., Gibbons, D. L., et al. (2025). 
+Longitudinal tracking of ALK-rearranged NSCLC from plasma using circulating tumor 
+RNA and circulating tumor DNA. JTO Clin. Res. Rep. 6 (4), 100795. doi: 10.1016/j.jtocrr. 
+2025.100795
+Herbst, R. S., John, T., Grohé, C., Goldman, J. W., Kato, T., Laktionov, K., et al. (2025). 
+Molecular residual disease analysis of adjuvant osimertinib in resected EGFR-mutated 
+stage IB-IIIA non-small-cell lung cancer. Nat. Med. 31 (6), 1958–1968. doi: 10.1038/ 
+s41591-025-03577-y
+Horndalsveen, H., Haakensen, V. D., Madebo, T., Gronberg, B. H., Halvorsen, T. O., 
+Koivunen, J., et al. (2025). ctDNA-based MRD detection in unresectable NSCLC 
+undergoing curatively intended chemoradiotherapy and durvalumab. J. Clin. Oncol. 
+43 (16_Suppl. l), 8011. doi: 10.1200/JCO.2025.43.16_suppl.8011
+Hsiao, A., Woodward, B., Ye, P., Varga, M. G., Altaie, G., Lu, K., et al. (2025). Brief 
+report: methylation-based ctDNA serial monitoring correlates with immunotherapy 
+response in NSCLC. Clin. Lung Cancer 26 (1), 72–77. doi: 10.1016/j.cllc.2024.10.013
+Hu, S., Tao, J., Peng, M., Ye, Z., Chen, Z., Chen, H., et al. (2023). Early detection of lung 
+cancer using a panel of circulating cell-free DNA methylation biomarkers. J. Clin. Oncol. 
+41 (16_Suppl. l), e20614. doi: 10.1200/JCO.2023.41.16_suppl.e20614
+Isbell, J. M., Goldstein, J. S., Hamilton, E. G., Liu, S. Y., Eichholz, J., Buonocore, D. J., 
+et al. (2024). Ultrasensitive circulating tumor DNA (ctDNA) minimal residual disease 
+(MRD) detection in early stage non-small cell lung cancer (NSCLC). J. Clin. Oncol. 42 
+(16_Suppl. l), 8078. doi: 10.1200/JCO.2024.42.16_suppl.8078
+Jiang, J., Adams, H. P., Yao, L., Yaung, S., Lal, P., Balasubramanyam, A., et al. (2020). 
+Concordance of genomic alterations by next-generation sequencing in tumor tissue 
+versus cell-free DNA in stage I-IV non-small cell lung cancer. J. Mol. Diagn 22 (2), 
+228–235. doi: 10.1016/j.jmoldx.2019.10.013
+Jung, H. A., Ku, B. M., Kim, Y. J., Park, S., Sun, J. M., Lee, S. H., et al. (2023). Longitudinal 
+monitoring of circulating tumor DNA from plasma in patients with curative resected 
+stages I to IIIA EGFR-mutant non-small cell lung cancer. J. Thorac. Oncol. Off. Publ. Int. 
+Assoc. Study Lung Cancer 18 (9), 1199–1208. doi: 10.1016/j.jtho.2023.05.027
+Katsman, E., Orlanski, S., Martignano, F., Fox-Fisher, I., Shemer, R., Dor, Y., et al. (2022). 
+Detecting cell-of-origin and cancer-specific methylation features of cell-free DNA from 
+nanopore sequencing. Genome Biol. 23 (1), 158. doi: 10.1186/s13059-022-02710-1
+Keller-Evans, R. B., Lee, J. K., Allen, J. M., Zhong, L., Gjoerup, O., Ross, J. S., et al. (2026). 
+DNA and RNA-based next-generation sequencing for companion diagnostic 
+rearrangement detection in solid tumors. Oncol. 31 (3), oyag001. doi: 10.1093/ 
+oncolo/oyag001
+Klein, E. A., Richards, D., Cohn, A., Tummala, M., Lapham, R., Cosgrove, D., et al. 
+(2021). Clinical validation of a targeted methylation-based multi-cancer early detection 
+test using an independent validation set. Ann. Oncol. Off. J. Eur. Soc. Med. Oncol. 32 (9), 
+1167–1177. doi: 10.1016/j.annonc.2021.05.806
+Kwon, H. J., Shin, S. H., Kim, H. H., Min, N. Y., Lim, Y., Joo, T. w., et al. (2023). 
+Advances in methylation analysis of liquid biopsy in early cancer detection of colorectal 
+and lung cancer. Sci. Rep. 13 (1), 13502. doi: 10.1038/s41598-023-40611-w
+Lin, J., Suo, P., Li, Y., Chen, S., and Wang, Y. (2023). A comparative analysis of next- 
+generation sequencing based on plasma cfDNA and tumor tissue DNA in patients with 
+advanced lung cancer. J. Clin. Oncol. 41 (16_Suppl. l), e21021. doi: 10.1200/JCO.2023.41. 
+16_suppl.e21021
+Leighl, N. B., Page, R. D., Raymond, V. M., Daniel, D. B., Berz, D., Waterhouse, D. M., 
+et al. (2019). Clinical utility of comprehensive cell-free DNA analysis to identify genomic 
+biomarkers in patients with newly diagnosed metastatic non-small cell lung cancer. Clin. 
+Cancer Res. 25 (15), 4691–4700. doi: 10.1158/1078-0432.CCR-19-0624
+Li, H., Ma, Z. L., Li, B., Pan, Y. J., Xiang, J. Q., Zhang, Y. W., et al. (2021). Potential utility 
+of longitudinal somatic mutation and methylation profiling for predicting molecular 
+residual disease in postoperative non-small cell lung cancer patients. Cancer Med. 10 
+(23), 8377–8386. doi: 10.1002/cam4.4339
+Li, N., Wang, B. X., Li, J., Shao, Y., Li, M. T., Li, J. J., et al. (2022). Perioperative 
+circulating tumor DNA as a potential prognostic marker for operable stage I to IIIA non- 
+small cell lung cancer. Cancer 128 (4), 708–718. doi: 10.1002/cncr.33985
+Liang, W., Zhao, Y., Huang, W., Gao, Y., Xu, W., Tao, J., et al. (2019). Non-invasive 
+diagnosis of early-stage lung cancer using high-throughput targeted DNA methylation 
+sequencing of circulating tumor DNA (ctDNA). Theranostics 9 (7), 2056–2070. doi: 10. 
+7150/thno.28119
+Liang, H., Wang, R., Cheng, R., Ye, Z., Zhao, N., Zhao, X., et al. (2025). LcProt: 
+proteomics-based identification of plasma biomarkers for lung cancer multievent, a 
+multicentre study. Clin. Transl. Med. 15 (1), e70160. doi: 10.1002/ctm2.70160
+Lin, Z., Li, Y., Tang, S., Deng, Q., Jiang, J., and Zhou, C. (2023). Comparative analysis of 
+genomic profiles between tissue-based and plasma-based next-generation sequencing in 
+patients with non-small cell lung cancer. Lung Cancer 182, 107282. doi: 10.1016/j. 
+lungcan.2023.107282
+Lococo, F., Boldrini, L., Diepriye, C. D., Evangelista, J., Nero, C., Flamini, S., et al. (2023). 
+Lung cancer multi-omics digital human avatars for integrating precision medicine into 
+clinical practice: the LANTERN study. BMC Cancer 23 (1), 540. doi: 10.1186/s12885- 
+023-10997-x
+Lu, D., Lin, N., Li, S., Jing, Q., Yin, J. C., Shi, L., et al. (2025). Predictive effectiveness of 
+circulating tumor DNA in recurrent early-stage non-small cell lung cancer: an updated 
+meta-analysis. JCO Precis. Oncol. 9, e2500489. doi: 10.1200/PO-25-00489
+Maansson, C. T., Nielsen, A. L., and Sorensen, B. S. (2026). Liquid biopsy epigenetics: 
+establishing a molecular profile based on cell-free DNA. Mol. Oncol. 20 (3), 588–610. 
+doi: 10.1002/1878-0261.70145
+Machado, D. I., Brito-Rocha, T., Salta, S., Monjardino, T., Henrique, R., and Jerónimo, 
+C. (2025). Circulating cell-free DNA methylation as biomarker for lung cancer 
+detection: a systematic review and meta-analysis of diagnostic studies. Syst. Rev. 14 
+(1), 120. doi: 10.1186/s13643-025-02860-w
+Maffeo, D., Rina, A., Serio, V. B., Markou, A., Powrózek, T., Constâncio, V., et al. (2024). 
+The evidence base for circulating tumor DNA-methylation in non-small cell lung 
+cancer: a systematic review and meta-analysis. Cancers 16 (21), 3641. doi: 10.3390/ 
+cancers16213641
+Frontiers in Cell and Developmental Biology frontiersin.org13
+Batra et al. 10.3389/fcell.2026.1874565
+Malapelle, U., Nasirova, F., Wang, A., Cooper, M., Salomonsen, R., Baser, E., et al. 
+(2026). Liquid biopsy and tissue biopsy for the detection of EGFR mutations in patients 
+with stage III non-small-cell lung cancer: an observational real-world study. ESMO Open 
+11 (1), 106029. doi: 10.1016/j.esmoop.2025.106029
+Marchetti, P., Curigliano, G., Biffoni, M., Lonardi, S., Scagnoli, S., Fornaro, L., et al. 
+(2025). Genomically matched therapy in advanced solid tumors: the randomized phase 
+2 ROME trial. Nat. Med. 31 (10), 3514–3523. doi: 10.1038/s41591-025-03918-x
+May, T., Clement, M. S., Halait, H., Kohlmann, A., Kohlmann, M., Lai, J., et al. (2024). 
+Performance characteristics of a polymerase chain reaction-based assay for the detection 
+of EGFR mutations in plasma cell-free DNA from patients with non-small cell lung 
+cancer using cell-free DNA collection tubes. PloS One 19 (4), e0295987. doi: 10.1371/ 
+journal.pone.0295987
+Medina, D. I., Nocon, A., Mehnert, D. H., Fredebohm, J., Diehl, F., and Holtrup, F. 
+(2016). Performance of streck cfDNA blood collection tubes for liquid biopsy testing. 
+PLoS One 11 (11), e0166354. doi: 10.1371/journal.pone.0166354
+Metzenmacher, M., Hegedüs, B., Forster, J., Schramm, A., Horn, P. A., Klein, C. A., et al. 
+(2022). Combined multimodal ctDNA analysis and radiological imaging for tumor 
+surveillance in non-small cell lung cancer. Transl. Oncol. 15 (1), 101279. doi: 10.1016/j. 
+tranon.2021.101279
+Mok, T. S., Wu, Y. L., Ahn, M. J., Garassino, M. C., Kim, H. R., Ramalingam, S. S., et al. 
+(2017). Osimertinib or platinum-pemetrexed in EGFR T790M-Positive lung cancer. N. 
+Engl. J. Med. 376 (7), 629–640. doi: 10.1056/NEJMoa1612674
+Nabavizadeh, N., Beer, T. M., Hubbell, E., Shih, T. Y. C., Reid, R., Klein, E. A., et al. 
+(2025). Safety and Performance of a Multi- Cancer Early Detection (MCED) Test in an 
+Intended-Use Population: Initial Results from the Registrational PATHFINDER 2 Study 
+[late-breaking abstract LBA64]. Presented at: European Society for Medical Oncology 
+(ESMO) Congress: Berlin, Germany.
+Natera, Inc (2025). Natera Announces Medicare Coverage of Signatera for Surveillance in 
+Lung Cancer. [Press Release]. Austin (TX): Natera. Available online at: https://www. 
+natera.com/company/news/natera-announces-medicare-coverage-of-signatera-for- 
+surveillance-in-lung-cancer/ (Accessed April 19, 2026).
+National Comprehensive Cancer Network (2025). Central Nervous System Cancers 
+[Clinical Practice Guidelines in Oncology, version 3.2025]. National Comprehensive 
+Cancer Network. Available online at: https://www.nccn.org (Accessed April 19, 2026).
+National Comprehensive Cancer Network (2026). NCCN Clinical Practice Guidelines in 
+Oncology (NCCN Guidelines
+®
+): Non-Small Cell Lung Cancer Version 5.2026. Plymouth 
+Meeting (PA): NCCN. Available online at: https://www.nccn.org/guidelines/guidelines- 
+detail?category=1&id=1450 (Accessed May 1, 2026).
+National Lung Screening Trial Research TeamAberle, D. R., Adams, A. M., Berg, C. D., 
+Black, W. C., Clapp, J. D., et al. (2011). Reduced lung-cancer mortality with low-dose 
+computed tomographic screening. N. Engl. J. Med. 365 (5), 395–409. doi: 10.1056/ 
+NEJMoa1102873
+Normanno, N., Morabito, A., Rachiglio, A. M., Sforza, V., Landi, L., Bria, E., et al. (2025). 
+Circulating tumor DNA in early stage and locally advanced NSCLC: ready for clinical 
+implementation? Nat. Rev. Clin. Oncol. 22 (3), 215–231. doi: 10.1038/s41571-024- 
+00985-w
+Northcott, J., Bartha, G., Harris, J., Li, C., Navarro, F. C. P., Pyke, R. M., et al. (2024). 
+Analytical validation of NeXT personal
+®
+, an ultra-sensitive personalized circulating 
+tumor DNA assay. Oncotarget 15, 200–218. doi: 10.18632/oncotarget.28565
+Olayode, O. O., Ogunoye, B. T., Oladeji, E. O., Olayinka, O. E., and Oladosu, T. J. (2025). 
+Cerebrospinal fluid circulating tumor DNA (ctDNA) as a biomarker for CNS metastases 
+in non-small cell lung cancer (NSCLC): a systematic review and meta-analysis 
+comparing CSF ctDNA and traditional methods. BMC Cancer 25 (1), 1246. doi: 10. 
+1186/s12885-025-14583-1
+Olova, N. N., and Andrews, S. (2025). Whole genome methylation sequencing via 
+enzymatic conversion (EM-seq): protocol, data processing, and analysis. Methods Mol. 
+Biol. 2866, 73–98. doi: 10.1007/978-1-0716-4192-7_5
+Pan, Y., Zhang, J. T., Gao, X., Chen, Z. Y., Yan, B., Tan, P. X., et al. (2023). Dynamic 
+circulating tumor DNA during chemoradiotherapy predicts clinical outcomes for locally 
+advanced non-small cell lung cancer patients. Cancer Cell 41 (10), 1763–1773.e4. doi: 10. 
+1016/j.ccell.2023.09.007
+Pathak, G. P., Shah, R., Reiman, T., Wallace, A., Carter, M. D., Snow, S., et al. (2025). 
+Identification of driver mutations and risk stratification in lung adenocarcinoma via 
+liquid biopsy. Cancers 17 (8), 1340. doi: 10.3390/cancers17081340
+Piotrowska, Z., Ahn, M. J., Voon, P. J., Pang, Y. K., How, S. H., Kim, S. W., et al. (2026). 
+ELIOS: a multicenter, molecular profiling study of patients with EGFR-mutant advanced 
+non-small cell lung cancer treated with first-line osimertinib. Cancer Discov. 6, 
+1074–1086. doi: 10.1158/2159-8290.CD-25-0960
+Poh, J., Pek, M., Petro, D. P., Li, M. S., Chan, D. B. Y., Tan, Y. O., et al. (2025). Clinical 
+utility of circulating tumor RNA (ctRNA) in a combined circulating tumor DNA 
+(ctDNA) and ctRNA next-generation sequencing (NGS) pan-cancer liquid biopsy assay. 
+J. Clin. Oncol. 43 (16_Suppl. l), 3016. doi: 10.1200/JCO.2025.43.16_suppl.3016
+Provencio, M., Serna-Blasco, R., Nadal, E., González Larriba, J. L., Martínez-Martí, A., 
+Bernabé, C. R., et al. (2026). Minimal residual disease enhances prognostic stratification 
+beyond pathologic response in resectable Non- small cell lung cancer. Clin. Cancer Res. 
+Off. J. Am. Assoc. Cancer Res. 32 (4), 748–755. doi: 10.1158/1078-0432.CCR-25-2958
+Qiu, B., Guo, W., Zhang, F., Lv, F., Ji, Y., Peng, Y., et al. (2021). Dynamic recurrence risk 
+and adjuvant chemotherapy benefit prediction by ctDNA in resected NSCLC. Nat. 
+Commun. 12 (1), 6770. doi: 10.1038/s41467-021-27022-z
+Qvick, A., Stenmark, B., Carlsson, J., Isaksson, J., Karlsson, C., and Helenius, G. (2021). 
+Liquid biopsy as an option for predictive testing and prognosis in patients with lung 
+cancer. Mol. Med. 27 (1), 68. doi: 10.1186/s10020-021-00331-1
+Ramazi, S., Dadzadi, M., Sahafnejad, Z., and Allahverdi, A. (2021). Epigenetic regulation 
+in lung cancer. MedComm 4 (6), e401. doi: 10.1002/mco2.401
+Razavi, P., Li, B. T., Brown, D. N., Jung, B., Hubbell, E., Shen, R., et al. (2019). High- 
+intensity sequencing reveals the sources of plasma cell-free DNA variants. Nat. Med. 25 
+(12), 1928–1937. doi: 10.1038/s41591-019-0652-7
+Reinert, T., Henriksen, T. V., Christensen, E., Sharma, S., Salari, R., Sethi, H., et al. 
+(2019). Analysis of plasma cell-free DNA by ultradeep sequencing in patients with stages 
+I to III colorectal cancer. JAMA Oncol. 5 (8), 1124–1131. doi: 10.1001/jamaoncol.2019. 
+0528
+Rolfo, C., Mack, P., Scagliotti, G. V., Aggarwal, C., Arcila, M. E., Barlesi, F., et al. (2021). 
+Liquid biopsy for advanced NSCLC: a consensus statement from the international 
+association for the study of lung cancer. J. Thorac. Oncol. Off. Publ. Int. Assoc. Study 
+Lung Cancer 16 (10), 1647–1662. doi: 10.1016/j.jtho.2021.06.017
+Rosenlund, L., Guldbrandsen, K., Ahlborn, L. B., Bloch, M., Skougaard, K., Albrecht- 
+Beste, E., et al. (2025). ctDNA can detect minimal residual disease in curative treated 
+non-small cell lung cancer patients using a tumor agnostic approach. Lung Cancer 203, 
+108528. doi: 10.1016/j.lungcan.2025.108528
+Rotow, J. K., Lee, J. K., Madison, R. W., Oxnard, G. R., Jänne, P. A., and Schrock, A. B. 
+(2024). Real-world genomic profile of EGFR second-site mutations and other 
+osimertinib resistance mechanisms and clinical landscape of NSCLC Post- 
+osimertinib. J. Thorac. Oncol. Off. Publ. Int. Assoc. Study Lung Cancer 19 (2), 
+227–239. doi: 10.1016/j.jtho.2023.09.1453
+Roweth, H. G., and Battinelli, E. M. (2021). Lessons to learn from tumor-educated 
+platelets. Blood 137 (23), 3174–3180. doi: 10.1182/blood.2019003976
+Samol, J., Ng, D., Poh, J., Tan, M. H., Dawar, R., Carney, J., et al. (2025). Prospective 
+multicenter study evaluating a combined circulating tumor DNA and circulating tumor 
+RNA liquid biopsy in metastatic non-small cell lung cancer (LIQUIK). JCO Precis. 
+Oncol. 9, e2500181. doi: 10.1200/PO-25-00181
+Schrag, D., Beer, T. M., McDonnell, C. H., Nadauld, L., Dilaveri, C. A., Reid, R., et al. 
+(2023). Blood-based tests for multicancer early detection (PATHFINDER): a prospective 
+cohort study. Lancet 402 (10410), 1251–1260. doi: 10.1016/S0140-6736(23)01700-2
+Schuurbiers, M. M. F., Smith, C. G., Hartemink, K. J., Rintoul, R. C., Gale, D., 
+Monkhorst, K., et al. (2025). Recurrence prediction using circulating tumor DNA in 
+patients with early-stage non-small cell lung cancer after treatment with curative intent: 
+a retrospective validation study. PLoS Med. 22 (4), e1004574. doi: 10.1371/journal.pmed. 
+1004574
+Seoane, J., De Mattos-Arruda, L., Le Rhun, E., Bardelli, A., and Weller, M. (2019). 
+Cerebrospinal fluid cell-free tumour DNA as a liquid biopsy for primary brain tumours 
+and central nervous system metastases. Ann. Oncol. 30 (2), 211–218. doi: 10.1093/ 
+annonc/mdy544
+Shen, S. Y., Singhania, R., Fehringer, G., Chakravarthy, A., Roehrl, M. H. A., Chadwick, 
+D., et al. (2018). Sensitive tumour detection and classification using plasma cell-free 
+DNA methylomes. Nature 563 (7732), 579–583. doi: 10.1038/s41586-018-0703-0
+Soo, R. A., de Marinis, F., Han, J. Y., Ho, J. C. M., Martin, E., Servidio, L., et al. (2024). 
+TARGET: a phase II, open-label, Single- arm study of 5-Year adjuvant osimertinib in 
+completely resected EGFR-mutated stage II to IIIB NSCLC post complete surgical 
+resection. Clin. Lung Cancer 25 (1), 80–84. doi: 10.1016/j.cllc.2023.09.005
+Stetson, D., Ahmed, A., Xu, X., Nuttall, B. R. B., Lubinski, T. J., Johnson, J. H., et al. 
+(2019). Orthogonal comparison of four plasma NGS tests with tumor suggests technical 
+factors are a major source of assay discordance. JCO Precis. Oncol. 3, 1–9. doi: 10.1200/ 
+PO.18.00191
+Sugimoto, A., Matsumoto, S., Udagawa, H., Itotani, R., Usui, Y., Umemura, S., et al. 
+(2023). A large-scale prospective concordance study of Plasma- and tissue-based next- 
+generation targeted sequencing for advanced non-small cell lung cancer (LC-SCRUM- 
+Liquid). Clin. Cancer Res. Off. J. Am. Assoc. Cancer Res. 29 (8), 1506–1514. doi: 10.1158/ 
+1078-0432.CCR-22-1749
+Sullivan, F. M., Mair, F. S., Anderson, W., Armory, P., Briggs, A., Chew, C., et al. (2021). 
+Earlier diagnosis of lung cancer in a randomised trial of an autoantibody blood test 
+followed by imaging. Eur. Respir. J. 57 (1), 2000670. doi: 10.1183/13993003.00670-2020
+Sun, L., Li, J., Lv, Y., Li, L., and Liu, X. (2025). Unravelling genomic differences in 
+cerebrospinal fluid: patients with lung cancer with combined brain parenchymal and 
+meningeal metastasis versus exclusive meningeal metastasis. J. Neurooncol 175 (3), 
+1163–1176. doi: 10.1007/s11060-025-05224-5
+Takahama, T., Azuma, K., Shimokawa, M., Takeda, M., Ishii, H., Kato, T., et al. (2020). 
+Plasma screening for the T790M mutation of EGFR and phase 2 study of osimertinib 
+efficacy in plasma T790M-positive non-small cell lung cancer: West Japan oncology 
+group 8815L/LPS study. Cancer 126 (9), 1940–1948. doi: 10.1002/cncr.32749
+Tan, A. C., Lai, G. G. Y., Saw, S. P. L., Chua, K. L. M., Takano, A., Ong, B. H., et al. (2024). 
+Detection of circulating tumor DNA with ultradeep sequencing of plasma cell-free DNA 
+Frontiers in Cell and Developmental Biology frontiersin.org14
+Batra et al. 10.3389/fcell.2026.1874565
+for monitoring minimal residual disease and early detection of recurrence in early-stage 
+lung cancer. Cancer 130 (10), 1758–1765. doi: 10.1002/cncr.35263
+Thursby, S. J., Jin, Z., Blum, J., Gurau, A., Noë, M., Scharpf, R. B., et al. (2026). 
+Epigenetic instability-based metrics in Cell- free DNA for early cancer detection. 
+Clin. Cancer Res. Off. J. Am. Assoc. Cancer Res. 32 (8), 1528–1539. doi: 10.1158/ 
+1078-0432.CCR-25-3384
+U.S. Food and Drug Administration (2026). List of Cleared or Approved Companion 
+Diagnostic Devices (In Vitro and Imaging Tools). Silver Spring (MD): Center for Devices 
+and Radiological Health. Available online at: https://www.fda.gov/medical-devices/in- 
+vitro-diagnostics/list-cleared-or-approved-companion-diagnostic-devices-in-vitro- 
+and-imaging-tools (Accessed April 19, 2026).
+US Preventive Services Task ForceKrist, A. H., Davidson, K. W., Mangione, C. M., Barry, 
+M. J., Cabana, M., et al. (2021). Screening for lung cancer: US preventive services task 
+force recommendation statement. JAMA 325 (10), 962–970. doi: 10.1001/jama.2021. 
+1117
+Vaisvila, R., Ponnaluri, V. K. C., Sun, Z., Langhorst, B. W., Saleh, L., Guan, S., et al. 
+(2021). Enzymatic methyl sequencing detects DNA methylation at single-base 
+resolution from picograms of DNA. Genome Res. 31 (7), 1280–1289. doi: 10.1101/gr. 
+266551.120
+Vendrell, J. A., Quantin, X., Serre, I., and Solassol, J. (2020). Combination of tissue and 
+liquid biopsy molecular profiling to detect transformation to small cell lung carcinoma 
+during osimertinib treatment. Ther. Adv. Med. Oncol. 12, 1758835920974192. doi: 10. 
+1177/1758835920974192
+Verma, S., Moore, M. W., Ringler, R., Ghosal, A., Horvath, K., Naef, T., et al. (2020). 
+Analytical performance evaluation of a commercial next generation sequencing liquid 
+biopsy platform using plasma ctDNA, reference standards, and synthetic serial dilution 
+samples derived from normal plasma. BMC Cancer 20 (1), 945. doi: 10.1186/s12885-020- 
+07445-5
+Walker, P. R., Jayananda, S., Pasli, M., and Muzaffar, M. (2024). Plasma cell-free RNA 
+PD-L1 or tissue PD-L1 protein expression and outcomes with first-line immunotherapy 
+in metastatic non-small cell lung cancer. J. Liq. Biopsy 3, 100130. doi: 10.1016/j.jlb.2023. 
+100130
+Wang, S., Meng, F., Li, M., Bao, H., Chen, X., Zhu, M., et al. (2023). Multidimensional 
+cell-free DNA fragmentomic assay for detection of early-stage lung cancer. Am. J. Respir. 
+Crit. Care Med. 207 (9), 1203–1213. doi: 10.1164/rccm.202109-2019OC
+Widman, A. J., Shah, M., Frydendahl, A., Halmos, D., Khamnei, C. C., Øgaard, N., et al. 
+(2024). Ultrasensitive plasma-based monitoring of tumor burden using machine- 
+learning-guided signal enrichment. Nat. Med. 30 (6), 1655–1666. doi: 10.1038/ 
+s41591-024-03040-4
+Wolf, A. M. D., Oeffinger, K. C., Shih, T. Y., Walter, L. C., Church, T. R., Fontham, E. T. 
+H., et al. (2024). Screening for lung cancer: 2023 guideline update from the American 
+cancer society. CA Cancer J. Clin. 74 (1), 50–81. doi: 10.3322/caac.21811
+Wood, D. E., Kazerooni, E. A., Aberle, D., Berman, A., Brown, L. M., Eapen, G. A., et al. 
+(2025). NCCN guidelines
+® 
+insights: Lung cancer screening, version 1.2025. J. Natl. 
+Compr. Canc Netw. 23 (1), e250002. doi: 10.6004/jnccn.2025.0002
+Wu, Y. L., Guarneri, V., Voon, P. J., Lim, B. K., Yang, J. J., Wislez, M., et al. (2024). 
+Tepotinib plus osimertinib in patients with EGFR-mutated non-small-cell lung cancer 
+with MET amplification following progression on first-line osimertinib (INSIGHT 2): a 
+multicentre, open-label, phase 2 trial. Lancet Oncol. 25 (8), 989–1002. doi: 10.1016/ 
+S1470-2045(24)00270-5
+Xia, L., Mei, J., Kang, R., Deng, S., Chen, Y., Yang, Y., et al. (2022). Perioperative ctDNA- 
+Based molecular residual disease detection for non-small cell lung cancer: a prospective 
+multicenter cohort study (LUNGCA-1). Clin. Cancer Res. Off. J. Am. Assoc. Cancer Res. 
+28 (15), 3308–3317. doi: 10.1158/1078-0432.CCR-21-3044
+Xia, L., Pu, Q., Kang, R., Mei, J., Li, L., Yang, Y., et al. (2025). Dynamic ctDNA informs 
+whole-course postoperative precise management of NSCLC (LUNGCA study). J. Natl. 
+Cancer Inst. 117 (7), 1474–1484. doi: 10.1093/jnci/djaf061
+Ye, P. P., Viens, R., Shelburne, K. E., Langpap, S. S., Bower, X. S., Shi, J. J., et al. (2025). 
+Molecular counting enables accurate and precise quantification of methylated ctDNA 
+for tumor-naive cancer therapy response monitoring. Sci. Rep. 15 (1), 5869. doi: 10.1038/ 
+s41598-025-90013-3
+Yin, Z., Fan, J., Xu, J., Wu, F., Li, Y., Zhou, M., et al. (2020). Immunoregulatory roles of 
+extracellular vesicles and associated therapeutic applications in lung cancer. Front. 
+Immunol. 11, 2024. doi: 10.3389/fimmu.2020.02024
+Zeng, Y., Abelman, D. D., Singhawansa, A., Cheng, N., Fang, Y., Main, S. C., et al. (2026). 
+A pan-cancer compendium of 1,294 plasma cell-free DNA methylomes and 
+fragmentomes enabling multicancer detection. Nat. Cancer 7 (2), 384–398. doi: 10. 
+1038/s43018-026-01116-3
+Zhang, C., Zhao, H., and Shi, Q. (2025). Postoperative circulating tumor DNA in 
+predicting recurrence of non-small cell lung cancer: a systematic review and meta- 
+analysis. Clin. Oncol. R. Coll. Radiol. G B. 44, 103892. doi: 10.1016/j.clon.2025.103892
+Zhang, B., Niu, X., Zhang, Q., Wang, C., Liu, B., Yue, D., et al. (2019). Circulating tumor 
+DNA detection is correlated to histologic types in patients with early-stage non-small- 
+cell lung cancer. Lung Cancer 134, 108–116. doi: 10.1016/j.lungcan.2019.05.034
+Zhang, J. T., Dong, S., Gu, W. Q., Zhao, N., Liang, Y., Tang, W. F., et al. (2024). Adjuvant 
+therapy-free strategy for stage IB to IIIA non-small-cell lung cancer patients after radical 
+resection based on longitudinal undetectable molecular residual disease: prospective, 
+multicenter, single-arm study (CTONG 2201). Clin. Lung Cancer 25 (1), e1–e4. doi: 10. 
+1016/j.cllc.2023.09.008
+Zhang, J. T., Liu, S. Y., Gao, X., Liu, S. Y. M., Yan, B., Huang, C., et al. (2025b). Follow-up 
+analysis enhances understanding of molecular residual disease in localized non-small 
+cell lung cancer. Clin. Cancer Res. Off. J. Am. Assoc. Cancer Res. 31 (7), 1305–1314. doi: 
+10.1158/1078-0432.CCR-24-2909
+Zhao, J., Reuther, J., Scozzaro, K., Hawley, M., Metzger, E., Emery, M., et al. (2023). 
+Personalized cancer monitoring assay for the detection of ctDNA in patients with solid 
+tumors. Mol. Diagn Ther. 27 (6), 753–768. doi: 10.1007/s40291-023-00670-1
+Zheng, M. M., Zhou, Q., Chen, H. J., Jiang, B. Y., Tang, L. B., Jie, G. L., et al. (2025). 
+Cerebrospinal fluid circulating tumor DNA profiling for risk stratification and matched 
+treatment of central nervous system metastases. Nat. Med. 31 (5), 1547–1556. doi: 10. 
+1038/s41591-025-03538-5
+Frontiers in Cell and Developmental Biology frontiersin.org15
+Batra et al. 10.3389/fcell.2026.1874565

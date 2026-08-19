@@ -1,0 +1,2831 @@
+Harnessing the gut microbiome
+to combat tuberculosis: a
+technological and clinical review
+Weiguo Sun1†, Meng Xiao2,3†, Syed Luqman Ali4†, Chanyuan Jin5†,
+Asifullah Khan4, Shakirullah 6, Ruizi Ni1,7, Yajing An1,7,
+Mingming Zhang1,7, Yuan Tian1,7, Shradha Kaushik8*,
+Yuhang Zhang9* and Wenping Gong1,7*
+1Beijing Key Laboratory of Emergency Vaccine Development and Process Translation, Senior
+Department of Tuberculosis, Chinese PLA General Hospital, Beijing, China, 2Computer Network
+Information Center, Chinese Academy of Sciences, Beijing, China, 3DUKE-NUS Medical School,
+National University of Singapore, Singapore, Singapore, 4Department of Biochemistry, Abdul Wali Khan
+University Mardan, Mardan, KPK, Pakistan, 52nd Dental Center, Peking University School and Hospital
+of Stomatology, Beijing, China, 6Department of Zoology, Abdul Wali Khan University Mardan, Mardan,
+KPK, Pakistan, 7Graduate School, Hebei North University, Zhangjiakou, Hebei, China, 8Department of
+Biomedical Sciences, University of Windsor, Windsor, ON, Canada, 9Institute of Clinical Pharmacology,
+Peking University First Hospital, Beijing, China
+Tuberculosis (TB), especially multidrug-resistant and extensively drug-resistant
+strains, remains a severe global health threat. Advances in high-throughput se-
+quencing, omics technologies and arti ﬁcial intelligence have revealed the critical
+involvement of the gut microbiome (GM) in TB pathogenesis, diagnosis and
+treatment via the gut– lung axis. The GM modulates host immunity and metabolism;
+TB patients typically show reduced microbial diversity and enriched pro-inﬂamma-
+tory taxa closely linked to disease severityand treatment responses. Omics research
+has identiﬁed promising biomarkers and pathways for early diagnosis and person-
+alized management, while arti ﬁcial intelligence improves diagnostic accuracy and
+treatment outcome prediction. GM-targeted interventions, including probiotics,
+dietary adjustment and fecal microbiota t ransplantation, can enhance therapeutic
+efﬁcacy and relieve adverse drug reactions. Current limitations include insuf ﬁcient
+validation of the gut-lung axis ’ causal mechanisms, lagged clinical translation of
+biomarkers, biases and errors in diagnosis and prediction, data privacy and security
+concerns, gaps in intervention research, and poor accessibility of related technol-
+ogies in resource-scarce medical regions. Future studies need rigorous causal
+analyses, real-time monitoring tools and la rge-scale multicenter trials to validate
+microbiome-based strategies. This review h ighlights the translational potential of
+GM interventions to optimize personalized TB prevention, diagnosis and treatment
+and improve clinical outcomes.
+KEYWORDS
+artiﬁcial intelligence (AI), gut microbiome (GM), metabolomics, next-generation
+sequencing (NGS), proteomics, tuberculosis (TB)
+Frontiers in Cellular and Infection Microbiology frontiersin.org01
+OPEN ACCESS
+EDITED BY
+Ying Luo,
+University of Texas Southwestern Medical
+Center, United States
+REVIEWED BY
+Hianka Jasmyne Costa De Carvalho,
+The Ohio State University, United States
+Ling Niu,
+Uniformed Services University of the
+Health Sciences, United States
+*CORRESPONDENCE
+Wenping Gong
+gwp891015@whu.edu.cn
+Yuhang Zhang
+yuhang@pkufh.cn
+Shradha Kaushik
+kaushi91@uwindsor.ca
+†These authors have contributed equally
+to this work
+RECEIVED 04 April 2026
+REVISED 14 May 2026
+ACCEPTED 18 May 2026
+PUBLISHED 19 June 2026
+CITATION
+Sun W, Xiao M, Ali SL, Jin C,
+Khan A, Shakirullah, Ni R, An Y,
+Zhang M, Tian Y, Kaushik S, Zhang Y
+and Gong W (2026) Harnessing the gut
+microbiome to combat tuberculosis:
+a technological and clinical review.
+Front. Cell. Infect. Microbiol.16:1847443.
+doi: 10.3389/fcimb.2026.1847443
+COPYRIGHT
+© 2026 Sun, Xiao, Ali, Jin, Khan,
+Shakirullah, Ni, An, Zhang, Tian, Kaushik,
+Zhang and Gong. This is an open-access
+article distributed under the terms of the
+Creative Commons Attribution License
+(CC BY). The use, distribution or
+reproduction in other forums is
+permitted, provided the original
+author(s) and the copyright owner(s) are
+credited and that the original publication
+in this journal is cited, in accordance
+with accepted academic practice. No
+use, distribution or reproduction is
+permitted which does not comply with
+these terms.
+TYPE Review
+PUBLISHED 19 June 2026
+DOI 10.3389/fcimb.2026.1847443
+1 Introduction
+Tuberculosis (TB), caused by Mycobacterium tuberculosis
+(MTB) infection, is the leading cause of mortality from a single
+infectious disease worldwide ( Gong and Du, 2025 ; Liu and Gong,
+2025). According to the World Health Organization (WHO) 2025
+Global Tuberculosis Report, more than ten million new TB cases are
+reported globally each year ( WHO, 2025 ; Zhang et al., 2026 ). The
+continuous emergence of multidrug-resistant (MDR) and exten-
+sively drug-resistant (XDR) MTB strains poses formidable chal-
+lenges to the traditional path ogen-centric diagnostic and
+therapeutic paradigm. On one han d, existing diagnostic tools
+exhibit insuf ﬁcient sensitivity in key populations ( Gong and Wu,
+2021; Li et al., 2023 ), such as patients with sputum smear-negative
+TB, pediatric patients, and individuals living with human immu-
+nodeﬁciency virus (HIV) coinfection ( Chaisson et al., 1996). On the
+other hand, the standardized six-month anti-TB treatment regimen
+shows substantial interindividual variability in ef ﬁcacy (Grace et al.,
+2019), with adverse drug reactions and the emergence of drug
+resistance mutations further limiting treatment success rates.
+Against this backdrop, there is an urgent need to move beyond
+the conventional pathogen-centric model and adopt a systems
+medicine approach centered on host-microbiota-patho-
+gen interactions.
+Over the past decade, GM research has revealed the decisive role
+of the microbiota-immune-metabolic network in the pathogenesis
+of various chronic diseases, leading to the emergence of the “gut-
+lung axis” concept (Marsland et al., 2015 ; Enjeti et al., 2023 ; Harris
+and Marsland, 2025). The GM produces a repertoire of metabolites,
+including short-chain fatty acids (SCFAs), bile acids, and trypto-
+phan derivatives, which remotely regulate the pulmonary immune
+microenvironment ( Verma et al., 2024 ). Conversely, pulmonary
+MTB infection and anti-TB drug therapy can reshape GM compo-
+sition, forming a bidirectional regulatory feedback loop ( Chai et al.,
+2025; Liu et al., 2025 ). Recent multi-omics studies have consistently
+demonstrated that TB patients exhibit a characteristic GM dysbiosis
+—termed TB-associated dysbiosis —marked by reduced microbial
+diversity, depleted butyrate-producing bacteria, and enriched pro-
+inﬂammatory taxa. The severity of this microbial imbalance is
+strongly correlated with disease severity, treatment failure rates,
+and delayed immune reconstitution in TB patients. These ﬁndings
+indicate that the GM is not a passive bystander in TB pathogenesis
+but an active participant and a potential modulator of dis-
+ease progression.
+Technological breakthroughs have enabled the systematic dis-
+section of GM-TB interactions. High-throughput sequencing tech-
+nologies (16S rRNA gene sequencing, metagenomics, and
+metatranscriptomics) and mass s pectrometry/nuclear magnetic
+resonance-based omics approaches (metabolomics and proteomics)
+facilitate in-depth analysis of the GM from microbial compositional
+proﬁling to functional characterization ( Liu et al., 2025 ). Arti
+ﬁcial
+intelligence (AI) and machine learning (ML) algorithms can inte-
+grate multidimensional data from medical imaging, clinical records,
+and omics studies to construct predictive models for precision
+diagnosis and personalized treatment ( Li et al., 2023 ; Du et al.,
+2024; Li et al., 2024 ). More importantly, GM-based interventions —
+such as FMT, probiotic supplementation, and targeted metabolite
+administration—have been proven safe and feasible in the treat-
+ment of in ﬂammatory bowel disease and cancer immunotherapy,
+providing a novel therapeutic avenue for adjunctive or alternative
+TB treatment ( Chai et al., 2025 ; Liu et al., 2025 ).
+This review centers on the core question of how the GM
+reshapes TB diagnosis and treatment. It systematically summarizes
+the latest advances in three key technological ﬁelds: next-generation
+sequencing (NGS) and bioinf ormatics, metabolomics and
+proteomics, and AI. Additionally, it evaluates the translational
+potential of GM-targeted intervention strategies for tuberculosis
+prevention and control, delves i nto the controversial research
+ﬁndings and knowledge gaps in GM-TB-related studies, and ana-
+lyze the intervention challenges and translational application bar-
+riers of FMT and probiotics in the TB ﬁeld. We aim to provide a
+comprehensive GM-centric roadmap for TB researchers and clini-
+cians, promoting the shift from a one-size- ﬁts-all treatment model
+to an era of personalized medicine for TB.
+2 Microbiome panoramic analysis:
+from sequencing to ecology
+A precise characterization of the GM ’s structure, function, and
+dynamic changes is a prerequisite for investigating the mechanisms
+underlying GM-TB interactions and developing targeted interven-
+tion strategies. Over the past decade, iterative innovations in
+sequencing technologies, the re ﬁnement of bioinformatics algo-
+rithms, and the rapid development of open-access databases have
+enabled researchers to move from simply identifying microbial taxa
+(what microbes are present) to elucidating their functional activities
+and host interactions (what they do and how they interact with the
+host). This section reviews the advantages and limitations of 16S
+rRNA gene sequencing, metagenomics, and metatranscriptomics;
+outlines the standardized analytical work ﬂow from raw sequencing
+reads to ecological function inf erence; discusses strategies for
+mitigating batch effects; and summarizes the core public databases
+and analytical tools currently available. These contents lay a solid
+Abbreviations: AhR, Aryl hydrocarbon receptor; AI, Arti ﬁcial intelligence; ATB,
+Active TB; AUC, Area Under the Curve; BCG, Bacille Calmette-Gue ́rin; CT,
+Computed tomography; CXR, Chest X-ray; DADA2, Divisive Amplicon
+Denoising Algorithm2; FMT, Fecal microbiota transplantation; FXR, Farnesoid
+X receptor; GM, Gut Microbiome; HIV, Human immunode ﬁciency virus;
+HUMAnN, HMP Uni ﬁed Metabolic Analysis Network; IDO, Indoleamine 2,3-
+dioxygenase; INH, Isoniazid; LMICs, Low- and middle-income countries; LTBI,
+Latent TB infection; MDR, Multidrug-resistant; ML, Machine learning; MOFA,
+Multi-Omics Factor Analysis; MTB, Mycobacterium tuberculosis; NGS, Next-
+generation sequencing; PCA, Principal Component Analysis; POC, Point-of-care;
+QIIME2, Quantitative Insights Into Microbial Ecology 2; RCTs, Randomized
+controlled trials; RIF, Rifampicin; RF, Random Forest; SCFAs, Short-chain fatty
+acids; SVMs, Support Vector Machines; TB, Tuberculosis; TBLB, Transbronchial
+lung biopsy; t-SNE, t-Distributed Stochastic Neighbor Embedding; WHO, World
+Health Organization; XDR, Extensively drug-resistant; XGBoost, Extreme gradi-
+ent boosting.
+Sun et al. 10.3389/fcimb.2026.1847443
+Frontiers in Cellular and Infection Microbiology frontiersin.org02
+technical and data foundation for multi-omics integration and
+clinical translation in subsequent sections of this review.
+2.1 Sequencing technology evolution:
+strengths and limitations of 16S rRNA,
+metagenomics, and metatranscriptomics
+NGS has revolutionized microbiome research by providing
+powerful tools for comprehensive microbial community analysis.
+Illumina sequencing, shotgun metagenomics, and amplicon
+sequencing each possess distinct advantages. Illumina sequencing
+offers high accuracy and scalability, making it the gold standard for
+microbial diversity analysis ( Szoboszlay et al., 2023 ); shotgun
+metagenomics enables whole-genome sequencing of all microbial
+taxa in a sample, thereby revealing their compositional and func-
+tional potential ( Quince et al., 2017 ).Amplicon sequencing, partic-
+ularly 16S rRNA gene sequencing, allows for targeted, high-
+throughput identi ﬁcation of bacterial and archaeal taxa ( Hugerth
+and Andersson, 2017 ). NGS supports both taxonomic and func-
+tional proﬁling of the microbiome: amplicon sequencing facilitates
+the analysis of microbial community dynamics via relative abun-
+dance data, while shotgun metagenomics deciphers key metabolic
+pathways and ecological roles of the GM ( Szoboszlay et al., 2023 ).
+Knight et al. emphasize that rigorous sampling protocols, strict
+quality control, and robust statistical analyses are essential for
+reliable interpretation of microbiome sequencing data ( Knight
+et al., 2018 ).
+2.1.1 16S rRNA gene sequencing
+16S rRNA gene sequencing is the most widely used technique
+for microbial community pro ﬁling (Johnson et al., 2019 ). It targets
+the highly conserved 16S rRNA gene present in all bacteria and
+archaea, enabling taxonomic identi ﬁcation down to the genus or
+species level ( Hugerth and Andersson, 2017 ). This method is cost-
+effective and generates high-resolution taxonomic information.
+However, it has inherent limitations, including the inability to
+capture functional information of the microbial community and
+potential biases introduced by primer selection and sequencing
+errors ( Table 1 ).
+2.1.2 Shotgun metagenomics
+Shotgun metagenomics involves the random sequencing of all
+DNA present in a sample, providing a comprehensive view of the
+entire microbial community —including bacteria, archaea, and
+viruses. This technique enables the identi ﬁcation of microbial
+species, characterization of their functional potential, and detection
+of antibiotic resistance genes. Nevertheless, it is more expensive and
+computationally intensive compared with 16S rRNA gene sequenc-
+ing ( Table 1 ).
+2.1.3 Metatranscriptomics
+Metatranscriptomics focuses on the sequencing of all RNA
+transcripts in a sample, providing insights into the active microbial
+community and their in-situ functional activities. This technique
+can identify which microbial genes are expressed and their expres-
+sion levels, offering a dynamic snapshot of microbial metabolic
+activity. However, it is technically more complex and costly,
+requiring specialized protocols for RNA extraction, enrichment,
+and sequencing ( Table 1). Each sequencing technology has unique
+strengths and limitations, and the selection of an appropriate
+method depends on the speci ﬁc research question and available
+resources. The integration of data from multiple sequencing
+approaches can provide a more comprehensive and in-depth
+understanding of the GM and its complex interactions with
+the host.
+2.2 Bioinformatics work ﬂows: quality
+control (DADA2), taxonomic and functional
+annotation (QIIME2, MetaPhlAn 4,
+HUMAnN)
+High-throughput sequencing data must be processed through
+rigorously standardized bioinformatics pipelines to convert raw
+reads into biologically meaningful insights. This section summa-
+rizes the current mainstream bioinformatics work ﬂow for
+microbiome analysis, with a focus on three key steps: denoising
+and quality control, taxonomic pro ﬁling, and func-
+tional reconstruction.
+2.2.1 Quality control and denoising with DADA2
+Callahan et al. developed Divisive Amplicon Denoising
+Algorithm2 (DADA2), an R package that replaces traditional
+operational taxonomic unit (OTU) clustering with amplicon
+sequence variant (ASV) identi ﬁcation ( Callahan et al., 2016 ). By
+modeling Illumina sequencing errors, DADA2 achieves single-
+nucleotide resolution in microbial pro ﬁling, thereby reducing
+spurious microbial diversity and improving the reproducibility of
+results across different studies. The DADA2 pipeline integrates ﬁve
+key steps: (i) ﬁltering and trimming of raw reads based on quality
+scores, (ii) error rate learning from each individual sequencing run,
+TABLE 1 Comparison of next-generation sequencing technologies for microbiome analysis.
+Technology Principle Platform Strengths Limitations
+16S rRNA gene
+sequencing
+Targets the 16S rRNA gene, which is conserved across bacteria
+and archaea
+Illumina (MiSeq,
+NovaSeq)
+Cost-effective Limited to bacteria
+and archaea
+Shotgun
+metagenomics
+Sequences all DNA in a sample, providing a comprehensive
+view of the microbial community
+Illumina
+(NovaSeq, HiSeq)
+Comprehensive taxonomic and
+functional pro ﬁling
+More expensive
+Metatranscriptomics Sequences RNA transcripts to identify active microbial
+community and functional activities
+Illumina
+(NovaSeq, HiSeq)
+Identiﬁes active microbial
+community
+More complex and
+expensive
+Sun et al. 10.3389/fcimb.2026.1847443
+Frontiers in Cellular and Infection Microbiology frontiersin.org03
+(iii) dereplication and denoising of sequencing reads, (iv) chimera
+removal, and (v) read-pair merging. This pipeline generates high-
+resolution microbial pro ﬁles that are directly comparable between
+samples and across different laboratories.
+2.2.2 Taxonomic classi ﬁcation via QIIME2 and
+MetaPhlAn 4
+QIIME2 (Quantitative Insights Into Microbial Ecology
+2) provides an extensible, plugin-based computational environment
+for end-to-end microbiome analysis ( Bolyen et al., 2019 ). Within
+the QIIME2 framework, the q2-dada2 plugin performs sequence
+denoising, while the q2-feature-classi ﬁer plugin implements naïve
+Bayes or consensus-based taxonomic assignment against curated
+reference databases such as SILVA and Greengenes2. For shotgun
+metagenomic data, MetaPhlAn 4 leverages clade-speci ﬁc marker
+genes (~1 million unique markers across more than 17,000 micro-
+bial species) to generate rapid, high-resolution taxonomic pro ﬁles
+without the need for whole-genome assembly (Blanco-Mı́guez et al.,
+2023). MetaPhlAn 4’s ability to resolve microbial composition at the
+species and strain levels makes it particularly suitable for GM-TB
+research, where subtle compositional shifts in the GM may exert a
+profound impact on host immunity.
+2.2.3 Functional reconstruction using HUMAnN
+The HMP Uni ﬁed Metabolic Analysis Network (HUMAnN) is
+a specialized tool for reconstructing microbial pathway and gene-
+family abundance from either assembled metagenomic contigs or
+quality- ﬁltered sequencing reads ( Suárez Araujo et al., 2009 ).
+HUMAnN ﬁrst aligns sequencing reads to the ChocoPhlAn
+pangenome database for organism-speci ﬁc gene detection; it then
+performs a translated search a gainst the UniRef database for
+unmapped reads; ﬁnally, it maps all identi ﬁed genes to MetaCyc
+metabolic pathways. This dual-tier approach enables the quantita-
+tive characterization of metabolically relevant microbial modules —
+such as SCFA biosynthesis, bile acid transformation, and trypto-
+phan catabolism—pathways that have been repeatedly implicated in
+TB susceptibility and disease progression.
+2.3 Data normalization and batch effects:
+ComBat, Limma, and emerging solutions
+A major challenge in large-scale microbiome research is the
+standardization and normalization of sequencing data to ensure the
+reliability and comparability of research ﬁndings. Variability in
+experimental protocols, sequencing platforms, and data preproc-
+essing methods across different studies can lead to inconsistent data
+quality and introduce systematic biases, commonly referred to as
+batch effects. Traditional statistical tools such as ComBat ( Johnson
+et al., 2007 ) and Limma ( Smyth, 2005 ), initially developed for
+microarray data analysis, are often insufﬁcient to effectively mitigate
+these biases in sparse, high-dimensional microbiome datasets. This
+limitation highlights the urgent need for specialized bioinformatics
+tools and algorithms tailored to the unique characteristics of
+microbiome data.
+To address this issue, emerging analytical frameworks have
+been proposed to harmonize multi-omics data and reduce batch
+effects. Following the initial alignment and mapping of genomic,
+transcriptomic, and proteomic data, normalization and scaling
+techniques—such as z-score normalization and quantile normali-
+zation—are applied to adjust data from different omics layers to a
+common scale. These procedures help mitigate batch effects and
+technical variability, ensuring that integrated multi-omics data
+reﬂect true biological variation rather than experimental artifacts.
+Additionally, dimensionality reduction methods, including
+Principal Component Analys is (PCA) and t-Distributed
+Stochastic Neighbor Embeddin g (t-SNE), are used to further
+reduce data complexity and highlight key biological patterns.
+ComBat and Limma provide foundational frameworks for
+batch effect correction in microbiome research, while newer nor-
+malization and multi-omics integration pipelines —integrated
+within platforms such as MultiQC, MixOmics, and Multi-Omics
+Factor Analysis (MOFA) ( Table 2 )—continue to advance the ﬁeld
+toward robust, reproducible microbiome analyses in GM-
+TB research.
+2.4 Public databases and analysis platforms
+The advancement of GM-TB research is heavily dependent on
+robust public databases and user-friendly analytical platforms that
+provide high-quality reference data, secure data storage, and pow-
+erful computational tools. These resources are indispensable for
+benchmarking study ﬁndings, integrating multi-omics data, and
+facilitating hypothesis-driven research ( Table 3 ). A key resource is
+the Human Microbiome Project (HMP) database ( Turnbaugh et al.,
+2007), which serves as a foundational reference by cataloging
+microbial communities across various human body sites in healthy
+individuals, enabling researchers to contextualize and compare TB-
+associated GM dysbiosis. For large-scale metagenomic data storage
+and analysis, the Integrated Microbial Genomes & Microbiomes
+(IMG/M) system offers a vast repository of curated metagenomic
+datasets ( Markowitz et al., 2012 ; Chen et al., 2019 ), supporting
+comparative analysis of microbial functions and communities
+relevant to TB.
+For TB pathogen-speci ﬁc research, specialized databases are
+available. The TB Database (TBdb) ( Reddy et al., 2009 ; Galagan
+et al., 2010 ) provides a comprehensive collection of curated geno-
+mic, transcriptomic, and proteomic data for MTB and related
+mycobacterial strains, facilitating in-depth studies of pathogen
+biology and host-pathogen interactions. Complementarily,
+Mycobrowser offers a specialized platform for exploring the geno-
+mic and functional annotations of Mycobacterium species, aiding in
+the identi ﬁcation of virulence factors, potential drug targets, and
+Sun et al. 10.3389/fcimb.2026.1847443
+Frontiers in Cellular and Infection Microbiology frontiersin.org04
+vaccine candidates (Kapopoulou et al., 2011; Gong et al., 2021; Jiang
+et al., 2023b ; Jiang et al., 2023a ; Peng et al., 2024 ; Wang et al., 2024 ;
+Zhang et al., 2025 ; Tian et al., 2026 ).
+Beyond data repositories, powerful analytical platforms are crucial
+for translating raw sequencing data into biological insights. Galaxy is
+an open-source, web-based platform that democratizes bioinformatics
+research by allowing researchers without extensive programming
+expertise to construct, share, and execute reproducible computational
+workﬂows for multi-omics data integration and analysis ( Ko et al.,
+2012; Heo et al., 2013 ; Galaxy, 2024 ). For metabolomic and
+microbiome-speciﬁc analysis, MicrobiomeAnalyst provides a user-
+friendly interface that supports comprehensive statistical analysis, data
+visualization, and integration of microbiome data with metabolomic
+proﬁles. This platform enables researchers to identify differentially
+abundant microbial taxa, perform functional prediction, and uncover
+metabolic signatures associated with TB progression and treatment
+response ( Dhariwal et al., 2017 ; Lu et al., 2023 ). Together, these
+databases and platforms form an essential cyber-infrastructure that
+supports the entire GM-TB research pipeline—from data acquisition
+and management to integrated analysis and biological interpretation.
+Through the hierarchical implementation of NGS technologies,
+standardized bioinformatic analysis pipelines, and targeted strate-
+gies for batch effect correction, a comprehensive technical frame-
+work for the holistic pro ﬁling of the GM has been developed. This
+framework integrates extensive public databases and analytical
+platforms, thereby enabling precise analyses that span from micro-
+bial species identi ﬁcation to functional characterization, as well as
+from single-omics interpretation to multi-omics integration. Such
+an approach facilitates the systematic screening of microbial targets
+and regulatory pathways pertinent to TB intervention.
+3 Host – microbe interactions through
+the lens of metabolism and
+proteomics
+The core issue of GM –TB interaction lies in the question: “How
+do these microorganisms affect the host? ” Integrating metabolomic
+and proteomic datasets allows us to dissect the molecular crosstalk
+between the gut microbiota and MTB, and to identify non-invasive
+biomarkers as well as therapeutic targets. This section focuses on
+the key metabolic pathways and protein networks that orchestrate
+the gut-lung axis in TB.
+3.1 Metabolomics: roles of SCFAs, bile
+acids, and tryptophan pathways in the gut-
+lung axis
+The gut-lung axis concept posits that the GM in ﬂuences
+respiratory health through bidirectional immune and metabolic
+crosstalk ( Frati et al., 2018 ). In TB, the gut-lung axis is a key
+regulator of disease susceptibility and clinical outcomes ( Osei
+Sekyere et al., 2020 ). Numerous studies have reported that active
+pulmonary TB is associated with distinct GM dysbiosis: bene ﬁcial
+commensal taxa such as Biﬁdobacterium and Lactobacillus are
+TABLE 2 Overview of multi-omic data preprocessing and integration.
+Name Function/
+application area
+Key features
+MultiQC Data aggregation and
+reporting
+Aggregates results from various bioinformatics analyses into a single report, facilitating
+comprehensive multi-omics data visualization.
+MetaboAnalyst Multi-omics data
+integration and analysis
+Provides tools for metabolomic data analysis, including normalization, statistical testing, and pathway
+analysis, integrated with other omics data.
+iCluster Integrated clustering of
+multi-omics data
+Enables simultaneous clustering of multiple omics datasets, identifying shared patterns and
+associations across different molecular layers.
+MixOmics Multi-omics data
+integration and
+visualization
+Offers a suite of statistical methods for integrating and visualizing relationships between different
+omics datasets, including PLS-DA and correlation analysis.
+MOFA Dimensionality reduction
+for multi-omics data
+Implements factor analysis to identify latent factors that capture shared and unique variations across
+multiple omics layers, enhancing data interpretation.
+OmicsNet Network-based integration
+of multi-omics data
+Constructs interaction networks that integrate genomic, transcriptomic, and proteomic data,
+highlighting key nodes and pathways involved in biological processes.
+Cytoscape Network visualization and
+analysis
+Facilitates the visualization and analysis of complex interaction networks, integrating multi-omics
+data to identify functional relationships and network hubs.
+Galaxy Integrative omics pipelines An open-source platform that supports the construction of custom work ﬂows for integrating and
+analyzing multi-omics data using a wide range of bioinformatics tools.
+MG-RAST Metagenomic data
+integration
+Provides a comprehensive pipeline for the analysis and integration of metagenomic data, including
+functional annotation and taxonomic classi ﬁcation across multiple datasets.
+NetMoss Network module structure
+shift analysis
+Evaluates shifts in network modules across different states using integrated multi-omics data,
+identifying key bacteria and interactions associated with disease transitions.
+WGCNA (Weighted Gene Co-
+expression Network Analysis)
+Network construction and
+module detection
+Constructs weighted gene co-expression networks, facilitating the identi ﬁcation of modules and hub
+genes across multi-omics datasets.
+Sun et al. 10.3389/fcimb.2026.1847443
+Frontiers in Cellular and Infection Microbiology frontiersin.org05
+depleted, while potentially pro-inﬂ ammatory taxa— including
+Proteobacteria and Enterobacteriaceae—are enriched ( Chai et al.,
+2025; Liu et al., 2025 ). This microbial imbalance can impair
+intestinal mucosal barrier integrity and skew the host immune
+tone toward a pro-inﬂammatory state. The gut microbiota produces
+a diverse array of metabolites —such as SCFAs, secondary bile acids,
+and amino acid derivatives —that circulate systemically and act as
+key immunomodulators. For instance, butyrate and propionate, the
+major SCFAs produced by microbial fermentation of dietary ﬁber,
+enhance the function of regulatory T cells and anti-in ﬂammatory
+macrophages ( Durán-Castañeda et al., 2024 ). In the lung, these
+metabolites can boost the antimicrobial activity of alveolar macro-
+phages and temper excessive in ﬂammatory responses. Conversely,
+TB infection can perturb the gut microenvironment via systemic
+inﬂammation, and anti-TB therapy can further disrupt the GM,
+forming a bidirectional feedback loop. Figure 1 illustrates a con-
+ceptual model of the gut-lung metabolic axis in TB, where gut-
+derived metabolites modulate pulmonary immunity, while
+TABLE 3 Resources, databases, and platform for GM-TB research.
+Name Function/
+application area
+Key features
+Human microbiome project (HMP) Microbiome database Comprehensive data on human microbiota across various body sites, serving as a reference for
+comparative studies.
+Integrated microbial genomes &
+microbiomes (IMG/M)
+Microbiome database Repository for metagenomic datasets, enabling access and analysis of microbiome data relevant
+to TB studies.
+TB database TB-speci ﬁc database Curated genomic, transcriptomic, and proteomic data speciﬁ ct o MTB and related strains.
+Mycobrowser TB-speciﬁc database Platform for exploring genomic and functional annotations of Mycobacterium species,
+facilitating host-microbe studies.
+OmicsDI Multi-omics integration
+platform
+Integrates various omics datasets, allowing comprehensive analyses involving genomics,
+transcriptomics, proteomics, etc.
+MetaboAnalyst Multi-omics integration
+platform
+Supports metabolomics data analysis and integrates with other omics data types for holistic
+metabolic interaction studies.
+KEGG (Kyoto Encyclopedia of Genes
+and Genomes)
+Functional annotation tool Provides pathway maps and functional annotations to understand metabolic and signaling
+pathways in GM-TB interactions.
+DeepKEGG Functional annotation tool Integrates genomic, transcriptomic and epigenomic features in a pathway-centric neural
+architecture
+SEED Functional annotation tool Framework for annotating and analyzing genomic and metagenomic data, exploring functional
+capabilities of microbial communities.
+FIGURE 1
+Bidirectional regulatory mechanism of the gut – lung metabolic axis in TB. Gut bacteria produce bioactive metabolites (including SCFAs, secondary
+bile acids, and tryptophan derivatives) that enter the systemic circulation and modulate immune cell function in the lung. These metabolites can
+either enhance or inhibit the host ’s ability to control MTB infection. Conversely, pulmonary TB and anti-TB treatment disrupt gut microbial
+communities and their metabolite pro ﬁles, completing a bidirectional gut-lung regulatory loop.
+Sun et al. 10.3389/fcimb.2026.1847443
+Frontiers in Cellular and Infection Microbiology frontiersin.org06
+pulmonary TB and its treatment alter the gut microbiota and its
+metabolomic pro ﬁle.
+Key gut-derived metabolites implicated in TB include:
+SCFAs: Butyrate, acetate, and propionate enhance intestinal
+mucosal barrier integrity and anti-in ﬂammatory signaling via G-
+protein-coupled receptors (e.g., GPR43) and epigenetic modulation
+(e.g., histone deacetylase inhibition) ( Salvi and Cowles, 2021 ). In
+TB, SCFAs can boost macrophage phagocytosis of MTB and the
+production of antimicrobial peptides. Reduced fecal SCFA levels
+have been correlated with more severe TB disease, highlighting their
+protective role in TB immunity.
+Secondary bile acids: Gut bacteria play a pivotal role in
+converting host-derived primary bile acids into secondary bile
+acids (e.g., deoxycholic acid and lithocholic acid) ( Ramı́rez-Pérez
+et al., 2017). These secondary bile acids are bioactive molecules that
+interact with host nuclear and cell surface receptors, including the
+Farnesoid X receptor (FXR) and G protein-coupled bile acid
+receptor (TGR5) ( Chiang and Ferrell, 2020 ). Activation of these
+receptors modulates a range of physiological processes, including
+metabolism, inﬂammation, and immune responses, thus linking gut
+microbial bile acid metabolism to systemic host regulation.
+Secondary bile acids in ﬂuence immune cell differentiation and
+may alter MTB survival in the host ( Munansangu et al., 2022 ):
+certain bile acid pro ﬁles can dampen pro-in ﬂammatory responses,
+potentially facilitating MTB persistence, while others can activate
+macrophage antimicrobial function.
+Tryptophan metabolites: Gut microbes metabolize dietary tryp-
+tophan into indoles, kynurenine , and serotonin, which signal
+through the aryl hydrocarbon receptor (AhR) and other metabolic
+pathways ( Keszthelyi et al., 2009 ). AhR activation by microbial
+indoles typically promotes mu cosal barrier immunity and the
+production of interleukin-22 (IL-22). In TB, systemic tryptophan
+levels decline due to enhanced catabolism by both the host and
+microbes, while the immunosuppressive metabolite kynurenine
+accumulates —a phenomenon termed the “tryptophan sink ”—
+which MTB exploits to evade host immune surveillance.
+Other amino acid derivatives: Metabolites such as polyamines
+(e.g., spermidine) and microbial-derived amino compounds can
+modulate macrophage autophagy and activation ( Lian et al., 2022 ).
+Perturbations in these pathways may shift the balance between host
+containment of MTB and bacterial dissemination.
+These metabolites and their regulatory pathways form a com-
+plex biochemical dialogue between the gut microbiota and the host
+immune system, exerting a profound impact on TB pathogenesis.
+Table 4 summarizes the major GM-derived metabolites and their
+known or putative effects on TB immunity.
+Recent studies have highlighted the profound impact of MTB
+infection on gut microbial composition and metabolomic pro ﬁles
+(Liu et al., 2025 ). TB-infected individuals exhibit a characteristic
+disruption of the gut microbiota, marked by the depletion of
+beneﬁcial commensals (e.g., Lactobacillus and Biﬁdobacterium)
+and the enrichment of opportunistic pathogens ( Kailasapathy and
+Chin, 2000 ). These microbial shifts are accompanied by altered
+levels of SCFAs, bile acids, and amino acid metabolites —key
+regulators of host immunity and in ﬂammation. This TB-associated
+gut dysbiosis can in ﬂuence systemic immune responses via the gut-
+lung axis, thereby modulating TB progression, disease severity, and
+treatment response. Understanding these microbiota-metabolite
+interactions provides novel avenues for biomarker discovery and
+the development of targeted gut-based therapeutic strategies for TB
+management ( Xi et al., 2024 ; Zhuang et al., 2024a ).
+3.2 Lipid and amino acid metabolism
+reprogramming: systemic metabolic
+signatures in TB patients
+TB imposes signi ﬁcant metabolic demands on the host, and
+MTB has evolved sophisticated strategies to reprogram host cellular
+metabolism to create a favorable intracellular niche for survival and
+replication. Lipid metabolism is profoundly altered in TB: MTB
+induces the accumulation of lipid droplets in infected macrophages,
+exploiting host fatty acids and cholesterol as carbon sources for its
+own cell wall synthesis and energy storage ( Lovewell et al., 2016; Ali
+et al., 2025 ). Clinically, TB patients often exhibit elevated serum
+levels of cholesterol, triglycerides, and speci ﬁc fatty acids
+(Chidambaram et al., 2021 ). Lipidomic analyses have consistently
+demonstrated that cholesterol e sters, triacylglycerols, and
+acylcarnitines are upregulated in active TB; these lipid changes
+TABLE 4 Key GM-derived metabolites in ﬂuencing host immune responses relevant to TB.
+Metabolite/group Gut microbial source Effect on TB immunity Reference
+Butyrate Anaerobic fermenters (e.g.
+Faecalibacterium, Roseburia)
+Enhances macrophage phagocytosis and antimicrobial activity;
+promotes regulatory T-cell induction (anti-in ﬂammatory)
+(Schulthess et al., 2019 ;
+Salvi and Cowles, 2021 )
+Acetate Various fermenters Modulates in ﬂammation; provides energy substrate for host cells ( Schulthess et al., 2019 )
+Propionate Bacteroides, Veillonella, others Activates immune receptors (e.g. GPR41) on macrophages;
+inﬂuences chemokine production
+(Haghikia et al., 2022 )
+Secondary bile acids (e.g.
+deoxycholate, lithocholate)
+Clostridium clusters, Bacteroides
+spp. convert primary bile acids
+Engage FXR/TGR5 pathways; modulate dendritic cell and T-cell
+responses; may alter MTB virulence
+(Hofmann, 2004 )
+Indole and derivatives (AhR
+ligands)
+Clostridium, Bacteroides,
+Peptostreptococcus
+Activate AhR in mucosal immune cells; promote IL-22 and IL-
+17 responses; maintain barrier
+(Dvořák et al., 2021 )
+Kynurenine (via host IDO/TDO
+activity, but ampli ﬁed by microbes)
+Host and gut microbes (e.g.
+Lactobacillus)
+Inhibits T-cell proliferation; skews toward regulatory phenotype;
+high levels linked to TB progression
+(Zhang et al., 2024 )
+Polyamines (e.g. spermidine) Escherichia, Lactobacillus, and
+others
+Promote macrophage autophagy and anti-MTB responses; can
+also support bacterial growth if unregulated
+(Madeo et al., 2018 )
+Sun et al. 10.3389/fcimb.2026.1847443
+Frontiers in Cellular and Infection Microbiology frontiersin.org07
+not only support MTB latent survival but also serve as distinctive
+biomarkers to distinguish TB from other pulmonary diseases.
+Amino acid metabolism is also heavily dysregulated in TB.
+MTB-infected hosts show enhanced tryptophan catabolism via the
+indoleamine 2,3-dioxygenase (IDO) pathway, leading to the accu-
+mulation of kynurenine ( Fujiwara et al., 2022 ; Ali et al., 2023 ). A
+high kynurenine-to-tryptophan ratio is closely correlated with TB
+disease progression, re ﬂecting immune suppression and T-cell
+anergy. Similarly, the arginine-nitric oxide pathway is disrupted:
+MTB can deplete host arginine or shunt it away from nitric oxide
+synthesis, thereby weakening the bactericidal activity of macro-
+phages. Glutamine and glutamate levels are also perturbed in TB, as
+MTB can utilize glutamine as a key nitrogen source for growth.
+Central carbon metabolism is rewired in MTB-infected host cells.
+Infected immune cells adopt a Warburg-like metabolic phenotype,
+characterized by increased glycolysis and lactate production even
+under aerobic conditions ( Escoll and Buchrieser, 2018 ). This
+metabolic shift provides rapid ATP and biosynthetic precursors
+for host immune responses but also leads to the accumulation of
+lactate and succinate in the microenvironment. Altered levels of
+tricarboxylic acid (TCA) cycle intermediates (e.g., succinate, fuma-
+rate) have been detected in TB patients, re ﬂecting mitochondrial
+metabolic shifts and the hypoxic microenvironment of
+TB granulomas.
+These metabolic alterations generate distinct biochemical sig-
+natures in the blood, urine, and sputum of TB patients. For
+example, TB patients exhibit consistent elevation of speci ﬁc carni-
+tines (involved in fatty acid transport), depletion of essential amino
+acids (due to enhanced immunological consumption), and
+increased oxidative stress markers (resulting from chronic in ﬂam-
+mation). Table 5 outlines the representative metabolic changes
+observed in active TB compared with healthy individuals or those
+with latent TB infection (LTBI).
+These host metabolic shifts are closely intertwined with gut
+microbial activity: elevated host fatty acids can alter gut microbial
+fermentation, while tryptophan depletion and kynurenine accumu-
+lation can modulate intestinal immune tone and GM composition
+(Gao et al., 2018 ). Conversely, the GM contributes key metabolites
+(as summarized in Table 4 ) that modify these host metabolic
+pathways. This intricate crosstalk highlights the potential of
+metabolomic proﬁling to map the complex host-microbe metabolic
+network in TB.
+3.3 Proteomics: the tripartite protein
+landscape of host – pathogen– microbiota
+interactions
+Proteomics provides a powerful framework for deciphering the
+complex protein-mediated interactions between the host, MTB, and
+the GM by characterizing the complete set of proteins expressed in a
+biological system. This approach captures the functional executors
+of biological processes, offering a dynamic snapshot of infection and
+host immune responses that cannot be obtained by genomic or
+transcriptomic methods alone.
+A key mechanism of MTB pathogenesis involves the disruption
+of host cellular integrity to evade immune surveillance ( Jiang et al.,
+2023c; Zhuang et al., 2023 ). Speci ﬁc MTB antigens —including
+ESAT-6, 19 kDa lipoprotein, Hip1, and Hsp70 —target core host
+organelles such as mitochondria, the endoplasmic reticulum, and
+phagosomes, inducing endoplasmic reticulum stress and delaying
+both innate and adaptive immune responses ( Ghoshal et al., 2024 ).
+In response to MTB infection, the host secretes exosomes that act as
+double-edged messengers in immune signaling: these extracellular
+vesicles can carry both host antimicrobial molecules and MTB-
+derived proteins. Proteomic pro ﬁling of exosomes from MTB-
+infected macrophages has identi ﬁed more than 350 human pro-
+teins, a signi ﬁcant proportion of which are uniquely enriched
+during infection, highlighting the dual role of exosomes in TB
+pathogenesis and immune modulation ( Diaz et al., 2016 ).
+Cellular proteomics has revealed extensive remodeling of the
+host proteome during MTB infect ion. Quantitative proteomic
+techniques such as Stable Isotope Labeling by Amino Acids in
+Cell Culture (SILAC) ( Hoedt et al., 2019 ) and Tandem Mass Tag
+(TMT) ( Muñoz-Prieto et al., 2021 ) labeling enable precise moni-
+toring of these dynamic changes. These methods have been instru-
+mental in uncovering infection-driven alterations —including
+widespread changes to the host ubiquitylome and cell-type-speci ﬁc
+immune responses —providing essential insights into how MTB
+manipulates host cell biology to promote its intracellular survival
+(Thompson et al., 2003 ; Porras-Yakushi and Hess, 2014 ; Carvalho
+et al., 2020 ). Metaproteomic analysis, which involves protein
+extraction, enzymatic digestion, peptide separation by chromatog-
+raphy, mass spectrometric analysis, and database matching, is
+central to these discoveries. However, it faces signi ﬁcant challenges,
+including high false discovery rates due to shared peptide sequences
+across different species and the substantial computational demands
+of analyzing large-scale metaproteomic datasets ( Ankney et al.,
+2018; Muselius et al., 2020 ).
+Beyond elucidating the molecular mechanisms of TB infection,
+proteomics plays a vital role i n advancing TB therapeutics.
+Comparative in silico analyses of host and MTB metabolic path-
+ways have identi ﬁed 67 potential MTB-speci ﬁc drug targets, pro-
+viding a rational basis for novel drug design ( Anishetty et al., 2005 ).
+Furthermore, proteomic pro ﬁling has clari ﬁed the mechanisms of
+action of existing anti-TB drugs: rifampicin exposure downregulates
+key proteins involved in MTB cell wall synthesis (e.g., Ino1, FabD,
+EsxK, PPE60), while sulfamethoxazole induces oxidative stress and
+modulates the MTB electron transport chain. These ﬁndings have
+uncovered novel secondary modes of action of anti-TB drugs and
+their potential for synergistic combination therapy ( Meneguello
+et al., 2020 ).
+Finally, proteomics illuminates the vital function of the GM in
+modulating anti-TB drug ef ﬁcacy. Gut microbial enzymes can
+modify the chemical structure of pharmaceutical compounds,
+thereby in ﬂuencing their pharmacodynamic properties.
+Microbiome-directed therapies such as FMT —already established
+as a gold standard treatment for recurrent Clostridioides dif ﬁcile
+infection—show great promise for TB by reducing the abundance of
+antimicrobial resistance genes and restoring a balanced GM. FMT
+and probiotic supplementation may enhance anti-TB therapy by
+reintroducing SCFA-producing taxa, reducing systemic in ﬂamma-
+tion, and strengthening host immunity —particularly in patients
+Sun et al. 10.3389/fcimb.2026.1847443
+Frontiers in Cellular and Infection Microbiology frontiersin.org08
+with drug-resistant TB ( Aldrich et al., 2019 ; Sorbara and Pamer,
+2022; Boicean et al., 2023 ).
+3.4 Exosomal proteins and microbial
+enzymes: potential non-invasive
+biomarkers
+Exosomes—nano-sized extracellular vesicles secreted by both
+host cells and pathogens —carry a diverse molecular cargo, includ-
+ing proteins, nucleic acids, lipids, and microbial enzymes. In recent
+years, these vesicles have emerged as a promising source of non-
+invasive biomarkers for infectious diseases, particularly TB ( Li et al.,
+2023a). The unique composition of exosomes re ﬂects the physio-
+logical state of their parent cells and the nature of host-pathogen
+interactions, making them a valuable diagnostic and prognostic tool
+for TB. Exosomal proteins and microbial enzymes provide primary
+insights into MTB biology, offering disease-speci ﬁcm o l e c u l a r
+signatures that can be detected in easily accessible body ﬂuids
+such as blood, saliva, and urine. Proteomic studies have demon-
+strated that exosomes derived from MTB-infected macrophages
+and the plasma of TB patients are enriched with bacterial antigens
+(e.g., ESAT-6, Ag85 complex, KatG, SodA) and host proteins (e.g.,
+heat shock proteins, haptoglobin, vimentin) ( Biadglegne et al.,
+2021). This protein signature re ﬂects both host immune activation
+and MTB persistence: ESAT-6 and Ag85 are immunodominant
+MTB virulence factors involved in cell wall synthesis, KatG is a
+catalase-peroxidase that is essential for MTB to resist oxidative
+stress and to activate the anti-TB drug isoniazid. The presence of
+these proteins in circulating exosomes highlights their potential as
+diagnostic biomarkers to distinguish active TB (ATB) from LTBI.
+Host-derived exosomal proteins also carry important diagnostic
+information: heat shock proteins indicate cellular stress induced by
+MTB infection, while the downregulation of MHC class I or CD36
+in exosomes may reﬂect MTB-mediated immune evasion strategies.
+Microbial enzymes present in exosomes represent another
+promising class of TB biomarkers; these enzymes are involved in
+bacterial metabolism, stress adaptation, and virulence regulation.
+For instance, catalase-peroxidase (KatG) and superoxide dismutase
+(SodA/SodB)—critical for MTB to neutralize reactive oxygen spe-
+cies in host macrophages —are consistently detected in exosomal
+preparations from TB-infected in dividuals. Similarly, enzymes
+involved in lipid metabolism and nitrogen utilization (e.g., gluta-
+mine synthetase (GlnA1), fatty acid synthases) are present in the
+exosomal proteome and may correlate with MTB intracellular
+survival strategies. The detection of these microbial enzymes in
+exosomes provides direct evidence of ongoing intracellular MTB
+infection, even when bacterial loads are too low to be detected by
+conventional smear microscopy or culture.
+From a clinical perspective, exosomal proteins and microbial
+enzymes possess several key advantages as TB biomarkers:
+Stability: The protective lipid bilayer of exosomes shields their
+cargo from enzymatic degradation in body ﬂuids, ensuring high
+stability and detectability.
+Disease speci ﬁcity: Speci ﬁc proteins and enzymes are upregu-
+lated in ATB but absent or downregulated in LTBI or other
+pulmonary diseases. For example, haptoglobin and in ﬂammatory
+proteins are highly enriched in exosomes from ATB patients, while
+stress proteins such as HSP90 correlate with active disease states
+(Biadglegne et al., 2021 ).
+High-throughput detectability: These molecules can be quanti-
+ﬁed using high-throughput analytical platforms such as mass
+spectrometry, ELISA, or immuno-PCR, making them compatible
+with routine clinical work ﬂows.
+Treatment response monitoring: Their levels dynamically
+change in response to anti-TB therapy, enabling the monitoring
+of treatment efﬁcacy and the early detection of disease relapse (Zhao
+et al., 2025 ).
+In conclusion, exosomal proteins and microbial enzymes rep-
+resent robust, non-invasive biomarkers that capture the complexity
+of host –pathogen interactions in TB. While challenges remain —
+TABLE 5 Representative host metabolic alterations in active TB compared to healthy controls.
+Metabolite/class Trend in active TB Biological signi ﬁcance References
+Cholesterol and sterols Increased Source of lipid for MTB cell wall; marker of host lipid dysregulation ( Martı́nez and Ruiz,
+2019)
+Triglycerides Increased Energy storage; MTB utilizes host TGs under latency ( Maurya et al., 2018 )
+Acylcarnitines Increased (various chain
+lengths)
+Reﬂect altered fatty acid oxidation and transport ( McCoin et al., 2015 )
+Fatty acids (e.g. palmitate, oleate) Increased Supply carbon for MTB; indicate host lipid mobilization ( Allen and Martinez,
+2020)
+Tryptophan Decreased Catabolized by host and bacteria; depletion impairs T-cell function ( Mellor et al., 2003 )
+Kynurenine Increased Immunosuppressive metabolite; correlates with active TB ( Weiner et al., 2012 )
+Arginine Decreased Substrate for NO production; reduction suggests immune evasion ( Martı́and Reith, 2021 )
+Lactate Increased Product of glycolysis; may indicate hypoxic or Warburg metabolism in
+infected tissues
+(Escoll and Buchrieser,
+2018)
+Succinate Increased Stabilizes HIF-1 a; can promote in ﬂammation ( Mills and O ’Neill,
+2014)
+Glutamine Altered (often decreased) Fuel for rapidly dividing immune cells; MTB also consumes glutamine ( Abnousian et al., 2023 )
+Coenzyme A variants (e.g.
+pantothenate)
+Altered Host cofactor for metabolism; changes re ﬂect MTB manipulation ( Keen, 2021 )
+Sun et al. 10.3389/fcimb.2026.1847443
+Frontiers in Cellular and Infection Microbiology frontiersin.org09
+including the lack of standardized exosome isolation protocols and
+the need to ensure reproducibility across laboratories —the integra-
+tion of exosomal proteomics into clinical diagnostics represents a
+groundbreaking advance in TB management. By providing accurate
+information on infection status, these biomarkers have the potential
+to not only improve early TB detection but also to guide therapeutic
+decisions and monitor treatment outcomes, thereby strengthening
+global TB control strategies ( Biadglegne et al., 2021 ).
+3.5 Multi-omics integration strategies: a
+metabolic-proteomic-genomic joint
+analysis framework
+Multi-omics joint analysis in TB research captures upstream
+genetic regulation, mid-level protein function, and downstream
+metabolic consequences of infection. These studies integrate diverse
+biological data types into a single analytical model, uncovering
+complementary roles of metabolites, proteins, and genes in TB
+pathogenesis. Researchers typi cally apply this framework by
+sequencing miRNAs, quantifying metabolites via liquid chroma-
+tography-mass spectrometry (LC-MS), and measuring cytokines/
+chemokines using multiplex immunoassays. After individual anal-
+ysis of each dataset, the three omics layers are combined in a
+decision-tree classi ﬁer to identify optimal biomarker panels con-
+sisting of genomic, proteomic, and metabolomic features. This
+integrated model has achieved outstanding performance in distin-
+guishing TB patients from healthy controls, highlighting the power
+of multi-omics joint analysis ( Table 6 )( Krishnan et al., 2021 ).
+The fundamental principle behind multi-omics integration is the
+complementary nature of different biological hierarchical levels. The
+genome (including miRNA) reveals genetic predispositions and regu-
+latory signals that suggest potential outcomes; the proteome reﬂects the
+current functional state, showing what is actually occurring; and the
+metabolome displays the ﬁnal phenotypic results of past events.
+Combining these three omics layers into a single analytical framework
+allows for simultaneous observation of the same biological process
+across three temporal stages, greatly improving the completeness and
+accuracy of signal detection. Diagnosis remains the main challenge in
+TB prevention and control. Traditional methods like the tuberculin
+skin test (TST) and interferon-g amma release assay (IGRA) cannot
+differentiate between LTBI and ATB. The key advantage of multi-
+omics integration lies inidentifying genuine disease-driving biomarkers
+through causal inference. By integrating lipidomics based on ultra-high
+performance liquid chromatography-tandem mass spectrometry
+(UPLC-MS/MS) with data-independent acquisition (DIA) proteomics,
+plasma samples from healthy individuals, TB patients, and cured
+subjects were analyzed. This approach identiﬁed three phosphatidyl-
+choline lipids and four proteins —haptoglobin (HP), retinol-binding
+protein 4 (RBP4), coagulation factor XIII B subunit (F13B), and alpha-
+1-antitrypsin heavy chain 1 (ITIH1) —as potential biomarkers. A
+multi-omics random forest model built on these biomarkers showed
+excellent performance. Gene Set Var iation Analysis (GSVA) further
+indicated that these molecules par ticipate in iron homeostasis and
+immune response pathways (Zhu et al., 2026). This directly highlights
+the crucial mechanism of GM-TB in teraction: gut microbiota inﬂu-
+ences host susceptibility to MTB through iron metabolism. TB patients
+face risks of treatment failure and relapse, and early identi ﬁcation of
+high-risk individuals remains a signi ﬁcant clinical challenge. Multi-
+omics integration combines clinical phenotypes with molecular signa-
+tures to develop highly accurate predictive models. Researchers com-
+bined clinical data from 467 TB patients with transcriptomic data from
+three independent public cohorts (GSE19491, GSE31312, GSE83456),
+encompassing 3,240 differentially expressed genes. A comprehensive
+evaluation of 12 machine learning algorithms found that an Extra
+Trees-based ensemble model delivered the best performance (Li et al.,
+2026). The pathways enriched in this study were mainly related to
+immune response and metabolism, aligning closely with the core
+mechanism of GM-TB interaction. This suggests that gut microbial
+metabolites, such as short-chain fa tty acids, can regulate the lung
+immune environment via the gut-lung axis, thereby in ﬂuencing the
+TABLE 6 Representative biomarkers obtained from combined analysis of metabolic-proteomic-genomic.
+Method/
+name Antigen(s) involved Proteomic method/
+platform Key ﬁndings References
+Serum biomarker
+discovery in
+advanced HIV
+Host serum (miRNAs, metabolites,
+cytokines)
+LC-MS metabolomics,
+multiplex cytokine assay, NGS
+for miRNAs
+miR-215-5p + gamma-glutamylthreonine panel
+achieved Area Under the Curve(AUC) 0.965 for TB
+diagnosis in PLWH
+(Krishnan et al.,
+2021)
+Circulating lipid
+biomarkers
+Host plasma lipids, including PC
+(14:0_22:6)
+Plasma lipid omics (LC-MS),
+integrated with immune-
+metabolite pro ﬁling
+Lipid biosignatures distinguished TB from LTBI,
+NTM and ODx with AUC 0.7-0.9; PC(14:0_22:6)
+validated as top predictor
+(Tien et al.,
+2024)
+Mechanism of DA-
+CB
+M. smegmatis lipids (mycolic acid,
+wax monoesters, FAs)
+Untargeted LC-MS/MS
+(lipidomics & metabolomics),
+NMR, proteomics
+DA-CB inhibited mycolic acid biosynthesis, perturbed
+pyrimidine and fatty acid metabolism, validated new
+anti-TB MoA
+(Sakallioglu
+et al., 2022 )
+Hyper-virulent
+strain analysis
+M. tuberculosis H112 starin
+mutations (FadE5, Rv0178, higB,
+pip)
+RNA-seq + label-free
+quantitative LC-MS/MS
+25 genes consistently dysregulated: linked
+hypervirulence to speci ﬁc mutations affecting
+virulence regulons
+(Rajwani et al.,
+2022)
+Review of omics in
+TB drug discovery
+Not antigen-speci ﬁc, focus on M.tb
+pathways (folate, PDIM, ESX-1,
+mycolic acid)
+Genomics, transcriptomics,
+proteomics, metabolomics,
+lipidomics
+Omics applied to identify druggable pathways,
+conﬁrm compound MoA, and explore antimicrobial
+resistance
+(Goff et al.,
+2020)
+TB-diabetes
+comorbidity
+Host plasma cytokines, whole-
+blood transcriptome, urinary
+eicosanoids
+RNA-seq, Luminex assays, LC-
+MS eicosanoid pro ﬁling
+Identiﬁed multi-omic signature ( Vinhaes et al.,
+2024)
+Sun et al. 10.3389/fcimb.2026.1847443
+Frontiers in Cellular and Infection Microbiology frontiersin.org10
+host’s ability to clear MTB. Adding metagenomic data to this ensemble
+model can further enhance the understanding of treatment responses.
+The integration of metabolome, proteome, and genome data is
+transforming clinical decision-making in TB. This approach has
+shown translational clinical value in various contexts, including
+differential diagnosis (through causal biomarker identiﬁcation using
+Mendelian randomization), prediction of treatment response (via
+integrated models combining clinical and transcriptomic data), and
+detection of drug resistance (using multi-tool ensemble learning).
+For the complex, systems biology-focused issue of GM-TB interac-
+tion, multi-omics integration offers a practical route from merely
+describing correlations to actively intervening in causal mecha-
+nisms. Figure 2 illustrates the mechanism of multi-omics integra-
+tion in deciphering GM-TB interaction and its clinical application.
+Metabolomics and proteomics have revealed the core regulatory
+mechanisms of the gut-lung axis in the immune regulation of TB at
+the molecular level, clari ﬁed the roles of key metabolites, as well as
+biomarkers such as exosomal proteins and microbial enzymes, and
+provided molecular targets and theoretical basis for the development
+of TB intervention measures based on the GM. However, current
+studies have limitations: insufﬁcient veriﬁcation of the causal mech-
+anisms within the gut-lung axis, lack of rigorous intervention
+experiments such as microbiota transplantation and metabolite
+supplementation; low detection rate and limited coverage of low-
+abundance gut microbial proteins and MTB intracellular proteins; the
+clinical application of biomarkers lags behind basic research, with a
+lack of multi-center and large-scale clinical veri ﬁcation, and insufﬁ-
+cient speci ﬁcity, making it dif ﬁcult to distinguish TB from other
+pulmonary diseases such as NTM infection and pneumonia.
+4 AI-driven biomarker discovery and
+diagnostic decision-making
+AI and ML have emerged as powerful tools in microbiome
+research, particularly in the context of TB. These technologies
+enable the analysis of complex, high-dimensional datasets, facili-
+tating the identiﬁ cation of novel biomarkers, the improvement of
+diagnostic accuracy, and the optimization of treatment strategies
+FIGURE 2
+A four-layer framework for multi-omics integration to decipher GM-TB interactions and its clinical translation. (I) Core Input Layer: collection ofm u l t i - o m i c s
+data including genomics, metabolomics, and proteomics; (II) Intermediate Integration Layer: correlation analysis and regulatory network construction to
+identify core functional nodes; (III) Output Application Layer: clinical decision-making implementation encompassing early diagnosis, treatment guidance,
+prognostic monitoring, and new drug development; (IV) Feedback Regulation Layer: clinical data feedback to optimize the regulatory network and improve
+biomarker applicability.
+Sun et al. 10.3389/fcimb.2026.1847443
+Frontiers in Cellular and Infection Microbiology frontiersin.org11
+(Du et al., 2024 ; Zhuang et al., 2024a ; Zhuang et al., 2024b ). By
+integrating diverse data types —including microbiome pro ﬁles,
+clinical metadata, and medical imaging data —AI-driven models
+can provide personalized insights into disease progression and
+therapeutic response. This section explores the application of AI
+and ML in microbiome data analysis, medical imaging for TB
+diagnosis, and the development of multi-modal models for com-
+prehensive diagnostic and prognostic assessment in TB.
+4.1 Machine learning in microbiome data
+analysis
+AI and ML algorithms have become essential tools for GM data
+processing, pattern recognitio n, and functional prediction.
+Traditional statistical methods often struggle to analyze high-
+t h r o u g h p u t ,l a r g e - s c a l e ,a n dhigh-dimensional microbiome
+datasets, facing challenges such as the curse of dimensionality and
+an inability to capture nonlinear biological relationships. In con-
+trast, AI algorithms provide powerful approaches for data analysis,
+interpretation, and predictive modeling ( Metwaly et al., 2025 ).
+Advances in these algorithms are critical for deepening our under-
+standing of the complex interactions between the GM and various
+health conditions—including TB—and for developing personalized
+therapeutic strategies ( Ongsulee, 2017 ).
+In TB prevention and control, ML algorithms are increasingly
+applied to develop risk prediction and classi ﬁcation models based
+on GM pro ﬁles, as MTB infection induces signi ﬁcant alterations in
+gut microbial composition. Chai et al. trained an RF classi ﬁer that
+achieved high accuracy in distinguishing TB patients from healthy
+individuals (Chai et al., 2024 ). Another study used an RF regression
+model to evaluate the co-variation among peripheral in ﬂammatory
+pathways, microbial species abundance, and sputum MTB load,
+providing novel insights into TB pathogenesis and informing
+improved treatment strategies ( Wipperman et al., 2021 ). Current
+ML models for TB risk prediction and diagnosis based on GM
+features are summarized in Table 7 ; these studies underscore the
+central role of the GM in TB and its potential application in disease
+monitoring and management.
+4.2 AI in TB diagnosis and treatment
+prediction
+In recent years, the rapid advancement and widespread adop-
+tion of AI have presented new opportunities for the precise and
+differential diagnosis of TB ( Figure 3 ).
+CXR remains a crucial tool for the early detection of pulmonary
+TB. In recent years, multiple AI-assisted software tools have been
+developed to support large-scale TB screening, effectively improving
+diagnostic efﬁciency and optimizing outpatient clinical work ﬂows.
+Studies have shown that AI-assisted diagnostic systems outperform
+physician-only diagnosis across multiple metrics, including sensi-
+tivity, speci ﬁcity, positive/negative predictive values, and overall
+diagnostic accuracy ( Li et al., 2023 ). Compared with CXR, com-
+puted tomography (CT) is more sensitive for detecting active TB
+features and parenchymal abnormalities (e.g., cavitation, consoli-
+dation, centrilobular nodules) (Du et al., 2024). Yan et al. developed
+a fully automated deep learning-based CT analysis system for the
+detection, diagnosis, and quanti ﬁcation of TB lesions, achieving a
+TABLE 7 ML algorithms for TB risk prediction & diagnosis based on GM features.
+ML
+algorithm
+GM features Cohort size
+(cases vs.
+controls)
+Intended
+purpose
+Key
+performance
+Validation
+method
+Reference
+RF Species-level abundances
+(shotgun metagenomics)
+46 ATB vs 31 HC ATB diagnosis AUC 0.846 (training),
+0.767 (test)
+5×1 0 −fold CV +
+independent test (16 vs
+30)
+(Hu et al.,
+2019)
+RF 16S genus-level pro ﬁles 56 ATB, 36 LTBI, 50
+HC
+Distinguish ATB/
+LTBI/HC
+AUC 0.82 (ATB vs
+HC), 0.87 (ATB vs
+LTBI)
+5×1 0 −fold CV +
+internal test set
+(Wang et al.,
+2022)
+RF Mucosal 16S genus
+abundances
+71 gut biopsies (ITB,
+Crohn’s, HCs)
+Differentiate ITB vs
+Crohn’s disease
+AUC ≈ 0.98 5 −fold CV with feature
+selection
+(He et al.,
+2021)
+LASSO
+Logistic
+Regression
+Fecal metabolites (LC –MS) (Not speci ﬁed) Diagnose/predict
+ATB & progression
+Excellent ROC
+discrimination
+LASSO feature selection
++ ROC validation
+(Luo et al.,
+2023)
+Single-taxa
+ROC
+Fecal 16S bacterial taxa
+(relative abundance)
+19 ATB, 21 LTBI, 20
+HC
+Identify biomarkers
+for TB status
+AUC 0.72 –0.81
+(individual taxa)
+Cross-sectional ROC per
+taxon
+(Huang et al.,
+2023)
+RF Regression Metagenomics + host
+transcriptome
+35 ATB + 20 post-
+treatment + 55 HC
+Predict
+inﬂammation
+recovery
+Signiﬁcant regression
+performance
+Cohort follow-up + RF
+regression
+(Wipperman
+et al., 2021 )
+RF Blood microbiome genera
+via RNA −seq
+73 TB vs 62 HC Blood-based TB
+diagnosis
+AUC 0.894 RNA −seq + RT −qPCR
+validation
+(Gu et al.,
+2025)
+RF/XGBoost/
+SVM/k−NN
+Urine metabolomics 35 TB vs 19 NTM Distinguish TB vs
+NTM
+AUC > 0.8 (multi-
+algorithm)
+Algorithm comparison
+with CV
+(Anh et al.,
+2024)
+Graph Neural
+Network
+Phylogenetic multi-omics
+graph
+(Not speci ﬁed) Phenotype
+prediction
+(not speci ﬁed) Exploratory framework
+only
+(Irwin et al.,
+2024)
+RF, Random Forest; SVM, Support Vector Machine; XGBoost, extreme gradient boosting; k-NN, k-Nearest Neighbors; ATB, Active TB; LTBI, Latent TB infe ction; HC, Healthy control; ITB,
+Intestinal TB; NTM, Nontuberculous mycobacteria. Note: Most models achieve an AUC ≥0.8 (some near 0.9), indicating strong discriminatory power for TB-related phenotypes.
+Sun et al. 10.3389/fcimb.2026.1847443
+Frontiers in Cellular and Infection Microbiology frontiersin.org12
+classiﬁcation accuracy of 81.1% to 91.1% —comparable to that of
+experienced radiologists for key imaging ﬁndings (Yan et al., 2022 ).
+Wu et al. utilized 3D convolutional neural networks (3D-CNNs) to
+construct a model capable of automatic TB lesion classiﬁcation (e.g.,
+miliary, cavitary, nodular types) and the generation of quantitative
+diagnostic reports ( Li et al., 2021 ).
+AI applications can help reduce misdiagnoses and false nega-
+tives caused by human error: a study on AI-assisted histopatholog-
+ical analysis of TBLB samples showed a signi ﬁcantly higher
+sensitivity in detecting acid-fast bacilli (AFB) compared with
+conventional microbiological methods (86% vs. 29%, P = 0.04)
+(Zaizen et al., 2022 ) .T h e s ee x a m p l e su n d e r s c o r et h ec l i n i c a l
+feasibility and accuracy improvements brought by AI in TB imaging
+and laboratory diagnostics.
+AI has also been widely applied to the differential diagnosis of
+TB and other pulmonary diseases. Jerry et al. developed an ML-
+based computer-aided diagnosis (CAD) model to distinguish be-
+tween silicosis and TB in South African gold miners; the model was
+evaluated in real-world clinical settings and achieved a sensitivity of
+90.1% and a speciﬁcity of 80.3%, demonstrating its practical value in
+improving diagnostic ef ﬁciency ( Spiegel et al., 2021 ). In another
+study, multivariate logistic regression was used to construct separate
+clinical, radiomic, and combined models to differentiate pulmonary
+adenocarcinoma nodules from tuberculomas on high-resolution CT
+images; the radiomic model yielded an AUC of 0.801 –0.825,
+outperforming both the clinical and combined models ( Li et al.,
+2024). Additionally, to address the diagnostic challenge of distin-
+guishing pediatric pneumonia from TB in sputum-negative cases, a
+study applied AI algorithms and achieved a diagnostic accuracy of
+97.7%—signiﬁcantly higher than that of attending physicians
+(79.9%) ( Wang et al., 2019 ).
+Beyond diagnosis, AI also plays an important role in monitor-
+ing treatment response and predicting clinical outcomes in TB
+therapy. The growing prevalence of drug-resistant TB (DR-TB) has
+necessitated prolonged and individualized treatment regimens
+(Bagcchi, 2023 ), often involving second-line anti-TB drugs that
+carry a high risk of multi-organ toxicity ( Gupta et al., 2020 ; Shah
+et al., 2020 ). Accurate and timely monitoring of treatment ef ﬁcacy
+and prediction of clinical outcomes are essential for shortening
+treatment duration, reducing the burden of drug resistance, and
+improving patient prognosis ( Rockwood et al., 2016 ; Goletti et al.,
+2018). Given its ef ﬁciency and scalability, AI has gained signi ﬁcant
+attention for its applications in assessing anti-TB drug response and
+predicting treatment outcomes ( Asad et al., 2020 ; Verboven et al.,
+2024). One key application is predicting the optimal treatment
+duration to guide personalized therapy. Heyckendorf et al. devel-
+oped a ML model named the “Whole-blood RNA Therapy-End
+Model,” which
+utilizes 22 gene biomarkers to predict treatment
+duration and outcomes in patients with drug-sensitive and exten-
+sively drug-resistant pulmonary TB (DS-GVC). The model dem-
+onstrated high predictive accuracy, with an AUC of 0.94 (95% CI:
+0.90–0.98) ( Heyckendorf et al., 2021). Predicting adverse drug
+reactions is also important for optimizing therapy. Hepatotoxicity
+is a common complication during second-line anti-TB treatment
+and may lead to treatment interruption or poor outcomes
+(Keshavjee et al., 2012 ; Song et al., 2019 ; Mbuh et al., 2021 ).
+Zhong et al. developed an interpretable prediction model using
+the XGBoost algorithm, identifying four key clinical predictors of
+anti-TB drug-induced liver injury (ATDH): the most recent alanine
+aminotransferase (ALT) value, the average rate of change in the last
+two ALT measurements, and cumulative doses of pyrazinamide
+(PZA) and ethambutol (EMB) ( Zhong et al., 2021 ). The model
+FIGURE 3
+Applications of AI/ML algorithms in the early and accurate diagnosis of TB. AI/ML algorithms are applied across multiple TB diagnostic modalities,
+including AI-assisted CXR/CT imaging diagnosis for early TB detection and lesion identi ﬁcation (A), ﬂuorescence microscopy of sputum smears for
+automated bacillus quanti ﬁcation (B), transbronchial lung biopsy (TBLB) analysis for pattern recognition and grading (C), and differential diagnosis of
+TB from silicosis, peripheral lung cancer, and viral pneumonia through multi-modal data integration (D).
+Sun et al. 10.3389/fcimb.2026.1847443
+Frontiers in Cellular and Infection Microbiology frontiersin.org13
+achieved a precision of 90%, recall of 74%, classi ﬁcation accuracy of
+76%, and balanced error rate of 77%, offering a valuable tool for
+clinicians to mitigate severe liver toxicity in TB patients. Sauer et al.
+analyzed TB treatment datasets using multiple ML methods, in-
+cluding stepwise forward selection, backward elimination, LASSO
+regression, random forest, and SVMs, to predict treatment failure.
+These models outperformed conventional statistical methods, with
+most achieving AUCs above 0.70; the forward selection model
+yielded the highest AUC of 0.74. Imaging (particularly CT features)
+and demographic variables were identi ﬁed as key determinants of
+poor outcomes ( Sauer et al., 2018 ).In addition, AI has been
+employed to monitor MTB drug resistance mutations during
+treatment ( Cirillo et al., 2017 ) and to predict the occurrence of
+multidrug-resistant TB (MDR-TB) based on clinical and imaging
+data ( Li et al., 2023b ). Collectively, these studies highlight the
+potential of AI in treatment response monitoring and prognostic
+evaluation in TB care, providing more precise decision support
+for clinicians.
+4.3 Future prospects and challenges of AI
+in personalized and precision TB treatment
+The WHO currently recommends a standardized six-month
+treatment regimen for TB that includes a two-month intensive
+phase with isoniazid (INH), rifampicin (RIF), pyrazinamide (PZA),
+and ethambutol (ETB), followed by at least a four-month contin-
+uation phase with INH and RIF ( World Health Organization,
+2022). However, due to inter-individual differences in general
+health status, immune responses, pathogen virulence, and disease
+severity, the actual treatment duration required may vary signi ﬁ-
+cantly (Heyckendorf et al., 2021). Personalized medicine, employing
+individualized genotypic and phenotypic pro ﬁling to guide clinical
+management, enhances TB treatment outcomes by incorporating
+patient-speciﬁc and environmental determinants. AI are playing an
+increasingly transformative role in this personalization process
+(Holzman et al., 2018 ; Lange et al., 2018 ). In one study, researchers
+ﬁrst identi ﬁed nine drug characteristics and fourteen treatment
+attributes through expert consensus and literature review. Using a
+dataset comprising 3,895 treatment –expert feedback pairs, they
+trained a ML-based clinical de cision support system (CDSS),
+which demonstrated good usabil ity in routine care settings
+(Verboven et al., 2024 ).
+Applying precision medicine to drug-resistant TB (DR-TB)
+holds potential to improve disease management and prevention
+in underserved communities by minimizing adverse effects through
+exclusion of potentially toxic drugs and by optimizing treatment
+outcomes ( Figure 3 )( Mahomed et al., 2019 ). AI has already been
+deployed in various areas of TB precision care, including image-
+based early diagnosis ( Jaeger et al., 2018 ; Sharma et al., 2021 ),
+accurate prediction of treatment outcomes ( Srivastava et al., 2016 ;
+Mburu et al., 2018 ; Sauer et al., 2018 ), anti-TB drug design
+(Kouchaki et al., 2019 ), prediction of pathogen drug resistance
+(Yang et al., 2018 ; Drouin et al., 2016 ; Aytan-Aktug et al., 2020 ;
+Portelli et al., 2020 ), drug dosing and combination therapy optimi-
+zation ( Lee et al., 2017 ; Deshpande et al., 2018 ), and targeted drug
+delivery system development ( Kouchaki et al., 2019 ). In clinical
+practice, AI assistance not only improves the efﬁciency and accuracy
+of early TB diagnosis but also enables physicians to identify risk
+factors for treatment failure in individual patients —such as a
+history of drug allergies or speci ﬁc radiographic features —thereby
+enhancing the prediction of therapeutic response and prognosis.
+This facilitates personalized drug regimen recommendations tai-
+lored to different clinical scenarios ( Mahomed et al., 2019 ).
+The application of AI is shifting the clinical management of TB
+from a “one-size-ﬁts-all” model toward individualized treatment
+strategies, offering valuable advancements in the ﬁeld of precision
+medicine ( Figure 4 )( Mahomed et al., 2019 ). However, the clinical
+translation of AI in TB care still faces multiple challenges. First, the
+generalizability of AI models is limited by issues such as small
+sample sizes, high data heterogeneity, and the lack of standardized
+annotation and data-sharing frameworks for TB-related multi-
+modal datasets ( Kumar et al., 2025 ). Second, many current AI
+models function as “black boxes, ” making their internal logic
+difﬁcult for clinicians to interpret; the lack of model interpretability
+remains a major barrier to clinical adoption ( Srinivasu et al., 2022 ).
+Additionally, AI-assisted diagnosis systems often fail to compre-
+hensively analyze clinical symptoms and may overemphasize subtle
+lesions, leading to a higher risk of false positives ( Du et al., 2024 ).
+Infrastructure limitations further hinder AI deployment in remote
+and low-resource settings. The absence of high-performance com-
+puting resources and electronic health record systems impairs the
+implementation of AI tools. Ethical concerns also arise when
+integrating AI into treatment monitoring and outcome prediction.
+Issues such as data privacy, informed consent, and the unclear
+assignment of liability in the event of AI-related diagnostic or
+therapeutic errors must be carefully addressed ( Liang et al., 2022 ;
+Cestonaro et al., 2023 ). Before AI algorithms can be routinely
+applied in TB precision care, randomized controlled trials are
+essential to assess whether AI-assisted strategies are superior to,
+equivalent to, or non-inferior to current standard-of-care treat-
+ments ( He et al., 2021 ).
+Looking ahead, AI holds signi ﬁcant potential in advancing
+personalized and precision TB care. The integration of causal
+inference techniques may help overcome the current reliance on
+correlative associations, enabling identi ﬁcation of true causal rela-
+tionships between gut microbiota or clinical features and disease
+onset or treatment outcomes ( Bing et al., 2022 ). To address ethical
+and regulatory challenges, secure medical data infrastructure and
+interoperable data governance frameworks are needed to ensure AI
+systems comply with healthcare standards and are prepared for risk
+and liability management. Multimodal AI models that integrate
+genomic, imaging, microbiome, and clinical data can enhance
+diagnostic and prognostic accuracy ( Han et al., 2025 ). Li et al.
+developed a multimodal model combining CT radiomics and
+clinical indicators to successfully differentiate infections caused by
+MTB and nontuberculous mycobacteria ( Li et al., 2025 ). Moreover,
+the use of large language models (LLMs), such as GPT-4, in clinical
+microbiology is emerging, showing early promise in medical liter-
+ature synthesis, patient history summarization and decision support
+(Zhou et al., 2025 ).
+Sun et al. 10.3389/fcimb.2026.1847443
+Frontiers in Cellular and Infection Microbiology frontiersin.org14
+AI and ML technologies have demonstrated considerable efﬁcacy
+in mining and accurately analyzing complex, multidimensional
+datasets, including GM pro ﬁles, multi-omics data, and clinical
+imaging. These capabilities substantially enhance the precision of
+TB diagnosis and improve the prediction of treatment outcomes.
+Furthermore, AI and ML offer advanced analytical tools and decision
+support systems that facilitate the personalized design of GM-
+targeted intervention strategies, enable real-time monitoring of
+intervention effects, and predict therapeutic responses. This advance-
+ment supports the transition of microbiome interventions from
+broad-spectrum modulation to precise, targeted implementation.
+Nonetheless, several fundamental challenges persist within this
+domain. These include limited sample sizes and signi ﬁcant hetero-
+geneity across cohorts; a lack of external validation across diverse
+geographic regions and populations; insuf ﬁcient integration of un-
+derlying biological mechanisms, which hampers mechanistic trans-
+lation; and the presence of biases and errors in diagnostic and
+predictive processes. Speciﬁcally, AI-based imaging systems tend to
+over-detect minor lesions while neglecting the comprehensive inte-
+gration of clinical symptoms, resulting in potential misdiagnoses and
+overtreatment. Additionally, there exists a notable gap in intervention
+research, as microbial biomarkers identiﬁed through AI methodolo-
+gies have yet to be incorporated into targeted clinical intervention
+trials, and the precise regulatory pathways remain unveri ﬁed.
+5 Intervention strategies based on the
+GM
+The GM has emerged as a promising target for interventions
+aimed at improving TB outcomes. By modulating the GM, it is
+possible to enhance host immunity, reduce in ﬂammation, and
+potentially improve the ef ﬁcacy of existing treatments. This section
+explores various intervention strategies, including microbiota trans-
+plantation, probiotics, prebiotics, diet, and their integration with
+existing TB therapies.
+5.1 Microbiota modulation: FMT,
+probiotics, prebiotics, and dietary
+interventions
+Modulating the GM through interventions such as FMT,
+probiotics, prebiotics, and dietary changes holds signi ﬁcant poten-
+tial for improving TB outcomes. These approaches aim to restore a
+healthy microbial balance, enhance immune function, and reduce
+systemic in ﬂammation, thereby supporting the host ’s ability to
+combat MTB infection.
+5.1.1 FMT
+FMT involves the transfer of fecal material from a healthy donor
+to a recipient to restore a balanced GM. In the context of TB, FMT
+has been proposed as a potential therapy to restore microbial diversity
+and function, which are often disrupted in TB patients (Li et al., 2019;
+Seyed Aria and Alexander, 2024). Studies have shown that FMT can
+reduce the abundance of antimicrobial resistance genes and restore
+microbial balance, suggesting its potential as an adjunct therapy in TB
+management (Mai and Draganov, 2009). However, safety and efﬁcacy
+concerns remain, and further research is needed to fully understand
+the long-term effects of FMT in TB patients.
+5.1.2 Probiotics and prebiotics
+Probiotics are live microorganisms that, when administered in
+adequate amounts, confer a health beneﬁt on the host. Prebiotics are
+nondigestible food ingredients that bene ﬁcially affect the host by
+selectively stimulating the growth and activity of one or a limited
+FIGURE 4
+Key application aspects and process pathways of AI in precision medicine for TB. The framework integrates multi-modal data inputs (genomic/
+transcriptomic data, medical imaging, microbiome proﬁles, clinical indicators, and environmental/social/behavioral factors) through AI/ML algorithms,
+supported by prediction models, causal inference analysis, multimodal fusion algorithms, and clinical decision support systems, to generate personalized
+outputs including drug recommendations, treatment duration prediction, adverse reaction risk alerts, and disease monitoring with recurrence assessment.
+Sun et al. 10.3389/fcimb.2026.1847443
+Frontiers in Cellular and Infection Microbiology frontiersin.org15
+number of bacteria in the colon. Both probiotics and prebiotics have
+been shown to enhance the ef ﬁcacy of TB treatment by modulating
+the GM and strengthening host immunity ( Fujimura et al., 2010 ).
+For example, speci ﬁc probiotics such as Lactobacillus and
+Biﬁdobacterium can elevate SCFA levels, which are known to
+have anti-in ﬂammatory and immune-boosting effects ( Aldrich
+et al., 2019 ). Prebiotics, such as indigestible ﬁbers, can selectively
+boost SCFA-producing taxa, further supporting gut health and
+immune function ( Sorbara and Pamer, 2022 ; Boicean et al., 2023 ).
+5.1.3 Dietary interventions
+Diet plays a key role in shaping the GM. Dietary interventions
+aimed at promoting a healthy GM can have a positive impact on TB
+outcomes. For instance, diets rich in ﬁber can enhance SCFA
+production, which is bene ﬁcial for gut health and immune function
+(Tanes et al., 2021 ). Conversely, diets high in fat or sugar can
+disrupt the GM and contribute to in ﬂammation, potentially exac-
+erbating TB symptoms ( Turnbaugh et al., 2009 ). Therefore, dietary
+recommendations that promote a balanced GM can be an impor-
+tant component of TB management strategies.
+5.2 Targeted metabolic pathways: SCFA
+precursors, bile acid receptor agonists, and
+IDO inhibitors
+Focusing on speci ﬁc metabolic pathways allows for precise
+adjustment of the gut microbiota, which can lead to better outcomes
+in TB( Table 7 ). Precursors of SCFAs have anti-in ﬂammatory and
+immune-boosting properties, encourage SCFA production, support
+gut health, and enhance the host ’s defense against MTB. Bile acids
+and their receptors are key players in regulating metabolism and
+immunity. Agonists of bile acid receptors may be used as treatments
+to amplify the protective effects of SCFAs and other metabolites,
+showing promising potential to improve TB prognosis.
+Additionally, inhibitors of IDO can strengthen immune responses
+against MTB, serving as supplementary therapies to increase the
+effectiveness of current anti-TB medications and slow dis-
+ease progression.
+5.3 Vaccine potentiation: enhancing BCG
+and next-generation vaccines with GM
+The GM can signi ﬁcantly in ﬂuence the ef ﬁcacy of vaccines by
+modulating immune responses. This section explores how GM
+modulation can enhance the immunogenicity of existing vaccines,
+such as Bacille Calmette-Gue ́rin (BCG), and support the develop-
+ment of next-generation TB vaccines.
+5.3.1 BCG vaccine
+The BCG vaccine is the only currently available vaccine for TB
+but has variable ef ﬁcacy in adults ( Sharma et al., 2021 ; Yan et al.,
+2022; Du et al., 2024 ). Modulating the GM to enhance BCG
+immunogenicity is a promising strategy for improving vaccine
+efﬁcacy ( Ke et al., 2023 ; Rasoamanana et al., 2023 ). For example,
+probiotics and prebiotics can enhance the immune response to BCG
+vaccination by promoting the growth of bene ﬁcial bacteria that
+boost immune function ( Mojgani et al., 2025 ).
+5.3.2 Next-generation vaccines
+Next-generation TB vaccines are being developed to address the
+limitations of BCG. GM modulation can serve a vital function in
+enhancing the immunogenicity of these new vaccines. For instance,
+exosomes derived from MTB-infected cells can be used as vaccine
+platforms, and their immunogenicity can be enhanced by GM
+modulation ( Chen, 2025 ). Additionally, microbiome-informed ad-
+juvants, such as probiotics and prebiotics, can be used alongside
+next-generation vaccines to improve their ef ﬁcacy ( Rasoamanana
+et al., 2023 ).
+5.4 Drug repurposing and combination
+therapies: GM-mediated ef ﬁcacy and
+toxicity reassessment
+The GM can inﬂuence the pharmacodynamics of drugs, includ-
+ing those used to treat TB. This section explores how GM modu-
+lation can enhance drug ef ﬁcacy and reduce toxicity, as well as the
+potential for drug repurposing and combination therapies.
+5.4.1 GM-mediated ef ﬁcacy and toxicity
+The GM can modify the chemical structure of pharmaceutical
+compounds, in ﬂuencing their pharmacodynamics. For example,
+certain gut bacteria can metabolize drugs, affecting their ef ﬁcacy
+and toxicity ( Klünemann et al., 2021 ). Modulating the GM to
+enhance drug ef ﬁcacy and reduce toxicity is a promising strategy
+for improving TB treatment outcomes ( Liu et al., 2025 ).
+5.4.2 Drug repurposing
+Drug repurposing involves identifying new therapeutic uses
+for existing drugs. AI and machine learning algorithms can be
+used to identify potential drug targets and repurpose existing
+drugs for TB treatment. For example, comparative in silico
+analyses of host –pathogen metabolic pathways have identi ﬁed
+potential MTB drug targets. By leveraging GM modulation, it may
+be possible to enhance the ef ﬁcacy of repurposed drugs and reduce
+their toxicity.
+5.4.3 Combination therapies
+Combination therapies involving multiple drugs can improve
+treatment outcomes by targeting different pathways and reducing
+the risk of drug resistance. GM modulation can be integrated with
+combination therapies to enhance their ef ﬁcacy and reduce toxicity.
+For example, probiotics and prebiotics can be used alongside
+existing TB drugs to improve treatment outcomes and reduce
+adverse effects ( Liu et al., 2025 ).
+GM-targeted interventions offer great potential to optimize TB
+prognosis. Modulating gut microbiota via FMT, probiotics,
+prebiotics and dietary regulation can boost host immune function,
+alleviate in ﬂammatory responses, and strengthen the effectiveness
+Sun et al. 10.3389/fcimb.2026.1847443
+Frontiers in Cellular and Infection Microbiology frontiersin.org16
+of conventional anti-TB treatments. Additionally, regulating key
+metabolic pathways, elevating vaccine immunogenicity, and com-
+bining microbiota modulation with pharmacological therapy can
+further improve the host ’s defense against MTB infection. Further
+studies are warranted to optimize such intervention approaches and
+validate their safety and clinical ef ﬁcacy.
+6 Clinical trials of FMT and probiotics,
+challenges in translation, and
+regulatory considerations in the gut
+microbiota-tuberculosis interaction
+ﬁeld
+As a developing interdisciplinary area, the study of interactions
+between TB and the GM is at a pivotal point, moving from initial
+concept validation toward clinical application ( Ma et al., 2022 ; Liu
+et al., 2025 ). Microbiome-based interventions, such as FMT and
+probiotics, are being explored as potential supplementary treat-
+ments alongside standard anti-tuberculosis therapy (ATT). Current
+research mainly aims to con ﬁrm the effectiveness of probiotics as
+adjunct therapies to reduce the side effects of ATT, followed by
+investigations into FMT for addressing severe gut dysbiosis. Most
+existing studies on FMT are small-scale, single-center, prospective
+exploratory trials and lack robust evidence from large, multicenter
+RCTs (Chai et al., 2025 ; Liu et al., 2025 ). This limitation may stem
+from the combined challenges of chronic infection and prolonged
+chemotherapy in TB patients, which lead to pathogen-speci ﬁc
+patterns of gut microbiota disruption. Moreover, the direct sup-
+pressive effects of anti-TB medications—particularly rifampicin and
+isoniazid—on gut microbiota differ from those caused by other drug
+types ( Baral et al., 2025 ). The immune restoration processes
+involved in TB, such as granuloma formation and shifts in Th1/
+Th2 balance, may present more complex immune environments
+compared to other diseases. A summary of previous intervention
+outcomes involving probiotics, FMT, dietary or nutritional supple-
+ments, and other microbiota-targeted approaches in TB patients or
+MTB-infected animal models is provided in Table 8 .
+6.1 Preclinical research on FMT, probiotics,
+and dietary approaches
+Research on FMT in TB is currently con ﬁned to animal studies.
+One investigation demonstrated that colonizing experimental
+BALB/c mice with the diverse microbiota from wild mice led to
+signiﬁcantly reduced bacterial loads in the lungs and less severe lung
+damage after aerosol exposure to MTB ( Xie et al., 2023 ). This
+provides crucial experimental evidence supporting a causal link
+between the microbiota and TB. The study also showed that
+conventional laboratory mice experienced a rapid decline in
+microbial diversity following infection, whereas the microbiota of
+wild-derived mice remained stable. This offers direct proof that
+microbiota diversity underpins protective immunity against TB.
+Antibiotic-induced disruption of the microbiota was found to
+impair the intestinal barrier and cause structural damage to the
+lungs, with Clostridioides dif ﬁcile infection further worsening lung
+pathology. In the context of C. dif ﬁcile infection, human macro-
+phages lost their ability to engulf MTB, and expression of SLAMF1
+was reduced. This represents the ﬁrst cellular-level evidence of a
+direct interference by an intestinal pathogen on pulmonary anti-TB
+immune responses. Additionally, Chinese researchers have shown
+that Bacteroides fragilis strain BF839 alleviates liver injury caused
+by anti-TB drugs in mice by reducing in ﬂammation and modulat-
+ing the gut microbiota ( Li et al., 2025 ). Depletion of the microbiota
+due to antibiotics increased mice ’s susceptibility to MTB infection,
+whereas FMT lowered bacterial loads ( Xie et al., 2023 ).
+6.2 Clinical evidence for FMT and
+probiotics
+Research on the relationship between probiotics and TB shows
+that probiotic supplementation can help reduce gastrointestinal side
+effects caused by anti-TB medications in patients and may also help
+counteract antibiotic-induced disturbances in gut microbiota ( Baral
+et al., 2026 ). However, this particular study did not examine fecal
+microbiota, so it did not clarify the microbiota-related mechanisms
+involved. Another study that combined probiotic supplementation
+with B vitamins during intensive treatment observed that IFN- g
+levels tended to rise after one month but signi ﬁcantly dropped by
+the second month, possibly indicating a shift from early Th1-driven
+immune beneﬁts to more complex immune system recovery in later
+treatment phases ( Lin et al., 2020 ). Patients with PTB who received
+probiotics (n=5) showed a signi ﬁcant increase in gut microbiota
+alpha diversity compared to those who did not receive probiotics,
+although there was no notable change in beta diversity ( Mitsui et al.,
+2022). This suggests that short-term probiotic use may guide the
+microbiota in a speci ﬁc direction —such as increasing butyrate-
+producing bacteria like Agathobacter and Faecalibacterium —but is
+insufﬁcient to fully reverse the broad microbial community changes
+associated with PTB. Unlike the relatively active research on
+probiotics, clinical studies on FMT in TB are lacking, likely due
+to the complexity of the procedure and the higher risk of infection
+involved in transplanting donor fecal material into a recipient ’s gut.
+6.3 Challenges and clinical translational
+barriers for FMT, probiotics, and dietary
+interventions
+There are several scienti ﬁc and clinical challenges hindering the
+widespread clinical application of microbiome-based therapies for
+TB. Although a link between gut dysbiosis and TB has been
+established, the precise molecular mechanisms remain unclear
+(Nasare and Bagade, 2025 ). The potential bene ﬁts of probiotics,
+FMT, and dietary ﬁbers (such as short-chain fatty acids) in TB are
+often inferred from studies in other conditions like in ﬂammatory
+bowel disease (IBD), cancer immunotherapy, and more. However,
+this extrapolation is based on limited evidence because IBD is an
+autoimmune disease primarily driven by Th17 immune responses,
+which differ signi ﬁcantly from the Th1/Th2 balance and granu-
+loma-based immunity seen in TB. Similarly, cancer patients typi-
+cally experience immunosuppression or immune tolerance, which
+Sun et al. 10.3389/fcimb.2026.1847443
+Frontiers in Cellular and Infection Microbiology frontiersin.org17
+contrasts with the moderately activated immune response needed to
+ﬁght active TB. Probiotic research has notable limitations: most
+studies have not analyzed fecal microbiota or immune markers, so
+even when clinical improvements are observed, it is unclear whether
+these bene ﬁts result from enhanced host metabolism or from
+immune modulation via changes in gut microbiota or their metab-
+olites. Therefore, a clear causal pathway linking microbiota changes
+to immune modulation and clinical outcomes has yet to be
+established. While preclinical data on FMT are promising, applying
+FMT in TB patients poses unique dif ﬁculties. There is currently no
+standardized clinical trial design for FMT in TB, and existing
+studies vary widely in probiotic strains used, dosages, timing of
+intervention, and outcome measures ( Baral et al., 2026 ). Moreover,
+high-quality, large-scale, multicenter trials con ﬁrming FMT’s effec-
+tiveness are lacking. TB patients undergoing long-term multidrug
+chemotherapy experience continuous “drug pressure ” on their gut
+microbiota, which may create strong resistance to colonization by
+transplanted microbes. Additionally, the safety of FMT must be
+taken into account. Patients with active TB often have weakened
+immune systems, and live biotherapeutic products carry risks such
+as bacterial translocation and infections like bacteremia. This
+necessitates caution from regulatory authorities and healthcare
+providers when developing live biotherapeutic treatments.
+Microbiome-based therapies, including FMT and probiotics,
+require stringent and effective regulatory frameworks. This includes
+implementing thorough ethical reviews and standardized
+TABLE 8 Results of existing microbiome-based interventions in tuberculosis research.
+Intervene
+type
+Research
+level
+Study
+target
+Intervention
+protocol Primary outcome
+Bacterial
+community-related
+ﬁndings
+References
+Probiotics RCT
+First-line
+treatment for
+pulmonary
+tuberculosis
+patients
+Probiotics + B-complex
+Vitamins vs Standard
+Treatment
+IFN-g exhibited an upward trend
+in January and declined thereafter
+in February; IL-12 levels in both
+groups initially increased followed
+by a decrease, with a more
+pronounced rise observed in the
+intervention group.
+No microbial community
+detected
+(Haitjema et al.,
+2026)
+Probiotics
+(subgroup
+analysis)
+Forward-
+looking
+cohort
+(subgroup)
+First-line
+treatment for
+pulmonary
+tuberculosis
+patients
+VSL3 or Evogut
+combined with anti-
+tuberculosis therapy
+(within 2 months, based
+on physician
+prescription)
+The alpha-diversity of the
+probiotic group showed
+signiﬁcant improvement; b-
+diversity exhibited no notable
+changes.
+Microbiome sequencing:
+Akkermansia was the
+dominant genus in
+untreated PTB patients; after
+probiotic therapy,
+Agathobacter,
+Fusobacterium, and
+Faecalibacterium were
+enriched.
+(Baral et al.,
+2025)
+FMT Preclinical
+BALB/c mice
+(Mtb H37Rv
+aerosol
+infection)
+Wild mouse microbiota
+colonization vs.
+conventional laboratory
+mice
+The bacterial load in the lungs of
+WildR mice was signi ﬁcantly
+lower than that in LabC mice;
+pulmonary pathological damage
+was also reduced.
+The microbial diversity of
+WildR was signi ﬁcantly
+higher than that of LabC;
+MTB infection led to a rapid
+loss of diversity in LabC,
+whereas WildR maintained
+stable diversity.
+(Xie et al.,
+2023)
+FMT (logical
+inference) Commentary —
+It is proposed that FMT
+may enhance anti-
+tuberculosis immunity
+by restoring gut
+microbiota homeostasis.
+—— (Liu et al.,
+2024)
+Dietary
+intervention
+(nutritional
+supplementation)
+Clinical test
+Malnourished
+multidrug-
+resistant
+tuberculosis
+patients
+High-energy, high-
+protein oral nutritional
+supplement for 2
+months
+Primary endpoint: Weight change;
+Secondary endpoints: Albumin,
+CRP, ESR
+No microbial community
+detection was designed
+(Zhong et al.,
+2024)
+Dietary
+intervention
+(qualitative
+study)
+Qualitative
+investigation
+Family
+contacts of
+tuberculosis
+patients
+(India)
+Nutritional
+supplementation (TB
+LION study)
+Identiﬁcation of factors that
+promote and hinder intervention
+adherence
+No microbial community
+detected
+(Carwile et al.,
+2025)
+Complex
+intervention
+(microbiota
+regulation)
+Summarize —
+Propose a potential
+application framework
+for “microbiome-
+directed therapies ” such
+as probiotics, prebiotics,
+synbiotics, SCFAs, and
+FMT in tuberculosis.
+—— (Liu et al.,
+2024)
+RCT, Randomized controlled trial; FMT, Fecal microbiota transplantation.
+Sun et al. 10.3389/fcimb.2026.1847443
+Frontiers in Cellular and Infection Microbiology frontiersin.org18
+operational procedures. Before human trials can begin, compre-
+hensive preclinical evaluations of safety and ef ﬁcacy must be
+completed. Collaboration among multidisciplinary organizations
+and regulatory agencies is essential to develop consensus-driven
+standardized protocols. These should cover donor screening for
+FMT, preparation and storage guidelines, viability and stability
+criteria for probiotic products, and dosing schedules when used
+alongside anti-TB drugs. A comprehensive safety and monitoring
+system integrating microbiota, metabolites, immune responses, and
+clinical outcomes should be established. The main challenge in
+microbiome intervention research for TB lies in the gap between
+rapid advances in understanding the gut–lung axis mechanisms and
+the slow progress in clinical intervention evidence. Future research
+should prioritize two key areas: First, routinely include microbiota
+analysis as an outcome measure in clinical trials. Whether testing
+probiotics or dietary changes, studies should incorporate fecal
+microbiota pro ﬁling (using 16S rRNA sequencing or
+metagenomics) and metabolite assessments (such as short-chain
+fatty acids) to build a complete evidence chain linking interventions
+to microbiota changes, immune responses, and clinical results.
+Second, launch TB-speci ﬁc clinical trials of FMT. Based on strong
+preclinical ﬁndings, small-scale, single-arm, dose-escalation feasi-
+bility studies should be conducted to assess the safety and effec-
+tiveness of FMT in patients with multidrug-resistant TB or those
+suffering severe side effects from current treatments.
+7 Controversies and open scienti ﬁc
+problems in GM-TB research
+7.1 Controversial issues in research on the
+GM and TB
+Many fundamental and clinical studies have demonstrated that
+the development and progression of TB are frequently linked with
+imbalances in the GM. However, considerable variability in baseline
+characteristics of study cohorts, differences in microbial detection
+methods, and geographic diversity among study populations have
+resulted in signi ﬁcant inconsistencies in ﬁndings across research
+groups, greatly impeding the clinical application of these results. A
+major point of debate concerns the speciﬁc changes in gut microbial
+diversity observed in TB patients. Most research suggests that
+individuals with ATB show a marked reduction in both alpha and
+beta diversity of gut microbes, with diversity levels inversely related
+to disease severity and rates of treatment failure. Nonetheless, these
+changes do not follow a consistent pattern but instead exhibit strong
+geographic variation, with differing trends in microbial diversity
+reported in cohort studies from various regions ( Mbabazi et al.,
+2025). Some studies have reported that TB onset is closely linked to
+reduced diversity in lung microbiota, while gut microbial diversity
+remains largely unchanged. In contrast, anti-TB therapy can cause a
+sustained decrease in microbial diversity in both the lungs and gut,
+leading to depletion of key dominant bacterial genera in the gut and
+disruption of gut ecological balance ( Mbabazi et al., 2025 ). The
+prolonged effects of anti-TB treatment on the GM are also debated.
+Traditionally, it is believed that the broad-spectrum antimicrobial
+properties of anti-TB drugs induce temporary GM disturbances,
+which delay immune function recovery, but that the GM structure
+fully recovers within six months after treatment completion.
+However, recent longitudinal studies have found that in some
+patients, the abundance and composition of various gut bacterial
+groups remain signi ﬁcantly different from those in healthy controls
+even 15 months post-treatment, indicating that the impact of anti-
+TB therapy on the GM may be long-lasting ( Diallo et al., 2023 ). In
+summary, preliminary evidence suggests that anti-TB treatment has
+a signi ﬁcant and enduring regulatory effect on the GM. Yet, the
+reversibility of these long-term effects, their precise magnitude, and
+associated clinical outcomes —such as in ﬂuence on relapse risk and
+long-term immune function —require further investigation with
+larger sample sizes and extended follow-up periods.
+7.2 Differentiating correlation from
+causation in gut microbiome and
+tuberculosis studies
+At present, most research in this area remains descriptive,
+establishing only associations between the GM and TB without
+conﬁrming causal relationships through rigorous experimental
+approaches. Studies have shown that patients with active TB exhibit
+characteristic GM imbalances, mainly characterized by a reduction
+in bene ﬁcial commensal bacteria (such as Bi ﬁdobacterium and
+Lactobacillus) and an increase in bacteria linked to in ﬂammation
+(including certain genera within Proteobacteria). The severity of
+GM disruption correlates signi ﬁcantly with sputum smear conver-
+sion time, the occurrence of adverse reactions to anti-TB drugs, and
+systemic in ﬂammatory cytokine levels (e.g., TNF- a,I L - 6 ) .
+Moreover, anti-TB treatment dynamically alters the composition
+and structure of the GM, with changes in gut microbial communi-
+ties occurring in parallel with clinical symptom improvement and
+immune function recovery, further suggesting a close association.
+Current research exploring the relationship between the GM
+and TB still faces three fundamental unresolved scienti ﬁc questions:
+(1) Does GM imbalance predispose individuals to TB, or is it a
+secondary effect resulting from metabolic and immune disturbances
+after infection with MTB? (2) Do speci ﬁc gut microbes directly
+inﬂuence the onset and progression of MTB infection, or do they
+simply act as biological markers of immune dysfunction without
+actively regulating TB infection? (3) Can interventions aimed at
+restoring GM balance effectively improve clinical outcomes for TB
+patients, such as shortening treatment duration, lowering relapse
+rates, or reducing adverse treatment effects? There is also debate
+within the scienti ﬁc community regarding causality. It is generally
+accepted that there is a two-way interaction between the GM and
+TB: gut dysbiosis can increase susceptibility to MTB by affecting
+innate and adaptive immunity, while MTB infection and anti-TB
+treatments can further damage the gut barrier and disrupt
+microbiome balance, creating a complex feedback loop ( Liu et al.,
+2025). However, genetic studies using Mendelian Randomization
+(MR) suggest that, at the molecular genetic level, the GM’si nﬂuence
+Sun et al. 10.3389/fcimb.2026.1847443
+Frontiers in Cellular and Infection Microbiology frontiersin.org19
+on TB risk may be more fundamental than the reverse, providing
+indirect evidence that the GM may play a causal role in TB
+development ( Yuan et al., 2024 ).
+Currently, research into the causal mechanisms linking the GM
+and TB has three main limitations: ﬁrst, there is a lack of large-scale,
+multi-center randomized controlled trials (RCTs) in humans to
+robustly assess the impact of GM interventions (such as probiotics
+or FMT) on TB clinical outcomes; second, the bidirectional regu-
+latory mechanisms of the gut-lung axis are not fully understood,
+especially the molecular processes by which MTB infection and
+systemic in ﬂammation disrupt the gut mucosal barrier and
+microbiome balance; third, the detailed molecular pathways of the
+“gut microbiota-metabolite-immunity loop-MTB regulation ”
+remain unclear, leaving the speci ﬁc ways in which gut microbial
+metabolites affect MTB survival and replication through host
+immune modulation unresolved.
+7.3 Gaps in gut microbiome and
+tuberculosis research
+There are signi ﬁcant gaps in current research on the GM and
+TB, mainly across four areas: mechanistic understanding, transla-
+tional applications, clinical studies, and technical standardization.
+At the mechanistic level, key gaps include: unclear cellular and
+molecular pathways by which the gut-lung axis mediates interac-
+tions between the GM and pulmonary MTB infection, particularly
+how gut microbes and their metabolites travel along this axis to
+inﬂuence lung immune responses; unde ﬁned strain-level functional
+speciﬁcity of gut microbes, with no effective identi ﬁcation yet of
+strains that directly inhibit MTB growth or replication; unclear
+regulatory roles and mechanisms of the GM in tuberculous gran-
+uloma formation, latent TB reactivation, and host genetic suscep-
+tibility; and a lack of systematic characterization of the immune-
+metabolic crosstalk between the GM and TB-related immune
+responses, necessitating further investigation into their interaction
+targets and regulatory patterns.
+At the level of translational applications, signi ﬁcant gaps are
+apparent: there is a lack of rigorously validated, non-invasive, and
+highly speciﬁc GM biomarkers capable of accurately distinguishing
+active TB, latent TB infection, and non-tuberculous mycobacterial
+(NTM) infections. Additionally, no standardized protocol exists for
+GM interventions in TB patients —particularly those with drug-
+resistant TB —resulting in inconsistent dosing, timing, and effec-
+tiveness criteria for probiotics, prebiotics, and FMT. The in ﬂuence
+of the GM on the metabolism, efﬁcacy, and toxicity of anti-TB drugs
+remains largely unexplored, necessitating further investigation into
+their interaction mechanisms. Research into using GM modulation
+to boost the immune response to BCG and next-generation TB
+vaccines is still in its early stages, with feasibility and speci ﬁc
+regulatory protocols requiring more study.
+At the clinical research level, current shortcomings include the
+predominance of cross-sectional studies, with a lack of large-scale,
+long-term longitudinal follow-ups and multi-center randomized
+controlled trials (RCTs), making it dif ﬁcult to track dynamic
+changes in the GM throughout the entire course of TB. There is
+also a severe shortage of GM data from special populations such as
+children, pregnant women, and patients co-infected with HIV-TB
+or diabetes-TB, which limits understanding of interactions in these
+groups. Moreover, studies rarely cover the full disease progression
+—from latent TB infection through active disease onset, treatment,
+cure, and relapse —hindering the ability to uncover intrinsic links
+between GM alterations and TB progression.
+At the technical and standardization level, key gaps include the
+absence of uni ﬁed standard operating procedures for GM sample
+collection, preservation, sequencing, and bioinformatics analysis.
+This lack of standardization reduces comparability across studies
+and impedes comprehensive meta-analyses. There is also a shortage
+of affordable, rapid, point-of-care GM detection technologies suit-
+able for resource-limited settings, restricting research in primary
+care environments. Furthermore, arti ﬁcial intelligence-based GM
+prediction models (such as those for TB diagnosis and prognosis)
+suffer from limited interpretability and lack prospective clinical
+validation, which hinders their clinical application.
+In summary, research on the GM and TB has advanced from
+initial descriptive correlation studies to early causal inference stages
+but still faces major challenges, including conﬂicting results, unclear
+causality, and barriers to clinical translation. While animal models
+and Mendelian randomization studies have preliminarily demon-
+strated a causal regulatory role of the GM in TB susceptibility,
+evidence from human intervention studies remains limited. Future
+research should prioritize establishing standardized multi-center
+cohorts to reduce heterogeneity; deeply exploring the core regula-
+tory mechanisms of the gut-lung axis and decoding the “gut
+microbiota-metabolite-immunity”
+network; conducting RCTs tar-
+geting the GM to con ﬁrm the clinical effectiveness of intervention
+strategies; and systematically analyzing the biological functions of
+gut microbes at the strain level. Addressing these gaps will help
+position the GM as a clinically actionable target for precise global
+TB prevention, early diagnosis, and personalized treatment optimi-
+zation, offering new strategies and insights for TB control.
+8 Conclusions and challenges
+The integration of cutting-edge technologies such as NGS,
+metabolomics, proteomics, and AI have signi ﬁcantly advanced
+our understanding of the complex interplay between the GM and
+TB. These advancements hold the promise of transforming TB
+diagnosis, treatment, and prevention. However, several challenges
+remain in translating these technological breakthroughs into effec-
+tive clinical strategies. This section addresses the pathways for
+technological integration, ethical considerations, and future re-
+search priorities in the ﬁeld of GM-TB research ( Figure 5 ).
+8.1 Pathways for technological integration:
+standardization, cross-center validation,
+and data sharing
+The successful translation of GM-TB research into clinical
+practice requires robust technological integration and validation.
+Standardization of methodologies across different research centers
+Sun et al. 10.3389/fcimb.2026.1847443
+Frontiers in Cellular and Infection Microbiology frontiersin.org20
+is crucial for generating reproducible and comparable data ( Zhang
+et al., 2023 ). This includes the use of standardized protocols for
+sample collection, processing, and analysis, as well as the adoption
+of common bioinformatics pipelines for data interpretation. Cross-
+center validation studies are essential for con ﬁrming the generaliz-
+ability of ﬁndings and ensuring that interventions are effective
+across diverse populations. Additionally, data sharing platforms
+facilitate the aggregation of large datasets, enabling researchers to
+conduct comprehensive analyses and identify robust biomarkers
+and therapeutic targets. The establishment of consortia and collab-
+orative networks can further enhance the ef ﬁciency of data sharing
+and validation efforts.
+8.2 Ethics and accessibility: privacy
+protection, low-cost detection, and
+resource inequality
+The deployment of advanced technologies in TB care raises
+several ethical considerations, particularly regarding data privacy
+and accessibility. Ensuring the protection of patient data is para-
+mount, especially in the context of multi-omics studies that involve
+sensitive clinical and personal information ( Seyed Aria and
+Alexander, 2024 ).
+Robust data governance frameworks must be in place to
+safeguard participant privacy while promoting open data sharing
+for scienti ﬁc advancement. Additionally, the development of
+low-cost, high-performance dia gnostic tools is essential for
+ensuring that these technologies are accessible in low-resource
+settings, where the burden of TB is highest. Addressing resource
+inequalities and ensuring equitable access to advanced
+diagnostics and treatments are critical challenges that must be
+addressed through global collaboration and investment in
+healthcare infrastructure.
+8.3 Future research priorities: causal
+inference, real-time monitoring, and global
+multicenter clinical trials
+Future research in GM-TB should focus on establishing causal
+relationships between the GM and TB outcomes, moving beyond
+correlative associations. Caus al inference techniques can help
+identify true causal pathways and inform the development of
+targeted interventions. Real-time monitoring technologies, such as
+wearable devices and point-of-care diagnostics, offer the potential
+for dynamic tracking of disease progression and treatment re-
+sponse, enabling timely interve ntions and personalized care
+(Mahomed et al., 2019 ). Finally, global multicenter clinical trials
+are essential for validating the ef ﬁcacy and safety of GM-targeted
+interventions across diverse populations and settings. These trials
+should be designed to address the speci ﬁc needs of high-burden
+regions and ensure that the bene ﬁts of GM-TB research are
+realized globally.
+In summary, the integration of advanced technologies in GM-
+TB research has opened new av enues for understanding and
+combating TB. However, the successful translation of these tech-
+nologies into clinical practice requires addressing signi ﬁcant chal-
+lenges related to standardization, data privacy, and accessibility.
+Future research must prioritize causal inference, real-time moni-
+toring, and global collaboration to ensure that the bene ﬁts of GM-
+TB research are realized worldwide. By addressing these challenges
+FIGURE 5
+Integrated schematic of the gut-lung axis in TB. This comprehensive framework illustrates ﬁve interconnected components: technologies and AI
+applications, gut microbiome, gut-lung communication, pulmonary system and interventions. The overarching therapeutic goals are to enhance
+anti-TB therapy ef ﬁcacy and reduce adverse reactions.
+Sun et al. 10.3389/fcimb.2026.1847443
+Frontiers in Cellular and Infection Microbiology frontiersin.org21
+and leveraging the potential of technological advancements, we can
+move closer to effective strategies for the prevention, diagnosis, and
+treatment of TB.
+Author contributions
+WS: Writing – original draft, Methodology, Data curation. MX:
+Resources, Writing – original draft, Methodology, Data curation.
+SA: Data curation, Resources, Methodology, Writing – original
+draft. CJ: Writing – original draft, Data curation, Resources,
+Methodology. AK: Methodology, Data curation, Writing – original
+draft. S: Writing – original draft, Methodology, Data curation. RN:
+Data curation, Writing – original draft, Methodology. YA: Data
+curation, Methodology, Writing – original draft. MZ: Data curation,
+Methodology, Writing – original draft. YT: Data curation,
+Methodology, Writing – original draft. SK: Writing – review &
+editing, Resources, Visualization. YZ: Writing – review & editing,
+Resources, Visualization. WG: Visualization, Resources,
+Conceptualization, Project administration, Supervision, Writing –
+review & editing.
+Funding
+The author(s) declared that ﬁnancial support was not received
+for this work and/or its publication.
+Conﬂict of interest
+The author(s) declared that this work was conducted in the
+absence of any commercial or ﬁnancial relationships that could be
+construed as a potential con ﬂict of interest.
+Generative AI statement
+The author(s) declared that generative AI was used in the creation of
+this manuscript. During the preparation of this work, the authors used
+KIMI (K2 version) in order to improve readability and language. After
+using this tool/service, the authors reviewed and edited the content as
+needed and take full responsibility for the content of the published article.
+Any alternative text (alt text) provided alongside ﬁgures in this
+article has been generated by Frontiers with the support of arti ﬁcial
+intelligence and reasonable e fforts have been made to ensure
+accuracy, including review by the authors wherever possible. If
+you identify any issues, please contact us.
+Publisher’s note
+All claims expressed in this article are solely those of the authors
+and do not necessarily represent those of their afﬁliated organizations,
+or those of the publisher, the editors and the reviewers. Any product
+that may be evaluated in this article, or claim that may be made by its
+manufacturer, is not guaranteed or endorsed by the publisher.
+References
+Abnousian, A., Vasquez, J., Sasaninia, K., Kelley, M., and Venketaraman, V. (2023).
+Glutathione modulates ef ﬁcacious changes in the immune response against tubercu-
+losis. Biomedicines 11 (5), 1340. doi: 10.3390/biomedicines11051340
+Aldrich, A. M., Argo, T., Koehler, T. J., and Olivero, R. (2019). Analysis of treatment
+outcomes for recurrent Clostridium dif ﬁcile infections and fecal microbiota transplan-
+tation in a pediatric hospital. Pediatr. Infect. Dis. J. 38, 32 –36. doi: 10.1097/
+inf.0000000000002053
+Ali, S. L., Ali, A., Alamri, A., Baiduissenova, A., Dusmagambetov, M., and Abduldayeva,
+A. (2023). Genomic annotation for vaccine target identi ﬁcation and
+immunoinformatics-guided multi-epitop e-based vaccine design against Songling
+virus through screening its whole genome encoded proteins. Front. Immunol. 14,
+1284366. doi: 10.3389/ ﬁmmu.2023.1284366
+Ali, A., Ali, S. L., Alamri, A., Khatrawi, E. M., Baiduissenova, A., Suleimenova, F., et al.
+(2025). Multi-epitope-based vaccine models prioritization against Astrovirus MLB1
+using immunoinformatics and rev erse vaccinology approaches. JG e n e t .E n g .
+Biotechnol. 23, 100451. doi: 10.1016/j.jgeb.2024.100451
+Allen, P. E., and Martinez, J. J. (2020). Modulation of host lipid pathways by pathogenic
+intracellular bacteria. Pathogens 9 (8), 614. doi: 10.3390/pathogens9080614
+Anh, N. K., Phat, N. K., Thu, N. Q., Tien, N. T. N., Eunsu, C., Kim, H.-S., et al. (2024).
+Discovery of urinary biosignatures for tuberculosis and nontuberculous mycobacteria
+classiﬁcation using metabolomics and machine learning. Sci. Rep. 14, 15312. doi:
+10.1038/s41598-024-66113-x
+Anishetty, S., Pulimi, M., and Pennathur, G. (2005). Potential drug targets in
+Mycobacterium tuberculosis through metabolic pathway analysis. Comput. Biol.
+Chem. 29, 368 –378. doi: 10.1016/j.compbiolchem.2005.07.001
+Ankney, J. A., Muneer, A., and Chen, X. (2018). Relative and absolute quantitation in
+mass spectrometry-based proteomics. Annu. Rev. Anal. Chem. (Palo Alto Calif) 11, 49–
+77. doi: 10.1146/annurev-anchem-061516-045357
+Asad, M., Mahmood, A., and Usman, M. (2020). A machine learning-based framework
+for predicting treatment failure in tuberculosis: a case study of six countries.
+Tuberculosis 123, 101944. doi: 10.1016/j.tube.2020.101944
+Aytan-Aktug, D., Clausen, P. T. L. C., Bortolaia, V., Aarestrup, F. M., and Lund, O.
+(2020). Prediction of acquired antimicrobial resistance for multiple bacterial species
+using neural networks. mSystems 5 (1), e00774 –19. doi: 10.1128/mSystems.00774-19
+Bagcchi, S. (2023). WHO ’s global tuberculosis report 2022. Lancet Microbe 4, e20. doi:
+10.1016/s2666-5247(22)00359-7
+Baral, T., Fayaz, S. M. A., Manu, M. K., Kudru, C. U., Singh, J., Mukhopadhyay, C., et al.
+(2025). Gut microbiota pro ﬁle in newly diagnosed pulmonary tuberculosis patients: an
+exploratory pilot study in southern India. Gut Pathog. 17, 59. doi: 10.1186/s13099-025-
+00736-x
+Baral, T., Sudha Gururaj, V. K., Manu, M. K., Udyavara Kudru, C., Singh, J.,
+Mukhopadhyay, C., et al. (2026). Effect of probiotics supplementation on clinical,
+humanistic, and safety outcomes in patients with tuberculosis: A prospective cohort
+study in a tertiary healthcare facility in South India. J. Am. Nutr. Assoc. 45, 44–51. doi:
+10.1080/27697061.2025.2531086
+Biadglegne, F., König, B., Rodloff, A. C., Dorhoi, A., and Sack, U. (2021). Composition
+and clinical signi ﬁcance of exosomes in tuberculosis: A systematic literature review. J.
+Clin. Med. 10 (1), 145. doi: 10.3390/jcm10010145
+Bing, X., Lovelace, T., Bunea, F., Wegkamp, M., Kasturi, S. P., Singh, H., et al. (2022).
+Essential regression: a generalizable framework for inferring causal latent factors from
+multi-omic datasets. Patterns
+3 (5), 100473. doi: 10.1016/j.patter.2022.100473
+Blanco-Mı́guez, A., Beghini, F., Cumbo, F., McIver, L. J., Thompson, K. N., Zolfo, M.,
+et al. (2023). Extending and improving metagenomic taxonomic pro ﬁling with
+uncharacterized species using MetaPhlAn 4. Nat. Biotechnol. 41, 1633 –1644. doi:
+10.1038/s41587-023-01688-w
+Boicean, A., Bratu, D., Fleaca, S. R., Vasile, G., Shelly, L., Birsan, S., et al. (2023).
+Exploring the potential of fecal microbiota transplantation as a therapy in tuberculosis
+and in ﬂammatory bowel disease. Pathogens 12 (9), 1149. doi: 10.3390/patho-
+gens12091149
+Bolyen, E., Rideout, J. R., Dillon, M. R., Bokulich, N. A., Abnet, C. C., Ghalith, G-. .,
+et al. (2019). Reproducible, interactive, scalable and extensible microbiome data science
+using QIIME 2. Nat. Biotechnol. 37, 852 –857. doi: 10.1038/s41587-019-0209-9
+Sun et al. 10.3389/fcimb.2026.1847443
+Frontiers in Cellular and Infection Microbiology frontiersin.org22
+Callahan, B. J., McMurdie, P. J., Rosen, M. J., Han, A. W., Johnson, A. J. A., and
+Holmes, S. P. (2016). DADA2: high-resolution sample inference from Illumina
+amplicon data. Nat. Methods 13, 581 –583. doi: 10.1038/nmeth.3869
+Carvalho, F., Spier, A., Chaze, T., Matondo, M., Cossart, P., and Stavru, F. (2020).
+Listeria monocytogenes exploits mitochondrial contact site and cristae organizing
+system complex subunit Mic10 to promote mitochondrial fragmentation and cellular
+infection. mBio 11 (1), e03171 –19. doi: 10.1128/mBio.03171-19
+Carwile, M., Jain, K., Dauphinais, M., Cintron, C., Janarthanan,, Locks, L. M., et al.
+(2025). Tuberculosis- learning about experience with nutritional supplementation (TB
+LENS): Perspectives on a nutritional supplementation for persons with TB and their
+household contacts. Global Public Health 20, 2576758. doi: 10.1080/
+17441692.2025.2576758
+Cestonaro, C., Delicati, A., Marcante, B., Caenazzo, L., and Tozzo, P. (2023). De ﬁning
+medical liability when arti ﬁcial intelligence is applied on diagnostic algorithms: a
+systematic review. Front. Med. 10, 1305756. doi: 10.3389/fmed.2023.1305756
+Chai, Y., Li, M., Deng, X., Ma, C., Zhou, N., Chen, Y., et al. (2025). Gut microbiota and
+tuberculosis infection: interaction and therapeutic potential. Gut Microbes 17, 2531201.
+doi: 10.1080/19490976.2025.2531201
+Chai, Y., Liu, X., Bai, G., Zhou, N., Liu, D., Zhang, X., et al. (2024). Gut microbiome, T
+cell subsets, and cytokine analysis identify differential biomarkers in tuberculosis.
+Front. Immunol. 15, 1323723. doi: 10.3389/ ﬁmmu.2024.1323723
+Chaisson, R. E., Clermont, H. C., Holt, E. A., Cantave, M., Johnson, M. P., Atkinson, J.,
+et al. (1996). Six-month supervised intermittent tuberculosis therapy in Haitian
+patients with and without HIV infection. Am. J. Respir. Crit. Care Med. 154, 1034 –
+1038. doi: 10.1164/ajrccm.154.4.8887603
+Chen, J. (2025). Incorporating biomechanics as a key evaluation metric for organoids.
+Biofabrication 17 (2). doi: 10.1088/1758-5090/adb802
+Chen, I.-M., Chu, K., Palaniappan, K., Pillay, M., Ratner, A., Huang, J., et al. (2019). IMG/
+M v.5.0: an integrated data management and comparative analysis system for microbial
+genomes and microbiomes. Nucleic Acids Res. 47, D666-D677. doi: 10.1093/nar/gky901
+Chiang, J. Y. L., and Ferrell, J. M. (2020). Bile acid receptors FXR and TGR5 signaling in
+fatty liver diseases and therapy. Am. J. Physiol. Gastrointest Liver Physiol. 318, G554–
+G573. doi: 10.1152/ajpgi.00223.2019
+Chidambaram, V., Zhou, L., Ruelas Castillo, J., Kumar, A., Ayeh, S. K., Gupte, A., et al.
+(2021). Higher serum cholesterol levels are associated with reduced systemic in ﬂam-
+mation and mortality during tuberculosis treatment independent of body mass index.
+Front. Cardiovasc. Med. 8, 696517. doi: 10.3389/fcvm.2021.696517
+Cirillo, D. M., Miotto, P., and Tortoli, E. (2017). Evolution of phenotypic and molecular
+drug susceptibility testing. Adv. Exp. Med. Biol . 1019, 221 –246. doi: 10.1007/978-3-
+319-64371-7_12
+Deshpande, D., Pasipanodya, J. G., Mpagama, S. G., Bendet, P., Srivastava, S., Koeuth,
+T., et al. (2018). Levo ﬂoxacin pharmacokinetics/pharmacodynamics, dosing, suscepti-
+bility breakpoints, and arti ﬁcial intelligence in the treatment of multidrug-resistant
+tuberculosis. Clin. Infect. Dis. 67, S293–S302. doi: 10.1093/cid/ciy611
+Dhariwal, A., Chong, J., Habib, S., King, I. L., Agellon, L. B., and Xia, J. (2017).
+MicrobiomeAnalyst: a web-based tool for comprehensive statistical, visual and meta-
+analysis of microbiome data. Nucleic Acids Res. 45, W180-W188. doi: 10.1093/nar/
+gkx295
+Diallo, D., Sun, S., Somboro, A. M., Baya, B., Kone, A., Diarra, B., et al. (2023).
+Metabolic and immune consequences of antibiotic related microbiome alterations
+during ﬁrst-line tuberculosis treatment in Bamako, Mali. Res. Square Preprint,
+3232670. doi: 10.21203/rs.3.rs-3232670/v1
+Diaz, G., Wolfe, L. M., Kruh-Garcia, N. A., and Dobos, K. M. (2016). Changes in the
+membrane-associated proteins of exosomes released from human macrophages after
+Mycobacterium tuberculosis infection. Sci. Rep. 6, 37975. doi: 10.1038/srep37975
+Drouin, A., Giguère, S., Dé
+raspe, M., Marchand, M., Tyers, M., Loo, V. G., et al. (2016).
+Predictive computational phenotyping and biomarker discovery using reference-free
+genome comparisons. BMC Genomics 17, 754. doi: 10.1186/s12864-016-2889-6
+Du, J., Su, Y., Qiao, J., Gao, S., Dong, E., Wang, R., et al. (2024). Application of arti ﬁcial
+intelligence in diagnosis of pulmonary tuberculosis. Chin. Med. J. 137, 559 –561. doi:
+10.1097/CM9.0000000000003018
+Durán-Castañeda, A. C., Bueno-Dura ́n, A. Y., Giro ́n-Pérez, M. I., Ragazzo-Sa ́nchez, J.
+A., Sa ́nchez-Burgos, J. A., Sa ́yago-Ayerdi, S. G., et al. (2024). Effect of Pediococcus
+acidilactici and mango seed polyphenols on the fermentative pro ﬁle of the indigestible
+fraction of yam bean. Food. Res. Int. (Ottawa Ont) 178, 113970. doi: 10.1016/
+j.foodres.2024.113970
+Dvořák, Z., Poul ı́ková, K., and Mani, S. (2021). Indole scaffolds as a promising class of
+the aryl hydrocarbon receptor ligands. Eur. J. Med. Chem. 215, 113231. doi: 10.1016/
+j.ejmech.2021.113231
+Enjeti, A., Sathkumara, H. D., and Kupz, A. (2023). Impact of the gut-lung axis on
+tuberculosis susceptibility and progression. Front. Microbiol. 14, 1209932. doi:
+10.3389/fmicb.2023.1209932
+Escoll, P., and Buchrieser, C. (2018). Metabolic reprogramming of host cells upon
+bacterial infection: Why shift to a Warburg-like metabolism? FEBS J. 285, 2146–2160.
+doi: 10.1111/febs.14446
+Frati, F., Salvatori, C., Incorvaia, C., Bellucci, A., Cara, G. D., Marcucci, F., et al. (2018).
+The role of the microbiome in asthma: the gut –lung axis. Int. J. Mol. Sci. 20, 123. doi:
+10.3390/ijms20010123
+Fujimura, K. E., Slusher, N. A., Cabana, M. D., and Lynch, S. V. (2010). Role of the gut
+microbiota in de ﬁning human health. Expert Rev. Anti Infect. Ther. 8, 435 –454. doi:
+10.1586/eri.10.14
+Fujiwara, Y., Kato, S., Nesline, M. K., Conroy, J. M., DePietro, P., Pabla, S., et al. (2022).
+Indoleamine 2,3-dioxygenase (IDO) inhibitors and cancer immunotherapy. Cancer
+Treat Rev. 110, 102461. doi: 10.1016/j.ctrv.2022.102461
+Galagan, J. E., Sisk, P., Stolte, C., Weiner, B., Koehrsen, M., Wymore, F., et al. (2010).
+TB database 2010: overview and update. Tuberculosis (Edinburgh Scotland) 90, 225 –
+235. doi: 10.1016/j.tube.2010.03.010
+Galaxy, C. (2024). The Galaxy platform for accessible, reproducible, and collaborative
+data analyses: 2024 update. Nucleic Acids Res. 52, W83-W94. doi: 10.1093/nar/gkae410
+Gao, J., Xu, K., Liu, H., Liu, G., Bai, M., Peng, C., et al. (2018). Impact of the gut
+microbiota on intestinal immunity mediated by tryptophan metabolism. Front. Cell.
+Infect. Microbiol. 8, 13. doi: 10.3389/fcimb.2018.00013
+Ghoshal, A., Verma, A., Bhaskar, A., and Dwivedi, V. P. (2024). The uncharted territory
+of host-pathogen interaction in tuberculosis. Front. Immunol.
+15, 1339467. doi:
+10.3389/ﬁmmu.2024.1339467
+Goff, A., Cantillon, D., Muraro Wildner, L., and Waddell, S. J. (2020). Multi-omics
+technologies applied to tuberculosis drug discovery. Appl. Sci. 10, 4629. doi: 10.3390/
+app10134629
+Goletti, D., Arlehamn, C. S. L., Scriba, T. J., Anthony, R., Cirillo, D. M., Alonzi, T., et al.
+(2018). Can we predict tuberculosis cure? What tools are available? Eur. Respir. J. 52
+(5), 1801089. doi: 10.1183/13993003.01089-2018
+Gong, W., and Du, J. (2025). Evaluating H56:IC31 vaccine in tuberculosis recurrence
+prevention. Lancet Infect. Dis. 25, Online ﬁrst. doi: 10.1016/S1473-3099(24)00861-2
+Gong, W., Liang, Y., Mi, J., Jia, Z., Xue, Y., Wang, J., et al. (2021). Peptides-based
+vaccine MP3RT induced protective immunity against Mycobacterium tuberculosis
+infection in a humanized mouse model. Front. Immunol. 12, 666290. doi: 10.3389/
+ﬁmmu.2021.666290
+Gong, W., and Wu, X. (2021). Differential diagnosis of latent tuberculosis infection and
+active tuberculosis: a key to a successful tuberculosis control strategy. Front. Microbiol.
+12, 745592. doi: 10.3389/fmicb.2021.745592
+Grace, A. G., Mittal, A., Jain, S., Tripathy, J. P., Satyanarayana, S., Tharyan, P., et al.
+(2019). Shortened treatment regimens versus the standard regimen for drug-sensitive
+pulmonary tuberculosis. Cochrane Database System Rev. 12, Cd012918. doi: 10.1002/
+14651858.CD012918.pub2
+Gu, W., Huang, Z., Fan, Y., Li, T., Yu, X., Chen, Z., et al. (2025). Peripheral blood
+microbiome signature and Mycobacterium tuberculosis-derived rsRNA as diagnostic
+biomarkers for tuberculosis in human. J. Transl. Med. 23, 204. doi: 10.1186/s12967-
+025-06190-2
+Gupta, A., Kumar, V., Natarajan, S., and Singla, R. (2020). Adverse drug reactions &
+drug interactions in MDR-TB patients. Indian J. Tuberculosis 67, S69 –S78. doi:
+10.1016/j.ijtb.2020.09.027
+Haghikia, A., Zimmermann, F., Schumann, P., Jasina, A., Roessler, J., Schmidt, D., et al.
+(2022). Propionate attenuates atherosclerosis by immune-dependent regulation of
+intestinal cholesterol metabolism. Eur. Heart J. 43, 518 –533. doi: 10.1093/eurheartj/
+ehab644
+Haitjema, A., Zhang, J., van Beijnum, B. F., Veltink, P. H., Reenalda, J., and Wouda, F. J.
+(2026). Assessing the usability of the angular momentum method for estimating whole-
+body inertia in humans: a case study. Med. Eng. Phys. 147 (4). doi: 10.1088/1873-4030/
+ae52fa
+Han, Z., Zhang, Y., Ding, W., Zhao, X., Jia, B., Liu, T., et al. (2025). An integrated
+mycobacterial CT imaging dataset with multispecies information. Sci. Data 12, 533.
+doi: 10.1038/s41597-025-04838-8
+Harris, N. L., and Marsland, B. J. (2025). The gut-lung axis: Protozoa join the party.
+Cell. 188, 275 –277. doi: 10.1016/j.cell.2024.12.027
+He, S., Leanse, L. G., and Feng, Y. (2021). Arti ﬁcial intelligence and machine learning
+assisted drug delivery for effective treatment of infectious diseases. Adv. Drug Deliv Rev.
+178, 113922. doi: 10.1016/j.addr.2021.113922
+He, C., Wang, H., Yu, C., Peng, C., Shu, X., Liao, W., et al. (2021). Alterations of gut
+microbiota in patients with intestinal tuberculosis that different from Crohn ’s disease.
+Front. Bioeng Biotechnol. 9, 673691. doi: 10.3389/fbioe.2021.673691
+Heo, L., Park, H., and Seok, C. (2013). GalaxyRe ﬁne: protein structure re ﬁnement
+driven by side-chain repacking. Nucleic Acids Res. 41, W384-388. doi: 10.1093/nar/
+gkt458
+Heyckendorf, J., Marwitz, S., Reimann, M., Avsar, K., DiNardo, A. R., Günther, G., et al.
+(2021). Prediction of anti-tuberculosis treatment duration based on a 22-gene
+transcriptomic model.Eur. Respir. J. 58 (3), 2003492. doi: 10.1183/13993003.03492-2020
+Hoedt, E., Zhang, G., and Neubert, T. A. (2019). Stable isotope labeling by amino acids
+in cell culture (SILAC) for quantitative proteomics. Adv. Exp. Med. Biol. 1140, 531–
+539.
+doi: 10.1007/978-3-030-15950-4_31
+Sun et al. 10.3389/fcimb.2026.1847443
+Frontiers in Cellular and Infection Microbiology frontiersin.org23
+Hofmann, A. F. (2004). Detoxi ﬁcation of lithocholic acid, a toxic bile acid: Relevance to
+drug hepatotoxicity. Drug Metab. Rev. 36, 703 –722. doi: 10.1081/dmr-200033475
+Holzman, S. B., Zenilman, A., and Shah, M. (2018). Advancing Patient-Centered Care
+in Tuberculosis Management: A Mixed-Methods Appraisal of Video Directly Observed
+Therapy. Open Forum Infect Dis. 5 (4), ofy046. doi: 10.1093/o ﬁd/ofy046
+Hu, Y., Feng, Y., Wu, J., Liu, F., Zhang, Z., Hao, Y., et al. (2019). The gut microbiome
+signatures discriminate healthy from pulmonary tuberculosis patients. Front. Cell.
+Infect. Microbiol. 9, 90. doi: 10.3389/fcimb.2019.00090
+Huang, Y., Tang, J., Cai, Z., Qi, Y., Jiang, S., Ma, T., et al. (2023). Alterations in the
+intestinal microbiota associated with active tuberculosis and latent tuberculosis
+infection. Heliyon 9 (11), e22124. doi: 10.1016/j.heliyon.2023.e22124
+Hugerth, L. W., and Andersson, A. F. (2017). Analysing microbial community
+composition through amplicon sequencing: from sampling to hypothesis testing.
+Front. Microbiol. 8, 1561. doi: 10.3389/fmicb.2017.01561
+Irwin, C., Mignone, F., Montani, S., and Portinale, L. (2024). Graph neural networks for
+gut microbiome metaomic data: a preliminary work. arXiv. doi: 10.1007/978-3-031-
+95838-0_17
+Jaeger, S., Juarez-Espinosa, O. H., Candemir, S., Poostchi, M., Yang, F., Kim, L., et al.
+(2018). Detecting drug-resistant tuberculosis in chest radiographs. Int. J. Comput. Assist
+Radiol. Surg. 13, 1915 –1925. doi: 10.1007/s11548-018-1857-9
+Jiang, F., Liu, Y., Xue, Y., Cheng, P., Wang, J., Lian, J., et al. (2023a). Developing a
+multiepitope vaccine for the prevention of SARS-CoV-2 and monkeypox virus co-
+infection: a reverse vaccinology analysis. Int. Immunopharmacol 115, 109728. doi:
+10.1016/j.intimp.2023.109728
+Jiang, F., Peng, C., Cheng, P., Wang, J., Lian, J., and Gong, W. (2023b). PP19128R, a
+multiepitope vaccine designed to prevent latent tuberculosis infection, induced
+immune responses in silico and in vitro assays. Vaccines (Basel) 11, 856. doi:
+10.3390/vaccines11040856
+Jiang, F., Sun, T., Cheng, P., Wang, J., and Gong, W. (2023c). A summary on
+tuberculosis vaccine development —where to go? J. Pers Med. 13, 408. doi: 10.3390/
+jpm13030408
+Johnson, W. E., Li, C., and Rabinovic, A. (2007). Adjusting batch effects in microarray
+expression data using empirical Bayes methods. Biostatistics 8, 118–127. doi: 10.1093/
+biostatistics/kxj037
+Johnson, J. S., Spakowicz, D. J., Hong, B.-Y., Petersen, L. M., Demkowicz, P., Chen, L.,
+et al. (2019). Evaluation of 16S rRNA gene sequencing for species and strain-level
+microbiome analysis. Nat. Commun. 10, 5029. doi: 10.1038/s41467-019-13036-1
+Kailasapathy, K., and Chin, J. (2000). Survival and therapeutic potential of probiotic
+organisms with reference to Lactobacillus acidophilus and Bi ﬁdobacterium spp.
+Immunol. Cell Biol. 78, 80 –88. doi: 10.1046/j.1440-1711.2000.00886.x
+Kapopoulou, A., Lew, J. M., and Cole, S. T. (2011). The MycoBrowser portal: a
+comprehensive and manually annotated r esource for mycobacterial genomes.
+Tuberculosis (Edinburgh Scotland) 91, 8–13. doi: 10.1016/j.tube.2010.09.006
+Ke, B., Gong, R., Shen, A., Qiu, H., Chen, H., Zhang, Z., et al. (2023). Risk strati ﬁcation
+algorithm for clinical outcomes in anemic patients undergoing percutaneous coronary
+intervention. Ann. Med. 55, 2249200. doi: 10.1080/07853890.2023.2249200
+Keen, E. (2021). Quantitative characterization of microbial ecologies in dysbiosis and
+infection. (St. Louis: Washington University). doi: 10.7936/bnwr-sp85
+Keshavjee, S., Gelmanova, I., Shin, S., Mishustin, S., Andreev, Y., Atwood, S., et al. (2012).
+Hepatotoxicity during treatment for multidrug-resistant tuberculosis: occurrence, manage-
+ment and outcome. Int. J. Tuberculosis Lung Dis. 16, 596–603. doi: 10.5588/ijtld.11.0591
+Keszthelyi, D., Troost, F. J., and Masclee, A. A. (2009). Understanding the role of
+tryptophan and serotonin metabolism in gastrointestinal function. Neurogastroenterol.
+Motil. 21, 1239 –1249. doi: 10.1111/j.1365-2982.2009.01370.x
+Klünemann, M., Andrejev, S., Blasche, S., Mateus, A., Phapale, P., Devendran, S., et al.
+(2021). Bioaccumulation of therapeutic drugs by human gut bacteria. Nature 597, 533–
+538. doi: 10.1038/s41586-021-03891-8
+Knight, R., Vrbanac, A., Taylor, B. C., Aksenov, A., Callewaert, C., Debelius, J., et al.
+(2018). Best practices for analysing microbiomes. Nat. Rev. Microbiol. 16, 410–422. doi:
+10.1038/s41579-018-0029-9
+Ko, J., Park, H., Heo, L., and Seok, C. (2012). GalaxyWEB server for protein structure
+prediction and re ﬁnement. Nucleic Acids Res. 40, W294-297. doi: 10.1093/nar/gks493
+Kouchaki, S., Yang, Y., Walker, T. M., Sarah Walker, A., Wilson, D. J., Peto, T. E., et al.
+(2019). Application of machine learning techniques to tuberculosis drug resistance
+analysis. Bioinf. (Oxford England) 35, 2276–2282. doi: 10.1093/bioinformatics/bty949
+Krishnan, S., Queiroz, A. T. L., Gupta, A., Gupte, N., Bisson, G. P., Kumwenda, J., et al.
+(2021). Integrative multi-omics reveals serum markers of tuberculosis in advanced
+HIV. Front. Immunol. 12, 676980. doi: 10.3389/ ﬁmmu.2021.676980
+Kumar, S., Sharma, S., and Megra, K. T. (2025). Transformer enabled multi-modal
+medical diagnosis for tuberculosis classi ﬁcation. J. Big Data 12, 5. doi: 10.1186/s40537-
+024-01054-w
+Lange, C., Chesov, D., Heyckendorf, J., Leung, C. C., Udwadia, Z., and Dheda, K.
+(2018). Drug ‐resistant tuberculosis: an update on disease burden, diagnosis and
+treatment. Respirol (Carlton Vic.) 23, 656 –673. doi: 10.1111/resp.13304
+Lee, B.-Y., Clemens, D. L., Silva, A., Dillon, B. J., Masles ̌a-Galić, S., Nava, S., et al.
+(2017). Drug regimens identi ﬁed and optimized by output-driven platform markedly
+reduce tuberculosis treatment time. Nat. Commun. 8, 14183. doi: 10.1038/
+ncomms14183
+Li, L., Liu, H., Lei, Q., and Li, T. (2026). From clinical phenotypes to genomic
+signatures: machine learning integration for precision tuberculosis treatment predic-
+tion. Front. Bioinform. 6, 1787360. doi: 10.3389/fbinf.2026.1787360
+Li, Y., Lyu, B., Wang, R., Peng, Y., Ran, H., Zhou, B., et al. (2024). Machine learning ‐
+based radiomics to distinguish pulmonary nodules between lung adenocarcinoma and
+tuberculosis. Thorac. Cancer 15, 466 –476. doi: 10.1111/1759-7714.15216
+Li, Y., Qian, Y., Wang, N., Qiu, D., Cao, H., Wang, Y., et al. (2023a). The functions and
+applications of extracellular vesicles derived from Mycobacterium tuberculosis. Biomed
+Pharmacother = Biomed Pharmacother 168, 115767. doi: 10.1016/j.biopha.2023.115767
+Li, Y., Wang, B., Wen, L., Li, H., He, F., Wu, J., et al. (2023b). Machine learning and
+radiomics for the prediction of multidrug resistance in cavitary pulmonary tubercu-
+losis: a multicentre study. Eur. Radio 33, 391 –400. doi: 10.1007/s00330-022-08997-9
+Li, Q., Wu, C., Zhang, K., Zhou, Z., Li, J., Bai, J., et al. (2025). Bacteroides fragilis 839
+ameliorates anti-tuberculosis drugs-induced liver injury by suppressing in ﬂammation
+and regulating gut microbiota in mice. Front. Med. (Lausanne) 12, 1538528. doi:
+10.3389/fmed.2025.1538528
+Li, L. S., Yang, L., Zhuang, L., Ye, Z. Y., Zhao, W. G., and Gong, W. P. (2023). From
+immunology to arti ﬁcial intelligence: revolutionizing latent tuberculosis infection
+diagnosis with machine learning.
+Mil Med. Res. 10, 58. doi: 10.1186/s40779-023-
+00490-8
+Li, P., Zhang, T., Xiao, Y., Tian, L., Cui, B., Ji, G., et al. (2019). Timing for the second
+fecal microbiota transplantation to maintain the long-term bene ﬁt from the ﬁrst
+treatment for Crohn ’sd i s e a s e .A p p l .M i c r o b i o l .B i o t e c h n o l .103, 349 –360. doi:
+10.1007/s00253-018-9447-x
+Li, H., Zhi, R., Liu, H., Wang, M., and Yu, S. (2025). Multimodal machine learning-
+based model for differentiating nontuberculous mycobacteria from mycobacterium
+tuberculosis. Front. Public Health 13, 1470072. doi: 10.3389/fpubh.2025.1470072
+Li, X., Zhou, Y., Du, P., Lang, G., Xu, M., and Wu, W. (2021). A deep learning system
+that generates quantitative CT reports for diagnosing pulmonary tuberculosis. Appl.
+Intell. 51, 4082 –4093. doi: 10.1007/s10489-020-02051-1
+Li, L., Zhuang, L., Yang, L., Ye, Z., Ni, R., An, Y., et al. (2024). Machine learning model
+based on SERPING1, C1QB, and C1QC: a novel diagnostic approach for latent
+tuberculosis infection. iLABMED 2, 1 –18. doi: 10.1002/ila2.65
+L i a n ,J . ,L i a n g ,Y . ,Z h a n g ,H . ,L a n ,M . ,Y e ,Z . ,L i n ,B . ,e ta l .( 2 0 2 2 ) .T h er o l eo fp o l y a m i n e
+metabolism in remodeling immune responses and blocking therapy within the tumor
+immune microenvironment.Front. Immunol.13, 912279. doi: 10.3389/ﬁmmu.2022.912279
+Liang, S., Ma, J., Wang, G., Shao, J., Li, J., Deng, H., et al. (2022). The application of
+artiﬁcial intelligence in the diagnosis and drug resistance prediction of pulmonary
+tuberculosis. Front. Med. 9, 935080. doi: 10.3389/fmed.2022.935080
+Lin, S., Zhao, S., Liu, J., Zhang, J., Zhang, C., Hao, H., et al. (2020). Ef ﬁcacy of
+proprietary Lactobacillus casei for anti-tuberculosis associated gastrointestinal adverse
+reactions in adult patients: a randomized, open-label, dose-response trial. Food Funct.
+11, 370–377. doi: 10.1039/c9fo01583c
+Liu, Y., and Gong, W. (2025). Diagnostic dilemmas and strain diversity in the
+MTBVAC phase 1b –2a trial in adults. Lancet Global Health 13, e975-e976. doi:
+10.1016/S2214-109X(25)00066-X
+Liu, B., Xing, Z., Xue, Y., Zhang, J., and Zhai, J. (2024). Effect of pyrolysis temperature
+on the carbon sequestration capacity of spent mushroom substrate biochar in the
+presence of mineral iron. Molecules 29 (23), 5712. doi: 10.3390/molecules29235712
+Liu, Y., Yang, L., Meskini, M., Goel, A., Opperman, M., Shyamal, S. S., et al. (2025). Gut
+microbiota and tuberculosis. Imeta 4, e70054. doi: 10.1002/imt2.70054
+Lovewell, R. R., Sassetti, C. M., and VanderVen, B. C. (2016). Chewing the fat: Lipid
+metabolism and homeostasis during M. tuberculosis infection. Curr. Opin. Microbiol.
+29, 30–36. doi: 10.1016/j.mib.2015.10.002
+Lu, Y., Zhou, G., Ewald, J., Pang, Z., Shiri, T., and Xia, J. (2023). MicrobiomeAnalyst
+2.0: comprehensive statistical, functional and integrative analysis of microbiome data.
+Nucleic Acids Res. 51, W310-W318. doi: 10.1093/nar/gkad407
+Luo, D., Yang, B.-Y., Qin, K., Shi, C.-Y., Wei, N.-S., Li, H., et al. (2023). Untargeted
+metabolomics of feces reveals diagnostic and prognostic biomarkers for active tuber-
+culosis and latent tuberculosis infection: Potential application for precise and non-
+invasive identi ﬁcation. Infect Drug Resist 16, 6121 –6138. doi: 10.2147/idr.s422363
+Ma, P.-J., Wang, M.-M., and Wang, Y. (2022). Gut microbiota: A new insight into lung
+diseases. Biomed Pharmacother 155, 113810. doi: 10.1016/j.biopha.2022.113810
+Madeo, F., Eisenberg, T., Pietrocola, F., and Kroemer, G. (2018). Spermidine in health
+and disease. Science 359 (6374), eaan2788. doi: 10.1126/science.aan2788
+Mahomed, S., Padayatchi, N., Singh, J., and Naidoo, K. (2019). Precision medicine in
+resistant tuberculosis: treat the correct patient, at the correct time, with the correct
+drug. J. Infect 78, 261 –
+268. doi: 10.1016/j.jinf.2019.03.006
+Mai, V., and Draganov, P. V. (2009). Recent advances and remaining gaps in our
+knowledge of associations between gut microbiota and human health. World J.
+Gastroenterol. 15, 81 –85. doi: 10.3748/wjg.15.81
+Sun et al. 10.3389/fcimb.2026.1847443
+Frontiers in Cellular and Infection Microbiology frontiersin.org24
+Markowitz, V. M., Chen, I.-M., Palaniappan, K., Chu, K., Szeto, E., Grechkin, Y., et al.
+(2012). IMG: the Integrated Microbial Genomes database and comparative analysis
+system. Nucleic Acids Res. 40, D115-D122. doi: 10.1093/nar/gkr1044
+Marsland, B. J., Trompette, A., and Gollwitzer, E. S. (2015). The gut-lung axis in
+respiratory disease. Ann. Am. Thorac. Soc. 12 Suppl 2, S150-156. doi: 10.1513/
+AnnalsATS.201503-133AW
+Martı́, I. L. A. A., and Reith, W. (2021). Arginine-dependent immune responses. Cell.
+Mol. Life. Sci: CMLS 78, 5303 –5324. doi: 10.1007/s00018-021-03828-4
+Martı́nez, C. R., and Ruiz, C. J. (2019). Alterations in host lipid metabolism produced
+during visceral leishmaniasis infections. Curr. Trop. Med. Rep. 6, 250 –255. doi:
+10.1007/s40475-019-00187-w
+Maurya, R. K., Bharti, S., and Krishnan, M. Y. (2018). Triacylglycerols: Fuelling the
+hibernating Mycobacterium tuberculosis. Front. Cell. Infect. Microbiol. 8, 450. doi:
+10.3389/fcimb.2018.00450
+Mbabazi, M., Kateete, D. P., Nakazzi, F., Wandera, J. N., Mutesi, N., Ocan, M., et al.
+(2025). The impact of tuberculosis and its treatment on the lung and gut microbiota: a
+global systematic review, meta-analysis, and amplicon-based metagenomic meta-
+analysis. BMC Infect. Dis. 26, 219. doi: 10.1186/s12879-025-12369-1
+Mbuh, T. P., Meriki, H. D., Pokam, B. D. T., Adeline, W., Enoka, F., Ghislain, T., et al.
+(2021). Incidence of adverse drug events among patients on second line anti-
+tuberculosis regimen in the littoral region of Cameroon. Int. J. Mycobacteriol 10,
+463–468. doi: 10.4103/ijmy.ijmy_160_21
+Mburu, J. W., Kingwara, L., Ester, M., and Andrew, N. (2018). Use of classi ﬁcation and
+regression tree (CART), to identify hemoglobin A1C (HbA1C) cut-off thresholds
+predictive of poor tuberculosis treatment outcomes and associated risk factors. J. Clin.
+Tuberculosis Other Mycobacter Dis. 11, 10 –16. doi: 10.1016/j.jctube.2018.01.002
+McCoin, C. S., Knotts, T. A., and Adams, S. H. (2015). Acylcarnitines –old actors
+auditioning for new roles in metabolic physiology. Nat. Rev. Endocrinol. 11, 617–625.
+doi: 10.1038/nrendo.2015.129
+Mellor, A. L., Munn, D., Chandler, P., Keskin, D., Johnson, T., Marshall, B., et al.
+(2003). Tryptophan catabolism and T cell responses. Adv. Exp. Med. Biol. 527, 27–35.
+doi: 10.1007/978-1-4615-0135-0_3
+Meneguello, J. E., Arita, G. S., Silva, J. V. O., Ghiraldi-Lopes, L. D., Calef ﬁ-Ferracioli, K.
+R., Siqueira, V. L. D., et al. (2020). Insight about cell wall remodulation triggered by
+rifampicin in Mycobacterium tuberculosis. Tuberculosis (Edinburgh Scotland) 120,
+101903. doi: 10.1016/j.tube.2020.101903
+Metwaly, A., Kriaa, A., Hassani, Z., Carraturo, F., Druart, C., Arnauts, K., et al. (2025).
+A consensus statement on establishing causality, therapeutic applications and the use of
+preclinical models in microbiome research. Nat. Rev. Gastroenterol. Hepatol. 22 (5),
+343–356. doi: 10.1038/s41575-025-01041-3
+Mills, E., and O ’Neill, L. A. (2014). Succinate: A metabolic signal in in ﬂammation.
+Trends Cell Biol. 24, 313 –320. doi: 10.1016/j.tcb.2013.11.008
+Mitsui, T., Kadota, T., Wakabayashi, M., Nakajo, K., Shinmura, K., Sunakawa, H., et al.
+(2022). Factors of technical dif ﬁculty in conventional and traction-assisted esophageal
+endoscopic submucosal dissection. Esophagus 19, 452 –459. doi: 10.1007/s10388-022-
+00913-w
+Mojgani, N., Ashique, S., Moradi, M., Bagheri, M., Garg, A., Kaushik, M., et al. (2025).
+Gut microbiota and postbiotic metabolites: Biotic intervention for enhancing vaccine
+responses and personalized medicine for disease prevention. Probiot Antimicrob.
+Proteins 18 (1), 1399 –1421. doi: 10.1007/s12602-025-10477-7
+Munansangu, B. S. M., Kenyon, C., Walzl, G., Loxton, A. G., Kotze, L. A., and du
+Plessis, N. (2022). Immunometabolism o f myeloid-derived suppressor cells:
+Implications for Mycobacterium tuberculosis infection and insights from tumor
+biology. Int. J. Mol. Sci. 23 (7), 3512. doi: 10.3390/ijms23073512
+Muñoz-Prieto, A., Escribano, D., Contreras-Aguilar, M. D., Horvatić, A., Guillemin, N.,
+Jacobsen, S., et al. (2021). Tandem mass tag (TMT) proteomic analysis of saliva in
+horses with acute abdominal disease. Anim: An Open Access J. MDPI 11 (5), 1304. doi:
+10.3390/ani11051304
+Muselius, B., Sukumaran, A., Yeung, J., and Geddes-McAlister, J. (2020). Iron
+limitation in Klebsiella pneumoniae de ﬁnes new roles for Lon protease in homeostasis
+and degradation by quantitative proteomics. Front. Microbiol. 11, 546. doi: 10.3389/
+fmicb.2020.00546
+Nasare, D., and Bagade, S. (2025). The gut-lung axis in tuberculosis: A new frontier in
+immunomodulation and microbiota-directed therapeutic strategies. Microb. Pathogen
+209, 108087. doi: 10.1016/j.micpath.2025.108087
+Ongsulee, P. (2017). “Artiﬁcial intelligence, machine learning and deep learning ”, in:
+Proceedings of the 2017 15th international conference on ICT and knowledge engineering
+(ICT&KE),1 –6. doi: 10.1109/ICTKE.2017.8259629
+Osei Sekyere, J., Maningi, N. E., and Fourie, P. B. (2020). Mycobacterium tuberculosis,
+antimicrobials, immunity, and lung-gut microbiota crosstalk: current updates and
+emerging advances. Ann. N. Y Acad. Sci. 1467, 21 –47. doi: 10.1111/nyas.14300
+Peng, C., Jiang, F., Liu, Y., Xue, Y., Cheng, P., Wang, J., et al. (2024). Development and
+evaluation of a promising biomarker for diagnosis of latent and active tuberculosis
+infection. Infect. Dis. Immun. 4, 10–24. doi: 10.1097/id9.0000000000000104
+Porras-Yakushi, T. R., and Hess, S. (2014). Recent advances in de ﬁning the
+ubiquitylome. Expert Rev. Proteomics 11, 477–490. doi: 10.1586/14789450.2014.926223
+Portelli, S., Myung, Y., Furnham, N., Vedithi, S. C., Pires, D. E., and Ascher, D. B.
+(2020). Prediction of rifampicin resistance beyond the RRDR using structure-based
+machine learning approaches. Sci. Rep. 10, 18120. doi: 10.1038/s41598-020-74648-y
+Quince, C., Walker, A. W., Simpson, J. T., Loman, N. J., and Segata, N. (2017). Shotgun
+metagenomics, from sampling to analysis. Nat. Biotechnol. 35, 833–844. doi: 10.1038/
+nbt.3935
+Rajwani, R., Galata, C., Lee, A. W. T., So, P. K., Leung, K. S. S., Tam, K. K. G., et al.
+(2022). A multi-omics investigation into the mechanisms of hyper-virulence in
+Mycobacterium tuberculosis. Virulence 13, 1088 –1100. doi: 10.1080/
+21505594.2022.2087304
+Ramı́rez-Pérez, O., Cruz-Ramo ́n, V., Chinchilla-Lo ́pez, P., and Me ́ndez-Sánchez, N.
+(2017). The role of the gut microbiota in bile acid metabolism. Ann. Hepatol.
+16, s15-
+s20. doi: 10.5604/01.3001.0010.5494
+Rasoamanana, H., Ravelomanantsoa, S., Nomenjanahary, M. V., Gauche, M. M., Prior,
+P., Gue ́rin, F., et al. (2023). Bacteriocin production correlates with epidemiological
+prevalence of phylotype I sequevar 18 Ralstonia pseudosolanacearum in Madagascar.
+Appl. Environ. Microbiol. 89, e0163222. doi: 10.1128/aem.01632-22
+Reddy, T. B. K., Riley, R., Wymore, F., Montgomery, P., DeCaprio, D., Engels, R., et al.
+(2009). TB database: an integrated platform for tuberculosis research. Nucleic Acids Res.
+37, D499-D508. doi: 10.1093/nar/gkn652
+Rockwood, N., du Bruyn, E., Morris, T., and Wilkinson, R. J. (2016). Assessment of
+treatment response in tuberculosis. Expert Rev. Respir. Med. 10, 643–654. doi: 10.1586/
+17476348.2016.1166960
+S a k a l l i o g l u ,I .T . ,M a r o l i ,A .S . ,D eL i m aL e i t e ,A . ,M a r s h a l l ,D .D . ,E v a n s ,B .W . ,Z i n n i e l ,D .K . ,
+et al. (2022). Multi-omics investigation intothe mechanism of action of an anti-tubercular
+fatty acid analogue.J. Am. Chem. Soc 144, 21157–21173. doi: 10.1021/jacs.2c08238
+Salvi, P. S., and Cowles, R. A. (2021). Butyrate and the intestinal epithelium:
+modulation of proliferation and in ﬂammation in homeostasis and disease. Cells 10
+(7), 1775. doi: 10.3390/cells10071775
+Sauer, C. M., Sasson, D., Paik, K. E., McCague, N., Celi, L. A., Sanchez Fernandez, I.,
+et al. (2018). Feature selection and prediction of treatment failure in tuberculosis. PloS
+One 13, e0207491. doi: 10.1371/journal.pone.0207491
+Schulthess, J., Pandey, S., Capitani, M., Rue-Albrecht, K. C., Arnold, I., Franchini, F.,
+et al. (2019). The short chain fatty acid butyrate imprints an antimicrobial program in
+macrophages. Immunity 50, 432 –445, e437. doi: 10.1016/j.immuni.2018.12.018
+Seyed Aria, N., and Alexander, L. C. (2024). Fecal microbiota transplantation: A
+potential novel treatment strategy for extensively drug-resistant tuberculosis. Med.
+Hypotheses 189, 111396. doi: 10.1016/j.mehy.2024.111396
+Shah, I., Poojari, V., and Meshram, H. (2020). Multi-drug resistant and extensively-
+drug resistant tuberculosis. Indian J. Pediatr. 87, 833 –839. doi: 10.1007/s12098-020-
+03230-1
+Sharma, A., Sharma, A., Malhotra, R., Singh, P., Chakrabortty, R. K., Mahajan, S., et al.
+(2021). An accurate artiﬁcial intelligence system for the detection of pulmonary and extra
+pulmonary tuberculosis.Tuberculosis 131, 102143. doi: 10.1016/j.tube.2021.102143
+Smyth, G. K. (2005). “limma: linear models for microarray data, ” in Bioinformatics and
+computational biology solutions using R and bioconductor . Eds. R. Gentleman, V. J.
+Carey, W. Huber, R. A. Irizarry and S. Dudoit (Springer New York, New York, NY),
+397–420.
+Song, J. H., Yoon, S.-Y., Park, T. Y., Heo, E. Y., Kim, D. K., Chung, H. S., et al. (2019).
+The clinical impact of drug-induced hepatotoxicity on anti-tuberculosis therapy: a case
+control study. Respir. Res. 20, 283. doi: 10.1186/s12931-019-1256-y
+Sorbara, M. T., and Pamer, E. G. (2022). Microbiome-based therapeutics. Nat. Rev.
+Microbiol. 20, 365–380. doi: 10.1038/s41579-021-00667-9
+Spiegel, J. M., Ehrlich, R., Yassi, A., Riera, F., Wilkinson, J., Lockhart, K., et al. (2021).
+Using artiﬁcial intelligence for high-volume identi ﬁcation of silicosis and tuberculosis:
+a bio-ethics approach. Ann. Global Health 87, 58. doi: 10.5334/aogh.3206
+Srinivasu, P. N., Sandhya, N., Jhaveri, R. H., and Raut, R. (2022). From blackbox to
+explainable AI in healthcare: existing tools and case studies. Mob Inf. Syst. 2022,
+8167821. doi: 10.1155/2022/8167821
+Srivastava, S., Pasipanodya, J. G., Ramachandran, G., Deshpande, D., Shuford, S.,
+Crosswell, H. E., et al. (2016). A long-term co-perfused disseminated tuberculosis-3D
+liver hollow ﬁber model for both drug ef ﬁcacy and hepatotoxicity in babies.
+EBioMedicine 6, 126 –138. doi: 10.1016/j.ebiom.2016.02.040
+Suárez Araujo, C. P., Garc ı́aB áez, P., Sánchez Rodrı́guez, A., and Santana Rodr ı́guez, J.
+J. (2009). HUMANN-based system to identify benzimidazole fungicides using multi-
+synchronous ﬂuorescence spectra: an ensemble approach. Anal. Bioanal Chem. 394,
+1059–1072. doi: 10.1007/s00216-009-2654-7
+Szoboszlay, M., Schramm, L., Pinzauti, D., J,S., Sandionigi, A., and Biazzo, M. (2023).
+Nanopore is preferable over Illumina for 16S amplicon sequencing of the gut microbiota
+when species-level taxonomic classiﬁcation, accurate estimation of richness, or focus on
+rare taxa is required. Microorganisms 11, 804. doi: 10.3390/microorganisms11030804
+Sun et al. 10.3389/fcimb.2026.1847443
+Frontiers in Cellular and Infection Microbiology frontiersin.org25
+Tanes, C., Bittinger, K., Gao, Y., Friedman, E. S., Nessel, L., Paladhi, U. R., et al. (2021).
+Role of dietary ﬁber in the recovery of the human gut microbiome and its metabolome.
+Cell Host Microbe 29, 394 –407.e395. doi: 10.1016/j.chom.2020.12.012
+Thompson, A., Schäfer, J., Kuhn, K., Kienle, S., Schwarz, J., Schmidt, G., et al. (2003).
+Tandem mass tags: A novel quanti ﬁcation strategy for comparative analysis of complex
+protein mixtures by MS/MS. Anal. Chem. 75, 1895 –1904. doi: 10.1021/ac0262560
+Tian, Y., Zhang, M., Ali, S. L., Abduldayeva, A., Zhou, S., An, Y., et al. (2026).
+Immunoinformatic design and evaluation of a multi-epitope mRNA vaccine RP14914P
+targeting latent tuberculosis infection.Pathogens15, 297. doi: 10.3390/pathogens15030297
+T i e n ,N .T .N . ,Y e n ,N .T .H . ,P h a t ,N .K . ,A n h ,N .K . ,T h u ,N .Q . ,D i n hH o a ,V . ,e ta l .( 2 0 2 4 ) .
+Circulating lipids as biomarkers for diagnosis of tuberculosis: a multi-cohort, multi-omics data
+integration analysis.medRxiv, 2024.2008.2006.24311536. doi: 10.1101/2024.08.06.24311536
+T u r n b a u g h ,P .J . ,L e y ,R .E . ,H a m a d y ,M . ,F r a s e r - L i g g e t t ,C .M . ,K n i g h t ,R . ,a n dG o r d o n ,J .I .
+(2007). The human microbiome project.Nature 449, 804–810. doi: 10.1038/nature06244
+Turnbaugh, P. J., Ridaura, V. K., Faith, J. J., Rey, F. E., Knight, R., and Gordon, J. I. (2009).
+The effect of diet on the human gut microbiome: a metagenomic analysis in humanized
+gnotobiotic mice. Sci. Transl. Med. 1, 6ra14. doi: 10.1126/scitranslmed.3000322
+Verboven, L., Callens, S., Black, J., Maartens, G., Dooley, K. E., Potgieter, S., et al.
+(2024). A machine-learning based model for automated recommendation of individ-
+ualized treatment of rifampicin-resistant tuberculosis. PloS One 19, e0306101. doi:
+10.21203/rs.3.rs-2525765/v1
+Verma, A., Bhagchandani, T., Rai, A., Nikita,, Sardarni, U. K., Bhavesh, N. S., et al.
+(2024). Short-chain fatty acid (SCFA) as a connecting link between microbiota and gut-
+lung axis-a potential therapeutic intervention to improve lung health. ACS Omega 9,
+14648–14671. doi: 10.1021/acsomega.3c05846
+Vinhaes, C. L., Fukutani, E. R., Santana, G. C., Arriaga, M. B., Barreto-Duarte, B., Araújo-
+P e r e i r a ,M . ,e ta l .( 2 0 2 4 ) .A ni n t e g r a t i v em u l ti-omics approach to characterize interactions
+between tuberculosis and diabetes mellitus.Iscience27, 109135. doi: 10.1016/j.isci.2024.109135
+Wang, Y., Deng, Y., Liu, N., Chen, Y., Jiang, Y., Teng, Z., et al. (2022). Alterations in the
+gut microbiome of individuals with tuberculosis of different disease states. Front. Cell.
+Infect. Microbiol. 12, 836987. doi: 10.3389/fcimb.2022.836987
+Wang, J., Jiang, F., Cheng, P., Ye, Z., Li, L., Yang, L., et al. (2024). Construction of novel
+multi-epitope-based diagnostic biomarker HP16118P and its application in the
+differential diagnosis of Mycobacterium tuberculosis latent infection. Mol. Biomed. 5,
+15. doi: 10.1186/s43556-024-00177-z
+Wang, B., Li, M., Ma, H., Han, F., Wang, Y., Zhao, S., et al. (2019). Computed
+tomography-based predictive nomogram for differentiating primary progressive pul-
+monary tuberculosis from community-acquired pneumonia in children. BMC Med.
+Imaging 19, 63. doi: 10.1186/s12880-019-0355-z
+Weiner, J., Parida, S. K., Maertzdorf, J., Black, G. F., Repsilber, D., Telaar, A., et al.
+(2012). Biomarkers of inﬂammation, immunosuppression and stress with active disease
+are revealed by metabolomic pro ﬁling of tuberculosis patients. PloS One 7, e40221. doi:
+10.1371/journal.pone.0040221
+WHO (2025).Global tuberculosis report 2025(Geneva: World HealthO r g a n i z a t i o n ) ,1–76.
+Wipperman, M. F., Bhattarai, S. K., Vorkas, C. K., Maringati, V. S., Taur, Y., Mathurin,
+L., et al. (2021). Gastrointestinal microbiota composition predicts peripheral in ﬂam-
+matory state during treatment of human tuberculosis. Nat. Commun. 12, 1141. doi:
+10.1038/s41467-021-21475-y
+World Health Organization (2022). WHO consolidated guidelines on tuberculosis.
+Module 4: treatment-drug-resistant tuberculosis treatment, 2022 update (Geneva:
+World Health Organization).
+Xi, M., Ruan, Q., Zhong, S., Li, J., Qi, W., Xie, C., et al. (2024). Periodontal bacteria
+in
+ﬂuence systemic diseases through the gut microbiota. Front. Cell. Infect. Microbiol.
+14, 1478362. doi: 10.3389/fcimb.2024.1478362
+Xie, M., Tsai, C. Y., McAdams, Z. L., Oo, M., Hansen, M., Dougher, M., et al. (2023).
+Wild mouse gut microbiota limits initial tuberculosis infection in BALB/c mice. PloS
+One 18, e0288290. doi: 10.1371/journal.pone.0288290
+Yang, Y., Niehaus, K. E., Walker, T. M., Iqbal, Z., Walker, A. S., Qilson, D. J., et al.
+(2018). Machine learning for classifying tuberculosis drug-resistance from DNA
+sequencing data. Bioinformatics 34 (10), 1666 –1671. doi: 10.1093/bioinformatics/
+btx801
+Yan, C., Wang, L., Lin, J., Xu, J., Zhang, T., Qi, J., et al. (2022). A fully automatic
+artiﬁcial intelligence–based CT image analysis system for accurate detection, diagnosis,
+and quantitative severity evaluation of pulmonary tuberculosis. Eur. Radio 32, 2188 –
+2199. doi: 10.1007/s00330-021-08365-z
+Yuan, Z., Kang, Y., Mo, C., Huang, S., Qin, F., Zhang, J., et al. (2024). Causal
+relationship between gut microbiota and tuberculosis: a bidirectional two-sample
+Mendelian randomization analysis. Respir. Res. 25, 16. doi: 10.1186/s12931-023-
+02652-7
+Zaizen, Y., Kanahori, Y., Ishijima, S., Kitamura, Y., Yoon, H.-S., Ozasa, M., et al. (2022).
+Deep-learning-aided detection of mycobacteria in pathology specimens increases the
+sensitivity in early diagnosis of pulmonary tuberculosis compared with bacteriology
+tests. Diagnostics 12, 709. doi: 10.3390/diagnostics12030709
+Zhang, M., Ali, S. L., Tian, Y., Abduldayeva, A., Zhou, S., An, Y., et al. (2025). EP9158H:
+an immunoinformatics-designed mRNA vaccine encoding multi-epitope antigens and
+dual TLR agonists for tuberculosis prevention. Bioengineering 12, 1378. doi: 10.3390/
+bioengineering12121378
+Zhang, T., Gao, G., Kwok, L. Y., and Sun, Z. (2023). Gut microbiome-targeted therapies
+for Alzheimer ’sd i s e a s e . Gut Microbes 15, 2271613. doi: 10.1080/
+19490976.2023.2271613
+Zhang, J., Liu, Y., Zhi, X., Xu, L., Tao, J., Cui, D., et al. (2024). Tryptophan catabolism
+via the kynurenine pathway regulates infection and in ﬂammation: From mechanisms
+to biomarkers and therapies. Inﬂammation Res. 73, 979–996. doi: 10.1007/s00011-024-
+01878-5
+Zhang, M., Tian, Y., Gao, B., Qin, X., Shen, Q., Li, Z., et al. (2026). Interpretation of the
+Global Tuberculosis Report 2025: Global epidemic trends and China ’s control strategy.
+Zoonoses 6, 6. doi: 10.15212/ZOONOSES-2026-0002
+Zhao, T., Hock, D. H., Pitt, J., Thorburn, D. R., Stroud, D. A., and Christodoulou, J.
+(2025). Review: Utility of mass spectrometry in rare disease research and diagnosis. NPJ
+Genom. Med. 10, 29. doi: 10.1038/s41525-025-00487-3
+Zhong, H., Song, Y., Long, F., Lu, H., Ai, M., Li, T., et al. (2024). Design of excellent
+mechanical performances and magnetic refrigeration via in situ forming dual-phase
+alloys. Adv. Mater. 36, e2402046. doi: 10.1002/adma.202402046
+Zhong, T., Zhuang, Z., Dong, X., Wong, K. H., Wong, W. T., Wang, J., et al. (2021).
+Predicting antituberculosis drug –induced liver injury using an interpretable machine
+learning method: model development and validation study. JMIR Med. Inf. 9, e29226.
+doi: 10.2196/29226
+Zhou, S., Xu, Z., Zhang, M., Xu, C., Guo, Y., Zhan, Z., et al. (2025). Large language
+models for disease diagnosis: A scoping review. NPJ Artif. Intell. 1, 9. doi: 10.1038/
+s44387-025-00011-z
+Z h u ,C . ,C h e n ,J . ,L i ,Y . ,Z h a n g ,Q . ,L u ,Q . ,Z h a n g ,N . ,e ta l .( 2 0 2 6 ) .R o b u s t
+diagnostic and therapeutic biom arkers for tuberculosis identi ﬁed through multi-
+omics and Mendelian randomization analysis. Medcomm 7, e70559. doi: 10.1002/
+mco2.70559
+Zhuang, L., Ali, A., Yang, L., Ye, Z., Li, L., Ni, R., et al. (2024a). Leveraging computer-
+aided design and arti ﬁ
+cial intelligence to develop a next-generation multi-epitope
+tuberculosis vaccine candidate. Infect. Med. (Beijing) 3, 100148. doi: 10.1016/
+j.imj.2024.100148
+Zhuang, L., Ye, Z., Li, L., Yang, L., and Gong, W. (2023). Next-generation TB vaccines:
+Progress, challenges, and prospects. Vaccines (Basel) 11, 1304. doi: 10.3390/vac-
+cines11081304
+Zhuang, L., Zhao, Y., Yang, L., Li, L., Ye, Z., Ali, A., et al. (2024b). Harnessing
+bioinformatics for the development of a promising multi-epitope vaccine against
+tuberculosis: The ZL9810L vaccine. Decod Infect Transm. 2, 100026. doi: 10.1016/
+j.dcit.2024.100026
+Sun et al. 10.3389/fcimb.2026.1847443
+Frontiers in Cellular and Infection Microbiology frontiersin.org26
