@@ -17,9 +17,26 @@ import httpx
 from pypdf import PdfReader
 
 INGEST_URL = "http://localhost:8000/ingest"
+HEALTH_URL = "http://localhost:8000/health"
 DEFAULT_MANIFEST = Path("./corpus_manifest.json")
 DEFAULT_CORPUS_DIR = Path("./corpus")
 
+def check_existing_chunks(client: httpx.Client) -> int:
+    """Query /health for current chunk count. Exits if the server isn't
+    reachable or isn't ready yet — ingesting against a not-ready server
+    would just fail on every request anyway."""
+    try:
+        response = client.get(HEALTH_URL, timeout=10.0)
+    except httpx.ConnectError:
+        print("ERROR: could not reach the server — is `uvicorn main:app` running?")
+        sys.exit(1)
+
+    if response.status_code == 503:
+        body = response.json()
+        print(f"Server not ready yet: {body}. Wait for /health to report 'ready', then retry.")
+        sys.exit(1)
+
+    return response.json().get("chunks", 0)
 
 def ingest_file(client: httpx.Client, pdf_path: Path, source: str) -> int | None:
     """Extract text from a PDF and POST it to the local /ingest endpoint."""
@@ -74,8 +91,21 @@ def main() -> int:
     }
 
     print(f"\nIngesting from: {args.corpus_dir.resolve()}\n")
-
     with httpx.Client() as client:
+        existing = check_existing_chunks(client)
+        if existing > 0:
+            answer = input(
+                f"Collection already has {existing} chunks. Ingesting now will "
+                f"add to it, not replace it — if any of these articles are "
+                f"already in there, you'll get duplicates. Continue? [y/N] "
+            )
+            if answer.strip().lower() not in ("y", "yes"):
+                print(
+                    "Aborted — run reset_collection.py first if you want a clean ingest.\n"
+                    "For a full clean-slate rebuild, see the fresh-start recipe in the README."
+                )
+                return 1
+
         for article in articles:
             filename = article["filename"]
             cluster = article.get("cluster", "unknown")
