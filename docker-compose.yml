@@ -1,0 +1,22 @@
+services:
+  research-assistant:
+    build: .
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+
+    volumes:
+      - chroma_data:/data/chroma_db
+
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 40s
+
+
+volumes:
+  chroma_data:
+
