@@ -6,6 +6,36 @@ The test corpus is 19 open-access biomedical research articles (PubMed Central O
 
 **Retrieval accuracy: 96.4% @ n=3, 98.2% @ n=8** on a 133-query golden QA set (111 scored), spanning direct lookup, multi-hop, cross-document distractor, and cross-document synthesis cases. BM25 hybrid search and LLM query rewriting were implemented and evaluated as opt-in additions but measured no net benefit on this corpus — see [ADR-001](./adr/001-chunking-and-retrieval.md) for the full evaluation, including one attributable regression from BM25 alone.
 
+## Quickstart (Docker)
+
+```bash
+cp .env.example .env   # add your ANTHROPIC_API_KEY
+docker compose up --build
+```
+
+`/health` reports `{"status": "loading"}` (`503`) while models load and
+the seed corpus is ingested, then `{"status": "ready", "chunks": ...}`
+(`200`) once it's usable — expect roughly 30–60s on first run.
+
+Try a query against the seed corpus once ready:
+
+```bash
+curl -X POST localhost:8000/query \
+  -H "Content-Type: application/json" \
+  -d '{"question": "What does CT-FFR measure in coronary artery disease?"}'
+```
+
+`docker compose restart` reuses the same named volume — seeding is
+skipped and existing data persists.
+
+**The seed corpus (3 documents, bundled in the image) is a demo
+convenience only.** The retrieval accuracy figures above (96.4% @ n=3,
+98.2% @ n=8) were measured against the full 19-document corpus loaded
+via the manual process below, run outside Docker — not against the
+seed corpus. See [ADR-003](./adr/003-deployment-and-containerisation.md)
+for the full reasoning behind the Docker setup, including what was
+deliberately left out of it.
+
 ## Loading the corpus
 
 The corpus PDFs are not committed to this repo (see `.gitignore`) — some
