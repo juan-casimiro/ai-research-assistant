@@ -36,11 +36,18 @@ seed corpus. See [ADR-003](./adr/003-deployment-and-containerisation.md)
 for the full reasoning behind the Docker setup, including what was
 deliberately left out of it.
 
-## Loading the corpus
+## Loading the full corpus (development / evaluation)
 
-The corpus PDFs are not committed to this repo (see `.gitignore`) — some
-are under licenses that don't permit redistribution. To populate a local
-corpus:
+Skip this if you just ran the Docker quickstart above — it covers the
+other path: running on the host against the full 19-document corpus,
+which is what the accuracy figures above are measured against. The two
+are separate because 7 of the 19 articles carry NC/ND terms and can't
+be redistributed in a public image, and because host development keeps
+`uvicorn --reload` and the eval harness fast. See
+[ADR-003](./adr/003-deployment-and-containerisation.md).
+
+The corpus PDFs are not committed to this repo (see `.gitignore`). To
+populate a local corpus:
 
 1. Open `corpus_manifest.json`. Each entry lists a `doi` and a `filename`.
 2. For each article, resolve the DOI (e.g. `https://doi.org/<doi>`) and
