@@ -9,6 +9,7 @@ Usage:
 import json
 import random
 from pathlib import Path
+import argparse
 
 import httpx
 
@@ -58,12 +59,42 @@ def query_service(question: str) -> bool:
     return response.json()["context_sufficient"]
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(
+        description="Measure context_sufficient flag accuracy."
+    )
+    parser.add_argument(
+        "--ids",
+        help="Comma-separated query IDs to run, for example: q103,q030,q067",
+    )
+    args = parser.parse_args(argv)
+
     print("=" * 70)
     print("CONTEXT_SUFFICIENT ACCURACY EVALUATION")
     print("=" * 70)
 
     samples = build_false_bucket() + build_true_bucket()
+
+    if args.ids:
+        requested_ids = {
+            query_id.strip()
+            for query_id in args.ids.split(",")
+            if query_id.strip()
+        }
+        available_ids = {sample["id"] for sample in samples}
+        unknown_ids = requested_ids - available_ids
+
+        if unknown_ids:
+            parser.error(
+                "query IDs not present in the evaluation sample: "
+                + ", ".join(sorted(unknown_ids))
+            )
+
+        samples = [
+            sample for sample in samples
+            if sample["id"] in requested_ids
+        ]
+
     print(f"  Sample size  : {len(samples)}  "
           f"({sum(1 for s in samples if not s['expected_sufficient'])} expected-False, "
           f"{sum(1 for s in samples if s['expected_sufficient'])} expected-True)")
