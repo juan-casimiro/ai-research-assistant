@@ -146,14 +146,30 @@ documented-and-deliberate reads as judgement.
   `ingest_corpus.py` against a host-run (non-Docker) instance. The
   README quickstart states this explicitly so the two corpora are never
   conflated.
-- `docker-compose.yml`'s `env_file: .env` means values in a developer's
-  local `.env` reach the container and can override Dockerfile
-  defaults — including `CHROMA_PATH`. A stray `CHROMA_PATH` in `.env`
-  pointing somewhere other than `/data/chroma_db` would silently break
-  the persistence this ADR just documented, by writing Chroma data
-  outside the mounted volume. `.env.example` carries a comment warning
-  against setting `CHROMA_PATH` locally for exactly this reason.
-- Because readiness doesn't probe the LLM provider, a misconfigured or
+- **`docker-compose.yml` pins `SEED_ON_EMPTY` and `CHROMA_PATH` via
+  `environment:`, which Compose resolves with higher precedence than
+  `env_file:`.** Originally both values reached the container only
+  through `env_file: .env`, so a developer's local `.env` — tuned for
+  host development, where `SEED_ON_EMPTY=false` avoids seed/full-corpus
+  contamination (see below) — silently reached the reviewer's container
+  too, either skipping the demo seed or, if `CHROMA_PATH` diverged,
+  writing Chroma data outside the mounted volume and breaking the
+  persistence this ADR documents. Verified via `docker compose config`:
+  the reviewer path now shows `SEED_ON_EMPTY=true` and
+  `CHROMA_PATH=/data/chroma_db` regardless of what's set locally.
+  `.env.example`'s comments were updated to state this rather than warn
+  against a hazard that no longer exists.
+- **The host development path must independently set
+  `SEED_ON_EMPTY=false`.** The seed corpus and the full 19-document
+  corpus share three overlapping articles (see
+  `seed_corpus/ATTRIBUTION.md`) — if the host server auto-seeds before
+  `ingest_corpus.py` runs, those three end up ingested twice under
+  different filenames (`.txt` from the seed corpus, `.pdf`-derived from
+  the full corpus). `eval_golden.py`'s document-name matching can't
+  deduplicate that, so it would silently corrupt retrieval evaluation.
+  Previously this was documented only in `seed_corpus/ATTRIBUTION.md`;
+  it's now stated directly in the README's host section.
+  - Because readiness doesn't probe the LLM provider, a misconfigured or
   invalid `ANTHROPIC_API_KEY` will not be visible at `/health` — it
   surfaces only on the first `/query` call, as a request-level error.
   Worth knowing if `/health` reports `200` but queries still fail.
