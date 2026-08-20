@@ -6,7 +6,16 @@ The test corpus is 19 open-access biomedical research articles (PubMed Central O
 
 **Retrieval accuracy: 96.4% @ n=3, 98.2% @ n=8** on a 133-query golden QA set (111 scored), spanning direct lookup, multi-hop, cross-document distractor, and cross-document synthesis cases. BM25 hybrid search and LLM query rewriting were implemented and evaluated as opt-in additions but measured no net benefit on this corpus — see [ADR-001](./adr/001-chunking-and-retrieval.md) for the full evaluation, including one attributable regression from BM25 alone.
 
-## Quickstart (Docker)
+## Two ways to run this
+
+| | Docker | Host |
+|---|---|---|
+| For | Reviewers — one command, zero setup | Development & evaluation |
+| Corpus | 3 seed documents (CC BY, bundled) | Full 19-document corpus (downloaded manually) |
+| Command | `docker compose up --build` | see below |
+| Reproduces 96.4% / 98.2%? | No — the seed corpus has never been run through `eval_golden.py` | Yes — this is how those figures were measured |
+
+## Run it (Docker)
 
 ```bash
 cp .env.example .env   # add your ANTHROPIC_API_KEY
@@ -36,18 +45,39 @@ seed corpus. See [ADR-003](./adr/003-deployment-and-containerisation.md)
 for the full reasoning behind the Docker setup, including what was
 deliberately left out of it.
 
-## Loading the full corpus (development / evaluation)
+## Develop and evaluate (host)
 
-Skip this if you just ran the Docker quickstart above — it covers the
-other path: running on the host against the full 19-document corpus,
-which is what the accuracy figures above are measured against. The two
-are separate because 7 of the 19 articles carry NC/ND terms and can't
-be redistributed in a public image, and because host development keeps
-`uvicorn --reload` and the eval harness fast. See
-[ADR-003](./adr/003-deployment-and-containerisation.md).
+This is the path the headline retrieval figures (96.4% @ n=3, 98.2% @
+n=8) were measured on. It runs against the full 19-document corpus,
+not the 3-document Docker seed corpus.
 
-The corpus PDFs are not committed to this repo (see `.gitignore`). To
-populate a local corpus:
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+`.env`:
+ANTHROPIC_API_KEY=your-key-here
+
+
+**Confirm `SEED_ON_EMPTY=false` in your `.env`.** Docker pins
+`SEED_ON_EMPTY=true` for reviewers regardless of what's in `.env` (see
+`docker-compose.yml`), but nothing overrides it on the host. Leaving it
+unset or `true` here will auto-ingest the 3-document seed corpus
+alongside the full corpus you're about to load below — not instead of
+it — silently duplicating articles under two filenames and skewing
+retrieval results.
+
+Start the server:
+
+```bash
+uvicorn main:app --reload
+```
+
+In a separate terminal, populate the full corpus. The PDFs aren't
+committed to this repo (see `.gitignore`) — some articles carry NC/ND
+license terms, so downloading is a manual step by design:
 
 1. Open `corpus_manifest.json`. Each entry lists a `doi` and a `filename`.
 2. For each article, resolve the DOI (e.g. `https://doi.org/<doi>`) and
@@ -55,19 +85,42 @@ populate a local corpus:
 3. Save it into `./corpus/` using the **exact filename** from the
    manifest (e.g. `diabetes-cgm-management.pdf`) — `ingest_corpus.py`
    matches files by this name.
-4. Once all PDFs are in place, ingest them:
+4. Ingest everything:
 
 ```bash
-   python reset_collection.py      # resets the vector store (safe on a fresh clone)
-   uvicorn main:app --reload       # start the server, separate terminal
-   python ingest_corpus.py         # ingests every PDF listed in the manifest
+python reset_collection.py    # resets the vector store (safe on a fresh clone)
+python ingest_corpus.py       # ingests every PDF listed in the manifest
 ```
 
    Expect one `INGESTED` line per file; `SKIP (file not found)` means
    that PDF hasn't been downloaded yet.
 
-This is a manual step by design — some articles carry NC/ND license
-terms, so downloading is left to the reader rather than automated.
+### Retrieval evaluation
+
+```bash
+python eval_golden.py [--bm25] [--rewrite]
+```
+
+Runs the golden QA evaluation harness (`golden_qa.json`, 133 queries,
+111 scored across 4 categories plus unanswerable) against the live
+`retrieve()` pipeline — evaluation always tests the exact code path
+used in production. Results are written to `eval_results.json` with a
+config label and per-query verdicts. See
+[ADR-002](./adr/002-evaluation-methodology.md) for the category design
+and scoring logic.
+
+```bash
+python compare_evals.py <baseline.json> <experiment.json>
+```
+
+Diffs two result files and prints per-query pass/fail flips, for
+isolating the effect of a single change.
+
+Raw per-query results for all four tested configurations are committed
+under `eval_results/` for inspection: `eval_results_baseline.json`,
+`eval_results_bm25.json`, `eval_results_rewrite.json`, and
+`eval_results_bm25_rewrite.json`.
+
 
 ## Features
 
@@ -146,24 +199,6 @@ BM25 and query rewriting are opt-in (use_bm25, use_query_rewriting on /query, bo
   integration package (e.g. `langchain-openai`)
 
 
-## Setup
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-```
-
-The default configuration uses Anthropic via LangChain.
-`.env`:
-ANTHROPIC_API_KEY=your-key-here
-
-## Running
-
-```bash
-uvicorn main:app --reload
-```
-
 ## Design decisions and known limitations
  
 See [ADR-001](./adr/001-chunking-and-retrieval.md) for the full history:
@@ -186,24 +221,6 @@ breakdown, including one attributable regression from BM25 alone and
 why combining it with rewriting recovered it, re-confirmed after the
 corpus expanded from 16 to 19 documents (outlier cluster).
 
-
-## Retrieval evaluation
-
-`python eval_golden.py [--bm25] [--rewrite]` runs the golden QA
-evaluation harness (`golden_qa.json`, 133 queries, 111 scored across 4
-categories plus unanswerable) against the live `retrieve()` pipeline, so
-evaluation always tests the exact code path used in production. Results
-are written to `eval_results.json` with a config label and per-query
-verdicts.
-
-`python compare_evals.py <baseline.json> <experiment.json>` diffs two
-result files and prints per-query pass/fail flips, for isolating the
-effect of a single change.
-
-Raw per-query results for all four tested configurations are committed
-under `eval_results/` for inspection: `eval_results_baseline.json`,
-`eval_results_bm25.json`, `eval_results_rewrite.json`, and
-`eval_results_bm25_rewrite.json`.
 
 ## Possible future improvements
 
