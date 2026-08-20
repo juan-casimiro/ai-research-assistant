@@ -1,10 +1,13 @@
-#!/usr/bin/env python3
 """Measures context_sufficient flag accuracy against golden QA ground truth.
 
 Requires a running server: `uvicorn main:app` in a separate terminal.
 
 Usage:
+    # Run the full evaluation
     python eval_context_sufficient.py
+
+    # Run only selected queries
+    python eval_context_sufficient.py --ids q103,q030,q067
 """
 import json
 import random
@@ -65,7 +68,11 @@ def main(argv: list[str] | None = None) -> int:
     )
     parser.add_argument(
         "--ids",
-        help="Comma-separated query IDs to run, for example: q103,q030,q067",
+        help=(
+            "Comma-separated query IDs to evaluate. "
+            "For example: --ids q103,q030,q067. "
+            "Omit to run the full evaluation."
+        ),
     )
     args = parser.parse_args(argv)
 
