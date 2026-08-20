@@ -3,6 +3,9 @@ services:
     build: .
     env_file:
       - .env
+    environment:
+      SEED_ON_EMPTY: "true"
+      CHROMA_PATH: /data/chroma_db
     ports:
       - "8000:8000"
 
