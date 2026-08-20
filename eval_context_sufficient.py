@@ -27,16 +27,13 @@ N_PASSING_SAMPLE = 29
 
 
 def build_false_bucket() -> list[dict]:
-    """unanswerable queries, minus known false-premise exceptions.
-    Ground truth: context_sufficient should be False.
-    """
+    """All valid unanswerable queries (expected_sufficient=False)."""
     golden = json.loads(GOLDEN_QA_PATH.read_text())
     queries = [
         q for q in golden["queries"]
         if q["category"] == "unanswerable" and q["id"] not in FALSE_PREMISE_EXCLUSIONS
     ]
     return [{"id": q["id"], "question": q["question"], "expected_sufficient": False} for q in queries]
-
 
 def build_true_bucket() -> list[dict]:
     """Random sample of queries that passed retrieval at n=8 in the baseline eval.
