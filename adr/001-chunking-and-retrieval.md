@@ -413,5 +413,30 @@ judgement follows the answer rather than preceding it.
    `true` is the better outcome, since retrying would discard a correct
    answer.
 
-3. **The flag depends on LLM self-assessment**, which is not perfectly
-   reliable in either direction.
+3. **The flag depended on LLM self-assessment; this has now been
+   measured and one failure mode fixed (JUA-19).** Measured against
+   golden QA ground truth (21 unanswerable queries, excluding the
+   false-premise case above, plus 29 randomly-sampled n=8-passing
+   queries), with LLM temperature pinned to 0 for reproducibility:
+
+   - **False positives (flag wrongly says sufficient): 19.0% → 0.0%**
+     after tightening the `context_sufficient` schema/prompt to
+     require the context explicitly answer the exact question asked,
+     rather than merely being topically relevant. Two failure classes
+     were found and fixed: relevant-but-non-answering context, and
+     cited background mistaken for the current study's own finding.
+     Verified stable across repeated identical runs.
+   - **False negatives (flag wrongly says insufficient): 17.2%,
+     unaffected by this change.** Identical rate measured before and
+     after the fix, and identical to the original unpinned baseline —
+     a pre-existing, separate issue. Deliberately not addressed here:
+     a false negative costs one retry in the consuming agent; a false
+     positive lets an under-supported answer through ungated. On a
+     BIOMED corpus, that asymmetry makes false positives the higher-
+     priority failure mode.
+   - Retrieval accuracy (96.4%/98.2%) confirmed unaffected —
+     `eval_golden.py` unchanged, zero per-query verdict flips.
+
+   Caveat: this measures agreement with the golden QA labels, which
+   are themselves LLM-generated (see limitation 2 above, `q083`) —
+   not independently verified ground truth.
