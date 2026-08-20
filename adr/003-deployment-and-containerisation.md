@@ -169,7 +169,7 @@ documented-and-deliberate reads as judgement.
   deduplicate that, so it would silently corrupt retrieval evaluation.
   Previously this was documented only in `seed_corpus/ATTRIBUTION.md`;
   it's now stated directly in the README's host section.
-  - Because readiness doesn't probe the LLM provider, a misconfigured or
+- Because readiness doesn't probe the LLM provider, a misconfigured or
   invalid `ANTHROPIC_API_KEY` will not be visible at `/health` — it
   surfaces only on the first `/query` call, as a request-level error.
   Worth knowing if `/health` reports `200` but queries still fail.
