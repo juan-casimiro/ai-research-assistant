@@ -419,6 +419,18 @@ judgement follows the answer rather than preceding it.
    false-premise case above, plus 29 randomly-sampled n=8-passing
    queries), with LLM temperature pinned to 0 for reproducibility:
 
+   **On `temperature=0`:** this controls determinism, not grounding — the
+   model always picks its highest-probability token, so identical input
+   produces identical output. It does *not* by itself prevent fabrication;
+   a model at temperature=0 will state a wrong fact just as confidently as
+   a right one, only consistently. Precision against hallucination comes
+   from the prompt constraints above (explicit-statement requirement,
+   no-inference rule, current-study provenance check) — those are what
+   fixed the FP rate. Temperature=0 matters here for a separate reason:
+   `context_sufficient` gates a retry decision downstream, and a gating
+   flag that isn't reproducible on identical input is hard to trust or
+   debug — which is exactly what the `q108` flicker (see below) surfaced.
+
    - **False positives (flag wrongly says sufficient): 19.0% → 0.0%**
      after tightening the `context_sufficient` schema/prompt to
      require the context explicitly answer the exact question asked,
