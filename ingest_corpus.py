@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """Batch ingestion script for the biomedical RAG corpus.
 
+See "Develop and evaluate (host)" in the README for the full setup
+(venv, SEED_ON_EMPTY=false, corpus download). Once that's done:
+
 Usage:
     1. Run `python reset_collection.py` to reset the collection when
        ingesting the corpus from scratch.
@@ -102,7 +105,7 @@ def main() -> int:
             if answer.strip().lower() not in ("y", "yes"):
                 print(
                     "Aborted — run reset_collection.py first if you want a clean ingest.\n"
-                    "For a full clean-slate rebuild, see the fresh-start recipe in the README."
+                    "For the full setup, see \"Develop and evaluate (host)\" in the README."
                 )
                 return 1
 
