@@ -41,3 +41,12 @@ Text extracted and added to this repo: 2026-08-18.
 - **DOI:** [10.3389/fcimb.2026.1847443](https://doi.org/10.3389/fcimb.2026.1847443)
 - **License:** CC BY 4.0
 - **Summary:** Technological and clinical review of the gut microbiome's role in tuberculosis via the gut–lung axis — reduced microbial diversity and enriched pro-inflammatory taxa in TB patients, omics- and AI-driven biomarker discovery for diagnosis and outcome prediction, and microbiome-targeted interventions (probiotics, dietary adjustment, fecal microbiota transplantation). Also discusses translational limitations: unvalidated causal mechanisms, delayed clinical translation of biomarkers, and poor accessibility of these technologies in resource-scarce regions.
+
+## diabetes-cardiovascular-outcomes.txt
+
+- **Title:** Sleep loss as a cardiometabolic risk factor: a narrative review of clinical and public health implications
+- **Authors:** Firas K. Ghanem, Hrayr Attarian, Zeina Al-Khalil, Colette S. Kabrita
+- **Journal:** Journal of Clinical Sleep Medicine
+- **DOI:** [10.1007/s44470-026-00144-1](https://doi.org/10.1007/s44470-026-00144-1)
+- **License:** CC BY 4.0
+- **Summary:** Narrative review (not systematic — no PRISMA protocol) synthesizing 102 studies on how sleep deprivation, impaired sleep architecture, and circadian misalignment affect cardiovascular and metabolic regulation via autonomic, hormonal, inflammatory, and behavioral pathways. Covers sympathetic activation and cortisol elevation, leptin/ghrelin/endocannabinoid disruption driving weight gain and insulin resistance, and shift-work circadian misalignment. Cites Sadhu et al. on daylight saving time transitions and MI risk (24% increase after the spring transition, 21% decrease after the fall transition), Cappuccio et al. on short-sleep cardiovascular risk, and Leproult et al. on sleep extension and insulin sensitivity.
