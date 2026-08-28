@@ -143,6 +143,13 @@ under `eval_results/` for inspection: `eval_results_baseline.json`,
 `sources` is ordered by relevance, most-relevant first, as determined by the
 cross-encoder reranker — see ADR-001.
 
+The service makes one bounded attempt at each LLM call; it does not retry
+Anthropic failures internally. A timed-out LLM request returns `504` with
+`{"detail":"upstream LLM request timed out"}`. Callers own any retry budget
+for transient upstream failures so they can enforce their end-to-end latency
+limit and avoid multiplying retries across service boundaries. See ADR-003
+for the measured timeout budgets and trade-offs.
+
 ## Architecture
 ```
 Document text

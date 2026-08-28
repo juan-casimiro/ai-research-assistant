@@ -9,6 +9,7 @@ from langchain.chat_models import init_chat_model
 from fastembed import TextEmbedding
 from fastembed.rerank.cross_encoder import TextCrossEncoder
 import chromadb
+from anthropic import APITimeoutError
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
@@ -17,6 +18,8 @@ from rank_bm25 import BM25Okapi
 load_dotenv()
 
 LLM_MODEL = "anthropic:claude-haiku-4-5-20251001"
+LLM_TIMEOUT_SECONDS = 35.0
+REWRITE_TIMEOUT_SECONDS = 10.0
 CHROMA_PATH = os.getenv("CHROMA_PATH", "./chroma_db")
 SEED_CORPUS_DIR = Path(os.getenv("SEED_CORPUS_DIR", "./seed_corpus"))
 SEED_ON_EMPTY = os.getenv("SEED_ON_EMPTY", "true").lower() != "false"
@@ -55,7 +58,13 @@ def _load_models() -> None:
     collection = chroma_client.get_or_create_collection("documents")
     _log(f"collection ready — {collection.count()} chunks already stored")
     _log(f"initializing LLM client ({LLM_MODEL})...")
-    llm = init_chat_model(LLM_MODEL, max_tokens=1024, temperature=0)
+    llm = init_chat_model(
+        LLM_MODEL,
+        max_tokens=1024,
+        temperature=0,
+        timeout=LLM_TIMEOUT_SECONDS,
+        max_retries=0,
+    )
     _log("models loaded")
 
 
@@ -271,7 +280,10 @@ async def rewrite_query(question: str) -> str:
         "no preamble."
     )
 
-    response = await llm.bind(max_tokens=100).ainvoke(
+    response = await llm.bind(
+        max_tokens=100,
+        timeout=REWRITE_TIMEOUT_SECONDS,
+    ).ainvoke(
         [
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": question},
@@ -371,12 +383,18 @@ async def retrieve(
 async def query(request: QueryRequest) -> QueryResponse:
     _require_ready()
 
-    retrieved_chunks, sources = await retrieve(
-        question=request.question,
-        n_results=request.n_results,
-        use_query_rewriting=request.use_query_rewriting,
-        use_bm25=request.use_bm25,
-    )
+    try:
+        retrieved_chunks, sources = await retrieve(
+            question=request.question,
+            n_results=request.n_results,
+            use_query_rewriting=request.use_query_rewriting,
+            use_bm25=request.use_bm25,
+        )
+    except APITimeoutError as exc:
+        raise HTTPException(
+            status_code=504,
+            detail="upstream LLM request timed out",
+        ) from exc
 
     context = "\n\n---\n\n".join(retrieved_chunks)
 
@@ -410,12 +428,18 @@ async def query(request: QueryRequest) -> QueryResponse:
     )
     prompt = f"Context:\n{context}\n\nQuestion: {request.question}"
 
-    result = await llm.with_structured_output(GroundedAnswer).ainvoke(
-        [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": prompt},
-        ]
-    )
+    try:
+        result = await llm.with_structured_output(GroundedAnswer).ainvoke(
+            [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": prompt},
+            ]
+        )
+    except APITimeoutError as exc:
+        raise HTTPException(
+            status_code=504,
+            detail="upstream LLM request timed out",
+        ) from exc
 
     return QueryResponse(
         answer=result.answer,
