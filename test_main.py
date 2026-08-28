@@ -5,12 +5,56 @@ from unittest.mock import AsyncMock, MagicMock, patch
 import httpx
 from anthropic import APITimeoutError
 from fastapi import HTTPException
+from pydantic import ValidationError
 
 import main
 
 
 def api_timeout() -> APITimeoutError:
     return APITimeoutError(request=httpx.Request("POST", "https://api.anthropic.com"))
+
+
+class QueryRequestValidationTests(unittest.TestCase):
+    def test_question_strips_surrounding_whitespace(self):
+        request = main.QueryRequest(question="  test question  ")
+
+        self.assertEqual(request.question, "test question")
+
+    def test_question_accepts_maximum_length(self):
+        question = "q" * 1000
+
+        request = main.QueryRequest(question=question)
+
+        self.assertEqual(request.question, question)
+
+    def test_question_rejects_empty_or_whitespace_only_values(self):
+        for question in ("", "   "):
+            with self.subTest(question=repr(question)):
+                with self.assertRaises(ValidationError):
+                    main.QueryRequest(question=question)
+
+    def test_question_rejects_value_above_maximum_length(self):
+        with self.assertRaises(ValidationError):
+            main.QueryRequest(question="q" * 1001)
+
+    def test_n_results_accepts_range_boundaries(self):
+        for n_results in (1, main.FUSED_CANDIDATE_POOL):
+            with self.subTest(n_results=n_results):
+                request = main.QueryRequest(
+                    question="test question",
+                    n_results=n_results,
+                )
+
+                self.assertEqual(request.n_results, n_results)
+
+    def test_n_results_rejects_values_outside_range(self):
+        for n_results in (-1, 0, main.FUSED_CANDIDATE_POOL + 1):
+            with self.subTest(n_results=n_results):
+                with self.assertRaises(ValidationError):
+                    main.QueryRequest(
+                        question="test question",
+                        n_results=n_results,
+                    )
 
 
 class LlmConfigurationTests(unittest.TestCase):

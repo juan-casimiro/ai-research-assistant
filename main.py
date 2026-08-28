@@ -3,6 +3,7 @@ import os
 import re
 from contextlib import asynccontextmanager
 from pathlib import Path
+from typing import Annotated
 
 from dotenv import load_dotenv
 from langchain.chat_models import init_chat_model
@@ -12,7 +13,7 @@ import chromadb
 from anthropic import APITimeoutError
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, StringConstraints
 from rank_bm25 import BM25Okapi
 
 load_dotenv()
@@ -205,8 +206,11 @@ class IngestRequest(BaseModel):
 
 
 class QueryRequest(BaseModel):
-    question: str
-    n_results: int = 3
+    question: Annotated[
+        str,
+        StringConstraints(strip_whitespace=True, min_length=1, max_length=1000),
+    ]
+    n_results: int = Field(default=3, ge=1, le=FUSED_CANDIDATE_POOL)
     use_query_rewriting: bool = False  # opt-in — LLM query expansion
     use_bm25: bool = False             # opt-in — sparse lexical retrieval
 
