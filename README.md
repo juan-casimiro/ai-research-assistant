@@ -11,7 +11,7 @@ The test corpus is 19 open-access biomedical research articles (PubMed Central O
 | | Docker | Host |
 |---|---|---|
 | For | Reviewers — one command, zero setup | Development & evaluation |
-| Corpus | 3 seed documents (CC BY, bundled) | Full 19-document corpus (downloaded manually) |
+| Corpus | [Bundled seed corpus](./adr/003-deployment-and-containerisation.md) (CC BY) | Full 19-document corpus (downloaded manually) |
 | Command | `docker compose up --build` | see below |
 | Reproduces 96.4% / 98.2%? | No — the seed corpus has never been run through `eval_golden.py` | Yes — this is how those figures were measured |
 
@@ -37,8 +37,9 @@ curl -X POST localhost:8000/query \
 `docker compose restart` reuses the same named volume — seeding is
 skipped and existing data persists.
 
-**The seed corpus (3 documents, bundled in the image) is a demo
-convenience only.** The retrieval accuracy figures above (96.4% @ n=3,
+**The [seed corpus](./adr/003-deployment-and-containerisation.md)
+bundled in the image is a demo convenience only.** The retrieval
+accuracy figures above (96.4% @ n=3,
 98.2% @ n=8) were measured against the full 19-document corpus loaded
 via the manual process below, run outside Docker — not against the
 seed corpus. See [ADR-003](./adr/003-deployment-and-containerisation.md)
@@ -49,7 +50,8 @@ deliberately left out of it.
 
 This is the path the headline retrieval figures (96.4% @ n=3, 98.2% @
 n=8) were measured on. It runs against the full 19-document corpus,
-not the 3-document Docker seed corpus.
+not the [bundled Docker seed
+corpus](./adr/003-deployment-and-containerisation.md).
 
 ```bash
 python -m venv .venv
@@ -64,7 +66,8 @@ ANTHROPIC_API_KEY=your-key-here
 **Confirm `SEED_ON_EMPTY=false` in your `.env`.** Docker pins
 `SEED_ON_EMPTY=true` for reviewers regardless of what's in `.env` (see
 `docker-compose.yml`), but nothing overrides it on the host. Leaving it
-unset or `true` here will auto-ingest the 3-document seed corpus
+unset or `true` here will auto-ingest the [bundled seed
+corpus](./adr/003-deployment-and-containerisation.md)
 alongside the full corpus you're about to load below — not instead of
 it — silently duplicating articles under two filenames and skewing
 retrieval results.
