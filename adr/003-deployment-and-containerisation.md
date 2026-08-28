@@ -123,6 +123,25 @@ different, larger piece of work (timeouts, retry policy, what "ready"
 should mean if the provider is degraded but not down), and out of
 scope for this timebox.
 
+**Query validation is API hygiene, not prompt-injection mitigation.**
+`question` is stripped and bounded to 1–1,000 characters, while `n_results`
+is bounded to 1–`FUSED_CANDIDATE_POOL`. These limits contain cost, reject
+meaningless requests with a clear `422`, and make the retrieval contract
+explicit. They do not make natural-language input safe from prompt injection:
+there is nothing reliable to escape or filter, and phrase blocklists are
+defeated by rewording.
+
+The localhost, unauthenticated service has no privilege boundary between the
+question author and the operator. Its existing design still limits impact:
+the LLM has no tools, filesystem, or network access; structured output limits
+the response shape; and `sources` comes from retrieval rather than from the
+model, so an injected answer cannot fabricate citations. A question can still
+coerce the model into setting `context_sufficient=true` for a fabricated
+answer. That is a known limitation, not a vulnerability in the current trust
+model. The material future threat is indirect injection from an untrusted
+ingested document, particularly if `/ingest` becomes publicly reachable; that
+risk belongs alongside the authentication and rate-limiting work in JUA-28.
+
 ## Deliberately not built
 
 These were considered and rejected, not simply skipped — the
