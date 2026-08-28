@@ -189,7 +189,7 @@ documented-and-deliberate reads as judgement.
   in one command, with an honest loading → ready transition and data
   that survives a restart (`docker compose restart` reuses the named
   volume; seeding is skipped once the collection is non-empty).
-- The seed corpus (3 CC-BY-licensed articles, 340 chunks) exists purely
+- The seed corpus (4 CC-BY-licensed articles, 429 chunks) exists purely
   so the container isn't empty on first run. It has never been run
   through `eval_golden.py` and is not represented in the 96.4% (n=3) /
   98.2% (n=8) figures reported elsewhere in this repo — those numbers
@@ -212,9 +212,9 @@ documented-and-deliberate reads as judgement.
   against a hazard that no longer exists.
 - **The host development path must independently set
   `SEED_ON_EMPTY=false`.** The seed corpus and the full 19-document
-  corpus share three overlapping articles (see
+  corpus share four overlapping articles (see
   `seed_corpus/ATTRIBUTION.md`) — if the host server auto-seeds before
-  `ingest_corpus.py` runs, those three end up ingested twice under
+  `ingest_corpus.py` runs, those four end up ingested twice under
   different filenames (`.txt` from the seed corpus, `.pdf`-derived from
   the full corpus). `eval_golden.py`'s document-name matching can't
   deduplicate that, so it would silently corrupt retrieval evaluation.
