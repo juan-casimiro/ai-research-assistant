@@ -80,6 +80,38 @@ considered — but this service runs as a single process with no
 multi-app or test-fixture need to inject a different set of models per
 instance, so the extra indirection buys nothing here.
 
+**A bounded LLM attempt, with retries owned by the caller.** The grounded
+answer call has a 35-second timeout and the opt-in query rewrite, capped at
+100 tokens, has its own 10-second timeout. The Anthropic client is configured
+with `max_retries=0`; an `APITimeoutError` from either call becomes an HTTP
+`504` rather than an unclassified `500`. This keeps the worst-case inner
+budget below the gateway's 60-second read timeout, including when rewriting
+causes two sequential LLM calls. Warm Docker measurements against the four
+document seed corpus on 27 Aug 2026 were 3.07–4.37 seconds for three baseline
+queries and 5.98–9.01 seconds for two rewrite-enabled queries. The chosen
+limits therefore leave about 15 seconds for retrieval, reranking, and response
+handling in the worst rewrite case, while remaining well above observed
+latency.
+
+The retry owner is the gateway because it owns the user-facing latency budget
+and can circuit-break. Allowing both the Anthropic SDK and the gateway to make
+two retries could multiply into nine LLM attempts for one user request. A
+caller retry repeats embedding, Chroma retrieval, reranking, and generation,
+whereas an SDK retry would repeat only generation; that extra local work is
+accepted in exchange for one visible retry budget with one owner. The
+provider failures the SDK retries before generation do not consume output
+tokens, so this does not add token cost.
+
+**The 1,024-token grounded-answer cap stays unchanged.** Observed MCP
+Inspector answers were roughly 130–200 tokens, about 20% of the cap. If a
+generation reaches the cap during structured output, parsing can fail
+deterministically and a caller may spend its retry budget on a failure that
+cannot succeed. That gap is accepted for now; increasing the cap is the lever
+if it appears. The system prompt was deliberately left unchanged because its
+wording underpins the existing `context_sufficient` accuracy measurements.
+The model remains pinned to the dated `claude-haiku-4-5-20251001` snapshot so
+provider alias changes cannot silently alter those measured behaviours.
+
 **Readiness excludes the LLM round-trip.** `_ready = True` is set once
 models are loaded, Chroma is connected, the BM25 index is built, and
 seeding (if applicable) is complete — it does not send a live request
