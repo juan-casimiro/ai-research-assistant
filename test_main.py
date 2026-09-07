@@ -1,3 +1,5 @@
+import asyncio
+import threading
 import unittest
 from types import SimpleNamespace
 from unittest.mock import AsyncMock, MagicMock, patch
@@ -55,6 +57,73 @@ class QueryRequestValidationTests(unittest.TestCase):
                         question="test question",
                         n_results=n_results,
                     )
+
+
+class RetrievalTests(unittest.IsolatedAsyncioTestCase):
+    async def test_rerank_runs_off_loop_and_preserves_top_n_order(self):
+        loop_thread = threading.get_ident()
+        execution_threads = []
+        chunks = ["test chunk A", "test chunk B", "test chunk C", "test chunk D"]
+        sources = ["test-a.pdf", "test-b.pdf", "test-c.pdf", "test-d.pdf"]
+
+        def rerank(question, candidates):
+            execution_threads.append(threading.get_ident())
+
+            def scores():
+                execution_threads.append(threading.get_ident())
+                yield from [0.1, 0.9, 0.9, 0.5]
+
+            return scores()
+
+        reranker_mock = SimpleNamespace(rerank=MagicMock(side_effect=rerank))
+        with (
+            patch.object(main, "_retrieve_candidates", return_value=(chunks, sources)),
+            patch.object(main, "reranker", reranker_mock),
+            patch.object(main.asyncio, "to_thread", wraps=asyncio.to_thread) as to_thread_spy,
+        ):
+            result = await main.retrieve("test question", n_results=3)
+
+        self.assertEqual(len(execution_threads), 2)
+        self.assertTrue(all(thread != loop_thread for thread in execution_threads))
+        self.assertEqual(to_thread_spy.await_count, 2)  # Candidate lookup and reranking.
+        reranker_mock.rerank.assert_called_once_with("test question", chunks)
+        self.assertEqual(result, (chunks[1:], sources[1:]))
+
+
+class QueryContractTests(unittest.IsolatedAsyncioTestCase):
+    async def test_query_preserves_ranked_context_and_deduplicated_sources(self):
+        chunks = ["test chunk A", "test chunk B", "test chunk C", "test chunk D"]
+        sources = ["test-a.pdf", "test-b.pdf", "test-b.pdf", "test-d.pdf"]
+        structured_llm_mock = MagicMock()
+        structured_llm_mock.ainvoke = AsyncMock(return_value=main.GroundedAnswer(
+            answer="test answer", context_sufficient=True, insufficiency_reason=None,
+        ))
+        llm_mock = MagicMock()
+        llm_mock.with_structured_output.return_value = structured_llm_mock
+        reranker_mock = SimpleNamespace(rerank=MagicMock(return_value=iter([0.1, 0.8, 0.9, 0.7])))
+
+        with (
+            patch.object(main, "_ready", True),
+            patch.object(main, "_retrieve_candidates", return_value=(chunks, sources)),
+            patch.object(main, "reranker", reranker_mock),
+            patch.object(main, "llm", llm_mock),
+        ):
+            async with httpx.AsyncClient(
+                transport=httpx.ASGITransport(app=main.app), base_url="http://test",
+            ) as client:
+                response = await client.post("/query", json={
+                    "question": "test question", "n_results": 3,
+                })
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json(), {
+            "answer": "test answer", "sources": ["test-b.pdf", "test-d.pdf"],
+            "context_sufficient": True, "insufficiency_reason": None,
+        })
+        messages = structured_llm_mock.ainvoke.call_args.args[0]
+        self.assertEqual(messages[1]["content"],
+                         "Context:\ntest chunk C\n\n---\n\ntest chunk B\n\n---\n\ntest chunk D\n\nQuestion: test question")
+        reranker_mock.rerank.assert_called_once_with("test question", chunks)
 
 
 class LlmConfigurationTests(unittest.TestCase):

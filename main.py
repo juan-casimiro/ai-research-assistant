@@ -372,7 +372,9 @@ async def retrieve(
     candidate_sources = [doc_to_source[d] for d in fused]
 
     # 4. Cross-encoder rerank
-    scores = list(reranker.rerank(question, fused))
+    scores = await asyncio.to_thread(
+        lambda: list(reranker.rerank(question, fused))
+    )
     ranked = sorted(
         zip(fused, candidate_sources, scores),
         key=lambda x: x[2],
