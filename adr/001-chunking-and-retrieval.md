@@ -1,5 +1,31 @@
 # ADR-001: Chunking Strategy and Retrieval Limitations
 
+## Update: Offload blocking reranker inference (JUA-58)
+
+The cross-encoder is a blocking inference call inside the asynchronous
+`retrieve()` path. Both calling `reranker.rerank()` and consuming its lazy
+scores now run inside `await asyncio.to_thread(lambda:
+list(reranker.rerank(question, fused)))`. A single inference pass retains
+the existing candidate pool, score sorting, top-N selection, and source
+ordering.
+
+This is an event-loop correctness decision: the event loop can yield while
+inference runs in a worker thread. It is not a claim that `to_thread()` itself
+provides multi-core execution or establishes a measured optimization gain.
+
+The normal workload measured for JUA-58 continued increasing throughput
+through concurrency 8 and did not establish a saturation threshold or a
+performance-derived concurrency ceiling. The before baseline had only one
+run, so the before/after difference is not evidence of an optimization gain.
+The artificial five-pass rerank experiment was diagnostic only; its CPU and
+RSS figures are neither a normal service footprint nor evidence for a
+capacity ceiling. Production performs only one rerank pass. Detailed
+measurements remain in the JUA-58 findings in Linear.
+
+Any downstream bulkhead value remains a separate protection or cost policy
+decision, rather than a measured saturation threshold. Model-cache behavior
+is outside this change and remains tracked by JUA-79.
+
 ## Context
 
 RAG requires splitting documents into chunks small enough to embed and retrieve precisely, while preserving enough context for the LLM to generate a good answer. This is a different problem from the chunking done in the Document Summariser project — here, chunk boundaries directly affect *what can be found at all*, not just summary quality.
