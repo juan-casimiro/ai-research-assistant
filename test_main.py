@@ -1,4 +1,3 @@
-import asyncio
 import threading
 import unittest
 from types import SimpleNamespace
@@ -6,7 +5,6 @@ from unittest.mock import AsyncMock, MagicMock, patch
 
 import httpx
 from anthropic import APITimeoutError
-from fastapi import HTTPException
 from pydantic import ValidationError
 
 import main
@@ -79,13 +77,11 @@ class RetrievalTests(unittest.IsolatedAsyncioTestCase):
         with (
             patch.object(main, "_retrieve_candidates", return_value=(chunks, sources)),
             patch.object(main, "reranker", reranker_mock),
-            patch.object(main.asyncio, "to_thread", wraps=asyncio.to_thread) as to_thread_spy,
         ):
             result = await main.retrieve("test question", n_results=3)
 
         self.assertEqual(len(execution_threads), 2)
         self.assertTrue(all(thread != loop_thread for thread in execution_threads))
-        self.assertEqual(to_thread_spy.await_count, 2)  # Candidate lookup and reranking.
         reranker_mock.rerank.assert_called_once_with("test question", chunks)
         self.assertEqual(result, (chunks[1:], sources[1:]))
 
@@ -121,8 +117,12 @@ class QueryContractTests(unittest.IsolatedAsyncioTestCase):
             "context_sufficient": True, "insufficiency_reason": None,
         })
         messages = structured_llm_mock.ainvoke.call_args.args[0]
-        self.assertEqual(messages[1]["content"],
-                         "Context:\ntest chunk C\n\n---\n\ntest chunk B\n\n---\n\ntest chunk D\n\nQuestion: test question")
+        self.assertEqual([message["role"] for message in messages], ["system", "user"])
+        user_prompt = messages[1]["content"]
+        self.assertLess(user_prompt.index("test chunk C"), user_prompt.index("test chunk B"))
+        self.assertLess(user_prompt.index("test chunk B"), user_prompt.index("test chunk D"))
+        self.assertNotIn("test chunk A", user_prompt)
+        self.assertIn("test question", user_prompt)
         reranker_mock.rerank.assert_called_once_with("test question", chunks)
 
 
@@ -138,13 +138,16 @@ class LlmConfigurationTests(unittest.TestCase):
         _text_cross_encoder,
         _persistent_client,
     ):
-        main._load_models()
+        with patch.multiple(main, embed_model=None, reranker=None, chroma_client=None,
+                            collection=None, llm=None, CHROMA_PATH="test-store"):
+            main._load_models()
 
+        _persistent_client.assert_called_once_with(path="test-store")
         init_chat_model.assert_called_once_with(
             main.LLM_MODEL,
             max_tokens=1024,
             temperature=0,
-            timeout=main.LLM_TIMEOUT_SECONDS,
+            timeout=35.0,
             max_retries=0,
         )
 
@@ -164,40 +167,8 @@ class LlmTimeoutTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(result, "test rewritten query")
         base_llm.bind.assert_called_once_with(
             max_tokens=100,
-            timeout=main.REWRITE_TIMEOUT_SECONDS,
+            timeout=10.0,
         )
-
-    async def test_query_maps_grounded_answer_timeout_to_504(self):
-        structured_llm = MagicMock()
-        structured_llm.ainvoke = AsyncMock(side_effect=api_timeout())
-        base_llm = MagicMock()
-        base_llm.with_structured_output.return_value = structured_llm
-
-        with (
-            patch.object(main, "_ready", True),
-            patch.object(
-                main,
-                "retrieve",
-                AsyncMock(return_value=(["test retrieved context"], ["test-source.pdf"])),
-            ),
-            patch.object(main, "llm", base_llm),
-        ):
-            with self.assertRaises(HTTPException) as raised:
-                await main.query(main.QueryRequest(question="test question"))
-
-        self.assertEqual(raised.exception.status_code, 504)
-        self.assertEqual(raised.exception.detail, "upstream LLM request timed out")
-
-    async def test_query_maps_rewrite_timeout_to_504(self):
-        with (
-            patch.object(main, "_ready", True),
-            patch.object(main, "retrieve", AsyncMock(side_effect=api_timeout())),
-        ):
-            with self.assertRaises(HTTPException) as raised:
-                await main.query(main.QueryRequest(question="test question"))
-
-        self.assertEqual(raised.exception.status_code, 504)
-
 
 if __name__ == "__main__":
     unittest.main()

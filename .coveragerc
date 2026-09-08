@@ -1,0 +1,10 @@
+[run]
+branch = True
+source = .
+omit =
+    .venv/*
+    test_*.py
+    scripts/*
+
+[report]
+show_missing = True
