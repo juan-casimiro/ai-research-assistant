@@ -16,7 +16,7 @@ The current Repo Guide supersedes historical seeding counts and old pairing prom
 | JUA-16: structured sufficiency independent of non-empty sources | Only sufficient=True response | `test_api` verifies insufficient=False with sources/reason, empty retrieval response, schema selection and role separation |
 | JUA-73: 35s answer budget, 10s rewrite budget, no SDK retries, timeout → 504 | Constructor/bind mocks; direct endpoint calls; rewrite timeout injected at retrieval boundary | Literal budget assertions, HTTP 504/body/no-retry checks, actual retrieve → rewrite → bound LLM timeout; connection and malformed structured-output errors remain 500 |
 | JUA-58: eager and lazy reranking off the event loop | Thread identity plus exact `to_thread` call count | Preserved thread-identity and stable-score-tie ordering assertions; removed dispatch-count coupling |
-| JUA-30: lazy import, background startup, loading/error/ready health, readiness gates | None | `test_startup_ingest` and `test_api`: constructor-free import, environment/default boundaries, event-coordinated lifespan, failure at each startup phase, no work before readiness, readiness independent of LLM probe |
+| JUA-30: deferred model construction, background startup, loading/error/ready health, readiness gates | None | `test_startup_ingest` and `test_api`: import constructs no models, environment/default boundaries, event-coordinated lifespan, failure at each startup phase, no work before readiness, readiness independent of LLM probe |
 | JUA-30 / Repo Guide: host seed opt-out, empty-store seeding, BM25 refresh | None | Disabled seeding never checks seed files; populated store skips; nonempty `.txt` only; source/ID/embedding alignment; index refresh after seed; evaluation loader never seeds |
 | ADR-001: paragraph chunking, oversized paragraph split, overlap | None; ADR records an earlier missing-continue defect | Whitespace/short text, preceding and trailing content around a long paragraph without duplication, overflow overlap |
 | ADR-001: dense/BM25/rewrite/RRF composition and capped rerank | Only dense path with candidate lookup stubbed | `test_retrieval`: all four combinations, original question reranking, source alignment/first provenance, consensus fusion, empty corpus, pool cap, non-text rewrite fallback, real BM25 tokenization/ranking and stale-index replacement |
@@ -116,17 +116,34 @@ test successfully, edits production behaviour, requires an assertion failure wit
 the expected diagnostic, restores identical bytes, and reruns successfully. A
 `finally` block restores the copy even after an error. Source in the checkout is
 never intentionally broken. Logs and restored SHA-256 hashes are written to the
-chosen output directory.
+chosen output directory. Each target must occur exactly once; the runner rejects
+zero or multiple matches and replaces only that occurrence. Readiness removal
+targets `/query`; answer and rewrite timeout mutations target their own handlers.
+
+Isolation comes from temporary source/test copies, mocked model/store/LLM calls,
+and fresh subprocesses with bytecode writes disabled. The pinned
+`python-dotenv==1.2.2` supports `PYTHON_DOTENV_DISABLED=1`; the runner retains it
+to prevent `.env` discovery in parent directories. The import configuration test
+also patches `dotenv.load_dotenv` explicitly. Python imports themselves are not
+deferred: the test proves that importing constructs no models.
 
 **20 curated mutations detected; all 20 restored runs passed.** Source-order,
 LLM-retry and startup-error checks were repeated after final test cleanup and also passed the full
 cycle. These are manually selected, meaningful mutants: no exhaustive automated
 mutation population or global mutation percentage is claimed.
 
+Follow-up verification (2026-09-09): all four affected tests and the full 55-test
+suite passed. All 20 curated mutations passed the complete break/restore cycle
+again with unique targets, including the separately targeted timeout handlers.
+Direct guard checks rejected both zero and duplicate matches before test execution;
+a synthetic dotenv stream confirmed the pinned version honours the disabled flag.
+No production or evaluation-test changes were needed. Follow-up logs and mutation
+results are under `~/development/.agent-tmp/jua80-followup-*`.
+
 | Temporary production change | Observed failure |
 | --- | --- |
 | Permit 1001-character question | HTTP 200 instead of 422 |
-| Remove endpoint readiness calls | HTTP 200 instead of 503 |
+| Remove query endpoint readiness call | HTTP 200 instead of 503 |
 | Return 500 for answer timeout | HTTP 500 instead of 504 |
 | Return 500 for actual rewrite timeout | HTTP 500 instead of 504; answer stage never reached |
 | Force `context_sufficient=True` | Response True instead of False with nonempty sources |

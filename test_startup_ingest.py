@@ -198,7 +198,7 @@ class SeedAndIngestTests(unittest.TestCase):
 
 
 class ImportConfigurationTests(unittest.TestCase):
-    def test_import_is_lazy_and_environment_overrides_do_not_depend_on_local_dotenv(self):
+    def test_import_constructs_no_models_and_environment_overrides_do_not_depend_on_local_dotenv(self):
         for environment, expected in [({}, ("./chroma_db", Path("./seed_corpus"), True)),
             ({"CHROMA_PATH": "test-store", "SEED_CORPUS_DIR": "test-seeds", "SEED_ON_EMPTY": "FaLsE"},
              ("test-store", Path("test-seeds"), False))]:

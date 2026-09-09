@@ -18,11 +18,36 @@ import tempfile
 MUTATIONS = [
     ("question-bound", "main.py", "max_length=1000", "max_length=1001",
      "test_api.ApiTests.test_invalid_query_is_422_before_retrieval", "200 != 422"),
-    ("readiness-gate", "main.py", "    _require_ready()", "    pass",
+    ("readiness-gate", "main.py", "async def query(request: QueryRequest) -> QueryResponse:\n    _require_ready()",
+     "async def query(request: QueryRequest) -> QueryResponse:\n    pass",
      "test_api.ApiTests.test_health_and_endpoints_report_loading_and_startup_error", "200 != 503"),
-    ("timeout-status", "main.py", "status_code=504", "status_code=500",
+    ("timeout-status", "main.py",
+     '        raise HTTPException(\n'
+     '            status_code=504,\n'
+     '            detail="upstream LLM request timed out",\n'
+     '        ) from exc\n'
+     '\n'
+     '    return QueryResponse(',
+     '        raise HTTPException(\n'
+     '            status_code=500,\n'
+     '            detail="upstream LLM request timed out",\n'
+     '        ) from exc\n'
+     '\n'
+     '    return QueryResponse(',
      "test_api.ApiTests.test_grounded_timeout_is_504_without_retry", "500 != 504"),
-    ("rewrite-timeout-status", "main.py", "status_code=504", "status_code=500",
+    ("rewrite-timeout-status", "main.py",
+     '        raise HTTPException(\n'
+     '            status_code=504,\n'
+     '            detail="upstream LLM request timed out",\n'
+     '        ) from exc\n'
+     '\n'
+     '    context =',
+     '        raise HTTPException(\n'
+     '            status_code=500,\n'
+     '            detail="upstream LLM request timed out",\n'
+     '        ) from exc\n'
+     '\n'
+     '    context =',
      "test_api.ApiTests.test_real_rewrite_path_timeout_stops_before_answer_generation", "500 != 504"),
     ("sufficiency-signal", "main.py", "context_sufficient=result.context_sufficient", "context_sufficient=True",
      "test_api.ApiTests.test_insufficient_context_keeps_retrieved_sources_and_reason", "FAIL:"),
@@ -78,12 +103,14 @@ def main():
             target = work / filename
             original = target.read_bytes()
             source = original.decode()
-            if old not in source:
-                raise RuntimeError(f"Mutation no longer applies: {name}")
+            matches = source.count(old)
+            if matches != 1:
+                raise RuntimeError(f"{name}: expected exactly one mutation target, found {matches}")
             phases = {}
             try:
                 for phase in ("before", "broken", "restored"):
-                    target.write_bytes(source.replace(old, new).encode() if phase == "broken" else original)
+                    target.write_bytes(source.replace(old, new, 1).encode() if phase == "broken" else original)
+                    # Supported by pinned python-dotenv 1.2.2; prevents ancestor .env discovery.
                     env = {**os.environ, "PYTHONDONTWRITEBYTECODE": "1", "TMPDIR": str(output),
                            "PYTHON_DOTENV_DISABLED": "1"}
                     result = subprocess.run([sys.executable, "-B", "-m", "unittest", test, "-v"],
