@@ -142,6 +142,21 @@ model. The material future threat is indirect injection from an untrusted
 ingested document, particularly if `/ingest` becomes publicly reachable; that
 risk belongs alongside the authentication and rate-limiting work in JUA-28.
 
+**CVE-2026-45829 ("ChromaToast", CVSS 10.0) does not apply, and was dismissed
+on GitHub rather than worked around.** The advisory is a pre-auth RCE in
+Chroma's own FastAPI server component, reachable via
+`POST /api/v2/tenants/{tenant}/databases/{db}/collections` with a malicious
+HuggingFace model reference. This deployment never runs that component:
+`main.py` and `reset_collection.py` both construct
+`chromadb.PersistentClient(path=CHROMA_PATH)`, the embedded, in-process mode.
+There is no `chroma run` server, no `chromadb[server]` extra installed, and
+no Chroma REST API exposed anywhere in this stack — the only HTTP surface is
+this service's own `/health`, `/ingest`, and `/query` routes. The vulnerable
+code path is simply never invoked, so there was nothing to patch or mitigate
+(no fixed version exists yet regardless). Dismissed as "vulnerable code not
+used" rather than left open-and-unexplained, since an unexplained CVSS-10
+alert reads worse on a public repo than a documented scoping decision.
+
 ## Deliberately not built
 
 These were considered and rejected, not simply skipped — the
