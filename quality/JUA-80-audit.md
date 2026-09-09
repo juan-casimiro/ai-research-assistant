@@ -192,8 +192,7 @@ From the repository root, with Python 3.12, the virtual environment activated
 
 ```sh
 python -m pip install -r requirements-quality.txt
-AUDIT_DIR="${TMPDIR:-.}/jua80-audit"
-mkdir -p "$AUDIT_DIR"
+AUDIT_DIR="$(mktemp -d)"
 python -m unittest discover -v
 python -m coverage run --data-file="$AUDIT_DIR/final.coverage" -m unittest discover
 python -m coverage report --data-file="$AUDIT_DIR/final.coverage"

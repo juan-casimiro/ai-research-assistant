@@ -12,8 +12,7 @@ explicitly if you regenerate it.
 ## Coverage and complexity hotspots
 
 ```sh
-AUDIT_DIR="${TMPDIR:-.}/quality-run"
-mkdir -p "$AUDIT_DIR"
+AUDIT_DIR="$(mktemp -d)"
 python -m coverage run --data-file="$AUDIT_DIR/final.coverage" -m unittest discover
 python -m coverage report --data-file="$AUDIT_DIR/final.coverage"
 python -m coverage json --data-file="$AUDIT_DIR/final.coverage" -o "$AUDIT_DIR/final.json"
