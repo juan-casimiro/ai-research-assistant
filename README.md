@@ -249,3 +249,10 @@ corpus expanded from 16 to 19 documents (outlier cluster).
   as a way to address vocabulary-specific mismatches that generic
   rewriting does not fix (see ADR-001)
 - File upload endpoint (currently text-only via JSON)
+
+## Deterministic regression tests
+
+Run `.venv/bin/python -m unittest discover -v` for the offline regression suite.
+See [the JUA-80 test-strength audit](docs/test-strength-audit-jua-80.md) for the
+behaviour map, verification-first mutation evidence, optional coverage/complexity
+commands, and remaining gaps. These tests do not replace the live golden evaluations.
