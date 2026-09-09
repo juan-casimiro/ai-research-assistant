@@ -5,10 +5,6 @@ model configuration, prompts, corpus, and deployment files are unchanged.
 
 ## Requirements and behaviour map
 
-Read the current Linear **Repo Guide — ai-research-assistant**, **Working Agreement —
-Development Process**, JUA-80 and relevant issue comments before implementation.
-The current Repo Guide supersedes historical seeding counts and old pairing prompts.
-
 | Behaviour / source of requirement | Baseline regression protection | Protection after audit |
 | --- | --- | --- |
 | JUA-75: normalized question, length 1–1000, result count 1–20 | Six Pydantic unit tests; no HTTP rejection tests | Retained unit boundaries; `test_api` checks 422 field locations, malformed JSON/non-object bodies, wrong types, flags, and rejection before retrieval/LLM work |
@@ -79,7 +75,7 @@ line would not add useful protection.
 
 ### Complexity and coverage hotspots
 
-`scripts/quality_hotspots.py` joins Radon cyclomatic complexity (CC) to coverage.py
+`quality/quality_hotspots.py` joins Radon cyclomatic complexity (CC) to coverage.py
 executed/missing statement lines in each function body, excluding its `def` line.
 It calculates **CC² × (1 − covered fraction)³ + CC**. This is a reproducible,
 line-coverage CRAP-style prioritization calculation, not a correctness score.
@@ -110,7 +106,7 @@ body line coverage. Splitting reporting/CLI logic solely to lower CC is deferred
 
 ### Deliberate break/restore and targeted mutation analysis
 
-`scripts/verify_test_strength.py` copies the actual production `.py` source and tests
+`quality/verify_test_strength.py` copies the actual production `.py` source and tests
 into isolated temporary directories. For **each** mutation it runs the selected
 test successfully, edits production behaviour, requires an assertion failure with
 the expected diagnostic, restores identical bytes, and reruns successfully. A
@@ -137,8 +133,8 @@ suite passed. All 20 curated mutations passed the complete break/restore cycle
 again with unique targets, including the separately targeted timeout handlers.
 Direct guard checks rejected both zero and duplicate matches before test execution;
 a synthetic dotenv stream confirmed the pinned version honours the disabled flag.
-No production or evaluation-test changes were needed. Follow-up logs and mutation
-results are under `~/development/.agent-tmp/jua80-followup-*`.
+No production or evaluation-test changes were needed. The mutation report is
+committed at [`evidence/mutations.json`](evidence/mutations.json).
 
 | Temporary production change | Observed failure |
 | --- | --- |
@@ -191,21 +187,21 @@ results are under `~/development/.agent-tmp/jua80-followup-*`.
 
 ## Reproduce
 
-From the repository root, with Python 3.12 and runtime dependencies installed:
+From the repository root, with Python 3.12, the virtual environment activated
+(`source .venv/bin/activate`), and runtime dependencies installed:
 
 ```sh
-.venv/bin/python -m pip install -r requirements-quality.txt
-mkdir -p "$HOME/development/.agent-tmp/jua80"
-export TMPDIR="$HOME/development/.agent-tmp"
-AUDIT_DIR="$HOME/development/.agent-tmp/jua80"
-.venv/bin/python -m unittest discover -v
-.venv/bin/python -m coverage run --data-file="$AUDIT_DIR/final.coverage" -m unittest discover
-.venv/bin/python -m coverage report --data-file="$AUDIT_DIR/final.coverage"
-.venv/bin/python -m coverage json --data-file="$AUDIT_DIR/final.coverage" -o "$AUDIT_DIR/final.json"
-.venv/bin/python scripts/quality_hotspots.py "$AUDIT_DIR/final.json" > "$AUDIT_DIR/final-hotspots.json"
-.venv/bin/python -m radon cc main.py eval_golden.py eval_context_sufficient.py ingest_corpus.py compare_evals.py -s -a
-.venv/bin/python scripts/verify_test_strength.py --output-dir "$AUDIT_DIR/mutations"
-.venv/bin/python -m pip check
+python -m pip install -r requirements-quality.txt
+AUDIT_DIR="${TMPDIR:-.}/jua80-audit"
+mkdir -p "$AUDIT_DIR"
+python -m unittest discover -v
+python -m coverage run --data-file="$AUDIT_DIR/final.coverage" -m unittest discover
+python -m coverage report --data-file="$AUDIT_DIR/final.coverage"
+python -m coverage json --data-file="$AUDIT_DIR/final.coverage" -o "$AUDIT_DIR/final.json"
+python quality/quality_hotspots.py "$AUDIT_DIR/final.json" > "$AUDIT_DIR/final-hotspots.json"
+python -m radon cc main.py eval_golden.py eval_context_sufficient.py ingest_corpus.py compare_evals.py -s -a
+python quality/verify_test_strength.py --output-dir "$AUDIT_DIR/mutations"
+python -m pip check
 git diff --check
 ```
 
@@ -213,5 +209,5 @@ The original baseline used the same coverage source/omit options and 12 tests at
 `5fb8028`, before adding tests. For a fresh baseline reproduction, use an isolated
 checkout of that commit and the same optional tool versions; do not reset a working
 checkout. The hotspot script can join that baseline JSON because production source
-is unchanged in this PR. Local raw evidence is retained under
-`~/development/.agent-tmp/jua80/`; this document records the portable review results.
+is unchanged in this PR. The committed [`evidence/mutations.json`](evidence/mutations.json)
+records the curated mutation run above; this document records the portable review results.

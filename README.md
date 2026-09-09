@@ -253,6 +253,6 @@ corpus expanded from 16 to 19 documents (outlier cluster).
 ## Deterministic regression tests
 
 Run `.venv/bin/python -m unittest discover -v` for the offline regression suite.
-See [the JUA-80 test-strength audit](docs/test-strength-audit-jua-80.md) for the
+See [the JUA-80 test-strength audit](quality/JUA-80-audit.md) for the
 behaviour map, verification-first mutation evidence, optional coverage/complexity
 commands, and remaining gaps. These tests do not replace the live golden evaluations.

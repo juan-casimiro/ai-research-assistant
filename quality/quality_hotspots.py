@@ -1,6 +1,6 @@
 """Join coverage.py JSON and Radon CC; report CRAP and decision nesting.
 
-Usage: python scripts/quality_hotspots.py coverage.json > hotspots.json
+Usage: python quality/quality_hotspots.py coverage.json > hotspots.json
 Line coverage is used in CRAP = CC**2 * (1 - coverage)**3 + CC.
 Decision nesting is a deterministic structural proxy, NOT cognitive complexity.
 No thresholds are implied by this report. Nested functions are reported separately;
