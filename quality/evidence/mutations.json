@@ -1,0 +1,242 @@
+[
+  {
+    "mutation": "question-bound",
+    "file": "main.py",
+    "test": "test_api.ApiTests.test_invalid_query_is_422_before_retrieval",
+    "exit_codes": {
+      "before": 0,
+      "broken": 1,
+      "restored": 0
+    },
+    "expected_diagnostic": "200 != 422",
+    "restored_sha256": "db179fd9e4e059494d7531e7fa5081298e4d2f9cba965e44c32038acfb5e4090"
+  },
+  {
+    "mutation": "readiness-gate",
+    "file": "main.py",
+    "test": "test_api.ApiTests.test_health_and_endpoints_report_loading_and_startup_error",
+    "exit_codes": {
+      "before": 0,
+      "broken": 1,
+      "restored": 0
+    },
+    "expected_diagnostic": "200 != 503",
+    "restored_sha256": "db179fd9e4e059494d7531e7fa5081298e4d2f9cba965e44c32038acfb5e4090"
+  },
+  {
+    "mutation": "timeout-status",
+    "file": "main.py",
+    "test": "test_api.ApiTests.test_grounded_timeout_is_504_without_retry",
+    "exit_codes": {
+      "before": 0,
+      "broken": 1,
+      "restored": 0
+    },
+    "expected_diagnostic": "500 != 504",
+    "restored_sha256": "db179fd9e4e059494d7531e7fa5081298e4d2f9cba965e44c32038acfb5e4090"
+  },
+  {
+    "mutation": "rewrite-timeout-status",
+    "file": "main.py",
+    "test": "test_api.ApiTests.test_real_rewrite_path_timeout_stops_before_answer_generation",
+    "exit_codes": {
+      "before": 0,
+      "broken": 1,
+      "restored": 0
+    },
+    "expected_diagnostic": "500 != 504",
+    "restored_sha256": "db179fd9e4e059494d7531e7fa5081298e4d2f9cba965e44c32038acfb5e4090"
+  },
+  {
+    "mutation": "sufficiency-signal",
+    "file": "main.py",
+    "test": "test_api.ApiTests.test_insufficient_context_keeps_retrieved_sources_and_reason",
+    "exit_codes": {
+      "before": 0,
+      "broken": 1,
+      "restored": 0
+    },
+    "expected_diagnostic": "FAIL:",
+    "restored_sha256": "db179fd9e4e059494d7531e7fa5081298e4d2f9cba965e44c32038acfb5e4090"
+  },
+  {
+    "mutation": "source-order",
+    "file": "main.py",
+    "test": "test_main.QueryContractTests.test_query_preserves_ranked_context_and_deduplicated_sources",
+    "exit_codes": {
+      "before": 0,
+      "broken": 1,
+      "restored": 0
+    },
+    "expected_diagnostic": "FAIL:",
+    "restored_sha256": "db179fd9e4e059494d7531e7fa5081298e4d2f9cba965e44c32038acfb5e4090"
+  },
+  {
+    "mutation": "pool-cap",
+    "file": "main.py",
+    "test": "test_retrieval.RetrievalPipelineTests.test_candidate_pool_is_capped_before_reranking",
+    "exit_codes": {
+      "before": 0,
+      "broken": 1,
+      "restored": 0
+    },
+    "expected_diagnostic": "expected call not found",
+    "restored_sha256": "db179fd9e4e059494d7531e7fa5081298e4d2f9cba965e44c32038acfb5e4090"
+  },
+  {
+    "mutation": "disable-rewrite",
+    "file": "main.py",
+    "test": "test_retrieval.RetrievalPipelineTests.test_optional_retrievers_fuse_variants_and_keep_original_rerank_question",
+    "exit_codes": {
+      "before": 0,
+      "broken": 1,
+      "restored": 0
+    },
+    "expected_diagnostic": "FAIL:",
+    "restored_sha256": "db179fd9e4e059494d7531e7fa5081298e4d2f9cba965e44c32038acfb5e4090"
+  },
+  {
+    "mutation": "disable-sparse",
+    "file": "main.py",
+    "test": "test_retrieval.RetrievalPipelineTests.test_optional_retrievers_fuse_variants_and_keep_original_rerank_question",
+    "exit_codes": {
+      "before": 0,
+      "broken": 1,
+      "restored": 0
+    },
+    "expected_diagnostic": "FAIL:",
+    "restored_sha256": "db179fd9e4e059494d7531e7fa5081298e4d2f9cba965e44c32038acfb5e4090"
+  },
+  {
+    "mutation": "fusion-consensus",
+    "file": "main.py",
+    "test": "test_retrieval.FusionTests.test_consensus_promotes_lower_ranked_document_and_deduplicates",
+    "exit_codes": {
+      "before": 0,
+      "broken": 1,
+      "restored": 0
+    },
+    "expected_diagnostic": "Lists differ",
+    "restored_sha256": "db179fd9e4e059494d7531e7fa5081298e4d2f9cba965e44c32038acfb5e4090"
+  },
+  {
+    "mutation": "seed-opt-out",
+    "file": "main.py",
+    "test": "test_startup_ingest.StartupTests.test_disabled_seeding_never_touches_seed_path",
+    "exit_codes": {
+      "before": 0,
+      "broken": 1,
+      "restored": 0
+    },
+    "expected_diagnostic": "Expected '_seed_if_empty' to not have been called",
+    "restored_sha256": "db179fd9e4e059494d7531e7fa5081298e4d2f9cba965e44c32038acfb5e4090"
+  },
+  {
+    "mutation": "seed-populated-store",
+    "file": "main.py",
+    "test": "test_startup_ingest.SeedAndIngestTests.test_seed_reads_only_nonempty_text_and_does_not_reingest_populated_store",
+    "exit_codes": {
+      "before": 0,
+      "broken": 1,
+      "restored": 0
+    },
+    "expected_diagnostic": "1 != 0",
+    "restored_sha256": "db179fd9e4e059494d7531e7fa5081298e4d2f9cba965e44c32038acfb5e4090"
+  },
+  {
+    "mutation": "startup-failure-signal",
+    "file": "main.py",
+    "test": "test_startup_ingest.StartupTests.test_failure_in_any_startup_phase_keeps_service_unready",
+    "exit_codes": {
+      "before": 0,
+      "broken": 1,
+      "restored": 0
+    },
+    "expected_diagnostic": "None !=",
+    "restored_sha256": "db179fd9e4e059494d7531e7fa5081298e4d2f9cba965e44c32038acfb5e4090"
+  },
+  {
+    "mutation": "long-paragraph-continue",
+    "file": "main.py",
+    "test": "test_startup_ingest.ChunkingTests.test_long_paragraph_preserves_preceding_and_trailing_text_once",
+    "exit_codes": {
+      "before": 0,
+      "broken": 1,
+      "restored": 0
+    },
+    "expected_diagnostic": "Lists differ",
+    "restored_sha256": "db179fd9e4e059494d7531e7fa5081298e4d2f9cba965e44c32038acfb5e4090"
+  },
+  {
+    "mutation": "lazy-rerank-on-loop",
+    "file": "main.py",
+    "test": "test_main.RetrievalTests.test_rerank_runs_off_loop_and_preserves_top_n_order",
+    "exit_codes": {
+      "before": 0,
+      "broken": 1,
+      "restored": 0
+    },
+    "expected_diagnostic": "is not true",
+    "restored_sha256": "db179fd9e4e059494d7531e7fa5081298e4d2f9cba965e44c32038acfb5e4090"
+  },
+  {
+    "mutation": "llm-retries",
+    "file": "main.py",
+    "test": "test_main.LlmConfigurationTests.test_load_models_bounds_llm_client",
+    "exit_codes": {
+      "before": 0,
+      "broken": 1,
+      "restored": 0
+    },
+    "expected_diagnostic": "expected call not found",
+    "restored_sha256": "db179fd9e4e059494d7531e7fa5081298e4d2f9cba965e44c32038acfb5e4090"
+  },
+  {
+    "mutation": "distractor-order",
+    "file": "eval_golden.py",
+    "test": "test_evaluation.ScoringTests.test_category_scoring_including_missing_metadata_and_distractor_order",
+    "exit_codes": {
+      "before": 0,
+      "broken": 1,
+      "restored": 0
+    },
+    "expected_diagnostic": "FAIL:",
+    "restored_sha256": "0d3671d3da221936b09d512d16d5a44593ec715814fa47537d0b1b61b13b6f32"
+  },
+  {
+    "mutation": "synthesis-all-sources",
+    "file": "eval_golden.py",
+    "test": "test_evaluation.ScoringTests.test_category_scoring_including_missing_metadata_and_distractor_order",
+    "exit_codes": {
+      "before": 0,
+      "broken": 1,
+      "restored": 0
+    },
+    "expected_diagnostic": "FAIL:",
+    "restored_sha256": "0d3671d3da221936b09d512d16d5a44593ec715814fa47537d0b1b61b13b6f32"
+  },
+  {
+    "mutation": "false-premise-exclusion",
+    "file": "eval_context_sufficient.py",
+    "test": "test_evaluation.SufficiencyEvaluationTests.test_buckets_exclude_false_premise_and_sample_only_n8_passes_reproducibly",
+    "exit_codes": {
+      "before": 0,
+      "broken": 1,
+      "restored": 0
+    },
+    "expected_diagnostic": "Lists differ",
+    "restored_sha256": "2ee9c2a95957c3f57bb1bc27735d23cb4479a0fb308b3c450fd0267191b93a45"
+  },
+  {
+    "mutation": "false-positive-denominator",
+    "file": "eval_context_sufficient.py",
+    "test": "test_evaluation.SufficiencyEvaluationTests.test_error_rates_use_separate_denominators_and_id_filter",
+    "exit_codes": {
+      "before": 0,
+      "broken": 1,
+      "restored": 0
+    },
+    "expected_diagnostic": "FAIL:",
+    "restored_sha256": "2ee9c2a95957c3f57bb1bc27735d23cb4479a0fb308b3c450fd0267191b93a45"
+  }
+]
