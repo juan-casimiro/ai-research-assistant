@@ -108,7 +108,7 @@ def _get_ollama_base_url() -> str:
 
 def create_llm_client() -> LlmClient:
     """Read runtime configuration without constructing an unused provider."""
-    provider = os.getenv("LLM_PROVIDER", "ollama").strip().lower()
+    provider = os.getenv("LLM_PROVIDER", "anthropic").strip().lower()
     if provider not in DEFAULT_MODELS_BY_PROVIDER:
         raise ValueError("LLM_PROVIDER must be anthropic or ollama")
     model = DEFAULT_MODELS_BY_PROVIDER[provider]

@@ -77,11 +77,24 @@ class ConfigurationTests(unittest.TestCase):
         self.assertEqual(adapter._model.client_kwargs["timeout"], 35.0)
         anthropic.assert_not_called()
 
-    def test_local_defaults(self):
-        with patch.dict(os.environ, {}, clear=True):
+    def test_default_provider_is_anthropic(self):
+        with patch.dict(os.environ, {"ANTHROPIC_API_KEY": "test-dummy-key"}, clear=True), patch(
+            "llm_client.init_chat_model"
+        ) as constructor:
             adapter = llm_client.create_llm_client()
-        self.assertEqual(adapter._model.model, "smollm2:1.7b-instruct-q4_K_M")
-        self.assertEqual(adapter._model.base_url, "http://localhost:11434")
+        self.assertIsInstance(adapter, llm_client.AnthropicAdapter)
+        constructor.assert_called_once_with(
+            "claude-haiku-4-5-20251001", model_provider="anthropic", api_key="test-dummy-key",
+            max_tokens=1024, temperature=0, timeout=35.0, max_retries=0,
+        )
+
+    def test_default_provider_requires_anthropic_key(self):
+        with patch.dict(os.environ, {}, clear=True), patch("llm_client.init_chat_model") as constructor:
+            with self.assertRaisesRegex(
+                ValueError, "^ANTHROPIC_API_KEY is required when LLM_PROVIDER=anthropic$"
+            ):
+                llm_client.create_llm_client()
+            constructor.assert_not_called()
 
     def test_invalid_configuration_fails_without_fallback_or_exposing_values(self):
         cases = [
