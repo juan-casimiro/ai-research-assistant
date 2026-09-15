@@ -12,19 +12,32 @@ The test corpus is 19 open-access biomedical research articles (PubMed Central O
 |---|---|---|
 | For | Reviewers — one command, zero setup | Development & evaluation |
 | Corpus | [Bundled seed corpus](./adr/003-deployment-and-containerisation.md) (CC BY) | Full 19-document corpus (downloaded manually) |
-| Command | `docker compose up --build` | see below |
+| Command | `docker compose up --build` (Anthropic) or add `--profile ollama` (Ollama) | see below |
 | Reproduces 96.4% / 98.2%? | No — the seed corpus has never been run through `eval_golden.py` | Yes — this is how those figures were measured |
 
 ## Run it (Docker)
 
 ```bash
-cp .env.example .env   # for this Compose quickstart, set LLM_PROVIDER=anthropic and your ANTHROPIC_API_KEY
-docker compose up --build
+cp .env.example .env
 ```
+
+Then pick a provider:
+
+* **Ollama** (default, no API key) — `.env.example` already targets the
+  Docker profile below:
+  ```bash
+  docker compose --profile ollama up --build
+  docker compose --profile ollama exec ollama ollama pull smollm2:1.7b-instruct-q4_K_M
+  ```
+* **Anthropic** — set `LLM_PROVIDER=anthropic` and `ANTHROPIC_API_KEY` in `.env`:
+  ```bash
+  docker compose up --build
+  ```
 
 `/health` reports `{"status": "loading"}` (`503`) while models load and
 the seed corpus is ingested, then `{"status": "ready", "chunks": ...}`
-(`200`) once it's usable — expect roughly 30–60s on first run.
+(`200`) once it's usable — expect roughly 30–60s on first run (plus the
+one-time model pull above, for Ollama).
 
 Try a query against the seed corpus once ready:
 
@@ -46,41 +59,24 @@ seed corpus. See [ADR-003](./adr/003-deployment-and-containerisation.md)
 for the full reasoning behind the Docker setup, including what was
 deliberately left out of it.
 
-### Local LLM with Ollama
+### Ollama notes
 
-`LLM_PROVIDER` selects `ollama` (default, no Anthropic credentials) or
-`anthropic` (requires `ANTHROPIC_API_KEY`). Ollama uses `OLLAMA_BASE_URL` (default
-`http://localhost:11434`). Model selection is defined in
-`DEFAULT_MODELS_BY_PROVIDER` in `llm_client.py`: SmolLM2
-(`smollm2:1.7b-instruct-q4_K_M`) for Ollama and Claude Haiku
-(`claude-haiku-4-5-20251001`) for Anthropic. Changing the selected provider
-automatically selects its model. Only the selected provider’s settings are read.
-There is no automatic provider fallback.
+Model is fixed per provider via `DEFAULT_MODELS_BY_PROVIDER` in
+`llm_client.py`: SmolLM2 (`smollm2:1.7b-instruct-q4_K_M`) for Ollama, Claude
+Haiku (`claude-haiku-4-5-20251001`) for Anthropic — switching `LLM_PROVIDER`
+switches the model too, and only the selected provider's settings are read.
+The model pull above is a one-time step (a multi-gigabyte download kept out
+of the image build and out of `up`'s critical path); it persists in the
+`ollama_data` volume, so restarts don't repeat it.
 
-#### One-command (Compose profile)
+On macOS, Docker uses CPU inference: the [spike](spikes/JUA-84.md) succeeded
+with three chunks but exceeded the 35-second answer deadline with eight.
+Ollama requests use an 8,192-token context and up to 1,024 output tokens (100
+for rewriting, which has its own 10-second deadline) — evaluate before
+adopting a model for normal workloads.
 
-`docker compose up --build` (no profile) is unchanged — Anthropic-only,
-no Ollama image pulled, no extra container started. Opt in to an Ollama
-container on the same Compose-managed network with the `ollama` profile:
-
-```bash
-docker compose --profile ollama up --build
-docker compose --profile ollama exec ollama ollama pull smollm2:1.7b-instruct-q4_K_M
-```
-
-Set in `.env` before starting: `LLM_PROVIDER=ollama` and
-`OLLAMA_BASE_URL=http://ollama:11434` (the Compose service name, not
-`localhost`). The model pull is a separate, one-time step run after the
-container is up — a multi-gigabyte download deliberately kept out of
-`up`'s critical path and out of the image build. It persists in the
-`ollama_data` named volume, so it isn't repeated on restart.
-
-#### Manual two-container setup (finer control)
-
-For resource limits (`--cpus`, `--memory`) or an Ollama instance managed
-independently of this project's Compose lifecycle, run both containers by
-hand on the same network instead. These commands use a separate data
-volume; model weights stay in Ollama, outside the RAG image:
+<details>
+<summary>Manual two-container setup (advanced: resource limits, an independently managed Ollama)</summary>
 
 ```bash
 docker network create rag-local
@@ -94,14 +90,11 @@ docker run -d --name rag-local --network rag-local -p 127.0.0.1:8000:8000 \
 curl --fail http://localhost:8000/health
 ```
 
-Use a free host port if another RAG instance is running.
+Use a free host port if another RAG instance is running. Wait for
+readiness, then use the query above — `/health` checks RAG startup, not LLM
+availability.
 
-Wait for readiness, then use the query above. `/health` checks RAG startup, not LLM availability.
-On macOS Docker uses CPU inference: the [spike](spikes/JUA-84.md) succeeded
-with three chunks but exceeded the 35-second answer deadline with eight.
-Rewriting has a separate 10-second deadline. Ollama requests use an 8,192-token
-context and up to 1,024 output tokens (100 for rewriting); larger contexts and
-answer quality need evaluation before adopting a model for normal workloads.
+</details>
 
 ## Develop and evaluate (host)
 
@@ -117,7 +110,9 @@ pip install -r requirements.txt
 ```
 
 `.env`: use `LLM_PROVIDER=ollama` with a running Ollama server, or set
-`LLM_PROVIDER=anthropic` and `ANTHROPIC_API_KEY` for Anthropic.
+`LLM_PROVIDER=anthropic` and `ANTHROPIC_API_KEY` for Anthropic. For Ollama on
+the host, also set `OLLAMA_BASE_URL=http://localhost:11434` — the shipped
+`.env.example` default targets the Docker profile instead.
 
 
 **Confirm `SEED_ON_EMPTY=false` in your `.env`.** Docker pins
