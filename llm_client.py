@@ -85,17 +85,17 @@ def create_llm_client() -> LlmClient:
     """Read runtime configuration without constructing an unused provider."""
     provider = os.getenv("LLM_PROVIDER", "ollama").strip().lower()
     if provider == "anthropic":
-        model = os.getenv("ANTHROPIC_MODEL", DEFAULT_ANTHROPIC_MODEL).strip()
+        model = os.getenv("LLM_MODEL", DEFAULT_ANTHROPIC_MODEL).strip()
         if not model:
-            raise ValueError("ANTHROPIC_MODEL must not be empty")
+            raise ValueError("LLM_MODEL must not be empty")
         return AnthropicAdapter(model=model)
     if provider != "ollama":
         raise ValueError("LLM_PROVIDER must be anthropic or ollama")
 
-    model = os.getenv("OLLAMA_MODEL", DEFAULT_OLLAMA_MODEL).strip()
+    model = os.getenv("LLM_MODEL", DEFAULT_OLLAMA_MODEL).strip()
     base_url = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434").strip()
     if not model:
-        raise ValueError("OLLAMA_MODEL must not be empty")
+        raise ValueError("LLM_MODEL must not be empty")
     try:
         url = urlsplit(base_url)
         valid_url = (url.scheme in {"http", "https"} and url.hostname

@@ -31,8 +31,7 @@ class ConfigurationTests(unittest.TestCase):
 
     def test_anthropic_model_is_configurable_and_provider_is_explicit(self):
         with patch.dict(os.environ, {
-            "LLM_PROVIDER": "anthropic", "ANTHROPIC_MODEL": "test-anthropic-model",
-            "OLLAMA_MODEL": "",
+            "LLM_PROVIDER": "anthropic", "LLM_MODEL": "test-anthropic-model",
         }, clear=True), patch("llm_client.init_chat_model") as constructor:
             llm_client.create_llm_client()
         self.assertEqual(constructor.call_args.args, ("test-anthropic-model",))
@@ -40,7 +39,7 @@ class ConfigurationTests(unittest.TestCase):
 
     def test_local_configuration_never_constructs_anthropic(self):
         with patch.dict(os.environ, {
-            "LLM_PROVIDER": "ollama", "OLLAMA_MODEL": "test-model",
+            "LLM_PROVIDER": "ollama", "LLM_MODEL": "test-model",
             "OLLAMA_BASE_URL": "http://test-ollama:11434",
         }, clear=True), patch("llm_client.init_chat_model") as anthropic:
             adapter = llm_client.create_llm_client()
@@ -62,8 +61,8 @@ class ConfigurationTests(unittest.TestCase):
         cases = [
             ({"LLM_PROVIDER": "test-unknown"}, "LLM_PROVIDER"),
             ({"LLM_PROVIDER": ""}, "LLM_PROVIDER"),
-            ({"OLLAMA_MODEL": " "}, "OLLAMA_MODEL"),
-            ({"LLM_PROVIDER": "anthropic", "ANTHROPIC_MODEL": " "}, "ANTHROPIC_MODEL"),
+            ({"LLM_MODEL": " "}, "LLM_MODEL"),
+            ({"LLM_PROVIDER": "anthropic", "LLM_MODEL": " "}, "LLM_MODEL"),
         ]
         cases += [({"OLLAMA_BASE_URL": url}, "OLLAMA_BASE_URL") for url in (
             "", "test-host", "ftp://test-host", "http://test-host:bad",
