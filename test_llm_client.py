@@ -29,22 +29,27 @@ class ConfigurationTests(unittest.TestCase):
             max_tokens=1024, temperature=0, timeout=35.0, max_retries=0,
         )
 
-    def test_anthropic_model_is_configurable_and_provider_is_explicit(self):
-        with patch.dict(os.environ, {
-            "LLM_PROVIDER": "anthropic", "LLM_MODEL": "test-anthropic-model",
-        }, clear=True), patch("llm_client.init_chat_model") as constructor:
-            llm_client.create_llm_client()
-        self.assertEqual(constructor.call_args.args, ("test-anthropic-model",))
-        self.assertEqual(constructor.call_args.kwargs["model_provider"], "anthropic")
+    def test_selected_provider_resolves_model_from_mapping(self):
+        for provider in ("anthropic", "ollama"):
+            with self.subTest(provider=provider), patch.dict(
+                os.environ, {"LLM_PROVIDER": provider}, clear=True
+            ), patch.dict(llm_client.DEFAULT_MODELS_BY_PROVIDER, {provider: "test-mapped-model"}), patch(
+                "llm_client.AnthropicAdapter"
+            ) as anthropic, patch("llm_client.OllamaAdapter") as ollama:
+                llm_client.create_llm_client()
+                selected = anthropic if provider == "anthropic" else ollama
+                self.assertEqual(selected.call_args.kwargs["model"], "test-mapped-model")
+                unused = ollama if provider == "anthropic" else anthropic
+                unused.assert_not_called()
 
     def test_local_configuration_never_constructs_anthropic(self):
         with patch.dict(os.environ, {
-            "LLM_PROVIDER": "ollama", "LLM_MODEL": "test-model",
+            "LLM_PROVIDER": "ollama",
             "OLLAMA_BASE_URL": "http://test-ollama:11434",
         }, clear=True), patch("llm_client.init_chat_model") as anthropic:
             adapter = llm_client.create_llm_client()
         self.assertIsInstance(adapter, llm_client.OllamaAdapter)
-        self.assertEqual(adapter._model.model, "test-model")
+        self.assertEqual(adapter._model.model, "smollm2:1.7b-instruct-q4_K_M")
         self.assertEqual(adapter._model.base_url, "http://test-ollama:11434")
         self.assertEqual(adapter._model.num_ctx, 8192)
         self.assertEqual(adapter._model.num_predict, 1024)
@@ -61,8 +66,6 @@ class ConfigurationTests(unittest.TestCase):
         cases = [
             ({"LLM_PROVIDER": "test-unknown"}, "LLM_PROVIDER"),
             ({"LLM_PROVIDER": ""}, "LLM_PROVIDER"),
-            ({"LLM_MODEL": " "}, "LLM_MODEL"),
-            ({"LLM_PROVIDER": "anthropic", "LLM_MODEL": " "}, "LLM_MODEL"),
         ]
         cases += [({"OLLAMA_BASE_URL": url}, "OLLAMA_BASE_URL") for url in (
             "", "test-host", "ftp://test-host", "http://test-host:bad",

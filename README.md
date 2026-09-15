@@ -50,12 +50,12 @@ deliberately left out of it.
 
 `LLM_PROVIDER` selects `ollama` (default, no Anthropic credentials) or
 `anthropic` (requires `ANTHROPIC_API_KEY`). Ollama uses `OLLAMA_BASE_URL` (default
-`http://localhost:11434`) and the shared `LLM_MODEL` setting.
-When `LLM_MODEL` is unset, the selected provider uses its default:
-`smollm2:1.7b-instruct-q4_K_M` for Ollama or `claude-haiku-4-5-20251001`
-for Anthropic. If explicitly set, update it when switching providers.
-The model can be changed without rebuilding the image; choose a model that supports the adapter’s structured-output mode.
-Only the selected provider’s settings are read. There is no automatic provider fallback.
+`http://localhost:11434`). Model selection is defined in
+`DEFAULT_MODELS_BY_PROVIDER` in `llm_client.py`: SmolLM2
+(`smollm2:1.7b-instruct-q4_K_M`) for Ollama and Claude Haiku
+(`claude-haiku-4-5-20251001`) for Anthropic. Changing the selected provider
+automatically selects its model. Only the selected provider’s settings are read.
+There is no automatic provider fallback.
 
 For Docker, run both containers on the same network. These commands use a
 separate data volume; model weights stay in Ollama, outside the RAG image:

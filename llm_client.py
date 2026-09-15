@@ -9,10 +9,12 @@ from anthropic import APITimeoutError
 from langchain.chat_models import init_chat_model
 from pydantic import BaseModel
 
-DEFAULT_ANTHROPIC_MODEL = "claude-haiku-4-5-20251001"
+DEFAULT_MODELS_BY_PROVIDER = {
+    "anthropic": "claude-haiku-4-5-20251001",
+    "ollama": "smollm2:1.7b-instruct-q4_K_M",
+}
 LLM_TIMEOUT_SECONDS = 35.0
 REWRITE_TIMEOUT_SECONDS = 10.0
-DEFAULT_OLLAMA_MODEL = "smollm2:1.7b-instruct-q4_K_M"
 
 Answer = TypeVar("Answer", bound=BaseModel)
 Messages = list[dict[str, str]]
@@ -84,18 +86,13 @@ class OllamaAdapter:
 def create_llm_client() -> LlmClient:
     """Read runtime configuration without constructing an unused provider."""
     provider = os.getenv("LLM_PROVIDER", "ollama").strip().lower()
-    if provider == "anthropic":
-        model = os.getenv("LLM_MODEL", DEFAULT_ANTHROPIC_MODEL).strip()
-        if not model:
-            raise ValueError("LLM_MODEL must not be empty")
-        return AnthropicAdapter(model=model)
-    if provider != "ollama":
+    if provider not in DEFAULT_MODELS_BY_PROVIDER:
         raise ValueError("LLM_PROVIDER must be anthropic or ollama")
+    model = DEFAULT_MODELS_BY_PROVIDER[provider]
+    if provider == "anthropic":
+        return AnthropicAdapter(model=model)
 
-    model = os.getenv("LLM_MODEL", DEFAULT_OLLAMA_MODEL).strip()
     base_url = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434").strip()
-    if not model:
-        raise ValueError("LLM_MODEL must not be empty")
     try:
         url = urlsplit(base_url)
         valid_url = (url.scheme in {"http", "https"} and url.hostname
