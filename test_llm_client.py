@@ -19,20 +19,41 @@ MESSAGES = [{"role": "user", "content": "test question"}]
 
 class ConfigurationTests(unittest.TestCase):
     def test_default_anthropic_settings_are_preserved(self):
-        with patch.dict(os.environ, {"LLM_PROVIDER": "anthropic"}, clear=True), patch(
+        with patch.dict(os.environ, {"LLM_PROVIDER": "anthropic", "ANTHROPIC_API_KEY": "  test-dummy-key  "}, clear=True), patch(
             "llm_client.init_chat_model"
         ) as constructor:
             adapter = llm_client.create_llm_client()
         self.assertIsInstance(adapter, llm_client.AnthropicAdapter)
         constructor.assert_called_once_with(
-            "claude-haiku-4-5-20251001", model_provider="anthropic",
+            "claude-haiku-4-5-20251001", model_provider="anthropic", api_key="test-dummy-key",
             max_tokens=1024, temperature=0, timeout=35.0, max_retries=0,
         )
+
+    def test_anthropic_requires_nonblank_key_before_constructing_client(self):
+        for key in (None, "", "   "):
+            environment = {"LLM_PROVIDER": "anthropic"}
+            if key is not None:
+                environment["ANTHROPIC_API_KEY"] = key
+            with self.subTest(key=key), patch.dict(os.environ, environment, clear=True), patch(
+                "llm_client.init_chat_model"
+            ) as constructor:
+                with self.assertRaisesRegex(
+                    ValueError, "^ANTHROPIC_API_KEY is required when LLM_PROVIDER=anthropic$"
+                ):
+                    llm_client.create_llm_client()
+                constructor.assert_not_called()
+
+    def test_anthropic_ignores_invalid_ollama_configuration(self):
+        with patch.dict(os.environ, {
+            "LLM_PROVIDER": "anthropic", "ANTHROPIC_API_KEY": "test-dummy-key",
+            "OLLAMA_BASE_URL": "test-invalid-url",
+        }, clear=True), patch("llm_client.init_chat_model"):
+            self.assertIsInstance(llm_client.create_llm_client(), llm_client.AnthropicAdapter)
 
     def test_selected_provider_resolves_model_from_mapping(self):
         for provider in ("anthropic", "ollama"):
             with self.subTest(provider=provider), patch.dict(
-                os.environ, {"LLM_PROVIDER": provider}, clear=True
+                os.environ, {"LLM_PROVIDER": provider, "ANTHROPIC_API_KEY": "test-dummy-key"}, clear=True
             ), patch.dict(llm_client.DEFAULT_MODELS_BY_PROVIDER, {provider: "test-mapped-model"}), patch(
                 "llm_client.AnthropicAdapter"
             ) as anthropic, patch("llm_client.OllamaAdapter") as ollama:
@@ -70,6 +91,7 @@ class ConfigurationTests(unittest.TestCase):
         cases += [({"OLLAMA_BASE_URL": url}, "OLLAMA_BASE_URL") for url in (
             "", "test-host", "ftp://test-host", "http://test-host:bad",
             "http://user:test-secret@test-host", "http://test-host?key=test-secret",
+            "http://@test-host", "http://:@test-host",
         )]
         for environment, setting in cases:
             with self.subTest(environment=environment), patch.dict(
@@ -93,7 +115,7 @@ class AdapterTests(unittest.IsolatedAsyncioTestCase):
             model = MagicMock()
             model.with_structured_output.return_value.ainvoke = AsyncMock()
             model.bind.return_value.ainvoke = AsyncMock()
-            with patch.dict(os.environ, {"LLM_PROVIDER": provider}, clear=True), patch(
+            with patch.dict(os.environ, {"LLM_PROVIDER": provider, "ANTHROPIC_API_KEY": "test-dummy-key"}, clear=True), patch(
                 constructor, return_value=model
             ):
                 yield provider, llm_client.create_llm_client(), model
@@ -189,7 +211,9 @@ class WireTests(unittest.IsolatedAsyncioTestCase):
             return_value=http_client,
         ))
         with patch.dict(os.environ, {"ANTHROPIC_API_KEY": "test-dummy-key"}, clear=True):
-            return llm_client.AnthropicAdapter(model="claude-haiku-4-5-20251001")
+            return llm_client.AnthropicAdapter(
+                model="claude-haiku-4-5-20251001", api_key="test-dummy-key",
+            )
 
     async def test_sdk_payloads_and_parsed_answers(self):
         for provider in ("ollama", "anthropic"):

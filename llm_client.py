@@ -39,9 +39,10 @@ async def _invoke(runnable, messages: Messages, timeout: float):
 
 
 class AnthropicAdapter:
-    def __init__(self, *, model: str):
+    def __init__(self, *, model: str, api_key: str):
         self._model = init_chat_model(
-            model, model_provider="anthropic", max_tokens=1024, temperature=0,
+            model, model_provider="anthropic", api_key=api_key,
+            max_tokens=1024, temperature=0,
             timeout=LLM_TIMEOUT_SECONDS, max_retries=0,
         )
 
@@ -83,6 +84,28 @@ class OllamaAdapter:
         return response.content if isinstance(response.content, str) else None
 
 
+def _get_anthropic_api_key() -> str:
+    api_key = os.getenv("ANTHROPIC_API_KEY", "").strip()
+    if not api_key:
+        raise ValueError("ANTHROPIC_API_KEY is required when LLM_PROVIDER=anthropic")
+    return api_key
+
+
+def _get_ollama_base_url() -> str:
+    base_url = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434").strip()
+    try:
+        url = urlsplit(base_url)
+        valid_url = (url.scheme in {"http", "https"} and url.hostname is not None
+                     and url.username is None and url.password is None
+                     and not url.query and not url.fragment)
+        url.port  # Validate a supplied port without echoing configuration values.
+    except ValueError:
+        valid_url = False
+    if not valid_url:
+        raise ValueError("OLLAMA_BASE_URL must be an HTTP(S) URL without credentials, query or fragment")
+    return base_url
+
+
 def create_llm_client() -> LlmClient:
     """Read runtime configuration without constructing an unused provider."""
     provider = os.getenv("LLM_PROVIDER", "ollama").strip().lower()
@@ -90,17 +113,6 @@ def create_llm_client() -> LlmClient:
         raise ValueError("LLM_PROVIDER must be anthropic or ollama")
     model = DEFAULT_MODELS_BY_PROVIDER[provider]
     if provider == "anthropic":
-        return AnthropicAdapter(model=model)
+        return AnthropicAdapter(model=model, api_key=_get_anthropic_api_key())
 
-    base_url = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434").strip()
-    try:
-        url = urlsplit(base_url)
-        valid_url = (url.scheme in {"http", "https"} and url.hostname
-                     and not url.username and not url.password
-                     and not url.query and not url.fragment)
-        url.port  # Validate a supplied port without echoing configuration values.
-    except ValueError:
-        valid_url = False
-    if not valid_url:
-        raise ValueError("OLLAMA_BASE_URL must be an HTTP(S) URL without credentials, query or fragment")
-    return OllamaAdapter(model=model, base_url=base_url)
+    return OllamaAdapter(model=model, base_url=_get_ollama_base_url())
