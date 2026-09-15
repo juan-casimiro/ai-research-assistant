@@ -9,10 +9,10 @@ from anthropic import APITimeoutError
 from langchain.chat_models import init_chat_model
 from pydantic import BaseModel
 
-LLM_MODEL = "anthropic:claude-haiku-4-5-20251001"
+DEFAULT_ANTHROPIC_MODEL = "claude-haiku-4-5-20251001"
 LLM_TIMEOUT_SECONDS = 35.0
 REWRITE_TIMEOUT_SECONDS = 10.0
-OLLAMA_MODEL = "smollm2:1.7b-instruct-q4_K_M"
+DEFAULT_OLLAMA_MODEL = "smollm2:1.7b-instruct-q4_K_M"
 
 Answer = TypeVar("Answer", bound=BaseModel)
 Messages = list[dict[str, str]]
@@ -37,9 +37,9 @@ async def _invoke(runnable, messages: Messages, timeout: float):
 
 
 class AnthropicAdapter:
-    def __init__(self):
+    def __init__(self, *, model: str):
         self._model = init_chat_model(
-            LLM_MODEL, max_tokens=1024, temperature=0,
+            model, model_provider="anthropic", max_tokens=1024, temperature=0,
             timeout=LLM_TIMEOUT_SECONDS, max_retries=0,
         )
 
@@ -83,13 +83,16 @@ class OllamaAdapter:
 
 def create_llm_client() -> LlmClient:
     """Read runtime configuration without constructing an unused provider."""
-    provider = os.getenv("LLM_PROVIDER", "anthropic").strip().lower()
+    provider = os.getenv("LLM_PROVIDER", "ollama").strip().lower()
     if provider == "anthropic":
-        return AnthropicAdapter()
+        model = os.getenv("ANTHROPIC_MODEL", DEFAULT_ANTHROPIC_MODEL).strip()
+        if not model:
+            raise ValueError("ANTHROPIC_MODEL must not be empty")
+        return AnthropicAdapter(model=model)
     if provider != "ollama":
         raise ValueError("LLM_PROVIDER must be anthropic or ollama")
 
-    model = os.getenv("OLLAMA_MODEL", OLLAMA_MODEL).strip()
+    model = os.getenv("OLLAMA_MODEL", DEFAULT_OLLAMA_MODEL).strip()
     base_url = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434").strip()
     if not model:
         raise ValueError("OLLAMA_MODEL must not be empty")

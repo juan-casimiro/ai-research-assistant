@@ -19,15 +19,24 @@ MESSAGES = [{"role": "user", "content": "test question"}]
 
 class ConfigurationTests(unittest.TestCase):
     def test_default_anthropic_settings_are_preserved(self):
-        with patch.dict(os.environ, {}, clear=True), patch(
+        with patch.dict(os.environ, {"LLM_PROVIDER": "anthropic"}, clear=True), patch(
             "llm_client.init_chat_model"
         ) as constructor:
             adapter = llm_client.create_llm_client()
         self.assertIsInstance(adapter, llm_client.AnthropicAdapter)
         constructor.assert_called_once_with(
-            "anthropic:claude-haiku-4-5-20251001",
+            "claude-haiku-4-5-20251001", model_provider="anthropic",
             max_tokens=1024, temperature=0, timeout=35.0, max_retries=0,
         )
+
+    def test_anthropic_model_is_configurable_and_provider_is_explicit(self):
+        with patch.dict(os.environ, {
+            "LLM_PROVIDER": "anthropic", "ANTHROPIC_MODEL": "test-anthropic-model",
+            "OLLAMA_MODEL": "",
+        }, clear=True), patch("llm_client.init_chat_model") as constructor:
+            llm_client.create_llm_client()
+        self.assertEqual(constructor.call_args.args, ("test-anthropic-model",))
+        self.assertEqual(constructor.call_args.kwargs["model_provider"], "anthropic")
 
     def test_local_configuration_never_constructs_anthropic(self):
         with patch.dict(os.environ, {
@@ -44,7 +53,7 @@ class ConfigurationTests(unittest.TestCase):
         anthropic.assert_not_called()
 
     def test_local_defaults(self):
-        with patch.dict(os.environ, {"LLM_PROVIDER": "ollama"}, clear=True):
+        with patch.dict(os.environ, {}, clear=True):
             adapter = llm_client.create_llm_client()
         self.assertEqual(adapter._model.model, "smollm2:1.7b-instruct-q4_K_M")
         self.assertEqual(adapter._model.base_url, "http://localhost:11434")
@@ -54,6 +63,7 @@ class ConfigurationTests(unittest.TestCase):
             ({"LLM_PROVIDER": "test-unknown"}, "LLM_PROVIDER"),
             ({"LLM_PROVIDER": ""}, "LLM_PROVIDER"),
             ({"OLLAMA_MODEL": " "}, "OLLAMA_MODEL"),
+            ({"LLM_PROVIDER": "anthropic", "ANTHROPIC_MODEL": " "}, "ANTHROPIC_MODEL"),
         ]
         cases += [({"OLLAMA_BASE_URL": url}, "OLLAMA_BASE_URL") for url in (
             "", "test-host", "ftp://test-host", "http://test-host:bad",
@@ -177,7 +187,7 @@ class WireTests(unittest.IsolatedAsyncioTestCase):
             return_value=http_client,
         ))
         with patch.dict(os.environ, {"ANTHROPIC_API_KEY": "test-dummy-key"}, clear=True):
-            return llm_client.AnthropicAdapter()
+            return llm_client.AnthropicAdapter(model="claude-haiku-4-5-20251001")
 
     async def test_sdk_payloads_and_parsed_answers(self):
         for provider in ("ollama", "anthropic"):

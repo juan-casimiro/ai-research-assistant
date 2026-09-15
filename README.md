@@ -18,7 +18,7 @@ The test corpus is 19 open-access biomedical research articles (PubMed Central O
 ## Run it (Docker)
 
 ```bash
-cp .env.example .env   # add your ANTHROPIC_API_KEY
+cp .env.example .env   # for this Compose quickstart, set LLM_PROVIDER=anthropic and your ANTHROPIC_API_KEY
 docker compose up --build
 ```
 
@@ -48,10 +48,13 @@ deliberately left out of it.
 
 ### Local LLM with Ollama
 
-`LLM_PROVIDER` selects `anthropic` (default, requires `ANTHROPIC_API_KEY`) or
-`ollama` (no Anthropic credentials). Ollama uses `OLLAMA_BASE_URL` (default
+`LLM_PROVIDER` selects `ollama` (default, no Anthropic credentials) or
+`anthropic` (requires `ANTHROPIC_API_KEY`). Ollama uses `OLLAMA_BASE_URL` (default
 `http://localhost:11434`) and `OLLAMA_MODEL` (default
-`smollm2:1.7b-instruct-q4_K_M`). There is no automatic provider fallback.
+`smollm2:1.7b-instruct-q4_K_M`). Anthropic uses `ANTHROPIC_MODEL` (default
+`claude-haiku-4-5-20251001`). Both model names can be changed without rebuilding
+the image; choose a model that supports the adapter’s structured-output mode.
+Only the selected provider’s settings are read. There is no automatic provider fallback.
 
 For Docker, run both containers on the same network. These commands use a
 separate data volume; model weights stay in Ollama, outside the RAG image:
@@ -89,8 +92,8 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-`.env`:
-ANTHROPIC_API_KEY=your-key-here
+`.env`: use `LLM_PROVIDER=ollama` with a running Ollama server, or set
+`LLM_PROVIDER=anthropic` and `ANTHROPIC_API_KEY` for Anthropic.
 
 
 **Confirm `SEED_ON_EMPTY=false` in your `.env`.** Docker pins
