@@ -17,10 +17,8 @@ The test corpus is 19 open-access biomedical research articles (PubMed Central O
 
 ## Run it (Docker)
 
-The [JUA-84 local ChatOllama spike report](spikes/JUA-84.md) records measured
-results and reproduction instructions for an unmerged experiment. Ollama
-support is not part of the default application; use the linked experiment
-branch to try it.
+See the [local LLM spike results](spikes/JUA-84.md) for feasibility and timeout
+limitations. Ollama support is experimental and is not yet part of the application.
 
 ```bash
 cp .env.example .env   # add your ANTHROPIC_API_KEY
