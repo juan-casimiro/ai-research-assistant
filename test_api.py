@@ -7,7 +7,7 @@ from anthropic import APIConnectionError
 from pydantic import ValidationError
 
 import main
-from test_main import api_timeout
+from llm_client import LlmTimeoutError
 
 
 class ApiTests(unittest.IsolatedAsyncioTestCase):
@@ -18,8 +18,7 @@ class ApiTests(unittest.IsolatedAsyncioTestCase):
             main, "retrieve", AsyncMock(return_value=(["some context"], ["test.pdf"]))
         ))
         self.llm = self.enterContext(patch.object(main, "llm"))
-        self.answer = self.llm.with_structured_output.return_value
-        self.answer.ainvoke = AsyncMock(return_value=main.GroundedAnswer(
+        self.llm.generate = AsyncMock(return_value=main.GroundedAnswer(
             answer="some answer", context_sufficient=True,
         ))
         self.collection = self.enterContext(patch.object(main, "collection"))
@@ -42,7 +41,7 @@ class ApiTests(unittest.IsolatedAsyncioTestCase):
                 self.assertEqual(response.status_code, 422)
                 self.assertIn(["body", field], [e["loc"] for e in response.json()["detail"]])
         self.retrieve.assert_not_awaited()
-        self.llm.with_structured_output.assert_not_called()
+        self.llm.generate.assert_not_awaited()
 
     async def test_malformed_json_and_non_object_bodies_are_422(self):
         for body in ('{"question":', '[]', 'null', '"some text"'):
@@ -65,7 +64,7 @@ class ApiTests(unittest.IsolatedAsyncioTestCase):
                                                  use_query_rewriting=expected[1], use_bm25=expected[2])
 
     async def test_insufficient_context_keeps_retrieved_sources_and_reason(self):
-        self.answer.ainvoke.return_value = main.GroundedAnswer(
+        self.llm.generate.return_value = main.GroundedAnswer(
             answer="The requested detail is absent.", context_sufficient=False,
             insufficiency_reason="The context covers another topic.",
         )
@@ -75,8 +74,8 @@ class ApiTests(unittest.IsolatedAsyncioTestCase):
             "answer": "The requested detail is absent.", "sources": ["test.pdf"],
             "context_sufficient": False, "insufficiency_reason": "The context covers another topic.",
         })
-        self.llm.with_structured_output.assert_called_once_with(main.GroundedAnswer)
-        messages = self.answer.ainvoke.call_args.args[0]
+        self.assertIs(self.llm.generate.call_args.args[1], main.GroundedAnswer)
+        messages = self.llm.generate.call_args.args[0]
         self.assertEqual([m["role"] for m in messages], ["system", "user"])
         self.assertNotIn("test question", messages[0]["content"])
         self.assertIn("some context", messages[1]["content"])
@@ -84,7 +83,7 @@ class ApiTests(unittest.IsolatedAsyncioTestCase):
 
     async def test_empty_retrieval_preserves_insufficiency_response(self):
         self.retrieve.return_value = ([], [])
-        self.answer.ainvoke.return_value = main.GroundedAnswer(
+        self.llm.generate.return_value = main.GroundedAnswer(
             answer="No context is available.", context_sufficient=False,
         )
         response = await self.client.post("/query", json={"question": "test question"})
@@ -93,26 +92,25 @@ class ApiTests(unittest.IsolatedAsyncioTestCase):
                                           "context_sufficient": False, "insufficiency_reason": None})
 
     async def test_grounded_timeout_is_504_without_retry(self):
-        self.answer.ainvoke.side_effect = api_timeout()
+        self.llm.generate.side_effect = LlmTimeoutError("test timeout")
         response = await self.client.post("/query", json={"question": "test question"})
         self.assertEqual(response.status_code, 504)
         self.assertEqual(response.json(), {"detail": "upstream LLM request timed out"})
-        self.answer.ainvoke.assert_awaited_once()
+        self.llm.generate.assert_awaited_once()
 
     async def test_real_rewrite_path_timeout_stops_before_answer_generation(self):
         # Exercise retrieve -> rewrite_query -> bound LLM, not a timeout-shaped retrieval mock.
         with patch.object(main, "retrieve", self.original_retrieve), patch.object(
             main, "_retrieve_candidates", return_value=(["some context"], ["test.pdf"])
         ), patch.object(main, "reranker") as reranker:
-            bound = self.llm.bind.return_value
-            bound.ainvoke = AsyncMock(side_effect=api_timeout())
+            self.llm.rewrite = AsyncMock(side_effect=LlmTimeoutError("test timeout"))
             response = await self.client.post("/query", json={
                 "question": "test question", "use_query_rewriting": True,
             })
         self.assertEqual(response.status_code, 504)
         self.assertEqual(response.json(), {"detail": "upstream LLM request timed out"})
-        bound.ainvoke.assert_awaited_once()
-        self.answer.ainvoke.assert_not_awaited()
+        self.llm.rewrite.assert_awaited_once()
+        self.llm.generate.assert_not_awaited()
         reranker.rerank.assert_not_called()
 
     original_retrieve = staticmethod(main.retrieve)
@@ -124,12 +122,12 @@ class ApiTests(unittest.IsolatedAsyncioTestCase):
                   invalid.exception]
         for error in errors:
             with self.subTest(error=type(error).__name__):
-                self.answer.ainvoke.reset_mock()
-                self.answer.ainvoke.side_effect = error
+                self.llm.generate.reset_mock()
+                self.llm.generate.side_effect = error
                 response = await self.client.post("/query", json={"question": "test question"})
                 self.assertEqual(response.status_code, 500)
                 self.assertEqual(response.text, "Internal Server Error")
-                self.answer.ainvoke.assert_awaited_once()
+                self.llm.generate.assert_awaited_once()
 
     async def test_health_and_endpoints_report_loading_and_startup_error(self):
         for ready, error, health, detail in [
@@ -150,7 +148,7 @@ class ApiTests(unittest.IsolatedAsyncioTestCase):
                     self.assertEqual(response.json(), {"detail": detail})
         self.retrieve.assert_not_awaited()
         self.collection.add.assert_not_called()
-        self.llm.with_structured_output.assert_not_called()
+        self.llm.generate.assert_not_awaited()
 
     async def test_ready_health_reports_collection_count_without_llm_probe(self):
         self.collection.count.return_value = 7

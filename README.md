@@ -17,11 +17,8 @@ The test corpus is 19 open-access biomedical research articles (PubMed Central O
 
 ## Run it (Docker)
 
-See the [local LLM spike results](spikes/JUA-84.md) for feasibility and timeout
-limitations. Ollama support is experimental and is not yet part of the application.
-
 ```bash
-cp .env.example .env   # add your ANTHROPIC_API_KEY
+cp .env.example .env   # for this Compose quickstart, set LLM_PROVIDER=anthropic and your ANTHROPIC_API_KEY
 docker compose up --build
 ```
 
@@ -49,6 +46,40 @@ seed corpus. See [ADR-003](./adr/003-deployment-and-containerisation.md)
 for the full reasoning behind the Docker setup, including what was
 deliberately left out of it.
 
+### Local LLM with Ollama
+
+`LLM_PROVIDER` selects `ollama` (default, no Anthropic credentials) or
+`anthropic` (requires `ANTHROPIC_API_KEY`). Ollama uses `OLLAMA_BASE_URL` (default
+`http://localhost:11434`). Model selection is defined in
+`DEFAULT_MODELS_BY_PROVIDER` in `llm_client.py`: SmolLM2
+(`smollm2:1.7b-instruct-q4_K_M`) for Ollama and Claude Haiku
+(`claude-haiku-4-5-20251001`) for Anthropic. Changing the selected provider
+automatically selects its model. Only the selected provider’s settings are read.
+There is no automatic provider fallback.
+
+For Docker, run both containers on the same network. These commands use a
+separate data volume; model weights stay in Ollama, outside the RAG image:
+
+```bash
+docker network create rag-local
+docker run -d --name rag-ollama --network rag-local --cpus 4 --memory 4g \
+  -v rag-ollama-models:/root/.ollama ollama/ollama:0.34.0
+docker exec rag-ollama ollama pull smollm2:1.7b-instruct-q4_K_M
+docker build -t ai-research-assistant:local .
+docker run -d --name rag-local --network rag-local -p 127.0.0.1:8000:8000 \
+  -e LLM_PROVIDER=ollama -e OLLAMA_BASE_URL=http://rag-ollama:11434 \
+  -e SEED_ON_EMPTY=true -v rag-local-data:/data/chroma_db ai-research-assistant:local
+curl --fail http://localhost:8000/health
+```
+
+Use a free host port if another RAG instance is running. Wait for readiness,
+then use the query above. `/health` checks RAG startup, not LLM availability.
+On macOS Docker uses CPU inference: the [spike](spikes/JUA-84.md) succeeded
+with three chunks but exceeded the 35-second answer deadline with eight.
+Rewriting has a separate 10-second deadline. Ollama requests use an 8,192-token
+context and up to 1,024 output tokens (100 for rewriting); larger contexts and
+answer quality need evaluation before adopting a model for normal workloads.
+
 ## Develop and evaluate (host)
 
 This is the path the headline retrieval figures (96.4% @ n=3, 98.2% @
@@ -62,8 +93,8 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-`.env`:
-ANTHROPIC_API_KEY=your-key-here
+`.env`: use `LLM_PROVIDER=ollama` with a running Ollama server, or set
+`LLM_PROVIDER=anthropic` and `ANTHROPIC_API_KEY` for Anthropic.
 
 
 **Confirm `SEED_ON_EMPTY=false` in your `.env`.** Docker pins
@@ -154,7 +185,7 @@ response. `question` must contain 1–1,000 non-whitespace characters, and
 `n_results` must be between 1 and the service's fused candidate-pool limit.
 
 The service makes one bounded attempt at each LLM call; it does not retry
-Anthropic failures internally. A timed-out LLM request returns `504` with
+provider failures internally. A timed-out LLM request returns `504` with
 `{"detail":"upstream LLM request timed out"}`. Callers own any retry budget
 for transient upstream failures so they can enforce their end-to-end latency
 limit and avoid multiplying retries across service boundaries. See ADR-003
@@ -209,11 +240,9 @@ BM25 and query rewriting are opt-in (use_bm25, use_query_rewriting on /query, bo
 - **Chroma** — embedded-mode vector database, no server required
 - **rank_bm25** (`BM25Okapi`) — in-memory sparse lexical retrieval, fused
   with dense search via reciprocal rank fusion (opt-in, `use_bm25`)
-- **LangChain** (`init_chat_model`) — provider-agnostic LLM access for
-  grounded generation, opt-in query rewriting, and structured output.
-  The provider is a single model-string constant (`LLM_MODEL`); switching
-  providers means changing that string and installing the matching
-  integration package (e.g. `langchain-openai`)
+- **LangChain** — Anthropic and Ollama adapters behind a small LLM interface
+  for grounded generation and opt-in query rewriting. Provider settings,
+  structured-output options, and timeout translation live in `llm_client.py`.
 
 
 ## Design decisions and known limitations

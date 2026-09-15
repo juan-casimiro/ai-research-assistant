@@ -206,7 +206,7 @@ class ImportConfigurationTests(unittest.TestCase):
                 "dotenv.load_dotenv"
             ), patch("fastembed.TextEmbedding") as embedding, patch(
                 "fastembed.rerank.cross_encoder.TextCrossEncoder"
-            ) as reranker, patch("chromadb.PersistentClient") as store, patch("langchain.chat_models.init_chat_model") as llm:
+            ) as reranker, patch("chromadb.PersistentClient") as store, patch("llm_client.create_llm_client") as llm:
                 module = runpy.run_path(str(Path(main.__file__)))
                 self.assertEqual((module["CHROMA_PATH"], module["SEED_CORPUS_DIR"], module["SEED_ON_EMPTY"]), expected)
                 self.assertFalse(module["_ready"])
