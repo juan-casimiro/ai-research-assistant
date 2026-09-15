@@ -81,7 +81,7 @@ class RetrievalPipelineTests(unittest.IsolatedAsyncioTestCase):
 
     async def test_rewrite_non_text_content_falls_back_to_original(self):
         llm = MagicMock()
-        llm.bind.return_value.ainvoke = AsyncMock(return_value=SimpleNamespace(content=[{"text": "some block"}]))
+        llm.rewrite = AsyncMock(return_value=None)
         with patch.object(main, "llm", llm):
             self.assertEqual(await main.rewrite_query("test question"), "test question")
 

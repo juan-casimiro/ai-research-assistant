@@ -17,9 +17,6 @@ The test corpus is 19 open-access biomedical research articles (PubMed Central O
 
 ## Run it (Docker)
 
-For the optional local SmolLM2/ChatOllama experiment, see the
-[JUA-84 spike instructions and findings](spikes/JUA-84.md).
-
 ```bash
 cp .env.example .env   # add your ANTHROPIC_API_KEY
 docker compose up --build
@@ -48,6 +45,36 @@ via the manual process below, run outside Docker — not against the
 seed corpus. See [ADR-003](./adr/003-deployment-and-containerisation.md)
 for the full reasoning behind the Docker setup, including what was
 deliberately left out of it.
+
+### Local LLM with Ollama
+
+`LLM_PROVIDER` selects `anthropic` (default, requires `ANTHROPIC_API_KEY`) or
+`ollama` (no Anthropic credentials). Ollama uses `OLLAMA_BASE_URL` (default
+`http://localhost:11434`) and `OLLAMA_MODEL` (default
+`smollm2:1.7b-instruct-q4_K_M`). There is no automatic provider fallback.
+
+For Docker, run both containers on the same network. These commands use a
+separate data volume; model weights stay in Ollama, outside the RAG image:
+
+```bash
+docker network create rag-local
+docker run -d --name rag-ollama --network rag-local --cpus 4 --memory 4g \
+  -v rag-ollama-models:/root/.ollama ollama/ollama:0.34.0
+docker exec rag-ollama ollama pull smollm2:1.7b-instruct-q4_K_M
+docker build -t ai-research-assistant:local .
+docker run -d --name rag-local --network rag-local -p 127.0.0.1:8000:8000 \
+  -e LLM_PROVIDER=ollama -e OLLAMA_BASE_URL=http://rag-ollama:11434 \
+  -e SEED_ON_EMPTY=true -v rag-local-data:/data/chroma_db ai-research-assistant:local
+curl --fail http://localhost:8000/health
+```
+
+Use a free host port if another RAG instance is running. Wait for readiness,
+then use the query above. `/health` checks RAG startup, not LLM availability.
+On macOS Docker uses CPU inference: the [spike](spikes/JUA-84.md) succeeded
+with three chunks but exceeded the 35-second answer deadline with eight.
+Rewriting has a separate 10-second deadline. Ollama requests use an 8,192-token
+context and up to 1,024 output tokens (100 for rewriting); larger contexts and
+answer quality need evaluation before adopting a model for normal workloads.
 
 ## Develop and evaluate (host)
 
@@ -154,7 +181,7 @@ response. `question` must contain 1–1,000 non-whitespace characters, and
 `n_results` must be between 1 and the service's fused candidate-pool limit.
 
 The service makes one bounded attempt at each LLM call; it does not retry
-Anthropic failures internally. A timed-out LLM request returns `504` with
+provider failures internally. A timed-out LLM request returns `504` with
 `{"detail":"upstream LLM request timed out"}`. Callers own any retry budget
 for transient upstream failures so they can enforce their end-to-end latency
 limit and avoid multiplying retries across service boundaries. See ADR-003
@@ -209,11 +236,9 @@ BM25 and query rewriting are opt-in (use_bm25, use_query_rewriting on /query, bo
 - **Chroma** — embedded-mode vector database, no server required
 - **rank_bm25** (`BM25Okapi`) — in-memory sparse lexical retrieval, fused
   with dense search via reciprocal rank fusion (opt-in, `use_bm25`)
-- **LangChain** (`init_chat_model`) — provider-agnostic LLM access for
-  grounded generation, opt-in query rewriting, and structured output.
-  Anthropic is the default; `LLM_PROVIDER=ollama` enables the experimental
-  local ChatOllama path. See [JUA-84](spikes/JUA-84.md) for provider-specific
-  configuration and limitations.
+- **LangChain** — Anthropic and Ollama adapters behind a small LLM interface
+  for grounded generation and opt-in query rewriting. Provider settings,
+  structured-output options, and timeout translation live in `llm_client.py`.
 
 
 ## Design decisions and known limitations

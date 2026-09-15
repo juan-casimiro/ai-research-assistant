@@ -4,14 +4,10 @@ from types import SimpleNamespace
 from unittest.mock import AsyncMock, MagicMock, patch
 
 import httpx
-from anthropic import APITimeoutError
 from pydantic import ValidationError
 
 import main
 
-
-def api_timeout() -> APITimeoutError:
-    return APITimeoutError(request=httpx.Request("POST", "https://api.anthropic.com"))
 
 
 class QueryRequestValidationTests(unittest.TestCase):
@@ -90,12 +86,10 @@ class QueryContractTests(unittest.IsolatedAsyncioTestCase):
     async def test_query_preserves_ranked_context_and_deduplicated_sources(self):
         chunks = ["test chunk A", "test chunk B", "test chunk C", "test chunk D"]
         sources = ["test-a.pdf", "test-b.pdf", "test-b.pdf", "test-d.pdf"]
-        structured_llm_mock = MagicMock()
-        structured_llm_mock.ainvoke = AsyncMock(return_value=main.GroundedAnswer(
+        llm_mock = MagicMock()
+        llm_mock.generate = AsyncMock(return_value=main.GroundedAnswer(
             answer="test answer", context_sufficient=True, insufficiency_reason=None,
         ))
-        llm_mock = MagicMock()
-        llm_mock.with_structured_output.return_value = structured_llm_mock
         reranker_mock = SimpleNamespace(rerank=MagicMock(return_value=iter([0.1, 0.8, 0.9, 0.7])))
 
         with (
@@ -116,7 +110,7 @@ class QueryContractTests(unittest.IsolatedAsyncioTestCase):
             "answer": "test answer", "sources": ["test-b.pdf", "test-d.pdf"],
             "context_sufficient": True, "insufficiency_reason": None,
         })
-        messages = structured_llm_mock.ainvoke.call_args.args[0]
+        messages = llm_mock.generate.call_args.args[0]
         self.assertEqual([message["role"] for message in messages], ["system", "user"])
         user_prompt = messages[1]["content"]
         self.assertLess(user_prompt.index("test chunk C"), user_prompt.index("test chunk B"))
@@ -130,45 +124,29 @@ class LlmConfigurationTests(unittest.TestCase):
     @patch("main.chromadb.PersistentClient")
     @patch("main.TextCrossEncoder")
     @patch("main.TextEmbedding")
-    @patch("main.init_chat_model")
-    def test_load_models_bounds_llm_client(
-        self,
-        init_chat_model,
-        _text_embedding,
-        _text_cross_encoder,
-        _persistent_client,
+    @patch("main.create_llm_client")
+    def test_load_models_initializes_selected_adapter(
+        self, create_llm_client, _text_embedding, _text_cross_encoder, persistent_client,
     ):
         with patch.multiple(main, embed_model=None, reranker=None, chroma_client=None,
                             collection=None, llm=None, CHROMA_PATH="test-store"):
             main._load_models()
-
-        _persistent_client.assert_called_once_with(path="test-store")
-        init_chat_model.assert_called_once_with(
-            main.LLM_MODEL,
-            max_tokens=1024,
-            temperature=0,
-            timeout=35.0,
-            max_retries=0,
-        )
+            self.assertIs(main.llm, create_llm_client.return_value)
+        persistent_client.assert_called_once_with(path="test-store")
+        create_llm_client.assert_called_once_with()
 
 
-class LlmTimeoutTests(unittest.IsolatedAsyncioTestCase):
-    async def test_rewrite_uses_its_own_token_and_timeout_bounds(self):
-        bound_llm = MagicMock()
-        bound_llm.ainvoke = AsyncMock(
-            return_value=SimpleNamespace(content="test rewritten query")
-        )
-        base_llm = MagicMock()
-        base_llm.bind.return_value = bound_llm
-
-        with patch.object(main, "llm", base_llm):
+class RewriteTests(unittest.IsolatedAsyncioTestCase):
+    async def test_rewrite_passes_messages_to_adapter(self):
+        llm = MagicMock()
+        llm.rewrite = AsyncMock(return_value="test rewritten query")
+        with patch.object(main, "llm", llm):
             result = await main.rewrite_query("test question")
-
         self.assertEqual(result, "test rewritten query")
-        base_llm.bind.assert_called_once_with(
-            max_tokens=100,
-            timeout=10.0,
-        )
+        messages = llm.rewrite.call_args.args[0]
+        self.assertEqual([message["role"] for message in messages], ["system", "user"])
+        self.assertEqual(messages[1]["content"], "test question")
+
 
 if __name__ == "__main__":
     unittest.main()
