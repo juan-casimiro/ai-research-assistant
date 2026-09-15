@@ -17,6 +17,9 @@ The test corpus is 19 open-access biomedical research articles (PubMed Central O
 
 ## Run it (Docker)
 
+For the optional local SmolLM2/ChatOllama experiment, see the
+[JUA-84 spike instructions and findings](spikes/JUA-84.md).
+
 ```bash
 cp .env.example .env   # add your ANTHROPIC_API_KEY
 docker compose up --build
@@ -208,9 +211,9 @@ BM25 and query rewriting are opt-in (use_bm25, use_query_rewriting on /query, bo
   with dense search via reciprocal rank fusion (opt-in, `use_bm25`)
 - **LangChain** (`init_chat_model`) — provider-agnostic LLM access for
   grounded generation, opt-in query rewriting, and structured output.
-  The provider is a single model-string constant (`LLM_MODEL`); switching
-  providers means changing that string and installing the matching
-  integration package (e.g. `langchain-openai`)
+  Anthropic is the default; `LLM_PROVIDER=ollama` enables the experimental
+  local ChatOllama path. See [JUA-84](spikes/JUA-84.md) for provider-specific
+  configuration and limitations.
 
 
 ## Design decisions and known limitations

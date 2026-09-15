@@ -10,6 +10,7 @@ from langchain.chat_models import init_chat_model
 from fastembed import TextEmbedding
 from fastembed.rerank.cross_encoder import TextCrossEncoder
 import chromadb
+import httpx
 from anthropic import APITimeoutError
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse
@@ -19,6 +20,7 @@ from rank_bm25 import BM25Okapi
 load_dotenv()
 
 LLM_MODEL = "anthropic:claude-haiku-4-5-20251001"
+LLM_PROVIDER = os.getenv("LLM_PROVIDER", "anthropic")
 LLM_TIMEOUT_SECONDS = 35.0
 REWRITE_TIMEOUT_SECONDS = 10.0
 CHROMA_PATH = os.getenv("CHROMA_PATH", "./chroma_db")
@@ -58,15 +60,32 @@ def _load_models() -> None:
     chroma_client = chromadb.PersistentClient(path=CHROMA_PATH)
     collection = chroma_client.get_or_create_collection("documents")
     _log(f"collection ready — {collection.count()} chunks already stored")
-    _log(f"initializing LLM client ({LLM_MODEL})...")
-    llm = init_chat_model(
+    _log(f"initializing LLM client (provider={LLM_PROVIDER})...")
+    llm = _create_llm()
+    _log("models loaded")
+
+
+def _create_llm():
+    if LLM_PROVIDER == "ollama":
+        from langchain_ollama import ChatOllama
+
+        return ChatOllama(
+            model=os.getenv("OLLAMA_MODEL", "smollm2:1.7b-instruct-q4_K_M"),
+            base_url=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434"),
+            temperature=0,
+            num_ctx=8192,
+            num_predict=1024,
+            client_kwargs={"timeout": LLM_TIMEOUT_SECONDS},
+        )
+    if LLM_PROVIDER != "anthropic":
+        raise ValueError("LLM_PROVIDER must be anthropic or ollama")
+    return init_chat_model(
         LLM_MODEL,
         max_tokens=1024,
         temperature=0,
         timeout=LLM_TIMEOUT_SECONDS,
         max_retries=0,
     )
-    _log("models loaded")
 
 
 def _seed_if_empty() -> int:
@@ -284,15 +303,15 @@ async def rewrite_query(question: str) -> str:
         "no preamble."
     )
 
-    response = await llm.bind(
-        max_tokens=100,
-        timeout=REWRITE_TIMEOUT_SECONDS,
-    ).ainvoke(
+    options = ({"options": {"num_predict": 100, "num_ctx": 8192, "temperature": 0}}
+               if LLM_PROVIDER == "ollama" else
+               {"max_tokens": 100, "timeout": REWRITE_TIMEOUT_SECONDS})
+    response = await asyncio.wait_for(llm.bind(**options).ainvoke(
         [
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": question},
         ]
-    )
+    ), timeout=REWRITE_TIMEOUT_SECONDS)
     content = response.content
     return content if isinstance(content, str) else question  # fall back to original
 
@@ -396,7 +415,7 @@ async def query(request: QueryRequest) -> QueryResponse:
             use_query_rewriting=request.use_query_rewriting,
             use_bm25=request.use_bm25,
         )
-    except APITimeoutError as exc:
+    except (APITimeoutError, httpx.TimeoutException, TimeoutError) as exc:
         raise HTTPException(
             status_code=504,
             detail="upstream LLM request timed out",
@@ -435,13 +454,14 @@ async def query(request: QueryRequest) -> QueryResponse:
     prompt = f"Context:\n{context}\n\nQuestion: {request.question}"
 
     try:
-        result = await llm.with_structured_output(GroundedAnswer).ainvoke(
+        options = {"method": "json_schema"} if LLM_PROVIDER == "ollama" else {}
+        result = await asyncio.wait_for(llm.with_structured_output(GroundedAnswer, **options).ainvoke(
             [
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": prompt},
             ]
-        )
-    except APITimeoutError as exc:
+        ), timeout=LLM_TIMEOUT_SECONDS)
+    except (APITimeoutError, httpx.TimeoutException, TimeoutError) as exc:
         raise HTTPException(
             status_code=504,
             detail="upstream LLM request timed out",
