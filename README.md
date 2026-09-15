@@ -57,8 +57,30 @@ deliberately left out of it.
 automatically selects its model. Only the selected provider’s settings are read.
 There is no automatic provider fallback.
 
-For Docker, run both containers on the same network. These commands use a
-separate data volume; model weights stay in Ollama, outside the RAG image:
+#### One-command (Compose profile)
+
+`docker compose up --build` (no profile) is unchanged — Anthropic-only,
+no Ollama image pulled, no extra container started. Opt in to an Ollama
+container on the same Compose-managed network with the `ollama` profile:
+
+```bash
+docker compose --profile ollama up --build
+docker compose --profile ollama exec ollama ollama pull smollm2:1.7b-instruct-q4_K_M
+```
+
+Set in `.env` before starting: `LLM_PROVIDER=ollama` and
+`OLLAMA_BASE_URL=http://ollama:11434` (the Compose service name, not
+`localhost`). The model pull is a separate, one-time step run after the
+container is up — a multi-gigabyte download deliberately kept out of
+`up`'s critical path and out of the image build. It persists in the
+`ollama_data` named volume, so it isn't repeated on restart.
+
+#### Manual two-container setup (finer control)
+
+For resource limits (`--cpus`, `--memory`) or an Ollama instance managed
+independently of this project's Compose lifecycle, run both containers by
+hand on the same network instead. These commands use a separate data
+volume; model weights stay in Ollama, outside the RAG image:
 
 ```bash
 docker network create rag-local
@@ -72,8 +94,9 @@ docker run -d --name rag-local --network rag-local -p 127.0.0.1:8000:8000 \
 curl --fail http://localhost:8000/health
 ```
 
-Use a free host port if another RAG instance is running. Wait for readiness,
-then use the query above. `/health` checks RAG startup, not LLM availability.
+Use a free host port if another RAG instance is running.
+
+Wait for readiness, then use the query above. `/health` checks RAG startup, not LLM availability.
 On macOS Docker uses CPU inference: the [spike](spikes/JUA-84.md) succeeded
 with three chunks but exceeded the 35-second answer deadline with eight.
 Rewriting has a separate 10-second deadline. Ollama requests use an 8,192-token
