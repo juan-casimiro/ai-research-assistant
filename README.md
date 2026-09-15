@@ -69,11 +69,9 @@ The model pull above is a one-time step (a multi-gigabyte download kept out
 of the image build and out of `up`'s critical path); it persists in the
 `ollama_data` volume, so restarts don't repeat it.
 
-On macOS, Docker uses CPU inference: the [spike](spikes/JUA-84.md) succeeded
-with three chunks but exceeded the 35-second answer deadline with eight.
-Ollama requests use an 8,192-token context and up to 1,024 output tokens (100
-for rewriting, which has its own 10-second deadline) — evaluate before
-adopting a model for normal workloads.
+**Not yet reliable for production use.** SmolLM2 has timed out under normal
+retrieval loads (see the [spike](spikes/JUA-84.md)) and hasn't always
+followed the structured-output contract — treat it as a local/demo path.
 
 <details>
 <summary>Manual two-container setup (advanced: resource limits, an independently managed Ollama)</summary>
