@@ -10,15 +10,15 @@ The test corpus is 19 open-access biomedical research articles (PubMed Central O
 
 | | Docker | Host |
 |---|---|---|
-| For | Reviewers — one command, zero setup | Development & evaluation |
+| For | Reviewers — one command, bring your own Anthropic API key | Development & evaluation |
 | Corpus | [Bundled seed corpus](./adr/003-deployment-and-containerisation.md) (CC BY) | Full 19-document corpus (downloaded manually) |
-| Command | `docker compose up --build` | see below |
+| Command | `docker compose up --build` (no API key? see the [Ollama appendix](#appendix-local-llm-with-ollama)) | see below |
 | Reproduces 96.4% / 98.2%? | No — the seed corpus has never been run through `eval_golden.py` | Yes — this is how those figures were measured |
 
 ## Run it (Docker)
 
 ```bash
-cp .env.example .env   # for this Compose quickstart, set LLM_PROVIDER=anthropic and your ANTHROPIC_API_KEY
+cp .env.example .env   # set ANTHROPIC_API_KEY
 docker compose up --build
 ```
 
@@ -46,39 +46,9 @@ seed corpus. See [ADR-003](./adr/003-deployment-and-containerisation.md)
 for the full reasoning behind the Docker setup, including what was
 deliberately left out of it.
 
-### Local LLM with Ollama
-
-`LLM_PROVIDER` selects `ollama` (default, no Anthropic credentials) or
-`anthropic` (requires `ANTHROPIC_API_KEY`). Ollama uses `OLLAMA_BASE_URL` (default
-`http://localhost:11434`). Model selection is defined in
-`DEFAULT_MODELS_BY_PROVIDER` in `llm_client.py`: SmolLM2
-(`smollm2:1.7b-instruct-q4_K_M`) for Ollama and Claude Haiku
-(`claude-haiku-4-5-20251001`) for Anthropic. Changing the selected provider
-automatically selects its model. Only the selected provider’s settings are read.
-There is no automatic provider fallback.
-
-For Docker, run both containers on the same network. These commands use a
-separate data volume; model weights stay in Ollama, outside the RAG image:
-
-```bash
-docker network create rag-local
-docker run -d --name rag-ollama --network rag-local --cpus 4 --memory 4g \
-  -v rag-ollama-models:/root/.ollama ollama/ollama:0.34.0
-docker exec rag-ollama ollama pull smollm2:1.7b-instruct-q4_K_M
-docker build -t ai-research-assistant:local .
-docker run -d --name rag-local --network rag-local -p 127.0.0.1:8000:8000 \
-  -e LLM_PROVIDER=ollama -e OLLAMA_BASE_URL=http://rag-ollama:11434 \
-  -e SEED_ON_EMPTY=true -v rag-local-data:/data/chroma_db ai-research-assistant:local
-curl --fail http://localhost:8000/health
-```
-
-Use a free host port if another RAG instance is running. Wait for readiness,
-then use the query above. `/health` checks RAG startup, not LLM availability.
-On macOS Docker uses CPU inference: the [spike](spikes/JUA-84.md) succeeded
-with three chunks but exceeded the 35-second answer deadline with eight.
-Rewriting has a separate 10-second deadline. Ollama requests use an 8,192-token
-context and up to 1,024 output tokens (100 for rewriting); larger contexts and
-answer quality need evaluation before adopting a model for normal workloads.
+No Anthropic API key? See the [Ollama appendix](#appendix-local-llm-with-ollama)
+for a Docker-based alternative that runs entirely locally, no credentials
+required.
 
 ## Develop and evaluate (host)
 
@@ -93,8 +63,11 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-`.env`: use `LLM_PROVIDER=ollama` with a running Ollama server, or set
-`LLM_PROVIDER=anthropic` and `ANTHROPIC_API_KEY` for Anthropic.
+`.env`: defaults to `LLM_PROVIDER=anthropic` (set `ANTHROPIC_API_KEY`). To use
+a local Ollama server instead, set `LLM_PROVIDER=ollama` and
+`OLLAMA_BASE_URL=http://localhost:11434` — the shipped `.env.example` value
+targets the Docker profile instead (see the
+[Ollama appendix](#appendix-local-llm-with-ollama)).
 
 
 **Confirm `SEED_ON_EMPTY=false` in your `.env`.** Docker pins
@@ -288,3 +261,56 @@ Run `.venv/bin/python -m unittest discover -v` for the offline regression suite.
 See [the JUA-80 test-strength audit](quality/JUA-80-audit.md) for the
 behaviour map, verification-first mutation evidence, optional coverage/complexity
 commands, and remaining gaps. These tests do not replace the live golden evaluations.
+
+## Appendix: Local LLM with Ollama
+
+An optional, local alternative to Anthropic — no API key, but slower and
+less reliable (see the caveat below). Requires explicitly setting
+`LLM_PROVIDER=ollama`; `OLLAMA_BASE_URL` in `.env.example` already targets
+the Docker profile below.
+
+```bash
+cp .env.example .env   # set LLM_PROVIDER=ollama
+docker compose --profile ollama up --build --wait
+docker compose --profile ollama exec ollama ollama pull smollm2:1.7b-instruct-q4_K_M
+```
+
+`--wait` blocks (detached) until both containers pass their healthchecks,
+so the pull runs against a server that's actually up. **`/health` on
+`research-assistant` only confirms RAG startup — not Ollama's availability
+or that a query will actually succeed**; run the query from
+["Run it (Docker)"](#run-it-docker) once the pull finishes to confirm
+inference works.
+
+Model selection is fixed per provider via `DEFAULT_MODELS_BY_PROVIDER` in
+`llm_client.py`: SmolLM2 (`smollm2:1.7b-instruct-q4_K_M`) for Ollama, Claude
+Haiku (`claude-haiku-4-5-20251001`) for Anthropic — switching `LLM_PROVIDER`
+switches the model too, and only the selected provider's settings are read.
+The model pull is a one-time step (a multi-gigabyte download kept out of the
+image build and out of `up`'s critical path); it persists in the
+`ollama_data` volume, so restarts don't repeat it.
+
+**Not yet reliable for production use.** SmolLM2 has timed out under normal
+retrieval loads (see the [spike](spikes/JUA-84.md)) and hasn't always
+followed the structured-output contract — treat it as a local/demo path.
+
+<details>
+<summary>Manual two-container setup (advanced: resource limits, an independently managed Ollama)</summary>
+
+```bash
+docker network create rag-local
+docker run -d --name rag-ollama --network rag-local --cpus 4 --memory 4g \
+  -v rag-ollama-models:/root/.ollama ollama/ollama:0.34.0
+docker exec rag-ollama ollama pull smollm2:1.7b-instruct-q4_K_M
+docker build -t ai-research-assistant:local .
+docker run -d --name rag-local --network rag-local -p 127.0.0.1:8000:8000 \
+  -e LLM_PROVIDER=ollama -e OLLAMA_BASE_URL=http://rag-ollama:11434 \
+  -e SEED_ON_EMPTY=true -v rag-local-data:/data/chroma_db ai-research-assistant:local
+curl --fail http://localhost:8000/health
+```
+
+Use a free host port if another RAG instance is running. Wait for
+readiness, then use the query above — `/health` checks RAG startup, not LLM
+availability.
+
+</details>
