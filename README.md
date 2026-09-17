@@ -255,6 +255,33 @@ corpus expanded from 16 to 19 documents (outlier cluster).
   rewriting does not fix (see ADR-001)
 - File upload endpoint (currently text-only via JSON)
 
+## Distributed tracing
+
+FastAPI continues incoming W3C `traceparent` context automatically and creates
+server spans with `service.name=ai-research-assistant`. Network export defaults
+to disabled, so a collector is not required for local development or tests.
+
+To enable the bundled OTLP **gRPC** exporter, configure the process environment
+or `.env`:
+
+```dotenv
+OTEL_TRACES_EXPORTER=otlp
+OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=http://localhost:4317
+OTEL_EXPORTER_OTLP_TRACES_TIMEOUT=2
+```
+
+Use the collector's reachable hostname when running in a container. The SDK
+also accepts standard OTLP headers and TLS settings; `https://` selects a secure
+connection. This integration supports `OTEL_TRACES_EXPORTER=none` (default) or
+`otlp`; it uses gRPC regardless of `OTEL_EXPORTER_OTLP_PROTOCOL`. Spans are batched
+and the provider shuts down on application exit. Collector failures do not make
+the RAG service unready, but enabled export can log connection failures.
+
+The offline tracing tests verify the production FastAPI app's incoming parent
+context with an in-memory exporter and OTLP export against a temporary local
+gRPC collector. Compose/Jaeger setup and the real cross-service demo are tracked
+separately in JUA-66 and JUA-88.
+
 ## Deterministic regression tests
 
 Run `.venv/bin/python -m unittest discover -v` for the offline regression suite.
