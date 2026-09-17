@@ -14,6 +14,8 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field, StringConstraints
 from rank_bm25 import BM25Okapi
 from llm_client import LlmClient, LlmTimeoutError, create_llm_client
+from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
+from tracing import create_tracer_provider
 
 load_dotenv()
 
@@ -121,10 +123,15 @@ def _startup() -> None:
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     asyncio.create_task(asyncio.to_thread(_startup))
-    yield
+    try:
+        yield
+    finally:
+        await asyncio.to_thread(tracer_provider.shutdown)
 
 
 app = FastAPI(lifespan=lifespan)
+tracer_provider = create_tracer_provider()
+FastAPIInstrumentor.instrument_app(app, tracer_provider=tracer_provider)
 
 def _require_ready() -> None:
     if _startup_error:
