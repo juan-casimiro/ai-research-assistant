@@ -5,10 +5,13 @@ name: Publish
 # the publish path is unreachable from a fork by construction, not because
 # of an `if:` guard that a future edit could weaken or remove.
 #
-# No concurrency group: every push to main gets its own publish run.
-# A shared group would cancel pending runs queued behind an in-progress one
-# (true even with cancel-in-progress: false), silently dropping images for
-# some main commits.
+# No concurrency group: every push to main gets its own publish run, so no
+# commit's image is ever dropped (a shared group cancels pending runs queued
+# behind an in-progress one, even with cancel-in-progress: false). That
+# means two runs can finish out of order, so `latest` is never just
+# "whatever pushed most recently" — see the "Resolve" and "Move" steps
+# below, which compare against the commit actually baked into the
+# currently-published `latest` image rather than trusting completion order.
 on:
   push:
     branches: [main]
@@ -23,6 +26,11 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # Full history, not just this commit — needed so `git merge-base
+          # --is-ancestor` below can compare this commit against whatever
+          # commit `latest` currently points to.
+          fetch-depth: 0
 
       - name: Set up Python 3.12
         uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
@@ -48,11 +56,83 @@ jobs:
           # no long-lived registry credential sits in repository secrets.
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and push image
+      - name: Build commit-SHA image
         uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
         with:
           context: .
-          push: true
-          tags: |
+          push: false
+          load: true
+          tags: ghcr.io/${{ github.repository }}:${{ github.sha }}
+          # Baked into the image so the "Resolve" step below can later read,
+          # from the registry, which commit `latest` actually contains.
+          labels: org.opencontainers.image.revision=${{ github.sha }}
+
+      - name: "Smoke-test the image (JUA-92 acceptance: starts successfully)"
+        run: |
+          set -euo pipefail
+          trap 'docker logs smoke-test 2>&1 | tail -n 50; docker rm -f smoke-test >/dev/null 2>&1 || true' EXIT
+
+          # /health readiness deliberately excludes the LLM round-trip (see
+          # ADR-003), so a placeholder key is enough to reach "ready".
+          docker run -d --name smoke-test -p 8000:8000 \
+            -e ANTHROPIC_API_KEY=smoke-test-placeholder-key \
             ghcr.io/${{ github.repository }}:${{ github.sha }}
-            ghcr.io/${{ github.repository }}:latest
+
+          for _ in $(seq 1 30); do
+            status=$(curl -s -o /dev/null -w '%{http_code}' http://localhost:8000/health || true)
+            if [ "$status" = "200" ]; then
+              echo "image started and reached /health=200"
+              exit 0
+            fi
+            sleep 3
+          done
+
+          echo "::error::image never reached /health=200 (started but did not become ready)"
+          exit 1
+
+      - name: Push commit-SHA image
+        # Only reached once tests and the smoke test above have passed —
+        # a failing check must never publish an image, immutable tag or not.
+        run: docker push ghcr.io/${{ github.repository }}:${{ github.sha }}
+
+      - name: Resolve currently published latest revision
+        id: latest_source
+        run: |
+          set -euo pipefail
+          if docker pull ghcr.io/${{ github.repository }}:latest > /dev/null 2>&1; then
+            published_sha=$(docker inspect \
+              --format '{{ index .Config.Labels "org.opencontainers.image.revision" }}' \
+              ghcr.io/${{ github.repository }}:latest)
+          else
+            # No latest tag yet — first-ever publish.
+            published_sha=""
+          fi
+          echo "published_sha=$published_sha" >> "$GITHUB_OUTPUT"
+
+      - name: Move latest (only if this commit is not older than what's published)
+        env:
+          PUBLISHED_SHA: ${{ steps.latest_source.outputs.published_sha }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "$PUBLISHED_SHA" ]; then
+            echo "no prior latest — publishing unconditionally"
+          elif git cat-file -e "${PUBLISHED_SHA}^{commit}" 2>/dev/null \
+               && git merge-base --is-ancestor "$PUBLISHED_SHA" "${{ github.sha }}"; then
+            echo "published latest ($PUBLISHED_SHA) is an ancestor of ${{ github.sha }} — advancing latest"
+          else
+            # Either published_sha is unknown to this history (can't prove
+            # ordering — fail safe, don't move latest) or a newer commit
+            # already published latest while this run was still building.
+            # Preserving every commit's SHA-tagged image (the step above)
+            # means nothing is lost by skipping this — a later, newer
+            # commit's own run will move latest to the right place.
+            echo "$PUBLISHED_SHA is not an ancestor of ${{ github.sha }} — leaving latest untouched"
+            exit 0
+          fi
+
+          # A registry-side digest copy, not a rebuild — keeps the window
+          # between the check above and this update as small as possible.
+          docker buildx imagetools create \
+            -t ghcr.io/${{ github.repository }}:latest \
+            ghcr.io/${{ github.repository }}:${{ github.sha }}
