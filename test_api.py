@@ -81,6 +81,18 @@ class ApiTests(unittest.IsolatedAsyncioTestCase):
         self.assertIn("some context", messages[1]["content"])
         self.assertIn("test question", messages[1]["content"])
 
+    async def test_sufficient_context_nulls_out_reason_the_model_incorrectly_supplied(self):
+        self.llm.generate.return_value = main.GroundedAnswer(
+            answer="some answer", context_sufficient=True,
+            insufficiency_reason="The context covers another topic.",
+        )
+        response = await self.client.post("/query", json={"question": "test question"})
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json(), {
+            "answer": "some answer", "sources": ["test.pdf"],
+            "context_sufficient": True, "insufficiency_reason": None,
+        })
+
     async def test_empty_retrieval_preserves_insufficiency_response(self):
         self.retrieve.return_value = ([], [])
         self.llm.generate.return_value = main.GroundedAnswer(

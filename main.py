@@ -1,4 +1,5 @@
 import asyncio
+import logging
 import os
 import re
 from contextlib import asynccontextmanager
@@ -38,6 +39,8 @@ bm25_documents: list[str] = []
 bm25_sources: list[str] = []
 
 FUSED_CANDIDATE_POOL = 20  # cap before reranking — bounds cross-encoder latency
+
+logger = logging.getLogger(__name__)
 
 def _log(message: str) -> None:
     """Startup/seed progress — plain stdout, visible in the same terminal
@@ -216,7 +219,9 @@ class QueryResponse(BaseModel):
     answer: str
     sources: list[str]
     context_sufficient: bool
-    insufficiency_reason: str | None = None  # debug/demo only — not a routing signal
+    # Human-readable diagnostic only — not a stable routing signal. Consumers
+    # must branch on context_sufficient, never on this text.
+    insufficiency_reason: str | None = None
     
 class GroundedAnswer(BaseModel):
     answer: str = Field(
@@ -237,7 +242,8 @@ class GroundedAnswer(BaseModel):
             "do not count as sufficient evidence.\n\n"
         )
     )
-    # Debug/demo only — no consumer branches on this value.
+    # Human-readable diagnostic only — not a stable routing signal. Consumers
+    # must branch on context_sufficient, never on the text of this field.
     insufficiency_reason: str | None = Field(
         default=None,
         description=(
@@ -440,9 +446,18 @@ async def query(request: QueryRequest) -> QueryResponse:
             detail="upstream LLM request timed out",
         ) from exc
 
+    insufficiency_reason = result.insufficiency_reason
+    if result.context_sufficient and insufficiency_reason is not None:
+        logger.warning(
+            "LLM returned insufficiency_reason %r with context_sufficient=True; "
+            "discarding reason to preserve the response contract",
+            insufficiency_reason,
+        )
+        insufficiency_reason = None
+
     return QueryResponse(
         answer=result.answer,
         sources=list(dict.fromkeys(sources)),
         context_sufficient=result.context_sufficient,
-        insufficiency_reason=result.insufficiency_reason,
+        insufficiency_reason=insufficiency_reason,
     )
