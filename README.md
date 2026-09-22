@@ -1,5 +1,7 @@
 Research Assistant (RAG)
 
+[![CI](https://github.com/juan-casimiro/ai-research-assistant/actions/workflows/ci.yml/badge.svg)](https://github.com/juan-casimiro/ai-research-assistant/actions/workflows/ci.yml)
+
 A FastAPI service for semantic search and question-answering over ingested documents, using local embeddings, Chroma for vector storage, and an LLM (via LangChain) for grounded generation.
 
 The test corpus is 19 open-access biomedical research articles (PubMed Central Open Access subset and equivalent open-access journals), spanning diabetes, cardiology, oncology, and an outlier cluster covering antimicrobial resistance, gut microbiome/tuberculosis, and AI-assisted diagnosis — see corpus_manifest.json for full per-article metadata, licenses, and sourcing notes. The RAG pipeline itself is domain-agnostic; biomedical literature was chosen as a corpus with genuinely dense, citation-heavy, and terminology-specific text, useful for stress-testing retrieval precision.
