@@ -22,6 +22,14 @@ cp .env.example .env   # set ANTHROPIC_API_KEY
 docker compose up --build
 ```
 
+Compose publishes the RAG API at `http://localhost:8000` on the host's
+loopback interface only. Containers in the same Compose application, including
+the MCP gateway's Compose `include` flow, still reach it at
+`http://research-assistant:8000` over the Docker network. Localhost clients can
+also call the RAG API directly and therefore bypass gateway authentication;
+this binding reduces network exposure but does not provide complete isolation
+or add authentication to the upstream service.
+
 `/health` reports `{"status": "loading"}` (`503`) while models load and
 the seed corpus is ingested, then `{"status": "ready", "chunks": ...}`
 (`200`) once it's usable — expect roughly 30–60s on first run.
