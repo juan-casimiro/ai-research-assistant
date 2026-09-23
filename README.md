@@ -8,7 +8,7 @@ The test corpus is 19 open-access biomedical research articles (PubMed Central O
 
 **Retrieval accuracy: 96.4% @ n=3, 98.2% @ n=8** on a 133-query golden QA set (111 scored), spanning direct lookup, multi-hop, cross-document distractor, and cross-document synthesis cases. BM25 hybrid search and LLM query rewriting were implemented and evaluated as opt-in additions but measured no net benefit on this corpus — see [ADR-001](./adr/001-chunking-and-retrieval.md) for the full evaluation, including one attributable regression from BM25 alone.
 
-CI runs the unit test suite (`python -m unittest discover`) on every pull request and push to `main`; it does not run the golden QA eval, which stays a deliberate manual step (non-deterministic, calls a paid LLM API).
+CI runs the unit test suite (`python -m unittest discover`), then builds the Docker image and polls `/health` until the container reports ready, on every pull request and push to `main`; it does not run the golden QA eval, which stays a deliberate manual step (non-deterministic, calls a paid LLM API).
 
 ## Two ways to run this
 
