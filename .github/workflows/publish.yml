@@ -66,6 +66,11 @@ jobs:
           # Baked into the image so the "Resolve" step below can later read,
           # from the registry, which commit `latest` actually contains.
           labels: org.opencontainers.image.revision=${{ github.sha }}
+          # Shared with ci.yml's build (same scope) so the dependency
+          # install / baked model-weight layers are reused across both
+          # workflows instead of each keeping its own separate cache.
+          cache-from: type=gha,scope=docker-build
+          cache-to: type=gha,mode=max,scope=docker-build
 
       - name: "Smoke-test the image (JUA-92 acceptance: starts successfully)"
         run: |
