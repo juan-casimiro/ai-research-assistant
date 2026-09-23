@@ -1,23 +1,8 @@
 name: Publish
 
-# Publish is deliberately its own workflow file, triggered only by `push`.
-# A fork's pull_request cannot generate a push event against this repo, so
-# the publish path is unreachable from a fork by construction, not because
-# of an `if:` guard that a future edit could weaken or remove.
-#
-# Split into two jobs so only the `latest`-pointer critical section is
-# serialized:
-#   - `publish` (build, smoke-test, push the commit-SHA image) has no
-#     concurrency restriction, so concurrent pushes to main still build in
-#     parallel and no commit's image is ever dropped.
-#   - `move-latest` reads the commit baked into the currently-published
-#     `latest` image and only advances `latest` if this commit is a
-#     descendant of it. That read-then-write is itself a check-then-act
-#     race across concurrent runs: two runs can both read the same stale
-#     `latest`, both decide to advance, and whichever writes last wins —
-#     regardless of which commit is actually newer. The job's own
-#     `concurrency` group below serializes it so only one run at a time is
-#     ever inside that critical section, closing the race.
+# Only trusted pushes to main publish images. SHA images build concurrently so
+# every accepted commit is retained. Updates to `latest` are fully queued and
+# serialized; an ancestry check prevents older runs from moving it backward.
 on:
   push:
     branches: [main]
@@ -32,11 +17,6 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          # Full history, not just this commit — needed so `git merge-base
-          # --is-ancestor` below can compare this commit against whatever
-          # commit `latest` currently points to.
-          fetch-depth: 0
 
       - name: Set up Python 3.12
         uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
@@ -113,19 +93,9 @@ jobs:
     permissions:
       contents: read
       packages: write
-    # Serializes only this job across concurrent workflow runs — the
-    # `publish` job above (the expensive build) is unaffected and still
-    # runs in parallel. `cancel-in-progress: false` queues waiting runs
-    # instead of dropping them; `queue: max` is required alongside it —
-    # without it, GitHub only holds one job pending per group and a new
-    # arrival cancels-and-replaces whatever was already waiting, so a
-    # commit's move-latest attempt can be dropped before it ever runs.
-    # Since builds can finish out of commit order (cache hits/misses),
-    # the survivor of that single-slot replacement isn't guaranteed to be
-    # the truly newest commit, and nothing later corrects it. `queue: max`
-    # (up to 100 pending) instead runs every commit's attempt in FIFO
-    # order, which is what makes each attempt's own ancestry check
-    # converge on the true newest commit.
+    # GitHub normally retains only one pending job per concurrency group.
+    # `queue: max` preserves out-of-order build completions for serialized
+    # handling.
     concurrency:
       group: ghcr-latest-pointer
       cancel-in-progress: false
