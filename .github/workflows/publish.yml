@@ -5,13 +5,19 @@ name: Publish
 # the publish path is unreachable from a fork by construction, not because
 # of an `if:` guard that a future edit could weaken or remove.
 #
-# No concurrency group: every push to main gets its own publish run, so no
-# commit's image is ever dropped (a shared group cancels pending runs queued
-# behind an in-progress one, even with cancel-in-progress: false). That
-# means two runs can finish out of order, so `latest` is never just
-# "whatever pushed most recently" — see the "Resolve" and "Move" steps
-# below, which compare against the commit actually baked into the
-# currently-published `latest` image rather than trusting completion order.
+# Split into two jobs so only the `latest`-pointer critical section is
+# serialized:
+#   - `publish` (build, smoke-test, push the commit-SHA image) has no
+#     concurrency restriction, so concurrent pushes to main still build in
+#     parallel and no commit's image is ever dropped.
+#   - `move-latest` reads the commit baked into the currently-published
+#     `latest` image and only advances `latest` if this commit is a
+#     descendant of it. That read-then-write is itself a check-then-act
+#     race across concurrent runs: two runs can both read the same stale
+#     `latest`, both decide to advance, and whichever writes last wins —
+#     regardless of which commit is actually newer. The job's own
+#     `concurrency` group below serializes it so only one run at a time is
+#     ever inside that critical section, closing the race.
 on:
   push:
     branches: [main]
@@ -100,6 +106,41 @@ jobs:
         # a failing check must never publish an image, immutable tag or not.
         run: docker push ghcr.io/${{ github.repository }}:${{ github.sha }}
 
+  move-latest:
+    name: move-latest
+    needs: publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    # Serializes only this job across concurrent workflow runs — the
+    # `publish` job above (the expensive build) is unaffected and still
+    # runs in parallel. `cancel-in-progress: false` queues waiting runs
+    # instead of dropping them, so every commit still gets its correct
+    # turn to (advance or correctly skip) `latest`, just never concurrently
+    # with another run's turn.
+    concurrency:
+      group: ghcr-latest-pointer
+      cancel-in-progress: false
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # Full history, not just this commit — needed so `git merge-base
+          # --is-ancestor` below can compare this commit against whatever
+          # commit `latest` currently points to.
+          fetch-depth: 0
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+
+      - name: Log in to GHCR
+        uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Resolve currently published latest revision
         id: latest_source
         run: |
@@ -129,9 +170,9 @@ jobs:
             # Either published_sha is unknown to this history (can't prove
             # ordering — fail safe, don't move latest) or a newer commit
             # already published latest while this run was still building.
-            # Preserving every commit's SHA-tagged image (the step above)
-            # means nothing is lost by skipping this — a later, newer
-            # commit's own run will move latest to the right place.
+            # Preserving every commit's SHA-tagged image (the publish job
+            # above) means nothing is lost by skipping this — a later,
+            # newer commit's own run will move latest to the right place.
             echo "$PUBLISHED_SHA is not an ancestor of ${{ github.sha }} — leaving latest untouched"
             exit 0
           fi
