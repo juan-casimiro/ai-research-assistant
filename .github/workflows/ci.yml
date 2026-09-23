@@ -51,6 +51,12 @@ jobs:
           push: false
           load: true
           tags: ai-research-assistant:ci-smoke-test
+          # Shared with publish.yml's build (same scope) so a dependency
+          # install / baked model-weight layer built on main is reused by
+          # PR builds, and vice versa, instead of each workflow keeping its
+          # own separate cache.
+          cache-from: type=gha,scope=docker-build
+          cache-to: type=gha,mode=max,scope=docker-build
 
       # Proves a clean checkout produces a working container — what a
       # reviewer cloning the repo wants to know. Deliberately not the golden
