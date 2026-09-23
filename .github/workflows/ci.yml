@@ -51,10 +51,9 @@ jobs:
           push: false
           load: true
           tags: ai-research-assistant:ci-smoke-test
-          # Shared with publish.yml's build (same scope) so a dependency
-          # install / baked model-weight layer built on main is reused by
-          # PR builds, and vice versa, instead of each workflow keeping its
-          # own separate cache.
+          # Shared with publish.yml's build on main. PR builds can restore layers
+          # cached by main; layers exported by a PR remain scoped to that PR and
+          # can be reused by its subsequent runs.
           cache-from: type=gha,scope=docker-build
           cache-to: type=gha,mode=max,scope=docker-build
 
