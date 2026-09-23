@@ -32,3 +32,54 @@ jobs:
 
       - name: Run tests
         run: python -m unittest discover -v
+
+  docker-smoke-test:
+    name: docker-smoke-test
+    runs-on: ubuntu-latest
+    needs: build-and-test
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+
+      - name: Build image
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
+        with:
+          context: .
+          push: false
+          load: true
+          tags: ai-research-assistant:ci-smoke-test
+          # Shared with publish.yml's build on main. PR builds can restore layers
+          # cached by main; layers exported by a PR remain scoped to that PR and
+          # can be reused by its subsequent runs.
+          cache-from: type=gha,scope=docker-build
+          cache-to: type=gha,mode=max,scope=docker-build
+
+      # Proves a clean checkout produces a working container — what a
+      # reviewer cloning the repo wants to know. Deliberately not the golden
+      # QA eval (133 live queries against Anthropic, non-deterministic and
+      # not free): that stays a manual step, see ADR-003 / README.
+      - name: Smoke-test the image (starts and becomes ready)
+        run: |
+          set -euo pipefail
+          trap 'docker logs smoke-test 2>&1 | tail -n 50; docker rm -f smoke-test >/dev/null 2>&1 || true' EXIT
+
+          # /health readiness deliberately excludes the LLM round-trip (see
+          # ADR-003), so a placeholder key is enough to reach "ready".
+          docker run -d --name smoke-test -p 8000:8000 \
+            -e ANTHROPIC_API_KEY=smoke-test-placeholder-key \
+            ai-research-assistant:ci-smoke-test
+
+          for _ in $(seq 1 30); do
+            status=$(curl -s -o /dev/null -w '%{http_code}' http://localhost:8000/health || true)
+            if [ "$status" = "200" ]; then
+              echo "image started and reached /health=200"
+              exit 0
+            fi
+            sleep 3
+          done
+
+          echo "::error::image never reached /health=200 (started but did not become ready)"
+          exit 1
