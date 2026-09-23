@@ -158,5 +158,6 @@ jobs:
           # A registry-side digest copy, not a rebuild — keeps the window
           # between the check above and this update as small as possible.
           docker buildx imagetools create \
+            --prefer-index=false \
             -t ghcr.io/${{ github.repository }}:latest \
             ghcr.io/${{ github.repository }}:${{ github.sha }}
