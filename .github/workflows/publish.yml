@@ -116,12 +116,20 @@ jobs:
     # Serializes only this job across concurrent workflow runs — the
     # `publish` job above (the expensive build) is unaffected and still
     # runs in parallel. `cancel-in-progress: false` queues waiting runs
-    # instead of dropping them, so every commit still gets its correct
-    # turn to (advance or correctly skip) `latest`, just never concurrently
-    # with another run's turn.
+    # instead of dropping them; `queue: max` is required alongside it —
+    # without it, GitHub only holds one job pending per group and a new
+    # arrival cancels-and-replaces whatever was already waiting, so a
+    # commit's move-latest attempt can be dropped before it ever runs.
+    # Since builds can finish out of commit order (cache hits/misses),
+    # the survivor of that single-slot replacement isn't guaranteed to be
+    # the truly newest commit, and nothing later corrects it. `queue: max`
+    # (up to 100 pending) instead runs every commit's attempt in FIFO
+    # order, which is what makes each attempt's own ancestry check
+    # converge on the true newest commit.
     concurrency:
       group: ghcr-latest-pointer
       cancel-in-progress: false
+      queue: max
     steps:
       - name: Check out repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
