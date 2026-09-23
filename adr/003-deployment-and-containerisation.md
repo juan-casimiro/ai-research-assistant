@@ -171,20 +171,11 @@ documented-and-deliberate reads as judgement.
   nobody asked to be permanently live. `docker compose up` on a
   reviewer's own machine is the deliverable; it doesn't need a public
   URL to prove the point.
-- **CI/CD stops at the artifact, not the deployment.** A required
-  test-suite check runs on every PR and push to `main` (JUA-97), and a
-  Docker build-and-smoke-test (`/health` against the built image) also
-  runs on every PR and push to `main` (JUA-34), proving a clean checkout
-  produces a working container. Every accepted `main` revision
-  additionally publishes a versioned, pullable image to
-  `ghcr.io/juan-casimiro/ai-research-assistant` (JUA-92) — a commit-SHA
-  tag for traceability plus `latest` for reviewer convenience, itself
-  gated on its own build and smoke test passing. Nothing deploys that
-  image anywhere automatically: this is the same "safe by construction,
-  not by convention" boundary as the no-cloud-deployment decision above,
-  and for the same reason — automating the delivery of an artifact
-  carries no cost-exposure risk, automating what runs it against a live
-  Anthropic API key would.
+- **CI/CD stops at the artifact, not deployment.** CI runs unit tests and a
+  Docker `/health` smoke test on pull requests and pushes to `main` (JUA-97,
+  JUA-34). Successful `main` builds publish commit-SHA and `latest` images to
+  `ghcr.io/juan-casimiro/ai-research-assistant` (JUA-92). Nothing deploys
+  automatically, preserving the no-cloud-deployment boundary above.
 - **No API-key auth or rate limiting on the endpoints themselves**
   (tracked separately as JUA-28) — consistent with, and for the same
   reason as, the no-cloud-deployment decision above: this only becomes
