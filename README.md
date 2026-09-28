@@ -291,13 +291,14 @@ the RAG service unready, but enabled export can log connection failures.
 
 The offline tracing tests verify the production FastAPI app's incoming parent
 context with an in-memory exporter and OTLP export against a temporary local
-gRPC collector. Compose/Jaeger setup and the real cross-service demo are tracked
-separately in JUA-66 and JUA-88.
+gRPC collector. Compose/Jaeger setup and the real cross-service demo remain
+follow-up work: the one-command Compose stack with Jaeger, and the end-to-end
+Spring → FastAPI trace proof in Jaeger.
 
 ## Deterministic regression tests
 
 Run `.venv/bin/python -m unittest discover -v` for the offline regression suite.
-See [the JUA-80 test-strength audit](quality/JUA-80-audit.md) for the
+See [the test-strength audit](quality/test-strength-audit.md) for the
 behaviour map, verification-first mutation evidence, optional coverage/complexity
 commands, and remaining gaps. These tests do not replace the live golden evaluations.
 
@@ -330,7 +331,7 @@ image build and out of `up`'s critical path); it persists in the
 `ollama_data` volume, so restarts don't repeat it.
 
 **Not yet reliable for production use.** SmolLM2 has timed out under normal
-retrieval loads (see the [spike](spikes/JUA-84.md)) and hasn't always
+retrieval loads (see the [spike](spikes/local-ollama-smollm2-spike.md)) and hasn't always
 followed the structured-output contract — treat it as a local/demo path.
 
 <details>

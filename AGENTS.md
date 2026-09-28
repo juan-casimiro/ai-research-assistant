@@ -149,7 +149,7 @@ the committed `eval_results/` baselines with `compare_evals.py`.
 - **Reranker inference blocks; keep it off the event loop.**
   `reranker.rerank()` and lazy score consumption run inside
   `await asyncio.to_thread(...)` in `retrieve()` — an event-loop correctness
-  boundary, not an optimisation claim (ADR-001, JUA-58).
+  boundary, not an optimisation claim (ADR-001).
 - **Async discipline:** once any function in a call chain becomes `async`,
   every caller must be updated — the mixed sync/async retrieval/rewrite path
   shipped two real bugs of exactly this kind (ADR-001).

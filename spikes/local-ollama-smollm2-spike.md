@@ -19,4 +19,5 @@ production suitability.
 Local integration is promising, with timeout and resource limitations.
 Production adapters, representative quality checks, and evaluation of model
 warmup remain follow-up work. Full measurements, setup instructions, and
-development references are recorded in [JUA-84](https://linear.app/juan-casimiro-agent/issue/JUA-84/spike-verify-local-chatollama-with-smollm2-in-the-rag-service).
+development references are recorded in the project task tracker entry for this
+spike (local ChatOllama with SmolLM2 in the RAG service).
