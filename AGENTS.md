@@ -191,7 +191,7 @@ Process rules are canonical in the Linear documents; this is the fast version:
   branch/worktree.
 - Conventional Commits subjects; Linear issue reference in the footer as
   `Refs: JUA-N` (never in the scope slot). PR titles must also be valid
-  Conventional Commits subjects (`pr-title.yml` enforces this).
+  Conventional Commits subjects.
 - Agent GitHub identity is `jcas-agent`, per command, never by changing shared
   git/gh/SSH configuration: push via the `github-agent` SSH host alias; commit
   with `-c user.name=jcas-agent -c user.email=323706886+jcas-agent@users.noreply.github.com`;
