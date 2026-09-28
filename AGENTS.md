@@ -40,7 +40,7 @@ text stress-tests retrieval precision; the pipeline itself is domain-agnostic.
 ```
 question ─► dense embed search (top-20)
           ├─ [opt-in use_bm25]      BM25 sparse search (top-20)
-          ├─ [opt-in use_query_rewriting] LLM rewrite, then both searches again
+          ├─ [opt-in use_query_rewriting] LLM rewrite, then enabled searches again
           ► reciprocal rank fusion (k=60, capped at FUSED_CANDIDATE_POOL=20)
           ► cross-encoder reranking (ms-marco-MiniLM-L-6-v2) ► top-N
           ► LLM grounded answer + sources + context_sufficient flag
@@ -122,8 +122,9 @@ the committed `eval_results/` baselines with `compare_evals.py`.
 - **`/query`** — returns `answer`, `sources` (most-relevant first, per the
   reranker), `context_sufficient`, `insufficiency_reason`. Validation: `422`
   for a `question` outside 1–1,000 non-whitespace chars or `n_results` outside
-  1–`FUSED_CANDIDATE_POOL` (20, default 3). One bounded LLM attempt per call —
-  no internal retry; an LLM timeout returns `504`. Callers own retries.
+  1–`FUSED_CANDIDATE_POOL` (20, default 3). Each LLM stage makes one bounded
+  attempt with no internal retry; query rewriting adds a rewrite attempt before
+  the answer attempt. An LLM timeout returns `504`. Callers own retries.
 - Key env vars: `LLM_PROVIDER` (`anthropic` default, `ollama` opt-in),
   `ANTHROPIC_API_KEY`, `OLLAMA_BASE_URL`, `SEED_ON_EMPTY`, `CHROMA_PATH`,
   `OTEL_TRACES_EXPORTER` (+ `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT` /
