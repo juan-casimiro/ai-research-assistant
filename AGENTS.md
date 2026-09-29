@@ -193,11 +193,19 @@ Process rules are canonical in the Linear documents; this is the fast version:
 - Conventional Commits subjects; Linear issue reference in the footer as
   `Refs: JUA-N` (never in the scope slot). PR titles must also be valid
   Conventional Commits subjects.
-- Agent GitHub identity is `jcas-agent`, per command, never by changing shared
-  git/gh/SSH configuration: push via the `github-agent` SSH host alias; commit
-  with `-c user.name=jcas-agent -c user.email=323706886+jcas-agent@users.noreply.github.com`;
-  `gh` writes with `GH_TOKEN=$(gh auth token --user jcas-agent)`. Always
-  request `juan-casimiro` as reviewer on PRs you open. Agents never merge.
+- Before GitHub writes, run `gh auth status` and confirm `jcas-agent` is the
+  active account. Confirm `git config user.name` is `jcas-agent` and
+  `git config user.email` is `jcas.agent@gmail.com` (this repo's committed
+  agent email; it overrides the Working Agreement's default noreply email).
+  If these checks do not match, stop; do not switch identities or edit auth
+  configuration.
+- Push through the repository's `origin` remote (`git push origin <branch>`).
+  Use plain `gh` commands for writes after the identity check. Commit with the
+  standing git identity (`git commit ...`) — the default `jcas-agent` /
+  `jcas.agent@gmail.com` config already matches, so no per-command `-c`
+  override is needed.
+  Always request `juan-casimiro` as reviewer on PRs you open. Agents never
+  merge.
 - Don't write to Linear until the plan is settled; keep issue status true at
   every stage; post-merge resolution is the explicit verify → clean up →
   reconcile → summarize → wait-for-checks workflow.
