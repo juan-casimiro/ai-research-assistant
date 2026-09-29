@@ -52,6 +52,7 @@ The Docker seed corpus is a demo aid, not the evaluation corpus. The reported re
 - `/query` returns sources in reranker relevance order. Preserve that order when deduplicating (the current implementation uses `dict.fromkeys`, not a set).
 - `context_sufficient` is not an oracle for the unanswerable evaluation category. A false-premise question can be answered correctly by rejecting its premise while still having sufficient context; see ADR-002.
 - LLM calls have bounded attempts and timeouts; the service does not retry provider failures internally. Timeouts become HTTP `504` responses, and callers own retries. Keep changes consistent with the timeout and latency boundaries in `llm_client.py` and ADR-003.
+- A low-priority host-side reliability concern remains: after several days of uptime, a Uvicorn restart can occasionally re-download the embedding and reranker models. Confirm the actual cache behavior before changing cache settings.
 - The Docker image caches embedding and reranker weights at build time and runs with `HF_HUB_OFFLINE=1`. If a model name changes in `main.py`, update the matching Dockerfile cache step. Keep `PYTHONUNBUFFERED=1` so startup progress reaches container logs.
 - The Compose service binds to host loopback at port `8000`; it has no endpoint authentication. A successful `/health` check confirms service startup, not external LLM connectivity.
 
