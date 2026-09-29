@@ -124,10 +124,16 @@ python eval_golden.py [--bm25] [--rewrite]
 ```
 
 Runs the golden QA evaluation harness (`golden_qa.json`, 133 queries,
-111 scored across 4 categories plus unanswerable) against the live
-`retrieve()` pipeline — evaluation always tests the exact code path
-used in production. Results are written to `eval_results.json` with a
-config label and per-query verdicts. See
+111 scored across 4 categories plus unanswerable) against the production
+`retrieve()` pipeline. The script imports `retrieve()` and
+`_load_models_and_index()` from `main.py`, loads the models and existing
+Chroma collection in its own process, and does not require a separate
+Uvicorn server. The full corpus must already be ingested at the configured
+`CHROMA_PATH`; this script does not run startup seeding. Configure the
+selected LLM provider as described above (`ANTHROPIC_API_KEY` is required
+for the default Anthropic provider). The `--rewrite` option makes LLM
+requests and may incur provider usage. Results are written to
+`eval_results.json` with a config label and per-query verdicts. See
 [ADR-002](./adr/002-evaluation-methodology.md) for the category design
 and scoring logic.
 
