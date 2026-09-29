@@ -35,6 +35,8 @@ The README has the complete instructions. These commands are the common entry po
 
 For host development, set `SEED_ON_EMPTY=false` before loading the full corpus. The seed corpus and full corpus share four articles but use different filenames; host auto-seeding can ingest them twice and skew the evaluation. Docker intentionally pins `SEED_ON_EMPTY=true` and `CHROMA_PATH=/data/chroma_db` so local `.env` values cannot change the demo setup.
 
+The CI Docker smoke test starts with empty storage and waits for `/health` to return `200`, exercising startup and the seed check. It does not assert that the seed corpus produced chunks: it checks the status code, not the `chunks` value in the response. If changing demo seeding or relying on seeded content, verify that `/health` reports chunks and that a query can use the demo corpus.
+
 The full PDFs are downloaded manually and must use the exact filenames in `corpus_manifest.json`. Some have non-commercial or no-derivatives license terms, so do not commit or redistribute them. Never commit `.env` files or credentials.
 
 The Docker seed corpus is a demo aid, not the evaluation corpus. The reported retrieval results (96.4% at n=3 and 98.2% at n=8 across 111 scored queries) were measured host-side against the full 19-document corpus. Do not attribute those figures to the Docker seed corpus.
