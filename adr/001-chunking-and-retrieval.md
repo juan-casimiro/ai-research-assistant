@@ -1,6 +1,6 @@
 # ADR-001: Chunking Strategy and Retrieval Limitations
 
-## Update: Offload blocking reranker inference (JUA-58)
+## Update: Offload blocking reranker inference from the event loop
 
 The cross-encoder is a blocking inference call inside the asynchronous
 `retrieve()` path. Both calling `reranker.rerank()` and consuming its lazy
@@ -13,18 +13,19 @@ This is an event-loop correctness decision: the event loop can yield while
 inference runs in a worker thread. It is not a claim that `to_thread()` itself
 provides multi-core execution or establishes a measured optimization gain.
 
-The normal workload measured for JUA-58 continued increasing throughput
+The normal workload measured for this change continued increasing throughput
 through concurrency 8 and did not establish a saturation threshold or a
 performance-derived concurrency ceiling. The before baseline had only one
 run, so the before/after difference is not evidence of an optimization gain.
 The artificial five-pass rerank experiment was diagnostic only; its CPU and
 RSS figures are neither a normal service footprint nor evidence for a
 capacity ceiling. Production performs only one rerank pass. Detailed
-measurements remain in the JUA-58 findings in Linear.
+measurements are retained in the corresponding task record.
 
 Any downstream bulkhead value remains a separate protection or cost policy
 decision, rather than a measured saturation threshold. Model-cache behavior
-is outside this change and remains tracked by JUA-79.
+(persisting the FastEmbed/Hugging Face cache across restarts) is outside this
+change and remains a separate follow-up.
 
 ## Context
 
@@ -440,7 +441,7 @@ judgement follows the answer rather than preceding it.
    answer.
 
 3. **The flag depended on LLM self-assessment; this has now been
-   measured and one failure mode fixed (JUA-19).** Measured against
+   measured and one failure mode fixed (see `eval_context_sufficient.py`).** Measured against
    golden QA ground truth (21 unanswerable queries, excluding the
    false-premise case above, plus 29 randomly-sampled n=8-passing
    queries), with LLM temperature pinned to 0 for reproducibility:

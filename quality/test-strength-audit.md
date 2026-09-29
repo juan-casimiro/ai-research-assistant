@@ -1,4 +1,4 @@
-# JUA-80: test-strength audit
+# Test-strength audit
 
 Audited 2026-09-08 against `5fb8028` in `ai-research-assistant`. Production source,
 model configuration, prompts, corpus, and deployment files are unchanged.
@@ -7,20 +7,20 @@ model configuration, prompts, corpus, and deployment files are unchanged.
 
 | Behaviour / source of requirement | Baseline regression protection | Protection after audit |
 | --- | --- | --- |
-| JUA-75: normalized question, length 1–1000, result count 1–20 | Six Pydantic unit tests; no HTTP rejection tests | Retained unit boundaries; `test_api` checks 422 field locations, malformed JSON/non-object bodies, wrong types, flags, and rejection before retrieval/LLM work |
-| JUA-24: ranked, deduplicated sources | HTTP query through real fusion/reranking | Retained; prompt assertions now check content and relative order rather than separator formatting |
-| JUA-16: structured sufficiency independent of non-empty sources | Only sufficient=True response | `test_api` verifies insufficient=False with sources/reason, empty retrieval response, schema selection and role separation |
-| JUA-73: 35s answer budget, 10s rewrite budget, no SDK retries, timeout → 504 | Constructor/bind mocks; direct endpoint calls; rewrite timeout injected at retrieval boundary | Literal budget assertions, HTTP 504/body/no-retry checks, actual retrieve → rewrite → bound LLM timeout; connection and malformed structured-output errors remain 500 |
-| JUA-58: eager and lazy reranking off the event loop | Thread identity plus exact `to_thread` call count | Preserved thread-identity and stable-score-tie ordering assertions; removed dispatch-count coupling |
-| JUA-30: deferred model construction, background startup, loading/error/ready health, readiness gates | None | `test_startup_ingest` and `test_api`: import constructs no models, environment/default boundaries, event-coordinated lifespan, failure at each startup phase, no work before readiness, readiness independent of LLM probe |
-| JUA-30 / Repo Guide: host seed opt-out, empty-store seeding, BM25 refresh | None | Disabled seeding never checks seed files; populated store skips; nonempty `.txt` only; source/ID/embedding alignment; index refresh after seed; evaluation loader never seeds |
+| Query request validation: normalized question, length 1–1000, result count 1–20 | Six Pydantic unit tests; no HTTP rejection tests | Retained unit boundaries; `test_api` checks 422 field locations, malformed JSON/non-object bodies, wrong types, flags, and rejection before retrieval/LLM work |
+| Ranked, deduplicated sources | HTTP query through real fusion/reranking | Retained; prompt assertions now check content and relative order rather than separator formatting |
+| Structured sufficiency independent of non-empty sources | Only sufficient=True response | `test_api` verifies insufficient=False with sources/reason, empty retrieval response, schema selection and role separation |
+| Bounded LLM calls: 35s answer budget, 10s rewrite budget, no SDK retries, timeout → 504 | Constructor/bind mocks; direct endpoint calls; rewrite timeout injected at retrieval boundary | Literal budget assertions, HTTP 504/body/no-retry checks, actual retrieve → rewrite → bound LLM timeout; connection and malformed structured-output errors remain 500 |
+| Eager and lazy reranking off the event loop | Thread identity plus exact `to_thread` call count | Preserved thread-identity and stable-score-tie ordering assertions; removed dispatch-count coupling |
+| Background startup: deferred model construction, loading/error/ready health, readiness gates | None | `test_startup_ingest` and `test_api`: import constructs no models, environment/default boundaries, event-coordinated lifespan, failure at each startup phase, no work before readiness, readiness independent of LLM probe |
+| Host seed opt-out, empty-store seeding, BM25 refresh | None | Disabled seeding never checks seed files; populated store skips; nonempty `.txt` only; source/ID/embedding alignment; index refresh after seed; evaluation loader never seeds |
 | ADR-001: paragraph chunking, oversized paragraph split, overlap | None; ADR records an earlier missing-continue defect | Whitespace/short text, preceding and trailing content around a long paragraph without duplication, overflow overlap |
 | ADR-001: dense/BM25/rewrite/RRF composition and capped rerank | Only dense path with candidate lookup stubbed | `test_retrieval`: all four combinations, original question reranking, source alignment/first provenance, consensus fusion, empty corpus, pool cap, non-text rewrite fallback, real BM25 tokenization/ranking and stale-index replacement |
 | `/ingest`: aligned persisted chunks, index refresh, storage errors | None | HTTP success/validation, real chunking with vector/store boundaries mocked, no success/index refresh after failed write |
 | ADR-002: category scoring and comparable experiments | Saved live evaluation artifacts, no deterministic tests | `test_evaluation`: every category, distractor order, all-source synthesis, missing metadata, unanswerable exclusion, both depths and flags, missing file/unknown ID; `test_corpus_tools`: both flip directions and no-change comparisons |
-| JUA-19: sufficiency evaluation sample/exclusion and error rates | Saved live evaluation artifacts only | False-premise q083 excluded, deterministic n8-pass sample, distinct FP/FN denominators, filtered sample and empty denominator, unknown-ID rejection |
-| JUA-30 comments: full-corpus ingestion duplication guard | Manual workflow | `test_corpus_tools`: unavailable/loading server stops, populated store requires affirmative response, manifest filename preserved, unreadable/textless PDF does not POST |
-| JUA-32/JUA-33/JUA-76: image, offline weights, seed attribution/count documentation | Historical manual evidence | Inspected Docker/Compose and current documentation; no image rebuild, real model-cache or corpus-count test added |
+| Sufficiency-flag evaluation: sample/exclusion and error rates | Saved live evaluation artifacts only | False-premise q083 excluded, deterministic n8-pass sample, distinct FP/FN denominators, filtered sample and empty denominator, unknown-ID rejection |
+| Full-corpus ingestion duplication guard | Manual workflow | `test_corpus_tools`: unavailable/loading server stops, populated store requires affirmative response, manifest filename preserved, unreadable/textless PDF does not POST |
+| Docker image, offline weights, seed attribution/count documentation | Historical manual evidence | Inspected Docker/Compose and current documentation; no image rebuild, real model-cache or corpus-count test added |
 
 ## Test weaknesses addressed
 
@@ -163,9 +163,9 @@ committed at [`evidence/mutations.json`](evidence/mutations.json).
 
 - Mocks cannot establish real retrieval quality, embedding shape/model-cache
   compatibility, Chroma persistence semantics, or SDK timeout passthrough. Historical
-  live evidence in JUA-73 remains relevant; no new live claim is made here.
+  live evidence from the LLM-timeout bounding work remains relevant; no new live claim is made here.
 - Grounding tests protect propagation and provenance, not truthfulness of the LLM's
-  sufficiency judgement. JUA-19's measured limitations and existing prompt remain
+  sufficiency judgement. The measured sufficiency-flag limitations and existing prompt remain
   unchanged. No prompt-injection mitigation or authentication added.
 - `/ingest` still accepts empty text/source strings; empty chunks, duplicate IDs,
   partial writes, and concurrent BM25 rebuilds need a separate contract/design

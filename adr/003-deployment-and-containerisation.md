@@ -69,7 +69,7 @@ it isn't attached to a TTY, which is always the case inside a
 container. Without this, the `[startup]` progress logging in `main.py`
 buffers and never reaches `docker compose logs`, so the loading → ready
 sequence the health check exposes has no visible narration alongside
-it. Found after JUA-32's verification pass, which checked `/health`
+it. Found after the Docker packaging verification pass, which checked `/health`
 status transitions but not log output.
 
 **Module-level globals over `app.state`.** `embed_model`, `reranker`,
@@ -140,7 +140,8 @@ coerce the model into setting `context_sufficient=true` for a fabricated
 answer. That is a known limitation, not a vulnerability in the current trust
 model. The material future threat is indirect injection from an untrusted
 ingested document, particularly if `/ingest` becomes publicly reachable; that
-risk belongs alongside the authentication and rate-limiting work in JUA-28.
+risk belongs alongside the deferred API-key authentication and rate-limiting
+follow-up.
 
 **CVE-2026-45829 ("ChromaToast", CVSS 10.0) does not apply, and was dismissed
 on GitHub rather than worked around.** The advisory is a pre-auth RCE in
@@ -172,12 +173,13 @@ documented-and-deliberate reads as judgement.
   reviewer's own machine is the deliverable; it doesn't need a public
   URL to prove the point.
 - **CI/CD stops at the artifact, not deployment.** CI runs unit tests and a
-  Docker `/health` smoke test on pull requests and pushes to `main` (JUA-97,
-  JUA-34). Successful `main` builds publish commit-SHA and `latest` images to
-  `ghcr.io/juan-casimiro/ai-research-assistant` (JUA-92). Nothing deploys
+  Docker `/health` smoke test on pull requests and pushes to `main`
+  (`.github/workflows/ci.yml`). Successful `main` builds publish commit-SHA
+  and `latest` images to `ghcr.io/juan-casimiro/ai-research-assistant`
+  (`.github/workflows/publish.yml`). Nothing deploys
   automatically, preserving the no-cloud-deployment boundary above.
 - **No API-key auth or rate limiting on the endpoints themselves**
-  (tracked separately as JUA-28) — consistent with, and for the same
+  (deliberately deferred as future work) — consistent with, and for the same
   reason as, the no-cloud-deployment decision above: this only becomes
   necessary once something is reachable over the network from outside
   the operator's own machine.

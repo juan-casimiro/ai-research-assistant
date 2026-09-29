@@ -58,7 +58,7 @@ jobs:
           cache-from: type=gha,scope=docker-build
           cache-to: type=gha,mode=max,scope=docker-build
 
-      - name: "Smoke-test the image (JUA-92 acceptance: starts successfully)"
+      - name: "Smoke-test the image (acceptance: starts successfully)"
         run: |
           set -euo pipefail
           trap 'docker logs smoke-test 2>&1 | tail -n 50; docker rm -f smoke-test >/dev/null 2>&1 || true' EXIT

@@ -5,7 +5,7 @@ These are opt-in measurements, not build gates. The default test suite remains
 `radon==6.0.1` live in `requirements-quality.txt`; runtime requirements and the
 Docker image are untouched.
 
-The committed `evidence/mutations.json` is the [JUA-80 audit](JUA-80-audit.md)'s
+The committed `evidence/mutations.json` is the [test-strength audit](test-strength-audit.md)'s
 mutation-run snapshot. It is not automatically refreshed; record any rerun
 explicitly if you regenerate it.
 
@@ -40,5 +40,5 @@ hand-picked production change, requires the expected assertion failure,
 restores the original bytes, and reruns green. It writes per-mutation logs and
 a `mutations.json` summary to `--output-dir`; only the portable
 `mutations.json` is committed, under `evidence/`. See the
-[audit's mutation section](JUA-80-audit.md) for the full curated list and
+[audit's mutation section](test-strength-audit.md) for the full curated list and
 results.
