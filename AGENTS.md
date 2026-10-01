@@ -11,6 +11,7 @@ Repository-specific guidance for agents working on this Python 3.12 / FastAPI re
 ## Project map
 
 - `main.py` contains service startup, ingestion, retrieval, and API endpoints; `llm_client.py` contains provider setup and bounded LLM calls.
+- `download_corpus.py` downloads manifest PDFs from PMC and provides browser instructions for the two Ovid exceptions; see [host setup](README.md#develop-and-evaluate-host). Missing manual downloads return nonzero status.
 - `eval_golden.py` evaluates retrieval through the production `retrieve()` path; `compare_evals.py` compares result files. Search with `rg` for other code locations as needed.
 
 ## Guardrails agents are likely to miss
