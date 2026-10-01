@@ -8,9 +8,10 @@ from types import SimpleNamespace
 import tempfile
 import unittest
 from unittest.mock import AsyncMock, Mock, patch
+from chromadb.errors import InternalError
 import compare_evals
 
-from benchmark_scoring import canonical_hash, score_evidence, validate_benchmark
+from benchmark_scoring import CATEGORIES, canonical_hash, score_evidence, validate_answerability, validate_benchmark
 from compare_evals import check_compatible
 import eval_benchmark as runner
 
@@ -95,6 +96,21 @@ class EvidenceTests(unittest.TestCase):
 
 
 class ReleaseTests(unittest.TestCase):
+    def test_category_status_pairing_is_bidirectional_and_gold_rejects_the_reported_gap(self):
+        for category in CATEGORIES:
+            expected = {"unanswerable": "absent_fact", "false_premise": "false_premise"}.get(category, "answerable")
+            for status in ["answerable", "absent_fact", "false_premise", "test-unknown"]:
+                with self.subTest(category=category, status=status):
+                    if status == expected:
+                        validate_answerability(category, status)
+                    else:
+                        with self.assertRaises(ValueError):
+                            validate_answerability(category, status)
+        q, anchors = fixture()
+        q["category"] = "unanswerable"
+        with self.assertRaisesRegex(ValueError, "inconsistent answerability"):
+            validate_benchmark({"queries": [q], "anchors": list(anchors.values())})
+
     def test_checked_in_release_covers_migration_and_exact_source_union(self):
         directory = ROOT / "benchmark/cardiology/v1"
         b = json.loads((directory / "queries.json").read_text())
@@ -140,6 +156,20 @@ class ReleaseTests(unittest.TestCase):
             collection.get.return_value = {"documents": docs, "metadatas": [{"source": "a.pdf"}] * len(docs)}
             with self.assertRaises(ValueError):
                 runner.verify_collection(collection, {"a.pdf": "one"}, lambda t: [t])
+        collection.get.return_value = {"documents": ["one"], "metadatas": [{"source": "a.txt"}]}
+        with self.assertRaises(ValueError):
+            runner.verify_collection(collection, {"a.pdf": "one"}, lambda t: [t])
+
+    def test_failed_atomic_checkpoint_preserves_previous_file_and_cleans_temporary(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory, "run.json")
+            original = '{"run_status": "running", "results": ["test completed depth"]}'
+            path.write_text(original)
+            with patch.object(runner.os, "replace", side_effect=OSError("test storage failure")):
+                with self.assertRaises(OSError):
+                    runner.write_checkpoint(path, {"run_status": "complete"})
+            self.assertEqual(path.read_text(), original)
+            self.assertEqual(list(Path(directory).iterdir()), [path])
 
 
 def run_artifact():
@@ -156,6 +186,15 @@ def run_artifact():
 
 
 class CompatibilityTests(unittest.TestCase):
+    def test_incomplete_run_or_inconsistent_status_cannot_affect_denominators(self):
+        for status in ["setup", "running", "incomplete"]:
+            data = run_artifact(); data["run_status"] = status
+            with self.subTest(status=status), self.assertRaisesRegex(ValueError, "incomplete run"):
+                check_compatible(data, deepcopy(data))
+        data = run_artifact(); data["results"][0]["category"] = "unanswerable"
+        with self.assertRaisesRegex(ValueError, "inconsistent answerability"):
+            check_compatible(data, deepcopy(data))
+
     def test_config_ablation_requires_same_gold_and_corpus(self):
         base = run_artifact(); exp = deepcopy(base); exp["config"]["use_bm25"] = True
         check_compatible(base, exp)
@@ -224,6 +263,56 @@ class RunnerTests(unittest.IsolatedAsyncioTestCase):
             load.assert_not_called(); retrieve.assert_not_awaited()
             self.assertEqual(path.read_text(), "original")
 
+    async def test_invalid_parent_and_unwritable_output_fail_before_models_or_calls(self):
+        with tempfile.TemporaryDirectory() as directory:
+            blocked = Path(directory, "test-parent-file"); blocked.write_text("original")
+            args = SimpleNamespace(benchmark=Path(directory), corpus_dir=Path(directory), condition="C2", ids="test", output=blocked / "run.json")
+            load, retrieve = Mock(), AsyncMock()
+            with patch.object(runner, "read_release", return_value=self.release()), contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(await runner.run_benchmark(args, retrieve, load), 1)
+                args.output = Path(directory, "denied.json")
+                with patch.object(Path, "open", side_effect=PermissionError("test permission denied")):
+                    self.assertEqual(await runner.run_benchmark(args, retrieve, load), 1)
+            load.assert_not_called(); retrieve.assert_not_awaited()
+            self.assertEqual(blocked.read_text(), "original")
+
+    async def test_chroma_collection_error_is_reported_without_retrieval(self):
+        import main as production
+        with tempfile.TemporaryDirectory() as directory:
+            args = SimpleNamespace(benchmark=Path(directory), corpus_dir=Path(directory), condition="C2", ids="test", output=Path(directory, "run.json"))
+            collection = Mock(); collection.get.side_effect = InternalError("test collection unavailable")
+            retrieve = AsyncMock(); output = io.StringIO()
+            with patch.object(runner, "read_release", return_value=self.release()), patch.object(production, "collection", collection), contextlib.redirect_stdout(output):
+                self.assertEqual(await runner.run_benchmark(args, retrieve, Mock()), 1)
+            retrieve.assert_not_awaited()
+            self.assertIn("InternalError: test collection unavailable", output.getvalue())
+            self.assertNotIn("Traceback", output.getvalue())
+
+    async def test_later_failure_preserves_completed_depth_in_incomplete_checkpoint(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory, "run.json")
+            args = SimpleNamespace(benchmark=Path(directory), corpus_dir=Path(directory), condition="C2", ids="test", output=path, bm25=False, rewrite=True)
+            q, anchors = fixture()
+            def result_then_failure(*args, **kwargs):
+                if kwargs["n_results"] == 3:
+                    checkpoint = json.loads(path.read_text())
+                    self.assertEqual(checkpoint["run_status"], "running")
+                    self.assertTrue(checkpoint["provenance"]["scorer_sha256"])
+                    return [anchors["a"]["excerpt"]], ["A.pdf"]
+                checkpoint = json.loads(path.read_text())
+                self.assertIn("n3", checkpoint["results"][0])
+                raise InternalError("test second-depth failure")
+            retrieve = AsyncMock(side_effect=result_then_failure)
+            with patch.object(runner, "read_release", return_value=self.release()), patch.object(runner, "verify_collection", return_value={}), patch.object(runner, "model_fingerprint", return_value={"sha256": "weights"}), patch.object(runner, "version", return_value="test"), patch.object(runner.subprocess, "run", return_value=SimpleNamespace(stdout="commit\n")), contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(await runner.run_benchmark(args, retrieve, Mock()), 1)
+            data = json.loads(path.read_text())
+            self.assertEqual(data["run_status"], "incomplete")
+            self.assertIsNone(data["summary"])
+            self.assertEqual(data["provenance"]["executed_ids"], [])
+            self.assertEqual(data["provenance"]["missing_ids"], ["test"])
+            self.assertEqual(data["results"][0]["n3"]["retrieved_contexts"], [anchors["a"]["excerpt"]])
+            self.assertNotIn("n8", data["results"][0])
+
     async def test_run_passes_only_question_to_production_and_records_immutable_provenance(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory, "result.json")
@@ -235,6 +324,7 @@ class RunnerTests(unittest.IsolatedAsyncioTestCase):
             retrieve.assert_any_await(q["question"], n_results=3, use_query_rewriting=False, use_bm25=True)
             retrieve.assert_any_await(q["question"], n_results=8, use_query_rewriting=False, use_bm25=True)
             data = json.loads(path.read_text()); prov = data["provenance"]
+            self.assertEqual(data["run_status"], "complete")
             self.assertEqual(prov["requested_ids"], prov["executed_ids"])
             self.assertEqual(prov["missing_ids"], [])
             self.assertEqual(data["results"][0]["n8"]["metrics"]["evidence_coverage"], "fail")

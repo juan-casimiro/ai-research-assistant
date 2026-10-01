@@ -20,6 +20,11 @@ scope decisions, all 34 legacy dispositions, independent-review status and the
 visual table checks. The pinned selected articles and their attribution are in
 [ATTRIBUTION.md](ATTRIBUTION.md).
 
+Validation enforces category/status agreement in both queries and versioned run
+results: `unanswerable` requires `absent_fact`, `false_premise` requires the same
+status, and the four retrieval categories require `answerable`. This keeps
+summary and comparison denominators consistent.
+
 ## Migration and ambiguity
 
 All 34 legacy cardiology cases were reviewed, including the 17 directly dependent
@@ -108,6 +113,12 @@ embedding vectors to certify their original model; JUA-110 must retain isolated
 ingestion/model provenance before making quality claims. Remote rewrite aliases
 also cannot prove immutable provider weights. Keep these limits with results.
 
+The source identifier is the manifest's `.pdf` filename. Host ingestion through
+`ingest_corpus.py` saves a `.txt` extraction sidecar but posts the `.pdf` name to
+`/ingest`, which preserves it. Demo seeding stores `.txt` names and is deliberately
+incompatible with these conditions; disable it for isolated benchmark ingestion.
+Chroma errors are reported as named errors with a nonzero exit status.
+
 ## Later focused execution
 
 Offline validation is available now:
@@ -129,6 +140,16 @@ SEED_ON_EMPTY=false CHROMA_PATH=./chroma_db/cardio-C2 \
 
 Do not use that command on an unprepared collection. The named output must not
 already exist. The default output is a unique `eval_results/runs/<UTC>-<id>.json`.
+After release/ID validation, the destination is created and reserved exclusively
+before model loading or any external calls. The runner atomically checkpoints
+each completed depth with provenance and contexts. Only a run finishing both
+depths for every requested ID receives `run_status: complete` and a summary.
+An interrupted/failed run retains an incomplete checkpoint; comparison refuses
+`setup`, `running` or `incomplete` snapshots, even if every result is present.
+Completed IDs mean both depths finished. Use a new output path for a subsequent
+run; checkpoints do not implement automatic resumption. A later filesystem
+failure can still prevent saving the newest response, but failed atomic writes
+preserve the last successful snapshot.
 `--bm25` and `--rewrite` retain production flag semantics. Rewriting makes external
 calls and needs the Working Agreement’s paid-run approval; no such run is included
 here. No full 133-query historical run is required for authoring or metadata edits.

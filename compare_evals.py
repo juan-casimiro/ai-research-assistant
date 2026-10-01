@@ -46,12 +46,14 @@ def check_compatible(baseline: dict, experiment: dict, *, allow_legacy=False,
             raise ValueError("missing provenance; historical pairs require --allow-legacy and cannot be mixed with versioned runs")
         return
     bp, ep = provenance
-    from benchmark_scoring import canonical_hash
+    from benchmark_scoring import canonical_hash, validate_answerability
     for field in ["query_version", "query_sha256", "scorer_version", "scorer_sha256",
                   "retrieval_sha256", "selection_sha256", "subset_sha256", "conditions_sha256", "depths"]:
         if not bp.get(field) or bp[field] != ep.get(field):
             raise ValueError(f"incompatible or missing {field}")
     for data, prov in zip([baseline, experiment], provenance):
+        if data.get("run_status", "complete") != "complete":
+            raise ValueError("incomplete run/checkpoint cannot be compared")
         if prov.get("missing_ids") != [] or sorted(prov.get("requested_ids", [])) != sorted(base) or sorted(prov.get("executed_ids", [])) != sorted(base):
             raise ValueError("incomplete requested-ID coverage")
         if prov["depths"] != [3, 8] or data["config"].get("n_values") != [3, 8]:
@@ -63,6 +65,7 @@ def check_compatible(baseline: dict, experiment: dict, *, allow_legacy=False,
         for result in data["results"]:
             if not result.get("revision") or not result.get("query_sha256") or not result.get("answerability"):
                 raise ValueError("missing per-query revision/fingerprint/answerability")
+            validate_answerability(result["category"], result["answerability"])
             for depth in ["n3", "n8"]:
                 metrics = result[depth].get("metrics", {})
                 if any(metrics.get(m) not in {"pass", "fail", "not_scored"}

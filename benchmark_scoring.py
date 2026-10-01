@@ -23,6 +23,12 @@ def normalize_excerpt(text: str) -> str:
     return " ".join(unicodedata.normalize("NFKC", text).split())
 
 
+def validate_answerability(category: str, status: str) -> None:
+    expected = {"unanswerable": "absent_fact", "false_premise": "false_premise"}.get(category, "answerable")
+    if category not in CATEGORIES or status != expected:
+        raise ValueError(f"{category}: inconsistent answerability {status!r}; expected {expected!r}")
+
+
 def validate_benchmark(benchmark: dict) -> None:
     queries = benchmark["queries"]
     if not queries or len({q["id"] for q in queries}) != len(queries):
@@ -41,6 +47,7 @@ def validate_benchmark(benchmark: dict) -> None:
         category = query["category"]
         if category not in CATEGORIES or type(query["revision"]) is not int or query["revision"] < 1:
             raise ValueError(f"{qid}: invalid category/revision")
+        validate_answerability(category, query["answerability"]["status"])
         facts = query["required_facts"]
         fact_ids = {f["id"] for f in facts}
         if len(fact_ids) != len(facts):
@@ -51,9 +58,6 @@ def validate_benchmark(benchmark: dict) -> None:
             if category != "unanswerable" or facts or sets or not query["answerability"].get("search_scope"):
                 raise ValueError(f"{qid}: absent-fact case needs explicit search scope and no invented evidence")
             continue
-        status = query["answerability"]["status"]
-        if status not in {"answerable", "false_premise"} or (category == "false_premise") != (status == "false_premise"):
-            raise ValueError(f"{qid}: inconsistent answerability")
         if not facts or not sets:
             raise ValueError(f"{qid}: missing facts or complete evidence sets")
         for evidence_set in sets:
