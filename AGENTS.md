@@ -1,27 +1,26 @@
 # Agent guide — ai-research-assistant
 
-Repository-specific guidance for agents working on this Python 3.12 / FastAPI retrieval-augmented question-answering service.
+Python 3.12 / FastAPI retrieval-augmented question-answering service.
 
-## Start with the relevant source
+## Sources
 
-- **Team process, task workflow, verification, and Git/PR conventions:** [Working Agreement — Development Process](https://linear.app/juan-casimiro-agent/document/working-agreement-development-process-fd6dfa17284a), the canonical source for cross-repository process.
-- **Setup, run modes, configuration, API contract, and evaluation commands:** [README](README.md). See [Docker quickstart](README.md#run-it-docker), [host development and evaluation](README.md#develop-and-evaluate-host), and [retrieval evaluation](README.md#retrieval-evaluation) as needed.
-- **Architecture decisions:** read only the relevant record when changing that area: [ADR-001](adr/001-chunking-and-retrieval.md) for chunking/retrieval, [ADR-002](adr/002-evaluation-methodology.md) for golden-set design/scoring, or [ADR-003](adr/003-deployment-and-containerisation.md) for startup, seeding, and Docker boundaries.
+- Shared process: follow the [development guidance index](https://github.com/juan-casimiro/development-config/blob/main/AGENTS.md) and its Working Agreement and applicable environment profile. Local work under `~/development/` enters through `~/development/AGENTS.md`.
+- [README](README.md): setup, run modes, API contract and evaluation commands.
+- Relevant ADRs: [retrieval](adr/001-chunking-and-retrieval.md), [evaluation](adr/002-evaluation-methodology.md), [startup and Docker](adr/003-deployment-and-containerisation.md).
 
 ## Project map
 
-- `main.py` contains service startup, ingestion, retrieval, and API endpoints; `llm_client.py` contains provider setup and bounded LLM calls.
-- `download_corpus.py` downloads manifest PDFs from PMC and provides browser instructions for the two Ovid exceptions; see [host setup](README.md#develop-and-evaluate-host). Missing manual downloads return nonzero status.
-- `eval_golden.py` evaluates retrieval through the production `retrieve()` path; `compare_evals.py` compares result files. Search with `rg` for other code locations as needed.
+- `main.py`: startup, ingestion, retrieval and endpoints; `llm_client.py`: provider configuration and bounded LLM calls.
+- `download_corpus.py`: PMC PDF downloads and browser instructions for the two Ovid exceptions; see [host setup](README.md#develop-and-evaluate-host). Missing manual downloads return nonzero status.
+- `eval_golden.py`: production-path retrieval evaluation; `compare_evals.py`: result comparison.
 
-## Guardrails agents are likely to miss
+## Constraints
 
-- **Keep host and Docker data paths distinct.** For host evaluation, set `SEED_ON_EMPTY=false` before ingesting the full corpus: the Docker seed and full corpus overlap but use different filenames, so auto-seeding can skew results. Docker intentionally enables seeding. The zero-config auto-seed path for a genuinely empty store remains unverified; CI checks `/health` status, not seeded chunk count or queryability. Verify those before changing or claiming seeded demo behavior. See the [README run modes](README.md#two-ways-to-run-this) and ADR-003.
-- **Do not attribute full-corpus results to the demo.** Published retrieval figures were measured against the full 19-document corpus; the smaller Docker seed corpus has not been evaluated with the full golden set. Tie quality claims to measured evaluations; see [README evaluation](README.md#retrieval-evaluation) and ADR-001.
-- **Preserve production-path evaluation.** `eval_golden.py` loads the index and models in its own process; it does not call a running API server. Do not duplicate retrieval logic in the harness. Query rewriting can make paid LLM calls; run evaluation when the change warrants it and compare against `eval_results/`.
-- **Preserve async and ranking behavior.** Reranker inference and score consumption must stay inside `asyncio.to_thread()` in `retrieve()`, and `sources` must retain reranker order when deduplicated. See ADR-001 before changing retrieval.
-- **Do not commit corpus PDFs or credentials.** PDFs are downloaded separately and some cannot be redistributed; never commit `.env` files or secrets. See the [README host setup](README.md#develop-and-evaluate-host).
+- Set `SEED_ON_EMPTY=false` for host full-corpus ingestion; overlapping seed articles use different filenames and can be duplicated. When changing seeding, verify chunk count and queryability, beyond CI health status.
+- Full-corpus retrieval figures do not describe the Docker demo; see README before making quality claims.
+- Keep evaluation on production `retrieve()`; preserve reranker inference and score consumption inside `asyncio.to_thread()`, and reranked source order during deduplication.
+- Do not commit downloaded corpus PDFs; redistribution restrictions are documented in README.
 
 ## Verification
 
-Set up the environment as described in the README. Run `.venv/bin/python -m unittest discover -v` for the deterministic offline regression suite. The golden evaluation is a separate manual quality check, not a routine substitute for the unit suite or a CI gate.
+Run `.venv/bin/python -m unittest discover -v` for offline regressions. Golden evaluation is a separate manual quality check, not a CI gate; follow the Working Agreement's approval rule for paid external runs.
