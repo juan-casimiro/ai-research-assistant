@@ -6,6 +6,27 @@ controlled cardiology runs in JUA-110. This contract does not certify the legacy
 19-paper manifest, migrate golden cases, or implement new scoring. The current
 harness and its limitations remain documented in [ADR-002](../adr/002-evaluation-methodology.md).
 
+## Evaluation objective and fair authoring
+
+The objective is to understand system performance across meaningful case types
+and a larger corpus. Historical scores are context, not targets to reproduce.
+Before authoring, read the selected cardiology full texts and the related or
+competing articles relevant to each proposed query. Understand their populations,
+methods, endpoints, estimates and limitations; abstracts alone are insufficient.
+Design self-contained questions and expected answers from that evidence,
+including plausible competing evidence and acceptable alternative answers.
+Select cases for coverage and realistic difficulty, not desired flag outcomes.
+
+Freeze reviewed questions, expected answers, evidence and scoring rules before
+running experiments. Then compare BM25 and query rewriting on/off under the
+same benchmark and declared nested corpus conditions, with explicit approval
+for paid runs. Focused subsets support iteration; a final four-configuration
+comparison needs complete declared coverage, not automatic repeated sweeps.
+Report improvements, regressions and unchanged results equally. Never rewrite
+questions or expectations to favour a configuration after seeing its scores.
+A genuine source or benchmark defect may be corrected with a recorded revision
+and matching reruns; preserve the original result and explain the correction.
+
 ## Scope and selection rubric
 
 | Topic membership | Evidence relationships to seek | Planned scope |
