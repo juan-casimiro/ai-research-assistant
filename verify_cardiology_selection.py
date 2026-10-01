@@ -51,8 +51,13 @@ def verify(selection_dir: Path, corpus_dir: Path) -> int:
         pdf = corpus_dir / name
         if digest(pdf.read_bytes()) != article["download"]["pdf_sha256"]:
             raise ValueError(f"{article_id}: PDF hash mismatch")
-        reader = PdfReader(pdf, strict=True)
-        pages = [page.extract_text() or "" for page in reader.pages]
+        try:
+            reader = PdfReader(pdf, strict=True)
+            pages = [page.extract_text() or "" for page in reader.pages]
+        except Exception as error:
+            # Corrupt content can raise parser-specific and built-in exceptions.
+            # Keep this boundary limited to PDF parsing and text extraction.
+            raise ValueError(f"{article_id}: unreadable PDF") from error
         if not pages or len(pages) != article["page_count"] or not any(p.strip() for p in pages):
             raise ValueError(f"{article_id}: unreadable PDF or changed page count")
         extracted = "\n".join(pages)
@@ -71,6 +76,14 @@ def verify(selection_dir: Path, corpus_dir: Path) -> int:
             source = article["metadata_sources"][source_key]
             if digest((selection_dir / source["archive"]).read_bytes()) != source["sha256"]:
                 raise ValueError(f"{article_id}: {source_key} archive hash mismatch")
+        source = article["metadata_sources"]["pmc_article_xml"]
+        xml = corpus_dir / f"{article['pmcid']}.{article['pmc_version']}.xml"
+        try:
+            xml_bytes = xml.read_bytes()
+        except OSError as error:
+            raise ValueError(f"{article_id}: missing or unreadable article XML") from error
+        if digest(xml_bytes) != source["sha256"]:
+            raise ValueError(f"{article_id}: article XML hash mismatch")
         entry = next(e for e in evidence if e["article_id"] == article_id)
         if entry["pdf_sha256"] != article["download"]["pdf_sha256"] or entry["text_sha256"] != article["validation"]["extracted_text_sha256"] or not entry["selection_locations"]:
             raise ValueError(f"{article_id}: evidence is missing or names different bytes")
@@ -114,7 +127,7 @@ def main(argv=None) -> int:
     except (OSError, ValueError, KeyError, TypeError) as error:
         print(f"ERROR: {error}")
         return 1
-    print(f"Verified {count} articles: metadata, PDF/text hashes, evidence offsets, attribution, nested conditions and preserved baseline")
+    print(f"Verified {count} articles: metadata/XML, PDF/text hashes, evidence offsets, attribution, nested conditions and preserved baseline")
     return 0
 
 

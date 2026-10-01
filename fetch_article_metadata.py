@@ -10,7 +10,7 @@ import hashlib
 import json
 from pathlib import Path
 import re
-from urllib.parse import urlencode, urlsplit
+from urllib.parse import parse_qs, urlencode, urlsplit
 import xml.etree.ElementTree as ET
 
 from download_corpus import BUCKET, open_url
@@ -36,6 +36,36 @@ def cloud_url(s3_url: str) -> str:
 def read_bytes(url: str) -> bytes:
     with open_url(url) as response:
         return response.read()
+
+
+def read_pmc_xml(s3_url: str) -> bytes:
+    """Check the provider's checksum before using or archiving article XML."""
+    data = read_bytes(cloud_url(s3_url))
+    checksum = parse_qs(urlsplit(s3_url).query).get("md5", [None])[0]
+    if checksum and hashlib.md5(data).hexdigest() != checksum:
+        raise ValueError("PMC XML checksum mismatch")
+    return data
+
+
+def author_name(author) -> str:
+    """Read structured or prose JATS names without dropping author entries."""
+    name_parts = ["prefix", "given-names", "surname", "suffix"]
+    for tag in ["name", "string-name", "collab"]:
+        name = author.find(tag)
+        if name is None:
+            continue
+        prose_name = tag == "string-name" and (
+            (name.text or "").strip()
+            or any((child.tail or "").strip() or child.tag not in name_parts for child in name)
+        )
+        if tag == "collab" or prose_name:
+            value = element_text(name)
+        else:
+            parts = [element_text(name.find(key)) for key in name_parts]
+            value = " ".join(filter(None, parts)) or element_text(name)
+        if value:
+            return value
+    raise ValueError("PMC XML has an author without a supported name")
 
 
 def parse_record(metadata: dict, jats: bytes, pubmed: bytes, identifiers: dict) -> dict:
@@ -72,10 +102,9 @@ def parse_record(metadata: dict, jats: bytes, pubmed: bytes, identifiers: dict) 
     for author in front.findall("./contrib-group/contrib"):
         if author.get("contrib-type") != "author":
             continue
-        name = author.find("name")
-        value = " ".join(filter(None, [element_text(name.find("given-names")), element_text(name.find("surname"))])) if name is not None else element_text(author.find("collab"))
-        if value:
-            authors.append(value)
+        authors.append(author_name(author))
+    if not authors:
+        raise ValueError("PMC XML lacks author metadata")
     dates = front.findall("pub-date")
     chosen = next((d for d in dates if d.get("pub-type") == "epub" or d.get("publication-format") == "electronic" and d.get("date-type") == "pub"), dates[0] if dates else None)
     if chosen is None or not element_text(chosen.find("year")):
@@ -128,7 +157,7 @@ def fetch_metadata(pmcid: str, version: int, search_query: str, filename: str, c
         raise ValueError("this PMCID has no PMID; PubMed metadata is unavailable")
     converter_url = ID_CONVERTER + "?" + urlencode({"ids": pmcid, "format": "json", "versions": "yes", "tool": "ai-research-assistant"})
     pubmed_url = EFETCH + "?" + urlencode({"db": "pubmed", "id": metadata["pmid"], "retmode": "xml", "tool": "ai-research-assistant"})
-    sources = {"cloud.json": (metadata_url, raw_metadata), "id-converter.json": (converter_url, read_bytes(converter_url)), "pubmed.xml": (pubmed_url, read_bytes(pubmed_url)), "article.xml": (cloud_url(metadata["xml_url"]), read_bytes(cloud_url(metadata["xml_url"])))}
+    sources = {"cloud.json": (metadata_url, raw_metadata), "id-converter.json": (converter_url, read_bytes(converter_url)), "pubmed.xml": (pubmed_url, read_bytes(pubmed_url)), "article.xml": (cloud_url(metadata["xml_url"]), read_pmc_xml(metadata["xml_url"]))}
     result = parse_record(metadata, sources["article.xml"][1], sources["pubmed.xml"][1], json.loads(sources["id-converter.json"][1]))
     result.update(filename=filename, cluster=cluster, search_query=search_query,
                   metadata_fetched_at=datetime.now(timezone.utc).isoformat())

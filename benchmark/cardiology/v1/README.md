@@ -92,7 +92,30 @@ are not used. PDFs remain untracked and public PDF publication is separate.
   --corpus-dir corpus/cardiology-v1
 ```
 
-For a fresh checkout, extract the text using the recorded pypdf version (6.16.1)
+For a fresh checkout, also acquire the pinned article XML. Keep it locally as
+`corpus/cardiology-v1/<PMCID>.<version>.xml`; the verifier requires this file and
+compares it with the manifest's `pmc_article_xml.sha256`. This recipe checks the
+provider MD5 before writing and rejects drift from the frozen SHA-256:
+
+```sh
+.venv/bin/python - <<'PYTHON'
+import hashlib
+import json
+from pathlib import Path
+from fetch_article_metadata import read_pmc_xml
+selection = json.loads(Path('benchmark/cardiology/v1/manifest.json').read_text())
+for article in selection['articles']:
+    metadata = json.loads(Path('benchmark/cardiology/v1',
+        article['metadata_sources']['pmc_cloud']['archive']).read_text())
+    data = read_pmc_xml(metadata['xml_url'])
+    if hashlib.sha256(data).hexdigest() != article['metadata_sources']['pmc_article_xml']['sha256']:
+        raise ValueError(f"{article['article_id']}: article XML hash mismatch")
+    Path('corpus/cardiology-v1',
+        f"{article['pmcid']}.{article['pmc_version']}.xml").write_bytes(data)
+PYTHON
+```
+
+Extract the text using the recorded pypdf version (6.16.1)
 and the same page-joining behaviour as production ingestion, without starting a
 server or indexing documents:
 
@@ -112,9 +135,10 @@ PYTHON
 ```
 
 The verifier checks exact selected bytes, deterministic extraction, source
-snapshots, evidence offsets, attribution coverage, nested membership and original
-baseline hashes. The downloader alone skips an existing readable file; the
-verifier is required to catch a different readable version or extraction drift.
+snapshots (including local article XML), evidence offsets, attribution coverage,
+nested membership and original baseline hashes. The downloader alone skips an
+existing readable file; the verifier is required to catch a different readable
+version or extraction drift.
 Cloud objects can change within a deposit version; a checksum mismatch needs a
 reviewed corpus revision, not silently accepting the new bytes.
 

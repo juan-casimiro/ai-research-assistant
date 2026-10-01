@@ -1,8 +1,14 @@
 import copy
+import contextlib
+import hashlib
+import io
+import json
+from pathlib import Path
+import tempfile
 import unittest
 from unittest.mock import patch
 
-from fetch_article_metadata import fetch_metadata, parse_record
+from fetch_article_metadata import fetch_metadata, main, parse_record
 
 
 class ArticleMetadataTests(unittest.TestCase):
@@ -62,6 +68,52 @@ class ArticleMetadataTests(unittest.TestCase):
         jats = self.jats.replace(b"licenses/by/4.0", b"licenses/by/3.0")
         record = parse_record(self.cloud_metadata, jats, self.pubmed, self.identifiers)
         self.assertNotEqual(record["license"], "CC BY 4.0")
+
+    def test_mixed_jats_author_formats_preserve_order_and_complete_names(self):
+        authors = b'''<contrib-group>
+          <contrib contrib-type="author"><name><surname>Example</surname><given-names>Ada</given-names></name></contrib>
+          <contrib contrib-type="editor"><string-name>Some Editor</string-name></contrib>
+          <contrib contrib-type="author"><string-name><surname>Researcher</surname><given-names>Sam</given-names><suffix>Jr.</suffix></string-name></contrib>
+          <contrib contrib-type="author"><string-name>Lee <italic>Sample</italic></string-name></contrib>
+          <contrib contrib-type="author"><string-name><given-names>Pat</given-names> Synthetic</string-name></contrib>
+          <contrib contrib-type="author"><collab>Synthetic Cardiac Study Group</collab></contrib>
+        </contrib-group>'''
+        start, end = self.jats.index(b"<contrib-group>"), self.jats.index(b"</contrib-group>") + len(b"</contrib-group>")
+        jats = self.jats[:start] + authors + self.jats[end:]
+        record = parse_record(self.cloud_metadata, jats, self.pubmed, self.identifiers)
+        self.assertEqual(record["authors"], ["Ada Example", "Sam Researcher Jr.", "Lee Sample", "Pat Synthetic", "Synthetic Cardiac Study Group"])
+
+    def test_unnamed_author_fails_instead_of_silently_writing_partial_list(self):
+        jats = self.jats.replace(b"</contrib-group>", b'<contrib contrib-type="author"><xref>Some unsupported name</xref></contrib></contrib-group>')
+        with self.assertRaisesRegex(ValueError, "author without a supported name"):
+            parse_record(self.cloud_metadata, jats, self.pubmed, self.identifiers)
+
+    def xml_service(self, checksum):
+        metadata = dict(self.cloud_metadata, xml_url=f"s3://pmc-oa-opendata/PMC123456.2/test-article.xml?md5={checksum}")
+        responses = [json.dumps(metadata).encode(), json.dumps(self.identifiers).encode(), self.pubmed, self.jats]
+        return patch("fetch_article_metadata.read_bytes", side_effect=responses)
+
+    def test_xml_checksum_match_allows_parsing_and_archival(self):
+        with tempfile.TemporaryDirectory() as directory, self.xml_service(hashlib.md5(self.jats).hexdigest()):
+            archive = Path(directory)
+            record = fetch_metadata("PMC123456", 2, "some discovery query", "test-article.pdf", "cardiology", archive)
+            self.assertEqual(record["authors"], ["Ada Example"])
+            self.assertEqual(record["metadata_sources"]["article.xml"]["sha256"], hashlib.sha256(self.jats).hexdigest())
+            self.assertEqual((archive / "PMC123456.2.article.xml").read_bytes(), self.jats)
+
+    def test_xml_checksum_mismatch_does_not_write_record_or_archive(self):
+        with tempfile.TemporaryDirectory() as directory, self.xml_service("0" * 32):
+            output = Path(directory, "record.json")
+            output.write_text("some existing record")
+            archive = Path(directory, "archive")
+            captured = io.StringIO()
+            with contextlib.redirect_stdout(captured):
+                result = main(["--pmcid", "PMC123456", "--pmc-version", "2", "--search-query", "some discovery query",
+                               "--filename", "test-article.pdf", "--cluster", "cardiology", "--output", str(output), "--archive-dir", str(archive)])
+            self.assertEqual(result, 1)
+            self.assertIn("ERROR: PMC XML checksum mismatch", captured.getvalue())
+            self.assertEqual(output.read_text(), "some existing record")
+            self.assertFalse(archive.exists())
 
     def test_retraction_stops_candidate_metadata(self):
         metadata = dict(self.cloud_metadata, is_retracted=True)
