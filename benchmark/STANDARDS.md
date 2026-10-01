@@ -327,3 +327,8 @@ CI runs for task PRs and epic pushes; container publication remains restricted
 to `main`. Juan reviews and merges task PRs. After all topic work and combined
 benchmark verification, open a final epic-to-main PR with the release evidence
 and migration report. Juan reviews and merges that PR; agents never merge.
+
+Epic CI branch filters are temporary. After the epic merges into `main` and
+post-merge verification completes, JUA-115 removes the epic branch from both
+CI triggers in a separate cleanup PR to `main`, retaining main validation and
+publication. This follow-up does not block the epic integration PR.
