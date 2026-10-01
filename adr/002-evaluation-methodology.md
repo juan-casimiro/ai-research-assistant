@@ -195,16 +195,21 @@ In versioned mode, `eval_golden.py` still calls production `retrieve()` and reco
 reranked chunks/sources at depths 3 and 8. Document coverage, conservative pinned
 excerpt coverage, fact recall and competitor ordering are distinct. Complete
 alternatives use OR; each set requires all its anchors. An excerpt spanning chunks
-requires every whole chunk in a contiguous production
-window certified against its pinned source offsets, regardless of retrieval rank.
-The offline reachability oracle verifies gold with all production chunks before
-any quality experiment; the scorer version distinguishes this from single-chunk v1.
-Absent facts are unscored; false-premise correction evidence is reported separately from judging generated
+requires every whole chunk in a contiguous production window certified against
+its pinned source offsets, regardless of retrieval rank. The offline oracle
+checks unlimited coverage and minimum complete-evidence chunk budgets. V3
+reports full-set and feasible-only coverage at each depth, with structural
+ceilings and infeasible IDs; document coverage and partial fact recall retain
+all scored cases. All 42 evidence-bearing cases fit at n=8, but only 30 fit at
+n=3 (27/38 answerable and 3/4 false-premise correction cases). These are
+structural assertions, not retrieval-quality results. Absent facts are unscored;
+false-premise correction evidence is reported separately from judging generated
 corrections. Exact matching cannot exclude valid paraphrases, so failures require
 context inspection. JUA-40 retains separately sequenced answer-judge work.
 
 `compare_evals.py` now rejects changed queries/revisions, scorer/retrieval/corpus
-fingerprints, depths and incomplete executed-ID sets. Explicit nested comparisons
+fingerprints, depths, changed/missing feasibility and incomplete executed-ID sets.
+Explicit nested comparisons
 hold retrieval flags fixed and preserve common article tuples. Historical pairs
 require `--allow-legacy`, are labelled unverifiable and cannot be mixed with the
 new release. This prevents a repaired reference or changed corpus from appearing

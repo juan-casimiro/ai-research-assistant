@@ -11,7 +11,9 @@ from unittest.mock import AsyncMock, Mock, patch
 from chromadb.errors import InternalError
 import compare_evals
 
-from benchmark_scoring import CATEGORIES, canonical_hash, compile_anchor_spans, score_evidence, validate_answerability, validate_benchmark
+from benchmark_scoring import (CATEGORIES, FEASIBILITY_VERSION, canonical_hash, compile_anchor_spans,
+                               compile_query_feasibility, evidence_coverage_report, feasibility_from_minimum,
+                               minimum_evidence_witness, score_evidence, validate_answerability, validate_benchmark)
 from compare_evals import check_compatible
 import eval_benchmark as runner
 from verify_benchmark_reachability import verify_reachability
@@ -157,6 +159,7 @@ class AdjacentSpanTests(unittest.TestCase):
         q, anchors, chunks, plans = self.case(text, 999, 3001)
         self.assertEqual(score_evidence([chunks[0], chunks[1], chunks[3]], ["A.pdf"] * 3, q, anchors, plans)["evidence_coverage"], "fail")
         self.assertEqual(score_evidence(chunks, ["A.pdf"] * 4, q, anchors, plans)["evidence_coverage"], "pass")
+        self.assertEqual(minimum_evidence_witness(q, anchors, plans, {"A.pdf": chunks}).total(), 4)
 
     def test_planner_rejects_wrong_offsets_and_gaps_with_missing_source_text(self):
         q, anchors = fixture()
@@ -175,11 +178,97 @@ class AdjacentSpanTests(unittest.TestCase):
         q, anchors, _, _ = self.case(text, 900, 3100)
         benchmark = {"queries": [q], "anchors": list(anchors.values())}
         report = verify_reachability(benchmark, {"A.pdf": text}, chunk_text)
-        self.assertEqual(report["reachable_evidence_queries"], 1)
+        self.assertEqual(report["unlimited_reachable_evidence_queries"], 1)
         self.assertEqual(report["anchors_requiring_adjacent_chunks"], 1)
+        self.assertEqual(report["query_feasibility"]["test"], feasibility_from_minimum(4))
+        self.assertEqual(report["by_depth"]["n3"]["feasible_queries"], 0)
+        self.assertEqual(report["by_depth"]["n3"]["infeasible_ids"], ["test"])
+        self.assertEqual(report["by_depth"]["n8"]["feasible_queries"], 1)
         self.assertFalse(report["retrieval_quality_measured"])
         with self.assertRaisesRegex(ValueError, "unreachable"):
             verify_reachability(benchmark, {"A.pdf": text}, lambda t: [t[:1000], t[3000:]])
+
+
+class DepthFeasibilityTests(unittest.TestCase):
+    def test_shared_single_chunk_and_cheapest_complete_alternative(self):
+        q, anchors = fixture()
+        chunks = {"A.pdf": [anchors["a"]["excerpt"], anchors["b"]["excerpt"]],
+                  "B.pdf": [anchors["c"]["excerpt"]]}
+        witness = minimum_evidence_witness(q, anchors, {}, chunks)
+        self.assertEqual(witness.total(), 1)
+        self.assertEqual({source for source, chunk in witness}, {"B.pdf"})
+        q["evidence_sets"] = q["evidence_sets"][:1]
+        self.assertEqual(minimum_evidence_witness(q, anchors, {}, chunks).total(), 2)
+        chunks["A.pdf"] = [anchors["a"]["excerpt"] + " " + anchors["b"]["excerpt"]]
+        self.assertEqual(minimum_evidence_witness(q, anchors, {}, chunks).total(), 1)
+        self.assertEqual(compile_query_feasibility([q], anchors, {}, chunks)["test"], feasibility_from_minimum(1))
+
+    def test_two_boundary_anchors_share_the_intermediate_production_chunk(self):
+        from main import chunk_text
+        q, anchors = fixture()
+        q["evidence_sets"] = q["evidence_sets"][:1]
+        text = ("x" * 990 + anchors["a"]["excerpt"]).ljust(1990, "y") + anchors["b"]["excerpt"] + "z" * 1000
+        anchors = {aid: anchors[aid] for aid in ["a", "b"]}
+        for anchor in anchors.values():
+            anchor["text_start"] = text.index(anchor["excerpt"])
+            anchor["text_end"] = anchor["text_start"] + len(anchor["excerpt"])
+        plans = compile_anchor_spans(anchors, {"A.pdf": text}, chunk_text)
+        self.assertEqual([p["chunk_indices"] for p in plans["a"]], [[0, 1]])
+        self.assertEqual([p["chunk_indices"] for p in plans["b"]], [[1, 2]])
+        witness = minimum_evidence_witness(q, anchors, plans, {"A.pdf": chunk_text(text)})
+        self.assertEqual(witness.total(), 3)
+
+    def test_minimum_optimizes_shared_windows_instead_of_greedy_anchor_sizes(self):
+        q, anchors = fixture()
+        q["evidence_sets"] = q["evidence_sets"][:1]
+        # Pre-certified options: the larger choice for a shares all of b's chunks.
+        plans = {"a": [{"chunks": ["short-left", "short-right"]},
+                       {"chunks": ["shared-left", "shared-middle", "shared-right"]}],
+                 "b": [{"chunks": ["shared-left", "shared-middle", "shared-right"]}]}
+        chunks = {"A.pdf": ["short-left", "short-right", "shared-left", "shared-middle", "shared-right"]}
+        self.assertEqual(minimum_evidence_witness(q, anchors, plans, chunks).total(), 3)
+
+    def test_source_binding_absent_cases_and_unreachable_alternatives(self):
+        q, anchors = fixture()
+        chunks = {"D.pdf": [a["excerpt"] for a in anchors.values()]}
+        with self.assertRaisesRegex(ValueError, "no complete evidence alternative"):
+            minimum_evidence_witness(q, anchors, {}, chunks)
+        q["answerability"]["status"] = "absent_fact"
+        self.assertIsNone(minimum_evidence_witness(q, anchors, {}, chunks))
+        self.assertEqual(compile_query_feasibility([q], anchors, {}, chunks)["test"], feasibility_from_minimum(None))
+
+    def test_summary_retains_infeasible_fact_recall_and_explicit_zero_denominator(self):
+        data = run_artifact()
+        result = data["results"][0]
+        result["evidence_feasibility"] = feasibility_from_minimum(4)
+        result["n3"]["metrics"] = {**result["n3"]["metrics"], "evidence_coverage": "fail", "fact_recall": 0.5}
+        summary = runner.summarize([result])
+        report = summary["n3"]["answerable"]["evidence_coverage"]
+        self.assertEqual(report["full_set"], {"pass": 0, "total": 1, "rate": 0})
+        self.assertEqual(report["feasible_only"], {"pass": 0, "total": 0, "rate": None})
+        self.assertEqual(report["infeasible_ids"], ["test"])
+        self.assertEqual(summary["n3"]["answerable"]["macro_fact_recall"], 0.5)
+        self.assertEqual(summary["n8"]["evidence_coverage"]["feasible_only"], {"pass": 1, "total": 1, "rate": 1})
+
+    def test_reports_split_false_premise_and_exclude_absent_facts(self):
+        answerable = run_artifact()["results"][0]
+        correction = deepcopy(answerable)
+        correction.update(id="correction", category="false_premise", answerability="false_premise",
+                          evidence_feasibility=feasibility_from_minimum(4))
+        correction["n3"]["metrics"]["evidence_coverage"] = "fail"
+        absent = deepcopy(answerable)
+        absent.update(id="absent", category="unanswerable", answerability="absent_fact",
+                      evidence_feasibility=feasibility_from_minimum(None))
+        for depth in ["n3", "n8"]:
+            absent[depth]["metrics"]["evidence_coverage"] = "not_scored"
+            absent[depth]["metrics"]["fact_recall"] = None
+        summary = runner.summarize([answerable, correction, absent])
+        report = summary["n3"]["evidence_coverage"]
+        self.assertEqual(report["full_set"]["total"], 2)
+        self.assertEqual(report["feasible_only"]["total"], 1)
+        self.assertEqual(summary["n3"]["false_premise"]["evidence_coverage"]["infeasible_ids"], ["correction"])
+        self.assertEqual(summary["n3"]["absent_fact"]["executed"], 1)
+        self.assertEqual(summary["n3"]["absent_fact"]["evidence_coverage"]["full_set"]["total"], 0)
 
 
 class ReleaseTests(unittest.TestCase):
@@ -263,16 +352,79 @@ def run_artifact():
     q, anchors = fixture()
     metrics = score_evidence([anchors["a"]["excerpt"], anchors["b"]["excerpt"]], ["A.pdf"] * 2, q, anchors)
     tuples = [{"article_id": "A", "pmc_version": 1, "pdf_sha256": "pdf", "text_sha256": "text"}]
+    feasibility = feasibility_from_minimum(1)
     return {"config": {"n_values": [3, 8], "use_bm25": False, "use_query_rewriting": False},
             "provenance": {**{k: "fingerprint" for k in ["query_version", "query_sha256", "subset_sha256", "scorer_version", "scorer_sha256", "retrieval_sha256", "selection_sha256", "conditions_sha256"]},
                            "depths": [3, 8], "requested_ids": ["test"], "executed_ids": ["test"], "missing_ids": [],
+                           "feasibility_version": FEASIBILITY_VERSION, "feasibility_sha256": canonical_hash({"test": feasibility}),
                            "article_tuples": tuples, "membership_sha256": canonical_hash(tuples)},
             "results": [{"id": "test", "revision": 1, "query_sha256": canonical_hash(q), "question": q["question"],
-                         "category": q["category"], "answerability": "answerable",
+                         "category": q["category"], "answerability": "answerable", "evidence_feasibility": feasibility,
                          **{n: {"verdict": "pass", "metrics": metrics} for n in ["n3", "n8"]}}]}
 
 
 class CompatibilityTests(unittest.TestCase):
+    def test_missing_inconsistent_or_unbound_feasibility_is_rejected(self):
+        for mutation in [lambda d: d["provenance"].pop("feasibility_version"),
+                         lambda d: d["provenance"].update(feasibility_sha256="unbound"),
+                         lambda d: d["results"][0].pop("evidence_feasibility"),
+                         lambda d: d["results"][0].update(evidence_feasibility=None),
+                         lambda d: d["results"][0]["evidence_feasibility"].update(minimum_chunks=True),
+                         lambda d: d["results"][0]["evidence_feasibility"].update(minimum_chunks=-1),
+                         lambda d: d["results"][0]["evidence_feasibility"]["by_depth"].update(n3="infeasible")]:
+            data = run_artifact(); mutation(data)
+            with self.subTest(data=data), self.assertRaises(ValueError):
+                check_compatible(data, deepcopy(data))
+
+    def test_changed_eligibility_is_rejected_even_in_nested_comparisons(self):
+        base = run_artifact(); exp = deepcopy(base)
+        exp["results"][0]["evidence_feasibility"] = feasibility_from_minimum(4)
+        exp["provenance"]["feasibility_sha256"] = canonical_hash({"test": feasibility_from_minimum(4)})
+        for nested in [False, True]:
+            with self.subTest(nested=nested), self.assertRaisesRegex(ValueError, "evidence_feasibility"):
+                check_compatible(base, exp, nested_corpus=nested)
+
+    def test_infeasible_pass_is_invalid_but_partial_fact_recall_is_comparable(self):
+        data = run_artifact()
+        data["results"][0]["evidence_feasibility"] = feasibility_from_minimum(4)
+        data["provenance"]["feasibility_sha256"] = canonical_hash({"test": feasibility_from_minimum(4)})
+        with self.assertRaisesRegex(ValueError, "exceeds the depth budget"):
+            check_compatible(data, deepcopy(data))
+        data["results"][0]["n3"]["metrics"] = {**data["results"][0]["n3"]["metrics"], "evidence_coverage": "fail", "fact_recall": 0.5}
+        check_compatible(data, deepcopy(data))
+
+    def test_cli_reports_full_and_feasible_denominators_and_partial_fact_changes(self):
+        base = run_artifact()
+        base["results"][0]["evidence_feasibility"] = feasibility_from_minimum(4)
+        base["provenance"]["feasibility_sha256"] = canonical_hash({"test": feasibility_from_minimum(4)})
+        base["results"][0]["n3"]["metrics"] = {**base["results"][0]["n3"]["metrics"], "evidence_coverage": "fail", "fact_recall": 0.5}
+        exp = deepcopy(base); exp["results"][0]["n3"]["metrics"]["fact_recall"] = 0.75
+        with tempfile.TemporaryDirectory() as directory:
+            before, after = Path(directory, "before.json"), Path(directory, "after.json")
+            before.write_text(json.dumps(base)); after.write_text(json.dumps(exp))
+            output = io.StringIO()
+            with patch("sys.argv", ["compare_evals.py", str(before), str(after)]), contextlib.redirect_stdout(output):
+                compare_evals.main()
+            text = output.getvalue()
+            self.assertIn("evidence_coverage (full_set): 0/1 → 0/1", text)
+            self.assertIn("evidence_coverage (feasible_only): 0/0 → 0/0", text)
+            self.assertIn("evidence ceiling: 0/1; infeasible IDs: ['test']", text)
+            self.assertIn("fact_recall: 0.5 → 0.75", text)
+
+    def test_cli_keeps_false_premise_evidence_denominator_separate(self):
+        base = run_artifact()
+        base["results"][0].update(category="false_premise", answerability="false_premise")
+        for depth in ["n3", "n8"]:
+            base["results"][0][depth]["verdict"] = "not_scored"
+        with tempfile.TemporaryDirectory() as directory:
+            before, after = Path(directory, "before.json"), Path(directory, "after.json")
+            before.write_text(json.dumps(base)); after.write_text(json.dumps(base))
+            output = io.StringIO()
+            with patch("sys.argv", ["compare_evals.py", str(before), str(after)]), contextlib.redirect_stdout(output):
+                compare_evals.main()
+            self.assertIn("false-premise evidence (full_set): 1/1 → 1/1", output.getvalue())
+            self.assertIn("false-premise evidence (feasible_only): 1/1 → 1/1", output.getvalue())
+
     def test_incomplete_run_or_inconsistent_status_cannot_affect_denominators(self):
         for status in ["setup", "running", "incomplete"]:
             data = run_artifact(); data["run_status"] = status
@@ -332,6 +484,35 @@ class CompatibilityTests(unittest.TestCase):
 
 
 class RunnerTests(unittest.IsolatedAsyncioTestCase):
+    async def test_runner_retains_depth_infeasible_case_and_rejects_over_budget_retrieval(self):
+        from main import chunk_text
+        with tempfile.TemporaryDirectory() as directory:
+            q, anchors = fixture()
+            q["evidence_sets"] = q["evidence_sets"][:1]
+            text = " ".join(f"finding-{i:04d}" for i in range(400))
+            anchors = {aid: anchors[aid] for aid in ["a", "b"]}
+            for aid, start, end in [("a", 900, 3100), ("b", 0, 20)]:
+                anchors[aid].update(text_start=start, text_end=end, excerpt=text[start:end])
+            release = ({"queries": [q], "anchors": list(anchors.values()), "query_version": "test-v1"},
+                       {"fingerprint_sha256": "manifest"}, {}, {"membership_sha256": "members"}, [], {"A.pdf": text})
+            args = SimpleNamespace(benchmark=Path(directory), corpus_dir=Path(directory), condition="C2", ids="test", output=Path(directory, "run.json"), bm25=False, rewrite=False)
+            chunks = chunk_text(text)
+            retrieve = AsyncMock(side_effect=lambda *args, **kw: (chunks[:kw["n_results"]], ["A.pdf"] * len(chunks[:kw["n_results"]])))
+            with patch.object(runner, "read_release", return_value=release), patch.object(runner, "verify_collection", return_value={}), patch.object(runner, "model_fingerprint", return_value={"sha256": "weights"}), patch.object(runner, "version", return_value="test"), patch.object(runner.subprocess, "run", return_value=SimpleNamespace(stdout="commit\n")), contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(await runner.run_benchmark(args, retrieve, Mock()), 0)
+                data = json.loads(args.output.read_text())
+                result = data["results"][0]
+                self.assertEqual(result["evidence_feasibility"], feasibility_from_minimum(4))
+                self.assertEqual(result["n3"]["metrics"]["evidence_coverage"], "fail")
+                self.assertEqual(result["n3"]["metrics"]["fact_recall"], 0.5)
+                self.assertEqual(result["n8"]["metrics"]["evidence_coverage"], "pass")
+                self.assertEqual(data["summary"]["n3"]["evidence_coverage"]["feasible_only"]["total"], 0)
+                self.assertEqual(data["provenance"]["feasibility_sha256"], canonical_hash({"test": result["evidence_feasibility"]}))
+                args.output = Path(directory, "overflow.json")
+                retrieve = AsyncMock(return_value=(chunks[:4], ["A.pdf"] * 4))
+                self.assertEqual(await runner.run_benchmark(args, retrieve, Mock()), 1)
+                self.assertEqual(json.loads(args.output.read_text())["run_status"], "incomplete")
+
     def release(self):
         q, anchors = fixture()
         return ({"queries": [q], "anchors": list(anchors.values()), "query_version": "test-v1"},
@@ -367,7 +548,8 @@ class RunnerTests(unittest.IsolatedAsyncioTestCase):
             with patch.object(runner, "read_release", return_value=release), patch.object(runner, "verify_collection", return_value={}), patch.object(runner, "model_fingerprint", return_value={"sha256": "weights"}), patch.object(runner, "version", return_value="test"), patch.object(runner.subprocess, "run", return_value=SimpleNamespace(stdout="commit\n")), contextlib.redirect_stdout(io.StringIO()):
                 self.assertEqual(await runner.run_benchmark(args, retrieve, Mock()), 0)
             data = json.loads(args.output.read_text())
-            self.assertEqual(data["provenance"]["scorer_version"], "pinned-span-coverage-v2")
+            self.assertEqual(data["provenance"]["scorer_version"], "pinned-span-coverage-v3")
+            self.assertEqual(data["results"][0]["evidence_feasibility"], feasibility_from_minimum(2))
             for depth in ["n3", "n8"]:
                 metrics = data["results"][0][depth]["metrics"]
                 self.assertEqual(metrics["evidence_coverage"], "pass")

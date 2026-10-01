@@ -6,8 +6,10 @@ Gold text never enters retrieval inputs. No models or network are needed here.
 import hashlib
 import json
 import unicodedata
+from collections import Counter
 
-SCORER_VERSION = "pinned-span-coverage-v2"
+SCORER_VERSION = "pinned-span-coverage-v3"
+FEASIBILITY_VERSION = "minimum-evidence-chunks-v1"
 CATEGORIES = {"direct_lookup", "multi_hop", "cross_doc_distractor",
               "cross_doc_synthesis", "unanswerable", "false_premise"}
 
@@ -151,6 +153,75 @@ def compile_anchor_spans(anchors: dict[str, dict], source_text: dict[str, str], 
         plans[aid] = [{"chunk_indices": list(range(first, stop)), "chunks": chunks[first:stop]}
                       for first, stop in sorted(windows)]
     return plans
+
+
+def minimum_evidence_witness(query: dict, anchors: dict, span_plans: dict,
+                             source_chunks: dict) -> Counter | None:
+    """Smallest retrieved chunk multiset that passes one complete alternative.
+
+    Whole normalized chunks are identified by source and content, just as in
+    scoring. Counts preserve duplicate multiplicity within an anchor; different
+    anchors can share retrieved chunks. Dominated partial requirements can be
+    discarded because merging another anchor cannot make them cheaper.
+    """
+    if query["answerability"]["status"] == "absent_fact":
+        return None
+    options = {}
+    for aid in {aid for s in query["evidence_sets"] for aid in s["anchors"]}:
+        anchor = anchors[aid]
+        source = anchor["filename"]
+        excerpt = normalize_excerpt(anchor["excerpt"])
+        chunks = [normalize_excerpt(c) for c in source_chunks.get(source, [])]
+        available = Counter((source, chunk) for chunk in chunks)
+        choices = [Counter({(source, chunk): 1}) for chunk in chunks if excerpt in chunk]
+        choices += [Counter((source, chunk) for chunk in plan["chunks"])
+                    for plan in span_plans.get(aid, []) if len(plan["chunks"]) > 1]
+        options[aid] = [choice for choice in choices if choice <= available]
+    witnesses = []
+    for evidence_set in query["evidence_sets"]:
+        states = [Counter()]
+        for aid in evidence_set["anchors"]:
+            merged = []
+            for state in states:
+                for choice in options[aid]:
+                    candidate = state | choice  # Share chunks, retaining required multiplicity.
+                    if not any(other <= candidate for other in merged):
+                        merged = [other for other in merged if not candidate <= other]
+                        merged.append(candidate)
+            states = merged
+        witnesses.extend(states)
+    if not witnesses:
+        raise ValueError(f"{query['id']}: no complete evidence alternative is reachable")
+    return min(witnesses, key=lambda witness: witness.total())
+
+
+def feasibility_from_minimum(minimum: int | None, depths=(3, 8)) -> dict:
+    return {"minimum_chunks": minimum, "by_depth": {
+        f"n{depth}": "not_scored" if minimum is None else "feasible" if minimum <= depth else "infeasible"
+        for depth in depths}}
+
+
+def compile_query_feasibility(queries: list[dict], anchors: dict, span_plans: dict,
+                              source_chunks: dict, depths=(3, 8)) -> dict:
+    result = {}
+    for query in queries:
+        witness = minimum_evidence_witness(query, anchors, span_plans, source_chunks)
+        result[query["id"]] = feasibility_from_minimum(None if witness is None else witness.total(), depths)
+    return result
+
+
+def evidence_coverage_report(results: list[dict], depth: int) -> dict:
+    """Retain the full-set denominator and explicitly expose depth eligibility."""
+    scored = [r for r in results if r["answerability"] != "absent_fact"]
+    feasible = [r for r in scored if r["evidence_feasibility"]["by_depth"][f"n{depth}"] == "feasible"]
+    def coverage(entries):
+        passed = sum(r[f"n{depth}"]["metrics"]["evidence_coverage"] == "pass" for r in entries)
+        return {"pass": passed, "total": len(entries), "rate": passed / len(entries) if entries else None}
+    return {"full_set": coverage(scored), "feasible_only": coverage(feasible),
+            "structural_ceiling": {"pass": len(feasible), "total": len(scored),
+                                   "rate": len(feasible) / len(scored) if scored else None},
+            "infeasible_ids": sorted(r["id"] for r in scored
+                                     if r["evidence_feasibility"]["by_depth"][f"n{depth}"] == "infeasible")}
 
 
 def score_evidence(contexts: list[str], sources: list[str], query: dict,

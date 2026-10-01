@@ -7,7 +7,8 @@ import argparse
 import json
 from pathlib import Path
 
-from benchmark_scoring import compile_anchor_spans, normalize_excerpt, score_evidence
+from benchmark_scoring import (compile_anchor_spans, compile_query_feasibility,
+                               minimum_evidence_witness, normalize_excerpt, score_evidence)
 from eval_benchmark import read_release
 
 
@@ -15,7 +16,8 @@ def verify_reachability(benchmark: dict, source_text: dict, chunker) -> dict:
     anchors = {a["id"]: a for a in benchmark["anchors"]}
     available = {aid: a for aid, a in anchors.items() if a["filename"] in source_text}
     plans = compile_anchor_spans(available, source_text, chunker)
-    pairs = [(chunk, source) for source, text in source_text.items() for chunk in chunker(text)]
+    source_chunks = {source: chunker(text) for source, text in source_text.items()}
+    pairs = [(chunk, source) for source, chunks in source_chunks.items() for chunk in chunks]
     contexts, sources = [p[0] for p in pairs], [p[1] for p in pairs]
     single_chunk_misses = [aid for aid, a in available.items() if not any(
         source == a["filename"] and normalize_excerpt(a["excerpt"]) in normalize_excerpt(chunk)
@@ -34,9 +36,27 @@ def verify_reachability(benchmark: dict, source_text: dict, chunker) -> dict:
             unreachable.append(query["id"])
     if unreachable:
         raise ValueError(f"gold is unreachable even with every production chunk: {unreachable}")
+    feasibility = compile_query_feasibility(benchmark["queries"], anchors, plans, source_chunks)
+    # Exercise the scorer on each minimum-sized witness, not just on the corpus.
+    for query in scored:
+        witness = minimum_evidence_witness(query, anchors, plans, source_chunks)
+        witness_pairs = [pair for pair, count in witness.items() for _ in range(count)]
+        witness_sources = [source for source, _ in witness_pairs]
+        witness_contexts = [chunk for _, chunk in witness_pairs]
+        result = score_evidence(witness_contexts, witness_sources, query, anchors, plans)
+        if result["evidence_coverage"] != "pass" or result["fact_recall"] != 1:
+            raise ValueError(f"{query['id']}: minimum-chunk witness cannot be scored")
+    by_depth = {}
+    for depth in [3, 8]:
+        feasible = sorted(q["id"] for q in scored if feasibility[q["id"]]["by_depth"][f"n{depth}"] == "feasible")
+        infeasible = sorted(q["id"] for q in scored if q["id"] not in feasible)
+        by_depth[f"n{depth}"] = {"feasible_queries": len(feasible), "total_queries": len(scored),
+                                 "ceiling_rate": len(feasible) / len(scored) if scored else None,
+                                 "feasible_ids": feasible, "infeasible_ids": infeasible}
     return {"available_anchors": len(available), "reachable_anchors": len(plans),
             "anchors_requiring_adjacent_chunks": len(single_chunk_misses),
-            "evidence_queries": len(scored), "reachable_evidence_queries": len(scored),
+            "evidence_queries": len(scored), "unlimited_reachable_evidence_queries": len(scored),
+            "by_depth": by_depth, "query_feasibility": feasibility,
             "production_chunks": len(pairs), "retrieval_quality_measured": False}
 
 

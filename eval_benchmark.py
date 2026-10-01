@@ -11,7 +11,9 @@ from tempfile import NamedTemporaryFile
 from uuid import uuid4
 
 from chromadb.errors import ChromaError
-from benchmark_scoring import SCORER_VERSION, canonical_hash, compile_anchor_spans, score_evidence, validate_benchmark
+from benchmark_scoring import (FEASIBILITY_VERSION, SCORER_VERSION, canonical_hash,
+                               compile_anchor_spans, compile_query_feasibility,
+                               evidence_coverage_report, score_evidence, validate_benchmark)
 
 ROOT = Path(__file__).resolve().parent
 
@@ -109,6 +111,7 @@ def summarize(results: list[dict]) -> dict:
             entries = [r for r in results if r["answerability"] == status]
             values = [r[f"n{depth}"]["metrics"] for r in entries]
             groups[status] = {"executed": len(entries), "answer_judged": 0}
+            groups[status]["evidence_coverage"] = evidence_coverage_report(entries, depth)
             if status != "absent_fact":
                 groups[status].update({
                     "document_coverage_pass": sum(v["document_coverage"] == "pass" for v in values),
@@ -126,6 +129,9 @@ def summarize(results: list[dict]) -> dict:
                 "document_pass": sum(v["document_coverage"] == "pass" for v in values),
                 "evidence_scored": sum(v["evidence_coverage"] != "not_scored" for v in values),
                 "evidence_pass": sum(v["evidence_coverage"] == "pass" for v in values)}
+            groups["categories"][category]["evidence_coverage"] = evidence_coverage_report(
+                [r for r in results if r["category"] == category], depth)
+        groups["evidence_coverage"] = evidence_coverage_report(results, depth)
         summary[f"n{depth}"] = groups
     return summary
 
@@ -148,6 +154,8 @@ async def run_benchmark(args, retrieve, load_models) -> int:
         anchors = {a["id"]: a for a in benchmark["anchors"]}
         used = {aid for q in queries for s in q["evidence_sets"] for aid in s["anchors"]}
         span_plans = compile_anchor_spans({aid: anchors[aid] for aid in used}, selected_text, production.chunk_text)
+        source_chunks = {source: production.chunk_text(text) for source, text in selected_text.items()}
+        feasibility = compile_query_feasibility(queries, anchors, span_plans, source_chunks)
         # Reserve the exact destination exclusively before loading models or paid calls.
         output_path.parent.mkdir(parents=True, exist_ok=True)
         with output_path.open("x", encoding="utf-8") as stream:
@@ -168,6 +176,7 @@ async def run_benchmark(args, retrieve, load_models) -> int:
             "loaded_models": models, "rewrite_identity": rewrite_identity})
         provenance = {"query_version": benchmark["query_version"], "query_sha256": canonical_hash(benchmark),
             "subset_sha256": canonical_hash(queries), "scorer_version": SCORER_VERSION,
+            "feasibility_version": FEASIBILITY_VERSION, "feasibility_sha256": canonical_hash(feasibility),
             "scorer_sha256": canonical_hash({"scoring": hashlib.sha256((ROOT / "benchmark_scoring.py").read_bytes()).hexdigest(),
                 "adapter": hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}),
             "retrieval_sha256": retrieval_fingerprint, "selection_sha256": manifest["fingerprint_sha256"],
@@ -191,11 +200,14 @@ async def run_benchmark(args, retrieve, load_models) -> int:
         for query in queries:
             entry = {"id": query["id"], "revision": query["revision"], "question": query["question"],
                      "query_sha256": canonical_hash(query), "category": query["category"],
-                     "answerability": query["answerability"]["status"]}
+                     "answerability": query["answerability"]["status"],
+                     "evidence_feasibility": feasibility[query["id"]]}
             results.append(entry)
             for depth in [3, 8]:
                 contexts, sources = await retrieve(query["question"], n_results=depth,
                     use_query_rewriting=args.rewrite, use_bm25=args.bm25)
+                if len(contexts) > depth:
+                    raise ValueError(f"{query['id']}: retrieval exceeded the n={depth} chunk budget")
                 metrics = score_evidence(contexts, sources, query, anchors, span_plans)
                 verdict = metrics["document_coverage"]
                 if query["category"] == "cross_doc_distractor":
@@ -209,7 +221,7 @@ async def run_benchmark(args, retrieve, load_models) -> int:
                     provenance["executed_ids"].sort()
                 provenance["missing_ids"] = sorted(set(requested) - set(provenance["executed_ids"]))
                 write_checkpoint(output_path, output)
-            print(f"{entry['id']}: " + "; ".join(f"n{n} document={entry[f'n{n}']['metrics']['document_coverage']} evidence={entry[f'n{n}']['metrics']['evidence_coverage']}" for n in [3, 8]))
+            print(f"{entry['id']}: minimum_chunks={entry['evidence_feasibility']['minimum_chunks']}; " + "; ".join(f"n{n} document={entry[f'n{n}']['metrics']['document_coverage']} evidence={entry[f'n{n}']['metrics']['evidence_coverage']} eligibility={entry['evidence_feasibility']['by_depth'][f'n{n}']}" for n in [3, 8]))
         output["run_status"] = "complete"
         output["summary"] = summarize(results)
         write_checkpoint(output_path, output)

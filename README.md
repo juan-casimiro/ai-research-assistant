@@ -29,6 +29,9 @@ preserved baseline. Its [45-case query release and passage scorer](benchmark/car
 are authored for independent review; retrieval experiments remain pending, so it
 has no new retrieval results. Follow the snapshot instructions to acquire
 its PDFs separately from the original host corpus below.
+The offline reachability oracle distinguishes unlimited coverage from the
+n=3/n=8 chunk budgets; versioned results report full-set and feasible-only
+evidence coverage with explicit ceilings and infeasible case IDs.
 
 ## Two ways to run this
 

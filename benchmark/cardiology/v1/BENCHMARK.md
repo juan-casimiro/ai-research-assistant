@@ -81,13 +81,15 @@ The new outputs distinguish:
   set appear. This remains possible when the right paper’s wrong passage appears.
 - **Pinned-excerpt coverage:** every required anchor of one complete set appears
   inside a source-bound chunk or is covered by verified adjacent production
-  chunks from that source. Before model loading, `pinned-span-coverage-v2`
+  chunks from that source. Before model loading, `pinned-span-coverage-v3`
   maps each raw pinned excerpt offset to contiguous chunk windows in the
   authoritative text. A spanning match requires every whole normalized chunk
   in a certified window, with distinct retrieved indices; retrieval rank does
   not establish adjacency. Arbitrary fragments, missing intermediate chunks and
   mixed sources cannot complete a span. Alternative complete sets use OR;
-  anchors within a set use AND. NFKC/whitespace normalization preserves
+  anchors within a set use AND. A query's minimum chunk budget is the cheapest
+  complete alternative, allowing anchors to share chunks and retaining any
+  required duplicate multiplicity. NFKC/whitespace normalization preserves
   values, signs and qualifiers; a naked number or the same excerpt attributed to
   another paper cannot match.
 - **Fact recall:** share of required facts whose anchor requirements are covered.
@@ -99,20 +101,39 @@ The new outputs distinguish:
 
 Exact excerpts are a conservative reproducible proxy, **not semantic evidence
 sufficiency or answer correctness**. An unlisted valid paraphrase or retrieval
-of only part of a pinned span can cause a miss. Production chunk boundaries alone
-cannot make gold unreachable: preflight rejects an anchor without a certified
-span. Manually inspect recorded contexts before interpreting failures. Broad
+of only part of a pinned span can cause a miss. Preflight certifies that pinned
+spans can be covered with enough production chunks; this does not guarantee
+coverage within a particular retrieval depth. Saved query records include
+`evidence_feasibility.minimum_chunks` and `by_depth` statuses (`feasible`,
+`infeasible` or `not_scored` for absent facts), calculated before model loading.
+Manually inspect recorded contexts before interpreting failures. Broad
 answers, partial answers, refusals and premise
 corrections require separate review against the rubrics. Results split answerable,
 false-premise correction evidence and absent-fact executions, and report zero
 answer judgments. JUA-40 owns any later answer judge, subject to its separately
 agreed Spring Boot/Java-AI sequencing gate; this task does not start that work.
 
+Summary evidence reports preserve **full-set** passes/total and additionally
+show **feasible-only** passes/total, the structural ceiling and infeasible IDs
+at each depth. Empty denominators have JSON rate `null`; they are not a zero
+percent score. Every case still runs at both depths: document coverage, ranking
+and partial fact recall remain meaningful even when complete evidence cannot
+fit. Macro fact recall retains the full scored set. Reports split answerable
+and false-premise correction evidence, include category groups and provide a
+combined evidence-bearing total; absent facts do not enter either denominator.
+
+In the pinned release, n=3 can cover 30/42 evidence-bearing cases; the other 12
+need 4–7 chunks. The answerable-only ceiling is 27/38, and false-premise
+correction evidence has a separate ceiling of 3/4. At n=8, all 42 fit. These
+ceilings describe gold/chunk budget feasibility, not measured retrieval success.
+
 Runs record exact requested/executed IDs, full and subset query hashes, scorer
 version/source hashes, manifest/condition/membership hashes, pinned article tuples,
 retrieval source/dependency hashes, loaded embedding/reranker file hashes,
 rewrite provider/model, code commit, UTC time, flags, depths, retrieved contexts
 and per-anchor chunk indices plus complete support groups (`anchor_match_groups`).
+Feasibility has its own version (`minimum-evidence-chunks-v1`) and a fingerprint
+of the requested queries' minimum budgets and depth statuses.
 Group indices are zero-based retrieval positions listed in source-span order,
 so a spanning group can have decreasing ranks. The runner compares actual stored
 source/text chunks with the condition’s production chunking and rejects missing, extra,
@@ -141,12 +162,16 @@ Offline validation is available now:
 The reachability check needs the pinned local PDFs/text but loads no models,
 opens no collection and makes no API calls. It supplies every production chunk
 to the scorer, then requires coverage of every available anchor and every
-evidence-bearing query with fact recall 1. C2 has 77 reachable anchors and 42
-reachable evidence-bearing queries; 36 anchors require adjacent chunks. These
-are structural assertions, not retrieval-quality results. C1 and C3 can be
-checked with the same command. Synthetic boundary regressions run in offline CI
-without downloaded corpus files. Scorer v1 and v2 runs cannot be compared under
-normal compatibility checks; historical baseline artifacts remain unchanged.
+evidence-bearing query with fact recall 1. It separately reports unlimited
+coverage, per-depth feasible/infeasible IDs and every query's minimum chunk
+count. It also verifies that each minimum-sized witness passes the scorer.
+C2 has 77 anchors reachable with all chunks; 36 require adjacent chunks.
+C1 and C3 can be checked with the same command; all conditions have the same
+30/42 n=3 and 42/42 n=8 ceilings. These are structural assertions, not
+retrieval-quality results. Synthetic boundary/budget regressions run in offline
+CI without downloaded corpus files. V3 comparisons require matching feasibility
+metadata and hashes; v1/v2 runs cannot be mixed with v3 or compared using this
+contract. Historical baseline artifacts remain unchanged.
 
 After PR review/freeze and JUA-110’s isolated condition ingestion, use the configured
 collection for that exact condition. The benchmark runner never seeds or ingests.
@@ -188,7 +213,13 @@ The dependency map is query-hash bound; regenerate it when gold changes.
 ```
 
 Normal comparisons reject changed gold/scorer/retrieval pins, changed corpus,
-incomplete/duplicate IDs and missing provenance or metrics. Explicit nested-corpus
+incomplete/duplicate IDs and missing provenance or metrics. They also reject
+missing, inconsistent or changed per-query feasibility, including in nested
+comparisons; infeasible cases cannot be saved as complete-evidence passes.
+Both full-set and feasible-only evidence coverage are printed with their
+denominators and ceiling/IDs, while fact-recall changes remain visible for all
+scored cases. False-premise correction evidence has a separate report.
+Explicit nested-corpus
 comparisons require identical flags and a superset with identical common article
 versions/hashes. Historical pairs require `--allow-legacy`, are labelled
 unverifiable, and cannot be mixed with this versioned benchmark. An authoring
