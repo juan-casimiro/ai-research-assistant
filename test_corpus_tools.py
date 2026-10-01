@@ -72,7 +72,7 @@ class ComparisonTests(unittest.TestCase):
             experiment.write_text(json.dumps({"results": after}))
             for path, changed in [(experiment, True), (baseline, False)]:
                 output = io.StringIO()
-                with self.subTest(changed=changed), patch("sys.argv", ["compare_evals.py", str(baseline), str(path)]), contextlib.redirect_stdout(output):
+                with self.subTest(changed=changed), patch("sys.argv", ["compare_evals.py", str(baseline), str(path), "--allow-legacy"]), contextlib.redirect_stdout(output):
                     compare_evals.main()
                 text = output.getvalue()
                 self.assertNotIn("test-b", text)

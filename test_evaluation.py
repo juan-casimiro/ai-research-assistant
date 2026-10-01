@@ -84,6 +84,19 @@ class GoldenHarnessTests(unittest.IsolatedAsyncioTestCase):
                         self.assertEqual(await golden.main(), 1)
                     load.assert_not_called()
 
+    async def test_empty_and_partially_unknown_id_filters_never_run_known_cases(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory, "qa.json")
+            path.write_text(json.dumps({"queries": [{"id": "test-known", "question": "some question"}]}))
+            for ids in ["", " , ", "test-known,test-missing"]:
+                with self.subTest(ids=ids), patch.object(golden, "GOLDEN_QA_PATH", path), patch.object(
+                    golden, "_load_models_and_index"
+                ) as load, patch.object(golden, "retrieve", AsyncMock()) as lookup, patch(
+                    "sys.argv", ["eval_golden.py", "--ids", ids]
+                ), contextlib.redirect_stdout(io.StringIO()):
+                    self.assertEqual(await golden.main(), 1)
+                    load.assert_not_called(); lookup.assert_not_awaited()
+
 
 class SufficiencyEvaluationTests(unittest.TestCase):
     def test_buckets_exclude_false_premise_and_sample_only_n8_passes_reproducibly(self):

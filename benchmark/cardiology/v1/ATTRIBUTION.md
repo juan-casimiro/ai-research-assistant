@@ -341,3 +341,14 @@ File: `cardio-stemi-vasc-fmd-no-reflow.pdf`. PDF SHA-256: `5fac4e90fefa67859c05e
 Rights review: No incompatible credit line or conflicting reuse notice identified in the selected complete PDF; generic third-party boilerplate is conditional, with no specific exclusion found. Standalone linked supplements are outside this corpus.
 
 Version/content note: Single centre and limited follow-up; no-reflow is not long-term MACE. Definitions and cutoffs must be tied to this paper, not transferred to the VA cohort.
+
+## JUA-109 derived benchmark additions (2026-10-01)
+
+`queries.json` includes verbatim pinned PDF-extraction excerpts from the articles
+attributed above, together with newly authored questions, expected claims and
+rubrics. Extraction preserves source typography; scoring normalizes Unicode and
+whitespace without changing the stored excerpts. `case_review.json`,
+`case_dependencies.json` and the migration/condition updates are new authored
+review and dependency records. They retain source conflicts rather than silently
+modifying the articles. These additions use the same CC BY 4.0 sources and notices
+above; no downloaded PDF is added to Git.

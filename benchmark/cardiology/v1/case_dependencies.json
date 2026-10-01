@@ -1,0 +1,2837 @@
+{
+  "schema_version": "1.0",
+  "query_sha256": "211784f46344f33424b90e1f5869106e65c980fa471d1e7756416af1f2d97e18",
+  "selection_sha256": "e6e63604b1413f6042e43968b7ff83ae0eac763687f99e26006fae9776f19f7b",
+  "usage": "On any source change, select the union of required, alternative, decoy, overlap_review and negative_evidence dependants; re-review labels before focused --ids execution. Broad overlap review intentionally makes source changes conservative. Never substitute automated passage scores for this review.",
+  "cases": [
+    {
+      "query_id": "q041",
+      "revision": 2,
+      "category": "direct_lookup",
+      "dependencies": {
+        "required": [
+          "PMC12880197"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "review_attia",
+                "article_id": "PMC12880197",
+                "pages": [
+                  2
+                ],
+                "section": "AI detection; cited Attia 2019 study"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "q042",
+      "revision": 2,
+      "category": "multi_hop",
+      "dependencies": {
+        "required": [
+          "PMC12003177"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "trial_definition",
+                "article_id": "PMC12003177",
+                "pages": [
+                  1
+                ],
+                "section": "Methods; primary endpoint and blanking period"
+              },
+              {
+                "anchor_id": "trial_definition_full",
+                "article_id": "PMC12003177",
+                "pages": [
+                  10
+                ],
+                "section": "Methods; endpoint duration and blanking period"
+              }
+            ],
+            "f2": [
+              {
+                "anchor_id": "trial_primary",
+                "article_id": "PMC12003177",
+                "pages": [
+                  3
+                ],
+                "section": "Results; mITT primary efficacy"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "q044",
+      "revision": 2,
+      "category": "cross_doc_synthesis",
+      "dependencies": {
+        "required": [
+          "PMC10607686",
+          "PMC13439631"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "stroke_cstat",
+                "article_id": "PMC10607686",
+                "pages": [
+                  11
+                ],
+                "section": "Section 6; cited thromboembolism discrimination"
+              }
+            ],
+            "f2": [
+              {
+                "anchor_id": "nrp_auc_overall",
+                "article_id": "PMC13439631",
+                "pages": [
+                  3
+                ],
+                "section": "Results 3.4; overall ROC"
+              },
+              {
+                "anchor_id": "nrp_auc_sex",
+                "article_id": "PMC13439631",
+                "pages": [
+                  3,
+                  4
+                ],
+                "section": "Results 3.4; sex-stratified ROC"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "q047",
+      "revision": 2,
+      "category": "direct_lookup",
+      "dependencies": {
+        "required": [
+          "PMC13433181"
+        ],
+        "alternatives": [
+          "PMC13433181"
+        ],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "ccta_auc",
+                "article_id": "PMC13433181",
+                "pages": [
+                  7
+                ],
+                "section": "Results; Table 5, combined model"
+              },
+              {
+                "anchor_id": "ccta_plaque_auc",
+                "article_id": "PMC13433181",
+                "pages": [
+                  7
+                ],
+                "section": "Results; Table 5, plaque length"
+              }
+            ]
+          }
+        },
+        {
+          "id": "abstract_same_estimates",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "ccta_abstract_auc",
+                "article_id": "PMC13433181",
+                "pages": [
+                  1
+                ],
+                "section": "Abstract; derivation discrimination"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "q048",
+      "revision": 2,
+      "category": "multi_hop",
+      "dependencies": {
+        "required": [
+          "PMC13433181"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "ccta_external_auc",
+                "article_id": "PMC13433181",
+                "pages": [
+                  9
+                ],
+                "section": "Results; external validation / Table 7"
+              },
+              {
+                "anchor_id": "ccta_external_calibration",
+                "article_id": "PMC13433181",
+                "pages": [
+                  10
+                ],
+                "section": "Results; external calibration"
+              }
+            ],
+            "f2": [
+              {
+                "anchor_id": "ccta_risk_shift",
+                "article_id": "PMC13433181",
+                "pages": [
+                  12
+                ],
+                "section": "Discussion; limitations"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "q049",
+      "revision": 2,
+      "category": "direct_lookup",
+      "dependencies": {
+        "required": [
+          "PMC13433181"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "ccta_predictors",
+                "article_id": "PMC13433181",
+                "pages": [
+                  12
+                ],
+                "section": "Conclusions; multivariable predictor summary"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "q050",
+      "revision": 2,
+      "category": "cross_doc_synthesis",
+      "dependencies": {
+        "required": [
+          "PMC13433181",
+          "PMC13439631"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "ccta_auc",
+                "article_id": "PMC13433181",
+                "pages": [
+                  7
+                ],
+                "section": "Results; Table 5, combined model"
+              }
+            ],
+            "f2": [
+              {
+                "anchor_id": "nrp_combined",
+                "article_id": "PMC13439631",
+                "pages": [
+                  4
+                ],
+                "section": "Results 3.4; combined models and sex subgroups"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "q051",
+      "revision": 2,
+      "category": "multi_hop",
+      "dependencies": {
+        "required": [
+          "PMC13433181"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "ccta_incidence",
+                "article_id": "PMC13433181",
+                "pages": [
+                  4
+                ],
+                "section": "Results; one-year incidence"
+              },
+              {
+                "anchor_id": "ccta_131",
+                "article_id": "PMC13433181",
+                "pages": [
+                  10
+                ],
+                "section": "Discussion; proof-of-concept and EPV"
+              }
+            ],
+            "f2": [
+              {
+                "anchor_id": "ccta_limit",
+                "article_id": "PMC13433181",
+                "pages": [
+                  12
+                ],
+                "section": "Discussion; limitations / reported EPV"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "q053",
+      "revision": 2,
+      "category": "direct_lookup",
+      "dependencies": {
+        "required": [
+          "PMC13433862"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "hf_gls",
+                "article_id": "PMC13433862",
+                "pages": [
+                  4
+                ],
+                "section": "Results; six-month GLS change"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "q054",
+      "revision": 2,
+      "category": "direct_lookup",
+      "dependencies": {
+        "required": [
+          "PMC13433862"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "hf_readmission",
+                "article_id": "PMC13433862",
+                "pages": [
+                  4
+                ],
+                "section": "Results; median 12-month HF rehospitalization"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "q055",
+      "revision": 2,
+      "category": "direct_lookup",
+      "dependencies": {
+        "required": [
+          "PMC13433862"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "hf_correlation",
+                "article_id": "PMC13433862",
+                "pages": [
+                  5
+                ],
+                "section": "Results; correlation paragraph / Table 4"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "q056",
+      "revision": 2,
+      "category": "direct_lookup",
+      "dependencies": {
+        "required": [
+          "PMC13433862"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "hf_ntprobnp",
+                "article_id": "PMC13433862",
+                "pages": [
+                  4
+                ],
+                "section": "Results; six-month biomarker changes / Table 3"
+              },
+              {
+                "anchor_id": "hf_gdf",
+                "article_id": "PMC13433862",
+                "pages": [
+                  4
+                ],
+                "section": "Results; GDF-15 / Table 3"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "q058",
+      "revision": 2,
+      "category": "direct_lookup",
+      "dependencies": {
+        "required": [
+          "PMC13433862"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "hf_subgroups",
+                "article_id": "PMC13433862",
+                "pages": [
+                  5
+                ],
+                "section": "Results; diabetes status interaction / Table 6"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "q065",
+      "revision": 2,
+      "category": "multi_hop",
+      "dependencies": {
+        "required": [
+          "PMC13439631"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "nrp_incidence",
+                "article_id": "PMC13439631",
+                "pages": [
+                  3
+                ],
+                "section": "Results 3.2; incidence"
+              }
+            ],
+            "f2": [
+              {
+                "anchor_id": "nrp_auc_sex",
+                "article_id": "PMC13439631",
+                "pages": [
+                  3,
+                  4
+                ],
+                "section": "Results 3.4; sex-stratified ROC"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "q066",
+      "revision": 2,
+      "category": "direct_lookup",
+      "dependencies": {
+        "required": [
+          "PMC13439631"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "nrp_adjusted",
+                "article_id": "PMC13439631",
+                "pages": [
+                  3
+                ],
+                "section": "Results 3.3; overall adjusted CV score"
+              }
+            ],
+            "f2": [
+              {
+                "anchor_id": "nrp_female_adjusted",
+                "article_id": "PMC13439631",
+                "pages": [
+                  3
+                ],
+                "section": "Results 3.3; female adjusted CV score"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "q067",
+      "revision": 2,
+      "category": "direct_lookup",
+      "dependencies": {
+        "required": [
+          "PMC13439631"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "nrp_incidence",
+                "article_id": "PMC13439631",
+                "pages": [
+                  3
+                ],
+                "section": "Results 3.2; incidence"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "q069",
+      "revision": 2,
+      "category": "direct_lookup",
+      "dependencies": {
+        "required": [
+          "PMC13439631"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "nrp_male_platelets",
+                "article_id": "PMC13439631",
+                "pages": [
+                  3
+                ],
+                "section": "Results 3.3; male adjusted platelet predictor"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "q124",
+      "revision": 2,
+      "category": "multi_hop",
+      "dependencies": {
+        "required": [
+          "PMC13433181"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "ccta_cacs_auc",
+                "article_id": "PMC13433181",
+                "pages": [
+                  7
+                ],
+                "section": "Table 5; CACS AUC"
+              }
+            ],
+            "f2": [
+              {
+                "anchor_id": "ccta_table4_header",
+                "article_id": "PMC13433181",
+                "pages": [
+                  6
+                ],
+                "section": "Table 4; column bindings"
+              },
+              {
+                "anchor_id": "ccta_cacs_adjusted",
+                "article_id": "PMC13433181",
+                "pages": [
+                  6
+                ],
+                "section": "Table 4; adjusted CACS row"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "q126",
+      "revision": 2,
+      "category": "multi_hop",
+      "dependencies": {
+        "required": [
+          "PMC13433181"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "ccta_fai_method",
+                "article_id": "PMC13433181",
+                "pages": [
+                  3
+                ],
+                "section": "Methods; FAI measurement"
+              }
+            ],
+            "f2": [
+              {
+                "anchor_id": "ccta_table4_header",
+                "article_id": "PMC13433181",
+                "pages": [
+                  6
+                ],
+                "section": "Table 4; column bindings"
+              },
+              {
+                "anchor_id": "ccta_fai_adjusted",
+                "article_id": "PMC13433181",
+                "pages": [
+                  6
+                ],
+                "section": "Table 4; adjusted FAI row"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "q128",
+      "revision": 2,
+      "category": "direct_lookup",
+      "dependencies": {
+        "required": [
+          "PMC13439631"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "nrp_male_candidates",
+                "article_id": "PMC13439631",
+                "pages": [
+                  9
+                ],
+                "section": "Table 6; male logistic regression header"
+              },
+              {
+                "anchor_id": "nrp_male_hemoglobin",
+                "article_id": "PMC13439631",
+                "pages": [
+                  9
+                ],
+                "section": "Table 6; male unadjusted/adjusted hemoglobin, platelet and lymphocyte rows"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "q129",
+      "revision": 2,
+      "category": "cross_doc_distractor",
+      "dependencies": {
+        "required": [
+          "PMC13439631"
+        ],
+        "alternatives": [],
+        "decoys": [
+          "PMC8866621"
+        ],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "nrp_table3_header",
+                "article_id": "PMC13439631",
+                "pages": [
+                  6
+                ],
+                "section": "Table 3; flow-group column bindings"
+              },
+              {
+                "anchor_id": "nrp_hypertension",
+                "article_id": "PMC13439631",
+                "pages": [
+                  6
+                ],
+                "section": "Table 3; hypertension by flow group"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "c001",
+      "revision": 1,
+      "category": "cross_doc_distractor",
+      "dependencies": {
+        "required": [
+          "PMC10363301"
+        ],
+        "alternatives": [],
+        "decoys": [
+          "PMC11265054",
+          "PMC12436478"
+        ],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "ecg_auc",
+                "article_id": "PMC10363301",
+                "pages": [
+                  5
+                ],
+                "section": "Results; largest unbalanced training sample"
+              }
+            ],
+            "f2": [
+              {
+                "anchor_id": "ecg_task",
+                "article_id": "PMC10363301",
+                "pages": [
+                  3
+                ],
+                "section": "Methods; five-year future-AF label"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "c002",
+      "revision": 1,
+      "category": "multi_hop",
+      "dependencies": {
+        "required": [
+          "PMC10363301"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "ecg_ici",
+                "article_id": "PMC10363301",
+                "pages": [
+                  5
+                ],
+                "section": "Results; calibration at original event ratio"
+              }
+            ],
+            "f2": [
+              {
+                "anchor_id": "ecg_balancing",
+                "article_id": "PMC10363301",
+                "pages": [
+                  6
+                ],
+                "section": "Results; random undersampling calibration"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "c003",
+      "revision": 1,
+      "category": "multi_hop",
+      "dependencies": {
+        "required": [
+          "PMC11265054"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "lorenz_metrics",
+                "article_id": "PMC11265054",
+                "pages": [
+                  1
+                ],
+                "section": "Results; internal/external episode detection"
+              }
+            ],
+            "f2": [
+              {
+                "anchor_id": "lorenz_limit",
+                "article_id": "PMC11265054",
+                "pages": [
+                  7
+                ],
+                "section": "Limitations; external paroxysmal sample"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "c004",
+      "revision": 1,
+      "category": "cross_doc_synthesis",
+      "dependencies": {
+        "required": [
+          "PMC12003177",
+          "PMC12880197"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "review_tailored",
+                "article_id": "PMC12880197",
+                "pages": [
+                  6
+                ],
+                "section": "AI mapping; review report of TAILORED-AF"
+              }
+            ],
+            "f2": [
+              {
+                "anchor_id": "trial_primary",
+                "article_id": "PMC12003177",
+                "pages": [
+                  3
+                ],
+                "section": "Results; mITT primary efficacy"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "c005",
+      "revision": 1,
+      "category": "direct_lookup",
+      "dependencies": {
+        "required": [
+          "PMC12003177"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "trial_times",
+                "article_id": "PMC12003177",
+                "pages": [
+                  4
+                ],
+                "section": "Results; procedure and RF time"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "c006",
+      "revision": 1,
+      "category": "cross_doc_distractor",
+      "dependencies": {
+        "required": [
+          "PMC11374717"
+        ],
+        "alternatives": [],
+        "decoys": [
+          "PMC10619268"
+        ],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "thai_prevalence",
+                "article_id": "PMC11374717",
+                "pages": [
+                  3
+                ],
+                "section": "Epidemiology; estimated apparent/true RH"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "c007",
+      "revision": 1,
+      "category": "direct_lookup",
+      "dependencies": {
+        "required": [
+          "PMC11374717"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "thai_workup",
+                "article_id": "PMC11374717",
+                "pages": [
+                  3
+                ],
+                "section": "Evaluation; pseudoresistance exclusion"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "c008",
+      "revision": 1,
+      "category": "cross_doc_synthesis",
+      "dependencies": {
+        "required": [
+          "PMC11374717",
+          "PMC11973566"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "thai_workup",
+                "article_id": "PMC11374717",
+                "pages": [
+                  3
+                ],
+                "section": "Evaluation; pseudoresistance exclusion"
+              }
+            ],
+            "f2": [
+              {
+                "anchor_id": "emperor_limit",
+                "article_id": "PMC11973566",
+                "pages": [
+                  12
+                ],
+                "section": "Discussion; BP phenotype limitations"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "c009",
+      "revision": 1,
+      "category": "cross_doc_distractor",
+      "dependencies": {
+        "required": [
+          "PMC4804513"
+        ],
+        "alternatives": [],
+        "decoys": [
+          "PMC11973566"
+        ],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "spirono_results",
+                "article_id": "PMC4804513",
+                "pages": [
+                  4
+                ],
+                "section": "Results; four-week office BP reductions"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "c010",
+      "revision": 1,
+      "category": "cross_doc_synthesis",
+      "dependencies": {
+        "required": [
+          "PMC11973566",
+          "PMC4804513"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "spirono_design",
+                "article_id": "PMC4804513",
+                "pages": [
+                  2,
+                  3
+                ],
+                "section": "Methods; trial dose and four-week follow-up"
+              },
+              {
+                "anchor_id": "spirono_results",
+                "article_id": "PMC4804513",
+                "pages": [
+                  4
+                ],
+                "section": "Results; four-week office BP reductions"
+              }
+            ],
+            "f2": [
+              {
+                "anchor_id": "emperor_definition",
+                "article_id": "PMC11973566",
+                "pages": [
+                  3
+                ],
+                "section": "Methods; EMPEROR-Preserved inclusion"
+              },
+              {
+                "anchor_id": "emperor_bp",
+                "article_id": "PMC11973566",
+                "pages": [
+                  7
+                ],
+                "section": "Results; resistant hypertension SBP weeks 4-32"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "c011",
+      "revision": 1,
+      "category": "cross_doc_distractor",
+      "dependencies": {
+        "required": [
+          "PMC11354916"
+        ],
+        "alternatives": [],
+        "decoys": [
+          "PMC13433862"
+        ],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "geriatric_markers",
+                "article_id": "PMC11354916",
+                "pages": [
+                  4
+                ],
+                "section": "Results; six-month oxidative/platelet markers"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "c012",
+      "revision": 1,
+      "category": "cross_doc_synthesis",
+      "dependencies": {
+        "required": [
+          "PMC11373557",
+          "PMC13433862"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "ckd_renal",
+                "article_id": "PMC11373557",
+                "pages": [
+                  1
+                ],
+                "section": "Results; ESRD/dialysis incidence and adjusted HR"
+              },
+              {
+                "anchor_id": "ckd_infection",
+                "article_id": "PMC11373557",
+                "pages": [
+                  1
+                ],
+                "section": "Results; genitourinary infection incidence and adjusted HR"
+              },
+              {
+                "anchor_id": "ckd_confounding",
+                "article_id": "PMC11373557",
+                "pages": [
+                  8
+                ],
+                "section": "Discussion; residual confounding"
+              }
+            ],
+            "f2": [
+              {
+                "anchor_id": "hf_observational",
+                "article_id": "PMC13433862",
+                "pages": [
+                  3
+                ],
+                "section": "Methods; retrospective case-control design"
+              },
+              {
+                "anchor_id": "hf_gls",
+                "article_id": "PMC13433862",
+                "pages": [
+                  4
+                ],
+                "section": "Results; six-month GLS change"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "c013",
+      "revision": 1,
+      "category": "multi_hop",
+      "dependencies": {
+        "required": [
+          "PMC10985250"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "cost_year",
+                "article_id": "PMC10985250",
+                "pages": [
+                  1
+                ],
+                "section": "Abstract/Methods; historical US price year"
+              }
+            ],
+            "f2": [
+              {
+                "anchor_id": "cost_values",
+                "article_id": "PMC10985250",
+                "pages": [
+                  3
+                ],
+                "section": "Results; annualized cost needed to treat"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "c014",
+      "revision": 1,
+      "category": "cross_doc_distractor",
+      "dependencies": {
+        "required": [
+          "PMC11549774"
+        ],
+        "alternatives": [],
+        "decoys": [
+          "PMC13433181"
+        ],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "ctffr_diagnostic",
+                "article_id": "PMC11549774",
+                "pages": [
+                  1
+                ],
+                "section": "Results; per-patient diagnostic performance vs invasive FFR"
+              },
+              {
+                "anchor_id": "ctffr_prognostic",
+                "article_id": "PMC11549774",
+                "pages": [
+                  9
+                ],
+                "section": "Results; three-year MACCE prognostic ROC"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "c015",
+      "revision": 1,
+      "category": "cross_doc_synthesis",
+      "dependencies": {
+        "required": [
+          "PMC11514186",
+          "PMC13433181"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "tyg_definition",
+                "article_id": "PMC11514186",
+                "pages": [
+                  2
+                ],
+                "section": "Follow up; hard-endpoint MACE"
+              },
+              {
+                "anchor_id": "tyg_followup",
+                "article_id": "PMC11514186",
+                "pages": [
+                  1
+                ],
+                "section": "Association between TyG and MACE; follow-up"
+              }
+            ],
+            "f2": [
+              {
+                "anchor_id": "ccta_endpoints",
+                "article_id": "PMC13433181",
+                "pages": [
+                  3
+                ],
+                "section": "Methods; endpoint definition"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "c016",
+      "revision": 1,
+      "category": "cross_doc_synthesis",
+      "dependencies": {
+        "required": [
+          "PMC11373557",
+          "PMC12886974"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "pgs_inverse",
+                "article_id": "PMC12886974",
+                "pages": [
+                  3
+                ],
+                "section": "Results; inverse T2D-BP cluster"
+              }
+            ],
+            "f2": [
+              {
+                "anchor_id": "pgs_caveat",
+                "article_id": "PMC12886974",
+                "pages": [
+                  8
+                ],
+                "section": "Discussion; environmental and external factors"
+              },
+              {
+                "anchor_id": "ckd_renal",
+                "article_id": "PMC11373557",
+                "pages": [
+                  1
+                ],
+                "section": "Results; ESRD/dialysis incidence and adjusted HR"
+              },
+              {
+                "anchor_id": "ckd_infection",
+                "article_id": "PMC11373557",
+                "pages": [
+                  1
+                ],
+                "section": "Results; genitourinary infection incidence and adjusted HR"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "c017",
+      "revision": 1,
+      "category": "false_premise",
+      "dependencies": {
+        "required": [
+          "PMC10985250"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "cost_year",
+                "article_id": "PMC10985250",
+                "pages": [
+                  1
+                ],
+                "section": "Abstract/Methods; historical US price year"
+              }
+            ],
+            "f2": [
+              {
+                "anchor_id": "cost_limitation",
+                "article_id": "PMC10985250",
+                "pages": [
+                  6
+                ],
+                "section": "Discussion; incomplete cost-effectiveness assessment"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "c018",
+      "revision": 1,
+      "category": "false_premise",
+      "dependencies": {
+        "required": [
+          "PMC11514186"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "tyg_increment_values",
+                "article_id": "PMC11514186",
+                "pages": [
+                  4
+                ],
+                "section": "Results; incremental C-statistic comparisons"
+              },
+              {
+                "anchor_id": "tyg_increment",
+                "article_id": "PMC11514186",
+                "pages": [
+                  4
+                ],
+                "section": "Results; incremental prediction"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "c019",
+      "revision": 1,
+      "category": "false_premise",
+      "dependencies": {
+        "required": [
+          "PMC12683810"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "nma_indirect",
+                "article_id": "PMC12683810",
+                "pages": [
+                  3
+                ],
+                "section": "Methods; placebo-anchored indirect comparisons"
+              }
+            ],
+            "f2": [
+              {
+                "anchor_id": "nma_hfpef",
+                "article_id": "PMC12683810",
+                "pages": [
+                  9
+                ],
+                "section": "Results; indirect HFpEF class comparisons"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "c020",
+      "revision": 1,
+      "category": "unanswerable",
+      "dependencies": {
+        "required": [],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ]
+      },
+      "complete_evidence_sets": []
+    },
+    {
+      "query_id": "c021",
+      "revision": 1,
+      "category": "unanswerable",
+      "dependencies": {
+        "required": [],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ]
+      },
+      "complete_evidence_sets": []
+    },
+    {
+      "query_id": "c022",
+      "revision": 1,
+      "category": "unanswerable",
+      "dependencies": {
+        "required": [],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ]
+      },
+      "complete_evidence_sets": []
+    },
+    {
+      "query_id": "c023",
+      "revision": 1,
+      "category": "cross_doc_distractor",
+      "dependencies": {
+        "required": [
+          "PMC8866621"
+        ],
+        "alternatives": [],
+        "decoys": [
+          "PMC13439631"
+        ],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "vasc_auc",
+                "article_id": "PMC8866621",
+                "pages": [
+                  4,
+                  5
+                ],
+                "section": "Results; ROC for score, FMD and combined model"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "c024",
+      "revision": 1,
+      "category": "false_premise",
+      "dependencies": {
+        "required": [
+          "PMC4804513"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "complete_evidence_sets": [
+        {
+          "id": "primary",
+          "fact_anchors": {
+            "f1": [
+              {
+                "anchor_id": "spirono_abstract",
+                "article_id": "PMC4804513",
+                "pages": [
+                  1
+                ],
+                "section": "Abstract; control claim"
+              },
+              {
+                "anchor_id": "spirono_exception",
+                "article_id": "PMC4804513",
+                "pages": [
+                  4
+                ],
+                "section": "Results; conflicting targets and uncontrolled participant"
+              }
+            ],
+            "f2": [
+              {
+                "anchor_id": "spirono_exception",
+                "article_id": "PMC4804513",
+                "pages": [
+                  4
+                ],
+                "section": "Results; conflicting targets and uncontrolled participant"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

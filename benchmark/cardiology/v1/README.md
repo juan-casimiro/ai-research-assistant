@@ -1,4 +1,4 @@
-# Verified cardiology article selection — v1
+# Verified cardiology selection and query release — v1
 
 Selection finalized on 2026-10-01: **21 unique articles**, 263 physical PDF pages,
 35,964,584 downloaded bytes (about 34.3 MiB). Every selected deposit is a final
@@ -18,11 +18,11 @@ summary. Selection is finalized before gold question authoring.
 - [evidence_map.json](evidence_map.json): full-text relationships, source limitations,
   physical PDF selection locations and byte-bound extraction excerpts. These are
   selection notes, not frozen gold anchors or expected answers.
-- [conditions.json](conditions.json): explicit provisional membership and tuple
-  fingerprints. C1 has 19 planned answer sources; C2 adds Korean hypertension
+- [conditions.json](conditions.json): authored source-union membership and tuple
+  fingerprints. C1 has 19 actual answer sources; C2 adds Korean hypertension
   consensus and echocardiographic AHRE competition. C3 currently equals C2 because
-  this task certifies no other-topic sources. After query review, recompute the
-  source union and check all alternatives. Later topic tasks extend C3 only with
+  this cycle certifies no other-topic sources. Required/alternative source union
+  is verified against the authored release. Later topic tasks extend C3 only with
   verified articles; none of the legacy corpus is automatically added.
 - [migration.json](migration.json): original file fingerprints, 19 legacy article
   dispositions, all 34 direct cardiology cases plus 10 GWAS/GPT-5 dependencies,
@@ -34,9 +34,14 @@ summary. Selection is finalized before gold question authoring.
 The original `corpus_manifest.json`, `golden_qa.json`, evaluation results and
 local corpus are preserved. No server, collection, ingestion or golden run was
 started. Historical retrieval percentages describe the original benchmark only.
-New queries/scoring and actual C1/C2/C3 experiments are subsequent work under the
-[shared standards](../../STANDARDS.md). Most selected papers are planned sources;
+The [45-case query release and scorer](BENCHMARK.md) are authored under the
+[shared standards](../../STANDARDS.md), pending independent PR review/freeze.
+Actual C1/C2/C3 retrieval experiments remain JUA-110 work. Most selected papers are sources;
 roles remain query specific and the two competitors are not topic outliers.
+
+The query files are `queries.json`, `case_dependencies.json` and `case_review.json`.
+See [BENCHMARK.md](BENCHMARK.md) for migration, metrics, provenance and focused run
+instructions. Selection anchors in `evidence_map.json` remain acquisition notes.
 
 ## Retrieve metadata by PMCID
 

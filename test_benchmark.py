@@ -1,0 +1,242 @@
+"""Offline contract tests for pinned evidence, release dependencies and run guards."""
+import contextlib
+from copy import deepcopy
+import io
+import json
+from pathlib import Path
+from types import SimpleNamespace
+import tempfile
+import unittest
+from unittest.mock import AsyncMock, Mock, patch
+import compare_evals
+
+from benchmark_scoring import canonical_hash, score_evidence, validate_benchmark
+from compare_evals import check_compatible
+import eval_benchmark as runner
+
+ROOT = Path(__file__).resolve().parent
+
+
+def fixture():
+    anchors = {key: {"id": key, "article_id": doc, "filename": doc + ".pdf",
+                     "excerpt": text, "text_start": offset, "text_end": offset + len(text)}
+               for key, doc, text, offset in [
+                   ("a", "A", "At six months, adjusted HR was 0.35.", 0),
+                   ("b", "A", "The population excluded dialysis patients.", 100),
+                   ("c", "B", "The complete alternative reports both scoped facts.", 0),
+                   ("d", "D", "A different cohort had adjusted HR 0.35.", 0)]}
+    query = {"id": "test", "revision": 1, "question": "What were the scoped findings?",
+             "category": "direct_lookup", "answerability": {"status": "answerable"},
+             "required_facts": [{"id": "f1"}, {"id": "f2"}], "related_distractors": [],
+             "evidence_sets": [
+                 {"id": "primary", "anchors": ["a", "b"], "fact_anchors": {"f1": ["a"], "f2": ["b"]}},
+                 {"id": "alternative", "anchors": ["c"], "fact_anchors": {"f1": ["c"], "f2": ["c"]}}]}
+    return query, anchors
+
+
+class EvidenceTests(unittest.TestCase):
+    def setUp(self):
+        self.q, self.a = fixture()
+
+    def score(self, ids, sources=None):
+        return score_evidence([self.a[i]["excerpt"] for i in ids],
+                              sources or [self.a[i]["filename"] for i in ids], self.q, self.a)
+
+    def test_document_presence_is_not_complete_evidence(self):
+        result = self.score(["a"])
+        self.assertEqual(result["document_coverage"], "pass")
+        self.assertEqual(result["evidence_coverage"], "fail")
+        self.assertEqual(result["fact_recall"], 0.5)
+        self.assertEqual(result["anchor_matches"]["a"], [0])
+
+    def test_every_primary_fact_or_a_complete_alternative_is_required(self):
+        self.assertEqual(self.score(["a", "b"])["evidence_coverage"], "pass")
+        self.assertEqual(self.score(["c"])["evidence_coverage"], "pass")
+        # Mixing partial alternative sets must not pass complete coverage.
+        self.q["evidence_sets"][1] = {"id": "alternative", "anchors": ["c", "d"],
+                                     "fact_anchors": {"f1": ["c"], "f2": ["d"]}}
+        result = self.score(["a", "d"])
+        self.assertEqual(result["fact_recall"], 1)
+        self.assertEqual(result["evidence_coverage"], "fail")
+
+    def test_wrong_source_naked_number_and_chunk_concatenation_do_not_match(self):
+        self.assertEqual(self.score(["a", "b"], ["D.pdf", "D.pdf"])["evidence_coverage"], "fail")
+        result = score_evidence(["HR 0.35", "dialysis patients"], ["A.pdf"] * 2, self.q, self.a)
+        self.assertEqual(result["fact_recall"], 0)
+        text = self.a["a"]["excerpt"]
+        result = score_evidence([text[:20], text[20:]], ["A.pdf"] * 2, self.q, self.a)
+        self.assertEqual(result["fact_recall"], 0)
+        with self.assertRaises(ValueError):
+            score_evidence([text], [], self.q, self.a)
+
+    def test_typographic_whitespace_preserves_signs_and_scope(self):
+        text = self.a["a"]["excerpt"].replace(" ", "\n  ")
+        result = score_evidence([text], ["A.pdf"], self.q, self.a)
+        self.assertEqual(result["fact_recall"], 0.5)
+        result = score_evidence([text.replace("0.35", "−0.35")], ["A.pdf"], self.q, self.a)
+        self.assertEqual(result["fact_recall"], 0)
+
+    def test_synthesis_requires_both_articles_and_decoys_use_first_reranked_rank(self):
+        self.q["evidence_sets"] = [{"id": "two", "anchors": ["a", "c"],
+                                   "fact_anchors": {"f1": ["a"], "f2": ["c"]}}]
+        self.assertEqual(self.score(["a"])["document_coverage"], "fail")
+        self.assertEqual(self.score(["a", "c"])["evidence_coverage"], "pass")
+        self.q["category"] = "cross_doc_distractor"
+        self.q["related_distractors"] = [{"filename": "D.pdf"}]
+        self.assertEqual(self.score(["a", "c", "d"])["distractor_ordering"], "pass")
+        self.assertEqual(self.score(["a", "d", "c"])["distractor_ordering"], "fail")
+        self.assertEqual(self.score(["a", "a", "c"])["distractor_ordering"], "pass")
+
+    def test_absent_facts_are_unscored_and_false_premise_correction_evidence_is_scored(self):
+        self.q["answerability"]["status"] = "absent_fact"
+        self.assertEqual(self.score(["a"])["evidence_coverage"], "not_scored")
+        self.q["answerability"]["status"] = "false_premise"
+        self.assertEqual(self.score(["a", "b"])["evidence_coverage"], "pass")
+
+
+class ReleaseTests(unittest.TestCase):
+    def test_checked_in_release_covers_migration_and_exact_source_union(self):
+        directory = ROOT / "benchmark/cardiology/v1"
+        b = json.loads((directory / "queries.json").read_text())
+        validate_benchmark(b)
+        queries = {q["id"]: q for q in b["queries"]}
+        anchors = {a["id"]: a for a in b["anchors"]}
+        conditions = json.loads((directory / "conditions.json").read_text())
+        union = {anchors[a]["article_id"] for q in queries.values() for s in q["evidence_sets"] for a in s["anchors"]}
+        self.assertEqual(union, set(conditions["conditions"]["C1"]["article_ids"]))
+        self.assertEqual(canonical_hash(b), conditions["query_sha256"])
+        ledger = json.loads((directory / "migration.json").read_text())
+        reviewed = [q for q in ledger["queries"] if q["owner"] == "JUA-109"]
+        self.assertEqual(len(reviewed), 34)
+        for old in reviewed:
+            self.assertTrue(set(old["new_query_ids"]) <= queries.keys())
+            if old["action"] == "revise_as_versioned_case":
+                self.assertGreater(queries[old["legacy_query_id"]]["revision"], 1)
+        for name in ["case_dependencies.json", "case_review.json"]:
+            self.assertEqual(json.loads((directory / name).read_text())["query_sha256"], canonical_hash(b))
+        all_ids = set(conditions["conditions"]["C2"]["article_ids"])
+        for q in queries.values():
+            self.assertEqual(set(q["dependencies"]["overlap_review"]), all_ids)
+            if q["category"] == "unanswerable":
+                self.assertEqual(set(q["answerability"]["search_scope"]["article_ids"]), all_ids)
+
+    def test_schema_rejects_incomplete_synthesis_and_fake_multihop(self):
+        q, anchors = fixture()
+        q["category"] = "cross_doc_synthesis"
+        with self.assertRaises(ValueError):
+            validate_benchmark({"queries": [q], "anchors": list(anchors.values())})
+        q["category"] = "multi_hop"; q["reasoning"] = "two passages"
+        q["evidence_sets"] = q["evidence_sets"][:1]
+        anchors["b"]["text_start"] = 0; anchors["b"]["text_end"] = 40
+        with self.assertRaises(ValueError):
+            validate_benchmark({"queries": [q], "anchors": list(anchors.values())})
+
+    def test_collection_rejects_extra_missing_stale_and_duplicate_chunks(self):
+        collection = Mock(name="documents")
+        collection.name = "documents"
+        collection.get.return_value = {"documents": ["one"], "metadatas": [{"source": "a.pdf"}]}
+        self.assertEqual(runner.verify_collection(collection, {"a.pdf": "one"}, lambda t: [t])["chunk_count"], 1)
+        for docs in [[], ["stale"], ["one", "one"]]:
+            collection.get.return_value = {"documents": docs, "metadatas": [{"source": "a.pdf"}] * len(docs)}
+            with self.assertRaises(ValueError):
+                runner.verify_collection(collection, {"a.pdf": "one"}, lambda t: [t])
+
+
+def run_artifact():
+    q, anchors = fixture()
+    metrics = score_evidence([anchors["a"]["excerpt"], anchors["b"]["excerpt"]], ["A.pdf"] * 2, q, anchors)
+    tuples = [{"article_id": "A", "pmc_version": 1, "pdf_sha256": "pdf", "text_sha256": "text"}]
+    return {"config": {"n_values": [3, 8], "use_bm25": False, "use_query_rewriting": False},
+            "provenance": {**{k: "fingerprint" for k in ["query_version", "query_sha256", "subset_sha256", "scorer_version", "scorer_sha256", "retrieval_sha256", "selection_sha256", "conditions_sha256"]},
+                           "depths": [3, 8], "requested_ids": ["test"], "executed_ids": ["test"], "missing_ids": [],
+                           "article_tuples": tuples, "membership_sha256": canonical_hash(tuples)},
+            "results": [{"id": "test", "revision": 1, "query_sha256": canonical_hash(q), "question": q["question"],
+                         "category": q["category"], "answerability": "answerable",
+                         **{n: {"verdict": "pass", "metrics": metrics} for n in ["n3", "n8"]}}]}
+
+
+class CompatibilityTests(unittest.TestCase):
+    def test_config_ablation_requires_same_gold_and_corpus(self):
+        base = run_artifact(); exp = deepcopy(base); exp["config"]["use_bm25"] = True
+        check_compatible(base, exp)
+        for field in ["query_sha256", "scorer_sha256", "retrieval_sha256", "selection_sha256", "membership_sha256"]:
+            bad = deepcopy(exp); bad["provenance"][field] = "changed"
+            with self.subTest(field=field), self.assertRaises(ValueError):
+                check_compatible(base, bad)
+        bad = deepcopy(exp); bad["results"][0]["revision"] = 2
+        with self.assertRaises(ValueError):check_compatible(base, bad)
+
+    def test_partial_missing_duplicate_and_metricless_runs_are_rejected(self):
+        base = run_artifact()
+        for mutation in [lambda d: d["results"].clear(),
+                         lambda d: d["results"].append(deepcopy(d["results"][0])),
+                         lambda d: d["provenance"]["requested_ids"].append("missing"),
+                         lambda d: d["provenance"].pop("missing_ids"),
+                         lambda d: d["results"][0]["n8"].pop("metrics"),
+                         lambda d: d["results"][0].pop("query_sha256")]:
+            bad = deepcopy(base); mutation(bad)
+            with self.assertRaises(ValueError):check_compatible(base, bad)
+
+    def test_nested_corpus_holds_config_and_common_versions_fixed(self):
+        base = run_artifact(); exp = deepcopy(base)
+        exp["provenance"]["article_tuples"].append({"article_id": "B", "pmc_version": 1, "pdf_sha256": "b", "text_sha256": "bt"})
+        exp["provenance"]["membership_sha256"] = canonical_hash(exp["provenance"]["article_tuples"])
+        check_compatible(base, exp, nested_corpus=True)
+        with self.assertRaises(ValueError):check_compatible(exp, base, nested_corpus=True)
+        exp["config"]["use_bm25"] = True
+        with self.assertRaises(ValueError):check_compatible(base, exp, nested_corpus=True)
+
+    def test_historical_pair_is_explicit_and_cannot_mix_with_versioned(self):
+        base = run_artifact(); legacy = deepcopy(base); legacy.pop("provenance")
+        with self.assertRaises(ValueError):check_compatible(legacy, legacy)
+        check_compatible(legacy, legacy, allow_legacy=True)
+        with self.assertRaises(ValueError):check_compatible(legacy, base, allow_legacy=True)
+
+    def test_cli_shows_passage_regression_when_document_verdict_is_unchanged(self):
+        base = run_artifact(); exp = deepcopy(base)
+        exp["results"][0]["n8"]["metrics"]["evidence_coverage"] = "fail"
+        with tempfile.TemporaryDirectory() as directory:
+            before, after = Path(directory, "before.json"), Path(directory, "after.json")
+            before.write_text(json.dumps(base)); after.write_text(json.dumps(exp))
+            output = io.StringIO()
+            with patch("sys.argv", ["compare_evals.py", str(before), str(after)]), contextlib.redirect_stdout(output):
+                compare_evals.main()
+            self.assertIn("evidence_coverage: pass → fail", output.getvalue())
+            self.assertNotIn("No changes between runs.", output.getvalue())
+
+
+class RunnerTests(unittest.IsolatedAsyncioTestCase):
+    def release(self):
+        q, anchors = fixture()
+        return ({"queries": [q], "anchors": list(anchors.values()), "query_version": "test-v1"},
+                {"fingerprint_sha256": "manifest"}, {}, {"membership_sha256": "members"}, [], {"A.pdf": "text"})
+
+    async def test_requested_id_and_overwrite_guards_precede_models_and_retrieval(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory, "result.json")
+            args = SimpleNamespace(benchmark=Path(directory), corpus_dir=Path(directory), condition="C2", ids="test,missing", output=path)
+            load, retrieve = Mock(), AsyncMock()
+            with patch.object(runner, "read_release", return_value=self.release()), contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(await runner.run_benchmark(args, retrieve, load), 1)
+                path.write_text("original")
+                args.ids = "test"
+                self.assertEqual(await runner.run_benchmark(args, retrieve, load), 1)
+            load.assert_not_called(); retrieve.assert_not_awaited()
+            self.assertEqual(path.read_text(), "original")
+
+    async def test_run_passes_only_question_to_production_and_records_immutable_provenance(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory, "result.json")
+            args = SimpleNamespace(benchmark=Path(directory), corpus_dir=Path(directory), condition="C2", ids="test", output=path, bm25=True, rewrite=False)
+            q, anchors = fixture()
+            retrieve = AsyncMock(return_value=([anchors["a"]["excerpt"]], ["A.pdf"]))
+            with patch.object(runner, "read_release", return_value=self.release()), patch.object(runner, "verify_collection", return_value={"chunks_sha256": "verified"}), patch.object(runner, "model_fingerprint", return_value={"sha256": "weights"}), patch.object(runner, "version", return_value="test"), patch.object(runner.subprocess, "run", return_value=SimpleNamespace(stdout="commit\n")), contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(await runner.run_benchmark(args, retrieve, Mock()), 0)
+            retrieve.assert_any_await(q["question"], n_results=3, use_query_rewriting=False, use_bm25=True)
+            retrieve.assert_any_await(q["question"], n_results=8, use_query_rewriting=False, use_bm25=True)
+            data = json.loads(path.read_text()); prov = data["provenance"]
+            self.assertEqual(prov["requested_ids"], prov["executed_ids"])
+            self.assertEqual(prov["missing_ids"], [])
+            self.assertEqual(data["results"][0]["n8"]["metrics"]["evidence_coverage"], "fail")
+            self.assertEqual(data["summary"]["n8"]["answerable"]["answer_judged"], 0)
+            self.assertEqual(data["results"][0]["n8"]["retrieved_contexts"], [anchors["a"]["excerpt"]])
