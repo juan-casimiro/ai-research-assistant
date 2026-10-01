@@ -318,3 +318,12 @@ JUA-110 supplies compatible run receipts and complete cardiology comparison.
 Later topic tasks reuse this contract and recheck alternative evidence/absence;
 JUA-114 integrates combined coverage. Standards delivery alone does not satisfy
 those downstream article-level or evaluation acceptance checks.
+
+### Epic integration and release
+
+JUA-106 integrates on `jcas-agent/JUA-106-corpus-benchmark`, created from stable
+`main`. Start each task branch from that epic branch and target its PR there.
+CI runs for task PRs and epic pushes; container publication remains restricted
+to `main`. Juan reviews and merges task PRs. After all topic work and combined
+benchmark verification, open a final epic-to-main PR with the release evidence
+and migration report. Juan reviews and merges that PR; agents never merge.
