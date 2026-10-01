@@ -97,17 +97,45 @@ Start the server:
 uvicorn main:app --reload
 ```
 
-In a separate terminal, populate the full corpus. The PDFs aren't
-committed to this repo (see `.gitignore`) — some articles carry NC/ND
-license terms, so downloading is a manual step by design:
+In a separate terminal, populate the full corpus. PDFs remain untracked
+(see `.gitignore`); per-article license terms are recorded in `corpus_manifest.json`.
 
-1. Open `corpus_manifest.json`. Each entry lists a `doi` and a `filename`.
-2. For each article, resolve the DOI (e.g. `https://doi.org/<doi>`) and
-   download the PDF from the publisher/journal page.
-3. Save it into `./corpus/` using the **exact filename** from the
-   manifest (e.g. `diabetes-cgm-management.pdf`) — `ingest_corpus.py`
-   matches files by this name.
-4. Ingest everything:
+```bash
+python download_corpus.py
+```
+
+The downloader fetches the 17 PMC articles through the public
+[PMC AWS dataset](https://pmc.ncbi.nlm.nih.gov/tools/pmcaws/), verifies the
+metadata DOI and available MD5 checksum, and validates PDF structure before
+saving. It skips readable existing PDFs and removes failed partial downloads.
+The manifest pins version 1 for these articles; versions are distinct deposits,
+so the downloader does not guess a replacement version when a source fails.
+
+Two articles have no recorded PMC ID and need a browser download. Run
+`python download_corpus.py --open-manual` to open only the missing publisher
+pages. On each Ovid page, select **Download PDF**, then the download icon in
+the PDF viewer toolbar, and save into `./corpus/` with the exact name below:
+
+| Article page | Save as |
+| --- | --- |
+| [Resistant hypertension survey](https://www.ovid.com/10.4103/singaporemedj.SMJ-2025-248) | `cardio-hypertension-guidelines.pdf` |
+| [GPT-5 / plasma tau 217 study](https://www.ovid.com/10.4103/singaporemedj.SMJ-2025-289) | `outlier-gpt5-tau217-diagnosis.pdf` |
+
+This browser workflow was reported successful in the initial manifest notes on
+30 September 2026. On 1 October, both DOI redirects to Ovid were confirmed,
+but Ovid returned HTTP 403 to scripted requests; browser verification was
+unavailable. No direct automated PDF route has been verified for these two.
+
+Rerun the downloader after saving them. Missing manual files or failed downloads
+produce exit status 1; success means all selected files are readable PDFs.
+Existing files are checked for readability, not article identity: when saving
+manually, check the first-page title against the manifest. Use `--filename NAME`
+(repeatable) for selected articles, and `--corpus-dir PATH` for another output
+folder. Default paths are relative to the script, independent of your current
+directory. The CLI uses Python and the existing `pypdf` dependency; no curl,
+AWS credentials or additional browser automation dependency is needed.
+
+Ingest everything:
 
 ```bash
 python reset_collection.py    # resets the vector store (safe on a fresh clone)

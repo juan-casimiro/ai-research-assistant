@@ -10,7 +10,8 @@
       "outlier"
     ],
     "source": "PubMed Central (PMC) Open Access subset; article PDFs should be accessible by DOI",
-    "last_updated": "2026-08-10"
+    "last_updated": "2026-08-10",
+    "download_notes": "Run python download_corpus.py. PMC articles use the public PMC AWS metadata/PDF route with an explicit pmc_version. Two Singapore Medical Journal papers require browser downloads; run with --open-manual for their publisher pages and exact save paths. See README for instructions and verification limits."
   },
   "articles": [
     {
@@ -18,6 +19,7 @@
       "cluster": "diabetes",
       "search_query": "type 2 diabetes AND pharmacotherapy AND randomized controlled trial",
       "doi": "10.3389/fendo.2026.1837588",
+      "pmcid": "PMC13423648",
       "title": "Efficacy of Gegen Qinlian decoction plus metformin for type 2 diabetes mellitus: a systematic review and meta-analysis of randomized controlled trials",
       "authors": [
         "Hongyang He",
@@ -32,13 +34,15 @@
       "license": "CC BY",
       "page_count": 11,
       "has_structured_sections": true,
-      "notes": "IMPORTANT: this is a systematic review/meta-analysis OF 8 RCTs, not a primary RCT itself. Good for testing retrieval on synthesis-heavy content (tables, GRADE ratings, forest plots) but the cluster needs at least one true primary-trial article for contrast in chunking behavior. Dense in numeric detail (MDs, CIs, I-squared values) -- good stress test for numeric fidelity in generation."
+      "notes": "IMPORTANT: this is a systematic review/meta-analysis OF 8 RCTs, not a primary RCT itself. Good for testing retrieval on synthesis-heavy content (tables, GRADE ratings, forest plots) but the cluster needs at least one true primary-trial article for contrast in chunking behavior. Dense in numeric detail (MDs, CIs, I-squared values) -- good stress test for numeric fidelity in generation.",
+      "pmc_version": 1
     },
     {
       "filename": "diabetes-epidemiology-prevalence.pdf",
       "cluster": "diabetes",
       "search_query": "type 2 diabetes AND epidemiology AND prevalence",
       "doi": "10.1186/1758-5996-2-67",
+      "pmcid": "PMC2993661",
       "title": "Prevalence of Metabolic Syndrome and its influence on microvascular complications in the Indian population with Type 2 Diabetes Mellitus. Sankara Nethralaya Diabetic Retinopathy Epidemiology And Molecular Genetic Study (SN-DREAMS, report 14)",
       "authors": [
         "Rajiv Raman",
@@ -55,13 +59,15 @@
       "license": "CC BY 2.0",
       "page_count": 9,
       "has_structured_sections": true,
-      "notes": "Primary cross-sectional epidemiology study (1414 T2DM patients, South India), NOT a meta-analysis -- good contrast to diabetes-pharmacotherapy-rct.pdf for chunking variety. Heavy table density (7 tables of prevalence/OR data). Genuine overlap with the GQD article on terms like 'HbA1c' and 'type 2 diabetes complications', but different framing (risk-factor epidemiology vs. treatment efficacy) -- deliberately used as the cross-doc distractor pair, see golden_qa.json q008."
+      "notes": "Primary cross-sectional epidemiology study (1414 T2DM patients, South India), NOT a meta-analysis -- good contrast to diabetes-pharmacotherapy-rct.pdf for chunking variety. Heavy table density (7 tables of prevalence/OR data). Genuine overlap with the GQD article on terms like 'HbA1c' and 'type 2 diabetes complications', but different framing (risk-factor epidemiology vs. treatment efficacy) -- deliberately used as the cross-doc distractor pair, see golden_qa.json q008.",
+      "pmc_version": 1
     },
     {
       "filename": "diabetes-nephropathy-complications.pdf",
       "cluster": "diabetes",
       "search_query": "diabetic nephropathy AND complications",
       "doi": "10.3389/fendo.2026.1825409",
+      "pmcid": "PMC13433218",
       "title": "Zinc, type 2 diabetes, diabetic kidney disease: focus on hypoxia",
       "authors": [
         "Svetlana A. Lebedeva",
@@ -78,13 +84,15 @@
       "license": "CC BY",
       "page_count": 17,
       "has_structured_sections": true,
-      "notes": "Mechanistic/molecular review (zinc homeostasis, HIF-1a signalling, transporter biology), NOT a clinical trial or epidemiology study -- third distinct document type in the diabetes cluster, good for chunking variety. Dense with gene/protein names (ZnT1-8, ZIP1-14, HIF-1a/2a/3a, GPR39, NF-kB, etc.) and multiple detailed figures. Overlaps with diabetes-epidemiology-prevalence.pdf on 'diabetic nephropathy' and 'risk factors' but the framing differs sharply: statistical/epidemiological risk factors (Raman) vs. molecular pathogenic mechanism (this article) -- used as a second cross-doc distractor pair, see golden_qa.json q021. Explicitly states dosage/administration questions for zinc supplementation are out of scope -- good source for a scope-limited unanswerable query."
+      "notes": "Mechanistic/molecular review (zinc homeostasis, HIF-1a signalling, transporter biology), NOT a clinical trial or epidemiology study -- third distinct document type in the diabetes cluster, good for chunking variety. Dense with gene/protein names (ZnT1-8, ZIP1-14, HIF-1a/2a/3a, GPR39, NF-kB, etc.) and multiple detailed figures. Overlaps with diabetes-epidemiology-prevalence.pdf on 'diabetic nephropathy' and 'risk factors' but the framing differs sharply: statistical/epidemiological risk factors (Raman) vs. molecular pathogenic mechanism (this article) -- used as a second cross-doc distractor pair, see golden_qa.json q021. Explicitly states dosage/administration questions for zinc supplementation are out of scope -- good source for a scope-limited unanswerable query.",
+      "pmc_version": 1
     },
     {
       "filename": "diabetes-genetic-risk-gwas.pdf",
       "cluster": "diabetes",
       "search_query": "type 2 diabetes AND genetic risk AND GWAS",
       "doi": "10.1002/cpt.70381",
+      "pmcid": "PMC13403371",
       "title": "Disentangling Sex Differences in Sulfonylurea Drug Response With Genome-Wide Association Studies in Individuals With Type 2 Diabetes",
       "authors": [
         "Joseph H. Breeyear",
@@ -111,13 +119,15 @@
       "license": "CC BY-NC (NonCommercial) -- NOTE: different from the plain CC BY license on the other 3 diabetes-cluster articles. Article also states it is a U.S. Government work and in the public domain in the USA, alongside the CC BY-NC notice. Worth double-checking reuse terms before redistributing in a public portfolio repo, given the NC restriction.",
       "page_count": 12,
       "has_structured_sections": true,
-      "notes": "Fourth distinct document type in the diabetes cluster: primary GWAS/pharmacogenomics research (not meta-analysis, epidemiology, or mechanistic review). Very dense in statistical genetics notation (p-values, effect sizes, loci tables, replication cohorts ACCORD/PMET1/SUGAR-MGH) -- good stress test for numeric/tabular chunk retrieval. Genuine COMPLEMENTARY overlap (not distractor) with diabetes-nephropathy-complications.pdf: both discuss KATP channels, calcium signaling, and insulin secretion mechanistically. A good query on this topic should retrieve chunks from BOTH docs rather than picking one -- see golden_qa.json q027 for a synthesis-across-docs test case (distinct from the 'wrong doc' distractor pattern used in q008/q021)."
+      "notes": "Fourth distinct document type in the diabetes cluster: primary GWAS/pharmacogenomics research (not meta-analysis, epidemiology, or mechanistic review). Very dense in statistical genetics notation (p-values, effect sizes, loci tables, replication cohorts ACCORD/PMET1/SUGAR-MGH) -- good stress test for numeric/tabular chunk retrieval. Genuine COMPLEMENTARY overlap (not distractor) with diabetes-nephropathy-complications.pdf: both discuss KATP channels, calcium signaling, and insulin secretion mechanistically. A good query on this topic should retrieve chunks from BOTH docs rather than picking one -- see golden_qa.json q027 for a synthesis-across-docs test case (distinct from the 'wrong doc' distractor pattern used in q008/q021).",
+      "pmc_version": 1
     },
     {
       "filename": "diabetes-cgm-management.pdf",
       "cluster": "diabetes",
       "search_query": "diabetes management AND continuous glucose monitoring",
       "doi": "10.2196/98519",
+      "pmcid": "PMC13430954",
       "title": "Retrieval-Augmented Large Language Model Counseling for Continuous Glucose Monitoring in Diabetes: Source-Masked Multirater Comparative Evaluation",
       "authors": [
         "Zhijun Guo",
@@ -136,13 +146,15 @@
       "license": "CC BY 4.0",
       "page_count": 21,
       "has_structured_sections": true,
-      "notes": "META-RELEVANT: this article is itself a study evaluating a RAG-based LLM system for diabetes CGM counseling against clinician-authored responses -- directly on-theme for the user's own RAG project, not just topically adjacent. Sixth distinct document type in the diabetes cluster: an AI/clinical-informatics evaluation study, not a clinical trial, epidemiology, mechanistic review, GWAS, or narrative review. Contains rich, UNIQUE technical detail (FAISS vector index, text-embedding-3-small, chunking strategy, GPT-5.1 configuration) not found in any other corpus document -- useful as a retrieval sanity-check case, since a query about RAG architecture should trivially and unambiguously point here. Also worth deciding explicitly whether this counts as 'BIOMED content' for the corpus's intended purpose or should be treated as an AI-methods paper that happens to be diabetes-themed -- flagging for the user's judgment rather than assuming."
+      "notes": "META-RELEVANT: this article is itself a study evaluating a RAG-based LLM system for diabetes CGM counseling against clinician-authored responses -- directly on-theme for the user's own RAG project, not just topically adjacent. Sixth distinct document type in the diabetes cluster: an AI/clinical-informatics evaluation study, not a clinical trial, epidemiology, mechanistic review, GWAS, or narrative review. Contains rich, UNIQUE technical detail (FAISS vector index, text-embedding-3-small, chunking strategy, GPT-5.1 configuration) not found in any other corpus document -- useful as a retrieval sanity-check case, since a query about RAG architecture should trivially and unambiguously point here. Also worth deciding explicitly whether this counts as 'BIOMED content' for the corpus's intended purpose or should be treated as an AI-methods paper that happens to be diabetes-themed -- flagging for the user's judgment rather than assuming.",
+      "pmc_version": 1
     },
     {
       "filename": "diabetes-cardiovascular-outcomes.pdf",
       "cluster": "diabetes",
       "search_query": "type 2 diabetes AND cardiovascular outcomes",
       "doi": "10.1007/s44470-026-00144-1",
+      "pmcid": "PMC13433680",
       "title": "Sleep loss as a cardiometabolic risk factor: a narrative review of clinical and public health implications",
       "authors": [
         "Firas K. Ghanem",
@@ -156,7 +168,8 @@
       "license": "CC BY 4.0",
       "page_count": 16,
       "has_structured_sections": true,
-      "notes": "Narrative review (NOT systematic -- explicitly acknowledges no PRISMA protocol, no formal risk-of-bias assessment, 102 studies qualitatively synthesized). Primary lens is sleep/circadian biology, with T2DM and CVD outcomes as downstream topics rather than the central focus -- a looser fit for the 'cardiovascular outcomes' search slot than a dedicated CVD-in-diabetes study would be, but content coverage of HbA1c, metabolic syndrome, and CVD risk is substantial. Genuine overlap with diabetes-epidemiology-prevalence.pdf (Raman et al.) on metabolic syndrome and cardiovascular risk, but different framing: Raman = statistical prevalence/microvascular complications in existing diabetics; this review = sleep loss as a causal driver of MS and macrovascular (CAD/MI/stroke) risk. See golden_qa.json for the resulting distractor pair."
+      "notes": "Narrative review (NOT systematic -- explicitly acknowledges no PRISMA protocol, no formal risk-of-bias assessment, 102 studies qualitatively synthesized). Primary lens is sleep/circadian biology, with T2DM and CVD outcomes as downstream topics rather than the central focus -- a looser fit for the 'cardiovascular outcomes' search slot than a dedicated CVD-in-diabetes study would be, but content coverage of HbA1c, metabolic syndrome, and CVD risk is substantial. Genuine overlap with diabetes-epidemiology-prevalence.pdf (Raman et al.) on metabolic syndrome and cardiovascular risk, but different framing: Raman = statistical prevalence/microvascular complications in existing diabetics; this review = sleep loss as a causal driver of MS and macrovascular (CAD/MI/stroke) risk. See golden_qa.json for the resulting distractor pair.",
+      "pmc_version": 1
     },
     {
       "filename": "cardio-hypertension-guidelines.pdf",
@@ -181,13 +194,16 @@
       "page_count": null,
       "has_structured_sections": true,
       "notes": "FILENAME MISMATCH FLAG: filename implies clinical guideline content, but this is actually a cross-sectional survey (85 primary care physicians in Singapore, July 2021-October 2023) measuring how well physician knowledge and referral practices align with guidelines for resistant hypertension -- a practice/knowledge-gap study, not a guideline document itself. Good source of concrete survey percentages (e.g. only 74% correctly defined resistant hypertension) for direct_lookup queries.",
-      "license_notes": "Confirmed from article: \"This is an open access article distributed under the terms of the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 License (CC BY-NC-ND), where it is permissible to download and share the work provided it is properly cited. The work cannot be changed in any way or used commercially without permission from the journal.\" (Wolters Kluwer/Medknow)."
+      "license_notes": "Confirmed from article: \"This is an open access article distributed under the terms of the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 License (CC BY-NC-ND), where it is permissible to download and share the work provided it is properly cited. The work cannot be changed in any way or used commercially without permission from the journal.\" (Wolters Kluwer/Medknow).",
+      "download_note": "On the Ovid article page, click Download PDF, then the download icon in the PDF viewer toolbar. Save using this manifest filename. Browser workflow reported successful on 2026-09-30; on 2026-10-01 DOI redirects were confirmed but scripted Ovid requests returned HTTP 403 and browser verification was unavailable. No PMC ID currently recorded; the 2026-10-01 ID-converter recheck was rate-limited (HTTP 429).",
+      "manual_url": "https://www.ovid.com/10.4103/singaporemedj.SMJ-2025-248"
     },
     {
       "filename": "cardio-cad-ct-angiography.pdf",
       "cluster": "cardiology",
       "search_query": "coronary artery disease AND CT angiography",
       "doi": "10.3389/fcvm.2026.1884303",
+      "pmcid": "PMC13433181",
       "title": "Development of a MACE risk prediction model based on CCTA-derived quantitative parameters: a proof-of-concept study",
       "authors": [
         "Tianyang Gao",
@@ -205,13 +221,15 @@
       "page_count": null,
       "has_structured_sections": true,
       "notes": "Filename matches content well. Retrospective + externally validated cohort (280 CAD patients derivation, 288 patients external validation) building a CCTA-derived nomogram to predict major adverse cardiovascular events (MACE). Dense in AUC/ROC statistics for multiple individual predictors plus a combined model (AUC 0.936 derivation, 0.932 external validation) -- good numeric-fidelity stress test, similar in kind to diabetes-pharmacotherapy-rct.pdf.",
-      "license_notes": "Confirmed from article: \"This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited.\" Plain, permissive, no NC/ND restriction."
+      "license_notes": "Confirmed from article: \"This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited.\" Plain, permissive, no NC/ND restriction.",
+      "pmc_version": 1
     },
     {
       "filename": "cardio-afib-ml-detection.pdf",
       "cluster": "cardiology",
       "search_query": "atrial fibrillation AND detection AND machine learning",
       "doi": "10.4274/balkanmedj.galenos.2026.2026-6-21",
+      "pmcid": "PMC13530581",
       "title": "AI-Driven Atrial Fibrillation Management: From Signal to Strategy",
       "authors": [
         "Vedat Cicek",
@@ -229,13 +247,15 @@
       "page_count": null,
       "has_structured_sections": true,
       "notes": "Invited review, not a primary study. Broad survey of AI/ML applications across AF care: ECG/wearable-based detection, multimodal stroke and recurrence-risk prediction, AI-assisted imaging (segmentation, fibrosis characterization, ablation planning), and AI-driven mapping systems. Good multi-hop/synthesis source given its breadth across sub-topics; distinct document type from the primary-cohort cardiology docs (cardio-mi-risk-stratification.pdf, cardio-cad-ct-angiography.pdf).",
-      "license_notes": "Confirmed from article first page (Balkan Med J, Invited Review): \"Content of this journal is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.\" No explicit text-and-data-mining/AI-training exclusion clause found -- passes project bar as usable-but-flag (non-commercial redistribution only, no derivatives)."
+      "license_notes": "Confirmed from article first page (Balkan Med J, Invited Review): \"Content of this journal is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.\" No explicit text-and-data-mining/AI-training exclusion clause found -- passes project bar as usable-but-flag (non-commercial redistribution only, no derivatives).",
+      "pmc_version": 1
     },
     {
       "filename": "cardio-heartfailure-biomarkers.pdf",
       "cluster": "cardiology",
       "search_query": "heart failure AND biomarkers AND NT-proBNP",
       "doi": "10.3389/fcvm.2026.1858364",
+      "pmcid": "PMC13433862",
       "title": "Long-term SGLT2 inhibitor therapy improves myocardial strain and diastolic function in HFpEF: a retrospective study linking functional recovery to reduced myocardial fibrosis",
       "authors": [
         "Xiaojin Xu",
@@ -248,13 +268,15 @@
       "license": "CC BY 4.0",
       "page_count": null,
       "has_structured_sections": true,
-      "notes": "Filename matches content well (NT-proBNP is one of three serum fibrosis biomarkers tracked, alongside PIIINP and GDF-15). Retrospective cohort (185 HFpEF patients, SGLT2i-treated n=93 vs. control n=92) linking long-term SGLT2 inhibitor therapy to improved myocardial strain (GLS) and reduced fibrosis markers. Dense in paired percentage-change and correlation statistics (e.g. NT-proBNP -30.4% vs -9.7%, r=0.554 for delta-GLS/delta-PIIINP correlation) -- strong numeric-fidelity stress test."
+      "notes": "Filename matches content well (NT-proBNP is one of three serum fibrosis biomarkers tracked, alongside PIIINP and GDF-15). Retrospective cohort (185 HFpEF patients, SGLT2i-treated n=93 vs. control n=92) linking long-term SGLT2 inhibitor therapy to improved myocardial strain (GLS) and reduced fibrosis markers. Dense in paired percentage-change and correlation statistics (e.g. NT-proBNP -30.4% vs -9.7%, r=0.554 for delta-GLS/delta-PIIINP correlation) -- strong numeric-fidelity stress test.",
+      "pmc_version": 1
     },
     {
       "filename": "onco-breast-immunotherapy.pdf",
       "cluster": "oncology",
       "search_query": "breast cancer AND immunotherapy",
       "doi": "10.1177/17588359261472331",
+      "pmcid": "PMC13438349",
       "title": "Real-world analysis of perioperative strategies for driver gene-positive resectable non-small cell lung cancer",
       "authors": [
         "Xingpeng Wang",
@@ -279,13 +301,15 @@
       "license": "CC BY-NC 4.0",
       "page_count": 15,
       "has_structured_sections": true,
-      "notes": "FILENAME MISMATCH FLAG: filename reflects the original search-query slot (\"breast cancer AND immunotherapy\") but the actual uploaded PDF is NOT about breast cancer -- it is a multicenter retrospective real-world cohort study (n=290) of perioperative treatment strategies (NTT/NCIT/NCT/US+ATT) for driver gene-positive resectable NSCLC (mostly EGFR-mutant), at two hospitals in Shandong, China. License confirmed directly from the article: CC BY-NC 4.0 (no ND restriction -- allows derivatives, non-commercial only), independent of PMC OA subset confirmation, since this is a SAGE-published article with its own explicit reuse statement and no PMCID has been located yet. Adds a real-world retrospective-cohort document type to the oncology cluster, distinct from the review-format docs already present (onco-lung-liquidbiopsy.pdf, onco-tumor-microenvironment.pdf) -- dense in survival statistics (HR/CI/p-values, Kaplan-Meier curves, subgroup PSM analyses), similar numeric-fidelity stress-test value to diabetes-pharmacotherapy-rct.pdf. The breast-cancer slot in the oncology cluster remains functionally unfilled"
+      "notes": "FILENAME MISMATCH FLAG: filename reflects the original search-query slot (\"breast cancer AND immunotherapy\") but the actual uploaded PDF is NOT about breast cancer -- it is a multicenter retrospective real-world cohort study (n=290) of perioperative treatment strategies (NTT/NCIT/NCT/US+ATT) for driver gene-positive resectable NSCLC (mostly EGFR-mutant), at two hospitals in Shandong, China. License confirmed directly from the article: CC BY-NC 4.0 (no ND restriction -- allows derivatives, non-commercial only), independent of PMC OA subset confirmation, since this is a SAGE-published article with its own explicit reuse statement (PMCID located later: PMC13438349). Adds a real-world retrospective-cohort document type to the oncology cluster, distinct from the review-format docs already present (onco-lung-liquidbiopsy.pdf, onco-tumor-microenvironment.pdf) -- dense in survival statistics (HR/CI/p-values, Kaplan-Meier curves, subgroup PSM analyses), similar numeric-fidelity stress-test value to diabetes-pharmacotherapy-rct.pdf. The breast-cancer slot in the oncology cluster remains functionally unfilled",
+      "pmc_version": 1
     },
     {
       "filename": "onco-lung-liquidbiopsy.pdf",
       "cluster": "oncology",
       "search_query": "lung cancer AND liquid biopsy AND biomarkers",
       "doi": "10.3389/fcell.2026.1874565",
+      "pmcid": "PMC13429855",
       "title": "Liquid biopsy biomarkers for cancer detection, treatment monitoring, and clinical outcome prediction",
       "authors": [
         "Akshee Batra",
@@ -301,13 +325,15 @@
       "license": "CC BY 4.0 (plain, permissive -- no NC/ND/TDM restriction stated)",
       "page_count": 15,
       "has_structured_sections": true,
-      "notes": "Broad narrative review of liquid biopsy across the lung cancer continuum (screening, advanced-disease genotyping, MRD, resistance profiling, CSF ctDNA, cost/access), with 4 data-dense tables. Distinct from the other oncology doc as a synthesis/review rather than a single primary cohort study; good source for multi-hop queries combining table data with narrative text. See cross-doc note on onco-colorectal-screening.pdf entry for the natural distractor/synthesis pairing between the two."
+      "notes": "Broad narrative review of liquid biopsy across the lung cancer continuum (screening, advanced-disease genotyping, MRD, resistance profiling, CSF ctDNA, cost/access), with 4 data-dense tables. Distinct from the other oncology doc as a synthesis/review rather than a single primary cohort study; good source for multi-hop queries combining table data with narrative text. See cross-doc note on onco-colorectal-screening.pdf entry for the natural distractor/synthesis pairing between the two.",
+      "pmc_version": 1
     },
     {
       "filename": "onco-colorectal-screening.pdf",
       "cluster": "oncology",
       "search_query": "colorectal cancer AND screening",
       "doi": "10.7554/eLife.76070",
+      "pmcid": "PMC9239676",
       "title": "US women screen at low rates for both cervical and colorectal cancers than a single cancer: a cross-sectional population-based observational study",
       "authors": [
         "Diane M Harper",
@@ -322,13 +348,15 @@
       "license": "CC BY (Creative Commons Attribution License) -- plain, permissive, explicitly confirmed on the article's first page. No NC/ND/TDM restriction.",
       "page_count": 19,
       "has_structured_sections": true,
-      "notes": "Cross-sectional population-based observational study using 2018 BRFSS survey data (N=40,511 women aged 50-64) examining 'dual-screening' (both cervical cancer AND colorectal cancer screening) versus single-cancer or no screening. Distinct from the corpus's other oncology docs as a US health-services/epidemiology study on screening behavior and its demographic predictors (age, race, education, income, chronic conditions), not a molecular/mechanistic or diagnostic-technology study. Useful contrast point: this paper's headline finding is that population-level single-cancer screening rates (86% cervical, 66% CRC, calculated independently) look much better than the true per-woman 'dual-screened' rate (58.2%) -- a genuine methodological/statistical framing distinct from anything else in the corpus."
+      "notes": "Cross-sectional population-based observational study using 2018 BRFSS survey data (N=40,511 women aged 50-64) examining 'dual-screening' (both cervical cancer AND colorectal cancer screening) versus single-cancer or no screening. Distinct from the corpus's other oncology docs as a US health-services/epidemiology study on screening behavior and its demographic predictors (age, race, education, income, chronic conditions), not a molecular/mechanistic or diagnostic-technology study. Useful contrast point: this paper's headline finding is that population-level single-cancer screening rates (86% cervical, 66% CRC, calculated independently) look much better than the true per-woman 'dual-screened' rate (58.2%) -- a genuine methodological/statistical framing distinct from anything else in the corpus.",
+      "pmc_version": 1
     },
     {
       "filename": "onco-tumor-microenvironment.pdf",
       "cluster": "oncology",
       "search_query": "tumor microenvironment AND immune evasion",
       "doi": "10.1002/mco2.70882",
+      "pmcid": "PMC13430506",
       "title": "Turning Cold Tumors Into Hot Tumors: Implications for Cancer Therapy",
       "authors": [
         "Xiao Ge",
@@ -344,13 +372,15 @@
       "license": "CC BY (Creative Commons Attribution License) -- plain, permissive, no NC/ND/TDM restriction stated.",
       "page_count": 37,
       "has_structured_sections": true,
-      "notes": "Large mechanistic/clinical review of cold-to-hot tumor conversion in immuno-oncology: immune evasion mechanisms, TME barriers (stromal/vascular/metabolic), conversion strategies (epigenetic, ICD, vaccines, oncolytic viruses, checkpoint blockade, combinations), preclinical and clinical trial evidence (Tables 1-3), biomarker frameworks (Table 2, static/dynamic/spatial), and safety/toxicity considerations. Very long (37 pages) and dense with named clinical trials (NCT numbers), making it useful for both direct_lookup (single trial facts) and multi_hop (combining barrier framework with trial evidence) queries. Distinct from other oncology-cluster docs as a broad mechanistic+clinical review rather than a single primary study or a diagnostics-focused review. Natural cross-doc link to onco-lung-liquidbiopsy.pdf: both discuss ctDNA as a biomarker, but for different purposes (liquid biopsy review: NSCLC diagnosis/MRD/resistance profiling; this review: ctDNA kinetics as a dynamic marker of immunotherapy-driven cold-to-hot conversion across cancer types) -- a good distractor/synthesis pair on the same underlying analyte."
+      "notes": "Large mechanistic/clinical review of cold-to-hot tumor conversion in immuno-oncology: immune evasion mechanisms, TME barriers (stromal/vascular/metabolic), conversion strategies (epigenetic, ICD, vaccines, oncolytic viruses, checkpoint blockade, combinations), preclinical and clinical trial evidence (Tables 1-3), biomarker frameworks (Table 2, static/dynamic/spatial), and safety/toxicity considerations. Very long (37 pages) and dense with named clinical trials (NCT numbers), making it useful for both direct_lookup (single trial facts) and multi_hop (combining barrier framework with trial evidence) queries. Distinct from other oncology-cluster docs as a broad mechanistic+clinical review rather than a single primary study or a diagnostics-focused review. Natural cross-doc link to onco-lung-liquidbiopsy.pdf: both discuss ctDNA as a biomarker, but for different purposes (liquid biopsy review: NSCLC diagnosis/MRD/resistance profiling; this review: ctDNA kinetics as a dynamic marker of immunotherapy-driven cold-to-hot conversion across cancer types) -- a good distractor/synthesis pair on the same underlying analyte.",
+      "pmc_version": 1
     },
     {
       "filename": "onco-genomics-precision-medicine.pdf",
       "cluster": "oncology",
       "search_query": "cancer genomics AND precision medicine",
       "doi": "10.1177/17588359261473571",
+      "pmcid": "PMC13434091",
       "title": "Lung cancer across borders: From molecular epidemiology to precision treatment strategies",
       "authors": [
         "Miguel García-Pardo",
@@ -364,7 +394,8 @@
       "license": "CC BY-NC 4.0",
       "page_count": 5,
       "has_structured_sections": true,
-      "notes": "FILENAME MISMATCH FLAG: filename reflects the original search-query slot (\"cancer genomics AND precision medicine\", generic pan-cancer) but the actual uploaded PDF is an EDITORIAL specifically about lung cancer geographic/molecular epidemiology, introducing a Special Collection of five separate lung-cancer studies (radon exposure vs. ALK fusion prevalence across Europe; perioperative biomarker-testing gaps in Poland; cardiopulmonary mortality trends tied to targeted therapy/ICI use; individualized afatinib dosing in a Vietnamese cohort; plus a global risk-factor/molecular-subtype review). NOT a primary research article -- a secondary/editorial document type. Genuinely useful for testing citation-attribution precision at the document-type level: it reports numeric findings (e.g. r=0.72 radon/ALK correlation, HR=4.602 for ICI and CVD death) that belong to the underlying primary studies it summarizes, none of which are themselves in this corpus. License confirmed directly from the article: CC BY-NC 4.0, same terms as onco-breast-immunotherapy.pdf. Heavily overlaps topically with onco-lung-liquidbiopsy.pdf and the new onco-breast-immunotherapy.pdf -- all three are NSCLC-focused, so the oncology cluster is now lung-cancer-heavy (3 of 5 docs) rather than the originally intended breast/lung/colorectal/genomics spread. The generic pan-cancer genomics/precision-medicine slot remains functionally unfilled"
+      "notes": "FILENAME MISMATCH FLAG: filename reflects the original search-query slot (\"cancer genomics AND precision medicine\", generic pan-cancer) but the actual uploaded PDF is an EDITORIAL specifically about lung cancer geographic/molecular epidemiology, introducing a Special Collection of five separate lung-cancer studies (radon exposure vs. ALK fusion prevalence across Europe; perioperative biomarker-testing gaps in Poland; cardiopulmonary mortality trends tied to targeted therapy/ICI use; individualized afatinib dosing in a Vietnamese cohort; plus a global risk-factor/molecular-subtype review). NOT a primary research article -- a secondary/editorial document type. Genuinely useful for testing citation-attribution precision at the document-type level: it reports numeric findings (e.g. r=0.72 radon/ALK correlation, HR=4.602 for ICI and CVD death) that belong to the underlying primary studies it summarizes, none of which are themselves in this corpus. License confirmed directly from the article: CC BY-NC 4.0, same terms as onco-breast-immunotherapy.pdf. Heavily overlaps topically with onco-lung-liquidbiopsy.pdf and the new onco-breast-immunotherapy.pdf -- all three are NSCLC-focused, so the oncology cluster is now lung-cancer-heavy (3 of 5 docs) rather than the originally intended breast/lung/colorectal/genomics spread. The generic pan-cancer genomics/precision-medicine slot remains functionally unfilled",
+      "pmc_version": 1
     },
     {
       "filename": "outlier-gpt5-tau217-diagnosis.pdf",
@@ -393,13 +424,16 @@
       "page_count": null,
       "has_structured_sections": true,
       "notes": "TOPIC MISMATCH WITH FILENAME/search_query: despite the filename and the manifest's original search_query implying a neuroimaging-focused paper, the actual content is a retrospective diagnostic-accuracy study comparing GPT-5's AD probability estimates (from clinical notes) against physician diagnosis and plasma P-tau 217 biomarkers, in a 74-patient Hong Kong memory clinic cohort. Neuroimaging (amyloid PET) is used only as part of the reference-standard diagnostic workup, not the paper's subject. AI/LLM-diagnostic-accuracy theme, similar in kind to diabetes-cgm-management.pdf's RAG-evaluation angle -- both are AI-methods papers wearing a clinical-domain filename. License confirmed verbatim: CC BY-NC-ND 4.0, non-commercial, no derivatives, same restriction class as cardio-afib-ml-detection.pdf and cardio-hypertension-guidelines.pdf.",
-      "license_notes": "Confirmed from article: \"This is an open access article distributed under the terms of the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 License (CC BY-NC-ND), where it is permissible to download and share the work provided it is properly cited. The work cannot be changed in any way or used commercially without permission from the journal.\" (Wolters Kluwer/Medknow)."
+      "license_notes": "Confirmed from article: \"This is an open access article distributed under the terms of the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 License (CC BY-NC-ND), where it is permissible to download and share the work provided it is properly cited. The work cannot be changed in any way or used commercially without permission from the journal.\" (Wolters Kluwer/Medknow).",
+      "download_note": "On the Ovid article page, click Download PDF, then the download icon in the PDF viewer toolbar. Save using this manifest filename. Browser workflow reported successful on 2026-09-30; on 2026-10-01 DOI redirects were confirmed but scripted Ovid requests returned HTTP 403 and browser verification was unavailable. No PMC ID currently recorded; the 2026-10-01 ID-converter recheck was rate-limited (HTTP 429).",
+      "manual_url": "https://www.ovid.com/10.4103/singaporemedj.SMJ-2025-289"
     },
     {
       "filename": "outlier-microbiome-tuberculosis.pdf",
       "cluster": "outlier",
       "search_query": "gut microbiome AND dietary intervention",
       "doi": "10.3389/fcimb.2026.1847443",
+      "pmcid": "PMC13328407",
       "title": "Harnessing the gut microbiome to combat tuberculosis: a technological and clinical review",
       "authors": [
         "Weiguo Sun",
@@ -423,13 +457,15 @@
       "page_count": null,
       "has_structured_sections": true,
       "notes": "TOPIC MISMATCH WITH FILENAME/search_query: despite the filename and original search_query implying a diet-intervention focus, the actual content is a review of the gut microbiome's role in tuberculosis (TB) pathogenesis, diagnosis, and treatment via the gut-lung axis, covering GM-targeted interventions (probiotics, dietary adjustment, fecal microbiota transplantation) as one section among several, not the paper's central focus. Dense with domain-specific tokens well suited to lexical/BM25 test cases: 'gut-lung axis', 'fecal microbiota transplantation', specific biomarker and pathway names. Received 04 April 2026, published 19 June 2026.",
-      "license_notes": "Confirmed from article: \"This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited.\" Plain, permissive, no NC/ND restriction."
+      "license_notes": "Confirmed from article: \"This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited.\" Plain, permissive, no NC/ND restriction.",
+      "pmc_version": 1
     },
     {
       "filename": "outlier-amr-surveillance.pdf",
       "cluster": "outlier",
       "search_query": "antimicrobial resistance AND surveillance",
       "doi": "10.1038/s41467-026-74899-9",
+      "pmcid": "PMC13439418",
       "title": "Human wastewater contamination drives the emergence of multidrug-resistant bacteria in the Galápagos marine ecosystem",
       "authors": [
         "Arnav Lal",
@@ -456,13 +492,15 @@
       "page_count": null,
       "has_structured_sections": true,
       "notes": "Matches its filename/search_query well, unlike the other two outliers. Primary field study: mobile-laboratory environmental AMR surveillance in the Galápagos (San Cristóbal island), using metagenomic sequencing, qPCR, and long-read plasmid assembly to characterize multidrug-resistant Enterobacteriaceae and E. coli linked to wastewater contamination. Rich in specific lexical tokens well suited to BM25 test cases: 'Galápagos', 'San Cristóbal', 'Enterobacteriaceae', 'resistome', specific gene/plasmid nomenclature, numeric findings (e.g. '40% of lactose-fermenting Enterobacteriaceae isolates... exhibit multidrug resistance', WWTP effluent '25 times the Ecuadorian standard'). Received 22 September 2025, accepted 1 June 2026.",
-      "license_notes": "Confirmed from article: \"Open Access This article is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License, which permits any non-commercial use, sharing, distribution and reproduction in any medium or format... You do not have permission under this licence to share adapted material derived from this article or parts of it.\""
+      "license_notes": "Confirmed from article: \"Open Access This article is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License, which permits any non-commercial use, sharing, distribution and reproduction in any medium or format... You do not have permission under this licence to share adapted material derived from this article or parts of it.\"",
+      "pmc_version": 1
     },
     {
       "filename": "cardio-mi-risk-stratification.pdf",
       "cluster": "cardio",
       "search_query": "CHA2DS2-VA score AND no-reflow AND STEMI AND primary PCI",
       "doi": "10.1002/clc.70439",
+      "pmcid": "PMC13439631",
       "title": "Predictive Ability of the CHA2DS2-VA Score for No-Reflow Phenomenon in ST-Elevation Myocardial Infarction Patients Undergoing Primary PCI",
       "authors": [
         "Ying Sun",
@@ -481,7 +519,8 @@
       "page_count": 12,
       "has_structured_sections": true,
       "notes": "Retrospective single-center cohort, 725 STEMI patients (550 male, 175 female). Sex-stratified multivariable logistic regression (Tables 5-6): in females, CHA2DS2-VA score is independently predictive (AOR 1.597, p=0.002) and creatinine is also significant (AOR 1.037, p=0.009); in males, the CV score itself is not significant (AOR not reported as significant, p=0.052 unadjusted), and among lab/procedural variables the ONLY significant adjusted predictor is platelet count (PLT, AOR 0.993, 95% CI 0.987-0.999, p=0.033). Hypertension was NOT significantly associated with NRP in the overall normal-flow vs. no-reflow comparison (Table 3, p=0.508). Was referenced only in a note on cardio-afib-ml-detection.pdf prior to this entry being added -- missing its own manifest entry despite being ingested and referenced 7 times across golden_qa.json (q044, q050, q068, q123, q126, q128, q129).",
-      "license_notes": "Confirmed from article: \"This is an open access article under the terms of the Creative Commons Attribution License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited.\""
+      "license_notes": "Confirmed from article: \"This is an open access article under the terms of the Creative Commons Attribution License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited.\"",
+      "pmc_version": 1
     }
   ]
 }

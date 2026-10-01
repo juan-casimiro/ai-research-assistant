@@ -11,6 +11,7 @@ Python 3.12 / FastAPI retrieval-augmented question-answering service.
 ## Project map
 
 - `main.py`: startup, ingestion, retrieval and endpoints; `llm_client.py`: provider configuration and bounded LLM calls.
+- `download_corpus.py`: PMC PDF downloads and browser instructions for the two Ovid exceptions; see [host setup](README.md#develop-and-evaluate-host). Missing manual downloads return nonzero status.
 - `eval_golden.py`: production-path retrieval evaluation; `compare_evals.py`: result comparison.
 
 ## Constraints
