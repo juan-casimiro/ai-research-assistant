@@ -1,10 +1,12 @@
 name: CI
 
+# Temporary JUA-106 epic coverage; remove the epic branch filters after its
+# merge into main and post-merge verification (follow-up JUA-115).
 on:
   pull_request:
-    branches: [main]
+    branches: [main, jcas-agent/JUA-106-corpus-benchmark]
   push:
-    branches: [main]
+    branches: [main, jcas-agent/JUA-106-corpus-benchmark]
 
 concurrency:
   group: ci-${{ github.workflow }}-${{ github.ref }}

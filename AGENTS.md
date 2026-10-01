@@ -24,3 +24,11 @@ Python 3.12 / FastAPI retrieval-augmented question-answering service.
 ## Verification
 
 Run `.venv/bin/python -m unittest discover -v` for offline regressions. Golden evaluation is a separate manual quality check, not a CI gate; follow the Working Agreement's approval rule for paid external runs.
+
+## JUA-106 epic delivery
+
+For the corpus and evaluation rebuild, start task branches from
+`origin/jcas-agent/JUA-106-corpus-benchmark` and target task PRs at
+`jcas-agent/JUA-106-corpus-benchmark`. Juan reviews and merges each task there.
+Keep `main` stable until the epic is complete and its combined verification is
+reviewed in a final epic-to-main PR. Agents do not merge either kind of PR.
