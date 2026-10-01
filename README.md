@@ -10,6 +10,15 @@ The test corpus is 19 open-access biomedical research articles (PubMed Central O
 
 CI runs unit tests, builds the Docker image, and smoke-tests `/health` on every pull request and push to `main`. The golden QA evaluation remains manual because it is non-deterministic and calls a paid API. Successful `main` builds publish commit-SHA and `latest` images to `ghcr.io/juan-casimiro/ai-research-assistant`; nothing is deployed automatically. See [ADR-003](./adr/003-deployment-and-containerisation.md).
 
+## Corpus rebuild standards
+
+The planned permissive-corpus rebuild follows the [shared corpus and benchmark
+standards](benchmark/STANDARDS.md): verified CC BY 4.0/CC0, validated PMCID and
+automated readable-PDF retrieval, query-specific evidence roles, and versioned
+nested-corpus comparisons. These requirements govern new selections; the legacy
+manifest and manual-download instructions below have not yet been migrated.
+The figures above remain historical host-corpus results.
+
 ## Two ways to run this
 
 | | Docker | Host |

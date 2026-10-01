@@ -182,3 +182,13 @@ since the abstract didn't name the specific lab marker or mention
 hypertension at all. Use the abstract for a first draft; verify
 against full text before adding table/subgroup-dependent cases to
 `golden_qa.json`.
+
+## Planned benchmark rebuild
+
+[Corpus and benchmark standards v1](../benchmark/STANDARDS.md) defines the
+shared selection, evidence, category, metric and compatibility contract for
+JUA-106. JUA-109 implements the revised queries/scorer; the rules above still
+describe the current harness. In particular, evidence anchors, accepted alternative
+sets, separate absent-fact/false-premise judgments and fingerprint checks are
+planned requirements, not capabilities already implemented by `eval_golden.py`
+or `compare_evals.py`.
