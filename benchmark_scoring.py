@@ -7,7 +7,7 @@ import hashlib
 import json
 import unicodedata
 
-SCORER_VERSION = "pinned-excerpt-coverage-v1"
+SCORER_VERSION = "pinned-span-coverage-v2"
 CATEGORIES = {"direct_lookup", "multi_hop", "cross_doc_distractor",
               "cross_doc_synthesis", "unanswerable", "false_premise"}
 
@@ -92,28 +92,104 @@ def validate_benchmark(benchmark: dict) -> None:
                 raise ValueError(f"{qid}: decoy lacks scope rationale or is accepted evidence")
 
 
+def compile_anchor_spans(anchors: dict[str, dict], source_text: dict[str, str], chunker) -> dict:
+    """Certify contiguous production chunk windows against pinned source offsets.
+
+    Retrieval order is irrelevant to source adjacency. Each plan retains the
+    physical chunk indices and whole normalized chunks needed for this span.
+    No retrieved fragments are stitched together to infer source continuity.
+    """
+    indexed = {}
+    for source, text in source_text.items():
+        full = normalize_excerpt(text)
+        chunks = [normalize_excerpt(c) for c in chunker(text)]
+        occurrences = []
+        for chunk in chunks:
+            if not chunk:
+                raise ValueError(f"{source}: empty production chunk")
+            positions = []
+            start = full.find(chunk)
+            while start >= 0:
+                positions.append((start, start + len(chunk)))
+                start = full.find(chunk, start + 1)
+            if not positions:
+                raise ValueError(f"{source}: production chunk is not a source substring")
+            occurrences.append(positions)
+        indexed[source] = (full, chunks, occurrences)
+    plans = {}
+    for aid, anchor in anchors.items():
+        source = anchor["filename"]
+        text = source_text[source]
+        raw_start, raw_end = anchor["text_start"], anchor["text_end"]
+        if not 0 <= raw_start < raw_end <= len(text) or text[raw_start:raw_end] != anchor["excerpt"]:
+            raise ValueError(f"{aid}: pinned source offset/excerpt mismatch")
+        full, chunks, occurrences = indexed[source]
+        excerpt = normalize_excerpt(anchor["excerpt"])
+        start = len(normalize_excerpt(text[:raw_start]))
+        # Prefix normalization trims a separator immediately before the span.
+        if full[start:start + 1] == " ":
+            start += 1
+        end = start + len(excerpt)
+        if not excerpt or full[start:end] != excerpt:
+            raise ValueError(f"{aid}: normalized source offset/excerpt mismatch")
+        windows = set()
+        for first, positions in enumerate(occurrences):
+            states = {(left, right) for left, right in positions if left <= start < right}
+            for last in range(first, len(chunks)):
+                if not states:
+                    break
+                if any(right >= end for _, right in states):
+                    windows.add((first, last + 1))
+                    break  # Longer windows add no evidence for this span.
+                if last + 1 < len(chunks):
+                    states = {(left, right) for left, right in occurrences[last + 1]
+                              if any(left >= previous_left and right > covered and
+                                     (left <= covered or not full[covered:left].strip())
+                                     for previous_left, covered in states)}
+        if not windows:
+            raise ValueError(f"{aid}: pinned span is unreachable under production chunking")
+        plans[aid] = [{"chunk_indices": list(range(first, stop)), "chunks": chunks[first:stop]}
+                      for first, stop in sorted(windows)]
+    return plans
+
+
 def score_evidence(contexts: list[str], sources: list[str], query: dict,
-                   anchors: dict[str, dict]) -> dict:
+                   anchors: dict[str, dict], span_plans: dict | None = None) -> dict:
     """OR across complete alternatives; AND across their anchors and facts.
 
-    Match each excerpt inside one source-bound chunk. Never match naked numbers,
-    combine different documents, or concatenate chunks into fabricated passages.
+    Match a source-bound excerpt or every whole chunk in a certified adjacent
+    span. Without pinned-source plans, only single-chunk matching is allowed.
     """
     if len(contexts) != len(sources):
         raise ValueError("chunk/source counts differ")
     if query["answerability"]["status"] == "absent_fact":
         return {"document_coverage": "not_scored", "evidence_coverage": "not_scored",
-                "fact_recall": None, "supported_facts": [], "anchor_matches": {},
+                "fact_recall": None, "supported_facts": [], "anchor_matches": {}, "anchor_match_groups": {},
                 "distractor_ordering": "not_scored", "present_distractors": []}
     sets = query["evidence_sets"]
     used = {aid for s in sets for aid in s["anchors"]}
     normalized = [normalize_excerpt(c) for c in contexts]
     matches = {}
+    groups = {}
     for aid in sorted(used):
         anchor = anchors[aid]
         excerpt = normalize_excerpt(anchor["excerpt"])
-        matches[aid] = [i for i, (chunk, source) in enumerate(zip(normalized, sources))
-                        if source == anchor["filename"] and excerpt in chunk]
+        groups[aid] = [[i] for i, (chunk, source) in enumerate(zip(normalized, sources))
+                       if source == anchor["filename"] and excerpt in chunk]
+        for plan in (span_plans or {}).get(aid, []):
+            if len(plan["chunks"]) < 2:
+                continue
+            indices = []
+            for expected in plan["chunks"]:
+                index = next((i for i, (chunk, source) in enumerate(zip(normalized, sources))
+                              if i not in indices and source == anchor["filename"] and chunk == expected), None)
+                if index is None:
+                    break
+                indices.append(index)
+            if len(indices) == len(plan["chunks"]) and indices not in groups[aid]:
+                groups[aid].append(indices)
+        # Only indices belonging to a complete support group are reported.
+        matches[aid] = sorted({i for group in groups[aid] for i in group})
     supported = set()
     document_sets = []
     for evidence_set in sets:
@@ -133,5 +209,5 @@ def score_evidence(contexts: list[str], sources: list[str], query: dict,
     return {"document_coverage": "pass" if docs_present else "fail",
             "evidence_coverage": "pass" if complete else "fail",
             "fact_recall": len(supported) / len(query["required_facts"]),
-            "supported_facts": sorted(supported), "anchor_matches": matches,
+            "supported_facts": sorted(supported), "anchor_matches": matches, "anchor_match_groups": groups,
             "distractor_ordering": ordering, "present_distractors": present_decoys}

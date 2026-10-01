@@ -11,7 +11,7 @@ from tempfile import NamedTemporaryFile
 from uuid import uuid4
 
 from chromadb.errors import ChromaError
-from benchmark_scoring import SCORER_VERSION, canonical_hash, score_evidence, validate_benchmark
+from benchmark_scoring import SCORER_VERSION, canonical_hash, compile_anchor_spans, score_evidence, validate_benchmark
 
 ROOT = Path(__file__).resolve().parent
 
@@ -146,6 +146,8 @@ async def run_benchmark(args, retrieve, load_models) -> int:
             raise ValueError(f"invalid requested IDs: {sorted(missing)}")
         queries = [q for q in queries if q["id"] in requested]
         anchors = {a["id"]: a for a in benchmark["anchors"]}
+        used = {aid for q in queries for s in q["evidence_sets"] for aid in s["anchors"]}
+        span_plans = compile_anchor_spans({aid: anchors[aid] for aid in used}, selected_text, production.chunk_text)
         # Reserve the exact destination exclusively before loading models or paid calls.
         output_path.parent.mkdir(parents=True, exist_ok=True)
         with output_path.open("x", encoding="utf-8") as stream:
@@ -194,7 +196,7 @@ async def run_benchmark(args, retrieve, load_models) -> int:
             for depth in [3, 8]:
                 contexts, sources = await retrieve(query["question"], n_results=depth,
                     use_query_rewriting=args.rewrite, use_bm25=args.bm25)
-                metrics = score_evidence(contexts, sources, query, anchors)
+                metrics = score_evidence(contexts, sources, query, anchors, span_plans)
                 verdict = metrics["document_coverage"]
                 if query["category"] == "cross_doc_distractor":
                     verdict = metrics["distractor_ordering"]

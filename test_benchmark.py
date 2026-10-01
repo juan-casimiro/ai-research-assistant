@@ -11,9 +11,10 @@ from unittest.mock import AsyncMock, Mock, patch
 from chromadb.errors import InternalError
 import compare_evals
 
-from benchmark_scoring import CATEGORIES, canonical_hash, score_evidence, validate_answerability, validate_benchmark
+from benchmark_scoring import CATEGORIES, canonical_hash, compile_anchor_spans, score_evidence, validate_answerability, validate_benchmark
 from compare_evals import check_compatible
 import eval_benchmark as runner
+from verify_benchmark_reachability import verify_reachability
 
 ROOT = Path(__file__).resolve().parent
 
@@ -93,6 +94,92 @@ class EvidenceTests(unittest.TestCase):
         self.assertEqual(self.score(["a"])["evidence_coverage"], "not_scored")
         self.q["answerability"]["status"] = "false_premise"
         self.assertEqual(self.score(["a", "b"])["evidence_coverage"], "pass")
+
+
+class AdjacentSpanTests(unittest.TestCase):
+    def case(self, text, start, end, chunker=None):
+        from main import chunk_text
+        q, anchors = fixture()
+        q["required_facts"] = [{"id": "f1"}]
+        q["evidence_sets"] = [{"id": "only", "anchors": ["a"], "fact_anchors": {"f1": ["a"]}}]
+        anchor = {**anchors["a"], "text_start": start, "text_end": end, "excerpt": text[start:end]}
+        anchors = {"a": anchor}
+        chunker = chunker or chunk_text
+        chunks = chunker(text)
+        plans = compile_anchor_spans(anchors, {"A.pdf": text}, chunker)
+        return q, anchors, chunks, plans
+
+    def test_boundary_inside_number_matches_verified_chunks_in_reverse_retrieval_order(self):
+        excerpt = "At six months, adjusted HR was 0.35."
+        start = 1000 - excerpt.index("0.35") - 2
+        q, anchors, chunks, plans = self.case("x" * start + excerpt + "y" * 1100, start, start + len(excerpt))
+        self.assertEqual(score_evidence(chunks, ["A.pdf"] * len(chunks), q, anchors)["evidence_coverage"], "fail")
+        result = score_evidence([chunks[1], chunks[0]], ["A.pdf"] * 2, q, anchors, plans)
+        self.assertEqual(result["evidence_coverage"], "pass")
+        self.assertEqual(result["fact_recall"], 1)
+        self.assertEqual(result["anchor_match_groups"]["a"], [[1, 0]])
+        self.assertEqual(result["anchor_matches"]["a"], [0, 1])
+
+    def test_missing_wrong_source_changed_or_arbitrary_fragment_cannot_complete_span(self):
+        excerpt = "At six months, adjusted HR was 0.35."
+        q, anchors, chunks, plans = self.case("x" * 990 + excerpt + "y" * 1100, 990, 990 + len(excerpt))
+        for contexts, sources in [([chunks[0]], ["A.pdf"]),
+                                  ([chunks[0], chunks[1]], ["A.pdf", "B.pdf"]),
+                                  ([chunks[0], chunks[1].replace("0.35", "−0.35")], ["A.pdf"] * 2),
+                                  ([chunks[0], chunks[2]], ["A.pdf"] * 2),
+                                  ([excerpt[:10], excerpt[10:]], ["A.pdf"] * 2)]:
+            with self.subTest(contexts=contexts, sources=sources):
+                result = score_evidence(contexts, sources, q, anchors, plans)
+                self.assertEqual(result["fact_recall"], 0)
+                self.assertEqual(result["anchor_matches"]["a"], [])
+
+    def test_long_span_requires_every_intermediate_chunk(self):
+        text = " ".join(f"finding-{i:04d}" for i in range(400))
+        q, anchors, chunks, plans = self.case(text, 900, 3100)
+        self.assertEqual(plans["a"][0]["chunk_indices"], [0, 1, 2, 3])
+        for missing in range(4):
+            selected = [chunk for i, chunk in enumerate(chunks[:4]) if i != missing]
+            self.assertEqual(score_evidence(selected, ["A.pdf"] * 3, q, anchors, plans)["evidence_coverage"], "fail")
+        self.assertEqual(score_evidence(chunks[:4], ["A.pdf"] * 4, q, anchors, plans)["evidence_coverage"], "pass")
+
+    def test_overlapping_paragraph_chunks_and_trimmed_whitespace_boundaries(self):
+        from main import chunk_text
+        text = " ".join(f"first-{i}" for i in range(95)) + "\n\n" + " ".join(f"second-{i}" for i in range(70))
+        start, end = 600, len(text) - 30
+        for chunker in [chunk_text, lambda value: [p.strip() for p in value.split("\n\n")]]:
+            with self.subTest(chunker=chunker):
+                q, anchors, chunks, plans = self.case(text, start, end, chunker)
+                self.assertEqual(score_evidence(chunks[::-1], ["A.pdf"] * len(chunks), q, anchors, plans)["evidence_coverage"], "pass")
+
+    def test_one_retrieved_chunk_cannot_satisfy_two_identical_required_positions(self):
+        repeated = "".join(f"{i:04d}" for i in range(250))
+        text = "x" * 999 + "a" + repeated * 2 + "c" + "y" * 999
+        q, anchors, chunks, plans = self.case(text, 999, 3001)
+        self.assertEqual(score_evidence([chunks[0], chunks[1], chunks[3]], ["A.pdf"] * 3, q, anchors, plans)["evidence_coverage"], "fail")
+        self.assertEqual(score_evidence(chunks, ["A.pdf"] * 4, q, anchors, plans)["evidence_coverage"], "pass")
+
+    def test_planner_rejects_wrong_offsets_and_gaps_with_missing_source_text(self):
+        q, anchors = fixture()
+        anchors = {"a": anchors["a"]}
+        text = anchors["a"]["excerpt"]
+        with self.assertRaisesRegex(ValueError, "offset/excerpt mismatch"):
+            compile_anchor_spans(anchors, {"A.pdf": "x" + text}, lambda t: [t])
+        with self.assertRaisesRegex(ValueError, "unreachable"):
+            compile_anchor_spans(anchors, {"A.pdf": text}, lambda t: [t[:10], t[20:]])
+        with self.assertRaisesRegex(ValueError, "not a source substring"):
+            compile_anchor_spans(anchors, {"A.pdf": text}, lambda t: ["invented"])
+
+    def test_offline_oracle_uses_production_chunker_and_fails_for_unreachable_gold(self):
+        from main import chunk_text
+        text = " ".join(f"finding-{i:04d}" for i in range(400))
+        q, anchors, _, _ = self.case(text, 900, 3100)
+        benchmark = {"queries": [q], "anchors": list(anchors.values())}
+        report = verify_reachability(benchmark, {"A.pdf": text}, chunk_text)
+        self.assertEqual(report["reachable_evidence_queries"], 1)
+        self.assertEqual(report["anchors_requiring_adjacent_chunks"], 1)
+        self.assertFalse(report["retrieval_quality_measured"])
+        with self.assertRaisesRegex(ValueError, "unreachable"):
+            verify_reachability(benchmark, {"A.pdf": text}, lambda t: [t[:1000], t[3000:]])
 
 
 class ReleaseTests(unittest.TestCase):
@@ -198,7 +285,7 @@ class CompatibilityTests(unittest.TestCase):
     def test_config_ablation_requires_same_gold_and_corpus(self):
         base = run_artifact(); exp = deepcopy(base); exp["config"]["use_bm25"] = True
         check_compatible(base, exp)
-        for field in ["query_sha256", "scorer_sha256", "retrieval_sha256", "selection_sha256", "membership_sha256"]:
+        for field in ["query_sha256", "scorer_version", "scorer_sha256", "retrieval_sha256", "selection_sha256", "membership_sha256"]:
             bad = deepcopy(exp); bad["provenance"][field] = "changed"
             with self.subTest(field=field), self.assertRaises(ValueError):
                 check_compatible(base, bad)
@@ -248,7 +335,43 @@ class RunnerTests(unittest.IsolatedAsyncioTestCase):
     def release(self):
         q, anchors = fixture()
         return ({"queries": [q], "anchors": list(anchors.values()), "query_version": "test-v1"},
-                {"fingerprint_sha256": "manifest"}, {}, {"membership_sha256": "members"}, [], {"A.pdf": "text"})
+                {"fingerprint_sha256": "manifest"}, {}, {"membership_sha256": "members"}, [],
+                {"A.pdf": anchors["a"]["excerpt"].ljust(100) + anchors["b"]["excerpt"],
+                 "B.pdf": anchors["c"]["excerpt"]})
+
+    async def test_unreachable_source_span_is_rejected_before_models_or_retrieval(self):
+        with tempfile.TemporaryDirectory() as directory:
+            args = SimpleNamespace(benchmark=Path(directory), corpus_dir=Path(directory), condition="C2", ids="test", output=Path(directory, "run.json"))
+            release = self.release()
+            release[-1]["A.pdf"] = "incorrect source text"
+            load, retrieve = Mock(), AsyncMock()
+            with patch.object(runner, "read_release", return_value=release), contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(await runner.run_benchmark(args, retrieve, load), 1)
+            load.assert_not_called(); retrieve.assert_not_awaited()
+            self.assertFalse(args.output.exists())
+
+    async def test_runner_scores_boundary_span_and_checkpoints_complete_support_groups(self):
+        from main import chunk_text
+        with tempfile.TemporaryDirectory() as directory:
+            args = SimpleNamespace(benchmark=Path(directory), corpus_dir=Path(directory), condition="C2", ids="test", output=Path(directory, "run.json"), bm25=False, rewrite=False)
+            q, anchors = fixture()
+            q["evidence_sets"] = q["evidence_sets"][:1]
+            text = "x" * 990 + anchors["a"]["excerpt"] + "padding " * 60 + anchors["b"]["excerpt"] + "y" * 1000
+            for aid in ["a", "b"]:
+                anchors[aid]["text_start"] = text.index(anchors[aid]["excerpt"])
+                anchors[aid]["text_end"] = anchors[aid]["text_start"] + len(anchors[aid]["excerpt"])
+            release = ({"queries": [q], "anchors": list(anchors.values()), "query_version": "test-v1"},
+                       {"fingerprint_sha256": "manifest"}, {}, {"membership_sha256": "members"}, [], {"A.pdf": text})
+            chunks = chunk_text(text)[:2][::-1]
+            retrieve = AsyncMock(return_value=(chunks, ["A.pdf"] * 2))
+            with patch.object(runner, "read_release", return_value=release), patch.object(runner, "verify_collection", return_value={}), patch.object(runner, "model_fingerprint", return_value={"sha256": "weights"}), patch.object(runner, "version", return_value="test"), patch.object(runner.subprocess, "run", return_value=SimpleNamespace(stdout="commit\n")), contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(await runner.run_benchmark(args, retrieve, Mock()), 0)
+            data = json.loads(args.output.read_text())
+            self.assertEqual(data["provenance"]["scorer_version"], "pinned-span-coverage-v2")
+            for depth in ["n3", "n8"]:
+                metrics = data["results"][0][depth]["metrics"]
+                self.assertEqual(metrics["evidence_coverage"], "pass")
+                self.assertEqual(metrics["anchor_match_groups"]["a"], [[1, 0]])
 
     async def test_requested_id_and_overwrite_guards_precede_models_and_retrieval(self):
         with tempfile.TemporaryDirectory() as directory:

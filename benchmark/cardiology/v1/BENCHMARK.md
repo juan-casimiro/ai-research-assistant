@@ -80,9 +80,14 @@ The new outputs distinguish:
 - **Document coverage:** all articles of at least one complete accepted evidence
   set appear. This remains possible when the right paper’s wrong passage appears.
 - **Pinned-excerpt coverage:** every required anchor of one complete set appears
-  inside a source-bound chunk. Alternative complete sets use OR; anchors within
-  a set use AND. Separate chunks can support separate anchors, but are never
-  concatenated to fabricate an excerpt. NFKC/whitespace normalization preserves
+  inside a source-bound chunk or is covered by verified adjacent production
+  chunks from that source. Before model loading, `pinned-span-coverage-v2`
+  maps each raw pinned excerpt offset to contiguous chunk windows in the
+  authoritative text. A spanning match requires every whole normalized chunk
+  in a certified window, with distinct retrieved indices; retrieval rank does
+  not establish adjacency. Arbitrary fragments, missing intermediate chunks and
+  mixed sources cannot complete a span. Alternative complete sets use OR;
+  anchors within a set use AND. NFKC/whitespace normalization preserves
   values, signs and qualifiers; a naked number or the same excerpt attributed to
   another paper cannot match.
 - **Fact recall:** share of required facts whose anchor requirements are covered.
@@ -93,9 +98,11 @@ The new outputs distinguish:
   is reported separately, so ranking passes without competition are visible.
 
 Exact excerpts are a conservative reproducible proxy, **not semantic evidence
-sufficiency or answer correctness**. Chunk boundaries, PDF typography or an
-unlisted valid paraphrase can cause a miss. Manually inspect recorded contexts
-before interpreting failures. Broad answers, partial answers, refusals and premise
+sufficiency or answer correctness**. An unlisted valid paraphrase or retrieval
+of only part of a pinned span can cause a miss. Production chunk boundaries alone
+cannot make gold unreachable: preflight rejects an anchor without a certified
+span. Manually inspect recorded contexts before interpreting failures. Broad
+answers, partial answers, refusals and premise
 corrections require separate review against the rubrics. Results split answerable,
 false-premise correction evidence and absent-fact executions, and report zero
 answer judgments. JUA-40 owns any later answer judge, subject to its separately
@@ -105,8 +112,10 @@ Runs record exact requested/executed IDs, full and subset query hashes, scorer
 version/source hashes, manifest/condition/membership hashes, pinned article tuples,
 retrieval source/dependency hashes, loaded embedding/reranker file hashes,
 rewrite provider/model, code commit, UTC time, flags, depths, retrieved contexts
-and per-anchor chunk indices. The runner compares actual stored source/text
-chunks with the condition’s production chunking and rejects missing, extra,
+and per-anchor chunk indices plus complete support groups (`anchor_match_groups`).
+Group indices are zero-based retrieval positions listed in source-span order,
+so a spanning group can have decreasing ranks. The runner compares actual stored
+source/text chunks with the condition’s production chunking and rejects missing, extra,
 duplicate or stale chunks. It verifies every selected local PDF/text and anchor,
 including competitor pins when running C1. This does **not** rederive stored
 embedding vectors to certify their original model; JUA-110 must retain isolated
@@ -126,7 +135,18 @@ Offline validation is available now:
 ```bash
 .venv/bin/python -m unittest discover -v
 .venv/bin/python verify_cardiology_selection.py
+.venv/bin/python verify_benchmark_reachability.py --condition C2
 ```
+
+The reachability check needs the pinned local PDFs/text but loads no models,
+opens no collection and makes no API calls. It supplies every production chunk
+to the scorer, then requires coverage of every available anchor and every
+evidence-bearing query with fact recall 1. C2 has 77 reachable anchors and 42
+reachable evidence-bearing queries; 36 anchors require adjacent chunks. These
+are structural assertions, not retrieval-quality results. C1 and C3 can be
+checked with the same command. Synthetic boundary regressions run in offline CI
+without downloaded corpus files. Scorer v1 and v2 runs cannot be compared under
+normal compatibility checks; historical baseline artifacts remain unchanged.
 
 After PR review/freeze and JUA-110’s isolated condition ingestion, use the configured
 collection for that exact condition. The benchmark runner never seeds or ingests.

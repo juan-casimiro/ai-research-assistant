@@ -194,8 +194,12 @@ of passage sufficiency or answer correctness.
 In versioned mode, `eval_golden.py` still calls production `retrieve()` and records
 reranked chunks/sources at depths 3 and 8. Document coverage, conservative pinned
 excerpt coverage, fact recall and competitor ordering are distinct. Complete
-alternatives use OR; each set requires all its anchors. Absent facts are unscored;
-false-premise correction evidence is reported separately from judging generated
+alternatives use OR; each set requires all its anchors. An excerpt spanning chunks
+requires every whole chunk in a contiguous production
+window certified against its pinned source offsets, regardless of retrieval rank.
+The offline reachability oracle verifies gold with all production chunks before
+any quality experiment; the scorer version distinguishes this from single-chunk v1.
+Absent facts are unscored; false-premise correction evidence is reported separately from judging generated
 corrections. Exact matching cannot exclude valid paraphrases, so failures require
 context inspection. JUA-40 retains separately sequenced answer-judge work.
 
