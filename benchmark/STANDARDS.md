@@ -158,8 +158,11 @@ change and retire rather than silently reuse IDs for unrelated tasks.
 
 For genuine corpus absence `evidence_sets` may be empty: specify which claim is
 missing and the frozen corpus searched. A false-premise case needs positive
-correction evidence, not merely absence. Map legacy `unanswerable` to an explicit
-subtype during migration; do not expect `context_sufficient=false` for a
+correction evidence, not merely absence. During migration, every legacy
+`unanswerable` case maps to either
+`answerability=absent_fact` (retaining category `unanswerable`) or
+`answerability=false_premise` (new category `false_premise`), after evidence
+review. Do not expect `context_sufficient=false` for a
 well-supported premise correction. Freeze alternative sets before evaluation.
 Alternative evidence must answer the same population, endpoint and timeframe,
 not simply mention similar terms. One complete alternative suffices; do not
@@ -279,11 +282,12 @@ condition membership/hash, config, collection identity/path, ingestion receipt
 (article hashes, extraction settings and per-document/total chunk counts),
 requested/executed/missing IDs, depths, raw ranked chunk/context/source outputs,
 verdicts, metric counts, review method, cost approval if relevant and limitations.
-Use production `retrieve()`; preserve reranker inference and score consumption
-inside `asyncio.to_thread()` and reranked source order during deduplication.
-Host full ingestion uses `SEED_ON_EMPTY=false`; verify extraction, article
-identity, chunk counts and queryability before any run. `--ids` neither ingests
-nor isolates a collection. Never reset another task's collection.
+Follow [repository constraints](../AGENTS.md#constraints) for production retrieval,
+reranker threading/order and host seeding, and the
+[host setup](../README.md#develop-and-evaluate-host) for ingestion. Verify
+extraction, article identity, chunk counts and queryability before any run.
+`--ids` neither ingests nor isolates a collection. Never reset another task's
+collection.
 
 Use `.venv/bin/python eval_golden.py --ids <comma-separated-IDs>` from repository
 root; add `--bm25` only for a justified configuration comparison. Confirm every
@@ -328,7 +332,13 @@ to `main`. Juan reviews and merges task PRs. After all topic work and combined
 benchmark verification, open a final epic-to-main PR with the release evidence
 and migration report. Juan reviews and merges that PR; agents never merge.
 
+The active epic-task owner checks for relevant new `main` changes when starting
+a task and before final integration. When needed, prepare a reviewed main-to-epic
+sync PR and rerun affected checks; do not rewrite published epic history.
+
 Epic CI branch filters are temporary. After the epic merges into `main` and
 post-merge verification completes, JUA-115 removes the epic branch from both
 CI triggers in a separate cleanup PR to `main`, retaining main validation and
-publication. This follow-up does not block the epic integration PR.
+publication. It also removes the temporary Handoff acceptance and Epic integration
+sections, preserving lasting standards and historical migration provenance.
+This follow-up does not block the epic integration PR.
