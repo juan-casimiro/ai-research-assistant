@@ -117,6 +117,18 @@ with `schema_version`, `corpus_version`, `articles` and `selection_log`.
 All fields below are required for eligible entries unless explicitly nullable.
 No placeholder values qualify as verified metadata.
 
+Every topic selection must also preserve the applicable fields already present
+in `corpus_manifest.json`, including `cluster`, `search_query`, `year`, `license`,
+`page_count`, `has_structured_sections`, `notes` and `license_notes`; richer fields
+extend these records rather than replacing their metadata. Preserve the complete
+source abstract separately from an authored summary. Starting from a PMCID,
+resolve its PMID through the official PMC ID Converter and retrieve the PubMed
+record for the abstract and bibliographic cross-check; obtain exact version and
+licence evidence from the pinned PMC deposit. Record source URLs and hashes.
+The original `search_query` must be recorded at discovery and preserved verbatim:
+PubMed cannot reconstruct it, and a later PMCID lookup must not overwrite it.
+Missing metadata needs an explicit absence reason, not an inferred value.
+
 | Field | Type and rule |
 | --- | --- |
 | `article_id`, `filename` | Unique stable string ID and unique PDF basename; keep legacy filename aliases in migration records |

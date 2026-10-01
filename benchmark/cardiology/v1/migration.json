@@ -1,0 +1,1207 @@
+{
+  "schema_version": "1.0",
+  "baseline": {
+    "source_commit": "2e3e9899922c5f22eb30f7f811ecb80a337f98fc",
+    "epic_base_commit": "3299ab40998e46a9a2b0e033c20d6617132ec644",
+    "files": {
+      "corpus_manifest.json": "a82dbdcce605ad6d729be662db9c795100c503bd8abf9eed005c5d696c92a9d8",
+      "golden_qa.json": "9f53d45e7b71695763092ca3c6eb03ddfd8e65bc260f6d27fbfecbc28d744e6a",
+      "eval_results/context_sufficient_eval_results.json": "50d6e0a36522a6e9e6e7c9b52bb939ee00f1d1041983ec707ebd8942a723bde8",
+      "eval_results/eval_results_baseline.json": "872a551457d198257abfc79c6f2590d8b5cd46b08ecdb80a013e2d254d5a25a3",
+      "eval_results/eval_results_bm25.json": "94eaa2aa7512b29f13547ec3550ce712e4fba28d3a44bf03bced6cc906686ce2",
+      "eval_results/eval_results_bm25_rewrite.json": "c77eeb4825fed53ab188bae3ea08548a722de489893f606b491a2a58530df5d0",
+      "eval_results/eval_results_rewrite.json": "31f8acf28b2b625b719a1c3fe4e928a143f43559f993a2a0c24e53726ea55aef"
+    },
+    "preservation": "Original manifest, queries, local corpus and saved evaluation results unchanged; new files use a separate ignored download directory. No collection reset/ingestion/evaluation performed."
+  },
+  "articles": [
+    {
+      "legacy_filename": "diabetes-pharmacotherapy-rct.pdf",
+      "legacy_doi": "10.3389/fendo.2026.1837588",
+      "legacy_pmcid": "PMC13423648",
+      "action": "outside_selected_cardio_corpus",
+      "new_article_ids": [],
+      "new_versions": {},
+      "rationale": "Not selected or freshly certified by this task; absent from every current condition. Later topic task must verify exact rights/version/PDF before inclusion.",
+      "owner": "JUA-111",
+      "direct_query_dependencies": [
+        "q001",
+        "q002",
+        "q003",
+        "q004",
+        "q005",
+        "q006",
+        "q007",
+        "q008"
+      ]
+    },
+    {
+      "legacy_filename": "diabetes-epidemiology-prevalence.pdf",
+      "legacy_doi": "10.1186/1758-5996-2-67",
+      "legacy_pmcid": "PMC2993661",
+      "action": "outside_selected_cardio_corpus",
+      "new_article_ids": [],
+      "new_versions": {},
+      "rationale": "Not selected or freshly certified by this task; absent from every current condition. Later topic task must verify exact rights/version/PDF before inclusion.",
+      "owner": "JUA-111",
+      "direct_query_dependencies": [
+        "q008",
+        "q009",
+        "q010",
+        "q011",
+        "q012",
+        "q013",
+        "q021",
+        "q034"
+      ]
+    },
+    {
+      "legacy_filename": "diabetes-nephropathy-complications.pdf",
+      "legacy_doi": "10.3389/fendo.2026.1825409",
+      "legacy_pmcid": "PMC13433218",
+      "action": "outside_selected_cardio_corpus",
+      "new_article_ids": [],
+      "new_versions": {},
+      "rationale": "Not selected or freshly certified by this task; absent from every current condition. Later topic task must verify exact rights/version/PDF before inclusion.",
+      "owner": "JUA-111",
+      "direct_query_dependencies": [
+        "q015",
+        "q016",
+        "q017",
+        "q018",
+        "q019",
+        "q021",
+        "q027"
+      ]
+    },
+    {
+      "legacy_filename": "diabetes-genetic-risk-gwas.pdf",
+      "legacy_doi": "10.1002/cpt.70381",
+      "legacy_pmcid": "PMC13403371",
+      "action": "exclude_and_replace_overlap",
+      "new_article_ids": [
+        "PMC12886974"
+      ],
+      "new_versions": {
+        "PMC12886974": 1
+      },
+      "rationale": "CC BY-NC and geographically qualified public-domain notice do not pass policy. New partitioned-PGS article supplies T2D/hypertension overlap, not sulfonylurea response. Drug-response questions remain JUA-111 work.",
+      "owner": "JUA-108",
+      "direct_query_dependencies": [
+        "q022",
+        "q023",
+        "q024",
+        "q025",
+        "q027",
+        "q028"
+      ]
+    },
+    {
+      "legacy_filename": "diabetes-cgm-management.pdf",
+      "legacy_doi": "10.2196/98519",
+      "legacy_pmcid": "PMC13430954",
+      "action": "outside_selected_cardio_corpus",
+      "new_article_ids": [],
+      "new_versions": {},
+      "rationale": "Not selected or freshly certified by this task; absent from every current condition. Later topic task must verify exact rights/version/PDF before inclusion.",
+      "owner": "JUA-111",
+      "direct_query_dependencies": [
+        "q036",
+        "q037",
+        "q038",
+        "q039"
+      ]
+    },
+    {
+      "legacy_filename": "diabetes-cardiovascular-outcomes.pdf",
+      "legacy_doi": "10.1007/s44470-026-00144-1",
+      "legacy_pmcid": "PMC13433680",
+      "action": "outside_selected_cardio_corpus",
+      "new_article_ids": [],
+      "new_versions": {},
+      "rationale": "Not selected or freshly certified by this task; absent from every current condition. Later topic task must verify exact rights/version/PDF before inclusion.",
+      "owner": "JUA-111",
+      "direct_query_dependencies": [
+        "q029",
+        "q030",
+        "q031",
+        "q032",
+        "q034",
+        "q035"
+      ]
+    },
+    {
+      "legacy_filename": "cardio-hypertension-guidelines.pdf",
+      "legacy_doi": "10.4103/singaporemedj.SMJ-2025-248",
+      "legacy_pmcid": null,
+      "action": "replace",
+      "new_article_ids": [
+        "PMC11374717",
+        "PMC4804513",
+        "PMC11973566"
+      ],
+      "new_versions": {
+        "PMC11374717": 1,
+        "PMC4804513": 1,
+        "PMC11973566": 1
+      },
+      "rationale": "No recorded PMCID and CC BY-NC-ND/manual-only route. Replace survey role with consensus and primary/intersection evidence; retire physician-percentage facts.",
+      "owner": "JUA-108",
+      "direct_query_dependencies": [
+        "q059",
+        "q060",
+        "q061",
+        "q062",
+        "q122",
+        "q125",
+        "q127",
+        "q129"
+      ]
+    },
+    {
+      "legacy_filename": "cardio-cad-ct-angiography.pdf",
+      "legacy_doi": "10.3389/fcvm.2026.1884303",
+      "legacy_pmcid": "PMC13433181",
+      "action": "retain_after_verification",
+      "new_article_ids": [
+        "PMC13433181"
+      ],
+      "new_versions": {
+        "PMC13433181": 1
+      },
+      "rationale": "Fresh PMCID/PubMed identity, version, rights, PDF download and readability verified; source content retained but queries still require evidence review.",
+      "owner": "JUA-108",
+      "direct_query_dependencies": [
+        "q047",
+        "q048",
+        "q049",
+        "q050",
+        "q051",
+        "q120",
+        "q124",
+        "q125",
+        "q126"
+      ]
+    },
+    {
+      "legacy_filename": "cardio-afib-ml-detection.pdf",
+      "legacy_doi": "10.4274/balkanmedj.galenos.2026.2026-6-21",
+      "legacy_pmcid": "PMC13530581",
+      "action": "replace",
+      "new_article_ids": [
+        "PMC12880197",
+        "PMC11265054",
+        "PMC10363301",
+        "PMC12003177",
+        "PMC10607686"
+      ],
+      "new_versions": {
+        "PMC12880197": 1,
+        "PMC11265054": 1,
+        "PMC10363301": 1,
+        "PMC12003177": 1,
+        "PMC10607686": 1
+      },
+      "rationale": "CC BY-NC-ND fails policy. Replace broad review relationship with eligible review and primary detection/prediction/trial/stroke evidence; do not copy unsupported old facts.",
+      "owner": "JUA-108",
+      "direct_query_dependencies": [
+        "q041",
+        "q042",
+        "q043",
+        "q044",
+        "q046",
+        "q068",
+        "q120",
+        "q121",
+        "q122",
+        "q123"
+      ]
+    },
+    {
+      "legacy_filename": "cardio-heartfailure-biomarkers.pdf",
+      "legacy_doi": "10.3389/fcvm.2026.1858364",
+      "legacy_pmcid": "PMC13433862",
+      "action": "retain_after_verification",
+      "new_article_ids": [
+        "PMC13433862"
+      ],
+      "new_versions": {
+        "PMC13433862": 1
+      },
+      "rationale": "Fresh PMCID/PubMed identity, version, rights, PDF download and readability verified; source content retained but queries still require evidence review.",
+      "owner": "JUA-108",
+      "direct_query_dependencies": [
+        "q053",
+        "q054",
+        "q055",
+        "q056",
+        "q058",
+        "q121",
+        "q124",
+        "q127",
+        "q128"
+      ]
+    },
+    {
+      "legacy_filename": "onco-breast-immunotherapy.pdf",
+      "legacy_doi": "10.1177/17588359261472331",
+      "legacy_pmcid": "PMC13438349",
+      "action": "outside_selected_cardio_corpus",
+      "new_article_ids": [],
+      "new_versions": {},
+      "rationale": "Not selected or freshly certified by this task; absent from every current condition. Later topic task must verify exact rights/version/PDF before inclusion.",
+      "owner": "JUA-112",
+      "direct_query_dependencies": [
+        "q103",
+        "q104",
+        "q105",
+        "q106",
+        "q107",
+        "q109",
+        "q117",
+        "q118",
+        "q119"
+      ]
+    },
+    {
+      "legacy_filename": "onco-lung-liquidbiopsy.pdf",
+      "legacy_doi": "10.3389/fcell.2026.1874565",
+      "legacy_pmcid": "PMC13429855",
+      "action": "outside_selected_cardio_corpus",
+      "new_article_ids": [],
+      "new_versions": {},
+      "rationale": "Not selected or freshly certified by this task; absent from every current condition. Later topic task must verify exact rights/version/PDF before inclusion.",
+      "owner": "JUA-112",
+      "direct_query_dependencies": [
+        "q078",
+        "q079",
+        "q080",
+        "q081",
+        "q082",
+        "q084",
+        "q094",
+        "q119"
+      ]
+    },
+    {
+      "legacy_filename": "onco-colorectal-screening.pdf",
+      "legacy_doi": "10.7554/eLife.76070",
+      "legacy_pmcid": "PMC9239676",
+      "action": "outside_selected_cardio_corpus",
+      "new_article_ids": [],
+      "new_versions": {},
+      "rationale": "Not selected or freshly certified by this task; absent from every current condition. Later topic task must verify exact rights/version/PDF before inclusion.",
+      "owner": "JUA-112",
+      "direct_query_dependencies": [
+        "q095",
+        "q096",
+        "q097",
+        "q098",
+        "q099",
+        "q102"
+      ]
+    },
+    {
+      "legacy_filename": "onco-tumor-microenvironment.pdf",
+      "legacy_doi": "10.1002/mco2.70882",
+      "legacy_pmcid": "PMC13430506",
+      "action": "outside_selected_cardio_corpus",
+      "new_article_ids": [],
+      "new_versions": {},
+      "rationale": "Not selected or freshly certified by this task; absent from every current condition. Later topic task must verify exact rights/version/PDF before inclusion.",
+      "owner": "JUA-112",
+      "direct_query_dependencies": [
+        "q085",
+        "q086",
+        "q087",
+        "q088",
+        "q089",
+        "q090",
+        "q092",
+        "q093",
+        "q094"
+      ]
+    },
+    {
+      "legacy_filename": "onco-genomics-precision-medicine.pdf",
+      "legacy_doi": "10.1177/17588359261473571",
+      "legacy_pmcid": "PMC13434091",
+      "action": "exclude_from_cardio",
+      "new_article_ids": [],
+      "new_versions": {},
+      "rationale": "Restricted CC BY-NC cardio-oncology overlap excluded; oncology cardiovascular-mortality topic not retained in this cycle. No unrelated replacement selected; JUA-112 owns later oncology evidence.",
+      "owner": "JUA-112",
+      "direct_query_dependencies": [
+        "q110",
+        "q111",
+        "q112",
+        "q113",
+        "q114",
+        "q115",
+        "q116",
+        "q117",
+        "q118"
+      ]
+    },
+    {
+      "legacy_filename": "outlier-gpt5-tau217-diagnosis.pdf",
+      "legacy_doi": "10.4103/singaporemedj.SMJ-2025-289",
+      "legacy_pmcid": null,
+      "action": "exclude_and_retire_cases_from_cardio",
+      "new_article_ids": [],
+      "new_versions": {},
+      "rationale": "No recorded PMCID and CC BY-NC-ND/manual-only route. Cognitive AI/plasma-tau diagnostic topic is not retained. Geriatric/vascular cognition overlap is a different topic, not a replacement for these diagnostic facts. JUA-113 reuses this exclusion and must not independently replace this paper for cardiology.",
+      "owner": "JUA-108",
+      "direct_query_dependencies": [
+        "q130",
+        "q131",
+        "q132",
+        "q133"
+      ]
+    },
+    {
+      "legacy_filename": "outlier-microbiome-tuberculosis.pdf",
+      "legacy_doi": "10.3389/fcimb.2026.1847443",
+      "legacy_pmcid": "PMC13328407",
+      "action": "outside_selected_cardio_corpus",
+      "new_article_ids": [],
+      "new_versions": {},
+      "rationale": "Not selected or freshly certified by this task; absent from every current condition. Later topic task must verify exact rights/version/PDF before inclusion.",
+      "owner": "JUA-113",
+      "direct_query_dependencies": [
+        "q135",
+        "q136",
+        "q137",
+        "q138"
+      ]
+    },
+    {
+      "legacy_filename": "outlier-amr-surveillance.pdf",
+      "legacy_doi": "10.1038/s41467-026-74899-9",
+      "legacy_pmcid": "PMC13439418",
+      "action": "outside_selected_cardio_corpus",
+      "new_article_ids": [],
+      "new_versions": {},
+      "rationale": "Not selected or freshly certified by this task; absent from every current condition. Later topic task must verify exact rights/version/PDF before inclusion.",
+      "owner": "JUA-113",
+      "direct_query_dependencies": [
+        "q139",
+        "q140",
+        "q141"
+      ]
+    },
+    {
+      "legacy_filename": "cardio-mi-risk-stratification.pdf",
+      "legacy_doi": "10.1002/clc.70439",
+      "legacy_pmcid": "PMC13439631",
+      "action": "retain_after_verification",
+      "new_article_ids": [
+        "PMC13439631"
+      ],
+      "new_versions": {
+        "PMC13439631": 1
+      },
+      "rationale": "Fresh PMCID/PubMed identity, version, rights, PDF download and readability verified; source content retained but queries still require evidence review.",
+      "owner": "JUA-108",
+      "direct_query_dependencies": [
+        "q044",
+        "q050",
+        "q065",
+        "q066",
+        "q067",
+        "q068",
+        "q069",
+        "q123",
+        "q126",
+        "q128",
+        "q129"
+      ]
+    }
+  ],
+  "queries": [
+    {
+      "legacy_query_id": "q022",
+      "legacy_category": "direct_lookup",
+      "direct_dependencies": {
+        "diabetes-genetic-risk-gwas.pdf": "source"
+      },
+      "action": "retire_original_case_from_cardio_defer_diabetes_rebuild",
+      "candidate_new_article_ids": [
+        "PMC12886974"
+      ],
+      "rationale": "New PGS evidence does not support old sulfonylurea variants or KATP synthesis. JUA-111 decides new drug-response/genetic cases; cardio may author a distinct T2D/BP synthesis.",
+      "owner": "JUA-111",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q023",
+      "legacy_category": "direct_lookup",
+      "direct_dependencies": {
+        "diabetes-genetic-risk-gwas.pdf": "source"
+      },
+      "action": "retire_original_case_from_cardio_defer_diabetes_rebuild",
+      "candidate_new_article_ids": [
+        "PMC12886974"
+      ],
+      "rationale": "New PGS evidence does not support old sulfonylurea variants or KATP synthesis. JUA-111 decides new drug-response/genetic cases; cardio may author a distinct T2D/BP synthesis.",
+      "owner": "JUA-111",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q024",
+      "legacy_category": "direct_lookup",
+      "direct_dependencies": {
+        "diabetes-genetic-risk-gwas.pdf": "source"
+      },
+      "action": "retire_original_case_from_cardio_defer_diabetes_rebuild",
+      "candidate_new_article_ids": [
+        "PMC12886974"
+      ],
+      "rationale": "New PGS evidence does not support old sulfonylurea variants or KATP synthesis. JUA-111 decides new drug-response/genetic cases; cardio may author a distinct T2D/BP synthesis.",
+      "owner": "JUA-111",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q025",
+      "legacy_category": "multi_hop",
+      "direct_dependencies": {
+        "diabetes-genetic-risk-gwas.pdf": "source"
+      },
+      "action": "retire_original_case_from_cardio_defer_diabetes_rebuild",
+      "candidate_new_article_ids": [
+        "PMC12886974"
+      ],
+      "rationale": "New PGS evidence does not support old sulfonylurea variants or KATP synthesis. JUA-111 decides new drug-response/genetic cases; cardio may author a distinct T2D/BP synthesis.",
+      "owner": "JUA-111",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q027",
+      "legacy_category": "cross_doc_synthesis",
+      "direct_dependencies": {
+        "diabetes-genetic-risk-gwas.pdf": "synthesis_source",
+        "diabetes-nephropathy-complications.pdf": "synthesis_source"
+      },
+      "action": "retire_original_case_from_cardio_defer_diabetes_rebuild",
+      "candidate_new_article_ids": [
+        "PMC12886974"
+      ],
+      "rationale": "New PGS evidence does not support old sulfonylurea variants or KATP synthesis. JUA-111 decides new drug-response/genetic cases; cardio may author a distinct T2D/BP synthesis.",
+      "owner": "JUA-111",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q028",
+      "legacy_category": "direct_lookup",
+      "direct_dependencies": {
+        "diabetes-genetic-risk-gwas.pdf": "source"
+      },
+      "action": "retire_original_case_from_cardio_defer_diabetes_rebuild",
+      "candidate_new_article_ids": [
+        "PMC12886974"
+      ],
+      "rationale": "New PGS evidence does not support old sulfonylurea variants or KATP synthesis. JUA-111 decides new drug-response/genetic cases; cardio may author a distinct T2D/BP synthesis.",
+      "owner": "JUA-111",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q041",
+      "legacy_category": "direct_lookup",
+      "direct_dependencies": {
+        "cardio-afib-ml-detection.pdf": "source"
+      },
+      "action": "rebuild",
+      "candidate_new_article_ids": [
+        "PMC10363301",
+        "PMC10607686",
+        "PMC11265054",
+        "PMC12003177",
+        "PMC12880197"
+      ],
+      "rationale": "Re-author from selected full texts and revise/retire IDs explicitly; survey percentages, architectures and review-specific values cannot transfer by filename.",
+      "owner": "JUA-109",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q042",
+      "legacy_category": "direct_lookup",
+      "direct_dependencies": {
+        "cardio-afib-ml-detection.pdf": "source"
+      },
+      "action": "rebuild",
+      "candidate_new_article_ids": [
+        "PMC10363301",
+        "PMC10607686",
+        "PMC11265054",
+        "PMC12003177",
+        "PMC12880197"
+      ],
+      "rationale": "Re-author from selected full texts and revise/retire IDs explicitly; survey percentages, architectures and review-specific values cannot transfer by filename.",
+      "owner": "JUA-109",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q043",
+      "legacy_category": "multi_hop",
+      "direct_dependencies": {
+        "cardio-afib-ml-detection.pdf": "source"
+      },
+      "action": "retire_unsupported_model_specific_case",
+      "candidate_new_article_ids": [
+        "PMC10363301",
+        "PMC10607686",
+        "PMC11265054",
+        "PMC12003177",
+        "PMC12880197"
+      ],
+      "rationale": "Selected replacement papers do not establish the old Jo model-specific XAI claim; retire rather than carry a citation inferred from surrounding prose.",
+      "owner": "JUA-109",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q044",
+      "legacy_category": "cross_doc_distractor",
+      "direct_dependencies": {
+        "cardio-mi-risk-stratification.pdf": "source",
+        "cardio-afib-ml-detection.pdf": "distractor"
+      },
+      "action": "rebuild_as_synthesis_or_scoped_distractor",
+      "candidate_new_article_ids": [
+        "PMC10363301",
+        "PMC10607686",
+        "PMC11265054",
+        "PMC12003177",
+        "PMC12880197",
+        "PMC13439631"
+      ],
+      "rationale": "If both AF and STEMI findings are requested, both are sources. Use new AF stroke evidence, preserve score/outcome distinctions, and do not transplant the old review C-statistic.",
+      "owner": "JUA-109",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q046",
+      "legacy_category": "direct_lookup",
+      "direct_dependencies": {
+        "cardio-afib-ml-detection.pdf": "source"
+      },
+      "action": "rebuild",
+      "candidate_new_article_ids": [
+        "PMC10363301",
+        "PMC10607686",
+        "PMC11265054",
+        "PMC12003177",
+        "PMC12880197"
+      ],
+      "rationale": "Re-author from selected full texts and revise/retire IDs explicitly; survey percentages, architectures and review-specific values cannot transfer by filename.",
+      "owner": "JUA-109",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q047",
+      "legacy_category": "direct_lookup",
+      "direct_dependencies": {
+        "cardio-cad-ct-angiography.pdf": "source"
+      },
+      "action": "review_retained_evidence",
+      "candidate_new_article_ids": [
+        "PMC13433181"
+      ],
+      "rationale": "Retained PDF is freshly verified; repair audited premise/category/reference/duplicate issues and check new competing/alternative evidence before freezing.",
+      "owner": "JUA-109",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q048",
+      "legacy_category": "multi_hop",
+      "direct_dependencies": {
+        "cardio-cad-ct-angiography.pdf": "source"
+      },
+      "action": "review_retained_evidence",
+      "candidate_new_article_ids": [
+        "PMC13433181"
+      ],
+      "rationale": "Retained PDF is freshly verified; repair audited premise/category/reference/duplicate issues and check new competing/alternative evidence before freezing.",
+      "owner": "JUA-109",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q049",
+      "legacy_category": "direct_lookup",
+      "direct_dependencies": {
+        "cardio-cad-ct-angiography.pdf": "source"
+      },
+      "action": "review_retained_evidence",
+      "candidate_new_article_ids": [
+        "PMC13433181"
+      ],
+      "rationale": "Retained PDF is freshly verified; repair audited premise/category/reference/duplicate issues and check new competing/alternative evidence before freezing.",
+      "owner": "JUA-109",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q050",
+      "legacy_category": "cross_doc_distractor",
+      "direct_dependencies": {
+        "cardio-cad-ct-angiography.pdf": "source",
+        "cardio-mi-risk-stratification.pdf": "distractor"
+      },
+      "action": "rebuild_false_premise_or_valid_synthesis",
+      "candidate_new_article_ids": [
+        "PMC13433181",
+        "PMC13439631"
+      ],
+      "rationale": "Original no-reflow-near-0.93 premise is false. Correct with source-bound evidence or author an intentional false-premise case; demanding two papers is synthesis, not a named decoy.",
+      "owner": "JUA-109",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q051",
+      "legacy_category": "direct_lookup",
+      "direct_dependencies": {
+        "cardio-cad-ct-angiography.pdf": "source"
+      },
+      "action": "review_retained_evidence",
+      "candidate_new_article_ids": [
+        "PMC13433181"
+      ],
+      "rationale": "Retained PDF is freshly verified; repair audited premise/category/reference/duplicate issues and check new competing/alternative evidence before freezing. Preserve and attribute source inconsistencies; no invented harmonization.",
+      "owner": "JUA-109",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q053",
+      "legacy_category": "direct_lookup",
+      "direct_dependencies": {
+        "cardio-heartfailure-biomarkers.pdf": "source"
+      },
+      "action": "review_retained_evidence",
+      "candidate_new_article_ids": [
+        "PMC13433862"
+      ],
+      "rationale": "Retained PDF is freshly verified; repair audited premise/category/reference/duplicate issues and check new competing/alternative evidence before freezing.",
+      "owner": "JUA-109",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q054",
+      "legacy_category": "direct_lookup",
+      "direct_dependencies": {
+        "cardio-heartfailure-biomarkers.pdf": "source"
+      },
+      "action": "review_retained_evidence",
+      "candidate_new_article_ids": [
+        "PMC13433862"
+      ],
+      "rationale": "Retained PDF is freshly verified; repair audited premise/category/reference/duplicate issues and check new competing/alternative evidence before freezing.",
+      "owner": "JUA-109",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q055",
+      "legacy_category": "multi_hop",
+      "direct_dependencies": {
+        "cardio-heartfailure-biomarkers.pdf": "source"
+      },
+      "action": "review_retained_evidence",
+      "candidate_new_article_ids": [
+        "PMC13433862"
+      ],
+      "rationale": "Retained PDF is freshly verified; repair audited premise/category/reference/duplicate issues and check new competing/alternative evidence before freezing.",
+      "owner": "JUA-109",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q056",
+      "legacy_category": "direct_lookup",
+      "direct_dependencies": {
+        "cardio-heartfailure-biomarkers.pdf": "source"
+      },
+      "action": "review_retained_evidence",
+      "candidate_new_article_ids": [
+        "PMC13433862"
+      ],
+      "rationale": "Retained PDF is freshly verified; repair audited premise/category/reference/duplicate issues and check new competing/alternative evidence before freezing.",
+      "owner": "JUA-109",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q058",
+      "legacy_category": "direct_lookup",
+      "direct_dependencies": {
+        "cardio-heartfailure-biomarkers.pdf": "source"
+      },
+      "action": "review_retained_evidence",
+      "candidate_new_article_ids": [
+        "PMC13433862"
+      ],
+      "rationale": "Retained PDF is freshly verified; repair audited premise/category/reference/duplicate issues and check new competing/alternative evidence before freezing. Narrow causal/glycaemic-independence claims to what the selected evidence supports.",
+      "owner": "JUA-109",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q059",
+      "legacy_category": "direct_lookup",
+      "direct_dependencies": {
+        "cardio-hypertension-guidelines.pdf": "source"
+      },
+      "action": "rebuild",
+      "candidate_new_article_ids": [
+        "PMC11374717",
+        "PMC11973566",
+        "PMC4804513"
+      ],
+      "rationale": "Re-author from selected full texts and revise/retire IDs explicitly; survey percentages, architectures and review-specific values cannot transfer by filename.",
+      "owner": "JUA-109",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q060",
+      "legacy_category": "direct_lookup",
+      "direct_dependencies": {
+        "cardio-hypertension-guidelines.pdf": "source"
+      },
+      "action": "rebuild",
+      "candidate_new_article_ids": [
+        "PMC11374717",
+        "PMC11973566",
+        "PMC4804513"
+      ],
+      "rationale": "Re-author from selected full texts and revise/retire IDs explicitly; survey percentages, architectures and review-specific values cannot transfer by filename.",
+      "owner": "JUA-109",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q061",
+      "legacy_category": "multi_hop",
+      "direct_dependencies": {
+        "cardio-hypertension-guidelines.pdf": "source"
+      },
+      "action": "rebuild",
+      "candidate_new_article_ids": [
+        "PMC11374717",
+        "PMC11973566",
+        "PMC4804513"
+      ],
+      "rationale": "Re-author from selected full texts and revise/retire IDs explicitly; survey percentages, architectures and review-specific values cannot transfer by filename.",
+      "owner": "JUA-109",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q062",
+      "legacy_category": "direct_lookup",
+      "direct_dependencies": {
+        "cardio-hypertension-guidelines.pdf": "source"
+      },
+      "action": "rebuild",
+      "candidate_new_article_ids": [
+        "PMC11374717",
+        "PMC11973566",
+        "PMC4804513"
+      ],
+      "rationale": "Re-author from selected full texts and revise/retire IDs explicitly; survey percentages, architectures and review-specific values cannot transfer by filename. Preserve and attribute source inconsistencies; no invented harmonization.",
+      "owner": "JUA-109",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q065",
+      "legacy_category": "multi_hop",
+      "direct_dependencies": {
+        "cardio-mi-risk-stratification.pdf": "source"
+      },
+      "action": "review_retained_evidence",
+      "candidate_new_article_ids": [
+        "PMC13439631"
+      ],
+      "rationale": "Retained PDF is freshly verified; repair audited premise/category/reference/duplicate issues and check new competing/alternative evidence before freezing.",
+      "owner": "JUA-109",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q066",
+      "legacy_category": "direct_lookup",
+      "direct_dependencies": {
+        "cardio-mi-risk-stratification.pdf": "source"
+      },
+      "action": "review_retained_evidence",
+      "candidate_new_article_ids": [
+        "PMC13439631"
+      ],
+      "rationale": "Retained PDF is freshly verified; repair audited premise/category/reference/duplicate issues and check new competing/alternative evidence before freezing.",
+      "owner": "JUA-109",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q067",
+      "legacy_category": "direct_lookup",
+      "direct_dependencies": {
+        "cardio-mi-risk-stratification.pdf": "source"
+      },
+      "action": "rebuild_without_answer_leakage",
+      "candidate_new_article_ids": [
+        "PMC13439631"
+      ],
+      "rationale": "Original question includes its answer; remove leakage and consolidate overlap with q065 only after grounded review.",
+      "owner": "JUA-109",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q068",
+      "legacy_category": "cross_doc_synthesis",
+      "direct_dependencies": {
+        "cardio-afib-ml-detection.pdf": "synthesis_source",
+        "cardio-mi-risk-stratification.pdf": "synthesis_source"
+      },
+      "action": "rebuild",
+      "candidate_new_article_ids": [
+        "PMC10363301",
+        "PMC10607686",
+        "PMC11265054",
+        "PMC12003177",
+        "PMC12880197",
+        "PMC13439631"
+      ],
+      "rationale": "Re-author from selected full texts and revise/retire IDs explicitly; survey percentages, architectures and review-specific values cannot transfer by filename. Narrow causal/glycaemic-independence claims to what the selected evidence supports.",
+      "owner": "JUA-109",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q069",
+      "legacy_category": "direct_lookup",
+      "direct_dependencies": {
+        "cardio-mi-risk-stratification.pdf": "source"
+      },
+      "action": "review_retained_evidence",
+      "candidate_new_article_ids": [
+        "PMC13439631"
+      ],
+      "rationale": "Retained PDF is freshly verified; repair audited premise/category/reference/duplicate issues and check new competing/alternative evidence before freezing.",
+      "owner": "JUA-109",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q120",
+      "legacy_category": "cross_doc_distractor",
+      "direct_dependencies": {
+        "cardio-afib-ml-detection.pdf": "source",
+        "cardio-cad-ct-angiography.pdf": "distractor"
+      },
+      "action": "rebuild",
+      "candidate_new_article_ids": [
+        "PMC10363301",
+        "PMC10607686",
+        "PMC11265054",
+        "PMC12003177",
+        "PMC12880197",
+        "PMC13433181"
+      ],
+      "rationale": "Re-author from selected full texts and revise/retire IDs explicitly; survey percentages, architectures and review-specific values cannot transfer by filename.",
+      "owner": "JUA-109",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q121",
+      "legacy_category": "cross_doc_distractor",
+      "direct_dependencies": {
+        "cardio-heartfailure-biomarkers.pdf": "source",
+        "cardio-afib-ml-detection.pdf": "distractor"
+      },
+      "action": "review_source_and_replace_decoy",
+      "candidate_new_article_ids": [
+        "PMC10363301",
+        "PMC10607686",
+        "PMC11265054",
+        "PMC12003177",
+        "PMC12880197",
+        "PMC13433862"
+      ],
+      "rationale": "Retained source intent may survive, but select a plausible competitor and audit alternative evidence introduced by the expanded selection.",
+      "owner": "JUA-109",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q122",
+      "legacy_category": "cross_doc_distractor",
+      "direct_dependencies": {
+        "cardio-hypertension-guidelines.pdf": "source",
+        "cardio-afib-ml-detection.pdf": "distractor"
+      },
+      "action": "rebuild",
+      "candidate_new_article_ids": [
+        "PMC10363301",
+        "PMC10607686",
+        "PMC11265054",
+        "PMC11374717",
+        "PMC11973566",
+        "PMC12003177",
+        "PMC12880197",
+        "PMC4804513"
+      ],
+      "rationale": "Re-author from selected full texts and revise/retire IDs explicitly; survey percentages, architectures and review-specific values cannot transfer by filename.",
+      "owner": "JUA-109",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q123",
+      "legacy_category": "cross_doc_distractor",
+      "direct_dependencies": {
+        "cardio-afib-ml-detection.pdf": "source",
+        "cardio-mi-risk-stratification.pdf": "distractor"
+      },
+      "action": "rebuild",
+      "candidate_new_article_ids": [
+        "PMC10363301",
+        "PMC10607686",
+        "PMC11265054",
+        "PMC12003177",
+        "PMC12880197",
+        "PMC13439631"
+      ],
+      "rationale": "Re-author from selected full texts and revise/retire IDs explicitly; survey percentages, architectures and review-specific values cannot transfer by filename.",
+      "owner": "JUA-109",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q124",
+      "legacy_category": "cross_doc_distractor",
+      "direct_dependencies": {
+        "cardio-cad-ct-angiography.pdf": "source",
+        "cardio-heartfailure-biomarkers.pdf": "distractor"
+      },
+      "action": "review_retained_evidence",
+      "candidate_new_article_ids": [
+        "PMC13433181",
+        "PMC13433862"
+      ],
+      "rationale": "Retained PDF is freshly verified; repair audited premise/category/reference/duplicate issues and check new competing/alternative evidence before freezing.",
+      "owner": "JUA-109",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q125",
+      "legacy_category": "cross_doc_distractor",
+      "direct_dependencies": {
+        "cardio-hypertension-guidelines.pdf": "source",
+        "cardio-cad-ct-angiography.pdf": "distractor"
+      },
+      "action": "rebuild",
+      "candidate_new_article_ids": [
+        "PMC11374717",
+        "PMC11973566",
+        "PMC13433181",
+        "PMC4804513"
+      ],
+      "rationale": "Re-author from selected full texts and revise/retire IDs explicitly; survey percentages, architectures and review-specific values cannot transfer by filename.",
+      "owner": "JUA-109",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q126",
+      "legacy_category": "cross_doc_distractor",
+      "direct_dependencies": {
+        "cardio-cad-ct-angiography.pdf": "source",
+        "cardio-mi-risk-stratification.pdf": "distractor"
+      },
+      "action": "review_retained_evidence",
+      "candidate_new_article_ids": [
+        "PMC13433181",
+        "PMC13439631"
+      ],
+      "rationale": "Retained PDF is freshly verified; repair audited premise/category/reference/duplicate issues and check new competing/alternative evidence before freezing.",
+      "owner": "JUA-109",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q127",
+      "legacy_category": "cross_doc_distractor",
+      "direct_dependencies": {
+        "cardio-heartfailure-biomarkers.pdf": "source",
+        "cardio-hypertension-guidelines.pdf": "distractor"
+      },
+      "action": "review_source_and_replace_decoy",
+      "candidate_new_article_ids": [
+        "PMC11374717",
+        "PMC11973566",
+        "PMC13433862",
+        "PMC4804513"
+      ],
+      "rationale": "Retained source intent may survive, but select a plausible competitor and audit alternative evidence introduced by the expanded selection.",
+      "owner": "JUA-109",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q128",
+      "legacy_category": "cross_doc_distractor",
+      "direct_dependencies": {
+        "cardio-mi-risk-stratification.pdf": "source",
+        "cardio-heartfailure-biomarkers.pdf": "distractor"
+      },
+      "action": "review_retained_evidence",
+      "candidate_new_article_ids": [
+        "PMC13433862",
+        "PMC13439631"
+      ],
+      "rationale": "Retained PDF is freshly verified; repair audited premise/category/reference/duplicate issues and check new competing/alternative evidence before freezing.",
+      "owner": "JUA-109",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q129",
+      "legacy_category": "cross_doc_distractor",
+      "direct_dependencies": {
+        "cardio-mi-risk-stratification.pdf": "source",
+        "cardio-hypertension-guidelines.pdf": "distractor"
+      },
+      "action": "review_source_and_replace_decoy",
+      "candidate_new_article_ids": [
+        "PMC11374717",
+        "PMC11973566",
+        "PMC13439631",
+        "PMC4804513"
+      ],
+      "rationale": "Retained source intent may survive, but select a plausible competitor and audit alternative evidence introduced by the expanded selection.",
+      "owner": "JUA-109",
+      "status": "migration_decision_recorded; authoring deferred"
+    },
+    {
+      "legacy_query_id": "q130",
+      "legacy_category": "direct_lookup",
+      "direct_dependencies": {
+        "outlier-gpt5-tau217-diagnosis.pdf": "source"
+      },
+      "action": "retire_from_selected_cardio_benchmark",
+      "candidate_new_article_ids": [],
+      "rationale": "Entire GPT-5/plasma-tau diagnostic topic excluded; no eligible selected source supplies the old cohort/model facts. Do not recycle IDs for unrelated geriatric cognition questions.",
+      "owner": "JUA-108",
+      "status": "retired_in_selected_experiment"
+    },
+    {
+      "legacy_query_id": "q131",
+      "legacy_category": "direct_lookup",
+      "direct_dependencies": {
+        "outlier-gpt5-tau217-diagnosis.pdf": "source"
+      },
+      "action": "retire_from_selected_cardio_benchmark",
+      "candidate_new_article_ids": [],
+      "rationale": "Entire GPT-5/plasma-tau diagnostic topic excluded; no eligible selected source supplies the old cohort/model facts. Do not recycle IDs for unrelated geriatric cognition questions.",
+      "owner": "JUA-108",
+      "status": "retired_in_selected_experiment"
+    },
+    {
+      "legacy_query_id": "q132",
+      "legacy_category": "multi_hop",
+      "direct_dependencies": {
+        "outlier-gpt5-tau217-diagnosis.pdf": "source"
+      },
+      "action": "retire_from_selected_cardio_benchmark",
+      "candidate_new_article_ids": [],
+      "rationale": "Entire GPT-5/plasma-tau diagnostic topic excluded; no eligible selected source supplies the old cohort/model facts. Do not recycle IDs for unrelated geriatric cognition questions.",
+      "owner": "JUA-108",
+      "status": "retired_in_selected_experiment"
+    },
+    {
+      "legacy_query_id": "q133",
+      "legacy_category": "unanswerable",
+      "direct_dependencies": {
+        "outlier-gpt5-tau217-diagnosis.pdf": "source"
+      },
+      "action": "retire_from_selected_cardio_benchmark",
+      "candidate_new_article_ids": [],
+      "rationale": "Entire GPT-5/plasma-tau diagnostic topic excluded; no eligible selected source supplies the old cohort/model facts. Do not recycle IDs for unrelated geriatric cognition questions.",
+      "owner": "JUA-108",
+      "status": "retired_in_selected_experiment"
+    }
+  ],
+  "indirect_evidence_review": [
+    {
+      "evidence_family": "AF stroke score versus STEMI VA/VASc no-reflow",
+      "articles": [
+        "PMC10607686",
+        "PMC12880197",
+        "PMC13439631",
+        "PMC8866621"
+      ],
+      "legacy_query_ids": [
+        "q044",
+        "q064",
+        "q065",
+        "q066",
+        "q068",
+        "q069",
+        "q124",
+        "q126",
+        "q128",
+        "q129"
+      ],
+      "review": "Different score variants, outcomes, cohorts and sex subgroups; new STEMI VASc article can answer a broadly scoped old no-reflow question and cannot always be a decoy."
+    },
+    {
+      "evidence_family": "CCTA/CT-FFR diagnostic versus prognostic metrics and horizons",
+      "articles": [
+        "PMC13433181",
+        "PMC11549774",
+        "PMC11514186"
+      ],
+      "legacy_query_ids": [
+        "q047",
+        "q048",
+        "q049",
+        "q050",
+        "q051",
+        "q053",
+        "q054",
+        "q120",
+        "q124"
+      ],
+      "review": "Different MACE/MACCE composites and follow-up periods; unadjusted versus adjusted predictor retention. Review source-specific query cues and valid alternatives."
+    },
+    {
+      "evidence_family": "SGLT2 cardiac/renal/geriatric and BP evidence",
+      "articles": [
+        "PMC13433862",
+        "PMC11354916",
+        "PMC11373557",
+        "PMC11973566",
+        "PMC12683810",
+        "PMC10985250"
+      ],
+      "legacy_query_ids": [
+        "q055",
+        "q056",
+        "q057",
+        "q058",
+        "q061",
+        "q063",
+        "q121",
+        "q122",
+        "q127"
+      ],
+      "review": "Same drug classes with different populations, biomarkers, organs and study designs. HF/renal mortality/hospitalization estimates cannot be exchanged. Full-corpus absence claims require later topic-wide review."
+    },
+    {
+      "evidence_family": "T2D/BP genetic and clinical overlap",
+      "articles": [
+        "PMC12886974",
+        "PMC4804513",
+        "PMC11374717",
+        "PMC11549774"
+      ],
+      "legacy_query_ids": [
+        "q022",
+        "q023",
+        "q024",
+        "q025",
+        "q027",
+        "q028",
+        "q029",
+        "q033",
+        "q038",
+        "q059",
+        "q060",
+        "q062",
+        "q068"
+      ],
+      "review": "Partitioned genetic comorbidity scores differ from drug-response variants. Renal/BP and diabetes overlaps need coordinated JUA-109/JUA-111 authoring; no blanket unaffected-case claim."
+    }
+  ],
+  "scope": "This ledger does not edit golden_qa.json. JUA-109 creates a new versioned cardiology query set; later topic tasks own other legacy case rebuilding."
+}

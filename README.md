@@ -19,6 +19,16 @@ nested-corpus comparisons. These requirements govern new selections; the legacy
 manifest and manual-download instructions below have not yet been migrated.
 The figures above remain historical host-corpus results.
 
+The first rebuilt topic selection is the [verified 21-article cardiology
+snapshot](benchmark/cardiology/v1/README.md), with a separate manifest, full
+PubMed abstracts, discovery queries, pinned PMC licences, attribution and
+PDF/text verification receipts. `fetch_article_metadata.py` retrieves draft
+metadata from a PMCID through the PMC ID Converter, PubMed and the chosen PMC
+deposit; `verify_cardiology_selection.py` checks the selected local bytes and
+preserved baseline. Its questions, scoring and experiments are still pending,
+so it has no new retrieval results. Follow the snapshot instructions to acquire
+its PDFs separately from the original host corpus below.
+
 ## Two ways to run this
 
 | | Docker | Host |
