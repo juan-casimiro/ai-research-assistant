@@ -11,6 +11,10 @@ from tempfile import NamedTemporaryFile
 from uuid import uuid4
 
 from chromadb.errors import ChromaError
+from anthropic import APIError
+from httpx import HTTPError
+from ollama import ResponseError
+from llm_client import LlmTimeoutError
 from benchmark_scoring import (FEASIBILITY_VERSION, SCORER_VERSION, canonical_hash,
                                compile_anchor_spans, compile_query_feasibility,
                                evidence_coverage_report, score_evidence, validate_benchmark)
@@ -37,6 +41,7 @@ def write_checkpoint(path: Path, output: dict) -> None:
 def model_fingerprint(wrapper) -> dict:
     """Hash the files actually loaded by the installed FastEmbed backend."""
     backend = wrapper.model
+    # FastEmbed==0.8.0 private API: revalidate this layout when upgrading the pin.
     directory = Path(backend._model_dir)
     files = {str(p.relative_to(directory)): hashlib.sha256(p.read_bytes()).hexdigest()
              for p in sorted(directory.rglob("*")) if p.is_file() and ".cache" not in p.parts}
@@ -204,8 +209,13 @@ async def run_benchmark(args, retrieve, load_models) -> int:
                      "evidence_feasibility": feasibility[query["id"]]}
             results.append(entry)
             for depth in [3, 8]:
-                contexts, sources = await retrieve(query["question"], n_results=depth,
-                    use_query_rewriting=args.rewrite, use_bm25=args.bm25)
+                try:
+                    contexts, sources = await retrieve(query["question"], n_results=depth,
+                        use_query_rewriting=args.rewrite, use_bm25=args.bm25)
+                except (LlmTimeoutError, APIError, HTTPError, ResponseError) as error:
+                    # Provider responses can echo request data; report only type/context.
+                    print(f"ERROR: {type(error).__name__}: retrieval failed for {query['id']} at n={depth}")
+                    return 1  # finally retains the incomplete checkpoint and prior depths.
                 if len(contexts) > depth:
                     raise ValueError(f"{query['id']}: retrieval exceeded the n={depth} chunk budget")
                 metrics = score_evidence(contexts, sources, query, anchors, span_plans)

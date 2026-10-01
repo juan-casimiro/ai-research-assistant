@@ -148,6 +148,11 @@ The source identifier is the manifest's `.pdf` filename. Host ingestion through
 `/ingest`, which preserves it. Demo seeding stores `.txt` names and is deliberately
 incompatible with these conditions; disable it for isolated benchmark ingestion.
 Chroma errors are reported as named errors with a nonzero exit status.
+Known rewrite/provider failures (LLM timeout, Anthropic API errors, HTTPX
+transport/status errors and Ollama response errors) also return nonzero with
+the error type, query ID and depth. Provider response text is omitted from
+diagnostics. Completed depth checkpoints remain intact and the run is marked
+incomplete; unexpected retrieval bugs and cancellation still propagate.
 
 ## Later focused execution
 

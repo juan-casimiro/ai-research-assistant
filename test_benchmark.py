@@ -9,6 +9,10 @@ import tempfile
 import unittest
 from unittest.mock import AsyncMock, Mock, patch
 from chromadb.errors import InternalError
+from anthropic import APIError, AuthenticationError
+import httpx
+from ollama import ResponseError
+from llm_client import LlmTimeoutError
 import compare_evals
 
 from benchmark_scoring import (CATEGORIES, FEASIBILITY_VERSION, canonical_hash, compile_anchor_spans,
@@ -484,6 +488,45 @@ class CompatibilityTests(unittest.TestCase):
 
 
 class RunnerTests(unittest.IsolatedAsyncioTestCase):
+    async def test_known_llm_failures_are_clean_and_preserve_completed_depth(self):
+        request = httpx.Request("POST", "https://test.invalid/rewrite")
+        response = httpx.Response(401, request=request)
+        detail = "test provider payload should stay private"
+        errors = [LlmTimeoutError(detail), APIError(detail, request, body=None),
+                  AuthenticationError(detail, response=response, body=None),
+                  httpx.ConnectError(detail, request=request),
+                  httpx.HTTPStatusError(detail, request=request, response=response),
+                  ResponseError(detail, status_code=503)]
+        q, anchors = fixture()
+        for error in errors:
+            with self.subTest(error=type(error).__name__), tempfile.TemporaryDirectory() as directory:
+                path = Path(directory, "run.json")
+                args = SimpleNamespace(benchmark=Path(directory), corpus_dir=Path(directory), condition="C2", ids="test", output=path, bm25=False, rewrite=True)
+                retrieve = AsyncMock(side_effect=[([anchors["a"]["excerpt"]], ["A.pdf"]), error])
+                output = io.StringIO()
+                with patch.object(runner, "read_release", return_value=self.release()), patch.object(runner, "verify_collection", return_value={}), patch.object(runner, "model_fingerprint", return_value={"sha256": "weights"}), patch.object(runner, "version", return_value="test"), patch.object(runner.subprocess, "run", return_value=SimpleNamespace(stdout="commit\n")), contextlib.redirect_stdout(output):
+                    self.assertEqual(await runner.run_benchmark(args, retrieve, Mock()), 1)
+                checkpoint = json.loads(path.read_text())
+                self.assertEqual(checkpoint["run_status"], "incomplete")
+                self.assertIsNone(checkpoint["summary"])
+                self.assertEqual(checkpoint["results"][0]["n3"]["retrieved_contexts"], [anchors["a"]["excerpt"]])
+                self.assertNotIn("n8", checkpoint["results"][0])
+                self.assertEqual(checkpoint["provenance"]["executed_ids"], [])
+                self.assertEqual(checkpoint["provenance"]["missing_ids"], ["test"])
+                self.assertIn(f"ERROR: {type(error).__name__}: retrieval failed for test at n=8", output.getvalue())
+                self.assertNotIn("Traceback", output.getvalue())
+                self.assertNotIn(detail, output.getvalue())
+
+    async def test_unexpected_retrieval_bug_still_propagates_with_incomplete_checkpoint(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory, "run.json")
+            args = SimpleNamespace(benchmark=Path(directory), corpus_dir=Path(directory), condition="C2", ids="test", output=path, bm25=False, rewrite=True)
+            retrieve = AsyncMock(side_effect=RuntimeError("test unexpected implementation error"))
+            with patch.object(runner, "read_release", return_value=self.release()), patch.object(runner, "verify_collection", return_value={}), patch.object(runner, "model_fingerprint", return_value={"sha256": "weights"}), patch.object(runner, "version", return_value="test"), patch.object(runner.subprocess, "run", return_value=SimpleNamespace(stdout="commit\n")), contextlib.redirect_stdout(io.StringIO()):
+                with self.assertRaisesRegex(RuntimeError, "unexpected implementation error"):
+                    await runner.run_benchmark(args, retrieve, Mock())
+            self.assertEqual(json.loads(path.read_text())["run_status"], "incomplete")
+
     async def test_runner_retains_depth_infeasible_case_and_rejects_over_budget_retrieval(self):
         from main import chunk_text
         with tempfile.TemporaryDirectory() as directory:
