@@ -9,7 +9,7 @@ import unicodedata
 from collections import Counter
 
 SCORER_VERSION = "pinned-span-coverage-v3"
-FEASIBILITY_VERSION = "minimum-evidence-chunks-v1"
+FEASIBILITY_VERSION = "minimum-evidence-chunks-v2"
 CATEGORIES = {"direct_lookup", "multi_hop", "cross_doc_distractor",
               "cross_doc_synthesis", "unanswerable", "false_premise"}
 
@@ -155,14 +155,22 @@ def compile_anchor_spans(anchors: dict[str, dict], source_text: dict[str, str], 
     return plans
 
 
+def retrievable(witness: Counter) -> bool:
+    """Production retrieve() keys candidates by chunk text, returning each text once."""
+    return (all(count == 1 for count in witness.values()) and
+            len({chunk for _, chunk in witness}) == len(witness))
+
+
 def minimum_evidence_witness(query: dict, anchors: dict, span_plans: dict,
                              source_chunks: dict) -> Counter | None:
     """Smallest retrieved chunk multiset that passes one complete alternative.
 
     Whole normalized chunks are identified by source and content, just as in
-    scoring. Counts preserve duplicate multiplicity within an anchor; different
-    anchors can share retrieved chunks. Dominated partial requirements can be
-    discarded because merging another anchor cannot make them cheaper.
+    scoring. Different anchors can share retrieved chunks. A witness needing the
+    same chunk text twice is unretrievable because retrieval deduplicates text;
+    so is every superset, which keeps dominance pruning sound. Dominated partial
+    requirements can be discarded because merging another anchor cannot make
+    them cheaper.
     """
     if query["answerability"]["status"] == "absent_fact":
         return None
@@ -176,7 +184,7 @@ def minimum_evidence_witness(query: dict, anchors: dict, span_plans: dict,
         choices = [Counter({(source, chunk): 1}) for chunk in chunks if excerpt in chunk]
         choices += [Counter((source, chunk) for chunk in plan["chunks"])
                     for plan in span_plans.get(aid, []) if len(plan["chunks"]) > 1]
-        options[aid] = [choice for choice in choices if choice <= available]
+        options[aid] = [choice for choice in choices if choice <= available and retrievable(choice)]
     witnesses = []
     for evidence_set in query["evidence_sets"]:
         states = [Counter()]
@@ -184,14 +192,17 @@ def minimum_evidence_witness(query: dict, anchors: dict, span_plans: dict,
             merged = []
             for state in states:
                 for choice in options[aid]:
-                    candidate = state | choice  # Share chunks, retaining required multiplicity.
+                    candidate = state | choice  # Share chunks across anchors.
+                    if not retrievable(candidate):
+                        continue
                     if not any(other <= candidate for other in merged):
                         merged = [other for other in merged if not candidate <= other]
                         merged.append(candidate)
             states = merged
         witnesses.extend(states)
     if not witnesses:
-        raise ValueError(f"{query['id']}: no complete evidence alternative is reachable")
+        raise ValueError(f"{query['id']}: no complete evidence alternative is reachable "
+                         "with distinct retrievable chunk texts")
     return min(witnesses, key=lambda witness: witness.total())
 
 

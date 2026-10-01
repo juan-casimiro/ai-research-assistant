@@ -163,7 +163,9 @@ class AdjacentSpanTests(unittest.TestCase):
         q, anchors, chunks, plans = self.case(text, 999, 3001)
         self.assertEqual(score_evidence([chunks[0], chunks[1], chunks[3]], ["A.pdf"] * 3, q, anchors, plans)["evidence_coverage"], "fail")
         self.assertEqual(score_evidence(chunks, ["A.pdf"] * 4, q, anchors, plans)["evidence_coverage"], "pass")
-        self.assertEqual(minimum_evidence_witness(q, anchors, plans, {"A.pdf": chunks}).total(), 4)
+        # Production retrieve() deduplicates by chunk text, so both copies can never be returned.
+        with self.assertRaisesRegex(ValueError, "distinct retrievable chunk texts"):
+            minimum_evidence_witness(q, anchors, plans, {"A.pdf": chunks})
 
     def test_planner_rejects_wrong_offsets_and_gaps_with_missing_source_text(self):
         q, anchors = fixture()
@@ -231,6 +233,18 @@ class DepthFeasibilityTests(unittest.TestCase):
                  "b": [{"chunks": ["shared-left", "shared-middle", "shared-right"]}]}
         chunks = {"A.pdf": ["short-left", "short-right", "shared-left", "shared-middle", "shared-right"]}
         self.assertEqual(minimum_evidence_witness(q, anchors, plans, chunks).total(), 3)
+
+    def test_identical_chunk_text_in_two_sources_cannot_be_retrieved_twice(self):
+        q, anchors = fixture()
+        shared_text = anchors["a"]["excerpt"] + " " + anchors["c"]["excerpt"]
+        q["evidence_sets"] = [{"id": "test set", "anchors": ["a", "c"], "fact_anchors": {"f1": ["a"], "f2": ["c"]}}]
+        chunks = {"A.pdf": [shared_text], "B.pdf": [shared_text]}
+        with self.assertRaisesRegex(ValueError, "distinct retrievable chunk texts"):
+            minimum_evidence_witness(q, anchors, {}, chunks)
+        chunks["B.pdf"].append(anchors["c"]["excerpt"])
+        witness = minimum_evidence_witness(q, anchors, {}, chunks)
+        self.assertEqual(witness.total(), 2)
+        self.assertEqual(set(witness), {("A.pdf", shared_text), ("B.pdf", anchors["c"]["excerpt"])})
 
     def test_source_binding_absent_cases_and_unreachable_alternatives(self):
         q, anchors = fixture()
