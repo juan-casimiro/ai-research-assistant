@@ -1,0 +1,784 @@
+{
+  "schema_version": "1.0",
+  "status": "Audit complete; revised selection and queries pending independent review/freeze",
+  "issue": "JUA-112",
+  "baseline_commit": "2df83258b27368c50e3c4172f340636d34aad145",
+  "baseline_hashes": {
+    "corpus_manifest.json": "a82dbdcce605ad6d729be662db9c795100c503bd8abf9eed005c5d696c92a9d8",
+    "golden_qa.json": "9f53d45e7b71695763092ca3c6eb03ddfd8e65bc260f6d27fbfecbc28d744e6a"
+  },
+  "articles": [
+    {
+      "legacy_filename": "onco-breast-immunotherapy.pdf",
+      "pmcid": "PMC13438349",
+      "legacy_title": "Real-world analysis of perioperative strategies for driver gene-positive resectable non-small cell lung cancer",
+      "legacy_search_query": "breast cancer AND immunotherapy",
+      "pinned_version_audited": 1,
+      "licence_urls": [
+        "https://creativecommons.org/licenses/by-nc/4.0/"
+      ],
+      "cloud_metadata_sha256": "deb5a6dd30e9133b858f03f56bf05b46682586ca978b723e62b295f837ee0504",
+      "xml_sha256": "b92c00c7ee84ab6c852aed7614d1e92712a12023462e2452edb2797f2d0048e3",
+      "direct_dependencies": [
+        "q103",
+        "q104",
+        "q105",
+        "q106",
+        "q107",
+        "q109",
+        "q117",
+        "q118",
+        "q119"
+      ],
+      "disposition": "replace_restricted"
+    },
+    {
+      "legacy_filename": "onco-lung-liquidbiopsy.pdf",
+      "pmcid": "PMC13429855",
+      "legacy_title": "Liquid biopsy biomarkers for cancer detection, treatment monitoring, and clinical outcome prediction",
+      "legacy_search_query": "lung cancer AND liquid biopsy AND biomarkers",
+      "pinned_version_audited": 1,
+      "licence_urls": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "cloud_metadata_sha256": "2116a57d3627dab74aa604d935bfde125c2ef55620b28f414a587addb0f82cf2",
+      "xml_sha256": "f8cf904042159c00d1b6fd0a0f0b36293a075fb1763e5f9907a87b08dbce70a3",
+      "direct_dependencies": [
+        "q078",
+        "q079",
+        "q080",
+        "q081",
+        "q082",
+        "q084",
+        "q093",
+        "q094",
+        "q119"
+      ],
+      "disposition": "retain_verified_cc_by"
+    },
+    {
+      "legacy_filename": "onco-colorectal-screening.pdf",
+      "pmcid": "PMC9239676",
+      "legacy_title": "US women screen at low rates for both cervical and colorectal cancers than a single cancer: a cross-sectional population-based observational study",
+      "legacy_search_query": "colorectal cancer AND screening",
+      "pinned_version_audited": 1,
+      "licence_urls": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "cloud_metadata_sha256": "7f44cc55f07d0b0c3e500b0ec18f60374881ce5f1a6d0ab4805d6e0bd9a2e09a",
+      "xml_sha256": "76276d5163e64d181e87599bf936044ab28a29549b4a6ddf25696a545ca06d35",
+      "direct_dependencies": [
+        "q095",
+        "q096",
+        "q097",
+        "q098",
+        "q099",
+        "q102"
+      ],
+      "disposition": "retain_verified_cc_by"
+    },
+    {
+      "legacy_filename": "onco-tumor-microenvironment.pdf",
+      "pmcid": "PMC13430506",
+      "legacy_title": "Turning Cold Tumors Into Hot Tumors: Implications for Cancer Therapy",
+      "legacy_search_query": "tumor microenvironment AND immune evasion",
+      "pinned_version_audited": 1,
+      "licence_urls": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "cloud_metadata_sha256": "aabcdefdb6c9902aebc18c9eb268b9b0466d5112296711d674a763ac1a25f7f5",
+      "xml_sha256": "ec37e303405801025b8da17c7d1a1efc03cac36db2e3218a53eb9a8e50e9f4c0",
+      "direct_dependencies": [
+        "q085",
+        "q086",
+        "q087",
+        "q088",
+        "q089",
+        "q090",
+        "q092",
+        "q093",
+        "q094"
+      ],
+      "disposition": "defer_third_party_terms",
+      "reason": "BioRender figure-creation credit in acknowledgements; complete-PDF rights unresolved, so not selected."
+    },
+    {
+      "legacy_filename": "onco-genomics-precision-medicine.pdf",
+      "pmcid": "PMC13434091",
+      "legacy_title": "Lung cancer across borders: From molecular epidemiology to precision treatment strategies",
+      "legacy_search_query": "cancer genomics AND precision medicine",
+      "pinned_version_audited": 1,
+      "licence_urls": [
+        "https://creativecommons.org/licenses/by-nc/4.0/"
+      ],
+      "cloud_metadata_sha256": "e54a90a0fefce71a42cb6bcd5f5437be44ccde9fd071f570b00a4ec652c1730b",
+      "xml_sha256": "e061e3fd8ba623b88cc3726b269f2115310dc627aa06b624ed2f7f8b401f1b49",
+      "direct_dependencies": [
+        "q110",
+        "q111",
+        "q112",
+        "q113",
+        "q114",
+        "q115",
+        "q116",
+        "q117",
+        "q118"
+      ],
+      "disposition": "replace_restricted"
+    }
+  ],
+  "cases": [
+    {
+      "id": "q078",
+      "legacy_category": "direct_lookup",
+      "question": "How much does combining ctDNA and ctRNA analysis improve gene fusion detection yield compared with ctDNA alone in lung cancer liquid biopsy?",
+      "source_dependencies": [
+        "onco-lung-liquidbiopsy.pdf"
+      ],
+      "action": "retire_legacy_case",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "not_applicable",
+      "replacement_cases": [
+        "q079",
+        "q080",
+        "q082"
+      ],
+      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+    },
+    {
+      "id": "q079",
+      "legacy_category": "direct_lookup",
+      "question": "What sensitivity and specificity did cerebrospinal fluid (CSF) ctDNA show for detecting CNS metastases in NSCLC, and how did its detection rate compare with CSF cytology?",
+      "source_dependencies": [
+        "onco-lung-liquidbiopsy.pdf"
+      ],
+      "action": "revise_in_v1",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "not_applicable",
+      "replacement_cases": [
+        "q079"
+      ],
+      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable."
+    },
+    {
+      "id": "q080",
+      "legacy_category": "direct_lookup",
+      "question": "In the NILE study, how did plasma cfDNA genotyping compare with physician-selected tissue testing in terms of turnaround time and biomarker identification rate?",
+      "source_dependencies": [
+        "onco-lung-liquidbiopsy.pdf"
+      ],
+      "action": "revise_in_v1",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "not_applicable",
+      "replacement_cases": [
+        "q080"
+      ],
+      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable."
+    },
+    {
+      "id": "q081",
+      "legacy_category": "multi_hop",
+      "question": "Based on the review's discussion of screening modalities, which lung cancer screening approach currently has a demonstrated mortality benefit, and how do current blood-based (liquid biopsy) screening strategies compare in terms of evidence maturity?",
+      "source_dependencies": [
+        "onco-lung-liquidbiopsy.pdf"
+      ],
+      "action": "revise_in_v1",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "not_applicable",
+      "replacement_cases": [
+        "q081"
+      ],
+      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable."
+    },
+    {
+      "id": "q082",
+      "legacy_category": "multi_hop",
+      "question": "Comparing tumor-informed and tumor-agnostic ctDNA MRD assays, how do their sensitivity, specificity, and turnaround times trade off against each other according to the meta-analysis discussed in this review?",
+      "source_dependencies": [
+        "onco-lung-liquidbiopsy.pdf"
+      ],
+      "action": "revise_in_v1",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "not_applicable",
+      "replacement_cases": [
+        "q082"
+      ],
+      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable."
+    },
+    {
+      "id": "q083",
+      "legacy_category": "unanswerable",
+      "question": "According to this review, what FDA approval status does the EarlyCDT-Lung autoantibody test hold, and what real-world sensitivity has the FDA validated for it in early-stage disease?",
+      "source_dependencies": [
+        "onco-lung-liquidbiopsy.pdf"
+      ],
+      "action": "retire_legacy_case",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "Old null-source attribution retired or reclassified; new absent facts have explicit scope.",
+      "replacement_cases": [
+        "q081"
+      ],
+      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+    },
+    {
+      "id": "q084",
+      "legacy_category": "direct_lookup",
+      "question": "What CSF ctDNA detection rate did the meta-analysis of 26 studies report for identifying CNS metastases in NSCLC?",
+      "source_dependencies": [
+        "onco-lung-liquidbiopsy.pdf"
+      ],
+      "action": "retire_legacy_case",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "not_applicable",
+      "replacement_cases": [
+        "q079"
+      ],
+      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+    },
+    {
+      "id": "q085",
+      "legacy_category": "direct_lookup",
+      "question": "According to this review, what is the biological distinction between 'immune-desert' and 'immune-excluded' cold tumors?",
+      "source_dependencies": [
+        "onco-tumor-microenvironment.pdf"
+      ],
+      "action": "revise_in_v1",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "not_applicable",
+      "replacement_cases": [
+        "q085"
+      ],
+      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable."
+    },
+    {
+      "id": "q086",
+      "legacy_category": "direct_lookup",
+      "question": "In the RELATIVITY-047 trial discussed in this review, what was the median progression-free survival for relatlimab plus nivolumab compared with nivolumab alone in untreated advanced melanoma?",
+      "source_dependencies": [
+        "onco-tumor-microenvironment.pdf"
+      ],
+      "action": "retire_legacy_case",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "not_applicable",
+      "replacement_cases": [
+        "o014",
+        "o016"
+      ],
+      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+    },
+    {
+      "id": "q087",
+      "legacy_category": "direct_lookup",
+      "question": "What 18-month recurrence-free survival results did the KEYNOTE-942 trial of mRNA-4157/V940 plus pembrolizumab show in resected high-risk melanoma, according to this review?",
+      "source_dependencies": [
+        "onco-tumor-microenvironment.pdf"
+      ],
+      "action": "retire_legacy_case",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "not_applicable",
+      "replacement_cases": [
+        "o003"
+      ],
+      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+    },
+    {
+      "id": "q088",
+      "legacy_category": "direct_lookup",
+      "question": "Why did late-stage clinical trials of IDO1 inhibitors fail to deliver the benefit predicted by strong preclinical rationale, according to this review?",
+      "source_dependencies": [
+        "onco-tumor-microenvironment.pdf"
+      ],
+      "action": "retire_legacy_case",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "not_applicable",
+      "replacement_cases": [
+        "o014"
+      ],
+      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+    },
+    {
+      "id": "q089",
+      "legacy_category": "multi_hop",
+      "question": "How does the review's framework explain why static (baseline) biomarkers like TMB, MSI, and PD-L1 are necessary but insufficient for documenting cold-to-hot tumor conversion, and what role do dynamic markers like ctDNA and CXCL13 play instead?",
+      "source_dependencies": [
+        "onco-tumor-microenvironment.pdf"
+      ],
+      "action": "retire_legacy_case",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "not_applicable",
+      "replacement_cases": [
+        "q085",
+        "o015"
+      ],
+      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+    },
+    {
+      "id": "q090",
+      "legacy_category": "multi_hop",
+      "question": "According to the review's discussion of established versus emerging immune-priming strategies, why is chemo/radiotherapy considered a more mature clinical platform for cold-to-hot conversion than newer approaches like T-VEC or personalized mRNA vaccines?",
+      "source_dependencies": [
+        "onco-tumor-microenvironment.pdf"
+      ],
+      "action": "retire_legacy_case",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "not_applicable",
+      "replacement_cases": [
+        "o013"
+      ],
+      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+    },
+    {
+      "id": "q091",
+      "legacy_category": "unanswerable",
+      "question": "What preprocedural response rate did this review report from its own prospective clinical trial testing STING agonist plus PD-1 blockade in a cohort the authors enrolled?",
+      "source_dependencies": [
+        "onco-tumor-microenvironment.pdf"
+      ],
+      "action": "retire_legacy_case",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "Old null-source attribution retired or reclassified; new absent facts have explicit scope.",
+      "replacement_cases": [
+        "o013"
+      ],
+      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+    },
+    {
+      "id": "q092",
+      "legacy_category": "direct_lookup",
+      "question": "What exception to the general syngeneic-mouse-model limitation does the review note when discussing translational relevance of preclinical cold tumor models?",
+      "source_dependencies": [
+        "onco-tumor-microenvironment.pdf"
+      ],
+      "action": "retire_legacy_case",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "not_applicable",
+      "replacement_cases": [
+        "o014"
+      ],
+      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+    },
+    {
+      "id": "q093",
+      "legacy_category": "cross_doc_distractor",
+      "question": "Between the corpus's lung liquid biopsy review and the cold-to-hot tumor conversion review, which document uses ctDNA specifically as a serial marker for tracking a tumor's transition from immunologically 'cold' to 'hot' during immunotherapy, as opposed to using it for NSCLC molecular diagnosis, genotyping, or resistance-mutation detection?",
+      "source_dependencies": [
+        "onco-lung-liquidbiopsy.pdf",
+        "onco-tumor-microenvironment.pdf"
+      ],
+      "action": "retire_legacy_case",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "not_applicable",
+      "replacement_cases": [
+        "q119"
+      ],
+      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+    },
+    {
+      "id": "q094",
+      "legacy_category": "cross_doc_synthesis",
+      "question": "Drawing on both the lung liquid biopsy review and the cold-to-hot tumor conversion review, what common theme emerges about ctDNA's role and limitations as a dynamic monitoring biomarker across these two different oncology contexts?",
+      "source_dependencies": [
+        "onco-lung-liquidbiopsy.pdf",
+        "onco-tumor-microenvironment.pdf"
+      ],
+      "action": "retire_legacy_case",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "not_applicable",
+      "replacement_cases": [
+        "q119"
+      ],
+      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+    },
+    {
+      "id": "q095",
+      "legacy_category": "direct_lookup",
+      "question": "What percentage of women aged 50-64 in this study were up-to-date with both cervical and colorectal cancer screening ('dual-screening'), and how does this compare with the traditionally calculated single-cancer screening rates?",
+      "source_dependencies": [
+        "onco-colorectal-screening.pdf"
+      ],
+      "action": "revise_in_v1",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "not_applicable",
+      "replacement_cases": [
+        "q095"
+      ],
+      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable."
+    },
+    {
+      "id": "q096",
+      "legacy_category": "direct_lookup",
+      "question": "Among women 50-64 who chose only one cancer screen, which screen did they choose more often, and by how much?",
+      "source_dependencies": [
+        "onco-colorectal-screening.pdf"
+      ],
+      "action": "revise_in_v1",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "not_applicable",
+      "replacement_cases": [
+        "q096"
+      ],
+      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable."
+    },
+    {
+      "id": "q097",
+      "legacy_category": "direct_lookup",
+      "question": "In the multivariate multinomial regression, what were the adjusted odds ratios for college graduation and for having the highest income level, in predicting dual-screening versus neither screen?",
+      "source_dependencies": [
+        "onco-colorectal-screening.pdf"
+      ],
+      "action": "retire_legacy_case",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "not_applicable",
+      "replacement_cases": [
+        "q095",
+        "q096"
+      ],
+      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+    },
+    {
+      "id": "q098",
+      "legacy_category": "multi_hop",
+      "question": "How did the screening patterns of Hispanic women differ from those of Black women in this study, when comparing dual-screening to single-screen or no-screen outcomes?",
+      "source_dependencies": [
+        "onco-colorectal-screening.pdf"
+      ],
+      "action": "retire_legacy_case",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "not_applicable",
+      "replacement_cases": [
+        "q095"
+      ],
+      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+    },
+    {
+      "id": "q099",
+      "legacy_category": "multi_hop",
+      "question": "What three levels of decision-making does the paper propose to explain why screening behavior diverges by age between cervical cancer screening and CRC screening?",
+      "source_dependencies": [
+        "onco-colorectal-screening.pdf"
+      ],
+      "action": "retire_legacy_case",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "not_applicable",
+      "replacement_cases": [
+        "q095"
+      ],
+      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+    },
+    {
+      "id": "q100",
+      "legacy_category": "unanswerable",
+      "question": "According to this study's own results, what dual-screening rate did the Basque Country's national FIT program achieve?",
+      "source_dependencies": [
+        "onco-colorectal-screening.pdf"
+      ],
+      "action": "retire_legacy_case",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "Old null-source attribution retired or reclassified; new absent facts have explicit scope.",
+      "replacement_cases": [
+        "o020",
+        "o021"
+      ],
+      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+    },
+    {
+      "id": "q101",
+      "legacy_category": "unanswerable",
+      "question": "What HP2030 (Healthy People 2030) screening goals does the paper cite for cervical and colorectal cancer, and are these the study's own achieved rates?",
+      "source_dependencies": [
+        "onco-colorectal-screening.pdf"
+      ],
+      "action": "retire_legacy_case",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "Old null-source attribution retired or reclassified; new absent facts have explicit scope.",
+      "replacement_cases": [
+        "q095"
+      ],
+      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+    },
+    {
+      "id": "q102",
+      "legacy_category": "direct_lookup",
+      "question": "In the study's exclusion flow (Consort diagram), how many of the initial 67,473 women were excluded specifically for having had a hysterectomy?",
+      "source_dependencies": [
+        "onco-colorectal-screening.pdf"
+      ],
+      "action": "revise_in_v1",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "not_applicable",
+      "replacement_cases": [
+        "q102"
+      ],
+      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable."
+    },
+    {
+      "id": "q103",
+      "legacy_category": "direct_lookup",
+      "question": "What four perioperative treatment strategies were compared in this real-world study, and how many patients were in each group?",
+      "source_dependencies": [
+        "onco-breast-immunotherapy.pdf"
+      ],
+      "action": "revise_in_v1",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "not_applicable",
+      "replacement_cases": [
+        "q103"
+      ],
+      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable."
+    },
+    {
+      "id": "q104",
+      "legacy_category": "direct_lookup",
+      "question": "In the overall cohort, how did event-free survival (EFS) compare between the NCIT and NCT groups, and was there a corresponding overall survival (OS) benefit?",
+      "source_dependencies": [
+        "onco-breast-immunotherapy.pdf"
+      ],
+      "action": "revise_in_v1",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "not_applicable",
+      "replacement_cases": [
+        "q104"
+      ],
+      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable."
+    },
+    {
+      "id": "q105",
+      "legacy_category": "direct_lookup",
+      "question": "What pathological complete response (pCR) and major pathological response (MPR) rates were observed with NCIT compared to NCT?",
+      "source_dependencies": [
+        "onco-breast-immunotherapy.pdf"
+      ],
+      "action": "revise_in_v1",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "not_applicable",
+      "replacement_cases": [
+        "q105"
+      ],
+      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable."
+    },
+    {
+      "id": "q106",
+      "legacy_category": "multi_hop",
+      "question": "Within the EGFR-mutant subgroup, how did combining chemotherapy with neoadjuvant targeted therapy (NTT+chemotherapy) compare to both NTT alone and to NCT alone in terms of EFS?",
+      "source_dependencies": [
+        "onco-breast-immunotherapy.pdf"
+      ],
+      "action": "retire_legacy_case",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "not_applicable",
+      "replacement_cases": [
+        "o001",
+        "o002"
+      ],
+      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+    },
+    {
+      "id": "q107",
+      "legacy_category": "multi_hop",
+      "question": "How did achieving major pathological response (MPR) relate to survival outcomes in the NCIT and NTT treatment groups, including in the EGFR-mutant NCIT subgroup specifically?",
+      "source_dependencies": [
+        "onco-breast-immunotherapy.pdf"
+      ],
+      "action": "retire_legacy_case",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "not_applicable",
+      "replacement_cases": [
+        "q104"
+      ],
+      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+    },
+    {
+      "id": "q108",
+      "legacy_category": "unanswerable",
+      "question": "According to this article, what hazard ratio for disease-free survival did osimertinib show versus placebo, and is this a result generated by this study's own cohort?",
+      "source_dependencies": [
+        "onco-breast-immunotherapy.pdf"
+      ],
+      "action": "revise_in_v1",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "Old null-source attribution retired or reclassified; new absent facts have explicit scope.",
+      "replacement_cases": [
+        "q108"
+      ],
+      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable."
+    },
+    {
+      "id": "q109",
+      "legacy_category": "unanswerable",
+      "question": "Which specific tyrosine kinase inhibitor agents and dosing regimens were used for neoadjuvant targeted therapy (NTT) in this study?",
+      "source_dependencies": [
+        "onco-breast-immunotherapy.pdf"
+      ],
+      "action": "retire_legacy_case",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "Old null-source attribution retired or reclassified; new absent facts have explicit scope.",
+      "replacement_cases": [
+        "o007",
+        "o020"
+      ],
+      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+    },
+    {
+      "id": "q110",
+      "legacy_category": "direct_lookup",
+      "question": "What correlation did the RADON EUROPE study find between indoor radon exposure and ALK fusion frequency across European countries, and was a similar correlation found for EGFR mutations?",
+      "source_dependencies": [
+        "onco-genomics-precision-medicine.pdf"
+      ],
+      "action": "retire_legacy_case",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "not_applicable",
+      "replacement_cases": [
+        "q111"
+      ],
+      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+    },
+    {
+      "id": "q111",
+      "legacy_category": "direct_lookup",
+      "question": "What perioperative assessment gaps did Marjanski and colleagues identify in real-world NSCLC surgical care in Poland?",
+      "source_dependencies": [
+        "onco-genomics-precision-medicine.pdf"
+      ],
+      "action": "revise_in_v1",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "not_applicable",
+      "replacement_cases": [
+        "q111"
+      ],
+      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable."
+    },
+    {
+      "id": "q112",
+      "legacy_category": "direct_lookup",
+      "question": "According to Mo and colleagues' SEER-based analysis, how much did cardiovascular disease-specific mortality rise annually among lung adenocarcinoma patients between 2012-2016, and what treatment was identified as an independent risk factor for cardiovascular death?",
+      "source_dependencies": [
+        "onco-genomics-precision-medicine.pdf"
+      ],
+      "action": "revise_in_v1",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "not_applicable",
+      "replacement_cases": [
+        "q112"
+      ],
+      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable."
+    },
+    {
+      "id": "q113",
+      "legacy_category": "direct_lookup",
+      "question": "In the Vietnamese afatinib cohort study by Pham and colleagues, what dosing pattern was associated with the best treatment outcomes?",
+      "source_dependencies": [
+        "onco-genomics-precision-medicine.pdf"
+      ],
+      "action": "revise_in_v1",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "not_applicable",
+      "replacement_cases": [
+        "q113"
+      ],
+      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable."
+    },
+    {
+      "id": "q114",
+      "legacy_category": "multi_hop",
+      "question": "How do the findings from Laguna and colleagues' global review and García-Pardo and colleagues' RADON EUROPE study together illustrate that environmental exposures may shape specific molecular subtypes of NSCLC, not just overall cancer risk?",
+      "source_dependencies": [
+        "onco-genomics-precision-medicine.pdf"
+      ],
+      "action": "retire_legacy_case",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "not_applicable",
+      "replacement_cases": [
+        "q112",
+        "o017"
+      ],
+      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+    },
+    {
+      "id": "q115",
+      "legacy_category": "unanswerable",
+      "question": "What is the exact ALK fusion frequency percentage reported for each of the 21 individual European countries in the RADON EUROPE study?",
+      "source_dependencies": [
+        "onco-genomics-precision-medicine.pdf"
+      ],
+      "action": "retire_legacy_case",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "Old null-source attribution retired or reclassified; new absent facts have explicit scope.",
+      "replacement_cases": [
+        "o019"
+      ],
+      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+    },
+    {
+      "id": "q116",
+      "legacy_category": "direct_lookup",
+      "question": "Does the RADON EUROPE study's finding prove that radon exposure causes ALK fusions in lung cancer?",
+      "source_dependencies": [
+        "onco-genomics-precision-medicine.pdf"
+      ],
+      "action": "retire_legacy_case",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "not_applicable",
+      "replacement_cases": [
+        "o011",
+        "o012"
+      ],
+      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+    },
+    {
+      "id": "q117",
+      "legacy_category": "cross_doc_synthesis",
+      "question": "What tension exists between the demonstrated clinical benefit of neoadjuvant chemoimmunotherapy for resectable NSCLC and real-world barriers to delivering it?",
+      "source_dependencies": [
+        "onco-breast-immunotherapy.pdf",
+        "onco-genomics-precision-medicine.pdf"
+      ],
+      "action": "revise_in_v1",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "not_applicable",
+      "replacement_cases": [
+        "q117"
+      ],
+      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable."
+    },
+    {
+      "id": "q118",
+      "legacy_category": "cross_doc_distractor",
+      "question": "What does the available evidence say about EGFR-TKI dosing and its relationship to patient outcomes in EGFR-mutant NSCLC?",
+      "source_dependencies": [
+        "onco-breast-immunotherapy.pdf",
+        "onco-genomics-precision-medicine.pdf"
+      ],
+      "action": "revise_in_v1",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "not_applicable",
+      "replacement_cases": [
+        "q118"
+      ],
+      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable."
+    },
+    {
+      "id": "q119",
+      "legacy_category": "cross_doc_distractor",
+      "question": "How is genomic testing used to detect emerging treatment resistance in NSCLC patients over the course of their disease?",
+      "source_dependencies": [
+        "onco-breast-immunotherapy.pdf",
+        "onco-lung-liquidbiopsy.pdf"
+      ],
+      "action": "revise_in_v1",
+      "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
+      "negative_scope_review": "not_applicable",
+      "replacement_cases": [
+        "q119"
+      ],
+      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable."
+    }
+  ],
+  "limits": [
+    "Legacy metadata audit alone is not eligibility certification; selected replacement PDFs have separate licence/third-party and acquisition receipts.",
+    "No ingestion, retrieval, generation or paid calls executed.",
+    "No old reference values transferred to replacement studies.",
+    "Negative cases require review against all eligible topic selections before final combined claims."
+  ],
+  "migration_note": "All 42 legacy cases accounted for. Original global files unchanged. o-prefixed IDs are oncology-local; later integration needs an ID mapping."
+}

@@ -1,0 +1,109 @@
+{
+  "status": "review_ready; independent review pending",
+  "query_version": "oncology-queries-v1",
+  "query_sha256": "8d5407f5a35f62b881075fd70346973158ffef69c40ab87ac08a552a5aad73ba",
+  "method": "Exact pinned PDF extraction offsets; relevant full-text/JATS context and competing endpoints; representative PDF visuals and separate table/flow bindings.",
+  "source_conflicts": [
+    {
+      "article_id": "PMC10770829",
+      "cases": [
+        "o002"
+      ],
+      "finding": "MPR narrative 19/26 versus Table 2 17 (65.3%)."
+    },
+    {
+      "article_id": "PMC10840225",
+      "cases": [
+        "o006"
+      ],
+      "finding": "Abstract reverses 30/40-mg starting-dose shares relative to Table 2 and detailed results."
+    },
+    {
+      "article_id": "PMC12931073",
+      "cases": [
+        "o005"
+      ],
+      "finding": "Eight postoperative discontinuations use 75 versus 34 denominators, not conflicting counts."
+    },
+    {
+      "article_id": "PMC9239676",
+      "cases": [
+        "q102"
+      ],
+      "finding": "Flow diagram labels 50–65 versus main 50–64 and contains inconsistent subtraction arithmetic; gold requests printed counts."
+    }
+  ],
+  "negative_review": [
+    {
+      "id": "o020",
+      "article_ids": [
+        "PMC10073666",
+        "PMC10485396",
+        "PMC10770829",
+        "PMC10840225",
+        "PMC11181582",
+        "PMC11431721",
+        "PMC11547071",
+        "PMC11891047",
+        "PMC12495207",
+        "PMC12931073",
+        "PMC13190586",
+        "PMC13429855",
+        "PMC9239676",
+        "PMC9844597"
+      ],
+      "conditions": [
+        "C1",
+        "C2"
+      ],
+      "selection_sha256": "7e48ab1c265b63ce90d21b85429f4c1c25cea85dd68618cb553518a1078f7ef7",
+      "searched_terms": [
+        "failed to undergo",
+        "failed to receive surgery",
+        "excluded",
+        "surgery"
+      ],
+      "reviewed_sections": [
+        "Named study full text, methods, results, tables and discussion; selected competitor populations and endpoints"
+      ],
+      "rationale": "The cohort excludes those failing surgery, and discussion explicitly says their data were absent; do not infer an excluded-patient count from included treatment groups."
+    },
+    {
+      "id": "o021",
+      "article_ids": [
+        "PMC10073666",
+        "PMC10485396",
+        "PMC10770829",
+        "PMC10840225",
+        "PMC11181582",
+        "PMC11431721",
+        "PMC11547071",
+        "PMC11891047",
+        "PMC12495207",
+        "PMC12931073",
+        "PMC13190586",
+        "PMC13429855",
+        "PMC9239676",
+        "PMC9844597"
+      ],
+      "conditions": [
+        "C1",
+        "C2"
+      ],
+      "selection_sha256": "7e48ab1c265b63ce90d21b85429f4c1c25cea85dd68618cb553518a1078f7ef7",
+      "searched_terms": [
+        "random",
+        "five-year",
+        "5-year",
+        "overall survival",
+        "nonmatched"
+      ],
+      "reviewed_sections": [
+        "Named study full text, methods, results, tables and discussion; selected competitor populations and endpoints"
+      ],
+      "rationale": "The Helsinki study is retrospective with a nonmatched historical comparator; it does not report a randomized five-year OS treatment-effect estimate."
+    }
+  ],
+  "independent_review": "Pending Juan PR review; full topic integration needs renewed negative scope checks.",
+  "tuning_exposure": "No retrieval or model answers seen during authoring."
+}
