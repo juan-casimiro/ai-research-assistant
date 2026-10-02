@@ -57,7 +57,11 @@ records the revision. No retrieval output informed these changes.
 | D6 and ID semantics | REPORT counts and the stale o025 sentence are corrected; the offline suite result is recorded there. The ledger notes the retained IDs whose task changed: q081, q095 and q108. Retired negatives q091, q109 and q115 no longer link unrelated replacement cases. |
 | V1–V3: verifier gaps | Attribution, query-role, migration and ledger checks are now separate functions with tests. New checks cover overlap and negative-context anchor resolution, decoy/partial-support conflicts, overlap-review completeness, correction anchors, revised-question and answerability drift, renamed/withdrawn ledger consistency, and oracle case coverage. Run against a226bba, the new checks reject o019 and o025. |
 
-The draft now has 40 cases, 45 anchors and 14 selected articles. Offline reachability
+## Decision record and restored legacy cases
+
+Writing [DECISIONS.md](DECISIONS.md) showed that o009 and o023 needed two separated passages, so they are now multi-hop. It also showed that four legacy cases on retained sources had been retired without a reason. The original author confirmed that no reason was recorded, so q078, q097, q098 and q099 are restored as revised cases with pinned evidence. q098 is reframed to the paper's design: Black and Hispanic women are each compared with White women.
+
+The draft now has 44 cases, 49 anchors and 14 selected articles. Offline reachability
 and release checks have been refreshed. These remain structural checks, not measured
 retrieval quality. Changed gold still needs independent re-review before freeze;
 oncology evaluation and topic regressions remain outstanding.

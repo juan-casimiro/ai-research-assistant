@@ -10,7 +10,8 @@
         "q079",
         "q080",
         "q081",
-        "o025"
+        "o025",
+        "q078"
       ],
       "decoy_cases": [],
       "selection_locations": [
@@ -116,6 +117,23 @@
           "text_end": 17767,
           "excerpt": "ctDNA levels at \nearly stage; clonal \nhematopoiesis \ninterference; \nhistology-dependent \nshedding\nInvestigational\nTumor-Aab panel \n( Sullivan et al., \n2021 ; González \net al., 2021 )\nDetection of host \nimmune response to \ntumor antigens\nECLS trial \n(EarlyCDT-Lung), \nLUSI trial evaluation \n( Sullivan et al., 2021 ; \nGonzález et al., \n2021 )\n~13–41% (variable \nby setting)\n~88–91% Detects immune \nresponse that may \nprecede \nradiographic \nappearance; \ninexpensive; non- \ninvasive\nModest sensitivity, \nespecially for small \nLDCT-detectable \ntumors; panel- \ndependent; limited \nstage-shift data\nInvestigational \nCommercially \navailable in limited \nsettings\nAbbreviations: AAb, autoantibodies; ctDNA, circulating tumor DNA; LDCT, low-dose computed to",
           "excerpt_sha256": "a7083647b84bd3acc73af423309f25cd2fb71dfc8680cfb6c542ba62445d8635"
+        },
+        {
+          "id": "fusion_yield",
+          "article_id": "PMC13429855",
+          "filename": "onco-lung-liquidbiopsy.pdf",
+          "pmc_version": 1,
+          "pdf_sha256": "7c9c6384315c78c2d87b85a626a77df3f062cb844d938d63555a43cbc485f5fe",
+          "text_sha256": "58575a81d8a421f828c2df5ee858c9cc6042affcd304fa806ba272ecc77fbdd5",
+          "page": 2,
+          "pages": [
+            2
+          ],
+          "section": "Introduction; ctRNA and combined ctDNA/ctRNA fusion detection",
+          "text_start": 5470,
+          "text_end": 5962,
+          "excerpt": "ctRNA enhances detection of actionable gene fusions and splice \nvariants that may be missed by DNA-based assays, with combined \nctDNA/ctRNA approaches increasing fusion detection yield by \napproximately 28%–37% compared with ctDNA alone ( Giménez- \nCapitán et al., 2023 ; Hasegawa et al., 2021 ; Heeke et al., 2025 ; Samol \net al., 2025 ; Poh et al., 2025 ); accordingly, current NCCN NSCLC \nGuidelines recommend RNA-based testing when DNA-based \nprofiling does not identify a driver oncogene",
+          "excerpt_sha256": "4746bc57024fa402d7ca43f1a06cfd22b344a9d2f4383f8a84dd7961f8cc4db1"
         }
       ],
       "interpretation_limits": "Use the population, endpoint, time horizon and contradiction rules in the linked query facts; review articles attribute cited primary studies, rather than supplying new cohorts."
@@ -129,7 +147,10 @@
         "q095",
         "q096",
         "q102",
-        "q101"
+        "q101",
+        "q097",
+        "q098",
+        "q099"
       ],
       "decoy_cases": [],
       "selection_locations": [
@@ -183,6 +204,58 @@
           "text_end": 33930,
           "excerpt": "ew perspective that the rate of women \nwho screened for both cervix cancer and CRC (58.2%) is far below the recommended rates for each \ncancer individually (HP2030 goals cervix: 84.3% and CRC: 74.4%) (US Department of Health & \nHuman Services, 2013), HP2030- C07 (Harper et al., 2021a). Another new finding is that women \n50–64 years old screen for cervical cancer alone five times more often than CRC alone. We show that \nthe 50- to 64- year age range is dynamic with changing cancer screening behaviors from predomi-\nnantly cervical screening at 50",
           "excerpt_sha256": "88ed03857cceeeba33027ba6dfb50fec972951647e2add41c861216b01ddce71"
+        },
+        {
+          "id": "screen_regression",
+          "article_id": "PMC9239676",
+          "filename": "onco-colorectal-screening.pdf",
+          "pmc_version": 1,
+          "pdf_sha256": "5c288149e5302d2a0df3b1f5b5eac2aa66fdbf814e2f6b4a1e3edd221e91b9e9",
+          "text_sha256": "7810d2970ea970c2d6f1a545e2d837e6307483394f4b3bfbd00e4d88f2ffa282",
+          "page": 6,
+          "pages": [
+            6
+          ],
+          "section": "Results; multinomial regression, single or dual screening compared with neither screen (1a–1b)",
+          "text_start": 19625,
+          "text_end": 20659,
+          "excerpt": "1a. Women who graduated from college compared to less than high school graduation (adjusted \nodds ratio aOR = 3.35 (2.33, 4.81)), who had the highest income level (aOR = 3.32 (2.64, 4.18)) or \nhad experienced prior cancer (aOR = 2.90 (2.09, 4.05)) had the highest adjusted odds of completing \ndual- screening compared to no screening. In addition, women who were older aOR = 1.35 (1.09, \n1.67) and aOR = 1.46 (1.18, 1.79) for 55–59 and 60–64 years, respectively, compared to 50–54 years \nold, Black aOR = 2.25 (1.62, 3.13) or Hispanic (aOR = 1.68 (1.25, 2.25)) compared to White, and past \nhistory of arthritis aOR = 1.83 (1.54, 2.18), diabetes aOR = 1.34 (1.06, 1.69), or depression aOR = 1.35 \n(1.11, 1.63) were also significantly more likely to be up- to- date for both screens compared to neither \nscreen.\n1b. Black and Hispanic women compared to White had the highest adjusted odds of completing \njust the cervical cancer screening compared to neither screening aOR = 1.73 (1.22, 2.44) and aOR \n= 2.34 (1.72, 3.18), respectively.",
+          "excerpt_sha256": "3fb1c59e38c33109fc36cd444d840427d6ce353320d8f05ea715cf3b1e8a7f8d"
+        },
+        {
+          "id": "screen_hispanic_single",
+          "article_id": "PMC9239676",
+          "filename": "onco-colorectal-screening.pdf",
+          "pmc_version": 1,
+          "pdf_sha256": "5c288149e5302d2a0df3b1f5b5eac2aa66fdbf814e2f6b4a1e3edd221e91b9e9",
+          "text_sha256": "7810d2970ea970c2d6f1a545e2d837e6307483394f4b3bfbd00e4d88f2ffa282",
+          "page": 11,
+          "pages": [
+            11
+          ],
+          "section": "Results; cervical-only compared with dual screening (2a)",
+          "text_start": 31200,
+          "text_end": 31384,
+          "excerpt": "2a. Only Hispanic women compared to White women had significantly higher adjusted odds of having \ncervical cancer screening alone compared to dual- screening (aOR = 1.39 (1.10, 1.77)).",
+          "excerpt_sha256": "802497e6c5a5c58d79638d24ecb9870a95656beaae398abf879bc1831d9c3f96"
+        },
+        {
+          "id": "screen_levels",
+          "article_id": "PMC9239676",
+          "filename": "onco-colorectal-screening.pdf",
+          "pmc_version": 1,
+          "pdf_sha256": "5c288149e5302d2a0df3b1f5b5eac2aa66fdbf814e2f6b4a1e3edd221e91b9e9",
+          "text_sha256": "7810d2970ea970c2d6f1a545e2d837e6307483394f4b3bfbd00e4d88f2ffa282",
+          "page": 11,
+          "pages": [
+            11,
+            12
+          ],
+          "section": "Discussion; physician, patient and health-system decision levels",
+          "text_start": 34088,
+          "text_end": 36703,
+          "excerpt": "Screening decision making at multiple levels driven by age of the \nwoman\n2a. Physician level. Age becomes the most interesting factor predicting the divergence of the two \ncancer screening rates. One hypothesis is that it may be due to the specialty of the physician to whom \nthe woman visits, a gynecologist vs. a primary care physician (PCP; family physician vs. general inter -\nnist vs. geriatrician). A study of mammography orders noted that gynecologists provided care for 15% \nof the population who had mammograms ordered for ages 50–75 years, a small percentage of the \nage- appropriate screening population (Taplin et al., 1994). In addition, there is a 90% drop in visits \nto a gynecologist for prevention- related visits for those who are 45 years or older compared to the \n18- to 44- year- old group, with a concomitant increase in PCP visits during this age transition (Scholle \net al., 2002). This indicates that the decision level for the type of cancer screening could be at the \nphysician level where specialty may influence the cancer screening (cervical vs. colorectal vs. both) \noffered to the woman.\n\n Research article      \nMedicine\nHarper et al. eLife 2022;11:e76070. DOI: https://doi.org/10.7554/eLife.76070  12 of 19\n2b. Patient level. Another decision level for screening could be at the level of the woman. The \neffects of screening by the age divergence could be due to physiologic aging with menopause at an \naverage of 52 years in the United States (US Department of Health & Human Services, 2021; Green \nand Santoro, 2009). She may choose not to have any further cervical cancer screenings by vaginal \nspeculum examination due to a variety of possible reasons: painful examinations, sexually inactive, no \nsymptoms, or other personal reasons including past abuse (Cadman et al., 2012; Saunders et al., \n2021; Güneş and Karaçam, 2017). She may choose to wait until 65 years to start CRC screening \nbecause this is the time that the Welcome to Medicare and Annual Medicare Wellness Visit overtly \ndiscuss CRC screening.\n2c. Health system level. Decision making about screening could also reside in the health system \nas was evident during COVID when mailed FIT tests were sent to enrollees in response to the drop \nin cancer screenings (BlueCross Blue Shield of Texas, 2020; Gupta et al., 2020; Gorin et al., 2021; \nVan Hoy, 2020). It is well established that CRC screening, as recommended by the USPSTF (Force \net  al., 2016; Force et  al., 2021) can be completed by any of six available tests, three of which \nare home based: FOBT, FIT, and multitarget stool DNA (FIT- DNA, Cologuard).",
+          "excerpt_sha256": "09637552b9bada0c4d0a6668d5b18e299a44a6c0088c4cc7c1d73814d695102d"
         }
       ],
       "interpretation_limits": "Use the population, endpoint, time horizon and contradiction rules in the linked query facts; review articles attribute cited primary studies, rather than supplying new cohorts."
@@ -983,6 +1056,6 @@
       "interpretation_limits": "Use the population, endpoint, time horizon and contradiction rules in the linked query facts; review articles attribute cited primary studies, rather than supplying new cohorts."
     }
   ],
-  "query_sha256": "da3c959c8de5eac793ad3ab50a6674178c9fbd1282f48d26152e966d5de36f37",
+  "query_sha256": "d55dd965fb0c1a731fd9613e9bcf300545347099fe757dea8e74ecd624b53b3b",
   "selection_sha256": "5c0116e9e191a729e9dddbf359114e0bf49bac23d1d13fe4a22edd5178053803"
 }

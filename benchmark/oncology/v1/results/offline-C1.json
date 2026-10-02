@@ -2,24 +2,24 @@
   "kind": "offline_evidence_reachability_oracle",
   "retrieval_quality_measured": false,
   "selection_sha256": "5c0116e9e191a729e9dddbf359114e0bf49bac23d1d13fe4a22edd5178053803",
-  "query_sha256": "da3c959c8de5eac793ad3ab50a6674178c9fbd1282f48d26152e966d5de36f37",
-  "conditions_sha256": "39d77213f5c8c1bd747dfff3ff782fde09a1389218f0502f5e399f460b9fc478",
+  "query_sha256": "d55dd965fb0c1a731fd9613e9bcf300545347099fe757dea8e74ecd624b53b3b",
+  "conditions_sha256": "32dc7c59f56bfd8cd7d8abb2baa8f9619366733586ee74d1971b48310137244d",
   "condition": "C1",
   "membership_sha256": "55ee3cd7d90bc846cf8a3d35e72c912c422e95a302940fd813f8923636887d13",
   "scorer_version": "pinned-span-coverage-v3",
   "feasibility_version": "minimum-evidence-chunks-v3",
   "production_chunker_source_sha256": "2bce57440e693cdc844c8543c324d8f534128b735ced56c5105d2643f906a71b",
   "result": {
-    "available_anchors": 44,
-    "reachable_anchors": 44,
-    "anchors_requiring_adjacent_chunks": 20,
-    "evidence_queries": 37,
-    "unlimited_reachable_evidence_queries": 37,
+    "available_anchors": 48,
+    "reachable_anchors": 48,
+    "anchors_requiring_adjacent_chunks": 22,
+    "evidence_queries": 41,
+    "unlimited_reachable_evidence_queries": 41,
     "by_depth": {
       "n3": {
-        "feasible_queries": 29,
-        "total_queries": 37,
-        "ceiling_rate": 0.7837837837837838,
+        "feasible_queries": 32,
+        "total_queries": 41,
+        "ceiling_rate": 0.7804878048780488,
         "feasible_ids": [
           "o001",
           "o002",
@@ -42,11 +42,14 @@
           "o026",
           "o027",
           "o028",
+          "q078",
           "q079",
           "q080",
           "q085",
           "q095",
           "q096",
+          "q097",
+          "q098",
           "q101",
           "q102",
           "q108"
@@ -59,12 +62,13 @@
           "o018",
           "o029",
           "o030",
-          "q081"
+          "q081",
+          "q099"
         ]
       },
       "n8": {
-        "feasible_queries": 37,
-        "total_queries": 37,
+        "feasible_queries": 41,
+        "total_queries": 41,
         "ceiling_rate": 1.0,
         "feasible_ids": [
           "o001",
@@ -95,12 +99,16 @@
           "o028",
           "o029",
           "o030",
+          "q078",
           "q079",
           "q080",
           "q081",
           "q085",
           "q095",
           "q096",
+          "q097",
+          "q098",
+          "q099",
           "q101",
           "q102",
           "q108"
@@ -386,6 +394,34 @@
         "minimum_chunks": 2,
         "by_depth": {
           "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "q078": {
+        "minimum_chunks": 1,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "q097": {
+        "minimum_chunks": 2,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "q098": {
+        "minimum_chunks": 3,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "q099": {
+        "minimum_chunks": 4,
+        "by_depth": {
+          "n3": "infeasible",
           "n8": "feasible"
         }
       }

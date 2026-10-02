@@ -1,6 +1,6 @@
 {
   "status": "pre-freeze corrections; no retrieval exposure",
-  "query_sha256": "da3c959c8de5eac793ad3ab50a6674178c9fbd1282f48d26152e966d5de36f37",
+  "query_sha256": "d55dd965fb0c1a731fd9613e9bcf300545347099fe757dea8e74ecd624b53b3b",
   "renamed_coverage_cases": {
     "q103": "o022",
     "q111": "o023",
@@ -25,7 +25,8 @@
   "retained_id_task_changes": {
     "q081": "Legacy multi-hop modality comparison is now a false-premise check that MCED shares LDCT's demonstrated mortality benefit.",
     "q095": "Legacy dual-screening percentage plus single-cancer comparison is now the four mutually exclusive screening categories.",
-    "q108": "Legacy question on an ineligible NSCLC paper is now the ADAURA attribution check in the eligible nonmetastatic driver review."
+    "q108": "Legacy question on an ineligible NSCLC paper is now the ADAURA attribution check in the eligible nonmetastatic driver review.",
+    "q098": "Legacy Hispanic-versus-Black framing is now each group compared with White women, matching the paper's regression reference."
   },
   "revisions": [
     {
@@ -180,6 +181,30 @@
         ]
       },
       "reason": "Decision documentation: case-specific selection rationale and near-duplicate review, specific legacy reasons and replacement bases, lower-priority candidate coverage, and multi_hop categories for two cases needing separated passages."
+    },
+    {
+      "previous_commit": "fa0245a10ee6f1e248d65421d2020f4f9df39d28",
+      "previous_query_sha256": "da3c959c8de5eac793ad3ab50a6674178c9fbd1282f48d26152e966d5de36f37",
+      "query_sha256": "d55dd965fb0c1a731fd9613e9bcf300545347099fe757dea8e74ecd624b53b3b",
+      "changed_cases": [
+        "q078",
+        "q097",
+        "q098",
+        "q099"
+      ],
+      "restored_cases": [
+        "q078",
+        "q097",
+        "q098",
+        "q099"
+      ],
+      "added_anchors": [
+        "fusion_yield",
+        "screen_hispanic_single",
+        "screen_levels",
+        "screen_regression"
+      ],
+      "reason": "Restored legacy q078, q097, q098 and q099 on retained sources: no retirement reason existed and their evidence is pinned."
     }
   ]
 }

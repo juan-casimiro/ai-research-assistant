@@ -8,20 +8,18 @@ sources of truth. Regenerate it from the repository root with `.venv/bin/python 
 
 ## Open decisions
 
-These legacy cases were retired on retained sources even though the pinned text contains their evidence.
-The original author recorded no case-specific reason, so the choice to restore them or confirm retirement is open:
+None.
 
-- **q078** (direct_lookup): How much does combining ctDNA and ctRNA analysis improve gene fusion detection yield compared with ctDNA alone in lung cancer liquid biopsy?
+### Resolved
+
+- **q078**: Restored on 2026-10-02 at Juan's request after the original author confirmed no case-specific retirement reason; revised on the retained source with pinned evidence.
   - Original author's rationale: No case-specific reason for this retirement was recorded, and I cannot substantiate one from the audit history. I recommend restoring q078 with pinned evidence from the retained liquid-biopsy review for the approximately 28%–37% fusion-yield gain from combined ctDNA/ctRNA analysis.
-- **q097** (direct_lookup): In the multivariate multinomial regression, what were the adjusted odds ratios for college graduation and for having the highest income level, in predicting dual-screening versus neither screen?
+- **q097**: Restored on 2026-10-02 at Juan's request after the original author confirmed no case-specific retirement reason; revised on the retained source with pinned evidence.
   - Original author's rationale: No case-specific reason for this retirement was recorded, and I cannot substantiate one from the audit history. I recommend restoring q097 with pinned evidence from the retained screening study for the multinomial-regression adjusted odds ratios for college graduation and highest income.
-- **q098** (multi_hop): How did the screening patterns of Hispanic women differ from those of Black women in this study, when comparing dual-screening to single-screen or no-screen outcomes?
+- **q098**: Restored on 2026-10-02 at Juan's request after the original author confirmed no case-specific retirement reason; revised on the retained source with pinned evidence.
   - Original author's rationale: No case-specific reason for this retirement was recorded, and I cannot substantiate one from the audit history. I recommend restoring q098 with pinned evidence from the retained screening study for Hispanic versus Black women’s screening patterns, preserving the reported comparison groups.
-- **q099** (multi_hop): What three levels of decision-making does the paper propose to explain why screening behavior diverges by age between cervical cancer screening and CRC screening?
+- **q099**: Restored on 2026-10-02 at Juan's request after the original author confirmed no case-specific retirement reason; revised on the retained source with pinned evidence.
   - Original author's rationale: No case-specific reason for this retirement was recorded, and I cannot substantiate one from the audit history. I recommend restoring q099 with pinned evidence from the retained screening study’s Discussion for its individual, clinician and health-system levels of age-driven screening decision-making.
-
-To resolve one, replace its `original_author_rationale` placeholder in legacy_audit.json, set
-`open_decision` to false once Juan decides, update `reason`, then re-render this file and run the verifier.
 
 ## Decision principles
 
@@ -54,7 +52,7 @@ To resolve one, replace its `original_author_rationale` placeholder in legacy_au
 *Liquid biopsy biomarkers for cancer detection, treatment monitoring, and clinical outcome prediction*
 
 - **Why selected:** Retained legacy article after re-verifying CC BY 4.0, version and PDF. A dense review of cited liquid-biopsy evidence (CSF ctDNA, NILE, LDCT versus MCED, MRD assays, EarlyCDT), so it supports attribution-to-cited-study cases and a scoped absent fact.
-- **Answer source for:** q079, q080, q081, o025
+- **Answer source for:** q079, q080, q081, o025, q078
 - **Named decoy for:** none
 - **Partial-support overlap for:** none
 - **Conditions:** C1, C2, C3
@@ -65,7 +63,7 @@ To resolve one, replace its `original_author_rationale` placeholder in legacy_au
 *US women screen at low rates for both cervical and colorectal cancers than a single cancer: a cross-sectional population-based observational study*
 
 - **Why selected:** Retained legacy article after re-verification. The only screening source: mutually exclusive screening categories, printed flow-diagram counts with internal inconsistencies, and cited targets versus observed rates.
-- **Answer source for:** q095, q096, q102, q101
+- **Answer source for:** q095, q096, q102, q101, q097, q098, q099
 - **Named decoy for:** none
 - **Partial-support overlap for:** none
 - **Conditions:** C1, C2, C3
@@ -224,7 +222,7 @@ To resolve one, replace its `original_author_rationale` placeholder in legacy_au
 
 ## Active cases
 
-### direct_lookup (16)
+### direct_lookup (19)
 
 #### q079 (revision 2)
 
@@ -357,7 +355,31 @@ To resolve one, replace its `original_author_rationale` placeholder in legacy_au
 - **Evidence:** icd_phenotype
 - **Near-duplicate review:** Shares no evidence anchor with another case; the question identifies the source without disclosing target values.
 
-### multi_hop (9)
+#### q078 (revision 2)
+
+> According to the liquid-biopsy review, how much does combining ctDNA with ctRNA analysis change gene-fusion detection yield compared with ctDNA alone, and what RNA-testing recommendation does the review connect to this?
+
+- **Why this case:** Restored legacy case. Tests attributing a cited-study range (about 28%–37% higher fusion yield with combined ctDNA/ctRNA) without converting it into a single pooled or absolute value, and linking it to the NCCN RNA-testing recommendation. Direct lookup: one passage.
+- **Evidence:** fusion_yield
+- **Near-duplicate review:** Shares no evidence anchor with another case; the question names the comparison without disclosing the range.
+
+#### q097 (revision 2)
+
+> In the US dual-screening study's multinomial regression, what adjusted odds ratios were reported for college graduation and for the highest income level when predicting dual screening versus neither screen?
+
+- **Why this case:** Restored legacy case. Tests binding adjusted odds ratios to the correct outcome contrast (dual versus neither), because the same predictors have different aORs for cervical-only and CRC-only screening. Direct lookup: one Results passage.
+- **Evidence:** screen_regression
+- **Near-duplicate review:** Shares screen_regression with q098, which uses its race findings instead. Distinct from q095/q096, which ask descriptive category percentages, not adjusted odds.
+
+#### q099 (revision 2)
+
+> What decision levels does the US dual-screening study's Discussion propose to explain why cervical and colorectal screening diverge with age?
+
+- **Why this case:** Restored legacy case. Tests reporting the Discussion's three proposed decision levels (physician, patient, health system) as hypotheses rather than findings. Direct lookup: one contiguous Discussion section spanning adjacent chunks.
+- **Evidence:** screen_levels
+- **Near-duplicate review:** Shares no evidence anchor with another case; the question asks for the levels without disclosing them.
+
+### multi_hop (10)
 
 #### o029 (revision 2)
 
@@ -443,6 +465,15 @@ To resolve one, replace its `original_author_rationale` placeholder in legacy_au
 - **Evidence:** icd_stress + icd_damp
 - **Multi-hop link:** Link separate cellular-stress and extracellular-danger-signal sections.
 - **Near-duplicate review:** Shares icd_damp with o014; o016 alone requires the cellular-stress anchor.
+
+#### q098 (revision 2)
+
+> In the US dual-screening study's adjusted analyses, how did the screening patterns of Black and Hispanic women differ, each compared with White women?
+
+- **Why this case:** Restored legacy case, reframed to the paper's design: Black and Hispanic women are each compared with White women, not with each other. Tests keeping reference groups and outcome contrasts straight across two Results subsections. Multi-hop: the "versus neither" and "versus dual" results are separated.
+- **Evidence:** screen_regression + screen_hispanic_single
+- **Multi-hop link:** Join the regression results versus neither screen for both groups to the separate result versus dual screening, where only Hispanic women differ.
+- **Near-duplicate review:** Shares screen_regression with q097, which uses its education and income findings. Only q098 needs the separate cervical-only-versus-dual result.
 
 ### cross_doc_synthesis (3)
 
@@ -590,7 +621,7 @@ To resolve one, replace its `original_author_rationale` placeholder in legacy_au
 
 | Legacy ID | Action | Linked cases | Reason | Link basis |
 | --- | --- | --- | --- | --- |
-| q078 | retire_legacy_case | q079, q080, o025 | Retired on a retained source although the pinned text contains the requested evidence (combined ctDNA/ctRNA fusion-yield gain of about 28%–37%). The original author recorded no case-specific reason. Open decision for Juan: restore as a revised case or confirm retirement (DECISIONS.md). | Same retained liquid-biopsy review; linked cases cover other cited-evidence facts, not fusion yield. |
+| q078 | revise_in_v1 | q078 | Restored on 2026-10-02 at Juan's request after the original author confirmed no case-specific retirement reason; revised on the retained source with pinned evidence. | Revised in place. |
 | q079 | revise_in_v1 | q079 | Revised on the retained review: detection rate versus cytology and diagnostic sensitivity/specificity are now required as separately attributed measures. | Revised in place. |
 | q080 | revise_in_v1 | q080 | Revised on the retained review: adds the NILE population and noninferiority framing to turnaround and biomarker identification. | Revised in place. |
 | q081 | revise_in_v1 | q081 | Revised on the retained review into a false-premise check of MCED versus LDCT mortality benefit; task change recorded in revision_ledger.json. | Revised in place. |
@@ -609,9 +640,9 @@ To resolve one, replace its `original_author_rationale` placeholder in legacy_au
 | q094 | retire_legacy_case | o025 | Retired: one of its two documents is the deferred source. Legacy source onco-tumor-microenvironment.pdf (PMC13430506) is deferred: its acknowledgements credit BioRender, so complete-PDF reuse rights are unresolved. | o025 keeps ctDNA monitoring performance from the liquid-biopsy review. |
 | q095 | revise_in_v1 | q095 | Revised on the retained study to the four mutually exclusive categories; task change recorded in revision_ledger.json. | Revised in place. |
 | q096 | revise_in_v1 | q096 | Revised on the retained study: compare the mutually exclusive cervical-only and CRC-only categories. | Revised in place. |
-| q097 | retire_legacy_case | q095, q096 | Retired on a retained source although the pinned text contains the requested evidence (multinomial-regression adjusted odds ratios). The original author recorded no case-specific reason. Open decision for Juan: restore as a revised case or confirm retirement (DECISIONS.md). | Same retained screening study; q095/q096 cover its screening categories, not the regression. |
-| q098 | retire_legacy_case | q095 | Retired on a retained source although the pinned text contains the requested evidence (Hispanic versus other groups' screening patterns and adjusted odds ratios). The original author recorded no case-specific reason. Open decision for Juan: restore as a revised case or confirm retirement (DECISIONS.md). | Same retained screening study; q095 covers the category distribution, not subgroup patterns. |
-| q099 | retire_legacy_case | q095 | Retired on a retained source although the pinned text contains the requested evidence (the Discussion's multilevel, age-driven screening decision-making). The original author recorded no case-specific reason. Open decision for Juan: restore as a revised case or confirm retirement (DECISIONS.md). | Same retained screening study; q095 covers its results, not the Discussion framework. |
+| q097 | revise_in_v1 | q097 | Restored on 2026-10-02 at Juan's request after the original author confirmed no case-specific retirement reason; revised on the retained source with pinned evidence. | Revised in place. |
+| q098 | revise_in_v1 | q098 | Restored on 2026-10-02 at Juan's request after the original author confirmed no case-specific retirement reason; revised on the retained source with pinned evidence. | Revised in place. |
+| q099 | revise_in_v1 | q099 | Restored on 2026-10-02 at Juan's request after the original author confirmed no case-specific retirement reason; revised on the retained source with pinned evidence. | Revised in place. |
 | q100 | revise_in_v1 | q100 | Revised on the retained study as a scoped absent fact. | Revised in place. |
 | q101 | revise_in_v1 | q101 | Revised on the retained study into a false-premise correction of targets versus achieved rates. | Revised in place. |
 | q102 | revise_in_v1 | q102 | Revised on the retained study: printed flow-diagram counts, with the diagram's inconsistencies kept explicit. | Revised in place. |
@@ -638,9 +669,11 @@ To resolve one, replace its `original_author_rationale` placeholder in legacy_au
 - **q081:** Legacy multi-hop modality comparison is now a false-premise check that MCED shares LDCT's demonstrated mortality benefit.
 - **q095:** Legacy dual-screening percentage plus single-cancer comparison is now the four mutually exclusive screening categories.
 - **q108:** Legacy question on an ineligible NSCLC paper is now the ADAURA attribution check in the eligible nonmetastatic driver review.
+- **q098:** Legacy Hispanic-versus-Black framing is now each group compared with White women, matching the paper's regression reference.
 
 ## Revision history
 
 1. From `8b1adbe`: Validated Claude review: complete OS and HR scope, reflex overlap, non-reused IDs, positive premise correction and legacy negative migration.
 2. From `a226bba`: Claude re-review: Hunan OS label conflict and Limitations anchor, Helsinki five-year OS correction, duplicate withdrawal with one POL-MOL role, same-field MRD decoy, per-article search provenance.
 3. From `fd4eadf`: Decision documentation: case-specific selection rationale and near-duplicate review, specific legacy reasons and replacement bases, lower-priority candidate coverage, and multi_hop categories for two cases needing separated passages.
+4. From `fa0245a`: Restored legacy q078, q097, q098 and q099 on retained sources: no retirement reason existed and their evidence is pinned.

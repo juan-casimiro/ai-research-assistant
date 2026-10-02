@@ -140,18 +140,16 @@
       "source_dependencies": [
         "onco-lung-liquidbiopsy.pdf"
       ],
-      "action": "retire_legacy_case",
+      "action": "revise_in_v1",
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "not_applicable",
       "replacement_cases": [
-        "q079",
-        "q080",
-        "o025"
+        "q078"
       ],
-      "reason": "Retired on a retained source although the pinned text contains the requested evidence (combined ctDNA/ctRNA fusion-yield gain of about 28%–37%). The original author recorded no case-specific reason. Open decision for Juan: restore as a revised case or confirm retirement (DECISIONS.md).",
-      "replacement_basis": "Same retained liquid-biopsy review; linked cases cover other cited-evidence facts, not fusion yield.",
-      "open_decision": true,
-      "original_author_rationale": "No case-specific reason for this retirement was recorded, and I cannot substantiate one from the audit history. I recommend restoring q078 with pinned evidence from the retained liquid-biopsy review for the approximately 28%–37% fusion-yield gain from combined ctDNA/ctRNA analysis."
+      "reason": "Restored on 2026-10-02 at Juan's request after the original author confirmed no case-specific retirement reason; revised on the retained source with pinned evidence.",
+      "open_decision": false,
+      "original_author_rationale": "No case-specific reason for this retirement was recorded, and I cannot substantiate one from the audit history. I recommend restoring q078 with pinned evidence from the retained liquid-biopsy review for the approximately 28%–37% fusion-yield gain from combined ctDNA/ctRNA analysis.",
+      "revised_question": "According to the liquid-biopsy review, how much does combining ctDNA with ctRNA analysis change gene-fusion detection yield compared with ctDNA alone, and what RNA-testing recommendation does the review connect to this?"
     },
     {
       "id": "q079",
@@ -464,17 +462,16 @@
       "source_dependencies": [
         "onco-colorectal-screening.pdf"
       ],
-      "action": "retire_legacy_case",
+      "action": "revise_in_v1",
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "not_applicable",
       "replacement_cases": [
-        "q095",
-        "q096"
+        "q097"
       ],
-      "reason": "Retired on a retained source although the pinned text contains the requested evidence (multinomial-regression adjusted odds ratios). The original author recorded no case-specific reason. Open decision for Juan: restore as a revised case or confirm retirement (DECISIONS.md).",
-      "replacement_basis": "Same retained screening study; q095/q096 cover its screening categories, not the regression.",
-      "open_decision": true,
-      "original_author_rationale": "No case-specific reason for this retirement was recorded, and I cannot substantiate one from the audit history. I recommend restoring q097 with pinned evidence from the retained screening study for the multinomial-regression adjusted odds ratios for college graduation and highest income."
+      "reason": "Restored on 2026-10-02 at Juan's request after the original author confirmed no case-specific retirement reason; revised on the retained source with pinned evidence.",
+      "open_decision": false,
+      "original_author_rationale": "No case-specific reason for this retirement was recorded, and I cannot substantiate one from the audit history. I recommend restoring q097 with pinned evidence from the retained screening study for the multinomial-regression adjusted odds ratios for college graduation and highest income.",
+      "revised_question": "In the US dual-screening study's multinomial regression, what adjusted odds ratios were reported for college graduation and for the highest income level when predicting dual screening versus neither screen?"
     },
     {
       "id": "q098",
@@ -483,16 +480,16 @@
       "source_dependencies": [
         "onco-colorectal-screening.pdf"
       ],
-      "action": "retire_legacy_case",
+      "action": "revise_in_v1",
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "not_applicable",
       "replacement_cases": [
-        "q095"
+        "q098"
       ],
-      "reason": "Retired on a retained source although the pinned text contains the requested evidence (Hispanic versus other groups' screening patterns and adjusted odds ratios). The original author recorded no case-specific reason. Open decision for Juan: restore as a revised case or confirm retirement (DECISIONS.md).",
-      "replacement_basis": "Same retained screening study; q095 covers the category distribution, not subgroup patterns.",
-      "open_decision": true,
-      "original_author_rationale": "No case-specific reason for this retirement was recorded, and I cannot substantiate one from the audit history. I recommend restoring q098 with pinned evidence from the retained screening study for Hispanic versus Black women’s screening patterns, preserving the reported comparison groups."
+      "reason": "Restored on 2026-10-02 at Juan's request after the original author confirmed no case-specific retirement reason; revised on the retained source with pinned evidence.",
+      "open_decision": false,
+      "original_author_rationale": "No case-specific reason for this retirement was recorded, and I cannot substantiate one from the audit history. I recommend restoring q098 with pinned evidence from the retained screening study for Hispanic versus Black women’s screening patterns, preserving the reported comparison groups.",
+      "revised_question": "In the US dual-screening study's adjusted analyses, how did the screening patterns of Black and Hispanic women differ, each compared with White women?"
     },
     {
       "id": "q099",
@@ -501,16 +498,16 @@
       "source_dependencies": [
         "onco-colorectal-screening.pdf"
       ],
-      "action": "retire_legacy_case",
+      "action": "revise_in_v1",
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "not_applicable",
       "replacement_cases": [
-        "q095"
+        "q099"
       ],
-      "reason": "Retired on a retained source although the pinned text contains the requested evidence (the Discussion's multilevel, age-driven screening decision-making). The original author recorded no case-specific reason. Open decision for Juan: restore as a revised case or confirm retirement (DECISIONS.md).",
-      "replacement_basis": "Same retained screening study; q095 covers its results, not the Discussion framework.",
-      "open_decision": true,
-      "original_author_rationale": "No case-specific reason for this retirement was recorded, and I cannot substantiate one from the audit history. I recommend restoring q099 with pinned evidence from the retained screening study’s Discussion for its individual, clinician and health-system levels of age-driven screening decision-making."
+      "reason": "Restored on 2026-10-02 at Juan's request after the original author confirmed no case-specific retirement reason; revised on the retained source with pinned evidence.",
+      "open_decision": false,
+      "original_author_rationale": "No case-specific reason for this retirement was recorded, and I cannot substantiate one from the audit history. I recommend restoring q099 with pinned evidence from the retained screening study’s Discussion for its individual, clinician and health-system levels of age-driven screening decision-making.",
+      "revised_question": "What decision levels does the US dual-screening study's Discussion propose to explain why cervical and colorectal screening diverge with age?"
     },
     {
       "id": "q100",

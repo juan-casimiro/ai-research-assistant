@@ -59,13 +59,22 @@ lines = ['# Oncology v1 decision record', '',
          '[REVIEW.md](REVIEW.md) records the independent review rounds.', '',
          '## Open decisions', '']
 open_cases = [c for c in audit['cases'] if c['open_decision']]
-lines += ['These legacy cases were retired on retained sources even though the pinned text contains their evidence.',
-          'The original author recorded no case-specific reason, so the choice to restore them or confirm retirement is open:', '']
-for c in open_cases:
-    lines += [f'- **{c["id"]}** ({c["legacy_category"]}): {c["question"]}',
-              f'  - Original author\'s rationale: {c.get("original_author_rationale", "not recorded")}']
-lines += ['', 'To resolve one, replace its `original_author_rationale` placeholder in legacy_audit.json, set',
-          '`open_decision` to false once Juan decides, update `reason`, then re-render this file and run the verifier.']
+if open_cases:
+    lines += ['These legacy cases were retired on retained sources even though the pinned text contains their evidence.',
+              'The original author recorded no case-specific reason, so the choice to restore them or confirm retirement is open:', '']
+    for c in open_cases:
+        lines += [f'- **{c["id"]}** ({c["legacy_category"]}): {c["question"]}',
+                  f'  - Original author\'s rationale: {c.get("original_author_rationale", "not recorded")}']
+    lines += ['', 'To resolve one, replace its `original_author_rationale` placeholder in legacy_audit.json, set',
+              '`open_decision` to false once Juan decides, update `reason`, then re-render this file and run the verifier.']
+else:
+    lines.append('None.')
+resolved = [c for c in audit['cases'] if c.get('original_author_rationale') and not c['open_decision']]
+if resolved:
+    lines += ['', '### Resolved', '']
+    for c in resolved:
+        lines += [f'- **{c["id"]}**: {c["reason"]}',
+                  f'  - Original author\'s rationale: {c["original_author_rationale"]}']
 lines += ['', '## Decision principles', '']
 lines += [bullet(label, text) for label, text in PRINCIPLES]
 
