@@ -1,0 +1,174 @@
+{
+  "collection_name": "documents",
+  "chunk_count": 1113,
+  "per_source_chunks": {
+    "cardio-af-incident-ecg-calibration.pdf": 53,
+    "cardio-af-lorenz-detection.pdf": 50,
+    "cardio-af-stroke-mechanisms-review.pdf": 84,
+    "cardio-ai-af-management-review.pdf": 71,
+    "cardio-cad-ct-angiography.pdf": 77,
+    "cardio-cardiorenal-drug-network-meta-analysis.pdf": 77,
+    "cardio-ccta-tyg-incremental-value.pdf": 40,
+    "cardio-ckd-sglt2-acei-arb.pdf": 59,
+    "cardio-ctffr-diabetes-unstable-angina.pdf": 53,
+    "cardio-diabetes-hypertension-polygenic.pdf": 86,
+    "cardio-emperor-preserved-resistant-hypertension.pdf": 62,
+    "cardio-heartfailure-biomarkers.pdf": 62,
+    "cardio-hfpef-dapagliflozin-cost-analysis.pdf": 43,
+    "cardio-hfpef-geriatric-biomarkers.pdf": 56,
+    "cardio-mi-risk-stratification.pdf": 51,
+    "cardio-resistant-hypertension-thai-consensus.pdf": 43,
+    "cardio-spironolactone-diabetes-trial.pdf": 37,
+    "cardio-stemi-vasc-fmd-no-reflow.pdf": 36,
+    "cardio-tailored-af-randomized-trial.pdf": 73
+  },
+  "chunks_sha256": "971243ca58816cd44eb92736782f2fbf1b4d9152cb501817b4895704482f3960",
+  "status": "complete",
+  "condition": "C1",
+  "collection_path": "/Users/agentdev/development/ai-research-assistant/chroma_db/jua110-C1-20261002",
+  "seed_on_empty": false,
+  "timestamp": "2026-10-02T11:49:34.370289+00:00",
+  "loaded_models": {
+    "embedding": {
+      "model_name": "BAAI/bge-small-en-v1.5",
+      "files": {
+        "config.json": "13582bcf2effc85b7bf3d3f5532e686bc1c9ce86bb009d10f0ec33cbe92299dd",
+        "model_optimized.onnx": "51f1bd0addd6e859e42c2c8021a5e5461385bb676a649f4b269aa445449f2431",
+        "special_tokens_map.json": "5d5b662e421ea9fac075174bb0688ee0d9431699900b90662acd44b2a350503a",
+        "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+        "tokenizer_config.json": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53"
+      },
+      "sha256": "d9e46143a9cabd7abdbe181fd67443a66089fd55d721db87b7b2964085ed0bff"
+    },
+    "reranker": {
+      "model_name": "Xenova/ms-marco-MiniLM-L-6-v2",
+      "files": {
+        "config.json": "d827779a72d27ae68cf878a6fc2e954542663fe21ca515d9f4783fc96be2d37e",
+        "onnx/model.onnx": "c623d0bcb99f4622beb413eaef00cfbe5db20df9f1dd982da4b4f26022881870",
+        "special_tokens_map.json": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+        "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+        "tokenizer_config.json": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53"
+      },
+      "sha256": "253fe4bae5a04bd859f462ffca4c1818e42725f6b14a55392b3ed9040728fb49"
+    }
+  },
+  "membership_sha256": "bf8ac30a674a18f85d1fddc24a622cbf7f3ee544341709990579c8058964dab3",
+  "article_tuples": [
+    {
+      "article_id": "PMC10363301",
+      "pmc_version": 1,
+      "pdf_sha256": "97cb98ece2c75b991827fcd1b7899adf16112b30b4f99bf43de3c7708b6ddb1d",
+      "text_sha256": "e7c60503d9e39d2a97c9c8d20977584c0c0bf9815a815dcc9bc16e4f0338dc90"
+    },
+    {
+      "article_id": "PMC10607686",
+      "pmc_version": 1,
+      "pdf_sha256": "b7893a0d1767f32346e8f8e3932c3a365bfe5fc1cd01906570ef8352ba8b288d",
+      "text_sha256": "f90d7a116e315fef1cbf4db4e7ed0ac95d08477f2011c5ea1dce1bbcc62801ac"
+    },
+    {
+      "article_id": "PMC10985250",
+      "pmc_version": 1,
+      "pdf_sha256": "da3f20ab88773c13ae08e73f8c18f0a6bb9ccb9000edc0aaf20231fe69fab042",
+      "text_sha256": "9540f1db4e82cd5c2b5317cc8e7c22bb9e574bedb8a482183059aa75079f83c2"
+    },
+    {
+      "article_id": "PMC11265054",
+      "pmc_version": 1,
+      "pdf_sha256": "2e0ede0a64a478e6a71597953a3a129f1b0ec2e517c141031626716902617988",
+      "text_sha256": "8eca20550e7b3985ea416f673e8e7215ae5c1d3b4324f43fd6fa7025cd8da9b9"
+    },
+    {
+      "article_id": "PMC11354916",
+      "pmc_version": 1,
+      "pdf_sha256": "57bc82e367b1c0e1287949bd450a99f9781d44f1a1d771329da3790e866ddcca",
+      "text_sha256": "adfd72166763a7877947d3a00e7d284e83c5c957d1c69b14edfc001cf93e9303"
+    },
+    {
+      "article_id": "PMC11373557",
+      "pmc_version": 1,
+      "pdf_sha256": "0c9c6285ea1c2ca4ab5988ee086381b216024bd83fc30fdb87b312f14e7573e2",
+      "text_sha256": "7f7028f9cb1faf7340e0a1332173ba45b6c49f2b5de9fd8cd0ce21228f39fcbc"
+    },
+    {
+      "article_id": "PMC11374717",
+      "pmc_version": 1,
+      "pdf_sha256": "ad7d0765df4acc821140a90163616d16eac041d3189c62a84816393f6fb3d7a2",
+      "text_sha256": "81bea566735ce5a3dd900c3d5c799f2be52d1aa98e269271051f86c42faeba23"
+    },
+    {
+      "article_id": "PMC11514186",
+      "pmc_version": 1,
+      "pdf_sha256": "4b2d042eb6899421eddf9f9c9156a16a1323ccb47448e2209591eac5bec96412",
+      "text_sha256": "08fd7ff833e8fb16f4f84673fb9284f0c4a3b8de60f5b0ffd8e65f65c7e11a5b"
+    },
+    {
+      "article_id": "PMC11549774",
+      "pmc_version": 1,
+      "pdf_sha256": "a601b1f08ceffa558785589ddd1318b1721e0e43f942ef842555dad101e513d0",
+      "text_sha256": "8139a3464d5e449d8b767a7a2b84755fe46c22425cc7404984274ea22a0ed25a"
+    },
+    {
+      "article_id": "PMC11973566",
+      "pmc_version": 1,
+      "pdf_sha256": "d313c0487c3de9e7592629cb1a40487ef9014a6765b754be0aa5dd4540586f40",
+      "text_sha256": "8f08eee9d4ce3d6674fdc4033da15e6aaebb9c7c4c1ef8ecc90ad58fb9677bb1"
+    },
+    {
+      "article_id": "PMC12003177",
+      "pmc_version": 1,
+      "pdf_sha256": "d977b0dc0b6e1642cdf840e3980a7049b2705efea8c3673b1966228426b00747",
+      "text_sha256": "9fba58ea3eca0bfbd3ffe13706c8668f5b8c63bf6cbc612684ce977c19bba230"
+    },
+    {
+      "article_id": "PMC12683810",
+      "pmc_version": 1,
+      "pdf_sha256": "73e09eabefaa17069e9dfa759b25f0bcdff6670ff98e13376c6bf4edf5a9d00d",
+      "text_sha256": "2ae0ddbaa222c6338b2ef243f54db4bb48c309956d452c3e93ee9c8fbf165644"
+    },
+    {
+      "article_id": "PMC12880197",
+      "pmc_version": 1,
+      "pdf_sha256": "4184a379fbcc8ee900c7bafdef97ce0a510754edd13cc2b03b793fbfd2178c10",
+      "text_sha256": "a80597a43244637e86546a9aa05f04069b7e8c8d3effccdd9aa082fd99721767"
+    },
+    {
+      "article_id": "PMC12886974",
+      "pmc_version": 1,
+      "pdf_sha256": "224b75380b1f544fff0e70a11497feb5831ed510081ddd62d7507e7c54addd64",
+      "text_sha256": "59b924df2bfc187cb9b46d7e364de4c886b988e4ac533c275e23047540f5e978"
+    },
+    {
+      "article_id": "PMC13433181",
+      "pmc_version": 1,
+      "pdf_sha256": "1d935134ce714762ed0cf19167c622f4ae4914b3e85f86094d07d85909b93c53",
+      "text_sha256": "e4a478287bfa1d922ed24b37de0756eb37f283583ddc5a98379d60eb600b472a"
+    },
+    {
+      "article_id": "PMC13433862",
+      "pmc_version": 1,
+      "pdf_sha256": "98440a13560fb770655aab38680bbb8d8f21a700eed8db59ee6ab14f1713cad0",
+      "text_sha256": "a7392cc279bda7889978699cb469095c6ea2d0fdfc4a21909562e8ffcbeffa75"
+    },
+    {
+      "article_id": "PMC13439631",
+      "pmc_version": 1,
+      "pdf_sha256": "f53e37eee5fffda71935451944718520aab7cf16ad5dc7724db098b129d757f0",
+      "text_sha256": "24d5f324a1c5a6bd8f7481b08e216ecf32bda77af3932c09636a5bb854520d54"
+    },
+    {
+      "article_id": "PMC4804513",
+      "pmc_version": 1,
+      "pdf_sha256": "7a9d0736403d43d29074d4ae86e207287148a915c60c436d2e796669bedd2f66",
+      "text_sha256": "1fa7ea1e51386b8bec2c48538ae64bf304763b96e9d8e62495a8dfef40ba498c"
+    },
+    {
+      "article_id": "PMC8866621",
+      "pmc_version": 1,
+      "pdf_sha256": "5fac4e90fefa67859c05eb5740926afdab413a980ae6a4876b2ed691f7742928",
+      "text_sha256": "aa9921406485752eefe722a0c02d5104d49ad3c252110a7299b64a4b9459934c"
+    }
+  ],
+  "code_commit": "9910c2f12a73d2c04a805557af90c9d13e2d944f",
+  "ingestion": "production main.ingest / main.embed / main.chunk_text; no HTTP server"
+}
