@@ -1,0 +1,454 @@
+{
+  "schema_version": "1.0",
+  "query_version": "cardiology-queries-v1",
+  "query_sha256": "cef90c420cde6ef4f8d8c0f35aa6ae971591ca7d5a7c6e9ae64dc1321d0280f4",
+  "selection_sha256": "e6e63604b1413f6042e43968b7ff83ae0eac763687f99e26006fae9776f19f7b",
+  "state": "Author verified; independent PR review and freeze pending Juan",
+  "author": "Codex",
+  "no_retrieval_tuning": true,
+  "no_generated_answer_judging": true,
+  "no_paid_calls": true,
+  "category_counts": {
+    "cross_doc_distractor": 7,
+    "cross_doc_synthesis": 8,
+    "direct_lookup": 14,
+    "false_premise": 4,
+    "multi_hop": 9,
+    "unanswerable": 3
+  },
+  "legacy_review": [
+    {
+      "legacy_query_id": "q041",
+      "removed_AF_or_hypertension_direct_dependency": true,
+      "action": "revise_as_versioned_case",
+      "rationale": "Replace restricted review dependency with eligible review; distinguish AF history detection from future incidence.",
+      "new_query_ids": [
+        "q041"
+      ]
+    },
+    {
+      "legacy_query_id": "q042",
+      "removed_AF_or_hypertension_direct_dependency": true,
+      "action": "revise_as_versioned_case",
+      "rationale": "Use primary mITT population and bind endpoint/blanking definition to primary result; no secondary-arrhythmia overclaim.",
+      "new_query_ids": [
+        "q042"
+      ]
+    },
+    {
+      "legacy_query_id": "q043",
+      "removed_AF_or_hypertension_direct_dependency": true,
+      "action": "retire_legacy_case",
+      "rationale": "Explainability accuracy and co-located AUC/ICI claims in the removed review are not source-equivalent to the new primary paper. Replace with scoped prediction/calibration cases; do not call a single paragraph multi-hop.",
+      "new_query_ids": [
+        "c001",
+        "c002"
+      ]
+    },
+    {
+      "legacy_query_id": "q044",
+      "removed_AF_or_hypertension_direct_dependency": true,
+      "action": "revise_as_versioned_case",
+      "rationale": "Reclassify distractor to synthesis: both stroke and no-reflow documents are required; preserve score variant and outcome.",
+      "new_query_ids": [
+        "q044"
+      ]
+    },
+    {
+      "legacy_query_id": "q046",
+      "removed_AF_or_hypertension_direct_dependency": true,
+      "action": "retire_legacy_case",
+      "rationale": "The selected trial supports procedure/RF duration, not the old review’s fluoroscopy reduction percentage. New trade-off case uses verified durations.",
+      "new_query_ids": [
+        "c005"
+      ]
+    },
+    {
+      "legacy_query_id": "q047",
+      "removed_AF_or_hypertension_direct_dependency": false,
+      "action": "revise_as_versioned_case",
+      "rationale": "Verify derivation combined versus best individual AUC; accept one genuinely equivalent complete abstract alternative.",
+      "new_query_ids": [
+        "q047"
+      ]
+    },
+    {
+      "legacy_query_id": "q048",
+      "removed_AF_or_hypertension_direct_dependency": false,
+      "action": "revise_as_versioned_case",
+      "rationale": "Bind external validation to transportability/case-mix limitation; do not infer broad calibration from derivation alone.",
+      "new_query_ids": [
+        "q048"
+      ]
+    },
+    {
+      "legacy_query_id": "q049",
+      "removed_AF_or_hypertension_direct_dependency": false,
+      "action": "revise_as_versioned_case",
+      "rationale": "Preserve source-reported adjusted predictor summary without asserting observational causation.",
+      "new_query_ids": [
+        "q049"
+      ]
+    },
+    {
+      "legacy_query_id": "q050",
+      "removed_AF_or_hypertension_direct_dependency": false,
+      "action": "revise_as_versioned_case",
+      "rationale": "Remove false >0.93 premise; compare actual source-specific combined models as synthesis.",
+      "new_query_ids": [
+        "q050"
+      ]
+    },
+    {
+      "legacy_query_id": "q051",
+      "removed_AF_or_hypertension_direct_dependency": false,
+      "action": "revise_as_versioned_case",
+      "rationale": "Preserve unresolved n=280/n=131 source conflict and reported EPV; do not invent a complete-case subset.",
+      "new_query_ids": [
+        "q051"
+      ]
+    },
+    {
+      "legacy_query_id": "q053",
+      "removed_AF_or_hypertension_direct_dependency": false,
+      "action": "revise_as_versioned_case",
+      "rationale": "Use reported GLS change and its units; avoid silent recomputation/rounding reconciliation.",
+      "new_query_ids": [
+        "q053"
+      ]
+    },
+    {
+      "legacy_query_id": "q054",
+      "removed_AF_or_hypertension_direct_dependency": false,
+      "action": "revise_as_versioned_case",
+      "rationale": "Bind denominators, follow-up and observed HF rehospitalization comparison; no causal risk reduction claim.",
+      "new_query_ids": [
+        "q054"
+      ]
+    },
+    {
+      "legacy_query_id": "q055",
+      "removed_AF_or_hypertension_direct_dependency": false,
+      "action": "revise_as_versioned_case",
+      "rationale": "Reclassify multi-hop to direct lookup: one paragraph contains aggregate and within-group correlations; do not assert within-group linear relation.",
+      "new_query_ids": [
+        "q055"
+      ]
+    },
+    {
+      "legacy_query_id": "q056",
+      "removed_AF_or_hypertension_direct_dependency": false,
+      "action": "revise_as_versioned_case",
+      "rationale": "Keep all three scoped biomarker percentages with treatment/control pairing; no mechanism or causal conclusion.",
+      "new_query_ids": [
+        "q056"
+      ]
+    },
+    {
+      "legacy_query_id": "q058",
+      "removed_AF_or_hypertension_direct_dependency": false,
+      "action": "revise_as_versioned_case",
+      "rationale": "Diabetes-status interaction is not evidence of glycemic mediation independence; explicitly constrain the interpretation despite the source overclaim.",
+      "new_query_ids": [
+        "q058"
+      ]
+    },
+    {
+      "legacy_query_id": "q059",
+      "removed_AF_or_hypertension_direct_dependency": true,
+      "action": "retire_legacy_case",
+      "rationale": "Physician RH-belief and screening percentages belong to the removed Singapore survey; consensus diagnostic work-up cannot supply them.",
+      "new_query_ids": [
+        "c007"
+      ]
+    },
+    {
+      "legacy_query_id": "q060",
+      "removed_AF_or_hypertension_direct_dependency": true,
+      "action": "retire_legacy_case",
+      "rationale": "Survey training/exposure percentages cannot be transferred to Thai or Korean consensus epidemiology.",
+      "new_query_ids": [
+        "c006"
+      ]
+    },
+    {
+      "legacy_query_id": "q061",
+      "removed_AF_or_hypertension_direct_dependency": true,
+      "action": "retire_legacy_case",
+      "rationale": "Survey referral/barrier percentages are not facts in the replacement consensus or primary studies.",
+      "new_query_ids": [
+        "c007",
+        "c008"
+      ]
+    },
+    {
+      "legacy_query_id": "q062",
+      "removed_AF_or_hypertension_direct_dependency": true,
+      "action": "retire_legacy_case",
+      "rationale": "Conflicting 43–55% referral figures are unresolved in the removed-source legacy case. Retire rather than selecting an unsupported reconciliation.",
+      "new_query_ids": [
+        "c006",
+        "c007"
+      ]
+    },
+    {
+      "legacy_query_id": "q065",
+      "removed_AF_or_hypertension_direct_dependency": false,
+      "action": "revise_as_versioned_case",
+      "rationale": "Separate incidence and sex-specific ROC evidence; distinguish sex-adjusted score variant from VASc/FMD competitor.",
+      "new_query_ids": [
+        "q065"
+      ]
+    },
+    {
+      "legacy_query_id": "q066",
+      "removed_AF_or_hypertension_direct_dependency": false,
+      "action": "revise_as_versioned_case",
+      "rationale": "Overall and female adjusted estimates are co-located; classify direct lookup rather than artificial multi-hop.",
+      "new_query_ids": [
+        "q066"
+      ]
+    },
+    {
+      "legacy_query_id": "q067",
+      "removed_AF_or_hypertension_direct_dependency": false,
+      "action": "revise_as_versioned_case",
+      "rationale": "Remove target percentage from the question; retain as intentional simple floor distinct from q065’s additional subgroup requirement.",
+      "new_query_ids": [
+        "q067"
+      ]
+    },
+    {
+      "legacy_query_id": "q068",
+      "removed_AF_or_hypertension_direct_dependency": true,
+      "action": "retire_legacy_case",
+      "rationale": "Duplicate broad low-AUC narrative with the target range already supplied in the question. q044 now asks a neutral attributed comparison across score variants and endpoints.",
+      "new_query_ids": [
+        "q044"
+      ]
+    },
+    {
+      "legacy_query_id": "q069",
+      "removed_AF_or_hypertension_direct_dependency": false,
+      "action": "revise_as_versioned_case",
+      "rationale": "Verify adjusted male platelet result and uncertainty; distinguish it from unadjusted hemoglobin and score.",
+      "new_query_ids": [
+        "q069"
+      ]
+    },
+    {
+      "legacy_query_id": "q120",
+      "removed_AF_or_hypertension_direct_dependency": true,
+      "action": "retire_legacy_case",
+      "rationale": "AtriaNet segmentation claims from the removed AF review cannot be inferred from coronary imaging prediction or the replacement AF studies.",
+      "new_query_ids": [
+        "c001",
+        "c014",
+        "c015"
+      ]
+    },
+    {
+      "legacy_query_id": "q121",
+      "removed_AF_or_hypertension_direct_dependency": true,
+      "action": "retire_legacy_case",
+      "rationale": "GDF-15 subcase duplicates the three-biomarker task; retain q056 with exact study-specific values.",
+      "new_query_ids": [
+        "q056"
+      ]
+    },
+    {
+      "legacy_query_id": "q122",
+      "removed_AF_or_hypertension_direct_dependency": true,
+      "action": "retire_legacy_case",
+      "rationale": "AF review/physician-survey synthesis depends on both removed sources and does not have an equivalent source-bound referral answer.",
+      "new_query_ids": [
+        "c007",
+        "c008"
+      ]
+    },
+    {
+      "legacy_query_id": "q123",
+      "removed_AF_or_hypertension_direct_dependency": true,
+      "action": "retire_legacy_case",
+      "rationale": "Duplicate trial-outcome statement; q042 defines the primary mITT outcome and c004 explicitly contrasts review and primary reports.",
+      "new_query_ids": [
+        "q042",
+        "c004"
+      ]
+    },
+    {
+      "legacy_query_id": "q124",
+      "removed_AF_or_hypertension_direct_dependency": false,
+      "action": "revise_as_versioned_case",
+      "rationale": "Replace broad loosely related decoys with genuinely separated ROC/regression lookup; require adjusted column header binding.",
+      "new_query_ids": [
+        "q124"
+      ]
+    },
+    {
+      "legacy_query_id": "q125",
+      "removed_AF_or_hypertension_direct_dependency": true,
+      "action": "retire_legacy_case",
+      "rationale": "CCTA/physician-survey synthesis cannot retain survey percentages. New synthesis compares diagnostic requirements with a trial phenotype limitation.",
+      "new_query_ids": [
+        "c007",
+        "c008"
+      ]
+    },
+    {
+      "legacy_query_id": "q126",
+      "removed_AF_or_hypertension_direct_dependency": false,
+      "action": "revise_as_versioned_case",
+      "rationale": "Connect FAI measurement/software to multivariable estimate; no unrelated score/drug decoy or causal mechanism inference.",
+      "new_query_ids": [
+        "q126"
+      ]
+    },
+    {
+      "legacy_query_id": "q127",
+      "removed_AF_or_hypertension_direct_dependency": true,
+      "action": "retire_legacy_case",
+      "rationale": "Broad SGLT2 class naming is redundant and old survey evidence is unavailable; replace with organ/design-specific synthesis, avoiding transfer of clinical outcomes to genetic drug response.",
+      "new_query_ids": [
+        "c012",
+        "c016"
+      ]
+    },
+    {
+      "legacy_query_id": "q128",
+      "removed_AF_or_hypertension_direct_dependency": false,
+      "action": "revise_as_versioned_case",
+      "rationale": "Replace incidental biomarker decoy with one-table unadjusted/adjusted hemoglobin task; direct lookup classification.",
+      "new_query_ids": [
+        "q128"
+      ]
+    },
+    {
+      "legacy_query_id": "q129",
+      "removed_AF_or_hypertension_direct_dependency": true,
+      "action": "revise_as_versioned_case",
+      "rationale": "Retire unsupported survey dependency; use exact unadjusted hypertension comparison and a real conflicting STEMI cohort as a scoped decoy.",
+      "new_query_ids": [
+        "q129"
+      ]
+    }
+  ],
+  "article_review": [
+    {
+      "article_id": "PMC10363301",
+      "review_scope": "Relevant full-text methods, results, tables and limitations cross-checked against pinned PDF/JATS; not independent clinical review.",
+      "overlap_resolution": "Five-year incident AF labels, ECG rather than patient sample units, original ratio versus random undersampling; AUC and calibration are separate. Lorenz detection/AHRE classification are inapplicable alternatives."
+    },
+    {
+      "article_id": "PMC10607686",
+      "review_scope": "Relevant full-text methods, results, tables and limitations cross-checked against pinned PDF/JATS; not independent clinical review.",
+      "overlap_resolution": "Review-cited thromboembolism c-statistic is not a primary new no-reflow cohort estimate; VASc and VA score variants/outcomes differ. No general universal ceiling inferred."
+    },
+    {
+      "article_id": "PMC10619268",
+      "review_scope": "Relevant full-text methods, results, tables and limitations cross-checked against pinned PDF/JATS; not independent clinical review.",
+      "overlap_resolution": "Korean primary-care/tertiary RH epidemiology differs from Thai estimated apparent/true RH; competitor only, not an equivalent Thai percentage."
+    },
+    {
+      "article_id": "PMC10985250",
+      "review_scope": "Relevant full-text methods, results, tables and limitations cross-checked against pinned PDF/JATS; not independent clinical review.",
+      "overlap_resolution": "Separate trial sources and historical 2022 US costs. CNT differs from QALY cost-effectiveness; no direct randomized drug-to-drug comparison."
+    },
+    {
+      "article_id": "PMC11265054",
+      "review_scope": "Relevant full-text methods, results, tables and limitations cross-checked against pinned PDF/JATS; not independent clinical review.",
+      "overlap_resolution": "AF episode detection in Lorenz records differs from five-year incidence. External paroxysmal sample has only five patients; retain representativeness limitation."
+    },
+    {
+      "article_id": "PMC11354916",
+      "review_scope": "Relevant full-text methods, results, tables and limitations cross-checked against pinned PDF/JATS; not independent clinical review.",
+      "overlap_resolution": "Six-month oxidative/platelet concentration changes in geriatric T2D/HFpEF are not fibrosis-marker percentages; no randomized trial/matched control, so no causal attribution."
+    },
+    {
+      "article_id": "PMC11373557",
+      "review_scope": "Relevant full-text methods, results, tables and limitations cross-checked against pinned PDF/JATS; not independent clinical review.",
+      "overlap_resolution": "Matched advanced-CKD cohort with renal benefit and GUTI association; residual confounding retained. No substitution for cardiac GLS, randomized BP effects or genetic response."
+    },
+    {
+      "article_id": "PMC11374717",
+      "review_scope": "Relevant full-text methods, results, tables and limitations cross-checked against pinned PDF/JATS; not independent clinical review.",
+      "overlap_resolution": "RH requires pseudoresistance exclusion; Thai prevalence is an estimate with assumed pseudo-RH fraction. Does not reproduce removed physician-survey percentages."
+    },
+    {
+      "article_id": "PMC11514186",
+      "review_scope": "Relevant full-text methods, results, tables and limitations cross-checked against pinned PDF/JATS; not independent clinical review.",
+      "overlap_resolution": "Hard MACE composite with median 50.4-month follow-up; risk association differs from incremental discrimination. CAD-RADS 2.0+TyG increment not significant."
+    },
+    {
+      "article_id": "PMC11549774",
+      "review_scope": "Relevant full-text methods, results, tables and limitations cross-checked against pinned PDF/JATS; not independent clinical review.",
+      "overlap_resolution": "T2D unstable-angina diagnostic per-patient CT-FFR AUC differs from three-year MACCE prognosis. Source abstract contains malformed per-vessel sensitivity; no case uses that malformed number."
+    },
+    {
+      "article_id": "PMC11973566",
+      "review_scope": "Relevant full-text methods, results, tables and limitations cross-checked against pinned PDF/JATS; not independent clinical review.",
+      "overlap_resolution": "EF>40% placebo-controlled empagliflozin trial; early modest resHTN SBP separation, later similarity; office-based phenotype does not confirm exclusion of pseudoresistance."
+    },
+    {
+      "article_id": "PMC12003177",
+      "review_scope": "Relevant full-text methods, results, tables and limitations cross-checked against pinned PDF/JATS; not independent clinical review.",
+      "overlap_resolution": "Primary AF after one procedure differs from any-arrhythmia secondary endpoints and mITT/PP populations. Use attributed 88/70 mITT values, not review 89/67. Procedure duration is a trade-off."
+    },
+    {
+      "article_id": "PMC12436478",
+      "review_scope": "Relevant full-text methods, results, tables and limitations cross-checked against pinned PDF/JATS; not independent clinical review.",
+      "overlap_resolution": "Echo-based AHRE duration threshold classification is neither episode ECG detection nor incident five-year AF. Competitor only; no unscoped claim of predictiveness."
+    },
+    {
+      "article_id": "PMC12683810",
+      "review_scope": "Relevant full-text methods, results, tables and limitations cross-checked against pinned PDF/JATS; not independent clinical review.",
+      "overlap_resolution": "Placebo-anchored indirect class comparisons, heterogeneous subpopulations. HFpEF nonsignificance is neither superiority nor equivalence; do not transfer CKD/ASCVD results."
+    },
+    {
+      "article_id": "PMC12880197",
+      "review_scope": "Relevant full-text methods, results, tables and limitations cross-checked against pinned PDF/JATS; not independent clinical review.",
+      "overlap_resolution": "Eligible AF review cites history detection and trial outcomes; primary trial conflicts are attributed. Cannot inherit old review’s fluoroscopy/AtriaNet facts."
+    },
+    {
+      "article_id": "PMC12886974",
+      "review_scope": "Relevant full-text methods, results, tables and limitations cross-checked against pinned PDF/JATS; not independent clinical review.",
+      "overlap_resolution": "Partitioned T2D/BP genetic mechanisms and inverse-risk cluster; environmental limitations. Does not measure sulfonylurea/SGLT2 pharmacogenetic response."
+    },
+    {
+      "article_id": "PMC13433181",
+      "review_scope": "Relevant full-text methods, results, tables and limitations cross-checked against pinned PDF/JATS; not independent clinical review.",
+      "overlap_resolution": "One-year mixed hard/soft MACE, derivation/external case-mix shift; unresolved 280/131 count conflict, EPV 3.3. Coefficient/OR inconsistencies left source-reported; table columns visually checked."
+    },
+    {
+      "article_id": "PMC13433862",
+      "review_scope": "Relevant full-text methods, results, tables and limitations cross-checked against pinned PDF/JATS; not independent clinical review.",
+      "overlap_resolution": "Retrospective HFpEF cardiac/biomarker outcomes, six-month markers and median 12-month rehospitalization. Aggregate correlation differs from within-group analysis; no glycemic-independence proof."
+    },
+    {
+      "article_id": "PMC13439631",
+      "review_scope": "Relevant full-text methods, results, tables and limitations cross-checked against pinned PDF/JATS; not independent clinical review.",
+      "overlap_resolution": "VA score in 725 STEMI patients, sex-specific discrimination and adjusted predictors. Hypertension group comparison is unadjusted, unlike sex-specific regression. Tables 3/6 visually checked."
+    },
+    {
+      "article_id": "PMC4804513",
+      "review_scope": "Relevant full-text methods, results, tables and limitations cross-checked against pinned PDF/JATS; not independent clinical review.",
+      "overlap_resolution": "Small Cameroon four-week randomized BP trial; contradictory abstract/body control targets and separate office/home criteria preserved. No five-year mortality."
+    },
+    {
+      "article_id": "PMC8866621",
+      "review_scope": "Relevant full-text methods, results, tables and limitations cross-checked against pinned PDF/JATS; not independent clinical review.",
+      "overlap_resolution": "VASc plus FMD in 150 STEMI patients differs from VA plus lab/procedural model. The source may support broad STEMI questions, so decoys use explicit study cues."
+    }
+  ],
+  "visual_table_checks": [
+    "PMC13433181 PDF p6 Tables3/4",
+    "PMC13439631 PDF p6 Table3",
+    "PMC13439631 PDF p9 Table6/Figure2",
+    "PMC13433862 PDF p5 correlation/subgroups",
+    "PMC12003177 PDF p3 mITT result/Table1",
+    "PMC11514186 PDF p6 Tables3/4"
+  ],
+  "duplicate_policy": "q067 is an intentional simple incidence floor alongside composed q065. q043/q046 replaced with new tasks, q068/q121/q123 retired for duplication/leakage. Shared facts elsewhere assess distinct scopes or confusions; never supply requested target values in answerable questions.",
+  "BM25_policy": "Lexical performance is a hypothesis; no case labelled BM25-dependent and no query wording chosen from retrieval failures. Freeze on approved PR before identical flag comparisons.",
+  "judge_coordination": "JUA-40 receives rubrics/facts/evidence from this release only after its separately agreed Spring Boot/Java-AI sequencing gate. No judge implementation or external model evaluation here."
+}

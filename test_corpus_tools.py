@@ -14,6 +14,19 @@ import ingest_corpus
 
 
 class CorpusIngestionTests(unittest.TestCase):
+    def test_pdf_ingestion_keeps_manifest_source_name_when_writing_text_sidecar(self):
+        with tempfile.TemporaryDirectory() as directory:
+            pdf_path = Path(directory, "test-article.pdf")
+            page = MagicMock(); page.extract_text.return_value = "some extracted article text"
+            rag_client = MagicMock()
+            rag_client.post.return_value.json.return_value = {"chunks_ingested": 1}
+            with patch.object(ingest_corpus, "PdfReader") as reader:
+                reader.return_value.pages = [page]
+                self.assertEqual(ingest_corpus.ingest_file(rag_client, pdf_path, source=pdf_path.name), 1)
+            self.assertEqual(pdf_path.with_suffix(".txt").read_text(), "some extracted article text")
+            self.assertEqual(rag_client.post.call_args.kwargs["json"],
+                             {"source": "test-article.pdf", "text": "some extracted article text"})
+
     def test_unreachable_or_loading_service_aborts_before_ingestion(self):
         for failure in (httpx.ConnectError("test connection failure"), None):
             client = MagicMock()
@@ -72,7 +85,7 @@ class ComparisonTests(unittest.TestCase):
             experiment.write_text(json.dumps({"results": after}))
             for path, changed in [(experiment, True), (baseline, False)]:
                 output = io.StringIO()
-                with self.subTest(changed=changed), patch("sys.argv", ["compare_evals.py", str(baseline), str(path)]), contextlib.redirect_stdout(output):
+                with self.subTest(changed=changed), patch("sys.argv", ["compare_evals.py", str(baseline), str(path), "--allow-legacy"]), contextlib.redirect_stdout(output):
                     compare_evals.main()
                 text = output.getvalue()
                 self.assertNotIn("test-b", text)

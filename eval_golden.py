@@ -88,7 +88,14 @@ async def main() -> int:
         help="Comma-separated query ids to evaluate, e.g. q139,q140. "
              "Runs only these instead of the full golden set.",
     )
+    parser.add_argument("--benchmark", type=Path, help="Directory containing reviewed queries.json, manifest.json and conditions.json")
+    parser.add_argument("--condition", choices=["C1", "C2", "C3"], default="C2")
+    parser.add_argument("--corpus-dir", type=Path, default=Path("corpus/cardiology-v1"))
+    parser.add_argument("--output", type=Path, help="Explicit output path; versioned runs refuse overwrites")
     args = parser.parse_args()
+    if args.benchmark:
+        from eval_benchmark import run_benchmark
+        return await run_benchmark(args, retrieve, _load_models_and_index)
 
     use_bm25: bool = args.bm25
     use_rewrite: bool = args.rewrite
@@ -115,12 +122,13 @@ async def main() -> int:
     queries = golden.get("queries", [])
 
     id_filter: set[str] | None = None
-    if args.ids:
+    if args.ids is not None:
         id_filter = {qid.strip() for qid in args.ids.split(",") if qid.strip()}
         queries = [q for q in queries if q["id"] in id_filter]
         missing = id_filter - {q["id"] for q in queries}
         if missing:
-            print(f"WARNING: ids not found in golden set: {sorted(missing)}")
+            print(f"ERROR: ids not found in golden set: {sorted(missing)}")
+            return 1
         if not queries:
             print("No matching queries for --ids. Nothing to evaluate.")
             return 1
@@ -153,7 +161,7 @@ async def main() -> int:
         }
 
         for n in N_VALUES:
-            _, sources = await retrieve(
+            contexts, sources = await retrieve(
                 question,
                 n_results=n,
                 use_query_rewriting=use_rewrite,
@@ -162,6 +170,7 @@ async def main() -> int:
             verdict = score_query(sources, q)
             entry[f"n{n}"] = {
                 "retrieved_sources": sources,
+                "retrieved_contexts": contexts,
                 "verdict": verdict,
             }
 
@@ -235,7 +244,8 @@ async def main() -> int:
         },
         "results": results,
     }
-    output_path = (
+    output["metric_scope"] = "legacy document-level retrieval; no evidence or answer judgments"
+    output_path = args.output or (
         Path(f"./eval_results_subset_{config_label}.json") if id_filter else RESULTS_PATH
     )
     output_path.write_text(json.dumps(output, indent=2))

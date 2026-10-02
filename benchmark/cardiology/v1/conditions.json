@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "corpus_version": "cardiology-selection-v1",
-  "status": "provisional_membership; not an evaluated/frozen query benchmark",
+  "status": "membership verified against authored query union; independent PR review/freeze pending",
   "conditions": {
     "C1": {
       "article_ids": [
@@ -25,7 +25,7 @@
         "PMC4804513",
         "PMC8866621"
       ],
-      "purpose": "Planned 19-article answer-source pool; recompute actual union after JUA-109 query/alternative review.",
+      "purpose": "Exact union of required and accepted-alternative answer-source articles in cardiology-queries-v1 (19 articles).",
       "membership_sha256": "bf8ac30a674a18f85d1fddc24a622cbf7f3ee544341709990579c8058964dab3"
     },
     "C2": {
@@ -210,5 +210,7 @@
       "pdf_sha256": "5fac4e90fefa67859c05eb5740926afdab413a980ae6a4876b2ed691f7742928",
       "text_sha256": "aa9921406485752eefe722a0c02d5104d49ad3c252110a7299b64a4b9459934c"
     }
-  ]
+  ],
+  "query_version": "cardiology-queries-v1",
+  "query_sha256": "cef90c420cde6ef4f8d8c0f35aa6ae971591ca7d5a7c6e9ae64dc1321d0280f4"
 }

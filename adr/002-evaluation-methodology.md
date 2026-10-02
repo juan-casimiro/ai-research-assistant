@@ -183,12 +183,34 @@ hypertension at all. Use the abstract for a first draft; verify
 against full text before adding table/subgroup-dependent cases to
 `golden_qa.json`.
 
-## Planned benchmark rebuild
+## Versioned cardiology benchmark rebuild
 
-[Corpus and benchmark standards v1](../benchmark/STANDARDS.md) defines the
-shared selection, evidence, category, metric and compatibility contract for
-JUA-106. JUA-109 implements the revised queries/scorer; the rules above still
-describe the current harness. In particular, evidence anchors, accepted alternative
-sets, separate absent-fact/false-premise judgments and fingerprint checks are
-planned requirements, not capabilities already implemented by `eval_golden.py`
-or `compare_evals.py`.
+[Corpus and benchmark standards v1](../benchmark/STANDARDS.md) governs JUA-106.
+JUA-109 adds the separate [45-case cardiology query release](../benchmark/cardiology/v1/BENCHMARK.md),
+subject to independent PR review and freeze before experiments. The historical
+schema/scoring above remains unchanged for `golden_qa.json`; it is not a measure
+of passage sufficiency or answer correctness.
+
+In versioned mode, `eval_golden.py` still calls production `retrieve()` and records
+reranked chunks/sources at depths 3 and 8. Document coverage, conservative pinned
+excerpt coverage, fact recall and competitor ordering are distinct. Complete
+alternatives use OR; each set requires all its anchors. An excerpt spanning chunks
+requires every whole chunk in a contiguous production window certified against
+its pinned source offsets, regardless of retrieval rank. The offline oracle
+checks unlimited coverage and minimum complete-evidence chunk budgets. V3
+reports full-set and feasible-only coverage at each depth, with structural
+ceilings and infeasible IDs; document coverage and partial fact recall retain
+all scored cases. All 42 evidence-bearing cases fit at n=8, but only 30 fit at
+n=3 (27/38 answerable and 3/4 false-premise correction cases). These are
+structural assertions, not retrieval-quality results. Absent facts are unscored;
+false-premise correction evidence is reported separately from judging generated
+corrections. Exact matching cannot exclude valid paraphrases, so failures require
+context inspection. JUA-40 retains separately sequenced answer-judge work.
+
+`compare_evals.py` now rejects changed queries/revisions, scorer/retrieval/corpus
+fingerprints, depths, changed/missing feasibility and incomplete executed-ID sets.
+Explicit nested comparisons
+hold retrieval flags fixed and preserve common article tuples. Historical pairs
+require `--allow-legacy`, are labelled unverifiable and cannot be mixed with the
+new release. This prevents a repaired reference or changed corpus from appearing
+as an improvement to the old benchmark. No new quality results are claimed.

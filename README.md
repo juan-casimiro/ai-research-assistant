@@ -6,7 +6,7 @@ A FastAPI service for semantic search and question-answering over ingested docum
 
 The test corpus is 19 open-access biomedical research articles (PubMed Central Open Access subset and equivalent open-access journals), spanning diabetes, cardiology, oncology, and an outlier cluster covering antimicrobial resistance, gut microbiome/tuberculosis, and AI-assisted diagnosis — see corpus_manifest.json for full per-article metadata, licenses, and sourcing notes. The RAG pipeline itself is domain-agnostic; biomedical literature was chosen as a corpus with genuinely dense, citation-heavy, and terminology-specific text, useful for stress-testing retrieval precision.
 
-**Retrieval accuracy: 96.4% @ n=3, 98.2% @ n=8** on a 133-query golden QA set (111 scored), spanning direct lookup, multi-hop, cross-document distractor, and cross-document synthesis cases. BM25 hybrid search and LLM query rewriting were implemented and evaluated as opt-in additions but measured no net benefit on this corpus — see [ADR-001](./adr/001-chunking-and-retrieval.md) for the full evaluation, including one attributable regression from BM25 alone.
+**Historical document/category-ranking pass rate: 96.4% @ n=3, 98.2% @ n=8** on a 133-query golden QA set (111 scored), spanning direct lookup, multi-hop, cross-document distractor, and cross-document synthesis cases. BM25 hybrid search and LLM query rewriting were implemented and evaluated as opt-in additions but measured no net benefit on this corpus — see [ADR-001](./adr/001-chunking-and-retrieval.md) for the full evaluation, including one attributable regression from BM25 alone.
 
 CI runs unit tests, builds the Docker image, and smoke-tests `/health` on every pull request and push to `main`. The golden QA evaluation remains manual because it is non-deterministic and calls a paid API. Successful `main` builds publish commit-SHA and `latest` images to `ghcr.io/juan-casimiro/ai-research-assistant`; nothing is deployed automatically. See [ADR-003](./adr/003-deployment-and-containerisation.md).
 
@@ -25,9 +25,13 @@ PubMed abstracts, discovery queries, pinned PMC licences, attribution and
 PDF/text verification receipts. `fetch_article_metadata.py` retrieves draft
 metadata from a PMCID through the PMC ID Converter, PubMed and the chosen PMC
 deposit; `verify_cardiology_selection.py` checks the selected local bytes and
-preserved baseline. Its questions, scoring and experiments are still pending,
-so it has no new retrieval results. Follow the snapshot instructions to acquire
+preserved baseline. Its [45-case query release and passage scorer](benchmark/cardiology/v1/BENCHMARK.md)
+are authored for independent review; retrieval experiments remain pending, so it
+has no new retrieval results. Follow the snapshot instructions to acquire
 its PDFs separately from the original host corpus below.
+The offline reachability oracle distinguishes unlimited coverage from the
+n=3/n=8 chunk budgets; versioned results report full-set and feasible-only
+evidence coverage with explicit ceilings and infeasible case IDs.
 
 ## Two ways to run this
 
@@ -166,6 +170,10 @@ python ingest_corpus.py       # ingests every PDF listed in the manifest
 
 ### Retrieval evaluation
 
+The commands below use the historical 133-case set. For the separate versioned
+cardiology release, metrics and compatibility rules, follow
+[the cardiology benchmark instructions](benchmark/cardiology/v1/BENCHMARK.md).
+
 ```bash
 python eval_golden.py [--bm25] [--rewrite]
 ```
@@ -185,7 +193,7 @@ requests and may incur provider usage. Results are written to
 and scoring logic.
 
 ```bash
-python compare_evals.py <baseline.json> <experiment.json>
+python compare_evals.py <baseline.json> <experiment.json> --allow-legacy
 ```
 
 Diffs two result files and prints per-query pass/fail flips, for
@@ -312,9 +320,9 @@ corpus expanded from 16 to 19 documents (outlier cluster).
   fusion) to measure lexical-only retrieval quality on this corpus,
   separate from the "does adding BM25 to vector help" question already
   answered
-- Add eval queries where dense retrieval + reranking demonstrably fails
-  and lexical exact-match would succeed, to test BM25's upside fairly
-  (the current BM25-favoring queries already pass on vector-only)
+- Author eval queries with realistic lexical ambiguity, to test sparse retrieval after gold
+  is reviewed and frozen; no query should be labelled BM25-dependent from observed
+  baseline failures
 - HyDE (Hypothetical Document Embeddings) or corpus-aware query rewriting,
   as a way to address vocabulary-specific mismatches that generic
   rewriting does not fix (see ADR-001)
