@@ -14,7 +14,7 @@ are not comparable to this revised evidence benchmark.
   nested C1/C2 membership and unchanged original global files.
 - Fault checks: a changed metadata archive was rejected; altered questions without
   matching reviewed condition linkage were rejected. Checks used temporary copies.
-- Required offline regressions: **188 tests passed**, including 37 release-verifier tests.
+- Required offline regressions: **193 tests passed**, including 42 release-verifier tests.
 - Production-chunker reachability: all **37 evidence-bearing cases** are reachable
   with their exact fact-bound gold. The three absent-fact cases deliberately have no
   invented evidence sets. [C1](results/offline-C1.json) and

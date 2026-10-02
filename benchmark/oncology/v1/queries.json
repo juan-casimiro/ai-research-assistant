@@ -1039,10 +1039,10 @@
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "duplicate_leakage_check": "Shares no evidence anchor with another case; the question identifies the source without disclosing target values. Absorbs retired legacy q084, whose detection-rate fact is required here.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation."
+      "selection_rationale": "Tests separating the cited meta-analysis's pooled CSF ctDNA detection rate (versus cytology) from its sensitivity and specificity, which are different diagnostic measures. Direct lookup: one passage holds all values."
     },
     {
       "id": "q080",
@@ -1108,10 +1108,10 @@
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "duplicate_leakage_check": "Shares no evidence anchor with another case; the question identifies the source without disclosing target values.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation."
+      "selection_rationale": "Tests attributing NILE plasma-versus-tissue results to the cited trial population (untreated metastatic NSCLC), including noninferiority, biomarker identification and turnaround. Direct lookup: one passage."
     },
     {
       "id": "q081",
@@ -1199,10 +1199,10 @@
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "duplicate_leakage_check": "Shares no evidence anchor with another case; the question identifies the source without disclosing target values.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation."
+      "selection_rationale": "False premise: that MCED shares LDCT's demonstrated mortality benefit. The correction needs the LDCT/NLST benefit and the statement that no MCED test has shown mortality benefit, without overstating that as proven ineffectiveness."
     },
     {
       "id": "q095",
@@ -1268,10 +1268,10 @@
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "duplicate_leakage_check": "Shares the screen anchor with q096 and the q100 negative context. Distinct: q095 asks for the category distribution; q096 asks for a derived comparison; q100 is an absent-fact near miss.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation."
+      "selection_rationale": "Tests reporting the study's four mutually exclusive screening categories and not treating dual screening as the CRC screening rate. Direct lookup: one table passage."
     },
     {
       "id": "q096",
@@ -1337,10 +1337,10 @@
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "duplicate_leakage_check": "Near-duplicate of q095 (same anchor). Retained for a distinct failure mode: comparing mutually exclusive categories correctly. The question does not disclose either percentage.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation."
+      "selection_rationale": "Tests a derived comparison between the mutually exclusive cervical-only and CRC-only categories (about fivefold) rather than overall single-cancer rates. Direct lookup: one passage, light arithmetic."
     },
     {
       "id": "q102",
@@ -1406,10 +1406,10 @@
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "duplicate_leakage_check": "Shares no evidence anchor with another case; the question identifies the source without disclosing target values.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation."
+      "selection_rationale": "Tests reporting printed flow-diagram counts without silently correcting the diagram's inconsistent subtraction or age label. Direct lookup on a figure; exercises figure extraction."
     },
     {
       "id": "o022",
@@ -1475,10 +1475,10 @@
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "duplicate_leakage_check": "Shares no evidence anchor with another case; the question identifies the source without disclosing target values.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation.",
+      "selection_rationale": "Tests population size, treatment-group counts and the surgical-selection restriction (resected patients only) that limits generalisation. Replaces legacy q103's population/group-size coverage on an eligible study. Direct lookup: one passage.",
       "supersedes_coverage_of": "q103"
     },
     {
@@ -1569,10 +1569,10 @@
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "duplicate_leakage_check": "Shares Hunan anchors with o028 (hunan_response) and o030 (DFS/OS anchors). Distinct: o028 asks only MPR values; o030 is a cross-document synthesis that accepts either OS label; o029 alone requires the label conflict.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation.",
+      "selection_rationale": "Tests response-versus-survival reasoning in one cohort: unadjusted DFS significance lost after PSM, the reported OS comparisons with their conflicting weighted/PSM labels, and the Limitations statement that OS is immature. Multi-hop: five separated anchors in one article.",
       "reasoning": "Join the unadjusted DFS result to the separate matched analysis, then the OS results with their conflicting Figure 1D label and the Limitations statement on OS maturity.",
       "supersedes_coverage_of": "q104"
     },
@@ -1640,10 +1640,10 @@
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "duplicate_leakage_check": "Shares hunan_response with o029 and o030, which use it for DFS context and state only \"higher MPR\". o028 alone asks for the MPR values.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation.",
+      "selection_rationale": "Tests endpoint separation: unadjusted MPR rates are pathological responses, not DFS. Replaces legacy q105's response-rate coverage. Direct lookup: one passage.",
       "supersedes_coverage_of": "q105"
     },
     {
@@ -1718,10 +1718,10 @@
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "duplicate_leakage_check": "Shares stage_narrative and stage_table with o002. Distinct failure modes: o001 rejects a response-to-survival causal premise; o002 detects an internal numeric conflict without the DFS question.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation."
+      "selection_rationale": "False premise: that higher pathological response caused significant DFS improvement in the Zhongshan stage III cohort. Correction: response gain with nonsignificant DFS (p=0.129), plus the explicit narrative/table MPR conflict."
     },
     {
       "id": "o002",
@@ -1789,10 +1789,10 @@
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "duplicate_leakage_check": "Evidence is a subset of o001's. Retained because o002 isolates conflict detection, while o001 tests causal overreach; o001's question does not ask about the conflict.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation.",
+      "selection_rationale": "Tests detecting and attributing an internal numeric conflict (narrative 19/26 versus Table 2 17/26) instead of reconciling it. Multi-hop: narrative and table are separated.",
       "reasoning": "Compare the narrative count with the separately positioned table row and its treatment columns."
     },
     {
@@ -1859,10 +1859,10 @@
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "duplicate_leakage_check": "Shares breast_pcr with o021. Distinct: o003 asks pCR values; o021 is a false-premise correction about randomized five-year OS.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation."
+      "selection_rationale": "Tests TNBC pCR by cohort with the design caveat (retrospective, nonmatched historical comparator), so the difference is not a randomized effect. Actual breast immunotherapy evidence replaces the mislabelled legacy file. Direct lookup: one abstract passage."
     },
     {
       "id": "o004",
@@ -1947,10 +1947,10 @@
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "duplicate_leakage_check": "Shares Helsinki cardiac anchors with o018 and breast_ae with o005. Distinct: o018 compares these with RCT risk ratios across documents; o005 reconciles discontinuation denominators.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation.",
+      "selection_rationale": "Tests distinguishing myocarditis (11, 14.7%) from new troponin elevation (23) and explaining the surveillance and diagnostic criteria. Multi-hop: methods and results anchors.",
       "reasoning": "Connect diagnostic monitoring in methods to the distinct outcomes reported in results."
     },
     {
@@ -2019,10 +2019,10 @@
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "duplicate_leakage_check": "Shares breast_ae with o004 and o018, which use it for cardiac adverse events, not discontinuation.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation.",
+      "selection_rationale": "Tests reconciling apparently conflicting percentages (10.7% versus 23.5%) by binding the same count (eight patients) to different denominators. Multi-hop: abstract and results.",
       "reasoning": "Resolve apparently conflicting percentages by joining each count to its separate denominator."
     },
     {
@@ -2106,10 +2106,10 @@
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "duplicate_leakage_check": "Shares afatinib_ttf with o006 and with o024 (decoy). Distinct: o006 tests the dose-share conflict; o024 uses the passage as a wrong-setting competitor.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation.",
+      "selection_rationale": "Tests that higher ORR at 40 mg (p=0.034) did not translate into longer mTTF (p=0.755); ORR and time to treatment failure are separate endpoints. Replaces legacy q113's afatinib-dosing coverage. Multi-hop: abstract response and separate TTF analysis.",
       "reasoning": "Compare response in the abstract with the separate time-to-failure analysis.",
       "supersedes_coverage_of": "q113"
     },
@@ -2179,10 +2179,10 @@
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "duplicate_leakage_check": "Shares afatinib_ttf with o027 and o024 (decoy), which use other values from the same table region.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation.",
+      "selection_rationale": "Tests keeping an abstract/Table 2 reversal of 30-mg and 40-mg starting-dose shares explicit. Multi-hop: abstract and table are separated.",
       "reasoning": "Bind each percentage to its dose in two separated source locations."
     },
     {
@@ -2253,10 +2253,10 @@
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "duplicate_leakage_check": "Shares driver_dfs with o024. Distinct: q108 tests source attribution; o024 asks an absolute OS difference with a distractor.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation."
+      "selection_rationale": "False premise: that the review's ADAURA hazard ratios come from its own cohort. Correction attributes the DFS HRs to the cited trial. Migrated from a legacy unanswerable case on an ineligible source."
     },
     {
       "id": "o007",
@@ -2322,15 +2322,15 @@
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "duplicate_leakage_check": "Shares driver_os with o024. Distinct: o024 derives the absolute difference for one stage population, identifies the adjuvant setting and must outrank an afatinib decoy.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation."
+      "selection_rationale": "Tests stage-population-specific five-year OS attributed to ADAURA (stage II–IIIA versus IB–IIIA), with HR and CI. Direct lookup: one passage."
     },
     {
       "id": "o023",
-      "revision": 2,
-      "category": "direct_lookup",
+      "revision": 3,
+      "category": "multi_hop",
       "topics": [
         "oncology"
       ],
@@ -2403,11 +2403,12 @@
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "duplicate_leakage_check": "Absorbs withdrawn o019, which was a strict subset of this task; no requested target values disclosed.",
+        "duplicate_leakage_check": "Absorbs withdrawn o019, a strict subset. Shares reflex_def and reflex_delay with o030, which needs them only for its synthesis.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation.",
-      "supersedes_coverage_of": "q111"
+      "selection_rationale": "Tests the Gosney consensus reflex-testing workflow (pathologist initiates an MDT-agreed panel without a formal oncologist request) and its delay mechanism. POL-MOL is recorded as partial support, so attribution to the consensus is required. Multi-hop: definition and delay passages are separated (recategorised from direct lookup).",
+      "supersedes_coverage_of": "q111",
+      "reasoning": "Join the definition of pathologist-initiated reflex testing to the separate Introduction passage on delays and suboptimal therapy."
     },
     {
       "id": "o008",
@@ -2473,15 +2474,15 @@
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "duplicate_leakage_check": "Shares reflex_early with o030, which needs it only as part of its synthesis.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation."
+      "selection_rationale": "Tests why the consensus argues for early EGFR testing in resectable disease, not only metastatic disease. Direct lookup: one passage."
     },
     {
       "id": "o009",
-      "revision": 2,
-      "category": "direct_lookup",
+      "revision": 3,
+      "category": "multi_hop",
       "topics": [
         "oncology"
       ],
@@ -2544,10 +2545,11 @@
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "duplicate_leakage_check": "Evidence is a subset of o017's. Retained because o017 tests cross-document endpoint separation, while o009 tests single-source scope of the HR.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation."
+      "selection_rationale": "Tests separating overall CV-event prevalence (3%, noncomparative) from the pooled HR, which only four of twelve observational studies contribute. Association is not causation or CVD mortality. Multi-hop: abstract and Limitations anchors (recategorised from direct lookup).",
+      "reasoning": "Join the abstract's prevalence and pooled HR to the Limitations statement that only four studies contribute to that HR."
     },
     {
       "id": "o010",
@@ -2613,10 +2615,10 @@
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "duplicate_leakage_check": "Shares rct_cv with o011 and o018. Distinct: o011 is a false premise about the null heart-failure subgroup; o018 compares across documents.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation."
+      "selection_rationale": "Tests comparator-relative cardiac adverse-event RRs by regimen versus chemotherapy, not CVD mortality. Direct lookup: one passage."
     },
     {
       "id": "o011",
@@ -2686,10 +2688,10 @@
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "duplicate_leakage_check": "Shares rct_cv with o010 and o018; o011 alone uses the heart-failure subgroup.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation."
+      "selection_rationale": "False premise: that a nonsignificant heart-failure subgroup RR proves no risk. Correction: an imprecise null estimate does not establish absence of risk."
     },
     {
       "id": "o026",
@@ -2755,10 +2757,10 @@
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "duplicate_leakage_check": "Shares mortality with o012 and o017. Distinct: o012 asks the between-drug comparison; o017 uses it in a cross-document endpoint contrast.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation.",
+      "selection_rationale": "Tests cause-specific death shares (denominator: deaths, not patients) and factors associated with CVD mortality, including the insurance comparator. Replaces legacy q112's CVD-mortality coverage. Direct lookup: one passage.",
       "supersedes_coverage_of": "q112"
     },
     {
@@ -2825,10 +2827,10 @@
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "duplicate_leakage_check": "Shares mortality with o026 and o017, which use different facts from the passage.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation."
+      "selection_rationale": "Tests that pembrolizumab-versus-nivolumab cause-specific mortality is a comparison between two PD-1 drugs, not with untreated controls; CVD sHR null, NSCLC sHR lower. Direct lookup: one passage."
     },
     {
       "id": "q085",
@@ -2894,10 +2896,10 @@
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "duplicate_leakage_check": "Shares no evidence anchor with another case; the question identifies the source without disclosing target values. o015 covers a different review's phenotypes; each question names its source.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation."
+      "selection_rationale": "Tests the spatial distinction among inflamed, desert and excluded tumours in the immune-exclusion review, and its note on inconsistent use of \"cold\". Revised onto an eligible source because the legacy source is deferred. Direct lookup: one passage."
     },
     {
       "id": "o013",
@@ -2970,10 +2972,10 @@
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "duplicate_leakage_check": "Shares no evidence anchor with another case; the question identifies the source without disclosing target values.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation."
+      "selection_rationale": "False premise: that the review establishes a universal clinically validated numeric cutoff. Correction: lack of consensus, arbitrary cutoffs and heterogeneity, with the review's proposed reporting approach."
     },
     {
       "id": "o014",
@@ -3039,10 +3041,10 @@
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "duplicate_leakage_check": "Shares icd_damp with o016, which links these mechanisms to separate cellular-stress pathways.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation."
+      "selection_rationale": "Tests distinct dendritic-cell mechanisms of CALR, ATP and HMGB1 as reviewed mechanisms, not clinical treatment effects. Direct lookup: one passage."
     },
     {
       "id": "o015",
@@ -3108,10 +3110,10 @@
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "duplicate_leakage_check": "Shares no evidence anchor with another case; the question identifies the source without disclosing target values.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation."
+      "selection_rationale": "Tests the ICD review's cold-tumour phenotypes, including the immunosuppressed phenotype absent from q085's source. Direct lookup: one passage."
     },
     {
       "id": "o016",
@@ -3179,10 +3181,10 @@
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "duplicate_leakage_check": "Shares icd_damp with o014; o016 alone requires the cellular-stress anchor.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation.",
+      "selection_rationale": "Tests linking ER stress/PERK and autophagy pathways to CALR exposure and ATP secretion and then to dendritic-cell effects. Multi-hop: requires four production chunks (see REVIEW.md).",
       "reasoning": "Link separate cellular-stress and extracellular-danger-signal sections."
     },
     {
@@ -3288,10 +3290,10 @@
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "duplicate_leakage_check": "Shares anchors with o028, o029, o023 and o008, each of which tests one component. Retained as the only case requiring the treatment/readiness synthesis.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation.",
+      "selection_rationale": "Synthesis replacing legacy q117: treatment outcomes and limitations from the Hunan cohort combined with the consensus on biomarker readiness and early testing, without claiming the consensus explains the cohort's outcomes. Cross-document synthesis: both articles contribute required facts.",
       "supersedes_coverage_of": "q117"
     },
     {
@@ -3379,10 +3381,10 @@
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "duplicate_leakage_check": "Contains o009's evidence plus the mortality passage; distinct because the failure mode is cross-document endpoint conflation.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation."
+      "selection_rationale": "Synthesis: observational CV events (prevalence and four-study HR) and cause-specific mortality between two PD-1 drugs are different endpoints, populations and comparators, so they do not contradict each other. Cross-document synthesis."
     },
     {
       "id": "o018",
@@ -3471,10 +3473,10 @@
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "duplicate_leakage_check": "Contains o004's cardiac evidence and o010's rct_cv; distinct because it tests cross-population, cross-endpoint comparison.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation."
+      "selection_rationale": "Synthesis: TNBC absolute myocarditis frequency under intensive surveillance versus lung-cancer RCT comparator-relative cardiac adverse-event RRs. Cross-document synthesis."
     },
     {
       "id": "o024",
@@ -3553,10 +3555,10 @@
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "duplicate_leakage_check": "Distinct from o007: derive an absolute percentage-point difference and identify the adjuvant setting, instead of reporting both stage-specific OS estimates.",
+        "duplicate_leakage_check": "Shares driver_os with o007 and driver_dfs with q108; o024 alone derives the absolute difference and faces a decoy.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation.",
+      "selection_rationale": "Named distractor replacing legacy q118: absolute five-year OS difference for stage II–IIIA adjuvant osimertinib (12 points) must outrank an advanced first-line afatinib time-to-treatment-failure passage. Cross-document distractor.",
       "supersedes_coverage_of": "q118"
     },
     {
@@ -3634,10 +3636,10 @@
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "duplicate_leakage_check": "Sole MRD assay-performance case after q082 was withdrawn as its duplicate; no requested target values disclosed.",
+        "duplicate_leakage_check": "Sole MRD assay-performance case after q082 was withdrawn as its duplicate.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation.",
+      "selection_rationale": "Named distractor replacing legacy q119: tumour-informed versus tumour-agnostic MRD assay performance must outrank a same-field ctDNA-MRD-guided adjuvant trial listing that reports no assay performance. Cross-document distractor.",
       "supersedes_coverage_of": "q119"
     },
     {
@@ -3715,9 +3717,10 @@
         "author": "Codex",
         "method": "Named-source full-text review and scoped competitor attribution check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "tuning_exposure": "No retrieval runs used to author gold."
+        "tuning_exposure": "No retrieval runs used to author gold.",
+        "duplicate_leakage_check": "Uses hunan_absence only as negative context; no other case uses it."
       },
-      "selection_rationale": "Explicit absent-fact coverage distinct from false-premise correction."
+      "selection_rationale": "Absent fact: the number and reasons of Hunan patients who started neoadjuvant therapy but did not undergo surgery. The paper excludes them and states their data are absent; no count may be inferred. Scope: whole selected oncology corpus."
     },
     {
       "id": "o021",
@@ -3807,9 +3810,10 @@
         "author": "Codex",
         "method": "Named-source full-text review; full-text search found OS only in the Introduction and in the Discussion's KEYNOTE-522 citation, with no OS result for either Helsinki cohort.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "tuning_exposure": "No retrieval runs used to author gold."
+        "tuning_exposure": "No retrieval runs used to author gold.",
+        "duplicate_leakage_check": "Shares breast_pcr with o003, which asks pCR values rather than design and follow-up."
       },
-      "selection_rationale": "Explicit absent-fact coverage distinct from false-premise correction."
+      "selection_rationale": "False premise: that the Helsinki study measured a randomized five-year OS effect. Correction: retrospective nonmatched design, and no OS at all (EFS by pCR; median follow-up 22 and 35 months)."
     },
     {
       "id": "q083",
@@ -3899,9 +3903,10 @@
         "author": "Codex",
         "method": "Named-source full-text and all selected article text reviewed for requested entity, value and regulatory/geographic scope.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "tuning_exposure": "No retrieval runs used to author gold."
+        "tuning_exposure": "No retrieval runs used to author gold.",
+        "duplicate_leakage_check": "Uses earlycdt only as negative context."
       },
-      "selection_rationale": "Evidence-reviewed migration of a legacy unanswerable case on a retained source."
+      "selection_rationale": "Absent fact on a retained source: an FDA-validated early-stage EarlyCDT-Lung sensitivity. The review describes an investigational panel with setting-dependent estimates; the question's \"FDA-validated\" wording itself presupposes a status the corpus does not report. Scope: whole selected oncology corpus."
     },
     {
       "id": "q100",
@@ -3991,9 +3996,10 @@
         "author": "Codex",
         "method": "Named-source full-text and all selected article text reviewed for requested entity, value and regulatory/geographic scope.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "tuning_exposure": "No retrieval runs used to author gold."
+        "tuning_exposure": "No retrieval runs used to author gold.",
+        "duplicate_leakage_check": "Uses screen (q095/q096 evidence) only as near-miss negative context."
       },
-      "selection_rationale": "Evidence-reviewed migration of a legacy unanswerable case on a retained source."
+      "selection_rationale": "Absent fact on a retained source: a Basque FIT-programme dual-screening rate. The US BRFSS study reports a different population and endpoint. Scope: whole selected oncology corpus."
     },
     {
       "id": "q101",
@@ -4063,10 +4069,10 @@
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
         "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "duplicate_leakage_check": "Shares no evidence anchor with another case; the question identifies the source without disclosing target values.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation."
+      "selection_rationale": "False premise: that the cited HP2030 targets are the study's achieved rates. Correction: targets (cervical 84.3%, CRC 74.4%) versus observed dual screening 58.2%."
     }
   ]
 }

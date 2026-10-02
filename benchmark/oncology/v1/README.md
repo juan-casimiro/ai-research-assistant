@@ -5,6 +5,11 @@ JUA-112 review candidate, 2026-10-02. **14 articles**, 187 physical PDF pages,
 Selection and gold were authored without retrieval results. Independent review
 and freeze are pending; this release makes no retrieval-quality claim.
 
+[DECISIONS.md](DECISIONS.md) explains every article, candidate, case and legacy-migration
+decision, and lists open decisions. [render_decisions.py](render_decisions.py) generates it from the
+release JSON files plus the article rationales and principles held in that script. The verifier
+rejects a release whose decisions are undocumented or share boilerplate rationale.
+
 ## Audit and selection
 
 All five legacy oncology articles and all 42 cases (q078–q119) are accounted for
@@ -41,7 +46,7 @@ manifest, golden cases, prior evaluation results and shared collections are pres
 
 ## Cases and conditions
 
-[queries.json](queries.json) contains 18 lookups, 7 same-article multi-hop cases,
+[queries.json](queries.json) contains 16 lookups, 9 same-article multi-hop cases,
 3 cross-document synthesis cases, 2 named-distractor cases, 7 false-premise cases
 and 3 absent-fact cases. Each answer fact names its population, endpoint, units,
 timeframe, tolerance and contradiction rule. Evidence includes physical page,

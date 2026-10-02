@@ -154,6 +154,27 @@ def verify_ledger(ledger: dict, active: dict, audit: dict) -> None:
         raise ValueError("revision_ledger.json: latest revision does not describe the active queries")
 
 
+def verify_decision_record(record: str, benchmark: dict, audit: dict, candidates: dict, ledger: dict) -> None:
+    """Every article, candidate and case decision must be explained, not left as shared boilerplate."""
+    rationales = [q["selection_rationale"] for q in benchmark["queries"]]
+    if not all(r.strip() for r in rationales) or len(set(rationales)) != len(rationales):
+        raise ValueError("Case selection rationales are missing or shared boilerplate")
+    overlap = [q["review"].get("duplicate_leakage_check", "") for q in benchmark["queries"]]
+    if not all(o.strip() for o in overlap):
+        raise ValueError("Case near-duplicate review is missing")
+    for case in audit["cases"]:
+        if case["action"] == "retire_legacy_case" and case["replacement_cases"] and not case.get("replacement_basis"):
+            raise ValueError(f"{case['id']}: replacement link has no recorded basis")
+    expected = ({f"#### {q['id']} " for q in benchmark["queries"]} |
+                {f"**{qid}:**" for qid in ledger["withdrawn_cases"]} |
+                {f"| {case['id']} |" for case in audit["cases"]} |
+                {f"| {c['pmcid']} |" for c in candidates["candidates"] if c["disposition"] != "selected"} |
+                {f"### {c['pmcid']} " for c in candidates["candidates"] if c["disposition"] == "selected"})
+    missing = sorted(item for item in expected if item not in record)
+    if missing:
+        raise ValueError(f"DECISIONS.md does not record: {missing[:5]}")
+
+
 def verify(release: Path, corpus: Path) -> dict:
     benchmark, manifest, conditions, _, _, _ = read_release(release, corpus, "C2")
     articles = manifest["articles"]
@@ -223,7 +244,10 @@ def verify(release: Path, corpus: Path) -> dict:
     active = {q["id"]: q for q in benchmark["queries"]}
     legacy = {q["id"]: q for q in json.loads((root / "golden_qa.json").read_text())["queries"]}
     verify_migration(audit, active, legacy)
-    verify_ledger(json.loads((release / "revision_ledger.json").read_text()), active, audit)
+    ledger = json.loads((release / "revision_ledger.json").read_text())
+    verify_ledger(ledger, active, audit)
+    verify_decision_record((release / "DECISIONS.md").read_text(), benchmark, audit,
+                           json.loads((release / "candidate_log.json").read_text()), ledger)
     for name, expected in audit["baseline_hashes"].items():
         if digest((root / name).read_bytes()) != expected:
             raise ValueError(f"Preserved legacy baseline changed: {name}")

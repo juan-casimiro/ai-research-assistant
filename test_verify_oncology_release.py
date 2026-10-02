@@ -8,8 +8,8 @@ from unittest.mock import patch
 
 from benchmark_scoring import canonical_hash
 from fetch_article_metadata import parse_record
-from verify_oncology_release import (verify, verify_attribution, verify_ledger, verify_linkage, verify_metadata,
-                                     verify_migration, verify_query_roles)
+from verify_oncology_release import (verify, verify_attribution, verify_decision_record, verify_ledger, verify_linkage,
+                                     verify_metadata, verify_migration, verify_query_roles)
 
 
 class ArchivedMetadataTests(unittest.TestCase):
@@ -295,6 +295,46 @@ class LedgerTests(unittest.TestCase):
     def test_stale_latest_revision_is_rejected(self):
         self.ledger["revisions"][-1]["query_sha256"] = "stale"
         self.assert_rejected("latest revision")
+
+
+class DecisionRecordTests(unittest.TestCase):
+    def setUp(self):
+        self.benchmark = {"queries": [
+            {"id": "o001", "selection_rationale": "test rationale one", "review": {"duplicate_leakage_check": "test overlap"}},
+            {"id": "o002", "selection_rationale": "test rationale two", "review": {"duplicate_leakage_check": "test overlap"}}]}
+        self.audit = {"cases": [{"id": "q100", "action": "retire_legacy_case", "replacement_cases": ["o001"], "replacement_basis": "test basis"}]}
+        self.candidates = {"candidates": [{"pmcid": "PMC1", "disposition": "selected"}, {"pmcid": "PMC2", "disposition": "rejected"}]}
+        self.ledger = {"withdrawn_cases": {"o003": {}}}
+        self.record = "#### o001 (revision 1)\n#### o002 (revision 1)\n- **o003:** test\n| q100 | x |\n| PMC2 | x |\n### PMC1 — test\n"
+
+    def verify(self):
+        verify_decision_record(self.record, self.benchmark, self.audit, self.candidates, self.ledger)
+
+    def test_complete_record_passes(self):
+        self.verify()
+
+    def test_shared_boilerplate_rationale_is_rejected(self):
+        self.benchmark["queries"][1]["selection_rationale"] = "test rationale one"
+        with self.assertRaisesRegex(ValueError, "boilerplate"):
+            self.verify()
+
+    def test_missing_near_duplicate_review_is_rejected(self):
+        del self.benchmark["queries"][0]["review"]["duplicate_leakage_check"]
+        with self.assertRaisesRegex(ValueError, "near-duplicate review"):
+            self.verify()
+
+    def test_replacement_link_without_basis_is_rejected(self):
+        self.audit["cases"][0]["replacement_basis"] = None
+        with self.assertRaisesRegex(ValueError, "no recorded basis"):
+            self.verify()
+
+    def test_undocumented_case_or_candidate_is_rejected(self):
+        for removed in ["#### o002 (revision 1)\n", "| PMC2 | x |\n", "- **o003:** test\n"]:
+            with self.subTest(removed=removed):
+                self.record = self.record.replace(removed, "")
+                with self.assertRaisesRegex(ValueError, "DECISIONS.md does not record"):
+                    self.verify()
+                self.setUp()
 
 
 if __name__ == "__main__":

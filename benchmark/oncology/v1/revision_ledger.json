@@ -1,6 +1,6 @@
 {
   "status": "pre-freeze corrections; no retrieval exposure",
-  "query_sha256": "323ac452cbcd1f12030d5e5c09b05b8cb723e74ea729c29bb23b33533c216b0b",
+  "query_sha256": "da3c959c8de5eac793ad3ab50a6674178c9fbd1282f48d26152e966d5de36f37",
   "renamed_coverage_cases": {
     "q103": "o022",
     "q111": "o023",
@@ -106,6 +106,80 @@
         "hunan_os"
       ],
       "reason": "Claude re-review: Hunan OS label conflict and Limitations anchor, Helsinki five-year OS correction, duplicate withdrawal with one POL-MOL role, same-field MRD decoy, per-article search provenance."
+    },
+    {
+      "previous_commit": "fd4eadfeb7a8a2e594d52501fdc6a18f5e0589f0",
+      "previous_query_sha256": "323ac452cbcd1f12030d5e5c09b05b8cb723e74ea729c29bb23b33533c216b0b",
+      "query_sha256": "da3c959c8de5eac793ad3ab50a6674178c9fbd1282f48d26152e966d5de36f37",
+      "changed_cases": [
+        "o001",
+        "o002",
+        "o003",
+        "o004",
+        "o005",
+        "o006",
+        "o007",
+        "o008",
+        "o009",
+        "o010",
+        "o011",
+        "o012",
+        "o013",
+        "o014",
+        "o015",
+        "o016",
+        "o017",
+        "o018",
+        "o020",
+        "o021",
+        "o022",
+        "o023",
+        "o024",
+        "o025",
+        "o026",
+        "o027",
+        "o028",
+        "o029",
+        "o030",
+        "q079",
+        "q080",
+        "q081",
+        "q083",
+        "q085",
+        "q095",
+        "q096",
+        "q100",
+        "q101",
+        "q102",
+        "q108"
+      ],
+      "recategorised_cases": {
+        "o009": "direct_lookup -> multi_hop",
+        "o023": "direct_lookup -> multi_hop"
+      },
+      "dropped_replacement_links": {
+        "q086": [
+          "o014",
+          "o016"
+        ],
+        "q087": [
+          "o003"
+        ],
+        "q090": [
+          "o013"
+        ],
+        "q092": [
+          "o014"
+        ],
+        "q110": [
+          "o023"
+        ],
+        "q114": [
+          "o026",
+          "o017"
+        ]
+      },
+      "reason": "Decision documentation: case-specific selection rationale and near-duplicate review, specific legacy reasons and replacement bases, lower-priority candidate coverage, and multi_hop categories for two cases needing separated passages."
     }
   ]
 }

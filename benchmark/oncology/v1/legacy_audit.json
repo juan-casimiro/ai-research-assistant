@@ -148,7 +148,9 @@
         "q080",
         "o025"
       ],
-      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+      "reason": "Retired on a retained source although the pinned text contains the requested evidence (combined ctDNA/ctRNA fusion-yield gain of about 28%–37%). The original author recorded no case-specific reason. Open decision for Juan: restore as a revised case or confirm retirement (DECISIONS.md).",
+      "replacement_basis": "Same retained liquid-biopsy review; linked cases cover other cited-evidence facts, not fusion yield.",
+      "open_decision": true
     },
     {
       "id": "q079",
@@ -163,8 +165,9 @@
       "replacement_cases": [
         "q079"
       ],
-      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable.",
-      "revised_question": "According to the liquid-biopsy review, distinguish the pooled CSF ctDNA detection rate from sensitivity and specificity for CNS metastases in NSCLC, and compare detection with cytology."
+      "reason": "Revised on the retained review: detection rate versus cytology and diagnostic sensitivity/specificity are now required as separately attributed measures.",
+      "revised_question": "According to the liquid-biopsy review, distinguish the pooled CSF ctDNA detection rate from sensitivity and specificity for CNS metastases in NSCLC, and compare detection with cytology.",
+      "open_decision": false
     },
     {
       "id": "q080",
@@ -179,8 +182,9 @@
       "replacement_cases": [
         "q080"
       ],
-      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable.",
-      "revised_question": "What did the liquid-biopsy review report about plasma versus tissue testing in NILE, including turnaround and biomarker identification?"
+      "reason": "Revised on the retained review: adds the NILE population and noninferiority framing to turnaround and biomarker identification.",
+      "revised_question": "What did the liquid-biopsy review report about plasma versus tissue testing in NILE, including turnaround and biomarker identification?",
+      "open_decision": false
     },
     {
       "id": "q081",
@@ -195,8 +199,9 @@
       "replacement_cases": [
         "q081"
       ],
-      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable.",
-      "revised_question": "Does the liquid-biopsy review establish that blood-based MCED has the same demonstrated lung-cancer mortality benefit as LDCT?"
+      "reason": "Revised on the retained review into a false-premise check of MCED versus LDCT mortality benefit; task change recorded in revision_ledger.json.",
+      "revised_question": "Does the liquid-biopsy review establish that blood-based MCED has the same demonstrated lung-cancer mortality benefit as LDCT?",
+      "open_decision": false
     },
     {
       "id": "q082",
@@ -211,7 +216,9 @@
       "replacement_cases": [
         "o025"
       ],
-      "reason": "Withdrawn before freeze as a duplicate of o025; coverage relationship, not equivalent gold."
+      "reason": "Withdrawn before freeze as a duplicate of o025 (same anchor and facts).",
+      "replacement_basis": "o025 carries the same MRD assay-performance task.",
+      "open_decision": false
     },
     {
       "id": "q083",
@@ -226,8 +233,9 @@
       "replacement_cases": [
         "q083"
       ],
-      "reason": "Retained source independently reviewed; requested absent regulatory/geographic fact or positively corrected target attribution.",
-      "revised_question": "What FDA-validated early-stage sensitivity value for EarlyCDT-Lung is reported in the selected oncology corpus?"
+      "reason": "Revised on the retained review as a scoped absent fact; the \"FDA-validated\" presupposition is recorded in the case rationale.",
+      "revised_question": "What FDA-validated early-stage sensitivity value for EarlyCDT-Lung is reported in the selected oncology corpus?",
+      "open_decision": false
     },
     {
       "id": "q084",
@@ -242,7 +250,9 @@
       "replacement_cases": [
         "q079"
       ],
-      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+      "reason": "Retired as a near-duplicate: its CSF detection-rate fact is required by revised q079.",
+      "replacement_basis": "q079 requires the same detection-rate fact.",
+      "open_decision": false
     },
     {
       "id": "q085",
@@ -257,8 +267,9 @@
       "replacement_cases": [
         "q085"
       ],
-      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable.",
-      "revised_question": "How does the immune-exclusion definition review distinguish inflamed, desert and excluded tumors spatially?"
+      "reason": "Revised onto the eligible immune-exclusion review (PMC10073666) for the same desert/excluded distinction. Legacy source onco-tumor-microenvironment.pdf (PMC13430506) is deferred: its acknowledgements credit BioRender, so complete-PDF reuse rights are unresolved.",
+      "revised_question": "How does the immune-exclusion definition review distinguish inflamed, desert and excluded tumors spatially?",
+      "open_decision": false
     },
     {
       "id": "q086",
@@ -270,11 +281,10 @@
       "action": "retire_legacy_case",
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "not_applicable",
-      "replacement_cases": [
-        "o014",
-        "o016"
-      ],
-      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+      "replacement_cases": [],
+      "reason": "Retired: RELATIVITY-047 melanoma PFS appears only in the deferred source. Legacy source onco-tumor-microenvironment.pdf (PMC13430506) is deferred: its acknowledgements credit BioRender, so complete-PDF reuse rights are unresolved. No selected case tests the same evidence type, so no replacement is linked.",
+      "replacement_basis": null,
+      "open_decision": false
     },
     {
       "id": "q087",
@@ -286,10 +296,10 @@
       "action": "retire_legacy_case",
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "not_applicable",
-      "replacement_cases": [
-        "o003"
-      ],
-      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+      "replacement_cases": [],
+      "reason": "Retired: KEYNOTE-942 melanoma RFS appears only in the deferred source. Legacy source onco-tumor-microenvironment.pdf (PMC13430506) is deferred: its acknowledgements credit BioRender, so complete-PDF reuse rights are unresolved. No selected case tests the same evidence type, so no replacement is linked.",
+      "replacement_basis": null,
+      "open_decision": false
     },
     {
       "id": "q088",
@@ -304,7 +314,9 @@
       "replacement_cases": [
         "o014"
       ],
-      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+      "reason": "Retired: IDO1 trial-failure discussion appears only in the deferred source. Legacy source onco-tumor-microenvironment.pdf (PMC13430506) is deferred: its acknowledgements credit BioRender, so complete-PDF reuse rights are unresolved.",
+      "replacement_basis": "o014 tests the same reasoning task: reviewed mechanisms are not clinical treatment benefit.",
+      "open_decision": false
     },
     {
       "id": "q089",
@@ -320,7 +332,9 @@
         "q085",
         "o015"
       ],
-      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+      "reason": "Retired: the static-versus-dynamic biomarker framework appears only in the deferred source. Legacy source onco-tumor-microenvironment.pdf (PMC13430506) is deferred: its acknowledgements credit BioRender, so complete-PDF reuse rights are unresolved.",
+      "replacement_basis": "q085 and o015 cover cold/hot tumour phenotype definitions in eligible reviews.",
+      "open_decision": false
     },
     {
       "id": "q090",
@@ -332,10 +346,10 @@
       "action": "retire_legacy_case",
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "not_applicable",
-      "replacement_cases": [
-        "o013"
-      ],
-      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+      "replacement_cases": [],
+      "reason": "Retired: the chemo/radiotherapy maturity comparison appears only in the deferred source. Legacy source onco-tumor-microenvironment.pdf (PMC13430506) is deferred: its acknowledgements credit BioRender, so complete-PDF reuse rights are unresolved. No selected case tests the same evidence type, so no replacement is linked.",
+      "replacement_basis": null,
+      "open_decision": false
     },
     {
       "id": "q091",
@@ -348,12 +362,14 @@
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "Old null-source attribution retired or reclassified; new absent facts have explicit scope.",
       "replacement_cases": [],
-      "reason": "Legacy source/claim not carried into this release; the question is not recast onto another study, so no replacement case is linked.",
+      "reason": "Retired: Legacy source onco-tumor-microenvironment.pdf (PMC13430506) is deferred: its acknowledgements credit BioRender, so complete-PDF reuse rights are unresolved. The question is not recast onto another study, so no replacement case is linked.",
       "legacy_answerability_review": {
         "status": "false_premise",
         "decision": "Retired: the source supporting the named study is not eligible in this release; the original question is preserved rather than recast onto a different study.",
         "replacement_equivalence": false
-      }
+      },
+      "replacement_basis": null,
+      "open_decision": false
     },
     {
       "id": "q092",
@@ -365,10 +381,10 @@
       "action": "retire_legacy_case",
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "not_applicable",
-      "replacement_cases": [
-        "o014"
-      ],
-      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+      "replacement_cases": [],
+      "reason": "Retired: the syngeneic-model exception appears only in the deferred source. Legacy source onco-tumor-microenvironment.pdf (PMC13430506) is deferred: its acknowledgements credit BioRender, so complete-PDF reuse rights are unresolved. No selected case tests the same evidence type, so no replacement is linked.",
+      "replacement_basis": null,
+      "open_decision": false
     },
     {
       "id": "q093",
@@ -384,7 +400,9 @@
       "replacement_cases": [
         "o025"
       ],
-      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+      "reason": "Retired: one of its two documents is the deferred source. Legacy source onco-tumor-microenvironment.pdf (PMC13430506) is deferred: its acknowledgements credit BioRender, so complete-PDF reuse rights are unresolved.",
+      "replacement_basis": "o025 keeps ctDNA in the liquid-biopsy review as a named-distractor task.",
+      "open_decision": false
     },
     {
       "id": "q094",
@@ -400,7 +418,9 @@
       "replacement_cases": [
         "o025"
       ],
-      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+      "reason": "Retired: one of its two documents is the deferred source. Legacy source onco-tumor-microenvironment.pdf (PMC13430506) is deferred: its acknowledgements credit BioRender, so complete-PDF reuse rights are unresolved.",
+      "replacement_basis": "o025 keeps ctDNA monitoring performance from the liquid-biopsy review.",
+      "open_decision": false
     },
     {
       "id": "q095",
@@ -415,8 +435,9 @@
       "replacement_cases": [
         "q095"
       ],
-      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable.",
-      "revised_question": "What four mutually exclusive screening categories and percentages did the US dual-screening study report for women ages 50–64?"
+      "reason": "Revised on the retained study to the four mutually exclusive categories; task change recorded in revision_ledger.json.",
+      "revised_question": "What four mutually exclusive screening categories and percentages did the US dual-screening study report for women ages 50–64?",
+      "open_decision": false
     },
     {
       "id": "q096",
@@ -431,8 +452,9 @@
       "replacement_cases": [
         "q096"
       ],
-      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable.",
-      "revised_question": "In the US dual-screening study, how much more common was cervical-only than CRC-only screening?"
+      "reason": "Revised on the retained study: compare the mutually exclusive cervical-only and CRC-only categories.",
+      "revised_question": "In the US dual-screening study, how much more common was cervical-only than CRC-only screening?",
+      "open_decision": false
     },
     {
       "id": "q097",
@@ -448,7 +470,9 @@
         "q095",
         "q096"
       ],
-      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+      "reason": "Retired on a retained source although the pinned text contains the requested evidence (multinomial-regression adjusted odds ratios). The original author recorded no case-specific reason. Open decision for Juan: restore as a revised case or confirm retirement (DECISIONS.md).",
+      "replacement_basis": "Same retained screening study; q095/q096 cover its screening categories, not the regression.",
+      "open_decision": true
     },
     {
       "id": "q098",
@@ -463,7 +487,9 @@
       "replacement_cases": [
         "q095"
       ],
-      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+      "reason": "Retired on a retained source although the pinned text contains the requested evidence (Hispanic versus other groups' screening patterns and adjusted odds ratios). The original author recorded no case-specific reason. Open decision for Juan: restore as a revised case or confirm retirement (DECISIONS.md).",
+      "replacement_basis": "Same retained screening study; q095 covers the category distribution, not subgroup patterns.",
+      "open_decision": true
     },
     {
       "id": "q099",
@@ -478,7 +504,9 @@
       "replacement_cases": [
         "q095"
       ],
-      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+      "reason": "Retired on a retained source although the pinned text contains the requested evidence (the Discussion's multilevel, age-driven screening decision-making). The original author recorded no case-specific reason. Open decision for Juan: restore as a revised case or confirm retirement (DECISIONS.md).",
+      "replacement_basis": "Same retained screening study; q095 covers its results, not the Discussion framework.",
+      "open_decision": true
     },
     {
       "id": "q100",
@@ -493,8 +521,9 @@
       "replacement_cases": [
         "q100"
       ],
-      "reason": "Retained source independently reviewed; requested absent regulatory/geographic fact or positively corrected target attribution.",
-      "revised_question": "What dual-screening rate for the Basque Country FIT programme is reported in the selected oncology corpus?"
+      "reason": "Revised on the retained study as a scoped absent fact.",
+      "revised_question": "What dual-screening rate for the Basque Country FIT programme is reported in the selected oncology corpus?",
+      "open_decision": false
     },
     {
       "id": "q101",
@@ -509,8 +538,9 @@
       "replacement_cases": [
         "q101"
       ],
-      "reason": "Retained source independently reviewed; requested absent regulatory/geographic fact or positively corrected target attribution.",
-      "revised_question": "Are the HP2030 cervical and colorectal screening goals cited by Harper the study’s own achieved rates?"
+      "reason": "Revised on the retained study into a false-premise correction of targets versus achieved rates.",
+      "revised_question": "Are the HP2030 cervical and colorectal screening goals cited by Harper the study’s own achieved rates?",
+      "open_decision": false
     },
     {
       "id": "q102",
@@ -525,8 +555,9 @@
       "replacement_cases": [
         "q102"
       ],
-      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable.",
-      "revised_question": "What hysterectomy exclusion and final analysis-group counts appear in the US dual-screening study’s Appendix 1 flow diagram?"
+      "reason": "Revised on the retained study: printed flow-diagram counts, with the diagram's inconsistencies kept explicit.",
+      "revised_question": "What hysterectomy exclusion and final analysis-group counts appear in the US dual-screening study’s Appendix 1 flow diagram?",
+      "open_decision": false
     },
     {
       "id": "q103",
@@ -541,7 +572,9 @@
       "replacement_cases": [
         "o022"
       ],
-      "reason": "Different study-specific task receives a new oncology-local ID; this is coverage replacement, not equivalent gold."
+      "reason": "Retired; study-specific task moved to a new ID. Legacy source onco-breast-immunotherapy.pdf (PMC13438349) is a driver-positive NSCLC perioperative study under CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy.",
+      "replacement_basis": "o022 asks population and treatment-group sizes in an eligible perioperative NSCLC cohort.",
+      "open_decision": false
     },
     {
       "id": "q104",
@@ -556,7 +589,9 @@
       "replacement_cases": [
         "o029"
       ],
-      "reason": "Different study-specific task receives a new oncology-local ID; this is coverage replacement, not equivalent gold."
+      "reason": "Retired; study-specific task moved to a new ID. Legacy source onco-breast-immunotherapy.pdf (PMC13438349) is a driver-positive NSCLC perioperative study under CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy.",
+      "replacement_basis": "o029 asks DFS and OS interpretation in an eligible perioperative NSCLC cohort.",
+      "open_decision": false
     },
     {
       "id": "q105",
@@ -571,7 +606,9 @@
       "replacement_cases": [
         "o028"
       ],
-      "reason": "Different study-specific task receives a new oncology-local ID; this is coverage replacement, not equivalent gold."
+      "reason": "Retired; study-specific task moved to a new ID. Legacy source onco-breast-immunotherapy.pdf (PMC13438349) is a driver-positive NSCLC perioperative study under CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy.",
+      "replacement_basis": "o028 asks pathological response rates in an eligible perioperative NSCLC cohort.",
+      "open_decision": false
     },
     {
       "id": "q106",
@@ -587,7 +624,9 @@
         "o001",
         "o002"
       ],
-      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+      "reason": "Retired: the EGFR-mutant neoadjuvant-targeted subgroup appears only in the restricted source. Legacy source onco-breast-immunotherapy.pdf (PMC13438349) is a driver-positive NSCLC perioperative study under CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy.",
+      "replacement_basis": "o001 and o002 test pathological response versus DFS in another perioperative cohort.",
+      "open_decision": false
     },
     {
       "id": "q107",
@@ -602,7 +641,9 @@
       "replacement_cases": [
         "o029"
       ],
-      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+      "reason": "Retired: MPR-to-survival subgroup results appear only in the restricted source. Legacy source onco-breast-immunotherapy.pdf (PMC13438349) is a driver-positive NSCLC perioperative study under CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy.",
+      "replacement_basis": "o029 tests response versus survival interpretation in an eligible cohort.",
+      "open_decision": false
     },
     {
       "id": "q108",
@@ -617,8 +658,9 @@
       "replacement_cases": [
         "q108"
       ],
-      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable.",
-      "revised_question": "Are the ADAURA hazard ratios in the nonmetastatic driver review outcomes measured by the review’s own newly enrolled cohort?"
+      "reason": "Revised onto the eligible driver review as an ADAURA attribution false premise. Legacy source onco-breast-immunotherapy.pdf (PMC13438349) is a driver-positive NSCLC perioperative study under CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy.",
+      "revised_question": "Are the ADAURA hazard ratios in the nonmetastatic driver review outcomes measured by the review’s own newly enrolled cohort?",
+      "open_decision": false
     },
     {
       "id": "q109",
@@ -631,12 +673,14 @@
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "Old null-source attribution retired or reclassified; new absent facts have explicit scope.",
       "replacement_cases": [],
-      "reason": "Legacy source/claim not carried into this release; the question is not recast onto another study, so no replacement case is linked.",
+      "reason": "Retired: Legacy source onco-breast-immunotherapy.pdf (PMC13438349) is a driver-positive NSCLC perioperative study under CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy. The question is not recast onto another study, so no replacement case is linked.",
       "legacy_answerability_review": {
         "status": "absent_fact",
         "decision": "Retired: the source supporting the named study is not eligible in this release; the original question is preserved rather than recast onto a different study.",
         "replacement_equivalence": false
-      }
+      },
+      "replacement_basis": null,
+      "open_decision": false
     },
     {
       "id": "q110",
@@ -648,10 +692,10 @@
       "action": "retire_legacy_case",
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "not_applicable",
-      "replacement_cases": [
-        "o023"
-      ],
-      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+      "replacement_cases": [],
+      "reason": "Retired: RADON EUROPE appears only in the restricted source. Legacy source onco-genomics-precision-medicine.pdf (PMC13434091) is CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy. No selected case tests the same evidence type, so no replacement is linked.",
+      "replacement_basis": null,
+      "open_decision": false
     },
     {
       "id": "q111",
@@ -666,7 +710,9 @@
       "replacement_cases": [
         "o023"
       ],
-      "reason": "Different study-specific task receives a new oncology-local ID; this is coverage replacement, not equivalent gold."
+      "reason": "Retired; study-specific task moved to a new ID. Legacy source onco-genomics-precision-medicine.pdf (PMC13434091) is CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy.",
+      "replacement_basis": "o023 tests real-world biomarker-testing workflow and delay in an eligible consensus.",
+      "open_decision": false
     },
     {
       "id": "q112",
@@ -681,7 +727,9 @@
       "replacement_cases": [
         "o026"
       ],
-      "reason": "Different study-specific task receives a new oncology-local ID; this is coverage replacement, not equivalent gold."
+      "reason": "Retired; study-specific task moved to a new ID. Legacy source onco-genomics-precision-medicine.pdf (PMC13434091) is CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy.",
+      "replacement_basis": "o026 tests CVD-specific mortality in lung cancer in an eligible cohort.",
+      "open_decision": false
     },
     {
       "id": "q113",
@@ -696,7 +744,9 @@
       "replacement_cases": [
         "o027"
       ],
-      "reason": "Different study-specific task receives a new oncology-local ID; this is coverage replacement, not equivalent gold."
+      "reason": "Retired; study-specific task moved to a new ID. Legacy source onco-genomics-precision-medicine.pdf (PMC13434091) is CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy.",
+      "replacement_basis": "o027 tests afatinib dose and outcomes in the eligible Vietnam cohort.",
+      "open_decision": false
     },
     {
       "id": "q114",
@@ -708,11 +758,10 @@
       "action": "retire_legacy_case",
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "not_applicable",
-      "replacement_cases": [
-        "o026",
-        "o017"
-      ],
-      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+      "replacement_cases": [],
+      "reason": "Retired: the environmental-exposure synthesis appears only in the restricted source. Legacy source onco-genomics-precision-medicine.pdf (PMC13434091) is CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy. No selected case tests the same evidence type, so no replacement is linked.",
+      "replacement_basis": null,
+      "open_decision": false
     },
     {
       "id": "q115",
@@ -725,12 +774,14 @@
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "Old null-source attribution retired or reclassified; new absent facts have explicit scope.",
       "replacement_cases": [],
-      "reason": "Legacy source/claim not carried into this release; the question is not recast onto another study, so no replacement case is linked.",
+      "reason": "Retired: Legacy source onco-genomics-precision-medicine.pdf (PMC13434091) is CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy. The question is not recast onto another study, so no replacement case is linked.",
       "legacy_answerability_review": {
         "status": "absent_fact",
         "decision": "Retired: the source supporting the named study is not eligible in this release; the original question is preserved rather than recast onto a different study.",
         "replacement_equivalence": false
-      }
+      },
+      "replacement_basis": null,
+      "open_decision": false
     },
     {
       "id": "q116",
@@ -746,7 +797,9 @@
         "o011",
         "o012"
       ],
-      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+      "reason": "Retired: the radon causation question appears only in the restricted source. Legacy source onco-genomics-precision-medicine.pdf (PMC13434091) is CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy.",
+      "replacement_basis": "o011 and o012 test the same reasoning task: association or a null estimate does not prove causation or absence of risk.",
+      "open_decision": false
     },
     {
       "id": "q117",
@@ -762,7 +815,9 @@
       "replacement_cases": [
         "o030"
       ],
-      "reason": "Different study-specific task receives a new oncology-local ID; this is coverage replacement, not equivalent gold."
+      "reason": "Retired; study-specific task moved to a new ID. Legacy source onco-breast-immunotherapy.pdf (PMC13438349) is a driver-positive NSCLC perioperative study under CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy. Legacy source onco-genomics-precision-medicine.pdf (PMC13434091) is CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy.",
+      "replacement_basis": "o030 synthesises treatment outcomes with real-world testing readiness from eligible sources.",
+      "open_decision": false
     },
     {
       "id": "q118",
@@ -778,7 +833,9 @@
       "replacement_cases": [
         "o024"
       ],
-      "reason": "Different study-specific task receives a new oncology-local ID; this is coverage replacement, not equivalent gold."
+      "reason": "Retired; study-specific task moved to a new ID. Legacy source onco-breast-immunotherapy.pdf (PMC13438349) is a driver-positive NSCLC perioperative study under CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy. Legacy source onco-genomics-precision-medicine.pdf (PMC13434091) is CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy.",
+      "replacement_basis": "o024 tests EGFR-directed treatment outcomes against a dosing-study distractor.",
+      "open_decision": false
     },
     {
       "id": "q119",
@@ -794,7 +851,9 @@
       "replacement_cases": [
         "o025"
       ],
-      "reason": "Different study-specific task receives a new oncology-local ID; this is coverage replacement, not equivalent gold."
+      "reason": "Retired; study-specific task moved to a new ID. Legacy source onco-breast-immunotherapy.pdf (PMC13438349) is a driver-positive NSCLC perioperative study under CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy.",
+      "replacement_basis": "o025 tests longitudinal ctDNA monitoring performance against a distractor.",
+      "open_decision": false
     }
   ],
   "limits": [
