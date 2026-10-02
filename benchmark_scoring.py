@@ -6,10 +6,11 @@ Gold text never enters retrieval inputs. No models or network are needed here.
 import hashlib
 import json
 import unicodedata
-from collections import Counter
+from collections import Counter, defaultdict
+from itertools import product
 
 SCORER_VERSION = "pinned-span-coverage-v3"
-FEASIBILITY_VERSION = "minimum-evidence-chunks-v2"
+FEASIBILITY_VERSION = "minimum-evidence-chunks-v3"
 CATEGORIES = {"direct_lookup", "multi_hop", "cross_doc_distractor",
               "cross_doc_synthesis", "unanswerable", "false_premise"}
 
@@ -165,9 +166,9 @@ def minimum_evidence_witness(query: dict, anchors: dict, span_plans: dict,
                              source_chunks: dict) -> Counter | None:
     """Smallest retrieved chunk multiset that passes one complete alternative.
 
-    Whole normalized chunks are identified by source and content, just as in
-    scoring. Different anchors can share retrieved chunks. A witness needing the
-    same chunk text twice is unretrievable because retrieval deduplicates text;
+    Whole raw chunks are identified by source and content, as in retrieval;
+    only evidence matching uses normalized text. Different anchors can share
+    retrieved chunks. A witness needing the same chunk text twice is unretrievable because retrieval deduplicates text;
     so is every superset, which keeps dominance pruning sound. Dominated partial
     requirements can be discarded because merging another anchor cannot make
     them cheaper.
@@ -179,11 +180,20 @@ def minimum_evidence_witness(query: dict, anchors: dict, span_plans: dict,
         anchor = anchors[aid]
         source = anchor["filename"]
         excerpt = normalize_excerpt(anchor["excerpt"])
-        chunks = [normalize_excerpt(c) for c in source_chunks.get(source, [])]
+        chunks = source_chunks.get(source, [])
+        variants = defaultdict(set)
+        for chunk in chunks:
+            variants[normalize_excerpt(chunk)].add(chunk)
         available = Counter((source, chunk) for chunk in chunks)
-        choices = [Counter({(source, chunk): 1}) for chunk in chunks if excerpt in chunk]
-        choices += [Counter((source, chunk) for chunk in plan["chunks"])
-                    for plan in span_plans.get(aid, []) if len(plan["chunks"]) > 1]
+        choices = [Counter({(source, chunk): 1}) for chunk in chunks
+                   if excerpt in normalize_excerpt(chunk)]
+        # Span plans contain normalized evidence, not retrieval identities.
+        # Enumerate raw variants so distinct texts can fill equal normalized slots.
+        for plan in span_plans.get(aid, []):
+            if len(plan["chunks"]) > 1:
+                choices.extend(Counter((source, chunk) for chunk in selected)
+                               for selected in product(*(sorted(variants[expected])
+                                                         for expected in plan["chunks"])))
         options[aid] = [choice for choice in choices if choice <= available and retrievable(choice)]
     witnesses = []
     for evidence_set in query["evidence_sets"]:

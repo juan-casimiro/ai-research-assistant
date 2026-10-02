@@ -89,10 +89,12 @@ The new outputs distinguish:
   mixed sources cannot complete a span. Alternative complete sets use OR;
   anchors within a set use AND. A query's minimum chunk budget is the cheapest
   complete alternative, allowing anchors to share chunks. Production
-  `retrieve()` returns each chunk text at most once, so an alternative needing
+  `retrieve()` returns each raw chunk text at most once, so an alternative needing
   the same chunk text twice (repeated chunks, or identical text in two sources)
   is unretrievable; preflight rejects a query left with no retrievable
-  alternative. NFKC/whitespace normalization preserves
+  alternative. Raw whitespace/typography variants remain distinct retrieval
+  identities; normalization is used only for evidence matching.
+  NFKC/whitespace normalization preserves
   values, signs and qualifiers; a naked number or the same excerpt attributed to
   another paper cannot match.
 - **Fact recall:** share of required facts whose anchor requirements are covered.
@@ -135,7 +137,7 @@ version/source hashes, manifest/condition/membership hashes, pinned article tupl
 retrieval source/dependency hashes, loaded embedding/reranker file hashes,
 rewrite provider/model, code commit, UTC time, flags, depths, retrieved contexts
 and per-anchor chunk indices plus complete support groups (`anchor_match_groups`).
-Feasibility has its own version (`minimum-evidence-chunks-v2`) and a fingerprint
+Feasibility has its own version (`minimum-evidence-chunks-v3`) and a fingerprint
 of the requested queries' minimum budgets and depth statuses.
 Group indices are zero-based retrieval positions listed in source-span order,
 so a spanning group can have decreasing ranks. The runner compares actual stored

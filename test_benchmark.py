@@ -246,6 +246,38 @@ class DepthFeasibilityTests(unittest.TestCase):
         self.assertEqual(witness.total(), 2)
         self.assertEqual(set(witness), {("A.pdf", shared_text), ("B.pdf", anchors["c"]["excerpt"])})
 
+    def test_whitespace_variants_in_two_sources_remain_retrievable(self):
+        q, anchors = fixture()
+        shared_text = anchors["a"]["excerpt"] + " " + anchors["c"]["excerpt"]
+        variant = shared_text.replace(" ", "\n", 1)
+        q["evidence_sets"] = [{"anchors": ["a", "c"],
+                               "fact_anchors": {"f1": ["a"], "f2": ["c"]}}]
+        chunks = {"A.pdf": [shared_text], "B.pdf": [variant]}
+        witness = minimum_evidence_witness(q, anchors, {}, chunks)
+        self.assertEqual(set(witness), {("A.pdf", shared_text), ("B.pdf", variant)})
+        self.assertEqual(witness.total(), 2)
+        self.assertEqual(score_evidence([shared_text, variant], ["A.pdf", "B.pdf"],
+                                        q, anchors)["evidence_coverage"], "pass")
+
+    def test_span_uses_distinct_raw_variants_for_equal_normalized_slots(self):
+        q, anchors = fixture()
+        q["evidence_sets"] = [{"anchors": ["a"],
+                               "fact_anchors": {"f1": ["a"], "f2": ["a"]}}]
+        text = "synthetic span"
+        variant = "synthetic\nspan"
+        source_text = text + " " + variant
+        anchors["a"].update(excerpt=source_text, text_start=0, text_end=len(source_text))
+        plans = compile_anchor_spans({"a": anchors["a"]}, {"A.pdf": source_text},
+                                     lambda value: [text, variant])
+        chunks = {"A.pdf": [text, variant]}
+        witness = minimum_evidence_witness(q, anchors, plans, chunks)
+        self.assertEqual(set(witness), {("A.pdf", text), ("A.pdf", variant)})
+        self.assertEqual(witness.total(), 2)
+        self.assertEqual(score_evidence([text, variant], ["A.pdf"] * 2, q, anchors,
+                                        plans)["evidence_coverage"], "pass")
+        with self.assertRaisesRegex(ValueError, "distinct retrievable chunk texts"):
+            minimum_evidence_witness(q, anchors, plans, {"A.pdf": [text, text]})
+
     def test_source_binding_absent_cases_and_unreachable_alternatives(self):
         q, anchors = fixture()
         chunks = {"D.pdf": [a["excerpt"] for a in anchors.values()]}
