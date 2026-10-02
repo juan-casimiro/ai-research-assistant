@@ -214,3 +214,22 @@ hold retrieval flags fixed and preserve common article tuples. Historical pairs
 require `--allow-legacy`, are labelled unverifiable and cannot be mixed with the
 new release. This prevents a repaired reference or changed corpus from appearing
 as an improvement to the old benchmark. No new quality results are claimed.
+
+## Diabetes expansion and frozen cardiology interference
+
+JUA-111 adds the [versioned diabetes release](../benchmark/diabetes/v1/README.md):
+16 topic/overlap sources, 49 cases and 55 pinned anchors, with the original
+21-article cardiology selection extended by 11 verified permissive articles.
+Legacy sources/cases are audited and migrated explicitly; new cohorts cannot
+inherit retired numerical gold. Four absent-fact cases are scoped to selected
+main PDFs; three false-premise cases require affirmative correction evidence.
+A generic HIF question accepts either complete review evidence set.
+
+The diabetes pair compares 16 with 32 articles. The frozen cardiology pair
+compares 21 with 32 using the exact original questions and anchors inside a
+common extended selection envelope. A fresh 21-article baseline is required
+because historical results have incompatible selection/envelope fingerprints.
+No historical output is relabelled. Only local vector retrieval and production
+reranking are run; complete final coverage is justified by corpus expansion,
+with no four-configuration sweep or paid calls. See the release report for
+source-aware context review, feasibility ceilings and evidence limitations.

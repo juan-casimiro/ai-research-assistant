@@ -1,0 +1,771 @@
+{
+  "schema_version": "1.0",
+  "kind": "manual_review_subset_of_saved_full_runs; not a new retrieval run",
+  "reviewer": "Codex GPT-6 author review",
+  "selection_rationale": "Affected numerical/category/negative/alternative evidence families from case_dependencies; representative genuine synthesis, source-conflict passes, span-boundary misses; q051 is the sole observed frozen-cardio document regression. No tuning or new retrieval calls.",
+  "parent_files_sha256": {
+    "diabetes-C2-vector.json": "fd1130ee33c51d91d1fa24550d8bbc3dd428671707a8407d852afd7c9238724e",
+    "cardio-C2-vector.json": "0ff4ad1df28903343e31057031e01ad965b7c5ed05e7b12229a51954cc976bf8",
+    "cardio-C1-vector.json": "eb1766c1b31231afb0e0bdf89bd65bae461bfccdde0c1638c0dc68f9af972573",
+    "diabetes-C3-vector.json": "6fc2bce3aa38d0f3d976691abb17a066c3d9c2f287e3f76ce9613386a71c68ab"
+  },
+  "diabetes_ids": [
+    "q001",
+    "q019",
+    "q036",
+    "q039",
+    "d003",
+    "d005",
+    "d006",
+    "d007",
+    "d010",
+    "d011",
+    "d025",
+    "d019",
+    "d023"
+  ],
+  "cardiology_ids": [
+    "q051"
+  ],
+  "retrieval_calls": 0,
+  "answer_judgments": 0,
+  "cases": [
+    {
+      "id": "q001",
+      "notes": "Right source throughout, but pinned Abstract outcome boundary is missing. Retrieved Results distinguish primary HbA1c/secondary FPG/2hPG; this is not proof that semantically sufficient evidence is absent.",
+      "n8": {
+        "retrieved_sources": [
+          "diabetes-pharmacotherapy-rct.pdf",
+          "diabetes-pharmacotherapy-rct.pdf",
+          "diabetes-pharmacotherapy-rct.pdf",
+          "diabetes-pharmacotherapy-rct.pdf",
+          "diabetes-pharmacotherapy-rct.pdf",
+          "diabetes-pharmacotherapy-rct.pdf",
+          "diabetes-pharmacotherapy-rct.pdf",
+          "diabetes-pharmacotherapy-rct.pdf"
+        ],
+        "retrieved_contexts": [
+          "red from those for HbA1c.\nIn the primary change-score analyses, GQD plus metformin was\nassociated with statistically signiﬁcant reductions in FPG and 2hPG,\nsuggesting a possible short-term glycemic signal. However, these\nresults should be interpreted cautiously because they were based on\nonly two trials and were affected by substantial heterogeneity. Thus,\nthe FPG and 2hPG ﬁndings should be viewed as exploratory rather\nthan conﬁrmatory.\nThe discrepancy between the change-score analysis and the\npost-treatment sensitivity analyses also requires cautious interpre-\ntation. The post-treatment analyses, including the analysis of all\neight trials, favored GQD plus metformin across HbA1c, FPG, and\n2hPG. However, post-treatment ﬁnal values are more vulnerable to\nbaseline imbalance than change-from-baseline values, especially\nwhen randomization procedures are insuf ﬁciently reported.\nTherefore, the statistically signi ﬁcant post-treatment ﬁndings were\nconsidered supportive sensitivity evidence, ",
+          "d GQD plus metformin,\nthe certainty was also rated as very low because the results were\nbased on only two trials and were affected by substantial\nheterogeneity and methodologic al limitations. Therefore, the\nGRADE assessment indicates that the true effects may be substan-\ntially different from the pooled estimates.\nPrimary analysis of change-from-baseline\nvalues\nThe primary analysis was based on change-from-baseline values.\nOnly two trials (S1 and S3; 196 participants) provided suf ﬁcient\nbaseline and post-treatment data for this analysis. Because the SDs of\nchange scores were not directly reported, they were estimated using a\nprespeciﬁed correlation coefﬁcient of r = 0.50 ( Figure 4), with addi-\ntional sensitivity checks using r = 0.25 and r = 0.75 ( Figures 5, 6).\nFor the primary outcome, GQD plus metformin did not show a\nstatistically signi ﬁcant additional reduction in HbA1c compared\nwith metformin alone in the change-score analysis (MD = -1.92,\n95% CI -4.43 to 0.59; P = 0.13). Thi",
+          "s result remained statistically\nnon-signi ﬁcant under the alternative c orrelation assumptions.\nHeterogeneity was extreme across the HbA1c change-score analyses\n(I² = 99% –100%), indicating substantial instability in the pooled\nestimate. Therefore, the primary analysis did not provide suf ﬁcient\nevidence to con ﬁrm a reliable additional effect of GQD on HbA1c.\nFor the secondary outcomes, the change-score analyses favored\nGQD plus metformin. Statistically signi ﬁcant reductions were\nobserved for FPG (MD = -1.08, 95% CI -1.71 to -0.44;\nP = 0.0009) and 2hPG (MD = -1.73, 95% CI -3.05 to -0.42;\nP = 0.010). These ﬁndings were consistent across the tested\nTABLE 1 Characteristics of the included randomized controlled trials.\nStudy Sample size,\ntotal (I/C) Age, years (I/C) Duration Randomization\nmethod\nGQD regimen\n(dose/frequency)\nLi H, 2018 ( 11) 96 (48/48) 58.10 ± 9.70/59.40 ± 9.80 2 weeks\nRandom-number table;\nallocation concealment not\nreported.\nSee Appendix S3 for details\nLi WJ and Li M, 20",
+          "glucose (FPG) and 2-hour postprandial glucose (2hPG). Risk of bias was assessed\nusing the Cochrane RoB 2 tool, and the certainty of evidence was evaluated using\nthe GRADE framework. Random-effects meta-analyses were performed, with the\nprimary analyses based on change-from-baseline values.\nResults: Eight randomized controlled trial s involving 725 par ticipants were\nincluded. In the primary change-score analysis, GQD plus metformin did not\nshow a statistically signi ﬁcant reduction in HbA1c compared with metformin\nalone (mean difference [MD] = -1.92, 95% con ﬁdence interval [CI]: -4.43 to 0.59,\nP = 0.13). Statistically signi ﬁcant reductions were observed for FPG (MD = -1.08,\n95% CI: -1.71 to -0.44, P = 0.0009) and 2hPG (MD = -1.73, 95% CI: -3.05 to -0.42,\nP = 0.010). However, substantial heterogeneity was present across analyses (I² =\n85%–100%), and the certainty of evidence was rated as very low because of risk of\nbias, inconsistency, and imprecision. Post-treatment sensitivity analy",
+          "tainty of evidence remains very low because of methodological\nlimitations, substantial heterogeneity, and imprecision.\nThe primary analysis was based on change-from-baseline values\nand was limited to two trials with sufﬁcient baseline and post-treatment\ndata. In this analysis, GQD plus metformin did not show a statistically\nsigniﬁcant additional reduction in HbA1c compared with metformin\nalone (MD = -1.92, 95% CI -4.43 to 0.59; P = 0.13). This non-signiﬁcant\nresult should not be interpreted as deﬁnitive evidence of no clinically\nimportant effect. The point estimatesuggested a potentially meaningful\nreduction, but the conﬁdence interval was wide and crossed the null\nvalue, indicating substantial imprecision. In addition, the heterogeneity\nwas extreme, which further limited the interpretability of the pooled\nestimate. Therefore, the current evidence is insufﬁcient to determine\nwhether GQD plus metformin produces a reliable additional reduction\nin HbA1c.\nThe ﬁndings for FPG and 2hPG diffe",
+          ", including T2DM-related symptoms (4). In clinical practice,\nGQD is sometimes combined with metformin with the aim of\nimproving glycemic control. Severalrandomized trials have evaluated\nGQD plus metformin for T2DM, and recent studies have also explored\npotential mechanisms involving gut microbiota and metabolic regula-\ntion ( 5). However, the clinical evidence remains uncertain because\nmany available trials are small, havelimited methodological reporting,\nand differ in treatment duration, intervention details, and out-\ncome reporting.\nTherefore, we conducted this systematic review and meta-\nanalysis to evaluate the ef ﬁcacy and certainty of evidence for\nGQD plus metformin compared with metformin alone in adults\nwith T2DM. To maintain a focused clinical question, we included\nonly randomized controlled trials directly comparing these two\ntreatment strategies and excluded studies that used additional\nhypoglycemic drugs. The primary outcome was HbA1c, and the\nsecondary outcomes were FPG an",
+          "tions or hypoglycemic episodes, but the de ﬁnitions, timing, severity,\ncausality assessment, and denominators for safety events were not\nconsistently provided. No trial provided suf ﬁcient standardized\nsafety data to support a reliable quantitative synthesis. Therefore,\nsafety outcomes were summarized descriptively only. Overall, the\navailable evidence was insuf ﬁcient to determine whether adding\nGQD to metformin changes the risk of adverse events compared\nwith metformin alone.\nDiscussion\nThis systematic review and meta-analysis evaluated whether\nGQD provides additional glycemic bene ﬁt when used as an adjunct\nto metformin in adults with type 2 diabetes mellitus. To maintain a\nfocused clinical question, we restricted the review to randomized\ncontrolled trials comparing GQD plus metformin with metformin\nalone and excluded studies involving additional hypoglycemic\ndrugs. Overall, the ﬁndings suggest possible improvements in\nsome glycemic parameters, particularly FPG and 2hPG, but the\ncer",
+          " of GQD plus metformin versus\nmetformin alone (n = 35); ineligible population or study design (n =\n3); and unavailable or insuf ﬁcient quantitative outcome data for\nmeta-analysis (n = 1). Finally, eight randomized controlled trials\nwere included in the systematic review and meta-analysis. The\ncorrected study-selection process is shown in Figure 3.\nStudy characteristics\nThe eight included trials enrolled adult patients with type 2\nd i a b e t e sm e l l i t u sa n dc o m p a r e dG Q Dp l u sm e t f o r m i nw i t h\nmetformin alone. The total sample size was 725 participants, with\nindividual study sample sizes ranging from 40 to 169 participants.\nTreatment duration varied across studies, ranging from 2 weeks to 6\nmonths. All included studies reported at least one glycemic out-\ncome, including HbA1c, FPG, or 2hPG. Detailed information on\nFIGURE 1\nRoB 2 traf ﬁc-light plot. Assessment of the risk of bias for each included study (S1 –S8) using the Cochrane RoB 2 tool across ﬁve domains:\nran"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "gqd_outcomes": []
+          },
+          "anchor_match_groups": {
+            "gqd_outcomes": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "parent_run": {
+        "file": "diabetes-C3-vector.json",
+        "sha256": "6fc2bce3aa38d0f3d976691abb17a066c3d9c2f287e3f76ce9613386a71c68ab",
+        "run_id": "20261002T132046Z-413f3d42",
+        "condition": "C3",
+        "depth": 8
+      }
+    },
+    {
+      "id": "q019",
+      "notes": "Rank 0 supplies ZnT7 knockdown/EMT and MAPK/ERK/TGF-beta, renal ZnT8/TGF-beta and beginning of TNF-induced protein-3 sentence. Neighboring end of the body NF-kappaB statement is not fully retrieved; bibliography is not a substitute for the complete experimental claim.",
+      "n8": {
+        "retrieved_sources": [
+          "diabetes-nephropathy-complications.pdf",
+          "diabetes-nephropathy-complications.pdf",
+          "diabetes-nephropathy-complications.pdf",
+          "diabetes-nephropathy-complications.pdf",
+          "diabetes-nephropathy-complications.pdf",
+          "diabetes-nephropathy-complications.pdf",
+          "diabetes-nephropathy-complications.pdf",
+          "diabetes-nephropathy-complications.pdf"
+        ],
+        "retrieved_contexts": [
+          "lized in the perinuclear region and GA of rat kidney\ntubular epithelial cells. Overexpression of ZnT7 inhibited high-\nglucose (HG)-induced EMT, whereas knockdown of ZnT7 pro-\nmoted EMT. Furthermore, ZnT7 knockdown and the associated\nincrease in HG-induced EMT were accompanied by activation of\nthe MAPK/ERK and TGF- b/Smad pathways ( 166). It has also been\nshown that SLC30A7 exerts antioxidant effects in glucose-induced\napoptosis via the NFE2L2/HMOX1 signalling pathway ( 167).\nThe kidneys are the second organ after the pancreas in terms of\nhigh ZnT8 expression ( 168). ZnT8 is predominantly expressed in\nrenal tubular epithelial cells but only weakly in the glomerulus and\npodocytes ( 169). Studies indicate that ZnT8 protects against EMT\nand tubulointerstitial ﬁbrosis by restraining the activation of the\nTGF-b1/Smads signalling pathway in DKD ( 169). Additionally,\nZnT8 exerts protective effects against apoptosis of renal tubular\nepithelial cells through induction of TNF- a–induced protein 3",
+          "( 164).\nDownregulation of ZnT-1 and ZIP10 in distal tubules may lead to\nreduced zinc efﬂux from tubular cells into the blood, contributing to\nhypozincemia, as well as impaired zinc reabsorption, potentially\nresulting in hyperzincuria, r espectively. It remains dif ﬁcult to\ndetermine whether decreased expression of ZnT-1 and ZIP10 is a\nprimary cause or a secondary consequence of initial podocyte\nLebedeva et al. 10.3389/fendo.2026.1825409\nFrontiers in Endocrinology frontiersin.org10\ninjury. It is likely, that zinc dysregulation represents both a cause\nand a consequence of podocyte damage: hyperglycemia induces\ninitial podocyte injury and subsequently disrupts the expression of\nzinc transporters (including ZnT-1 and ZIP10) in the tubules,\nwhich in turn may further exacerbate injury and establish a self-\namplifying pathological loop.\nExpression of ZnT3, ZnT4, ZnT5, and ZnT6 genes has also been\nobserved in pig kidneys, although the speci ﬁc cell types were not\nidentiﬁed ( 165).\nZnT7 is loca",
+          "to-\nmesenchymal transition and tubulointerstitial ﬁbrosis in diabetic kidney disease. Cell\nDeath Dis. (2020) 11:544. doi: 10.1038/s41419-020-2731-6\n170. Chi Y, Zhang X, Liang D, Wang Y, Cai X, Dong J, et al. ZnT8 exerts anti-apoptosis\nof kidney tubular epithelial cell in diabetic kidney disease through TNFAIP3-NF- kB\nsignal pathways. Biol Trace Elem Res . (2023) 201:2442 –57. doi: 10.1007/s12011-022-\n03361-w\n171. Yang F, Li B, Dong X, Cui W, Luo P. The bene ﬁcial effects of zinc on diabetes-\ninduced kidney damage in murine rodent model of type 1 diabetes mellitus. J Trace\nElem Med Biol . (2017) 42:1 –10. doi: 10.1016/j.jtemb.2017.03.006\n172. Guan Y, Wu L, Wu M, Zhu Y, Luo P, Luo M. Zinc de ﬁciency aggravates high-fat\ndiet-induced renal injury by regulating oxidative stress and in ﬂammation via the Nrf2/\nHO-1 pathway. Biol Trace Elem Res . (2025) 204(1):60 –73. doi: 10.1007/s12011-025-\n04663-5\n173. Fakhruddin S, Alanazi W, Jackson KE. Diabetes-induced reactive oxygen species:\nMechanism ",
+          "u14071353\n8. Fine LG, Bandyopadhay D, Norman JT. Is there a common mechanism for the\nprogression of different types of renal diseases other than proteinuria? Towards the\nunifying theme of chronic hypoxia. Kidney Int Suppl . (2000) 75:S22 –6. doi: 10.1046/\nj.1523-1755.2000.07512.x\nLebedeva et al. 10.3389/fendo.2026.1825409\nFrontiers in Endocrinology frontiersin.org13\n9. Fine LG, Norman JT. Chronic hypoxia as a mechanism of progression of chronic\nkidney diseases: from hypothesis to novel therapeutics. Kidney Int . (2008) 74:867 –72.\ndoi: 10.1038/ki.2008.350\n10. Qin W, Nie P, Hui X, Chen F, Hu X, Shi W, et al. Research progress of hypoxia-\ninducible factor-1 a and zinc in the mechanism of diabetic kidney disease. Front\nPharmacol. (2025) 16:1537749. doi: 10.3389/fphar.2025.1537749\n11. Tanaka S, Tanaka T, Nangaku M. Hypoxia as a key player in the AKI-to-CKD\ntransition. Am J Physiol Renal Physiol . (2014) 307:F1187 –95. doi: 10.1152/ajprenal.\n00425.2014\n12. Guo Y, Yu C, Lu Z, Zhang M, Zhang ",
+          "153\n–76. doi: 10.1146/annurev-nutr-033009-083312\n165. Brugger D, Hanauer M, Ortner J, Windisch WM. The response of zinc transporter\ngene expression of selected tissues in a pig model of subclinical zinc de ﬁciency. J Nutr\nBiochem. (2021) 90:108576. doi: 10.1016/j.jnutbio.2020.108576\n166. Zhang X, Lian X, Liang D, Zhang L, Liu S, Yang L, et al. Protective effect of Znt7\non high glucose-induced epithelial-to-mesenchymal transition in renal tubular epithe-\nlial cells. Kidney Blood Press Res . (2018) 43:500 –12. doi: 10.1159/000488697\n167. Zhang X, Guan T, Yang B, Chi Z, Wan Q, Gu HF. SLC30A7 has anti-oxidant\nstress effects in high glucose-induced apoptosis via the NFE2L2/HMOX1 signal\ntransduction pathway. Diabetes Res Clin Pract . (2021) 172. doi: 10.1016/\nj.diabres.2020.108445\n168. Znt8 related genes - GeneCards Search Results (2025). Available online at: https://\nwww.genecards.org/Search/Keyword?queryString=Znt8.\n169. Zhang X, Guan T, Yang B, Gu HF, Chi Z. Effects of ZnT8 on epithelial-",
+          "nducible factor-1 a (HIF-1a). Zinc is further relevant for anti-in ﬂamma-\ntory, antioxidant, anti-apoptotic, and anti- ﬁbrotic signalling pathways with\nnephroprotective effects in DKD. In this review, we focus on the role of zinc\nhomeostasis in the development of diabetes and DKD, with particular emphasis\non hypoxia as the central trigger of DKD. We also discuss the role of the zinc\nsignaling in the cellular and systemic carbohydrate metabolism in the context of\ndiabetes and DKD.\nKEYWORDS\ndiabetes, diabetic kidney disease, HIF-1 a, hypoxia, hypoxia-inducible factors, insulin,\npancreatic b-cells, zinc\nFrontiers in Endocrinology frontiersin.org01\nOPEN ACCESS\nEDITED BY\nCristia´ n A. Amador,\nSan Sebastia´ n University, Chile\nREVIEWED BY\nTakafumi Hara,\nTokushima Bunri University, Japan\nJiayi Zhou,\nUniversity of North Carolina at Chapel Hill,\nUnited States\nAhmed Fotouh,\nNew Valley University Faculty of\nAgriculture, Egypt\n*CORRESPONDENCE\nSvetlana A. Lebedeva\nlebedeva502@yandex.ru\nRECEIVED 07 ",
+          "protection.\nThe role of zinc in the pathophysiology of\nDKD\nAs DKD progresses, plasma zinc levels decline ( 26, 152–154).\nLow zinc levels are negatively correlated with the expression of nod-\nlike receptor nucleotide-binding domain and leucine-rich repeat\npyrin-3 domain (NLRP3), IL-1 b, and IL-18 ( 155) and are currently\nconsidered a risk factor for the development of chronic kidney\ndisease (CKD) or the progression of kidney injury ( 7, 156–158). A\nretrospective cohort study using the TriNetX Analytics Network\ndemonstrated that zinc de ﬁciency serves as an independent predic-\ntor of DKD and affects kidney function through direct mechanisms\nrather than via microvascular dysfunction or poor metabolic\ncontrol (159). This ﬁnding is particularly important, as it indicates\nthat zinc de ﬁciency represents an independent therapeutic target\nrather than merely a marker of overall diabetes severity.\nA 2025 study using Mendelian randomization (MR), based on\nMendel’s laws of inheritance, combined wi",
+          "th proteomic analysis,\nidentiﬁed 26 plasma proteins and four key signalling or metabolic\npathways: digestion, events ass ociated with the phagocytolytic\nactivity of polymorphonuclear (PMN) cells, digestion and absorp-\ntion, and DSCAM interactions, all of which mediate the association\nbetween decreased serum zinc levels and the development of DKD\n(160). Several factors may contribute to reduced plasma zinc levels,\nincluding decreased intestinal zinc absorption ( 41), drug interac-\ntions (161) and increased urinary zinc excretion ( 152).\nThe causes and mechanisms of zinc loss with urine during CKD\nremain unknown. Despite the well-established links between zinc\ndeﬁciency and kidney disorders, data on the renal distribution of\nzinc transporters along the nephron and their cellular localization\nare still limited ( 158, 162). ZnT-1 has been reported to localize to\nthe basolateral membrane of distal tubular epithelial cells ( 163) and,\ntogether with ZIP10, to participate in zinc reabsorption "
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "zinc_transporters": []
+          },
+          "anchor_match_groups": {
+            "zinc_transporters": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "parent_run": {
+        "file": "diabetes-C3-vector.json",
+        "sha256": "6fc2bce3aa38d0f3d976691abb17a066c3d9c2f287e3f76ce9613386a71c68ab",
+        "run_id": "20261002T132046Z-413f3d42",
+        "condition": "C3",
+        "depth": 8
+      }
+    },
+    {
+      "id": "q036",
+      "notes": "Ranks 0 and 4 expose the named embedding model, 500/100 characters, FAISS/top_k=2 and L2 distance. The full pinned architecture span is not present. Manual context inspection finds the requested configuration even though conservative span scoring fails.",
+      "n8": {
+        "retrieved_sources": [
+          "diabetes-cgm-management.pdf",
+          "diabetes-cgm-management.pdf",
+          "diabetes-cgm-management.pdf",
+          "diabetes-cgm-management.pdf",
+          "diabetes-cgm-management.pdf",
+          "diabetes-cgm-management.pdf",
+          "diabetes-cgm-management.pdf",
+          "diabetes-cgm-management.pdf"
+        ],
+        "retrieved_contexts": [
+          "d limit speculative generation [ 22]. API credentials\nwere stored as environment variables and were not embed-\nded in the code or shared materials. For retrieval, docu-\nments were embedded using text-embedding-3-small, split\nJOURNAL OF MEDICAL INTERNET RESEARCH Guo et al\nhttps://www.jmir.org/2026/1/e98519 J Med Internet Res 2026 | vol. 28 | e98519 | p. 5\n(page number not for citation purposes)\ninto approximately 500-character chunks with 100-character\noverlap, indexed in FAISS, and retrieved with top_k=2 using\nthe current question text as the retrieval query.\nSafety and Security\nSeveral safeguards were implemented to minimize the risk of\ninappropriate, misleading, or clinically unsafe outputs. Inputs\nto the CA were restricted to deidentified CGM summaries\nand synthetic vignettes, so no identifiable patient information\nor directly actionable treatment instructions were supplied.\nBehavioral constraints embedded in the system prompted the\nCA to avoid prescriptive therapeutic recommendatio",
+          "tructured data, which raises concerns about their safe use\nin clinical contexts [ 22,26]. Retrieval-augmented generation\nJOURNAL OF MEDICAL INTERNET RESEARCH Guo et al\nhttps://www.jmir.org/2026/1/e98519 J Med Internet Res 2026 | vol. 28 | e98519 | p. 2\n(page number not for citation purposes)\n(RAG) has been proposed as one strategy to mitigate\nthese limitations by grounding LLM outputs in curated,\nevidence-based sources and explicitly linking responses to\nboth guideline documents and case-specific data such as\nCGM traces [ 25,26]. Empirical evidence on the performance\nof such systems in patient-specific, CGM-informed diabetes\nscenarios, however, remains limited.\nRecent studies have applied LLM- or RAG-based\nconversational agents (CAs) to diabetes care, mainly for\ndiabetes education, lifestyle, and self-management advice,\nor general question and answering [ 27,28]. These systems\nare commonly evaluated in terms of diabetes knowledge,\nperceived usefulness, usability, and the appropriatenes",
+          "he current corpus, which included limited sensor-use and\ndevice-troubleshooting material. Future work should include\nfull retrieval logging, ablation comparisons, independent\nrelevance assessment, and expanded device-specific and local\npolicy-specific retrieval corpora.\nJOURNAL OF MEDICAL INTERNET RESEARCH Guo et al\nhttps://www.jmir.org/2026/1/e98519 J Med Internet Res 2026 | vol. 28 | e98519 | p. 15\n(page number not for citation purposes)\nFinally, the study used written, vignette-based scenarios\nrather than interactive real-world consultations. Although\nvignettes were derived from real CGM data and reviewed\nfor clinical plausibility, they necessarily simplified real-\nworld encounters and did not encompass rare presentations,\nhighly complex comorbidities, diverse treatment pathways,\nor dynamic patient-clinician interaction. The findings are\ntherefore most applicable to structured CGM interpreta-\ntion and patient-facing explanation tasks under control-\nled conditions. Future studies sho",
+          ".\nThe audit suggested that retrieval grounding was partial and\ndomain-dependent rather than uniform across all CA outputs.\nRetrieval-response alignment was strongest for blood glucose\ninterpretation and fluctuation analysis, where all audited\nexamples were directly aligned, and was also relatively strong\nfor medication and treatment guidance and emotional and\npsychological concerns. This pattern suggests that the curated\ncorpus was most useful when questions could be supported\nby guideline-based or educational material directly relevant\nto CGM interpretation, treatment-context explanation, or\npsychosocial support. In contrast, technical issues and device\nuse showed weaker visible retrieval-response alignment,\nsuggesting that future versions may require more targeted\ndevice-specific retrieval materials, such as manufacturer\nJOURNAL OF MEDICAL INTERNET RESEARCH Guo et al\nhttps://www.jmir.org/2026/1/e98519 J Med Internet Res 2026 | vol. 28 | e98519 | p. 13\n(page number not for citation pu",
+          "rest segments from\nthe FAISS index. The retrieval function returned a Eucli-\ndean (L2) distance score, with lower values indicating closer\nembedding-space proximity.\nTwo prompt templates were used to structure model\nbehavior across interaction stages. The first template was\nused to generate an initial plain-language explanation of\nthe precomputed CGM summary and vignette context, with\nretrieved guideline-aligned reference materials incorporated\nthrough the RAG pipeline to support interpretation. The CGM\nmetrics themselves were computed in Python in advance and\nprovided to the model as structured input rather than being\ngenerated by the prompt. The second template was used\nto answer follow-up patient questions, again incorporating\nretrieved reference materials through the RAG pipeline to\nsupport context-aware responses. Full prompt templates are\nprovided in Multimedia Appendix 2 . The system prompt\ndefined the CA as a diabetes specialist and instructed it\nto provide clear, plain-languag",
+          "Original Paper\nRetrieval-Augmented Large Language Model Counseling for\nContinuous Glucose Monitoring in Diabetes: Source-Masked\nMultirater Comparative Evaluation\nZhijun Guo1, MSc; Alvina Lai1, PhD; Emmanouil Korakas2, MD; Aristeidis Vagenas2, MD; Irshad Ahamed3, MD;\nChristo Albor4, MD; Hengrui Zhang1, MSc; Justin Healy4, MBBS, MPH; Kezhi Li1,2, PhD\n1Institute of Health Informatics, University College London, London, United Kingdom\n2University College London Hospitals NHS Foundation Trust, London, United Kingdom, London, United Kingdom\n3Dartford and Gravesham NHS Foundation Trust, Dartford, United Kingdom, Dartford, England, United Kingdom\n4Royal Free London NHS Foundation Trust, London, United Kingdom\nCorresponding Author:\nKezhi Li, PhD\nInstitute of Health Informatics\nUniversity College London\n222 Euston Road\nLondon NW1 2DA\nUnited Kingdom\nPhone: 44 7859995590\nEmail: ken.li@ucl.ac.uk\nAbstract\nBackground: Continuous glucose monitoring (CGM) is central to diabetes care, but explaining CGM",
+          " patterns consistently\nand empathetically remains time-intensive in clinical practice. Large language model (LLM)–based systems may support\npatient-facing interpretation of CGM data, but evidence remains limited for retrieval-grounded tools evaluated against\nclinician-authored responses in counseling scenarios. The system was intended for CGM interpretation and communication\nsupport rather than autonomous therapeutic decision-making.\nObjective: This study aimed to evaluate whether a retrieval-grounded LLM-based conversational agent (CA) could support\npatient understanding of CGM data and preparation for diabetes consultations by generating responses to questions arising\nduring CGM-informed diabetes counseling, with quality comparable to clinician-authored responses.\nMethods: We developed a scaffolded LLM-based CA for CGM interpretation and diabetes counseling support. The system\nwas designed to provide plain-language explanations of CGM patterns and responses to diabetes management que",
+          "rovided in Multimedia Appendix 5.\nThe retrieval score was the FAISS L2 distance returned\nby the similarity search function. Lower values indicate\ngreater embedding space proximity between the query and the\nretrieved segment [ 55]. This score was used as a quantitative\ntrace of the retrieval process and as a descriptive indicator\nof why a segment was returned by vector search. It was\nnot treated as a clinical relevance score or as evidence\nthat the retrieved segment necessarily influenced the final\nCA response. Because embedding space proximity does not\ndirectly establish clinical relevance or response grounding,\nretrieval-response relevance was assessed separately through\nstructured manual review.\nTwo authors (ZG and KL) independently reviewed the\nretrieved segment, original question, and archived CA\nresponse excerpt for each audited item using a predefined\nrubric. Retrieved segments were classified as directly aligned,\nbroadly aligned, weakly aligned, or showing no clear\nalignment wit"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "ca_architecture": [],
+            "ca_embedding": [
+              0
+            ]
+          },
+          "anchor_match_groups": {
+            "ca_architecture": [],
+            "ca_embedding": [
+              [
+                0
+              ]
+            ]
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "parent_run": {
+        "file": "diabetes-C3-vector.json",
+        "sha256": "6fc2bce3aa38d0f3d976691abb17a066c3d9c2f287e3f76ce9613386a71c68ab",
+        "run_id": "20261002T132046Z-413f3d42",
+        "condition": "C3",
+        "depth": 8
+      }
+    },
+    {
+      "id": "q039",
+      "notes": "Source masking vocabulary is retrieved, but the 697/864 versus 697/797 identification denominators and practical-blinding limitation are not supplied completely. Source presence does not establish this distinction.",
+      "n8": {
+        "retrieved_sources": [
+          "diabetes-cgm-management.pdf",
+          "diabetes-cgm-management.pdf",
+          "diabetes-cgm-management.pdf",
+          "diabetes-cgm-management.pdf",
+          "diabetes-cgm-management.pdf",
+          "diabetes-cgm-management.pdf",
+          "diabetes-cgm-management.pdf",
+          "diabetes-cgm-management.pdf"
+        ],
+        "retrieved_contexts": [
+          "anded only to provide plausi-\nble counseling context. Coherence was assessed by checking\nconsistency with diabetes type, treatment modality, CGM\nsummary metrics, and visible glucose patterns, including TIR,\ntime above range (TAR), time below range (TBR), glycemic\nvariability, nocturnal lows, postprandial excursions, fasting or\nearly-morning rises, and data completeness. Draft vignettes\nand plots were prepared by ZG and refined through forma-\ntive review with senior diabetologist EK; refinements were\nlimited to improving clinical plausibility, differentiating type\nJOURNAL OF MEDICAL INTERNET RESEARCH Guo et al\nhttps://www.jmir.org/2026/1/e98519 J Med Internet Res 2026 | vol. 28 | e98519 | p. 4\n(page number not for citation purposes)\n1 and type 2 diabetes contexts, and representing early-\nmorning glucose rise or possible dawn phenomenon where\nsupported by the CGM trace.\nCA Design\nA retrieval-grounded CA for CGM interpretation and\ndiabetes-related counseling scenarios was implemented usin",
+          ".\nThe audit suggested that retrieval grounding was partial and\ndomain-dependent rather than uniform across all CA outputs.\nRetrieval-response alignment was strongest for blood glucose\ninterpretation and fluctuation analysis, where all audited\nexamples were directly aligned, and was also relatively strong\nfor medication and treatment guidance and emotional and\npsychological concerns. This pattern suggests that the curated\ncorpus was most useful when questions could be supported\nby guideline-based or educational material directly relevant\nto CGM interpretation, treatment-context explanation, or\npsychosocial support. In contrast, technical issues and device\nuse showed weaker visible retrieval-response alignment,\nsuggesting that future versions may require more targeted\ndevice-specific retrieval materials, such as manufacturer\nJOURNAL OF MEDICAL INTERNET RESEARCH Guo et al\nhttps://www.jmir.org/2026/1/e98519 J Med Internet Res 2026 | vol. 28 | e98519 | p. 13\n(page number not for citation pu",
+          "l-\ning using case-specific CGM information, vignette context,\nand guideline-based retrieval. We then conducted a source-\nmasked multirater evaluation between October 2025 and\nFebruary 2026 with UK diabetes clinicians, who assessed\nCA- and clinician-authored responses for quality and safety.\nIn doing so, this study examined whether such a system could\nsupport standardized explanatory and educational aspects of\ndiabetes care in consultations involving CGM review, without\npositioning it as a substitute for clinician judgment.\nMethods\nEthical Considerations\nThis study did not involve direct contact with patients\nor access to identifiable clinical records. The CGM files\nwere derived from publicly available, preexisting, deidenti-\nfied clinical datasets, and all accompanying patient vignettes\nwere synthetic and created solely for research purposes. The\nhuman contributors were 6 diabetes clinicians who served as\nexpert reviewers by providing written responses and rating\nanonymized text output",
+          " 5-point scale,\nwith the largest differences observed in empathy (mean\ndifference 1.06) and actionability (0.99). These findings\nsuggest that, under standardized vignette-based conditions,\na scaffolded CA output pipeline incorporating retrieval as\npart of its architecture can produce written responses that\nspecialists judge favorably in both relational and action-\noriented dimensions. However, the comparison should be\ninterpreted as a controlled evaluation of written outputs rather\nthan as evidence that the CA is intrinsically superior to\nclinicians in real-world diabetes counseling. To our knowl-\nedge, this represents one of the first source-masked compa-\nrative evaluations of retrieval-grounded LLM-generated and\nclinician-authored responses in structured CGM counseling\ncontexts.\nPerformance differences were not uniform across domains\nand appeared to vary according to task structure. Differences\nwere most pronounced in data-intensive glucose interpretation\nand action-oriented explanat",
+          "ext-specific communica-\ntion, while final treatment recommendations and higher-risk\nclinical judgments remain clinician-led. Accordingly, the\npotential value of such systems may lie less in autono-\nmous decision-making than in supporting routine explanatory\nwork, augmenting specialist capacity, and helping prioritize\nclinician time toward situations requiring greater clinical\ncomplexity or safety oversight [33,34].\nStudy Aim\nTo our knowledge, this study is among the first to conduct\na source-masked comparative evaluation in which diabetes\nspecialists assessed both retrieval-grounded LLM-generated\nand clinician-authored responses to identical CGM-informed\ncases across predefined clinical and psychosocial evaluation\ncriteria. To address the need for scalable support in patient-\nfacing communication around CGM review, we developed\na scaffolded LLM GPT-5.1–based LLM CA incorporating\nRAG that generated structured, plain-language responses\nto questions arising in CGM-informed diabetes counse",
+          "rposes)\nguidance, sensor troubleshooting documentation, and local\nclinical protocols. Therefore, the RAG component should\nbe interpreted as providing retrieval traceability and visible\nresponse alignment in a subset of cases, rather than as\nuniformly determining CA outputs or explaining the observed\nquality differences.\nComparison With Prior Work\nThese findings extend prior CGM-focused evaluations of\nLLM-generated summaries, which have typically assessed\nmodel outputs in isolation and emphasized feasibility,\naccuracy, or clinical acceptability [ 31]. By using a bal-\nanced design with source-masked ratings, this study enables\ndirect comparison with clinician-authored responses across\npredefined technical and relational dimensions. Notably,\nthe largest differences were observed in actionability and\nempathy, rather than being confined solely to glycemic\ninterpretation, suggesting that structured explanatory and\nrelational components may be particularly sensitive to\ncomparative evaluation.",
+          " findings, particularly those based on modest absolute\ndifferences, should be interpreted cautiously because the\nrating instrument and sample size may not support strong\ninferences at the individual-dimension level.\nSecond, the case set was small and included only 3\ntype 2 diabetes cases. This limits generalizability to rou-\ntine diabetes care, where type 2 diabetes accounts for the\nmajority of diagnosed diabetes [ 76]. However, this imbalance\nalso reflects a broader data-availability constraint, as CGM\nuse and publicly available CGM datasets remain dispropor-\ntionately concentrated in type 1 diabetes and insulin-treated\npopulations [ 77,78]. More broadly, the study had limited\ncoverage of medication-policy-sensitive scenarios, including\nquestions involving treatment escalation, eligibility crite-\nria, cardiometabolic risk management, and locally specific\nprescribing rules. At the aggregate level, safety flag frequen-\ncies were similar between CA and clinician responses, and\nmajor safe",
+          "s. They were not asked to provide\npersonal or sensitive information and were considered expert\nassessors rather than research participants. According to UK\nHealth Research Authority guidance, research using publicly\navailable or fully anonymized data in which individuals\ncannot be identified may not require formal Research Ethics\nCommittee review [ 35]. Because this study used publicly\navailable anonymized CGM datasets together with clinician\nratings of generated responses and did not involve identifiable\npatient information, formal ethics approval was not required.\nCGM Data and Case Vignettes\nAn overview of the complete workflow is presented in\nFigures 1A-D . We constructed 12 CGM-based cases using\ndeidentified glucose traces from 2 publicly available research\ndatasets. Six traces (3 type 1 diabetes and 3 type 2 dia-\nbetes) were sampled from the ShanghaiT1DM and Shang-\nhaiT2DM datasets [ 36], which provide 3 ‐14 days of CGM\nvalues at 15-minute intervals for 12 individuals with type 1\n"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "ca_identification": [],
+            "ca_limitations": []
+          },
+          "anchor_match_groups": {
+            "ca_identification": [],
+            "ca_limitations": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "parent_run": {
+        "file": "diabetes-C3-vector.json",
+        "sha256": "6fc2bce3aa38d0f3d976691abb17a066c3d9c2f287e3f76ce9613386a71c68ab",
+        "run_id": "20261002T132046Z-413f3d42",
+        "condition": "C3",
+        "depth": 8
+      }
+    },
+    {
+      "id": "d003",
+      "notes": "Both abstract three-male and Results two-male counts are retrieved at n8. The full evidence set passes; preserve the discrepancy rather than reconcile it.",
+      "n8": {
+        "retrieved_sources": [
+          "diabetes-gene-sex-hormone-interactions.pdf",
+          "diabetes-gene-sex-hormone-interactions.pdf",
+          "diabetes-gene-sex-hormone-interactions.pdf",
+          "diabetes-gene-sex-hormone-interactions.pdf",
+          "diabetes-gene-sex-hormone-interactions.pdf",
+          "diabetes-gene-sex-hormone-interactions.pdf",
+          "diabetes-gene-sex-hormone-interactions.pdf",
+          "diabetes-gene-sex-hormone-interactions.pdf"
+        ],
+        "retrieved_contexts": [
+          "OPEN ACCESS\nCitation: Dabbs-Brown A, Liu C, Hui Q, \nWilson PWF , Zhou JJ, Gwinn M, et al. (2025) \nIdentification of gene-sex hormone interactions \nassociated with type 2 diabetes among men \nand women. PLoS Genet 21(9): e1011470. \nhttps://doi.org/10.1371/journal.pgen.1011470\nEditor: Todd L. Edwards, Vanderbilt University, \nUNITED STATES OF AMERICA\nReceived: October 21, 2024\nAccepted: August 18, 2025\nPublished: September 2, 2025\nCopyright:  This is an open access article, free \nof all copyright, and may be freely reproduced, \ndistributed, transmitted, modified, built upon, \nor otherwise used by anyone for any lawful \npurpose. The work is made available under \nthe Creative Commons CC0 public domain \ndedication.\nData availability statement: The data that \nsupport the findings of this study will be pub-\nlicly available from the UNC Dataverse with the \nidentifier https://doi.org/10.15139/S3/UG2NLU.\nFunding: This work is supported in part by \nfunding from the National Institute of Health \nRES",
+          "EARCH ARTICLE\nIdentification of gene-sex hormone interactions \nassociated with type 2 diabetes among men \nand women\nAmonae Dabbs-Brown 1, Chang Liu1, Qin Hui 1, Peter W.F. Wilson1,2,3, Jin J. Zhou 4,5,6, \nMarta Gwinn1, Yan V. Sun 1,3*\n1 Department of Epidemiology, Emory University Rollins School of Public Health, Atlanta, Georgia, \nUnited States of America, 2 Division of Cardiology, Department of Medicine, Emory University School of \nMedicine, Atlanta, Georgia, United States of America, 3 VA Atlanta Health Care System, Decatur, Georgia, \nUnited States of America, 4 Department of Medicine, David Geffen School of Medicine, University of \nCalifornia, Los Angeles, California, United States of America, 5 Department of Biostatistics, Fielding \nSchool of Public Health, University of California, Los Angeles, California, United States of America, \n6 Phoenix VA Health Care System, Phoenix, Arizona, United States of America \n* yan.v.sun@emory.edu\nAbstract \nBackground and Objectives\nType 2 diabete",
+          "ally significant in both men and women, we \nfound the best evidence for interaction with SBHG in women. We observed negative interaction between PRST2D and \ntotal testosterone (TT), which indicates an antagonistic interaction given the positive associations of both PRST2D and \nTT. Such statistical interaction suggests a potential shared etiology between PRST2D and TT which can mask out their \neffects on T2D. In a genome-wide analysis of SNP- sex hormone interactions, we identified 40 genomic risk loci for type 2 \ndiabetes, of which only 18 overlap those reported in the most recent type 2 diabetes GWAS [23] (S4 Table). None of these \nSNPs had marginal effects that reached genome-wide significance.\nTwo protein coding genes, PNPLA3 and GNAQ, mapped to the newly identified loci in men. Several studies have \nidentified PNPLA3 as being associated with testosterone and SHBG levels[ 8,24], and it has also been linked to type 2 \ndiabetes [25]. The SNP rs738408 on PNPLA3 is a synonymous variant ",
+          "PLOS Genetics | https://doi.org/10.1371/journal.pgen.1011470 September 2, 2025 2 / 13\nConclusion\nIncluding interaction terms in GWAS may identify additional risk loci and improve the \nunderstanding of genetic architecture for type 2 diabetes. Different genetic inter-\nactions with sex hormones in men and women emphasize the importance of sex- \nstratified analysis in sex differential diseases.\nAuthor summary\nType 2 diabetes is an increasingly common disease that is caused by both \ngenetic and environmental factors. Though genome-wide association stud-\nies (GWAS) have been performed to identify several genes associated with \ntype 2 diabetes, little is known about how an individual’s internal or external \nenvironment interacts with their genetics to affect disease outcomes. Here, \nwe performed sex-stratified genome-wide interaction studies with 3 different \nsex-hormone interaction terms: testosterone, bio-available testosterone, and \nsex-hormone binding globulin. We identified 22 genomic r",
+          "s affects an increasing number of people worldwide. Although \ngenome-wide association studies (GWAS) of type 2 diabetes have identified hun-\ndreds of loci, their interactions with other risk factors aren’t well understood. We \ninvestigated genetic interactions with three sex hormones (total testosterone, bio-\navailable testosterone, and sex hormone binding globulin (SHBG)) to identify addi-\ntional type 2 diabetes-related loci that were undetected in traditional GWAS.\nMethods\nThe study population consisted of white European UK Biobank participants. Individ-\nuals with type 1 diabetes were excluded. We examined sex-stratified interactions of \npolygenic risk score (PRS) for type 2 diabetes with sex hormone levels. We analyzed \nsex-stratified, genome-wide SNP × sex hormone interactions, adjusting for age and \nthe top ten principal ancestry components.\nResults\nWe found significant (P < 0.05) interactions for each of the sex hormones with PRS \nin both men and women, with the most significant ",
+          "SHBG interaction in women showed that having both high SHBG and high PRST2D risk con-\nfers higher odds of developing type 2 diabetes than would be expected from additive or multiplicative effects and that an \ninteraction may indeed be present (S1 Text, S2 Table).\nGenome-wide SNP × sex hormone interactions in type 2 diabetes\nGEM analysis of genome-wide significant (GWS; p < 5 × 10-8, 1-df) interactions identified fourteen relevant loci in women (4 inter-\nacting with SHBG, 10 with BAT), and two in men (1 interacting with TT and 1 with SHBG) (Table 3). Among women, 3 loci inter-\nacting with SHBG and 5 with BAT were also GWS in the analysis of joint (2 df) effects; the same was true for the locus interacting \nwith TT among men. None of the loci identified via their interaction effects had marginal effects that were GWS.\nMore genomic loci with significant marginal or joint effects with TT, SHBG, or BAT were found among men than among \nwomen (S3 Table). Most loci with joint effects were also",
+          "being between SHBG and PRS in \nwomen (OR 0.88; 95% CI: 0.85-0.90; P = 1.09E-18). We identified 3 SNP × sex hor-\nmone interactions in men and 14 in women that achieved genome-wide significance \n(GWS; P < 5 × 10-8). Applying a 2-degree of freedom test, we identified GWS loci (10 in \nmen and 23 in women) that were not GWS when testing marginal genetic effects alone.",
+          "PLOS Genetics | https://doi.org/10.1371/journal.pgen.1011470 September 2, 2025 6 / 13\nmenopause as a covariate were highly correlated (r = 0.86 for SHBG and r = 0.93 for BAT) and the correlations between \ngenome-wide significant SNPs was even higher (r = 0.98 for SHBG and r = 1.0 for BAT). These results indicated that the \ninteractions we observed were not sensitive to a woman’s menopausal status (S2 Fig).\nThe second menopause sensitivity analysis was performed in only post-menopausal women. GEM models were built \nwith age at enrollment, PC1–10, and the G × SHBG or G × BAT interaction terms as covariates (S1 Text). The sample \nsizes for the SHBG and BAT cohorts were 120,700, and 88,518, respectively. The interaction effects (beta coefficients) for \nthe models in post-menopausal women vs all women were highly correlated (r = 0.76 for SHBG and r = 0.84 for BAT) and \nthe correlations between genome-wide significant SNPs was even higher (r = 0.98 for SHBG and r = 1.0 for BAT). These \nresul"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "pass",
+          "fact_recall": 1.0,
+          "supported_facts": [
+            "f1",
+            "f2"
+          ],
+          "anchor_matches": {
+            "gene_abstract_count": [
+              6
+            ],
+            "gene_result_count": [
+              5
+            ]
+          },
+          "anchor_match_groups": {
+            "gene_abstract_count": [
+              [
+                6
+              ]
+            ],
+            "gene_result_count": [
+              [
+                5
+              ]
+            ]
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "parent_run": {
+        "file": "diabetes-C3-vector.json",
+        "sha256": "6fc2bce3aa38d0f3d976691abb17a066c3d9c2f287e3f76ce9613386a71c68ab",
+        "run_id": "20261002T132046Z-413f3d42",
+        "condition": "C3",
+        "depth": 8
+      }
+    },
+    {
+      "id": "d005",
+      "notes": "Rank 0 includes Table 4 OR .102, CI .08-3.08 and P=.021/.031. Full evidence passes. This printed anomaly is evidence for source attribution, not a valid coherent risk estimate.",
+      "n8": {
+        "retrieved_sources": [
+          "diabetes-cyp2c9-hypoglycaemia.pdf",
+          "diabetes-cyp2c9-hypoglycaemia.pdf",
+          "diabetes-cyp2c9-hypoglycaemia.pdf",
+          "cardio-ckd-sglt2-acei-arb.pdf",
+          "diabetes-cyp2c9-hypoglycaemia.pdf",
+          "cardio-ccta-tyg-incremental-value.pdf",
+          "diabetes-cyp2c9-hypoglycaemia.pdf",
+          "diabetes-sleep-multimorbidity-cohorts.pdf"
+        ],
+        "retrieved_contexts": [
+          "ic patients with SIH and in ﬁve (2.5%) individuals\nbelonging to control group.\nTable 4. Allelic distribution/frequencies of CYPC19*2 and CYPC19*3 in cases and controls.\nCYP2C9 Alleles Phenotypes Cases n (f) Controls n (f) OR (95%Cl) Crude p-Value Adjusted p-Value\nCYP2C9*1 Wild-type/no effect 158 (84.0%) 183 (91.5%) Ref. Ref. Ref.\nCYP2C9*2 Decreases enzyme activity 35 (17.5%) 12 (6.0%) 0.102 (0.08–3.08) 0.021 0.031\nCYP2C9*3 Loss of enzyme activity 07 (3.5%) 5 (2.5%) 0.041 (0.02–2.21) 0.101 0.091\nn = number; f = frequency.\n3.3. Genotype Frequencies\nThe prevalence of CYP2C9*1/*1, *1/*2, *2/*2, *2/*3, and *3/*3 genotypes are listed in\nTable 5. The frequency of CYP2C9*1/*1 (reference genotype) between the cases and controls\nwas (79% vs. 89%), whereas the frequency of genotype *1/*2 was higher in the cases\ncompared to the control group (10% vs. 6%, with p = 0.036); the same was true for genotype\n*2/*2 (7% vs. 3.5%, with p = 0.028). In contrast, the genotype *1/*3 was underrepresented\nin the ",
+          "le CYP2C9*2 in the case\ngroup compared to the control (OR = 0.102, 95% conﬁdence interval (CI): 0.08–3.08,p = 0.021,\nTable 4). The frequency of CYP2C9 genotypes that lead to impaired CYP2C9 function (*1/*2\nand *2/*2) was also detected to be higher in the cases than the controls (Table 5). Logistic\nregression analysis with hypoglycaemia status as the dependent variable andCYP2C9 geno-\ntypes (*1/*2 and *2/*2) as contributing variables estimated CYP2C9*1/*2 and CYP2C9*2/*2\ngenotype as risk factors for SIH. The confounding factors such as age, triglyceride levels,\nurea level, creatinine level, and mean daily dose of sulphonylurea medication were found\nto be uniform in the cases and controls. When adjusted for the given confounding fac-\ntors, the association between the CYP2C9*2 allele and its corresponding genotype with\nsulphonylurea-induced hypoglycaemia remained consistent, suggesting that the genetic\nvariant may independently contribute to an increased risk of hypoglycaemia in individua",
+          "cases compared to the control group (1% vs. 1.5%), albeit with p-value of 0.344.\nGenotypes *2/*3 and *3/*3 were not reported, either in the cases or controls.\nBiomedicines 2023, 11, 2282 7 of 10\nTable 5. Genotype frequencies of CYPC19*2 and CYPC19*3 in cases and controls.\nCYP2C9\nGenotypes Phenotypes Type of\nGenotype Cases n (f) Controls n (f) OR (95%Cl) Crude\np-Value\nAdjusted\np-Value\nCYP2C9 *1/*1 Normal metabolizer Hom 158(79%) 178 (89%) Ref. Ref. Ref.\nCYP2C9 *1/*2 Intermediate metabolizer Het 20 (10%) 12 (6.0%) 1.21 (1.81–3.02) 0.036 0.039\nCYP2C9 *1/*3 Intermediate metabolizer Het 2 (1.0%) 3 (1.5%) 0.94 (0.77–1.15) 0.344 0.231\nCYP2C9 *2/*2 Intermediate metabolizer Hom 20 (7%) 7 (3.5%) 2.83 (1.69–3.00) 0.028 0.031\nCYP2C9 *2/*3 Poor metabolizer Het --- --- --- --- --\nCYP2C9 *3/*3 Poor metabolizer Hom --- --- --- --- ---\nRef.: reference/wild-type; Hom: homozygous; Het: heterozygous.\n3.4. Risk of Hypoglycaemia in CYP2C9 Carriers\nOur study reported higher carriage rate of low-activity alle",
+          "Table 2. The incidence (per 100 PY) and risk of subsequent events of SGLT2 inhibitors in patients with chronic kidney disease stages 3–\n5 who received ACEIs/ARBs and participated in a pre-ESRD program \nGroup No. of events PY Incidence (95% CI) Crude HR (95% CI) p value Adjusted HR* (95% CI) p value \nCongestive heart failure     0.782  0.345 \nNonusers 75 1188 6.31 (4.96–7.91) 1.00 (Ref.)  1.00 (Ref.)  \nSGLT2 inhibitor users 18 308 5.84 (3.46–9.23) 0.93 (0.56–1.56)  0.77 (0.44–1.33)  \nAPE     0.052  0.154 \nNonusers 13 1255 1.04 (0.55–1.77) 1.00 (Ref.)  1.00 (Ref.)  \nSGLT2 inhibitor users 8 319 2.51 (1.08–4.95) 2.40 (0.99–5.78)  2.02 (0.77–5.29)  \nArrhythmia     0.921  0.397 \nNonusers 32 1239 2.58 (1.77–3.64) 1.00 (Ref.)  1.00 (Ref.)  \nSGLT2 inhibitor users 8 319 2.51 (1.08–4.94) 0.96 (0.44–2.09)  1.46 (0.61–3.53)  \nAcute myocardial infarction     0.458  0.198 \nNonusers 26 1240 2.10 (1.37–3.07) 1.00 (Ref.)  1.00 (Ref.)  \nSGLT2 inhibitor users 9 319 2.82 (1.29–5.35) 1.33 (0.62–2.84)  1.78 ",
+          "8). Logistic regression analysis evidenced potential association of CYP2C9*2 allele and its\ngenotypes with SIH. When adjusted for confounding factors such as age, weight, sex, mean daily\ndose of sulphonylurea, and triglyceride level, the association between the CYP2C9*2 allele and\nhypoglycaemia remained consistent. Confounding factors played no role in SIH (insignificant\np-value) because both groups (cases and controls) were closely matched in term of age, weight,\nsex, mean daily dose of sulphonylurea, and triglyceride levels. Our study suggests that genetic in-\nformation about a patient’s CYP2C9 gene/enzyme can potentially assist physicians in prescribing\nthe most suitable and safest drug, based on their genetic make-up.\nBiomedicines 2023, 11, 2282. https://doi.org/10.3390/biomedicines11082282 https://www.mdpi.com/journal/biomedicines\nBiomedicines 2023, 11, 2282 2 of 10\nKeywords: cytochrome P450 (CYP450); pharmacogenetics; CYP2C9*2 allele; sulphonylurea;\nhypoglycaemia; Pashtun; Pakist",
+          "Variables\nModel 1 Model 2 Model 3\nHR (95% CI) P Value HR (95% CI) P Value HR (95% CI) P Value\nAge 1.06 (1.04–1.07) < 0.001 1.05 (1.03–1.06) < 0.001 1.04 (1.02–1.06) < 0.001\nGender (male) 1.47 (1.07–2.02) 0.017 1.23 (0.92–1.66) 0.161 1.21 (0.87–1.67) 0.305\nSmoke 1.06 (0.74–1.52) 0.738 1.06 (0.74–1.52) 0.738 1.06 (0.74–1.52) 0.738\nHypertension 1.42 (1.06–1.89) 0.018 1.27 (0.95–1.70) 0.107 1.21 (0.91–1.63) 0.195\nDiabetes 1.70 (1.25–2.23) 0.001 1.50 (1.10–2.04) 0.010 1.39 (1.02–1.90) 0.036\nHypercholesterolemia 0.79 (0.55–1.12) 0.185 0.76 (0.53–1.08) 0.127 0.76 (0.53–1.08) 0.127\nTyG index 1.60 (1.18–2.17) 0.003 1.41 (1.05–1.90) 0.022 1.51 (1.11–2.05) 0.008\nCAD-RADS\n0 1 (reference) 1 (reference)\n1 1.43 (0.88–2.34) 0.150 1.26 (0.75–2.10) 0.377\n2 1.73 (1.00–3.01) 0.051 1.20 (0.64–2.24) 0.578\n3 2.39 (1.48–3.86) < 0.001 1.50 (0.83–2.72) 0.183\n4 A 2.57 (1.59–4.14) < 0.001 1.46 (0.77–2.75) 0.246\n4B&5 4.45 (2.21–8.94) < 0.001 2.17 (0.91–5.19) 0.080\nSIS\n≤ 2 1 (reference)\n3–4 1.67 (1.05–2.65) 0.029\n5",
+          "0.5 156.2 ± 9.15 0.184\nUrea (mg/dL) 41.44 ± 15.20 39.50 ± 17.97 0.213\nCreatinine (mg/dL) 0.94 ± 0.15 0.92 ± 0.21 0.982\nHBA1C (%) 7.60 ± 5.55 7.39 ± 1.46 0.911\nMean daily dose of glimepiride (mg) 5.13 ± 1.56 5.13 ± 1.54 0.998\nMean daily dose of gliclazide (mg) 108.09 ± 44.37 105.00 ± 34.06 0.761\nmg/dL: milligram per decilitre; mg: milligram; LDL: low density lipoprotein; HDL: high density lipoprotein.\n3.2. Allelic Frequencies\nThe allelic frequencies ofCYP2C9*1, CYP2C9*2, and CYP2C9*3 in the cases and controls\nare listed in Table 4. The notationCYP2C9*1 refers to the wild-type allele; *1 allele represents\nthe reference sequence of the gene. In the studied population, we reported that 84.0% of\ncases and 91.5% of controls carried the CYP2C9*1/wild-type allele. The CYP2C9*2 low-\nactivity allele was more frequent in the diabetic patients with SIH compared to the control\ngroup (17.5% vs. 6.0%). On the other hand, the CYP2C9*3 (loss of enzyme activity) allele\nwas present in seven (3.5%) diabet",
+          "ep duration and incident CMM in CHARLS and ELSA. DBP, LDL-C, HDL-C, TC,\ntriglycerides, and CRP were examined separately as candidate mediators. Blue and red dashed boxes indicate CHARLS and ELSA, respectively; the\nupper and lower panels show covariate-adjusted and crude analyses, respectively. Indirect effects and 95% conﬁdence intervals were estimated using\n5,000 bootstrap resamples. Interpretation focused on the adjusted analyses.\nscores were modeled as continuous variables and interpreted\nwithin each cohort. Overall, no consistent nonlinear association\nremained after multivariable adjustment. In ELSA, nighttime sleep\nduration showed a U-shaped pattern in the crude model, with the\nlowest hazard around 7–8h and higher hazards at shorter and\nlonger durations (P for nonlinearity = 0.010), but this pattern\nwas attenuated after adjustment. In HRS, higher sleep-quality\nscores, indicating poorer sleep quality, were associated with a\nhigher hazard before adjustment, whereas the association w"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "pass",
+          "fact_recall": 1.0,
+          "supported_facts": [
+            "f1"
+          ],
+          "anchor_matches": {
+            "drug_table_conflict": [
+              0
+            ]
+          },
+          "anchor_match_groups": {
+            "drug_table_conflict": [
+              [
+                0
+              ]
+            ]
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "parent_run": {
+        "file": "diabetes-C3-vector.json",
+        "sha256": "6fc2bce3aa38d0f3d976691abb17a066c3d9c2f287e3f76ce9613386a71c68ab",
+        "run_id": "20261002T132046Z-413f3d42",
+        "condition": "C3",
+        "depth": 8
+      }
+    },
+    {
+      "id": "d006",
+      "notes": "Correct semaglutide source, but prominent contexts summarize non-inferiority rather than supply the precise prespecified upper-CI rule and adjusted result. Neither pinned fact is complete.",
+      "n8": {
+        "retrieved_sources": [
+          "diabetes-semaglutide-size-dm-trial.pdf",
+          "diabetes-semaglutide-size-dm-trial.pdf",
+          "diabetes-semaglutide-size-dm-trial.pdf",
+          "diabetes-semaglutide-size-dm-trial.pdf",
+          "diabetes-semaglutide-size-dm-trial.pdf",
+          "diabetes-semaglutide-size-dm-trial.pdf",
+          "diabetes-semaglutide-size-dm-trial.pdf",
+          "diabetes-semaglutide-size-dm-trial.pdf"
+        ],
+        "retrieved_contexts": [
+          "d generic semaglutide with the \ninnovator product in Indian adults with type 2 diabe -\ntes inadequately controlled on metformin. Conducted \nacross multiple tertiary care centres in diverse geo -\ngraphic regions, the trial enhances the external validity \nof the findings and reflects routine clinical practice in a \nreal-world–relevant population. The rigorous design with \ncentral randomization, pre-specified non-inferiority mar-\ngin, and concordant results across mITT and per -proto-\ncol populations, supports the robustness of the efficacy \nand safety conclusions. Demonstrated non-inferiority in \nglycaemic control, along with comparable safety and tol -\nerability profiles, highlights the potential of the generic \nformulation to expand access to GLP -1RA therapy in \nresource-constrained settings where affordability is a key \nbarrier. At the same time, the study has limitations. The \n24-week duration, while sufficient to assess short -term \nglycaemic efficacy and initial weight change, doe",
+          "ts achieving \nHbA1c < 7.0%. Safety assessments included adverse events, hypoglycemia, various laboratory parameters.\nResults Of 320 participants randomized, 313 completed the study. Baseline demographic and clinical characteristics \nwere comparable between groups. At Week 24, both treatments achieved significant HbA1c reductions \n(mean − 2.20%), with generic semaglutide demonstrating non-inferiority to the reference. Reductions in body \nweight, fasting and post-prandial glucose were similar between arms. A total of 86.62% of participants achieved \nHbA1c < 7.0%. Safety profiles were comparable, with predominantly mild-to-moderate adverse events and no \ntreatment-related serious adverse events.\nEfficacy and safety of semaglutide \ninjection in Indian patients with type 2 \ndiabetes mellitus inadequately controlled \non metformin: a phase 3, randomized, active-\ncontrolled trial (SIZE-DM study)\nNitin Kapoor1, Shehla Shaikh2, Saptarshi Bhattacharya3, Sanjay Kalra4, Sambit Das5, Sunil Kota6, Vi",
+          "inology Reports           (2026) 12:21 \nhttps://doi.org/10.1186/s40842-026-00290-8\nCardiovascular Diabetology – \nEndocrinology Reports\n*Correspondence:\nMayur Mayabhate\nmayur.mayabhate@alkem.com\nFull list of author information is available at the end of the article\nAbstract\nBackground This study evaluated the efficacy and safety of generic semaglutide compared with innovator \nSemaglutide in Indian adults with type 2 diabetes mellitus (T2DM).\nMethods This Phase 3, multicenter, randomized, active-controlled, non-inferiority trial enrolled 320 adults with \nT2DM inadequately controlled on metformin. Participants were randomized 1:1 to receive either generic semaglutide \n(Alkem laboratories Ltd.) or innovator Inj. semaglutide (Novo Nordisk) for 24 weeks in step-wise dose escalation from \n0.25 mg/week to 2 mg/week. The primary endpoint was change in HbA1c from baseline to Week 24. Secondary \nendpoints included changes in fasting and post-prandial glucose, body weight, and proportion of patien",
+          "s not \nallow evaluation of the long- term durability of HbA1c \nreduction, weight loss, or broader cardiovascular and \nrenal outcomes. The sample size, although adequately \npowered for the predefined non-inferiority margin in \nHbA1c, is not designed to detect rare adverse events or \nlate-emerging safety signals such as pancreatitis, thy -\nroid C -cell pathology, or major adverse cardiovascular \nevents. Furthermore, the study population was restricted \nto adults on metformin monotherapy with defined inclu -\nsion and exclusion criteria, which may limit extrapolation \nto patients with more advanced disease, multiple comor -\nbidities, or complex background therapies. Therefore, \nlarger and longer -term studies, including cardiovascular \nand renal outcome trials and real- world evidence, are \nneeded to confirm the durability of benefits, fully char -\nacterize the safety profile of the generic formulation, and \nfurther substantiate its role in improving equitable access \nto GLP-1RA therapy.\nC",
+          "ve-con -\ntrolled, parallel-group, non-inferiority trial conducted \nacross 23 tertiary care centers in India to evaluate the \nefficacy and safety of generic Inj. semaglutide (Alkem \nlaboratories Ltd) compared to innovator Inj. semaglu -\ntide (Novo Nordisk) in patients with T2DM. The study \nadhered to the principles outlined in the Declaration \nof Helsinki, ICH-GCP E6(R2), and applicable Indian \nregulatory guidelines. Ethics approval was obtained \nfrom institutional review boards at all participating \nsites, and written informed consent was obtained from \nall participants. The trial is registered with the Clini -\ncal Trials Registry of India (CTRI/2025/02/081490) on \n28/02/2025.\nEligible participants are adults aged 18–65 years, diag -\nnosed with T2DM for at least six months, with HbA1c \nlevels between 7.0% and 10.0%, and inadequate glyce -\nmic control despite receiving ≥ 1000 mg/day of metfor -\nmin for at least 8 weeks were enrolled. Key exclusion \ncriteria included type 1 diabetes, dia",
+          "onclusion\nThis Phase 3 trial demonstrated that once-weekly sema -\nglutide achieved clinically meaningful reductions in \nHbA1c and body weight among Indian adults with type \n2 diabetes inadequately controlled on metformin mono -\ntherapy. The test formulation proved non-inferior to \nthe innovator product in terms of efficacy and exhibited \na comparable safety and tolerability profile, with most \npatients attaining guideline-recommended HbA1c tar -\ngets. These findings affirm semaglutide as a viable, cost-\neffective option for optimizing glycemic management in \nresource-limited settings. Long-term, real-world studies \nremain essential to evaluate the durability of these ben -\nefits alongside cardiovascular and renal outcomes.\nAbbreviations\nBMI  Body mass index\nDKA  Diabetic ketoacidosis\nECG  Electrocardiogram\neGFR  Estimated glomerular filtration rate\nEREN  Nutritional Epidemiology Research Team\nFPG  Fasting plasma glucose\nGI  Gastrointestinal\nGLP-1RA  Glucagon-like peptide-1 receptor ago",
+          "hile categorical outcomes are assessed using chi-square \nor Fisher’s exact tests.\nResults\nOf the 384 subjects screened, 320 were randomized in a \n1:1 ratio to receive either generic semaglutide (test arm) \nor innovator semaglutide (reference arm). A total of 313 \nparticipants (98.13% in test arm; 97.50% in reference \narm) completed the study per protocol. All randomized \nsubjects (n = 320) were included in the safety population, \nwith 160 subjects in each arm (Fig. 1).\nThe study population comprised 187 males (58.44%) \nand 133 females (41.56%). At baseline, the mean \nage was 50.07 ± 9.02 years, mean body weight was \n70.93 ± 11.91  kg, and mean BMI was 27.42 ± 4.00  kg/m². \nBaseline demographic and clinical characteristics were \ncomparable between the two treatment groups (Table 1).\nPrimary efficacy endpoint\nIn the per-protocol population, baseline HbA1c lev -\nels were similar between the test (8.41 ± 0.77%) and ref -\nerence (8.47 ± 0.77%) arms ( p = 0.5244). At Week 24, \nmean HbA1c lev",
+          "art failure hospi-\ntalizations, and non-fatal myocardial infarctions [6].\nDespite these global advances, data on semaglutide \nuse in Indian populations remain limited. The high cost \nof the innovator semaglutide poses a significant barrier \nto accessibility, especially in low- and middle-income \nsettings where affordability directly influences treat -\nment adherence and outcomes [ 1]. Local manufactur -\ning of generic formulations may offer a viable solution to \nimprove access without compromising efficacy or safety.\nThis Phase 3, multicenter, randomized, single-blind, \nactive-controlled, non-inferiority trial was designed \nto evaluate the efficacy, safety, and immunogenicity of \ngeneric semaglutide formulation compared to innovator \nsemaglutide in Indian adults with T2DM inadequately \ncontrolled on metformin. The study aimed to generate \nrobust local evidence to support the clinical utility and \naffordability of semaglutide in India.\nMethods\nThis Phase 3, multicenter, randomized, acti"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "trial_effect": [],
+            "trial_margin": []
+          },
+          "anchor_match_groups": {
+            "trial_effect": [],
+            "trial_margin": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "parent_run": {
+        "file": "diabetes-C3-vector.json",
+        "sha256": "6fc2bce3aa38d0f3d976691abb17a066c3d9c2f287e3f76ce9613386a71c68ab",
+        "run_id": "20261002T132046Z-413f3d42",
+        "condition": "C3",
+        "depth": 8
+      }
+    },
+    {
+      "id": "d007",
+      "notes": "Rank 1 contains the requested three-month and six-month ITT HbA1c estimates/CIs/P values in the body Results. The chosen Abstract anchor is not fully present: a clear example of semantically useful alternative location with a pinned-span miss. Gold is not expanded after observing this.",
+      "n8": {
+        "retrieved_sources": [
+          "diabetes-digital-education-cgm-trial.pdf",
+          "diabetes-digital-education-cgm-trial.pdf",
+          "diabetes-digital-education-cgm-trial.pdf",
+          "diabetes-digital-education-cgm-trial.pdf",
+          "diabetes-digital-education-cgm-trial.pdf",
+          "diabetes-digital-education-cgm-trial.pdf",
+          "diabetes-digital-education-cgm-trial.pdf",
+          "diabetes-digital-education-cgm-trial.pdf"
+        ],
+        "retrieved_contexts": [
+          "DSMES\nprogram+CGM versus usual care at 3 and 6 months. The\nprimary outcome was HbA 1c level. The secondary outcomes\nmeasured by the FSL Pro sensors included CGM 14-day %\nTIR, time above range (TAR; >180 mg/dL and >250 mg/\ndL), and time below range (TBR; <70 mg/dL). Furthermore,\ndifferences in mean blood glucose, SD of blood glucose,\ncoefficient of variation, and glucose management indicator\n(GMI) were examined. Lastly, body weight, resting systolic\nand diastolic blood pressure, and diabetes distress [ 27]\nwere examined. Engagement in the digital DSMES+CGM\nintegrated solution was measured using 5 metrics: average\nnumber of meals tracked per week using the digital DSMES\napp, average number of physical activity bouts tracked per\nweek (manually self-reported in the digital DSMES app or\nsynced from a wearable device), average number of weigh-ins\nper week using the provided cellularly connected body weight\nscale, average number of messages sent to their care team\nper week, and median number ",
+          "are team per week. The median number\nof days per week in which participants had at least 1 CGM\nreading from the FSL 14-Day sensor was 4.8.\nPrimary Outcome: HbA1c\nThe results for HbA 1c are presented in Figure 2 . Partici-\npants in the digital DSMES+CGM condition had significantly\nlower HbA 1c than those in usual care at 3 months ( −0.7%,\n95% CI −1.4% to −0.1% or −8.1 mmol/mol, 95% CI −15.5 to\n−0.7 mmol/mol; P=.03) and lower, nonsignificant reductions\nin HbA1c at 6 months (−0.6%, 95% CI −1.4% to 0.2% or −6.9\nmmol/mol, 95% CI −15.7 to 1.9 mmol/mol; P=.12).\nJOURNAL OF MEDICAL INTERNET RESEARCH Berthoumieux et al\nhttps://www.jmir.org/2026/1/e78321 J Med Internet Res 2026 | vol. 28 | e78321 | p. 6\n(page number not for citation purposes)\nA sensitivity analysis excluding participants who never\nparticipated in the intervention showed that participants in\nthe digital DSMES+CGM condition had significantly lower\nHbA1c than those in usual care at both 3 months ( −1%, 95%\nCI −1.6% to −0.3% or −10.5",
+          "rolled or participated in the interven-\ntion, results remained largely the same as the ITT analyses\nwith 2 exceptions: participants in the digital DSMES+CGM\ncondition had significantly lower TAR >180 mg/dL ( −16.3%,\n95% CI −30.3% to −2.3%; P=.02) and SD of glucose ( −5.8\nmg/dL, 95% CI −11.0 to −0.7 mg/dL; P=.03) than those in\nusual care at 3 months.\nThere were no reported serious adverse events related to\nthe study devices or program, and the number of adverse\nevents did not differ significantly across conditions.\nDiscussion\nResults from this RCT evaluating an integrated dig-\nital DSMES program+CGM revealed that participants\nJOURNAL OF MEDICAL INTERNET RESEARCH Berthoumieux et al\nhttps://www.jmir.org/2026/1/e78321 J Med Internet Res 2026 | vol. 28 | e78321 | p. 9\n(page number not for citation purposes)\nrandomized to the integrated solution experienced improve-\nments in HbA 1c and CGM-derived measures of glycemic\ncontrol compared to usual care over 6 months. Though the\ndifference betwee",
+          "n conditions in HbA 1c at 6 months was\nnot significant within an ITT analysis, sensitivity analy-\nses showed that participants who enrolled in the digital\nDSMES+CGM condition had significantly lower HbA 1c than\nthose in usual care. These findings are clinically meaningful\ngiven that, on average, the intervention group saw an almost\n1-point reduction in HbA 1c levels over the study period—a\ndegree of change that is twice as large as the benchmark for\na clinically significant change in HbA 1c of 0.5% [ 33] and\nis associated with a reduced risk of diabetes-related complica-\ntions, including microvascular disease, myocardial infarction,\nheart failure, stroke, and death [34].\nGiven the focus of this trial on the integration of CGM\nwith DSMES [ 35], CGM-derived glycemic measures also\nimproved in the digital DSMES+CGM condition compared\nto usual care. From baseline to 6 months, participants in the\ndigital DSMES+CGM condition experienced a 15% increase\nin percent TIR and a 15% decrease in perc",
+          "of days in which participants\nhad at least 1 CGM reading from the FSL 14-Day device\n(connected through the digital DSMES app).\nStatistical Analysis\nPower was calculated assuming a −0.5% (5 mmol/mol)\nmean difference in HbA1c between the digital DSMES+CGM\ncondition and usual care from baseline to 6 months. Using\nan estimated SD of 1.0, a 2-tailed type I error rate of 0.05,\nand 80% power, the sample size required for the primary\nanalysis was 126 participants in total (63 per group) [ 28].\nAssuming an attrition rate of 20%, the adjusted sample size\nwas 160 participants (80 per group). Therefore, since we\nreduced our recruitment goal during the active study period\ndue to challenges with recruitment, we were underpowered to\ndetect a statistically significant difference with our estimated\neffect size of 0.5%.\nAll analyses were conducted with R (version 4.2.3) [ 29].\nDemographics and baseline clinical indicators (ie, age, BMI,\nsex, cardiovascular medication use, and type 2 diabetes\nmedication ",
+          "ent TAR >180\nmg/dL, which were more favorable improvements compared\nto usual care and at a magnitude of change 3-fold greater\nthan what previous research has demonstrated to be clinically\nmeaningful [ 36]. Additionally, participants in our integra-\nted solution had a 0.89% lower GMI than those in usual\ncare at 6 months, indicating that those receiving the digital\nDSMES program+CGM had better glycemic control and a\nlower risk for diabetes-related complications [ 37]. Together,\nour findings demonstrate improvement in TIR and reduced\nvariability of blood glucose among participants who received\nthe digital DSMES+CGM integrated solution compared to\nusual care.\nThe design of our integrated solution leveraged a\ncombination of the benefits of CGM and DSMES programs\nfor type 2 diabetes management. Previous research revealed\nthat using CGM for 8 weeks helped people with diabe-\ntes significantly reduce their HbA 1c by an average 1-point\nreduction, which is consistent with our present study and\nde",
+          "monstrates the importance of self-monitoring for diabe-\ntes management [ 38]. Additional research also showed that\ncoupling CGMs with DSMES over 16 weeks led to signifi-\ncantly greater mean TIR, significantly less TAR, and a greater\nreduction in mean HbA 1c compared to DSMES alone [ 15].\nHowever, a unique feature of our clinical trial is the integra-\ntion of both real-time CGM and digital DSMES over a longer\n6-month period to evaluate the consistent and sustainable\naspects of the intervention.\nAs part of the intervention, research participants in\nthe digital DSMES program received 1:1 support from\na CDCES, which included systematic outreach at fixed\nprogram weeks in addition to continuous health coaching and\ntailored feedback in response to members’ biometric data\ncollected throughout the program (eg, CGM glucose values\nand body weight). Their strategic outreach and continuous\nmonitoring highlights the proactive feature of the integra-\nted solution, aligning well with past research rev",
+          "usion, the statistically significant and clinically\nmeaningful improvement in HbA 1c and CGM outcomes\namong participants in the digital DSMES+CGM group\ndemonstrates that combining CGMs with a digital DSMES\nprogram can have a beneficial impact on glucose manage-\nment among adults with type 2 diabetes. Nevertheless,\nJOURNAL OF MEDICAL INTERNET RESEARCH Berthoumieux et al\nhttps://www.jmir.org/2026/1/e78321 J Med Internet Res 2026 | vol. 28 | e78321 | p. 10\n(page number not for citation purposes)\nlonger and larger-scale trials are warranted to assess the\nreliability of our findings and the benefit of our integra-\nted solution on potentially reducing the risk of long-term\nhealth complications. Ultimately, increasing access to digital\nDSMES programs with integrated CGM capabilities may\nbe a promising approach to help adults with type 2 diabe-\ntes manage their condition, improve health outcomes, and\nsupport broader efforts to enhance the quality and effective-\nness of diabetes care.\nAcknowled"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "cgm_timepoints": []
+          },
+          "anchor_match_groups": {
+            "cgm_timepoints": []
+          },
+          "distractor_ordering": "pass",
+          "present_distractors": []
+        }
+      },
+      "parent_run": {
+        "file": "diabetes-C3-vector.json",
+        "sha256": "6fc2bce3aa38d0f3d976691abb17a066c3d9c2f287e3f76ce9613386a71c68ab",
+        "run_id": "20261002T132046Z-413f3d42",
+        "condition": "C3",
+        "depth": 8
+      }
+    },
+    {
+      "id": "d010",
+      "notes": "Both articles appear, but Guo quality contrast and Berthoumieux time-in-range/late HbA1c conjunction are incomplete. Broad intervention/vignette vocabulary alone cannot complete the cross-article synthesis.",
+      "n8": {
+        "retrieved_sources": [
+          "diabetes-cgm-management.pdf",
+          "diabetes-digital-education-cgm-trial.pdf",
+          "diabetes-digital-education-cgm-trial.pdf",
+          "diabetes-digital-education-cgm-trial.pdf",
+          "diabetes-digital-education-cgm-trial.pdf",
+          "diabetes-digital-education-cgm-trial.pdf",
+          "diabetes-cgm-management.pdf",
+          "diabetes-cgm-management.pdf"
+        ],
+        "retrieved_contexts": [
+          "anded only to provide plausi-\nble counseling context. Coherence was assessed by checking\nconsistency with diabetes type, treatment modality, CGM\nsummary metrics, and visible glucose patterns, including TIR,\ntime above range (TAR), time below range (TBR), glycemic\nvariability, nocturnal lows, postprandial excursions, fasting or\nearly-morning rises, and data completeness. Draft vignettes\nand plots were prepared by ZG and refined through forma-\ntive review with senior diabetologist EK; refinements were\nlimited to improving clinical plausibility, differentiating type\nJOURNAL OF MEDICAL INTERNET RESEARCH Guo et al\nhttps://www.jmir.org/2026/1/e98519 J Med Internet Res 2026 | vol. 28 | e98519 | p. 4\n(page number not for citation purposes)\n1 and type 2 diabetes contexts, and representing early-\nmorning glucose rise or possible dawn phenomenon where\nsupported by the CGM trace.\nCA Design\nA retrieval-grounded CA for CGM interpretation and\ndiabetes-related counseling scenarios was implemented usin",
+          "rolled or participated in the interven-\ntion, results remained largely the same as the ITT analyses\nwith 2 exceptions: participants in the digital DSMES+CGM\ncondition had significantly lower TAR >180 mg/dL ( −16.3%,\n95% CI −30.3% to −2.3%; P=.02) and SD of glucose ( −5.8\nmg/dL, 95% CI −11.0 to −0.7 mg/dL; P=.03) than those in\nusual care at 3 months.\nThere were no reported serious adverse events related to\nthe study devices or program, and the number of adverse\nevents did not differ significantly across conditions.\nDiscussion\nResults from this RCT evaluating an integrated dig-\nital DSMES program+CGM revealed that participants\nJOURNAL OF MEDICAL INTERNET RESEARCH Berthoumieux et al\nhttps://www.jmir.org/2026/1/e78321 J Med Internet Res 2026 | vol. 28 | e78321 | p. 9\n(page number not for citation purposes)\nrandomized to the integrated solution experienced improve-\nments in HbA 1c and CGM-derived measures of glycemic\ncontrol compared to usual care over 6 months. Though the\ndifference betwee",
+          "onitoring (CGM) can improve\nglycemic control in people with type 2 diabetes when used regularly alongside a digital diabetes self-management education\nand support (DSMES) program. However, to date, there is limited evidence showing the benefits of a digitally delivered\nDSMES program combined with real-time CGM for adults with type 2 diabetes.\nObjective: The objective of this study is to evaluate the impact of a DSMES program coupled with CGM on hemoglobin A 1c\n(HbA1c) and CGM-derived glycemic measures compared to usual care for adults with type 2 diabetes over 6 months.\nMethods: Participants with type 2 diabetes and HbA 1c of 8% or higher (64 mmol/mol) who were not using mealtime bolus\ninsulin (aged 26 ‐83 y; mean HbA 1c 9.6%, SD 1.4% [mean 81.2 mmol/mol, SD 15.8 mmol/mol]) were randomly assigned to\na digital DSMES+CGM integrated solution (n=51) or usual care (n=49) for 6 months. The primary outcome was HbA 1c. The\nsecondary outcomes were CGM-derived glycemic measures, including glucos",
+          "ealing that\nproactive case management significantly improved glycemic\ncontrol in patients with diabetes [ 39]. Furthermore, digital\nDSMES+CGM participants in our study were also highly\nengaged, as exhibited by frequent weighing, tracking meals,\nexercising, and CGM-wearing for several days per week.\nThese behaviors are impactful, given their association with\nimproved glycemic control in the digital DSMES program\n[26,40].\nOur study has several strengths, with a notable advantage\nbeing the rigor of its single-blind RCT design. The sensi-\ntivity analysis also allowed us to more accurately estimate\nthe impact of the integrated solution on clinical outcomes\namong participants who had the opportunity to engage\nwith it. The convergence between the ITT and sensitivity\nresults demonstrates the beneficial impact of the digital\nDSMES program+CGM on clinical outcomes. Furthermore,\nby leveraging a decentralized recruitment process, we were\nable to include a racially, socioeconomically, and geograph-",
+          ",18],\nbut CGM use among participants was short term and the\nfindings could not be extrapolated to show a cause-effect\nrelationship between the virtually integrated approach and\nimproved glycemic control.\nNevertheless, a meta-analysis of randomized control-\nled trials (RCTs) evaluating the clinical effectiveness of\ntelemedicine for diabetes revealed that virtual health care\nservices are generally more effective for diabetes care\nmanagement than in-person care alone [ 19]. People partici-\npating in digital diabetes care programs have seen improved\nclinical outcomes (eg, HbA 1c reduction) and reduced medical\nexpenditures [ 20-22], but clinical trials evaluating many of\nthese digital programs have not reported CGM data related to\ntheir interventions for type 2 diabetes [23-25].\nDespite growing observational research demonstrating the\neffectiveness of digital DSMES and CGM, to date, no\nRCTs have shown the benefits of a well-integrated solu-\ntion that combines a digitally delivered DSMES pro",
+          "gram\nwith longer-term, real-time CGM for adults with type 2\ndiabetes. Therefore, the aim of this RCT was to evaluate\nthe impact of the integrated solution—defined as a digital\nDSMES program+CGM—on HbA1c, CGM-derived glycemic\nmeasures, and other relevant diabetes management outcomes\ncompared to usual care over 6 months.\nMethods\nStudy Design\nThis single-blind, parallel, decentralized RCT was designed\nto assess the efficacy of a digital DSMES+CGM integra-\nted solution on glycemic management among adults with\ntype 2 diabetes not on mealtime bolus insulin therapy, in\naccordance with the intended labeling of the FreeStyle Libre\n(FSL) 14-Day CGM system (Abbott Diabetes Care, Inc). The\nprimary objective of this study was to evaluate the relative\nimprovement in HbA 1c from baseline to 3 and 6 months of\nthe digital DSMES+CGM intervention condition compared\nwith a usual care control condition.\nEthical Considerations\nThe protocol was approved by the WCG Institutional Review\nBoard (IRB Tracking ID:",
+          "ty concerns were rare. However, optional written\nsafety comments were more often attached to CA responses\n(n=20, 87%) and most frequently concerned GLP-1 eligibil-\nity under NHS BMI criteria [ 74]. This should be interpreted\nprimarily as a local prescribing and policy-alignment issue\nrather than as a general CGM interpretation error. It also\nsuggests that similar aggregate safety flag frequencies should\nJOURNAL OF MEDICAL INTERNET RESEARCH Guo et al\nhttps://www.jmir.org/2026/1/e98519 J Med Internet Res 2026 | vol. 28 | e98519 | p. 14\n(page number not for citation purposes)\nnot be interpreted as identical safety profiles across response\nsources, diabetes types, or treatment contexts. Larger studies\nwith more diverse type 1 and type 2 diabetes cases, includ-\ning different treatment regimens, BMI profiles, medication\neligibility scenarios, and local prescribing policies, are needed\nbefore extending these findings to routine diabetes care.\nThird, the comparison should be interpreted in lig",
+          "l-\ning using case-specific CGM information, vignette context,\nand guideline-based retrieval. We then conducted a source-\nmasked multirater evaluation between October 2025 and\nFebruary 2026 with UK diabetes clinicians, who assessed\nCA- and clinician-authored responses for quality and safety.\nIn doing so, this study examined whether such a system could\nsupport standardized explanatory and educational aspects of\ndiabetes care in consultations involving CGM review, without\npositioning it as a substitute for clinician judgment.\nMethods\nEthical Considerations\nThis study did not involve direct contact with patients\nor access to identifiable clinical records. The CGM files\nwere derived from publicly available, preexisting, deidenti-\nfied clinical datasets, and all accompanying patient vignettes\nwere synthetic and created solely for research purposes. The\nhuman contributors were 6 diabetes clinicians who served as\nexpert reviewers by providing written responses and rating\nanonymized text output"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "ca_quality": [],
+            "ca_vignette": [],
+            "cgm_timepoints": [],
+            "cgm_tir": []
+          },
+          "anchor_match_groups": {
+            "ca_quality": [],
+            "ca_vignette": [],
+            "cgm_timepoints": [],
+            "cgm_tir": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "parent_run": {
+        "file": "diabetes-C3-vector.json",
+        "sha256": "6fc2bce3aa38d0f3d976691abb17a066c3d9c2f287e3f76ce9613386a71c68ab",
+        "run_id": "20261002T132046Z-413f3d42",
+        "condition": "C3",
+        "depth": 8
+      }
+    },
+    {
+      "id": "d011",
+      "notes": "Both source filenames appear, but Jan hits are largely bibliography and Dabbs-Brown title/notice hits do not bind the UK Biobank population. Document-set success is not evidence success.",
+      "n8": {
+        "retrieved_sources": [
+          "diabetes-gene-sex-hormone-interactions.pdf",
+          "diabetes-gene-sex-hormone-interactions.pdf",
+          "diabetes-cyp2c9-hypoglycaemia.pdf",
+          "diabetes-cyp2c9-hypoglycaemia.pdf",
+          "diabetes-gene-sex-hormone-interactions.pdf",
+          "diabetes-gene-sex-hormone-interactions.pdf",
+          "diabetes-gene-sex-hormone-interactions.pdf",
+          "diabetes-gene-sex-hormone-interactions.pdf"
+        ],
+        "retrieved_contexts": [
+          "EARCH ARTICLE\nIdentification of gene-sex hormone interactions \nassociated with type 2 diabetes among men \nand women\nAmonae Dabbs-Brown 1, Chang Liu1, Qin Hui 1, Peter W.F. Wilson1,2,3, Jin J. Zhou 4,5,6, \nMarta Gwinn1, Yan V. Sun 1,3*\n1 Department of Epidemiology, Emory University Rollins School of Public Health, Atlanta, Georgia, \nUnited States of America, 2 Division of Cardiology, Department of Medicine, Emory University School of \nMedicine, Atlanta, Georgia, United States of America, 3 VA Atlanta Health Care System, Decatur, Georgia, \nUnited States of America, 4 Department of Medicine, David Geffen School of Medicine, University of \nCalifornia, Los Angeles, California, United States of America, 5 Department of Biostatistics, Fielding \nSchool of Public Health, University of California, Los Angeles, California, United States of America, \n6 Phoenix VA Health Care System, Phoenix, Arizona, United States of America \n* yan.v.sun@emory.edu\nAbstract \nBackground and Objectives\nType 2 diabete",
+          "OPEN ACCESS\nCitation: Dabbs-Brown A, Liu C, Hui Q, \nWilson PWF , Zhou JJ, Gwinn M, et al. (2025) \nIdentification of gene-sex hormone interactions \nassociated with type 2 diabetes among men \nand women. PLoS Genet 21(9): e1011470. \nhttps://doi.org/10.1371/journal.pgen.1011470\nEditor: Todd L. Edwards, Vanderbilt University, \nUNITED STATES OF AMERICA\nReceived: October 21, 2024\nAccepted: August 18, 2025\nPublished: September 2, 2025\nCopyright:  This is an open access article, free \nof all copyright, and may be freely reproduced, \ndistributed, transmitted, modified, built upon, \nor otherwise used by anyone for any lawful \npurpose. The work is made available under \nthe Creative Commons CC0 public domain \ndedication.\nData availability statement: The data that \nsupport the findings of this study will be pub-\nlicly available from the UNC Dataverse with the \nidentifier https://doi.org/10.15139/S3/UG2NLU.\nFunding: This work is supported in part by \nfunding from the National Institute of Health \nRES",
+          "tients treated with sulfonylureas.Exp. Clin. Endocrinol. Diabetes2014, 122, 60–63. [CrossRef] [PubMed]\n25. Mitchell, S.L.; Leon, D.A.; Chaugai, S.; Kawai, V .K.; Levinson, R.T.; Wei, W.Q.; Stein, C.M. Pharmacogenetics of hypoglycemia\nassociated with sulfonylurea therapy in usual clinical care. Pharmacogenomics J. 2020, 20, 831–839. [CrossRef] [PubMed]\n26. Chen, L.; Li, J.H.; Kaur, V .; Muhammad, A.; Fernandez, M.; Hudson, M.S.; Goldﬁne, A.B.; Florez, J.C. The presence of two reduced\nfunction variants in CYP2C9 inﬂuences the acute response to glipizide. Diabet. Med. 2020, 37, 2124–2130. [CrossRef]\n27. Semiz, S.; Dujic, T.; Causevic, A. Pharmacogenetics and personalized treatment of type 2 diabetes.Biochem. Med. 2013, 23, 154–171.\n[CrossRef] [PubMed]\n28. Holstein, A.; Hahn, M.; Patzer, O.; Seeringer, A.; Kovacs, P .; Stingl, J. Impact of clinical factors andCYP2C9 variants for the risk of\nsevere sulfonylurea-induced hypoglycemia. Eur. J. Clin. Pharmacol. 2011, 67, 471–476. [CrossRef]\n29.",
+          " Surendiran, A.; Pradhan, S.C.; Agrawal, A.; Subrahmanyam, D.K.; Rajan, S.; Anichavezhi, D.; Adithan, C. Influence ofCYP2C9gene\npolymorphisms on response to glibenclamide in type 2 diabetes mellitus patients.Eur. J. Clin. Pharmacol.2011, 67, 797–801. [CrossRef]\n30. Dujic, T.; Zhou, K.; Donnelly , L.A.; Leese, G.; Palmer, C.N.; Pearson, E.R. Interaction between variants in theCYP2C9and POR genes\nand the risk of sulfonylurea-induced hypoglycaemia: A GoDARTS Study .Diabetes Obes. Metab.2018, 20, 211–214.\n31. Scheen, A.J. Sulphonylureas in the management of type 2 diabetes: To be or not to be? Diabetes Epidemiol. Manag. 2021, 1,\n100002. [CrossRef]\n32. Saberi, M.; Ramazani, Z.; Rashidi, H.; Saberi, A. The effect ofCYP2C9genotype variants in type 2 diabetes on the pharmacological\neffectiveness of sulfonylureas, diabetic retinopathy , and nephropathy .Vasc. Health Risk Manag.2020, 14, 241–248. [CrossRef] [PubMed]\n33. Lee, C.R.; Goldstein, J.A.; Pieper, J.A. Cytochrome P450 2C9 polymorphisms: ",
+          "s affects an increasing number of people worldwide. Although \ngenome-wide association studies (GWAS) of type 2 diabetes have identified hun-\ndreds of loci, their interactions with other risk factors aren’t well understood. We \ninvestigated genetic interactions with three sex hormones (total testosterone, bio-\navailable testosterone, and sex hormone binding globulin (SHBG)) to identify addi-\ntional type 2 diabetes-related loci that were undetected in traditional GWAS.\nMethods\nThe study population consisted of white European UK Biobank participants. Individ-\nuals with type 1 diabetes were excluded. We examined sex-stratified interactions of \npolygenic risk score (PRS) for type 2 diabetes with sex hormone levels. We analyzed \nsex-stratified, genome-wide SNP × sex hormone interactions, adjusting for age and \nthe top ten principal ancestry components.\nResults\nWe found significant (P < 0.05) interactions for each of the sex hormones with PRS \nin both men and women, with the most significant ",
+          "PLOS Genetics | https://doi.org/10.1371/journal.pgen.1011470 September 2, 2025 10 / 13\nthe marginal effects of PRS T2D and sex hormones, as well as PRS T2D × sex-hormone interaction terms. The GLM \nfunction of R version 4.0.3 was used to calculate raw and standardized estimates, which were then converted to \nodds ratios. In the standardized models, both the PRS T2D and sex hormone variables were treated as continuous, \nand the odds ratios represent the change in type 2 diabetes risk per standard deviation increase in each respective \nvariable.\nThe Gene-Environment interaction analysis for Millions of samples (GEM) approach enables GWAS that incorporates \nmultiple exposures, controls for genotype-covariate interactions, and supports robust inference [40]. GEM considers a \ngeneralized linear model with interaction terms. In the present study, we implemented the following model: T2D ~ β0 + βCC \n+ βGG + βEE + βGE(G × E) where T2D is the type 2 diabetes status, β0 is the intercept for the m",
+          "with type 2 diabetes. In 2021, a study by Lagou et al. [34] reported 2 loci (IRS1 and ZNF12) that display sexual \ndimorphism in effects on fasting insulin, a marker for diabetes.\nOur analysis of genetic interactions with sex hormones in type 2 diabetes was limited in several important respects. \nFirst, hormone measurements for each participant were made at a single visit, without accounting for longitudinal vari-\nations. We were able to study only testosterone, sex hormone-binding globulin, and bioavailable testosterone because \nestradiol measurements were missing for most UK Biobank participants. G × Sex hormone analysis of sex chromosomal \nvariants was not included, limited by data access and analysis issue. Finally, we were unable to access suitable data \nfor replication analysis. We attempted to replicate our findings in Black and South Asian cohorts but were unsuccessful",
+          "d 5 loci associated with genotype-smoking \ninteractions in type 2 diabetes risk. Kilpeläinen et al. reported 8 loci associated with gene-physical activity interactions \nand type 2 diabetes-related traits, including the conversion of impaired glucose intolerance to type 2 diabetes and blood \nlipid profile [17,18]. Gene-diet interaction studies have reported that 13–27% of phenotypic variance in fasting insulin and \ninsulin resistance can be explained by gene-diet interactions [21,22]. Despite the well-established associations between \nsex hormones and type 2 diabetes [13–19], no published studies have investigated the interactions of genetic factors with \nsex hormone levels in relation to type 2 diabetes risk.\nHere, we analyze data from the UK Biobank (UKB) cohort to assess the effects of gene-sex hormone interactions on \ntype 2 diabetes and to identify genetic variants that would not be found in type 2 diabetes GWAS examining only main \ngenetic effects. A graphical representation of th"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.5,
+          "supported_facts": [
+            "f2"
+          ],
+          "anchor_matches": {
+            "drug_design": [],
+            "gene_population": [
+              4
+            ]
+          },
+          "anchor_match_groups": {
+            "drug_design": [],
+            "gene_population": [
+              [
+                4
+              ]
+            ]
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "parent_run": {
+        "file": "diabetes-C3-vector.json",
+        "sha256": "6fc2bce3aa38d0f3d976691abb17a066c3d9c2f287e3f76ce9613386a71c68ab",
+        "run_id": "20261002T132046Z-413f3d42",
+        "condition": "C3",
+        "depth": 8
+      }
+    },
+    {
+      "id": "d025",
+      "notes": "Qin dominates retrieved contexts, with mechanistic fibrosis and zinc/HIF text. Neither accepted whole review anchor is complete. Alternative-source eligibility prevents demanding both reviews; it does not make source presence alone sufficient.",
+      "n8": {
+        "retrieved_sources": [
+          "diabetes-hif-zinc-review.pdf",
+          "diabetes-hif-zinc-review.pdf",
+          "diabetes-hif-zinc-review.pdf",
+          "diabetes-hif-zinc-review.pdf",
+          "diabetes-hif-zinc-review.pdf",
+          "diabetes-nephropathy-complications.pdf",
+          "diabetes-hif-zinc-review.pdf",
+          "diabetes-hif-zinc-review.pdf"
+        ],
+        "retrieved_contexts": [
+          " conclusion, HIF-1 α exacerbates the RIF process in patients\nwith DKD by inducing EMT, promoting pathological angiogenesis,\nand elevating the expression of pro ﬁbrotic factors.\nCell apoptosis\nHIF-1α exhibits a dual role in regulating apoptosis, functioning\nboth to promote and inhibit this process. HIF-1 α can activate the\ngene encoding induced nitric oxide synthase, which facilitates the\ninduction of apoptosis in cells. Furthermore, HIF-1 α interacts with\nHRE to enhance the expression of B-cell lymphoma-2 (Bcl-2)\ninteracting protein 3 (BNIP3), a member of the Bcl-2 family,\nwhich is also implicated in the promotion of apoptosis.\nAdditionally, endoplasmic reticulum stress (ERS) represents a\nsigniﬁcant pathogenic mechanism contributing to the onset and\nprogression of DKD. Moderate ERS contributes to the restoration of\ncellular homeostasis. However, excessive activation of ERS results in\napoptosis. In cardiomyocytes, HIF-1 α has the capacity to activate\nERS, thereby facilitating intermitte",
+          "ion of HIF-1α (Nardinocchi et al., 2010 ). Consequently, zinc is\npivotal in regulating the HIF-1 α signaling pathway, which is crucial\nfor cellular adaptation to hypoxic conditions. The pathogenesis of\nDKD is intricate, and the role of HIF-1 α in mediating renal injury,\nalong with its regulatory mechanisms, remains unclear. Further\ninvestigation is warranted to elucidate the regulatory effects of zinc\non the HIF-1α signaling pathway in the context of DKD. This article\nreviews the research advancements surrounding HIF-1 α and DKD,\nwhile exploring the clinical prospects of zinc as a therapeutic agent\nFIGURE 1\nHypoxia mechanism in DKD. The formation of a hypoxic environment can be induced by various factors. Firstly, in a high-glucose environment, the\noccurrence of pseudohypoxia is attributed to an imbalance in the NADH/NAD + ratio, while the excessive activation of SGLT leads to an increased\nconsumption of oxygen and affects the release of Ang II, further impacting oxygen supply. Additio",
+          " proteasome pathway.\nFurthermore, the introduction of a zinc chelating agent resulted in\nan increase in HIF-1α expression within cells, an effect that could be\nreversed by the addition of zinc. This indicates that zinc\nsupplementation may mitigate the decline in HIF-1 α expression\nin cells by enhancing its degradation through the proteasome\npathway, thereby alleviating the adverse effects associated with\nHIF-1α during the later stages of DKD ( Aschner et al., 2023 ;\nNardinocchi et al., 2010 ).\nThe potential toxicity of zinc\nThe consumption of zinc is not without its drawbacks, as\npotential adverse effects may restrict its application. A study\nconducted in China identi ﬁed a U-shaped correlation between\ndietary zinc intake and the risk of diabetes, with a critical\nthreshold established at 9.1 mg/d ( He et al., 2022 ). Excessive zinc\nconsumption has been associated with an increased risk of\ndeveloping diabetes. Furthermore, research indicates that\nprolonged hyperzincemia may elevate the ",
+          "ing,\npotentially through enhanced nuclear translocation of HIF-1 α and\nincreased secretion of ET-1 ( Guo et al., 2015 ).\nZinc-induced proteasome degradation ( Figure 4D ).\nIn a standard oxygen environment, HIF-1 α undergoes\nhydroxylation by PHD enzymes, which subsequently leads to its\ndegradation via the proteasome, facilitated by the action of the VHL\nubiquitin ligase. As a result, the detection of HIF-1α under normoxic\nconditions presents signi ﬁcant challenges. Some researchers have\nemployed the proteasome inhibitor MG132 in cellular treatments,\nrevealing that the impact of zinc supplementation on reducing HIF-\n1α levels can be negated by the presence of proteasome inhibitors.\nThis ﬁnding suggests that zinc may modulate HIF-1 α levels through\nthe proteasomal degradation pathway ( Nardinocchi et al., 2010 ). In\na separate investigation, it was found that zinc supplementation\ninhibits the interaction between HIF-1 α and the VEGF promoter by\npromoting the degradation of HIF-1 α via the",
+          "has gradually increased in\nrecent years, many enigmas remain unresolved. For instance, does HIF-\n1α exert non-transcriptional effects while mediating hypoxic adaptation\nin a high-glucose and hypoxia environment? How can we effectively\nvisualize the levels of PO\n2 within renal cells? Furthermore, the\nmechanisms, translational potential, and clinical exploration of\ntreating DKD through the modulation of HIF-1 α activity still\nwarrant deeper investigation.\nPatients suffering from DKD frequently exhibit dysregulated zinc\nmetabolism. Existing literature suggests that zinc supplementation\nmay exert beneﬁcial effects on DKD. Zinc inﬂuences the expression of\nHIF-1α in cells subjected to hyperglycemic and hypoxic conditions\nthrough multiple mechanisms, including the inhibition of HIF-1 α\ntranslocation, as well as exhibiting anti-in ﬂammatory, antioxidant,\nFrontiers in Pharmacology frontiersin.org14\nQin et al. 10.3389/fphar.2025.1537749\nanti-apoptotic, and anti-ﬁbrotic properties. Consequently, ",
+          "ed by decreased regulation of HIF-1 a expression (182).\nModulation of the HIF-1 a/VEGF signalling pathway represents a\npromising mechanism for controlling renal ﬁbrosis and protecting\nkidney tissue from irreversible damage.\nZinc de ﬁciency may disrupt the regulation of HIF −1a via\nseveral interrelated mechanisms, leading to a dysregulated state in\nFIGURE 5\nZinc-dependent hypoxic pathways in DKD. Hypoxia activates HIF-1 a, but zinc inhibits HIF-1 a translocation to the cell nucleus for activation of target\ngene transcription. Zinc-mediated inhibition of HIF-1 a nuclear translocation reduces activation of the HIF-1 a/VEGF signaling pathway and decreases\nangiogenesis, ﬁbrosis, and in ﬂammation. Zinc activates Nrf2, enhancing antioxidant defense via SOD and catalase, thereby reducing ROS formation.\nUnder oxidative stress, MTs release zinc to activate protective antioxidant pathways. Zinc inhibits the NF- kB pathway and suppresses production of\nIL-6 and TNF-a . Zinc suppresses NLRP3 in ﬂamm",
+          "rated that a 3-month regimen of zinc\nsupplementation in diabetic rats led to a reduction in histological\nalterations, a signi ﬁcant decrease in the expression of ﬁbrotic\nmarkers such as connective tissue growth factor, and an\nupregulation of metal-binding proteins in both cardiac and renal\ntissues ( Tang et al., 2010 ).\nThe preceding discussion has elucidated the role of HIF-1 α in\nfacilitating the advancement of renal ﬁbrosis through multiple\nmechanisms. Research indicates that zinc supplementation can\nmitigate renal tubular EMT and renal tubular interstitial ﬁbrosis\nby downregulating HIF-1α in models of DKD (Zhang X et al., 2016).\nSpeciﬁcally, Zhang et al. demonstrated that zinc supplementation in\nDKD rat models and in high glucose/hypoxia-induced cellular\nmodels signi ﬁcantly reduced the expression of ﬁbrotic markers,\nincluding ﬁbronectin, α-SMA, and E-cadherin. Han et al. found\nthat both HIF-1 α siRNA and the overexpression of PHD2 can\neffectively block the loss of epithelial marke",
+          "rs and the increase in\nthe expression of mesenchymal markers induced by TGF-β1 in renal\ntubular cells cultured in vitro (Han et al., 2013 ). In the cellular\nmodel, the anti ﬁbrotic effects of zinc were negated following\ntreatment with PI3K inhibitors such as LY 294002 or\nFIGURE 4\nThe role of Zinc in DKD through the regulation of HIF-1 α. (A) Zinc supplementation may hinder the activation of HIF-1 α by inhibiting the intranuclear\nshift of HIF-1α and destroying the heterodimerization of HIF-1. (B) Zinc can inhibit HIF-1-induced VEGF expression. (C) Zinc supplementation inhibits the\nexpression of HIF-1 α may involve the activation of zinc-induced PI3K/Akt/GSK-3 β signal pathway.the anti- ﬁbrosis effect of zinc may be lowered by\ninhibiting the activation of PI3K/Akt/GSK-3β signaling pathway to inhibit the hypoxia-induced HIF-1 α accumulation and the change of EMT markers.\n(D) Zinc supplementation can reduce the expression decline of HIF-1 α in cells by promoting the degradation of HIF-1 α "
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "hif_alternative": [],
+            "zinc_acute_chronic": []
+          },
+          "anchor_match_groups": {
+            "hif_alternative": [],
+            "zinc_acute_chronic": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "parent_run": {
+        "file": "diabetes-C3-vector.json",
+        "sha256": "6fc2bce3aa38d0f3d976691abb17a066c3d9c2f287e3f76ce9613386a71c68ab",
+        "run_id": "20261002T132046Z-413f3d42",
+        "condition": "C3",
+        "depth": 8
+      }
+    },
+    {
+      "id": "d019",
+      "notes": "At n8 the two-trial/196-person primary result and nonsignificant HbA1c finding provide complete corrective evidence. This is not a judged generated correction.",
+      "n8": {
+        "retrieved_sources": [
+          "diabetes-pharmacotherapy-rct.pdf",
+          "diabetes-pharmacotherapy-rct.pdf",
+          "diabetes-pharmacotherapy-rct.pdf",
+          "diabetes-pharmacotherapy-rct.pdf",
+          "diabetes-pharmacotherapy-rct.pdf",
+          "diabetes-pharmacotherapy-rct.pdf",
+          "diabetes-pharmacotherapy-rct.pdf",
+          "diabetes-pharmacotherapy-rct.pdf"
+        ],
+        "retrieved_contexts": [
+          "red from those for HbA1c.\nIn the primary change-score analyses, GQD plus metformin was\nassociated with statistically signiﬁcant reductions in FPG and 2hPG,\nsuggesting a possible short-term glycemic signal. However, these\nresults should be interpreted cautiously because they were based on\nonly two trials and were affected by substantial heterogeneity. Thus,\nthe FPG and 2hPG ﬁndings should be viewed as exploratory rather\nthan conﬁrmatory.\nThe discrepancy between the change-score analysis and the\npost-treatment sensitivity analyses also requires cautious interpre-\ntation. The post-treatment analyses, including the analysis of all\neight trials, favored GQD plus metformin across HbA1c, FPG, and\n2hPG. However, post-treatment ﬁnal values are more vulnerable to\nbaseline imbalance than change-from-baseline values, especially\nwhen randomization procedures are insuf ﬁciently reported.\nTherefore, the statistically signi ﬁcant post-treatment ﬁndings were\nconsidered supportive sensitivity evidence, ",
+          "so be considered.\nFewer than ten trials were included, so funnel-plot assessment or\nstatistical tests for small-study effects were not appropriate. In\naddition, most included trials were small, single-center studies\npublished in Chinese journals, and none had an accessible prospec-\ntive protocol or trial registration record. These factors increase the\npossibility that studies with favorable results were more likely to be\npublished or reported. Accordingly, the pooled estimates should be\ninterpreted cautiously.\nConclusion\nCurrent evidence is insuf ﬁcient to establish GQD as a de ﬁni-\ntively superior adjunctive treatment to metformin for type 2\ndiabetes mellitus. Although the post-treatment sensitivity analyses\nfavored GQD plus metformin across HbA1c, FPG, and 2hPG, the\nprimary change-score analysis did not con ﬁrm a statistically sig-\nniﬁcant additional reduction in HbA1c. The observed reductions in\nFPG and 2hPG suggest a possible glycemic bene ﬁt, but these\nﬁndings should be interprete",
+          "e reporting.\nThese limitations contributed to the overall high risk-of-bias judg-\nments and were considered in the GRADE downgrading.\nCertainty of evidence\nThe certainty of evidence for the three main glycemic outcomes\nwas assessed using the GRADE framework and is summarized in\nTable 2 . Because the included studies were randomized controlled\ntrials, the initial certainty of evidence was rated as high. However,\nthe certainty was downgraded for all three outcomes because of\nimportant methodological limitations in the included trials, sub-\nstantial to extreme heterogeneity, and imprecision related to the\nsmall number of trials and participants included in the primary\nchange-score analysis.\nOverall, the certainty of evidence was rated as very low for\nHbA1c, FPG, and 2hPG. For HbA1c, the evidence was downgraded\nbecause of high risk of bias, extreme inconsistency, and imprecision,\nas the conﬁdence interval crossed the line of no effect. For FPG and\n2hPG, although the pooled estimates favore",
+          "but they were not used\nto override the more conservative primary change-score analysis.\nThe interpretation of HbA1c in short-duration trials also\ndeserves attention. HbA1c re ﬂects average glycemia over approxi-\nmately the preceding 2 –3 months and therefore changes in HbA1c\nmay be less responsive in trials with treatment durations shorter\nthan 12 weeks ( 19). Several included trials had relatively short\nfollow-up periods, including trials lasting 2 to 8 weeks. We retained\nthese studies because HbA1c was reported as a prespeci ﬁed\nglycemic outcome and because excluding them would further\nreduce the already limited evidence base. Nevertheless, the short\nduration of several trials may have reduced the ability to detect\nsustained changes in HbA1c and contributed to inconsistency\nacross studies. This issue was considered when interpreting the\nHbA1c ﬁndings and when downgrading the certainty of evidence.\nIn addition to the statistical ﬁ\nndings, the high risk of bias in the\nincluded trials s",
+          "s result remained statistically\nnon-signi ﬁcant under the alternative c orrelation assumptions.\nHeterogeneity was extreme across the HbA1c change-score analyses\n(I² = 99% –100%), indicating substantial instability in the pooled\nestimate. Therefore, the primary analysis did not provide suf ﬁcient\nevidence to con ﬁrm a reliable additional effect of GQD on HbA1c.\nFor the secondary outcomes, the change-score analyses favored\nGQD plus metformin. Statistically signi ﬁcant reductions were\nobserved for FPG (MD = -1.08, 95% CI -1.71 to -0.44;\nP = 0.0009) and 2hPG (MD = -1.73, 95% CI -3.05 to -0.42;\nP = 0.010). These ﬁndings were consistent across the tested\nTABLE 1 Characteristics of the included randomized controlled trials.\nStudy Sample size,\ntotal (I/C) Age, years (I/C) Duration Randomization\nmethod\nGQD regimen\n(dose/frequency)\nLi H, 2018 ( 11) 96 (48/48) 58.10 ± 9.70/59.40 ± 9.80 2 weeks\nRandom-number table;\nallocation concealment not\nreported.\nSee Appendix S3 for details\nLi WJ and Li M, 20",
+          "d GQD plus metformin,\nthe certainty was also rated as very low because the results were\nbased on only two trials and were affected by substantial\nheterogeneity and methodologic al limitations. Therefore, the\nGRADE assessment indicates that the true effects may be substan-\ntially different from the pooled estimates.\nPrimary analysis of change-from-baseline\nvalues\nThe primary analysis was based on change-from-baseline values.\nOnly two trials (S1 and S3; 196 participants) provided suf ﬁcient\nbaseline and post-treatment data for this analysis. Because the SDs of\nchange scores were not directly reported, they were estimated using a\nprespeciﬁed correlation coefﬁcient of r = 0.50 ( Figure 4), with addi-\ntional sensitivity checks using r = 0.25 and r = 0.75 ( Figures 5, 6).\nFor the primary outcome, GQD plus metformin did not show a\nstatistically signi ﬁcant additional reduction in HbA1c compared\nwith metformin alone in the change-score analysis (MD = -1.92,\n95% CI -4.43 to 0.59; P = 0.13). Thi",
+          "ores; r = 0.25).Sensitivity analysis of HbA1c change scores using a conservative correlation coef ﬁcient (r) of 0.25 to\nassess the robustness of the primary outcome.\nFIGURE 4\nForest plot for HbA1c (change scores; r = 0.50). Meta-analysis of changes from baseline in glycated hemoglobin levels between the combination\ntherapy group and the metformin monotherapy group, assuming a correlation coef ﬁcient (r) of 0.50.\nHe et al. 10.3389/fendo.2026.1837588\nFrontiers in Endocrinology frontiersin.org07",
+          "tainty of evidence remains very low because of methodological\nlimitations, substantial heterogeneity, and imprecision.\nThe primary analysis was based on change-from-baseline values\nand was limited to two trials with sufﬁcient baseline and post-treatment\ndata. In this analysis, GQD plus metformin did not show a statistically\nsigniﬁcant additional reduction in HbA1c compared with metformin\nalone (MD = -1.92, 95% CI -4.43 to 0.59; P = 0.13). This non-signiﬁcant\nresult should not be interpreted as deﬁnitive evidence of no clinically\nimportant effect. The point estimatesuggested a potentially meaningful\nreduction, but the conﬁdence interval was wide and crossed the null\nvalue, indicating substantial imprecision. In addition, the heterogeneity\nwas extreme, which further limited the interpretability of the pooled\nestimate. Therefore, the current evidence is insufﬁcient to determine\nwhether GQD plus metformin produces a reliable additional reduction\nin HbA1c.\nThe ﬁndings for FPG and 2hPG diffe"
+        ],
+        "verdict": "not_scored",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "pass",
+          "fact_recall": 1.0,
+          "supported_facts": [
+            "f1"
+          ],
+          "anchor_matches": {
+            "gqd_primary": [
+              4,
+              5
+            ]
+          },
+          "anchor_match_groups": {
+            "gqd_primary": [
+              [
+                5,
+                4
+              ]
+            ]
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "parent_run": {
+        "file": "diabetes-C3-vector.json",
+        "sha256": "6fc2bce3aa38d0f3d976691abb17a066c3d9c2f287e3f76ce9613386a71c68ab",
+        "run_id": "20261002T132046Z-413f3d42",
+        "condition": "C3",
+        "depth": 8
+      }
+    },
+    {
+      "id": "d023",
+      "notes": "Related DSMES trial contexts report six-month follow-up, not the requested twelve-month result. Retrieval is expected; no generated refusal was judged.",
+      "n8": {
+        "retrieved_sources": [
+          "diabetes-digital-education-cgm-trial.pdf",
+          "diabetes-digital-education-cgm-trial.pdf",
+          "diabetes-digital-education-cgm-trial.pdf",
+          "diabetes-digital-education-cgm-trial.pdf",
+          "diabetes-digital-education-cgm-trial.pdf",
+          "diabetes-digital-education-cgm-trial.pdf",
+          "diabetes-digital-education-cgm-trial.pdf",
+          "diabetes-digital-education-cgm-trial.pdf"
+        ],
+        "retrieved_contexts": [
+          "rolled or participated in the interven-\ntion, results remained largely the same as the ITT analyses\nwith 2 exceptions: participants in the digital DSMES+CGM\ncondition had significantly lower TAR >180 mg/dL ( −16.3%,\n95% CI −30.3% to −2.3%; P=.02) and SD of glucose ( −5.8\nmg/dL, 95% CI −11.0 to −0.7 mg/dL; P=.03) than those in\nusual care at 3 months.\nThere were no reported serious adverse events related to\nthe study devices or program, and the number of adverse\nevents did not differ significantly across conditions.\nDiscussion\nResults from this RCT evaluating an integrated dig-\nital DSMES program+CGM revealed that participants\nJOURNAL OF MEDICAL INTERNET RESEARCH Berthoumieux et al\nhttps://www.jmir.org/2026/1/e78321 J Med Internet Res 2026 | vol. 28 | e78321 | p. 9\n(page number not for citation purposes)\nrandomized to the integrated solution experienced improve-\nments in HbA 1c and CGM-derived measures of glycemic\ncontrol compared to usual care over 6 months. Though the\ndifference betwee",
+          "are team per week. The median number\nof days per week in which participants had at least 1 CGM\nreading from the FSL 14-Day sensor was 4.8.\nPrimary Outcome: HbA1c\nThe results for HbA 1c are presented in Figure 2 . Partici-\npants in the digital DSMES+CGM condition had significantly\nlower HbA 1c than those in usual care at 3 months ( −0.7%,\n95% CI −1.4% to −0.1% or −8.1 mmol/mol, 95% CI −15.5 to\n−0.7 mmol/mol; P=.03) and lower, nonsignificant reductions\nin HbA1c at 6 months (−0.6%, 95% CI −1.4% to 0.2% or −6.9\nmmol/mol, 95% CI −15.7 to 1.9 mmol/mol; P=.12).\nJOURNAL OF MEDICAL INTERNET RESEARCH Berthoumieux et al\nhttps://www.jmir.org/2026/1/e78321 J Med Internet Res 2026 | vol. 28 | e78321 | p. 6\n(page number not for citation purposes)\nA sensitivity analysis excluding participants who never\nparticipated in the intervention showed that participants in\nthe digital DSMES+CGM condition had significantly lower\nHbA1c than those in usual care at both 3 months ( −1%, 95%\nCI −1.6% to −0.3% or −10.5",
+          "of days in which participants\nhad at least 1 CGM reading from the FSL 14-Day device\n(connected through the digital DSMES app).\nStatistical Analysis\nPower was calculated assuming a −0.5% (5 mmol/mol)\nmean difference in HbA1c between the digital DSMES+CGM\ncondition and usual care from baseline to 6 months. Using\nan estimated SD of 1.0, a 2-tailed type I error rate of 0.05,\nand 80% power, the sample size required for the primary\nanalysis was 126 participants in total (63 per group) [ 28].\nAssuming an attrition rate of 20%, the adjusted sample size\nwas 160 participants (80 per group). Therefore, since we\nreduced our recruitment goal during the active study period\ndue to challenges with recruitment, we were underpowered to\ndetect a statistically significant difference with our estimated\neffect size of 0.5%.\nAll analyses were conducted with R (version 4.2.3) [ 29].\nDemographics and baseline clinical indicators (ie, age, BMI,\nsex, cardiovascular medication use, and type 2 diabetes\nmedication ",
+          "DSMES\nprogram+CGM versus usual care at 3 and 6 months. The\nprimary outcome was HbA 1c level. The secondary outcomes\nmeasured by the FSL Pro sensors included CGM 14-day %\nTIR, time above range (TAR; >180 mg/dL and >250 mg/\ndL), and time below range (TBR; <70 mg/dL). Furthermore,\ndifferences in mean blood glucose, SD of blood glucose,\ncoefficient of variation, and glucose management indicator\n(GMI) were examined. Lastly, body weight, resting systolic\nand diastolic blood pressure, and diabetes distress [ 27]\nwere examined. Engagement in the digital DSMES+CGM\nintegrated solution was measured using 5 metrics: average\nnumber of meals tracked per week using the digital DSMES\napp, average number of physical activity bouts tracked per\nweek (manually self-reported in the digital DSMES app or\nsynced from a wearable device), average number of weigh-ins\nper week using the provided cellularly connected body weight\nscale, average number of messages sent to their care team\nper week, and median number ",
+          "n conditions in HbA 1c at 6 months was\nnot significant within an ITT analysis, sensitivity analy-\nses showed that participants who enrolled in the digital\nDSMES+CGM condition had significantly lower HbA 1c than\nthose in usual care. These findings are clinically meaningful\ngiven that, on average, the intervention group saw an almost\n1-point reduction in HbA 1c levels over the study period—a\ndegree of change that is twice as large as the benchmark for\na clinically significant change in HbA 1c of 0.5% [ 33] and\nis associated with a reduced risk of diabetes-related complica-\ntions, including microvascular disease, myocardial infarction,\nheart failure, stroke, and death [34].\nGiven the focus of this trial on the integration of CGM\nwith DSMES [ 35], CGM-derived glycemic measures also\nimproved in the digital DSMES+CGM condition compared\nto usual care. From baseline to 6 months, participants in the\ndigital DSMES+CGM condition experienced a 15% increase\nin percent TIR and a 15% decrease in perc",
+          "rsus the usual care group at 6 months.\nConclusions: The combination of digital DSMES+CGM is effective for supporting adults with type 2 diabetes in managing\ntheir condition and has the potential to reduce the risk of long-term health complications.\nTrial Registration: ClinicalTrials.gov NCT05368454; https://clinicaltrials.gov/ct2/show/NCT05368454\nJ Med Internet Res 2026;28:e78321; doi: 10.2196/78321\nJOURNAL OF MEDICAL INTERNET RESEARCH Berthoumieux et al\nhttps://www.jmir.org/2026/1/e78321 J Med Internet Res 2026 | vol. 28 | e78321 | p. 1\n(page number not for citation purposes)\nKeywords: diabetes self-management education and support; diabetes education; digital health; continuous glucose monitor-\ning; time in range; chronic disease management\nIntroduction\nType 2 diabetes is a chronic disease that affects the body’s\nability to regulate and use insulin effectively, leading to high\nblood glucose levels. Persistent hyperglycemia, as estimated\nby hemoglobin A 1c (HbA1c) [1], increases the r",
+          "usion, the statistically significant and clinically\nmeaningful improvement in HbA 1c and CGM outcomes\namong participants in the digital DSMES+CGM group\ndemonstrates that combining CGMs with a digital DSMES\nprogram can have a beneficial impact on glucose manage-\nment among adults with type 2 diabetes. Nevertheless,\nJOURNAL OF MEDICAL INTERNET RESEARCH Berthoumieux et al\nhttps://www.jmir.org/2026/1/e78321 J Med Internet Res 2026 | vol. 28 | e78321 | p. 10\n(page number not for citation purposes)\nlonger and larger-scale trials are warranted to assess the\nreliability of our findings and the benefit of our integra-\nted solution on potentially reducing the risk of long-term\nhealth complications. Ultimately, increasing access to digital\nDSMES programs with integrated CGM capabilities may\nbe a promising approach to help adults with type 2 diabe-\ntes manage their condition, improve health outcomes, and\nsupport broader efforts to enhance the quality and effective-\nness of diabetes care.\nAcknowled",
+          "lly, engagement\ndescriptives (mean and SD) were assessed among this group\nof intervention participants that enrolled in the digital solution\n(n=42).\nResults\nBaseline Characteristics\nA total of 39,506 individuals were initially screened for\neligibility ( Figure 1  and Checklist 1 ). Of these, 594 were\nscreened as eligible, and 292 individuals completed an\ninformed consent form and the baseline survey. After\nparticipating in a secondary screening (n=227), 112 individ-\nuals were disqualified due to HbA1c or TIR eligibility criteria,\nand 15 individuals were withdrawn or lost to follow-up.\nThus, the final sample included 100 participants randomized\nto the digital DSMES+CGM intervention condition (n=51)\nor usual care (n=49). At 3 months, 90.2% (46/51) digital\nDSMES+CGM participants and 87.8% (43/49) usual care\nparticipants completed their follow-up. At 6 months, 84.3%\n(43/51) digital DSMES+CGM participants and 91.8% (45/49)\nusual care participants completed their follow-up. The level\nof miss"
+        ],
+        "verdict": "not_scored",
+        "metrics": {
+          "document_coverage": "not_scored",
+          "evidence_coverage": "not_scored",
+          "fact_recall": null,
+          "supported_facts": [],
+          "anchor_matches": {},
+          "anchor_match_groups": {},
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "parent_run": {
+        "file": "diabetes-C3-vector.json",
+        "sha256": "6fc2bce3aa38d0f3d976691abb17a066c3d9c2f287e3f76ce9613386a71c68ab",
+        "run_id": "20261002T132046Z-413f3d42",
+        "condition": "C3",
+        "depth": 8
+      }
+    }
+  ],
+  "cardiology_case": {
+    "id": "q051",
+    "n8": {
+      "retrieved_sources": [
+        "cardio-af-incident-ecg-calibration.pdf",
+        "diabetes-pharmacotherapy-rct.pdf",
+        "diabetes-metabolic-syndrome-cameroon.pdf",
+        "cardio-tailored-af-randomized-trial.pdf",
+        "diabetes-pharmacotherapy-rct.pdf",
+        "diabetes-cgm-management.pdf",
+        "diabetes-cgm-management.pdf",
+        "cardio-af-incident-ecg-calibration.pdf"
+      ],
+      "retrieved_contexts": [
+        "sample size, while the most visible effect is the greater \nvariability for small sample sizes, as obviously expected. \nFor these two models the maximum AUC values, \nobtained with the biggest sample size, are respectively \n0.74 and 0.68. Another aspect to note is that balancing \nthe training set with RUS to an event ratio of 0.5 (same \nnumber of AF cases and censored samples) does not \nimprove discrimination in any of the models considered, \nalso not for small samples sizes.\nIn Fig.  1 it is also reported the ICI as a function of \nthe sample size. Figure  1C represents the case where no \nimbalance corrections were introduced, and we can see \nthat increasing the sample size has the effect of reducing \nthe ICI (i.e., it improves calibration), for all three models \nTable 1 Descriptive features of the dataset. For all the \nnumerical variables median and  (1st,  3rd quartile) are reported. \nWe compared “Censored” and “Event” populations with Mann–\nWhitney and Chi-squared tests, respectively ",
+        "ough discussion or consultation with a third\nreviewer. For potentially eligible studies for which full texts could\nnot be accessed, attempts were made to obtain the full text through\ndatabase links, institutional access, and citation tracing.\nTwo reviewers independently extracted data from the included\nstudies. Extracted information included ﬁrst author, publication\nyear, country or region, sample size, intervention and comparator\ndetails, GQD regimen, metformin dose, treatment duration, ran-\ndomization method, reported outcomes, baseline values, post-\ntreatment values, SDs, and adverse-event information when avail-\nable. For continuous glycemic outcomes, means and SDs were\nextracted for baseline and post-treatment values whenever reported.\nWhen multiple post-treatment time points were available, the ﬁnal\nassessment at the end of the intervention period was used.\nHe et al. 10.3389/fendo.2026.1837588\nFrontiers in Endocrinology frontiersin.org02\nOutcomes\nThe primary outcome was HbA1c (%)",
+        "Where n = sample size, z= critical value at 95% \nconfidence level usually set at 1.96, p=prevalence \n(5.8% prevalence rate of DM in Cameroon) [ 16], q \n= 1 -p, d= imprecision of 5%. Inputting the \nvariables: \nn=[((1.96)²(0.058)(1-0.058))/(0.05)²]=84 \nHowever, a total sample size of 139 was studied. \nSampling technique: the Buea Health District and \nthe two selected hospitals were selected by \npurposive sampling. The Buea Regional Hospital \nand the Muea Sub -Divisional Health Centre are \nsituated in the South -West R egion of Cameroon. \nThey serve as primary health care facilities and \ncater for diverse population. Participants who met \nthe inclusion criteria were selected by systematic \nsampling. Starting from the first among the 700 \nregistered patients, every fifth patie nt was \nselected, and a sample size of 139 was attained. \nData collection:  the dependent variable is the \npresence of metabolic syndrome. The \nindependent variables are sociodemographic, \nbiochemical, clinical, and ",
+        "p and a randomization \nratio of 1:1, a total of 292 participants were needed for the study to have \na power of 80% at a one-sided alpha level of 0.025. Assuming a dropout \nrate of 22% (no index ablation performed or loss to follow-up), 374 \nparticipants were required.\nAssumptions regarding the rates of AF in both study arms were \nverified after 50% of the originally planned total patient sample  \n(73 in each arm) completed primary endpoint data collection.  \nA conditional power approach for sample-size re-estimation, using \nthe Mehta–Pocock method, was applied. Following this interim \nassessment, the sample size could only remain the same or be \nincreased.\nAll statistical analyses were performed on enrolled partici -\npants who underwent an ablation procedure and were not lost to \nfollow-up during the 3-month blanking period (the mITT popula\n-\ntion). Primary and secondary endpoints were analyzed using a Cox \nproportional-hazards model, with treatment group and a dichoto -\nmous effect fo",
+        "atment groups. When SDs of change scores\nwere not directly reported, they were derived using the standard\nformula: SD_change = √(SD_baseline² + SD_ ﬁnal² − 2r ×\nSD_baseline × SD_ ﬁnal). This calculation was performed in accor-\ndance with guidance in the Cochrane Handbook for Systematic\nReviews of Interventions ( 10). Because within-participant correla-\ntions were not reported in the included studies, a correlation\ncoefﬁcient of r = 0.50 was prespeci ﬁed as a plausible primary\nassumption. Sensitivity analyses using r = 0.25 and r = 0.75 were\nconducted to assess whether the primary change-score ﬁndings\nwere robust to lower and higher correlation assumptions.\nTwo additional sensitivity analyses based on post-treatment\nﬁnal values were conducted. The ﬁrst was restricted to trials with\nclearly reported randomization methods (S1 –S3). The second\nincluded all eight trials to examine whether inclusion of trials\nwith unclear randomization reporting changed the direction or\nstatistical signi ﬁca",
+        "cific results are interpreted as\nexploratory, with an emphasis on effect sizes and CIs rather\nthan formal adjustment for multiplicity.\nSafety flags were tabulated for CA and clinician responses\nand are reported descriptively, given the very low num-\nber of flagged responses. For the source-identification task\n(Turing test [ 63]), the proportions of responses that raters\ncorrectly identified were calculated both overall and at the\nindividual rater level. Identification accuracy was compared\nagainst random chance (50%) using exact binomial tests\n[64]. Furthermore, to assess potential evaluation bias, overall\nquality scores were stratified and visualized using boxplots\nbased on the raters’ perceived source (ie, whether the rater\nbelieved the response was generated by a CA or a clinician),\nregardless of the true source.\nMissing ratings were rare and handled using complete-case\nanalysis without imputation. All statistical tests were 2-sided\n(except for the one-sided binomial tests assessing",
+        " findings, particularly those based on modest absolute\ndifferences, should be interpreted cautiously because the\nrating instrument and sample size may not support strong\ninferences at the individual-dimension level.\nSecond, the case set was small and included only 3\ntype 2 diabetes cases. This limits generalizability to rou-\ntine diabetes care, where type 2 diabetes accounts for the\nmajority of diagnosed diabetes [ 76]. However, this imbalance\nalso reflects a broader data-availability constraint, as CGM\nuse and publicly available CGM datasets remain dispropor-\ntionately concentrated in type 1 diabetes and insulin-treated\npopulations [ 77,78]. More broadly, the study had limited\ncoverage of medication-policy-sensitive scenarios, including\nquestions involving treatment escalation, eligibility crite-\nria, cardiometabolic risk management, and locally specific\nprescribing rules. At the aggregate level, safety flag frequen-\ncies were similar between CA and clinician responses, and\nmajor safe",
+        " of AF particularly in the elderly population and the \nFig. 1 A AUC values for the varying sample sizes (original event fraction in the training set). Error bars represent the 95% CI around the mean. \nB AUC values for the varying sample sizes (perfectly balanced training set). C ICI values for the varying sample sizes (original event fraction \nin the training set). D ICI values for the varying sample sizes (perfectly balanced training set)\nPage 7 of 10\nBaj et al. BMC Medical Research Methodology          (2023) 23:169"
+      ],
+      "verdict": "fail",
+      "metrics": {
+        "document_coverage": "fail",
+        "evidence_coverage": "fail",
+        "fact_recall": 0.0,
+        "supported_facts": [],
+        "anchor_matches": {
+          "ccta_131": [],
+          "ccta_incidence": [],
+          "ccta_limit": []
+        },
+        "anchor_match_groups": {
+          "ccta_131": [],
+          "ccta_incidence": [],
+          "ccta_limit": []
+        },
+        "distractor_ordering": "not_scored",
+        "present_distractors": []
+      }
+    },
+    "notes": "Gao CCTA expected document displaced at n3/n8. New GQD extraction-method and Buea sample-size passages share generic methodological terms; AF calibration moves from rank 1 to rank 0. No correct CCTA source in combined top8. Complete evidence already failed in baseline, so evidence headline cannot expose this new document regression. The baseline document pass includes front-matter/citation hits, not complete sample-size evidence. Pre-rerank candidates were not recorded, so the displacement mechanism remains unconfirmed.",
+    "parent_run": {
+      "file": "cardio-C2-vector.json",
+      "sha256": "0ff4ad1df28903343e31057031e01ad965b7c5ed05e7b12229a51954cc976bf8",
+      "run_id": "20261002T132049Z-0b1222c1",
+      "condition": "C2",
+      "depth": 8
+    }
+  }
+}

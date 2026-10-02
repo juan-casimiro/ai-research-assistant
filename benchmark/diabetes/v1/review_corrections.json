@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "reviewer": "Claude Sonnet 5.5; corrected by Codex GPT-6",
+  "corrected_at": "2026-10-02T14:09:20.356047+00:00",
+  "evaluated_release_snapshot": "runs/evaluated-release",
+  "evaluated_selection_sha256": "ca7406b820f520481da7fc04d1e97fe01abd0112f89c08891305f56ab4d246eb",
+  "current_selection_sha256": "1f3380e8df6021193924fb0eec692114dedd2b931a79bb81a67f35a236ee2ca9",
+  "evaluated_query_sha256": "7f1288ad0663fe50a09455af8d230b2330ae130d4a46450a9bb5a83b56a90f9f",
+  "current_query_sha256": "38d3ad95fbcd3d38d0bdfd4b2d9388524a889aa572c14c5a3f09762cce4c3d44",
+  "metadata_only_changes": {
+    "PMC13430954": [
+      "abstract_summary",
+      "notes",
+      "topic_rationale",
+      "selection_rationale"
+    ]
+  },
+  "review_wording_only_cases": [
+    "q005",
+    "q036",
+    "d014",
+    "d015",
+    "d016",
+    "d018"
+  ],
+  "original_result_and_ingestion_files_sha256": {
+    "runs/diabetes-C3-reviewed.json": "1340edae52876b59093f0ccb446684cb8f5d68d0c26f7cfd1a9bf73499b39ffa",
+    "runs/diabetes-C2-vector.json": "fd1130ee33c51d91d1fa24550d8bbc3dd428671707a8407d852afd7c9238724e",
+    "runs/cardio-C2-vector.json": "0ff4ad1df28903343e31057031e01ad965b7c5ed05e7b12229a51954cc976bf8",
+    "runs/cardio-C1-vector.json": "eb1766c1b31231afb0e0bdf89bd65bae461bfccdde0c1638c0dc68f9af972573",
+    "runs/diabetes-C2-ingestion.json": "039e3b575524adaba079ec2973ac65d199adf6b89d498f75ae1238e1edf72574",
+    "runs/cardio-C1-ingestion.json": "eff09832583173d5f9b3eec855dddc34ac5bd80176c62c4f12fed1249fa47e26",
+    "runs/diabetes-C3-vector.json": "6fc2bce3aa38d0f3d976691abb17a066c3d9c2f287e3f76ce9613386a71c68ab",
+    "runs/combined-C3-ingestion.json": "41cfe6c1f816b5a0a38a4d93390b1cd763d8c79974eaae13202e5b8b4737ba26",
+    "runs/diabetes-C2-reviewed.json": "8e7c05e9d4cfd7539569481fd23b6ad26e59342ce86f99f0f36558ad0f697a88"
+  },
+  "questions_anchors_source_bytes_evidence_bindings_memberships_unchanged": true,
+  "retrieval_calls": 0,
+  "note": "Original outputs remain bound to the evaluated snapshot, not relabelled as evaluations of the current descriptive metadata revision. Both internally compatible historical pairs remain comparable."
+}
