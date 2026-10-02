@@ -2,14 +2,22 @@
 
 On 2026-10-02, vector retrieval with the production cross-encoder reranker
 retrieved complete source sets much more often than complete pinned evidence.
-Adding the two related competitors reduced answerable evidence coverage at n=8
-from 4/38 to 3/38, while document coverage remained 31/38. This is a cardiology
+In one execution per condition, adding two related competitors coincided with
+one case (c007) losing complete pinned evidence at n=8: 4/38 → 3/38. Document
+coverage stayed 31/38 at n=8; c008 lost document coverage at n=3. This single-run
+observation does not establish a stable competition effect. This is a cardiology
 retrieval baseline, not answer accuracy, a BM25 comparison or a full-corpus claim.
 
 ## Frozen release and experiment
 
 Juan instructed that JUA-109 be considered done and that PR30 was already on the
-epic branch. Both experiments use epic commit `9910c2f`, its unchanged
+epic branch. Both experiments ran against epic commit `9910c2f` plus the
+then-uncommitted ingestion helper, preserved as
+[`ingest_isolated_20261002.py`](runs/ingest_isolated_20261002.py) and bound by
+its original SHA-256 in `artifacts.json`. The production evaluation code was
+unchanged. The current reproduction helper adds explicit safety guards and atomic
+receipt finalization; it was not used for these saved runs. Both experiments use
+the unchanged
 `cardiology-queries-v1` release, `pinned-span-coverage-v3` scorer and
 `minimum-evidence-chunks-v3` feasibility contract. The authoring files retain their
 historical pending-review wording; this report records the experiment authorization
@@ -34,7 +42,8 @@ Production reranker threading and relevance order were unchanged.
 [Results](runs/C1-vector.json) and [C2 results](runs/C2-vector.json) preserve all
 contexts, zero-based ranks, anchor matches, facts, feasibility, query/scorer/source/
 dependency/model hashes, exact membership, timestamps and requested/executed IDs.
-[Artifact checksums](runs/artifacts.json) bind the helper, receipts and results.
+[Artifact checksums](runs/artifacts.json) bind the original and current helpers,
+receipts and results.
 Both receipts' loaded-model fingerprints equal those of their evaluation run;
 common model, query, scorer and retrieval fingerprints agree across conditions.
 
@@ -138,7 +147,9 @@ SEED_ON_EMPTY=false OTEL_TRACES_EXPORTER=none CHROMA_PATH=./chroma_db/<fresh-C1>
 The ingestion helper refuses existing paths and receipt overwrites. It uses the
 production endpoint handler in-process, avoids HTTP port ownership, and makes no
 LLM inference calls. The evaluation itself validates actual collection chunks
-again. Interrupted ingestion leaves a setup receipt and must use a fresh path;
+again. The current helper finalizes receipts atomically; the original run helper
+used a plain write. Interrupted ingestion with the current helper leaves a setup
+receipt and must use a fresh path;
 it is not resumable. Physical PDFs, extracted corpus files, model caches and
 Chroma stores are untracked. Only permitted evidence excerpts in results are
 versioned, with article attribution retained in [ATTRIBUTION.md](ATTRIBUTION.md).
@@ -157,3 +168,9 @@ cannot be scored as successful refusals without generated answers; author review
 cannot certify all-corpus absence independently. Paid rewriting/generation/judge
 runs need separate purpose/provider/scale/cost approval. Historical 96.4%/98.2%
 remain original full-corpus metrics and are not comparable to this rebuilt gold.
+
+Post-review verification: 151 offline regressions passed, including four new
+ingestion-helper tests. The four tests also passed under `python -O`; a simulated
+atomic-replace failure preserved the setup receipt and removed the temporary file.
+Artifact hashes and the byte-identical original receipts/results/helper snapshot
+were verified. No retrieval or paid evaluation was repeated for these changes.

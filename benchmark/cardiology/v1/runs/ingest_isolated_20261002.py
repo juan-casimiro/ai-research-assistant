@@ -17,7 +17,7 @@ if collection_path.exists():
     raise ValueError('CHROMA_PATH must be a fresh, unused directory')
 
 import main
-from eval_benchmark import model_fingerprint, read_release, verify_collection, write_checkpoint
+from eval_benchmark import model_fingerprint, read_release, verify_collection
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--condition', choices=['C1', 'C2'], required=True)
@@ -30,8 +30,7 @@ benchmark, manifest, conditions, condition, tuples, texts = read_release(
 with args.receipt.open('x') as stream:
     json.dump({'status': 'setup', 'condition': args.condition}, stream)
 main._load_models_and_index()
-if main.collection.count() != 0:
-    raise ValueError('isolated collection must be empty before ingestion')
+assert main.collection.count() == 0
 models = {'embedding': model_fingerprint(main.embed_model),
           'reranker': model_fingerprint(main.reranker)}
 main._ready = True
@@ -39,13 +38,12 @@ for source, text in texts.items():
     result = main.ingest(main.IngestRequest(text=text, source=source))
     print(source, result, flush=True)
 receipt = verify_collection(main.collection, texts, main.chunk_text)
-if len(main.bm25_documents) != receipt['chunk_count']:
-    raise ValueError('BM25 index count differs from verified collection')
+assert len(main.bm25_documents) == receipt['chunk_count']
 receipt.update(status='complete', condition=args.condition,
     collection_path=str(collection_path.resolve()), seed_on_empty=False,
     timestamp=datetime.now(timezone.utc).isoformat(), loaded_models=models,
     membership_sha256=condition['membership_sha256'], article_tuples=tuples,
     code_commit=subprocess.check_output(['git','rev-parse','HEAD'], text=True).strip(),
     ingestion='production main.ingest / main.embed / main.chunk_text; no HTTP server')
-write_checkpoint(args.receipt, receipt)
+args.receipt.write_text(json.dumps(receipt, indent=2)+'\n')
 print('Verified', receipt['chunk_count'], 'chunks', flush=True)
