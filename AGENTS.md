@@ -2,9 +2,14 @@
 
 Python 3.12 / FastAPI retrieval-augmented question-answering service.
 
+## Shared guidance
+
+Follow the [development guidance index](https://github.com/juan-casimiro/development-config/blob/main/AGENTS.md)
+for shared process and environment instructions. If already loaded in this chat,
+reuse its completed startup and instructions.
+
 ## Sources
 
-- Shared process: follow the [development guidance index](https://github.com/juan-casimiro/development-config/blob/main/AGENTS.md) and its Working Agreement and applicable environment profile. Local work under `~/development/` enters through `~/development/AGENTS.md`.
 - [README](README.md): setup, run modes, API contract and evaluation commands.
 - Relevant ADRs: [retrieval](adr/001-chunking-and-retrieval.md), [evaluation](adr/002-evaluation-methodology.md), [startup and Docker](adr/003-deployment-and-containerisation.md).
 
