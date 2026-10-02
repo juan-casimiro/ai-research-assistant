@@ -1,0 +1,288 @@
+{
+  "schema_version": "1.0",
+  "issue": "JUA-111",
+  "reviewer": "Codex GPT-6 (author review)",
+  "independent_review": "Pending Juan PR review; no independent clinical adjudication claimed",
+  "selection_sha256": "ca7406b820f520481da7fc04d1e97fe01abd0112f89c08891305f56ab4d246eb",
+  "query_sha256": "7f1288ad0663fe50a09455af8d230b2330ae130d4a46450a9bb5a83b56a90f9f",
+  "status": "Author-reviewed final annotations; initial frozen retrieval questions/anchors unchanged",
+  "source_selection": "32 pinned articles: original 21 retained unchanged, 11 verified diabetes additions; CC BY 4.0/CC0 1.0 only",
+  "legacy_audit": "35 full legacy records with findings/actions in legacy_audit.json; 23 revised IDs, 12 retired IDs, 26 new IDs",
+  "categories": {
+    "cross_doc_distractor": 4,
+    "cross_doc_synthesis": 5,
+    "direct_lookup": 23,
+    "false_premise": 3,
+    "multi_hop": 10,
+    "unanswerable": 4
+  },
+  "scope_review": {
+    "coverage": [
+      "Hospital epidemiology and criteria-specific prevalence",
+      "Sex-hormone genetic susceptibility versus sulfonylurea adverse response",
+      "Primary active-control drug trial and biased adjunctive meta-analysis",
+      "Digital DSMES+CGM patient outcomes versus simulated counseling quality",
+      "Sleep/metabolic syndrome and observational mediation",
+      "Zinc/hypoxia DKD mechanisms; CKD renal association",
+      "T2DM/BP genetics; resistant-hypertension and HFpEF/cardiorenal overlap"
+    ],
+    "alternative_labels": "d025 accepts either complete Lebedeva or Qin evidence set. Named-study questions do not accept other cohorts with similar words. All 32 articles reviewed for relevant overlap.",
+    "negative_cases": "q007, d022-d024: named cohort/report and endpoint/timepoint searched across all selected main PDFs. Lebedeva explicitly excludes dose/form/duration. No supplements ingested. False premises d019-d021 require affirmative source correction, scored separately.",
+    "category_review": "Ten multi-hop cases connect separately located facts; five cross-document cases need facts from both articles. Co-located legacy q005/q018/q019 are lookup cases. q036 and d014-d016 require separate Methods/Results/limitation locations and are multi-hop.",
+    "duplicates_and_leakage": "Repeated article facts test different comparator, false-premise and synthesis scopes; no gold numerical answers inserted in questions. Source-author identity disambiguation is intentional.",
+    "source_conflicts": [
+      "Jan Table 4 OR/CI/P values preserved as printed; no repaired estimate",
+      "Dabbs-Brown abstract three male versus Results two male interactions preserved",
+      "GQD primary versus sensitivity analysis kept distinct",
+      "Guo identification 697/864 versus 697/797 conditional denominators kept distinct",
+      "Mbota malformed blood-pressure definition and ambiguous sex shares are not used as validated clinical criteria or prevalence facts"
+    ],
+    "annotation_corrections_after_initial_retrieval": {
+      "ids": [
+        "q005",
+        "q036",
+        "d014",
+        "d015",
+        "d016",
+        "d018"
+      ],
+      "reason": "Source/standards review: four separate-location lookups reclassified multi-hop; distinguish GRADE downgrade reasons per outcome and pathogenic versus adaptive HIF roles. No question, anchor, source or evidence-set change. Original release and retrieval runs preserved. Offline context rescoring only; no score-driven evidence tuning.",
+      "initial_release": "runs/initial-authoring/queries.json",
+      "derived_results": [
+        "runs/diabetes-C2-reviewed.json",
+        "runs/diabetes-C3-reviewed.json"
+      ]
+    },
+    "reference_precision": "q005: imprecision is specifically the HbA1c downgrade; FPG/2hPG have small trial count, heterogeneity and methodological limits. d018: mechanistic HIF effects include both adaptive and pathogenic functions; do not label every role harmful.",
+    "score_driven_gold_changes": false,
+    "annotation_changes_after_initial_retrieval": true
+  },
+  "pdf_visual_review": [
+    {
+      "pmcid": "PMC10452755",
+      "rendered_pages": [
+        1,
+        5,
+        10
+      ],
+      "notice_pages": [
+        1
+      ],
+      "table_pages": [
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "pmcid": "PMC11847805",
+      "rendered_pages": [
+        1,
+        12,
+        19
+      ],
+      "notice_pages": [
+        1
+      ],
+      "table_pages": [
+        12
+      ]
+    },
+    {
+      "pmcid": "PMC12419643",
+      "rendered_pages": [
+        1,
+        5,
+        13
+      ],
+      "notice_pages": [
+        1
+      ],
+      "table_pages": [
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "pmcid": "PMC13107781",
+      "rendered_pages": [
+        1,
+        7,
+        10
+      ],
+      "notice_pages": [
+        1
+      ],
+      "table_pages": [
+        7,
+        8
+      ]
+    },
+    {
+      "pmcid": "PMC13175446",
+      "rendered_pages": [
+        1,
+        7,
+        14
+      ],
+      "notice_pages": [
+        14
+      ],
+      "table_pages": [
+        7,
+        8
+      ]
+    },
+    {
+      "pmcid": "PMC13311226",
+      "rendered_pages": [
+        1,
+        5,
+        15
+      ],
+      "notice_pages": [
+        1
+      ],
+      "table_pages": [
+        5,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "pmcid": "PMC13423648",
+      "rendered_pages": [
+        1,
+        6,
+        11
+      ],
+      "notice_pages": [
+        1
+      ],
+      "table_pages": [
+        6,
+        8
+      ]
+    },
+    {
+      "pmcid": "PMC13430954",
+      "rendered_pages": [
+        1,
+        9,
+        21
+      ],
+      "notice_pages": [
+        21
+      ],
+      "table_pages": [
+        9,
+        10,
+        11
+      ]
+    },
+    {
+      "pmcid": "PMC13433218",
+      "rendered_pages": [
+        1,
+        17
+      ],
+      "notice_pages": [
+        1
+      ],
+      "table_pages": []
+    },
+    {
+      "pmcid": "PMC13433680",
+      "rendered_pages": [
+        1,
+        13,
+        16
+      ],
+      "notice_pages": [
+        13
+      ],
+      "table_pages": []
+    },
+    {
+      "pmcid": "PMC13472562",
+      "rendered_pages": [
+        1,
+        5,
+        18
+      ],
+      "notice_pages": [
+        1
+      ],
+      "table_pages": [
+        5,
+        6,
+        7,
+        8
+      ]
+    }
+  ],
+  "frozen_cardiology_review": {
+    "case_count": 45,
+    "original_queries_sha256": "cef90c420cde6ef4f8d8c0f35aa6ae971591ca7d5a7c6e9ae64dc1321d0280f4",
+    "queries_and_anchors_equal": true,
+    "review": "All named cohorts/endpoints, accepted alternative sets, decoys, three absent-fact cases and four correction cases checked against additions; none requires changing frozen cardiology gold. Shared mechanism source roles remain query relative. New paired baseline uses a common extended envelope; historical runs remain untouched."
+  },
+  "limits": [
+    "No generated-answer or paid judge run; rubrics untested for answer correctness",
+    "Author source review does not certify medical truth or resolve source conflicts",
+    "Pinned evidence scoring requires full spans and can be stricter than semantic sufficient evidence"
+  ],
+  "gold_pdf_visual_review": [
+    {
+      "filename": "diabetes-cardiovascular-outcomes.pdf",
+      "page": 5
+    },
+    {
+      "filename": "diabetes-cardiovascular-outcomes.pdf",
+      "page": 6
+    },
+    {
+      "filename": "diabetes-cgm-management.pdf",
+      "page": 10
+    },
+    {
+      "filename": "diabetes-cgm-management.pdf",
+      "page": 11
+    },
+    {
+      "filename": "diabetes-cgm-management.pdf",
+      "page": 13
+    },
+    {
+      "filename": "diabetes-cyp2c9-hypoglycaemia.pdf",
+      "page": 6
+    },
+    {
+      "filename": "diabetes-gene-sex-hormone-interactions.pdf",
+      "page": 1
+    },
+    {
+      "filename": "diabetes-gene-sex-hormone-interactions.pdf",
+      "page": 5
+    },
+    {
+      "filename": "diabetes-metabolic-syndrome-cameroon.pdf",
+      "page": 5
+    },
+    {
+      "filename": "diabetes-nephropathy-complications.pdf",
+      "page": 11
+    },
+    {
+      "filename": "diabetes-nephropathy-complications.pdf",
+      "page": 12
+    },
+    {
+      "filename": "diabetes-semaglutide-size-dm-trial.pdf",
+      "page": 3
+    }
+  ],
+  "gold_pdf_visual_findings": "Inspected all 12 rendered gold pages for drug Table 4 anomaly, gene abstract/Results conflict, quality ratings/identification, non-inferiority margin/CI, syndrome prevalence and renal/sleep mechanisms."
+}

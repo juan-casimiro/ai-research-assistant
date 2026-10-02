@@ -1,0 +1,1210 @@
+{
+  "schema_version": "1.0",
+  "selection_sha256": "ca7406b820f520481da7fc04d1e97fe01abd0112f89c08891305f56ab4d246eb",
+  "articles": [
+    {
+      "article_id": "PMC10363301",
+      "filename": "cardio-af-incident-ecg-calibration.pdf",
+      "pdf_sha256": "97cb98ece2c75b991827fcd1b7899adf16112b30b4f99bf43de3c7708b6ddb1d",
+      "text_sha256": "e7c60503d9e39d2a97c9c8d20977584c0c0bf9815a815dcc9bc16e4f0338dc90",
+      "selection_summary": "ECG-based CNN, XGB and logistic regression predict AF within five years; sample size and undersampling affect discrimination and calibration differently.",
+      "evidence_relationship": "Pair with primary-care episode detection to separate prevalent-event classification from five-year incident AF prediction and AUC from calibration.",
+      "limitations_and_conflicts": "ECG is the observation unit; 207,521 ECGs from 92,465 subjects, with patient-level splits. No external validation; binary five-year outcome, not time-to-event modelling.",
+      "selection_locations": [
+        {
+          "term": "within five years",
+          "page": 3,
+          "text_start": 13856,
+          "text_end": 14194,
+          "excerpt": " For all models, the task considered was to predict \nthe probability that a patient will develop AF within five \nyears.\nThe CNN takes as input the resampled ECG signal, \nwhich is a 12 × 5000 matrix (i.e., 12 leads by 10-s dura -\ntion sampled at 500Hz). The architecture of the CNN is \nthe one used by Scagnetto et  al. [19] for AF predict",
+          "excerpt_sha256": "09c5c3c70be114369670d2cad455c319db715a8d79a9c38dca5f9c07c558f9d2"
+        },
+        {
+          "term": "0.799",
+          "page": 5,
+          "text_start": 22467,
+          "text_end": 22792,
+          "excerpt": "rom a discrimi -\nnation point of view, the CNN model is the best-perform-\ning model, with an AUC of 0.799. XGB model is the one \nwith intermediate performance (AUC of 0.74), while LR \nshows the worst performance (AUC of 0.68). As for the \ncalibration, it can be noticed that there are no substantial \ndifferences in the perfo",
+          "excerpt_sha256": "fbdd4b54f0aa7deedd0f9a3c9786bba7d58eda2a4958d65e691e63c975e37907"
+        },
+        {
+          "term": "0.014",
+          "page": 5,
+          "text_start": 25537,
+          "text_end": 25697,
+          "excerpt": "the \nthree models\nCNN XGB LR\nAUC 0.799 (0.794, 0.805) 0.738 (0.732, 0.744) 0.683 (0.678, 0.688)\nICI 0.014 (0.01, 0.018) 0.008 (0.006, 0.01) 0.014 (0.013, 0.015)",
+          "excerpt_sha256": "b6b0687d88a1a4ea4f0d78feee35cfc9fd575827a4c5e61a6e63f79833f78c06"
+        }
+      ],
+      "planned_role": "answer_source_pool",
+      "query_authoring_status": "No gold questions authored or frozen; JUA-109 must bind required facts, complete evidence sets and alternatives."
+    },
+    {
+      "article_id": "PMC10452755",
+      "filename": "diabetes-cyp2c9-hypoglycaemia.pdf",
+      "pdf_sha256": "428b996c883cc4c2371bb35395dc0bb9573268f63083c11d07d7a13ff8b9d018",
+      "text_sha256": "6a9cde184a6d795fd7fd24b96d72c137d0794eeb03dca6a4f89f9aae2a0991e6",
+      "selection_summary": "Pashtun sulfonylurea hypoglycaemia case-control study, allele-frequency binding and explicit anomalous OR/CI/count reporting. Not a replacement for male-specific HbA1c GWAS or a dosing recommendation.",
+      "selection_locations": [
+        {
+          "page": 1,
+          "text_start": 2742,
+          "text_end": 3319,
+          "excerpt": "A total of n = 400 individuals of\nPashtun ethnicity were recruited from 10 different districts of Khyber Pakhtunkhwa, Pakistan to\nparticipate in the study. The study participants were divided into two distinct groups: the case\ngroup (n = 200) and the control group ( n = 200). The case group consisted of individuals with\nT2DM who were receiving sulphonylurea medications and experienced hypoglycaemia with it,\nwhereas the control group included individuals with T2DM who were receiving sulphonylurea\nmedication but did not experience sulphonylurea-induced hypoglycaemia (SIH).",
+          "excerpt_sha256": "bab920a7389dba314240aa7bede07aa1780e3370dfb59ebe1bfa9c27e0000808"
+        },
+        {
+          "page": 6,
+          "text_start": 20767,
+          "text_end": 21078,
+          "excerpt": "The CYP2C9*2 low-\nactivity allele was more frequent in the diabetic patients with SIH compared to the control\ngroup (17.5% vs. 6.0%). On the other hand, the CYP2C9*3 (loss of enzyme activity) allele\nwas present in seven (3.5%) diabetic patients with SIH and in ﬁve (2.5%) individuals\nbelonging to control group.",
+          "excerpt_sha256": "9e9cd42d84bcba7551db5765aa6b6f9ef259e54595c3d1152d7f70a51b7514a3"
+        },
+        {
+          "page": 6,
+          "text_start": 21332,
+          "text_end": 21417,
+          "excerpt": "CYP2C9*2 Decreases enzyme activity 35 (17.5%) 12 (6.0%) 0.102 (0.08–3.08) 0.021 0.031",
+          "excerpt_sha256": "fa6ef738688ce9459db7318d7e7998287b07cb9ffd1f76440db82ed96fe86dcc"
+        }
+      ],
+      "query_authoring_status": "Bound in diabetes-queries-v1 before retrieval evaluation",
+      "limitations_and_conflicts": "See case_review.json, legacy_audit.json and query-specific rubric; observational, mechanistic, simulated and trial evidence must remain distinct."
+    },
+    {
+      "article_id": "PMC10607686",
+      "filename": "cardio-af-stroke-mechanisms-review.pdf",
+      "pdf_sha256": "b7893a0d1767f32346e8f8e3932c3a365bfe5fc1cd01906570ef8352ba8b288d",
+      "text_sha256": "f90d7a116e315fef1cbf4db4e7ed0ac95d08477f2011c5ea1dce1bbcc62801ac",
+      "selection_summary": "Review of atrial mechanisms, systemic factors and temporal relationships between AF and ischemic stroke, with limits of clinical risk scores.",
+      "evidence_relationship": "Compare AF stroke scores and endpoints with STEMI no-reflow score variants; distinguish temporal association from causal explanations.",
+      "limitations_and_conflicts": "Review evidence must be attributed to the cited study and population; AF burden alone is not a universally established stroke threshold.",
+      "selection_locations": [
+        {
+          "term": "CHA2DS2",
+          "page": 4,
+          "text_start": 15079,
+          "text_end": 15406,
+          "excerpt": "ved that an abnormal P-wave axis was\nassociated with an increased risk of stroke independent of the CHA2DS2-VASc variables.\nThey thus developed the P2-CHA2DS2-VASc score, which improves the ischemic stroke\nprediction compared to the regular CHA2DS2-VASc score. Similarly, ﬁbrillatory wave\namplitude may be associated with LAA d",
+          "excerpt_sha256": "57b4d12a6276b17227e2b47658ac42df6e711b57fef3fed9458d7b3d7ad74675"
+        },
+        {
+          "term": "73%",
+          "page": 8,
+          "text_start": 30348,
+          "text_end": 30671,
+          "excerpt": "iac implantable electronic\ndevices (CIEDs).\nIn their study, Daoud et al. [95] showed that, overall, 73% of the 40 patients presenting\nwith stroke or a TE equipped with CIEDs did not present any episode of atrial arrythmia in\nthe 30 days preceding the ischemic event. Moreover, in the 20 patients with documented\nAF or an at",
+          "excerpt_sha256": "454ba64722a4c734331948c7850c7cdc16266b1b11d094a831a48dd54ab885da"
+        }
+      ],
+      "planned_role": "answer_source_pool",
+      "query_authoring_status": "No gold questions authored or frozen; JUA-109 must bind required facts, complete evidence sets and alternatives."
+    },
+    {
+      "article_id": "PMC10619268",
+      "filename": "cardio-resistant-hypertension-korean-consensus.pdf",
+      "pdf_sha256": "eee1cec10b138c2f30bd8dc8baf9e8a8a37be7fd9e630f9259b4165a82598f15",
+      "text_sha256": "8384138ffaf40155d96b7a86b7860c1368f564cb551461bb4b57fdd537f7d47f",
+      "selection_summary": "Korean consensus defines resistant, apparent and refractory hypertension and addresses pseudoresistance, adherence, secondary causes and management.",
+      "evidence_relationship": "Additional related competition for the Thai consensus: comparable recommendations with population-dependent BP targets and differing prevalence estimates.",
+      "limitations_and_conflicts": "Consensus is recommendation evidence rather than a survey of physician practice. Korean targets differ by risk; recommendations are publication-version specific.",
+      "selection_locations": [
+        {
+          "term": "130/80",
+          "page": 2,
+          "text_start": 5556,
+          "text_end": 5882,
+          "excerpt": " should be in accordance with the current guide-\nlines. For example, the threshold for diagnosis is 130/80 \nmmHg according to the American College of Cardiology/\nAmerican Heart Association guidelines [4 ]. For Korean \npatients, the threshold may differ based on underly -\ning risk factors [5 , 8]. Previous studies included pa",
+          "excerpt_sha256": "ea2b07112955e04e178e5ae987488275e67b8bc44e15299926c61d81c88e0094"
+        },
+        {
+          "term": "white-coat",
+          "page": 2,
+          "text_start": 6133,
+          "text_end": 6463,
+          "excerpt": "sistant hypertension has not \nbeen ruled out. The causes of pseudoresistant hyper -\ntension include white-coat uncontrolled hypertension \n(WUCH), non-adherence, poorly measured office BP , \nor undertreatment [4 ]. For an accurate diagnosis of RH, \nout-of-office BP monitoring, such as 24-hour ambulatory \nblood pressure monitoring",
+          "excerpt_sha256": "c53075d75363ddd0a2d6da18917210ac74a49b88ba83043ca4b4e9ed2de4153c"
+        }
+      ],
+      "planned_role": "additional_related_competition",
+      "query_authoring_status": "No gold questions authored or frozen; JUA-109 must bind required facts, complete evidence sets and alternatives."
+    },
+    {
+      "article_id": "PMC10985250",
+      "filename": "cardio-hfpef-dapagliflozin-cost-analysis.pdf",
+      "pdf_sha256": "da3f20ab88773c13ae08e73f8c18f0a6bb9ccb9000edc0aaf20231fe69fab042",
+      "text_sha256": "9540f1db4e82cd5c2b5317cc8e7c22bb9e574bedb8a482183059aa75079f83c2",
+      "selection_summary": "Economic analysis compares annualized number and cost needed to prevent HF events and cardiovascular death using DELIVER and pooled PARAGLIDE-HF/PARAGON-HF results.",
+      "evidence_relationship": "Separate monetary value, clinical event prevention and mortality; contrast indirect estimates with direct trial/subgroup evidence.",
+      "limitations_and_conflicts": "Not a head-to-head trial or a QALY cost-effectiveness assessment. Uses 2022 US prices and different trial populations; costs are historical source facts.",
+      "selection_locations": [
+        {
+          "term": "148,547",
+          "page": 3,
+          "text_start": 10931,
+          "text_end": 11258,
+          "excerpt": "lsartan. The CNT to prevent one event of total\nworsening HF events and CVD (composite outcome) was $148,547.13\n($103,982.99–306,997.39) for dapagli ﬂozin and $245,346.77\n($139,401.58–1,734,155.60) for sacubitril–valsartan (Figure 1).\nThe CNT results of all-cause mortality are given in Table 3 .\nDapagli ﬂozin had a lower CNT c",
+          "excerpt_sha256": "323958acb10aa3bba301ff859627c5bd045ad294c7b50e631e485797a27ae1a9"
+        },
+        {
+          "term": "2022",
+          "page": 2,
+          "text_start": 5164,
+          "text_end": 5488,
+          "excerpt": " demonstrated the most convincing\nreduction in adverse outcomes in HFpEF patients ( Solomon\net al., 2022 ).\nDapagliﬂozin in the heart failure with mildly reduced or\npreserved ejection (DELIVER) trial randomly assigned\n6,263 patients with HF and left ventricular ejection fraction\n(LVEF) ≥ 40% to receive either dapagli ﬂozin",
+          "excerpt_sha256": "ef70febbd9764bcda53ee87e20aa7069f66cba5c1b180a4277b3490bee27fcef"
+        },
+        {
+          "term": "limitations",
+          "page": 6,
+          "text_start": 26450,
+          "text_end": 26781,
+          "excerpt": "valsartan in patients with HFmrEF and HFpEF. Future\nstudies are needed to conﬁrm these ﬁndings.\n4.1 Limitations\nOur study has several limitation s that warrant consideration.\nFirst, despite the similarity in p atient populations across both\ntrials, the presence of apparent differences between them poses a\nlimitation to our analys",
+          "excerpt_sha256": "53f57f8af62b36e901b1208efc864d18548dc1fdae0d0504c818318e94401bcd"
+        }
+      ],
+      "planned_role": "answer_source_pool",
+      "query_authoring_status": "No gold questions authored or frozen; JUA-109 must bind required facts, complete evidence sets and alternatives."
+    },
+    {
+      "article_id": "PMC11265054",
+      "filename": "cardio-af-lorenz-detection.pdf",
+      "pdf_sha256": "2e0ede0a64a478e6a71597953a3a129f1b0ec2e517c141031626716902617988",
+      "text_sha256": "8eca20550e7b3985ea416f673e8e7215ae5c1d3b4324f43fd6fa7025cd8da9b9",
+      "selection_summary": "A nonlinear Lorenz-scattergram CNN detects AF episodes from ambulatory ECG datasets with internal and primary-care external validation.",
+      "evidence_relationship": "Pair detection sensitivity/specificity and paroxysmal/persistent subgroups with future-AF prediction and AHRE classification competitors.",
+      "limitations_and_conflicts": "External paroxysmal-AF group has only five patients, and primary-care selection was interrupted by COVID-19; detection is not incident-risk prediction.",
+      "selection_locations": [
+        {
+          "term": "0.992",
+          "page": 5,
+          "text_start": 20535,
+          "text_end": 20860,
+          "excerpt": "n in Table  2. In \nthe internal validation set, the sensitivity of the model for \ndiagnosing AF was 0.992, the specificity was 0.973, and \nthe accuracy was 0.983. In the external validation set, the \nsensitivity of the model for diagnosing AF was 0.989, the \nspecificity was 0.956, and the accuracy was 0.967. Table  3 \nshowe",
+          "excerpt_sha256": "43f2ad04db3669056867db129832dfc849ceaee059ac588fd37e982e23ae7452"
+        },
+        {
+          "term": "0.989",
+          "page": 5,
+          "text_start": 20682,
+          "text_end": 21007,
+          "excerpt": "racy was 0.983. In the external validation set, the \nsensitivity of the model for diagnosing AF was 0.989, the \nspecificity was 0.956, and the accuracy was 0.967. Table  3 \nshowed the performance of the model in the internal and \nexternal validation sets. The ROC curves of the model for \ndiagnosing AF in the internal and ex",
+          "excerpt_sha256": "e48408dbe62bedb52bb35a49600a32d5208f95c31e1c475868621341ed539664"
+        },
+        {
+          "term": "five patients",
+          "page": 4,
+          "text_start": 16885,
+          "text_end": 17218,
+          "excerpt": " patients used single-lead wearable ECG \ndevices between September 8 and December 31, 2021. \nTwenty-five patients were excluded, 8 patients did \nnot have complete health information, 3 patients had \nan actual measurement time of less than 24  h, and 14 \npatients (10.77%) had poor-quality ECG data. Finally, 113 \npatients were includ",
+          "excerpt_sha256": "4c9ce382b0f7133119873cd3c0b6530953a5831fdc3ad8bcf6d96b5f520dcb66"
+        }
+      ],
+      "planned_role": "answer_source_pool",
+      "query_authoring_status": "No gold questions authored or frozen; JUA-109 must bind required facts, complete evidence sets and alternatives."
+    },
+    {
+      "article_id": "PMC11354916",
+      "filename": "cardio-hfpef-geriatric-biomarkers.pdf",
+      "pdf_sha256": "57bc82e367b1c0e1287949bd450a99f9781d44f1a1d771329da3790e866ddcca",
+      "text_sha256": "adfd72166763a7877947d3a00e7d284e83c5c957d1c69b14edfc001cf93e9303",
+      "selection_summary": "Before/after study of 150 elderly HFpEF patients with diabetes evaluates six-month SGLT2 inhibitor associations with geriatric scales and oxidative/platelet biomarkers.",
+      "evidence_relationship": "Competing biomarker and cognition evidence for the retained strain study; deliberate diabetes/vascular-cognition overlap without retaining the GPT-5 diagnosis topic.",
+      "limitations_and_conflicts": "No randomization or matched control group; cannot establish that SGLT2 inhibitors causally improve cognition. Different scales and biomarkers from myocardial fibrosis.",
+      "selection_locations": [
+        {
+          "term": "150",
+          "page": 3,
+          "text_start": 8815,
+          "text_end": 9138,
+          "excerpt": "aracteristics and pharmacological therapies of the study population at baseline.\nAll Population (n. 150)\nAge, years 75.8 ± 7.4\nMale gender, n ( %) 115 (76.6)\nHFimpEF, n (%) 59 (39.3)\nIHD, n (%) 86 (57.3)\nVHD, n (%) 80 (53.3)\nAF, n (%) 38 (25.3)\nT2DM, n (%) 150 (100)\nAH, n (%) 96 (64.0)\nCOPD, n (%) 34 (22.7)\nDyslipidaemia,",
+          "excerpt_sha256": "f5c4ac02281112f7e3682c8335b3114419da4c996db19e4e559374ae499ac2d4"
+        },
+        {
+          "term": "MMSE",
+          "page": 3,
+          "text_start": 10384,
+          "text_end": 10708,
+          "excerpt": "s of the study population at baseline and follow-up.\nAll Population (n. 150) Baseline Follow-Up p *\nMMSE, pt 25.45 ± 1.86 27.07 ± 1.71 <0.0001\nMoCA, pt 27.53 ± 1.14 27.95 ± 1.16 <0.0001\nGDS, pt 6.91 ± 1.04 6.19 ± 1.02 <0.0001\nSPPB, pt 8.00 ± 0.60 8.80 ± 0.70 <0.0001\nBMI, Kg/m2 32.20 ± 4.90 31.38 ± 4.86 <0.0001\nSBP , mmHg 1",
+          "excerpt_sha256": "1b7f81da8ed36c296b4e69db8b6ca8aa17f384a305e9c8750374d05286fcf616"
+        },
+        {
+          "term": "not a randomized",
+          "page": 8,
+          "text_start": 32038,
+          "text_end": 32374,
+          "excerpt": "SPPB.\n3.3. Limitations and Strengths\nThe present study has also several limitations; firstly, it is not a randomized clinical\ntrial, and a matched control group is not available. However, we can consider each patient\nunder her/his own control since, before enrollment, every patient was treated with the OMT\naccording to current guideli",
+          "excerpt_sha256": "3291c26a6966c8d671c1be4c265ed31132efaef5f59fbc299751924d0fca2140"
+        }
+      ],
+      "planned_role": "answer_source_pool",
+      "query_authoring_status": "No gold questions authored or frozen; JUA-109 must bind required facts, complete evidence sets and alternatives."
+    },
+    {
+      "article_id": "PMC11373557",
+      "filename": "cardio-ckd-sglt2-acei-arb.pdf",
+      "pdf_sha256": "0c9c6285ea1c2ca4ab5988ee086381b216024bd83fc30fdb87b312f14e7573e2",
+      "text_sha256": "7f7028f9cb1faf7340e0a1332173ba45b6c49f2b5de9fd8cd0ce21228f39fcbc",
+      "selection_summary": "Taiwan CKD stage 3-5 matched cohort assesses SGLT2 inhibitors with ACEI/ARB treatment, renal outcomes and genitourinary infection risk.",
+      "evidence_relationship": "Contrast renal benefit and infection harms with HFpEF cardiac outcomes; preserve the same-drug/different-organ evidence relationship.",
+      "limitations_and_conflicts": "205 users and 820 matched nonusers; observational associations, residual imbalance and nonsignificant cardiovascular subgroup results must remain explicit.",
+      "selection_locations": [
+        {
+          "term": "0.35",
+          "page": 4,
+          "text_start": 17218,
+          "text_end": 17542,
+          "excerpt": "rate (3.78 \nvs. 6.59 per 100 person -years) and a significantly \nlower risk of ESRD/dialysis (aHR = 0.35, 95% \nconfidence interval [CI] = 0.19~0.67) than did \nnonusers. \n \n \nFigure 1. Cohort selection in patients with chronic kidney disease stages 3~5 receiving angiotensin-converting enzyme inhibitors (ACEIs)/angiotensin r",
+          "excerpt_sha256": "41874353f0dac61b82d2a76429c0ff906e9e90235d6c4419b808247830ae399c"
+        },
+        {
+          "term": "1.78",
+          "page": 5,
+          "text_start": 20989,
+          "text_end": 21313,
+          "excerpt": "10.33 vs. 6.07 per 100 person -years) and a \nsignificantly greater risk of developing GUTIs (aHR = \n1.78, 95% CI = 1.12~2.84). The cumulative incidences \nof the outcomes that we studied and the results of the \nlog rank test are presented in Figure 2. As shown in \nFigure 2F, patients began to develop GUTIs within the \nfirst",
+          "excerpt_sha256": "5c5a643107f6a062e32d895f9473844fe3d7d104764ce9f9eda21a6aa986594f"
+        },
+        {
+          "term": "15.5",
+          "page": 4,
+          "text_start": 15796,
+          "text_end": 16120,
+          "excerpt": "d SGLT2 inhibitors and 820 patients who had \nnot (Figure 1). During the follow-up period (median = \n15.5 months), a total of 205 patients with CKD who \nreceived ACEIs/ARBs and participated in a pre-ESRD \nprogram were treated with SGLT2 inhibitors. Table 1 \npresents the baseline characteristics of users of SGLT2 \ninhibitors",
+          "excerpt_sha256": "e65fcd377efd67fc42f296fc567d7544619087050d2bb9820ba409369474fe53"
+        }
+      ],
+      "planned_role": "answer_source_pool",
+      "query_authoring_status": "No gold questions authored or frozen; JUA-109 must bind required facts, complete evidence sets and alternatives."
+    },
+    {
+      "article_id": "PMC11374717",
+      "filename": "cardio-resistant-hypertension-thai-consensus.pdf",
+      "pdf_sha256": "ad7d0765df4acc821140a90163616d16eac041d3189c62a84816393f6fb3d7a2",
+      "text_sha256": "81bea566735ce5a3dd900c3d5c799f2be52d1aa98e269271051f86c42faeba23",
+      "selection_summary": "Thai consensus defines resistant hypertension and recommends standardized measurements, adherence assessment, out-of-office BP monitoring and stepwise treatment.",
+      "evidence_relationship": "Replace the restricted physician-practice survey with guideline/diagnostic evidence and pair with spironolactone and HFpEF hypertension trials.",
+      "limitations_and_conflicts": "Recommendations cannot answer old physician-knowledge/practice percentages. Drug selection is conditioned on renal function; no universal unqualified diagnostic target.",
+      "selection_locations": [
+        {
+          "term": "Pseudoresistance",
+          "page": 2,
+          "text_start": 4667,
+          "text_end": 5003,
+          "excerpt": "medications, which is controlled RH.\nThe diagnosis of RH requires the exclusion of common\ncauses of pseudoresistance. Therefore, the term apparent\ntreatment-RH is used to indicate patients diagnosed\nas having RH based on the number of medications\nused and the uncontrolled of ﬁce BP ( ≥140/90 mmHg),\nbut in whom pseudoresistance cannot ",
+          "excerpt_sha256": "6b59859fc384ed0443346bbed6bde4ef87a4da2854973380363fa7ea754fe265"
+        },
+        {
+          "term": "spironolactone",
+          "page": 3,
+          "text_start": 10800,
+          "text_end": 11134,
+          "excerpt": " antihypertensive agents\nfrom different classes, including a long-acting thiazide-like diuretic and spironolactone.\nTable 2 Standardized of ﬁce blood pressure measurement\n1. Patients should sit on a chair with back support, rest both feet on\nthe ﬂoor, and relax for at least 5 min in a quiet room with\ncomfortable temperature and an e",
+          "excerpt_sha256": "7800bd6ec87f7b9ae49ab5105771c121a0876728c7209ed8e7c2503a09ff4e07"
+        },
+        {
+          "term": "30",
+          "page": 3,
+          "text_start": 11121,
+          "text_end": 11443,
+          "excerpt": "ture and an empty bladder. They should not\nhave consumed caffeine, smoked, or exercised in the last 30 min.\n2. Use a validated upper-arm blood pressure measuring device that\nhas been properly calibrated and a properly sized arm cuff.\n3. Take measurements on bare skin in both upper arms, with the\npatient’s upper arm suppo",
+          "excerpt_sha256": "844a435200bdf2f428c042bb4403bbf6791a31821ba79385967252018d4b60ad"
+        }
+      ],
+      "planned_role": "answer_source_pool",
+      "query_authoring_status": "No gold questions authored or frozen; JUA-109 must bind required facts, complete evidence sets and alternatives."
+    },
+    {
+      "article_id": "PMC11514186",
+      "filename": "cardio-ccta-tyg-incremental-value.pdf",
+      "pdf_sha256": "4b2d042eb6899421eddf9f9c9156a16a1323ccb47448e2209591eac5bec96412",
+      "text_sha256": "08fd7ff833e8fb16f4f84673fb9284f0c4a3b8de60f5b0ffd8e65f65c7e11a5b",
+      "selection_summary": "Cohort of 3,528 patients examines TyG association with MACE and its incremental discrimination beyond CAD-RADS/CAD-RADS 2.0.",
+      "evidence_relationship": "Contrast adjusted association with lack of incremental predictive benefit and compare endpoint definitions with the CCTA nomogram.",
+      "limitations_and_conflicts": "Observational single-centre cohort; cannot infer causality. MACE comprises MI, all-cause death and stroke over median 50.4 months. Figure 2 caption mislabels a CT-FFR group as TyG.",
+      "selection_locations": [
+        {
+          "term": "0.725",
+          "page": 4,
+          "text_start": 14747,
+          "text_end": 15072,
+          "excerpt": "o clinical model \nplus CAD-RADS 2.0 slightly but not significantly increased the C-statistic index (0.725 vs. 0.721, p = 0.223; 0.733 \nvs. 0.731, p = 0.505).\nDiscussion\nThe present study demonstrated that TyG index were independent predictors of MACE. However, adding TyG \nindex to CAD-RADS or CAD-RADS 2.0 did not show incre",
+          "excerpt_sha256": "2a71bda67335897f46210276df76e4ab39b2dafe82e484215262a82688e706b2"
+        },
+        {
+          "term": "0.733",
+          "page": 4,
+          "text_start": 14775,
+          "text_end": 15100,
+          "excerpt": "ADS 2.0 slightly but not significantly increased the C-statistic index (0.725 vs. 0.721, p = 0.223; 0.733 \nvs. 0.731, p = 0.505).\nDiscussion\nThe present study demonstrated that TyG index were independent predictors of MACE. However, adding TyG \nindex to CAD-RADS or CAD-RADS 2.0 did not show incremental prognostic benefit in",
+          "excerpt_sha256": "6f72dd3728cc962577a01ff42256effcd1758afbecbc8637dceba3ff0b7cc623"
+        },
+        {
+          "term": "50.4",
+          "page": 3,
+          "text_start": 11011,
+          "text_end": 11335,
+          "excerpt": "ociation between TyG index and MACE\n212 (6.0%) patients developed MACE during a median follow-up of 50.4 months (IQR, 39.4–55.1). The incidence \nof MACE was 1.25 (95%CI, 1.01–1.55) and 1.73 (95%CI, 1.45–2.06) per 100 person-years in low TyG index \ngroup and high TyG index group, respectively. Kaplan-Meier curves showed tha",
+          "excerpt_sha256": "f558faa02460892957de9ec68758a1c50e19e40ba0ee22721757a793bc3ba46d"
+        }
+      ],
+      "planned_role": "answer_source_pool",
+      "query_authoring_status": "No gold questions authored or frozen; JUA-109 must bind required facts, complete evidence sets and alternatives."
+    },
+    {
+      "article_id": "PMC11549774",
+      "filename": "cardio-ctffr-diabetes-unstable-angina.pdf",
+      "pdf_sha256": "a601b1f08ceffa558785589ddd1318b1721e0e43f942ef842555dad101e513d0",
+      "text_sha256": "8139a3464d5e449d8b767a7a2b84755fe46c22425cc7404984274ea22a0ed25a",
+      "selection_summary": "Retrospective T2D/unstable-angina cohort studies CT-FFR diagnostic performance against invasive FFR and three-year MACCE prognosis.",
+      "evidence_relationship": "Compare CT-FFR diagnostic AUC with prognostic AUC, per-patient/per-vessel metrics, adjusted retention and a different MACE population/horizon.",
+      "limitations_and_conflicts": "1,091 included patients; CT-FFR threshold 0.8 omits the 0.75-0.8 grey zone. Abstract has a malformed per-vessel sensitivity; use table and detailed results with explicit attribution.",
+      "selection_locations": [
+        {
+          "term": "0.938",
+          "page": 9,
+          "text_start": 28660,
+          "text_end": 28985,
+          "excerpt": "tors in predicting MACCE. For CT-FFR, sen -\nsitivity was 96.5%, specificity was 86.9%, and AUC was \n0.938. For the degree of stenosis, sensitivity was 59.7%, \nspecificity was 71.1%, and the AUC was 0.683. For CACS, \nsensitivity was 68.7%, specificity was 43.7%, and the AUC \nwas 0.566. CT-FFR demonstrates superior diagnostic",
+          "excerpt_sha256": "bcd7de101dfeaf5f3885728df320978972d3f80fb460cd38f079668412180a6e"
+        },
+        {
+          "term": "0.848",
+          "page": 7,
+          "text_start": 23365,
+          "text_end": 23690,
+          "excerpt": " stenosis\nPer-patient Per-vessel\nCTA CT-FFR P-value CTA CT-FFR P-value\nAccuracy 0.762 (0.710–0.814) 0.848 (0.819–0.874) 0.012 0.725 (0.680–0.770) 0.822 (0.790–0.854) 0.014\nSensitivity 0.705 (0.668–0.742) 0.846 (0.810–0.878)  < 0.001 0.698 (0.655–0.740) 0.803 (0.770–0.836)  < 0.001\nSpecificity 0.658 (0.621–0.695) 0.851 (0.81",
+          "excerpt_sha256": "f620667fa87ede1dcd3e62683bdab48fa876ae323b9906174a244d2d891a9a7d"
+        },
+        {
+          "term": "14.17",
+          "page": 9,
+          "text_start": 29970,
+          "text_end": 30295,
+          "excerpt": "CCE in 3-year follow-up\nn, (%) CT-FFR ≤ 0.8 \n(n = 480)\nCT-FFR > 0.8 \n(n = 611)\nP-val-\nues\nMACCE 68 (14.17) 37 (6.06)  < 0.001\nAll-cause mortality 10 (2.08) 8 (1.31) 0.346\nCardiac death 5 (1.04) 2 (0.33) 0.251\nNon-fatal MI 11 (2.29) 5 (0.82) 0.072\nStroke 5 (1.04) 5 (0.82) 0.756\nRepeat revascularization 37 (7.71) 17 (2.78)  <",
+          "excerpt_sha256": "8bdfff9e15610554e126c0c5756d2dd12f2db06e481964b576efb50e76aa5ebc"
+        }
+      ],
+      "planned_role": "answer_source_pool",
+      "query_authoring_status": "No gold questions authored or frozen; JUA-109 must bind required facts, complete evidence sets and alternatives."
+    },
+    {
+      "article_id": "PMC11847805",
+      "filename": "diabetes-hif-zinc-review.pdf",
+      "pdf_sha256": "8ea3e3eb1035ddc82f07f1d43c47fc3a4a5d58fbc85ab4812e609b9361c6c789",
+      "text_sha256": "96ae44c60b11d2de402678c86da83fb49e06805de44c32d4c47780b3609d0910",
+      "selection_summary": "Independent HIF/zinc mechanistic review is valid alternative evidence for shared biology and competition for article-specific experimental claims.",
+      "selection_locations": [
+        {
+          "page": 1,
+          "text_start": 1017,
+          "text_end": 1589,
+          "excerpt": "This article provides a detailed review of the multiple\nroles of hypoxia-inducible factor-1 α in the pathogenesis of diabetic kidney\ndisease, including: regulating angiogenesis, increasing the expression of\nerythropoietin, modulating oxidative stress through the PI3K/AKT and HIF-1 α/\nHO-1 pathways, promoting in ﬂammatory cell in ﬁltration and the release of\ninﬂammatory factors to induce in ﬂammatory responses, facilitating epithelial-\nmesenchymal transition, pathological angiogenesis, and promoting the release of\nﬁbrotic factors, ultimately leading to renal ﬁbrosis.",
+          "excerpt_sha256": "688dd902ce0b4df1c283da22a63f44533e53726d1238fd69183d5e74b6b59417"
+        }
+      ],
+      "query_authoring_status": "Bound in diabetes-queries-v1 before retrieval evaluation",
+      "limitations_and_conflicts": "See case_review.json, legacy_audit.json and query-specific rubric; observational, mechanistic, simulated and trial evidence must remain distinct."
+    },
+    {
+      "article_id": "PMC11973566",
+      "filename": "cardio-emperor-preserved-resistant-hypertension.pdf",
+      "pdf_sha256": "d313c0487c3de9e7592629cb1a40487ef9014a6765b754be0aa5dd4540586f40",
+      "text_sha256": "8f08eee9d4ce3d6674fdc4033da15e6aaebb9c7c4c1ef8ecc90ad58fb9677bb1",
+      "selection_summary": "EMPEROR-Preserved subgroup analysis explores empagliflozin BP changes, hypertensive urgencies, cardiac outcomes and eGFR slopes across hypertension categories.",
+      "evidence_relationship": "Connect resistant hypertension with HFpEF and distinguish modest BP changes from cardiovascular/renal outcome effects and interaction tests.",
+      "limitations_and_conflicts": "Subgroup analysis of an RCT, not a new trial of resistant hypertension. 5,533 classified participants differ from the full randomized trial population of 5,988.",
+      "selection_locations": [
+        {
+          "term": "5533",
+          "page": 2,
+          "text_start": 7951,
+          "text_end": 8275,
+          "excerpt": "Message\nC\nA\n B\nD\n E\nSBP over time (placebo corrected change from baseline)\n5988 patients randomized\n5533 patients included 2\nBL 4 12 32 52 76\nPlanned study week\nResistant\nhypertension\nUncontrolled\nhypertension\nControlled reference\nhypertension\n1.379 (0.763, 1.996)\np < 0.0001\n1.571 (0.595, 2.546)\np = 0.0016\n1.440 (1.055,  1",
+          "excerpt_sha256": "d1870debcf1e7f46bc7b7f50d4c6f5c199939b8ae001fb3756a6da558c5bcaaf"
+        },
+        {
+          "term": ".92",
+          "page": 2,
+          "text_start": 6402,
+          "text_end": 6725,
+          "excerpt": ". . . . . .\non the primary endpoint was similar in resHTN, uctrHTN, and ctrHTN (P for interaction = .92) as was the improvement of the \nestimated glomerular filtration rate slope (P for interaction = .95) and change in quality of life by empagliflozin.\nConclusions In HFpEF, the prevalence of resHTN is high and is associat",
+          "excerpt_sha256": "6c6b93e1197ab7dfb5e40a3f6032e1d541a8cf0ef5db5901b41103d941bbdfb1"
+        },
+        {
+          "term": ".95",
+          "page": 2,
+          "text_start": 6502,
+          "text_end": 6825,
+          "excerpt": ".92) as was the improvement of the \nestimated glomerular filtration rate slope (P for interaction = .95) and change in quality of life by empagliflozin.\nConclusions In HFpEF, the prevalence of resHTN is high and is associated with frequently higher outcome rates compared with ctrHTN \nand uctrHTN. The treatment effect was ",
+          "excerpt_sha256": "7d05d502d81f7aafd6705b50acbfcc3d9aee484ff0bc8c254fd04089a09bf8cd"
+        }
+      ],
+      "planned_role": "answer_source_pool",
+      "query_authoring_status": "No gold questions authored or frozen; JUA-109 must bind required facts, complete evidence sets and alternatives."
+    },
+    {
+      "article_id": "PMC12003177",
+      "filename": "cardio-tailored-af-randomized-trial.pdf",
+      "pdf_sha256": "d977b0dc0b6e1642cdf840e3980a7049b2705efea8c3673b1966228426b00747",
+      "text_sha256": "9fba58ea3eca0bfbd3ffe13706c8668f5b8c63bf6cbc612684ce977c19bba230",
+      "selection_summary": "TAILORED-AF randomized trial compares AI-guided dispersion ablation plus PVI with PVI alone for persistent AF.",
+      "evidence_relationship": "Primary source for primary/secondary efficacy endpoints, mITT/PP populations, one/two procedures and procedural safety; replaces review-only endpoint evidence.",
+      "limitations_and_conflicts": "374 randomized, 370 underwent ablation, 357 mITT and 269 PP; abstract/flow group counts differ by stage. Primary HR is rounded 0.3 in prose versus 0.34 in figure. Reporting summary on PDF pages 22-24 is image-only and excluded from extracted-text evidence.",
+      "selection_locations": [
+        {
+          "term": "88%",
+          "page": 3,
+          "text_start": 10890,
+          "text_end": 11213,
+          "excerpt": " -\nability of treatment success in the modified-intention-to-treat (mITT) \npopulation (n = 357) was 88% for the tailored procedure and 70% for \nthe anatomical procedure (hazard ratio (HR), 0.3; 95% CI, 0.21–0.57; \nlog-rank P < 0.0001) (Fig. 2a). The difference between the two arms was \nconfirmed in the PP population (n = ",
+          "excerpt_sha256": "da7aa6632c4d229ee69aac2bed92eb49c82b87e84358fe866abbb377c651ab29"
+        },
+        {
+          "term": "70%",
+          "page": 3,
+          "text_start": 10925,
+          "text_end": 11248,
+          "excerpt": "the modified-intention-to-treat (mITT) \npopulation (n = 357) was 88% for the tailored procedure and 70% for \nthe anatomical procedure (hazard ratio (HR), 0.3; 95% CI, 0.21–0.57; \nlog-rank P < 0.0001) (Fig. 2a). The difference between the two arms was \nconfirmed in the PP population (n = 269; Fig. 2b) and in the 306 patien",
+          "excerpt_sha256": "f522d424b4ae099612ccaa01a5e21c90fdd442fd5be381e8d356c0a14f9e2752"
+        },
+        {
+          "term": "60%",
+          "page": 3,
+          "text_start": 12291,
+          "text_end": 12614,
+          "excerpt": "8.5\nSex, female 77 (21%) 42 (23%) 35 (19%)\nMedical history\n Hypertension\nb 227 (61%) 118 (63%) 109 (60%)\n Obesity, BMI > 30 156 (43%) 78 (42%) 78 (43%)\n Hypercholesterolemiac 120 (32%) 62 (33%) 58 (32%)\n Sleep apnead 83 (22%) 39 (21%) 44 (25%)\n Diabetesb 62 (17%) 33 (18%) 29 (16%)\n Vascular diseaseb 55 (15%) 27 (14%) 28 (",
+          "excerpt_sha256": "75b413723937a9cd48a3f281adc831489e4eefc7960b827beef7ffc076f653ee"
+        },
+        {
+          "term": "357",
+          "page": 2,
+          "text_start": 7105,
+          "text_end": 7428,
+          "excerpt": "nsisted of 180 patients \nand 177 patients in the tailored and anatomical arms, respectively. Of the 357 \npatients in the mITT population, 43 and 45 were excluded because of important \nprotocol deviations in the tailored and anatomical arms, respectively. A total \nof 137 and 132 patients were included in the PP population ",
+          "excerpt_sha256": "2a7093d9463b8aeb9b15861eca46f4155162c1f70c85f8b73b50d1c3afdbee54"
+        }
+      ],
+      "planned_role": "answer_source_pool",
+      "query_authoring_status": "No gold questions authored or frozen; JUA-109 must bind required facts, complete evidence sets and alternatives."
+    },
+    {
+      "article_id": "PMC12419643",
+      "filename": "diabetes-gene-sex-hormone-interactions.pdf",
+      "pdf_sha256": "d0754aa1dfca29959133cef42e62a22906dc8f2d114b5ed5ee2ee029b334a6a5",
+      "text_sha256": "0f1c10c5d946e9985178c3aee354fb854f7ceb42016d5c14369c20df9b008c93",
+      "selection_summary": "Primary sex-hormone interaction GWAS in white European UK Biobank participants; disease risk rather than treatment response. Abstract versus Results interaction count conflict retained.",
+      "selection_locations": [
+        {
+          "page": 1,
+          "text_start": 2569,
+          "text_end": 2947,
+          "excerpt": "The study population consisted of white European UK Biobank participants. Individ-\nuals with type 1 diabetes were excluded. We examined sex-stratified interactions of \npolygenic risk score (PRS) for type 2 diabetes with sex hormone levels. We analyzed \nsex-stratified, genome-wide SNP × sex hormone interactions, adjusting for age and \nthe top ten principal ancestry components.",
+          "excerpt_sha256": "3c6a8b27e06e4ace7f780cbfa49205eca5ece2e0b633bb8b441ce3e1c523aefe"
+        },
+        {
+          "page": 5,
+          "text_start": 14609,
+          "text_end": 14826,
+          "excerpt": "The PRST2D × sex hormone interaction term was nominally significant (p < 0.05) in all 6 models, with the most \nsignificant interaction being between PRST2D and SHBG in women (OR 0.88, 95% C.I. 0.85-0.90, p < 2 × 10-16",
+          "excerpt_sha256": "6b80491b23a76ae20fccb5af8ce0bd1d46440bec9aec1cd89d726288ae085186"
+        },
+        {
+          "page": 1,
+          "text_start": 3170,
+          "text_end": 3300,
+          "excerpt": "We identified 3 SNP × sex hor-\nmone interactions in men and 14 in women that achieved genome-wide significance \n(GWS; P < 5 × 10-8",
+          "excerpt_sha256": "9bc00d67119791252f36529ec65d60fe6ab472c0478e3f143a422960c8e8d837"
+        },
+        {
+          "page": 5,
+          "text_start": 15259,
+          "text_end": 15420,
+          "excerpt": "interactions identified fourteen relevant loci in women (4 inter-\nacting with SHBG, 10 with BAT), and two in men (1 interacting with TT and 1 with SHBG) (Table 3",
+          "excerpt_sha256": "bbf25f766df334e1d98b5ea44153065ae4e09231ff060927733f8f297222a5fd"
+        }
+      ],
+      "query_authoring_status": "Bound in diabetes-queries-v1 before retrieval evaluation",
+      "limitations_and_conflicts": "See case_review.json, legacy_audit.json and query-specific rubric; observational, mechanistic, simulated and trial evidence must remain distinct."
+    },
+    {
+      "article_id": "PMC12436478",
+      "filename": "cardio-ahre-echo-transformer.pdf",
+      "pdf_sha256": "c4233f82070beead4ccd734da37ca8debdd5ea932a6ac1b6da943534dd407bb8",
+      "text_sha256": "537c270971b992263815e4f0c1238c2a12df2ce0a03ef897223104fb314c54c1",
+      "selection_summary": "Echocardiographic LA segmentation/strain and transformer classification of AHREs in 117 device patients, with six-minute and 24-hour definitions.",
+      "evidence_relationship": "Additional related competition: similar AF/AI metrics but different modality, outcome label, duration thresholds and validation procedure.",
+      "limitations_and_conflicts": "Not established prospective incident-AF forecasting. Table/cross-validation accuracy is 0.809 while conclusion reports 0.805; test-set and cross-validation AUCs differ. Do not silently reconcile.",
+      "selection_locations": [
+        {
+          "term": "0.815",
+          "page": 7,
+          "text_start": 21931,
+          "text_end": 22256,
+          "excerpt": "urther validate the promising \nresults. As summarized in Table 3, the model achieved a mean \nAUC of 0.815 ± 0.14, an accuracy of 0.809 ± 0.09, a sensitiv-\nity of 0.800 ± 0.40, and a specificity of 0.783 ± 0.14. The ROC \ncurves for AHRE classification are illustrated in Fig. 7.\n4  Discussion\nThis study introduces a novel DL-",
+          "excerpt_sha256": "0bfd06795592b91871163e6ccba81358af4edd5b0aaa9a6a74bbc63c7f99b437"
+        },
+        {
+          "term": "0.809",
+          "page": 7,
+          "text_start": 21960,
+          "text_end": 22285,
+          "excerpt": " \nresults. As summarized in Table 3, the model achieved a mean \nAUC of 0.815 ± 0.14, an accuracy of 0.809 ± 0.09, a sensitiv-\nity of 0.800 ± 0.40, and a specificity of 0.783 ± 0.14. The ROC \ncurves for AHRE classification are illustrated in Fig. 7.\n4  Discussion\nThis study introduces a novel DL-based framework for \nclassify",
+          "excerpt_sha256": "d4233e2f3c22a2a734f81f37ea4885e560e7d309f16a6898a43c590d6753b90e"
+        },
+        {
+          "term": "0.805",
+          "page": 9,
+          "text_start": 27314,
+          "text_end": 27639,
+          "excerpt": "istics could accurately predict AHREs at a 24-h \nthreshold with a mean AUC of 0.815, an accuracy of 0.805, \na sensitivity of 0.800, and a specificity of 0.783. This finding \ndemonstrates the potential of AI models for automatic LA \nassessment and AHRE prediction. This tool has the poten-\ntial to substantially enhance the ea",
+          "excerpt_sha256": "9da2da444f988f7d5932c06b914c8e1118f03c081a4c750fc77c4f491cf3b8c6"
+        }
+      ],
+      "planned_role": "additional_related_competition",
+      "query_authoring_status": "No gold questions authored or frozen; JUA-109 must bind required facts, complete evidence sets and alternatives."
+    },
+    {
+      "article_id": "PMC12683810",
+      "filename": "cardio-cardiorenal-drug-network-meta-analysis.pdf",
+      "pdf_sha256": "73e09eabefaa17069e9dfa759b25f0bcdff6670ff98e13376c6bf4edf5a9d00d",
+      "text_sha256": "2ae0ddbaa222c6338b2ef243f54db4bb48c309956d452c3e93ee9c8fbf165644",
+      "selection_summary": "Meta-analysis and network meta-analysis of 33 RCTs compare SGLT2 inhibitors, incretin therapies and finerenone across cardiovascular/renal populations and outcomes.",
+      "evidence_relationship": "Compare drug classes and organs, HFpEF/HFrEF/CKD populations, mortality versus hospitalization, and sensitivity-analysis significance.",
+      "limitations_and_conflicts": "Indirect, hypothesis-generating comparisons; varying endpoint/population definitions and statistical estimators affect significance. Not direct evidence of head-to-head superiority.",
+      "selection_locations": [
+        {
+          "term": "33",
+          "page": 4,
+          "text_start": 14231,
+          "text_end": 14553,
+          "excerpt": "iew builds [ 9, 10], \ncomprising 14 trials of SGLT2 inhibitors [ 19–32] and 8 \ntrials of GLP-1RAs [ 33–40]. Following the removal of \nduplicates, 1282 unique records remained. After title and \nabstract screening, 1245 studies were excluded, and 37 \nproceeded to full-text review. Of these, 33 studies met the \ninclusion cr",
+          "excerpt_sha256": "cb85b20c5d45b898e5779756e9cdd14965b19b7dec5dcbf14b1739a99421c084"
+        },
+        {
+          "term": "No significant",
+          "page": 6,
+          "text_start": 20160,
+          "text_end": 20494,
+          "excerpt": "el, which persisted in sensitivity \nanalyses using both the REML-modified HK and REML-\nWald models. No significant effects were observed for \nCV or all-cause mortality. Outcome data including a \nbroader HFpEF subgroup analysis including subsets \nof the SELECT trial and the FLOW trial (which were \nrestricted to patients with left ven",
+          "excerpt_sha256": "92f96252acb0d6ac5ec4558db71645c090e11f253613e4d97b82869b0bbbfd88"
+        },
+        {
+          "term": "hypothesis",
+          "page": 11,
+          "text_start": 42217,
+          "text_end": 42547,
+          "excerpt": "ause mortality, or HF outcomes. The \nNMA findings should be interpreted with caution and \nviewed as hypothesis generating rather than definitive. \nWhile indirect NMA comparisons reached statistical \nsignificance for some outcomes, class-level estimates \nagainst placebo show overlapping confidence intervals, \nand head-to-head tri",
+          "excerpt_sha256": "57e64a0f00efd65b0c93b95c7add663c12e10dea24376281c700696815d8ffab"
+        }
+      ],
+      "planned_role": "answer_source_pool",
+      "query_authoring_status": "No gold questions authored or frozen; JUA-109 must bind required facts, complete evidence sets and alternatives."
+    },
+    {
+      "article_id": "PMC12880197",
+      "filename": "cardio-ai-af-management-review.pdf",
+      "pdf_sha256": "4184a379fbcc8ee900c7bafdef97ce0a510754edd13cc2b03b793fbfd2178c10",
+      "text_sha256": "a80597a43244637e86546a9aa05f04069b7e8c8d3effccdd9aa082fd99721767",
+      "selection_summary": "Review covers AI AF detection/screening, mapping, ablation outcome prediction, anticoagulation and translation limitations.",
+      "evidence_relationship": "Permissive replacement for the restricted AF review; connects primary AF studies, future-risk models and stroke prevention without preserving unsupported old facts.",
+      "limitations_and_conflicts": "Review results are cited evidence, not original cohorts. PDF has no explicit licence notice; pinned PMC article XML grants CC BY 4.0 to this matching journal version. Preserve that notice in attribution.",
+      "selection_locations": [
+        {
+          "term": "0.87",
+          "page": 2,
+          "text_start": 8998,
+          "text_end": 9322,
+          "excerpt": "-enhanced ECG analysis, achieving high discrim -\ninative performance (area under the curve [AUC] of 0.87 \nfrom a single ECG, rising to 0.90 with multiple ECGs) in \nidentifying patients with a documented history of par -\noxysmal AF based solely on sinus rhythm ECG data. 14 \nThis pivotal study established the standard 12-lea",
+          "excerpt_sha256": "5bc761a59130449474a9565571005667b7ad0518dbe81d91dd3431533538cd9c"
+        },
+        {
+          "term": "32%",
+          "page": 4,
+          "text_start": 19614,
+          "text_end": 19937,
+          "excerpt": "cal Atrial Fibril -\nlation [ARTESIA]) demonstrated that, while direct oral \nanticoagulants led to a 32% relative reduction in ischemic \nstroke, this occurred in the context of a low absolute \nstroke risk (~1.0% per year in the control arms) and at the \ncost of a 62% relative increase in major bleeding, high -\nlighting per",
+          "excerpt_sha256": "58f6d90b75cc21d0f48aa8ca921ae92df63127085f7f800e36a970c73c6a3df1"
+        },
+        {
+          "term": "TAILORED",
+          "page": 6,
+          "text_start": 28281,
+          "text_end": 28609,
+          "excerpt": " \nproximity to critical AF drivers. 32 This approach was \nprospectively evaluated in the randomized Tailored vs. \nAnatomical Ablation Strategy for Persistent Atrial Fibril-\nlation (TAILORED-AF) trial, demonstrating that ablation \nof AI-identified dispersion zones, in addition to standard \nPVI, significantly improved 12-month f",
+          "excerpt_sha256": "a6542fdd3a7521616d980e838189ea64bdf8d34c0dbfc019de712ccdb4356893"
+        }
+      ],
+      "planned_role": "answer_source_pool",
+      "query_authoring_status": "No gold questions authored or frozen; JUA-109 must bind required facts, complete evidence sets and alternatives."
+    },
+    {
+      "article_id": "PMC12886974",
+      "filename": "cardio-diabetes-hypertension-polygenic.pdf",
+      "pdf_sha256": "224b75380b1f544fff0e70a11497feb5831ed510081ddd62d7507e7c54addd64",
+      "text_sha256": "59b924df2bfc187cb9b46d7e364de4c886b988e4ac533c275e23047540f5e978",
+      "selection_summary": "Multiomic genetic analysis clusters 1,304 independent variants into five mechanisms underlying T2D and blood-pressure comorbidity and develops partitioned polygenic scores.",
+      "evidence_relationship": "Eligible shared diabetes/hypertension genetics overlap, replacing the restricted GWAS role with a different supported relationship.",
+      "limitations_and_conflicts": "Not sulfonylurea drug-response evidence; old variants/sex-specific treatment answers cannot transfer. Copyright says modified publication 2026; snapshot and hashes pin the retrieved record.",
+      "selection_locations": [
+        {
+          "term": "1304",
+          "page": 2,
+          "text_start": 9071,
+          "text_end": 9395,
+          "excerpt": " complexity of shared biological pathways between T2D\nand BP, we curated and reﬁned the SNV list to 1304 independent var-\niants (LDr² < 0.2), including 500 T2D-associated and 813 BP-associated\nSNVs, to cluster them based on their effects on 45 related (endo)\nphenotypes, including T2D/BP traits (Supplementary Data 2). Our\ni",
+          "excerpt_sha256": "bdf439df84c8347cf23cf1f958e518f5fd221c3f0b6e714eca13b74c8dcc6dd1"
+        },
+        {
+          "term": "Vascular",
+          "page": 2,
+          "text_start": 9463,
+          "text_end": 9791,
+          "excerpt": "actors, including biomarkers of in ﬂammation and hepatic function,\ncirculating plasma lipids, cardiovascular health indicators, anthropo-\nmetric measures, glycaemic traits, and sex hormones (Supplementary\nData 2). All SNVs (originally associated with T2D, BP traits, or both)\nwere aligned to the T2D risk allele. When informatio",
+          "excerpt_sha256": "ab409f8faa6d4f8ed94842e51766fffae628da461504effe6d80cf009d22ce4a"
+        }
+      ],
+      "planned_role": "answer_source_pool",
+      "query_authoring_status": "No gold questions authored or frozen; JUA-109 must bind required facts, complete evidence sets and alternatives."
+    },
+    {
+      "article_id": "PMC13107781",
+      "filename": "diabetes-semaglutide-size-dm-trial.pdf",
+      "pdf_sha256": "7d945aa70dc355ad5b23458e78110f7c3ee61448067494fa3ca0bad444f73f96",
+      "text_sha256": "33f34e3bbb6db92d53526c631b4e4cbf276edd335fb8264f5f4f4b5911091676",
+      "selection_summary": "SIZE-DM generic versus innovator semaglutide, non-inferiority margin and adjusted treatment difference; true primary trial contrast to GQD meta-analysis.",
+      "selection_locations": [
+        {
+          "page": 3,
+          "text_start": 10794,
+          "text_end": 10921,
+          "excerpt": "Non-inferiority is concluded if the upper \nbound of the 95% confidence interval (CI) for the treat -\nment difference is < 0.4%.",
+          "excerpt_sha256": "ba4fd3a8cdf5ed4a9cb0d7be6d735bc1cc2d0f0c7facb8e94395cf51e9c61408"
+        },
+        {
+          "page": 3,
+          "text_start": 12270,
+          "text_end": 12553,
+          "excerpt": "Least Square Mean (LSM) change in HbA1c was \n− 2.22% in the test arm and − 2.17% in the reference arm. \nThe LSM difference was − 0.05% (95% CI: -0.19 to 0.09), \nconfirming non-inferiority of the test arm as the upper \nbound of the CI was well below the pre-specified margin \nof 0.4%.",
+          "excerpt_sha256": "ad297747ec741f5c283c2a812b2778f289c2f806712c887cc3ffd0bd414a4b33"
+        },
+        {
+          "page": 1,
+          "text_start": 1453,
+          "text_end": 1757,
+          "excerpt": "This Phase 3, multicenter, randomized, active-controlled, non-inferiority trial enrolled 320 adults with \nT2DM inadequately controlled on metformin. Participants were randomized 1:1 to receive either generic semaglutide \n(Alkem laboratories Ltd.) or innovator Inj. semaglutide (Novo Nordisk) for 24 weeks",
+          "excerpt_sha256": "984d84bd733f329181b6fce2be6f8fff6ed97ce71cd66c6c2debe5a479321b29"
+        }
+      ],
+      "query_authoring_status": "Bound in diabetes-queries-v1 before retrieval evaluation",
+      "limitations_and_conflicts": "See case_review.json, legacy_audit.json and query-specific rubric; observational, mechanistic, simulated and trial evidence must remain distinct."
+    },
+    {
+      "article_id": "PMC13175446",
+      "filename": "diabetes-digital-education-cgm-trial.pdf",
+      "pdf_sha256": "30bfd354492c282ad33fd2b6819d26d0c61c724481a66197355152c45f25b37a",
+      "text_sha256": "60dfde8e7c8e2d7f7b5cf53cea134a12b0072b0cf3f2cc7729c0e2e4c0ea284f",
+      "selection_summary": "DSMES+CGM randomized patient intervention, 3-month versus 6-month HbA1c and time-in-range, distinct from vignette response quality.",
+      "selection_locations": [
+        {
+          "page": 1,
+          "text_start": 2238,
+          "text_end": 2610,
+          "excerpt": "HbA1c was lower among the intervention group versus the usual care group at 3 months (difference= −0.7%, 95% CI\n−1.4% to −0.1% or difference=−8.1 mmol/mol, 95% CI −15.5 to −0.7 mmol/mol; P=.03) and at 6 months (difference= −0.6%,\n95% CI −1.4% to 0.2% or difference= −6.9 mmol/mol, 95% CI −15.7 to 1.9 mmol/mol; P=.12) but only reached statistical\nsignificance at 3 months.",
+          "excerpt_sha256": "3c16f0b03368b4b97cfb10331f86e6cd84b8af33108debf70b31a71ebd609fbc"
+        },
+        {
+          "page": 1,
+          "text_start": 2732,
+          "text_end": 3038,
+          "excerpt": "time in range (difference=14.6%, 95% CI 1.0% to 28.2%; P=.04), time above range\n(difference=−14.9%, 95% CI −29.0% to −0.9%; P=.04), and mean glucose (difference= −36.4 mg/dL, 95% CI −70.0 to −2.9\nmg/dL; P=.03), also significantly improved for the intervention group versus the usual care group at 6 months.",
+          "excerpt_sha256": "1cda57a322d3cd74aa0b8168666b40b8f46e2bfa5eb45d75c4d61097a128cb30"
+        },
+        {
+          "page": 1,
+          "text_start": 1586,
+          "text_end": 1892,
+          "excerpt": "Participants with type 2 diabetes and HbA 1c of 8% or higher (64 mmol/mol) who were not using mealtime bolus\ninsulin (aged 26 ‐83 y; mean HbA 1c 9.6%, SD 1.4% [mean 81.2 mmol/mol, SD 15.8 mmol/mol]) were randomly assigned to\na digital DSMES+CGM integrated solution (n=51) or usual care (n=49) for 6 months.",
+          "excerpt_sha256": "dedc6ba55a9c5457ca3ef98653ff994b954837283a14e9b29b5a334582877d8b"
+        }
+      ],
+      "query_authoring_status": "Bound in diabetes-queries-v1 before retrieval evaluation",
+      "limitations_and_conflicts": "See case_review.json, legacy_audit.json and query-specific rubric; observational, mechanistic, simulated and trial evidence must remain distinct."
+    },
+    {
+      "article_id": "PMC13311226",
+      "filename": "diabetes-metabolic-syndrome-cameroon.pdf",
+      "pdf_sha256": "270a950107f45871e2c9155847cc4e315ffd98c6b9538ae7f233389d894ccab8",
+      "text_sha256": "eee25ef331e38928ef027fbd0d85ce3e12895e5c6cd3d976d8e3737d0f79dbac",
+      "selection_summary": "Primary hospital-based Cameroon T2DM cross-sectional estimates under two syndrome definitions; replaces Indian CC BY 2.0 source without transferring values. Source percentages/definition typos remain attributed.",
+      "selection_locations": [
+        {
+          "page": 4,
+          "text_start": 12204,
+          "text_end": 12427,
+          "excerpt": "According to IDF, metabolic \nsyndrome is defined as central obesity (defined by \nwaist circumference) plus any two of the four risk \nfactors: raised triglycerides, low HDL -c, raised \nblood pressure, and/or raised FPG level",
+          "excerpt_sha256": "6cd2afd8f27cd838ae2cf997c49e3dd063c9bb12c4ef107a0443d570c2d5d19a"
+        },
+        {
+          "page": 5,
+          "text_start": 17042,
+          "text_end": 17228,
+          "excerpt": "the prevalence of \nmetabolic syndrome using the IDF criteria of \n64.0% was significantly higher than the prevalence \nbased on the NCEP -ATP III criteria of 56.80%  \n(χ2= 102.8, p < 0.001",
+          "excerpt_sha256": "54bfe3568b6f855d565ba8e406b31ac72cb650b17af9e11ccc318c23cb3c7cd0"
+        },
+        {
+          "page": 5,
+          "text_start": 17232,
+          "text_end": 17613,
+          "excerpt": "Prevalence of metabolic syndrome based on \ngender using IDF and NCEP crit eria: more female \nparticipants had MetS compared to male \nparticipants. The prevalence of metabolic \nsyndrome in females using the IDF criteria was \n50.0% compared to 6.67% in males. The \nprevalence of metabolic syndrome in females \nusing the NCEP -ATP III crite ria was 51.90% \ncompared to 3.79% in males.",
+          "excerpt_sha256": "e0520a2e6bb6728eee36be017938fb7406bfff048e02522b1e9d1210c6d8d196"
+        }
+      ],
+      "query_authoring_status": "Bound in diabetes-queries-v1 before retrieval evaluation",
+      "limitations_and_conflicts": "See case_review.json, legacy_audit.json and query-specific rubric; observational, mechanistic, simulated and trial evidence must remain distinct."
+    },
+    {
+      "article_id": "PMC13423648",
+      "filename": "diabetes-pharmacotherapy-rct.pdf",
+      "pdf_sha256": "2afbf5dc2056eca213a2a8ae3953e454e63e6a2c9d5d6143a485e27bc5d59e2c",
+      "text_sha256": "e3700cc45c8127da12bfd7a9e97d73e8ef6c3b96ea53413ea66c828c98663b28",
+      "selection_summary": "GQD/metformin change-score versus sensitivity analyses and very-low certainty; do not present as a primary trial.",
+      "selection_locations": [
+        {
+          "page": 1,
+          "text_start": 904,
+          "text_end": 1053,
+          "excerpt": "The primary outcome\nwas glycated hemoglobin (HbA1c), and secondary outcomes were fasting plasma\nglucose (FPG) and 2-hour postprandial glucose (2hPG).",
+          "excerpt_sha256": "d3f3eec242351685620a168fa88eec1f09d48dae2a6f2b4b506df6a9db7925a2"
+        },
+        {
+          "page": 4,
+          "text_start": 16372,
+          "text_end": 16653,
+          "excerpt": "The eight included trials enrolled adult patients with type 2\nd i a b e t e sm e l l i t u sa n dc o m p a r e dG Q Dp l u sm e t f o r m i nw i t h\nmetformin alone. The total sample size was 725 participants, with\nindividual study sample sizes ranging from 40 to 169 participants.",
+          "excerpt_sha256": "72df3e1b7ae409b30118d73d7e8e4f4e712e7c66edf8871c292e5eb356912d02"
+        },
+        {
+          "page": 6,
+          "text_start": 21428,
+          "text_end": 22362,
+          "excerpt": "Only two trials (S1 and S3; 196 participants) provided suf ﬁcient\nbaseline and post-treatment data for this analysis. Because the SDs of\nchange scores were not directly reported, they were estimated using a\nprespeciﬁed correlation coefﬁcient of r = 0.50 ( Figure 4), with addi-\ntional sensitivity checks using r = 0.25 and r = 0.75 ( Figures 5, 6).\nFor the primary outcome, GQD plus metformin did not show a\nstatistically signi ﬁcant additional reduction in HbA1c compared\nwith metformin alone in the change-score analysis (MD = -1.92,\n95% CI -4.43 to 0.59; P = 0.13). This result remained statistically\nnon-signi ﬁcant under the alternative c orrelation assumptions.\nHeterogeneity was extreme across the HbA1c change-score analyses\n(I² = 99% –100%), indicating substantial instability in the pooled\nestimate. Therefore, the primary analysis did not provide suf ﬁcient\nevidence to con ﬁrm a reliable additional effect of GQD on HbA1c.",
+          "excerpt_sha256": "a6f107de1423003388a413002fa79f7f40a23dc08115ad6d03526983cc3c80ef"
+        },
+        {
+          "page": 7,
+          "text_start": 25711,
+          "text_end": 26603,
+          "excerpt": "When all eight trials were pooled using post-treatment ﬁnal\nvalues, the effect estimates favored GQD plus metformin for all\nthree glycemic outcomes. The pooled MDs were -1.21 for HbA1c\n(95% CI -1.99 to -0.43; P = 0.002; Supplementary Figure 4), -1.34 for\nFPG (95% CI -1.66 to -1.02; P < 0.00001; Supplementary Figure 5),\nand -2.01 for 2hPG (95% CI -2.71 to -1.31; P < 0.00001;\nSupplementary Figure 6). Nevertheless, substantial heterogeneity\npersisted across the all-study analyses (I² = 91% –99%). In addition,\nﬁve of the eight trials did not clearly report the method of random\nsequence generation, and none used blinding or placebo control.\nTherefore, although the post-treatment sensitivity analyses showed\nstatistically signiﬁ cant results, these ﬁndings should be interpreted\ncautiously and were not considered suf ﬁcient to override the more\nconservative change-score primary analysis.",
+          "excerpt_sha256": "71ae021fd62aaeab0fa0cdd0e6f556d9593e16f2540f924bc0fc073aa3bd5ec0"
+        },
+        {
+          "page": 6,
+          "text_start": 20697,
+          "text_end": 21316,
+          "excerpt": "Overall, the certainty of evidence was rated as very low for\nHbA1c, FPG, and 2hPG. For HbA1c, the evidence was downgraded\nbecause of high risk of bias, extreme inconsistency, and imprecision,\nas the conﬁdence interval crossed the line of no effect. For FPG and\n2hPG, although the pooled estimates favored GQD plus metformin,\nthe certainty was also rated as very low because the results were\nbased on only two trials and were affected by substantial\nheterogeneity and methodologic al limitations. Therefore, the\nGRADE assessment indicates that the true effects may be substan-\ntially different from the pooled estimates.",
+          "excerpt_sha256": "bceb9a06d0a0893396da6295f68b947fe875b08265e31d81d9d3c6aea6ab7474"
+        },
+        {
+          "page": 5,
+          "text_start": 17822,
+          "text_end": 18125,
+          "excerpt": "Overall, all included trials were judged as having\nhigh risk of bias.\nFor bias arising from the randomization process, S1 –S3 re-\nported the use of random-number tables and therefore provided\nclearer evidence of randomization than the remaining trials.\nHowever, allocation concealment was not described.",
+          "excerpt_sha256": "0a7588a5af5cb648ce65027ff31c6645d30804a2f9cab4500605911a783e3fd1"
+        }
+      ],
+      "query_authoring_status": "Bound in diabetes-queries-v1 before retrieval evaluation",
+      "limitations_and_conflicts": "See case_review.json, legacy_audit.json and query-specific rubric; observational, mechanistic, simulated and trial evidence must remain distinct."
+    },
+    {
+      "article_id": "PMC13430954",
+      "filename": "diabetes-cgm-management.pdf",
+      "pdf_sha256": "e25002f03766a70a0d260c1ba9917933a1cde3aebe091e8694a75634fb0c0b11",
+      "text_sha256": "fb07bbfd6201c00c0d65e1e396a199d70252583042674ca3ec34091a83d4fea2",
+      "selection_summary": "Vignette response ratings and source recognition, distinct from patient glycemic outcomes; replace placeholder abstract with PubMed source.",
+      "selection_locations": [
+        {
+          "page": 5,
+          "text_start": 24560,
+          "text_end": 25165,
+          "excerpt": "splitter with a target segment length of approximately 500\ncharacters and an overlap of 100 characters. Each segment\nwas embedded using OpenAI’s text embedding service via\nthe LangChain OpenAIEmbeddings wrapper [ 53] and stored\nin a Facebook AI Similarity Search (FAISS) vector index\nimplementing approximate nearest-neighbor search [ 54]. At\ninference time, the current question text was used as the\nretrieval query to obtain the top 2 nearest segments from\nthe FAISS index. The retrieval function returned a Eucli-\ndean (L2) distance score, with lower values indicating closer\nembedding-space proximity.",
+          "excerpt_sha256": "f61f0f68939d54b6d3220c97d4035f60cfa647a0f92210890f3fe4d686092ff9"
+        },
+        {
+          "page": 5,
+          "text_start": 27169,
+          "text_end": 27565,
+          "excerpt": "ments were embedded using text-embedding-3-small, split\nJOURNAL OF MEDICAL INTERNET RESEARCH Guo et al\nhttps://www.jmir.org/2026/1/e98519 J Med Internet Res 2026 | vol. 28 | e98519 | p. 5\n(page number not for citation purposes)\ninto approximately 500-character chunks with 100-character\noverlap, indexed in FAISS, and retrieved with top_k=2 using\nthe current question text as the retrieval query.",
+          "excerpt_sha256": "8affe6de413ee13ca93631dd27bfb629f464df36ee7ae996419f1b7ddb570b95"
+        },
+        {
+          "page": 10,
+          "text_start": 53811,
+          "text_end": 53882,
+          "excerpt": "The estimated mean difference was 0.782 (95% CI 0.692 ‐\n0.872; P<.001).",
+          "excerpt_sha256": "f7c68d877c683a64bf52ca426dfe1984be99ea4cfc099aaac26d33951a2c0b93"
+        },
+        {
+          "page": 11,
+          "text_start": 58705,
+          "text_end": 59089,
+          "excerpt": "Estimated mean differences ranged from 0.495 to 1.062\n(Table 3). The largest differences were observed for empathy\n(1.062; 95% CI 0.948 ‐1.177) and actionability (0.992;\n95% CI 0.877 ‐1.106), whereas smaller differences were\nobserved for clinical accuracy (0.562; 95% CI 0.463 ‐0.662)\nand guideline adherence (0.495; 95% CI 0.394 ‐0.597). All\nestimated mean differences were positive.",
+          "excerpt_sha256": "1dcbeb29085a8cb16a22d5b4f76989b5f4f5cc5ca23fa9449ccb39fafe6b47ea"
+        },
+        {
+          "page": 13,
+          "text_start": 63911,
+          "text_end": 64480,
+          "excerpt": "Across 864 ratings, clinicians correctly identified the\nsource in 697 (80.7%) cases, misclassified 100 (11.6%), and\nselected “not sure” in 67 (7.8%). Restricting the analysis\nto definitive judgments (n=797 rating-level classifications),\noverall identification accuracy was 87.5% (one-sided exact\nbinomial test vs 50% chance, P<.001), indicating that\nresponses were generally distinguishable from one another.\nThese findings indicate that, although the response source\nwas masked during the rating task, CA and clinician\nresponses were often distinguishable in practice.",
+          "excerpt_sha256": "e466d18c1f2270c10c5c5d5ec3d7617a12d6b637633483fd7977a76659999b3a"
+        },
+        {
+          "page": 15,
+          "text_start": 76886,
+          "text_end": 77272,
+          "excerpt": "Third, the comparison should be interpreted in light\nof imperfect source masking, response recognizability, and\npotential development-stage familiarity bias. Although raters\nwere not informed of the response source and all responses\nwere anonymized, source-identification accuracy was high,\nindicating that the evaluation was source-masked by design\nbut imperfectly blinded in practice.",
+          "excerpt_sha256": "47910960e8b6dce22cd927e701986eee05c6f43adedf2bde33a4d332750ac269"
+        },
+        {
+          "page": 9,
+          "text_start": 49071,
+          "text_end": 49296,
+          "excerpt": "This study was a simulated, vignette-based early-stage\nevaluation of an AI-enabled decision-support and commu-\nnication-support system, rather than a prospective interven-\ntional trial protocol or a randomized clinical trial.",
+          "excerpt_sha256": "3f21afd0c0639901fd31e0d86dd858b5224c9c324002d60f1778815e876bc017"
+        }
+      ],
+      "query_authoring_status": "Bound in diabetes-queries-v1 before retrieval evaluation",
+      "limitations_and_conflicts": "See case_review.json, legacy_audit.json and query-specific rubric; observational, mechanistic, simulated and trial evidence must remain distinct."
+    },
+    {
+      "article_id": "PMC13433181",
+      "filename": "cardio-cad-ct-angiography.pdf",
+      "pdf_sha256": "1d935134ce714762ed0cf19167c622f4ae4914b3e85f86094d07d85909b93c53",
+      "text_sha256": "e4a478287bfa1d922ed24b37de0756eb37f283583ddc5a98379d60eb600b472a",
+      "selection_summary": "CCTA-based nomogram for one-year MACE in a 280-patient derivation cohort and an independent 288-patient validation cohort.",
+      "evidence_relationship": "Retain after fresh verification: complementary coronary imaging endpoints, univariate/multivariate predictors and internal/external validation comparisons.",
+      "limitations_and_conflicts": "Predominantly soft rehospitalization endpoints and short follow-up; substantial event-rate shift. Preserve source sample-count inconsistencies for review rather than inventing reconciliation.",
+      "selection_locations": [
+        {
+          "term": "0.936",
+          "page": 7,
+          "text_start": 30054,
+          "text_end": 30379,
+          "excerpt": "000 resample s, \nthe optimism-corr ected C-index was 0.917, compared with the \nappare nt C-index of 0.936, indicating a modest optimism of \n0.019. The calibr at ion slope was 0.924, and the calibr ation \nintercept was −0.031, both suggesting good model calibr ation \nwithout significant ov erfitting.\nP erformance analy sis a",
+          "excerpt_sha256": "66fc7cbdccf626debf8136bb8ab93b22714ce64586c466faba5a2289edca4669"
+        },
+        {
+          "term": "0.932",
+          "page": 9,
+          "text_start": 37674,
+          "text_end": 37999,
+          "excerpt": " pr edictive model in this study wer e 0.568, 0.483, \n0.736, 0.782, 0.743, 0.538, 0.588, 0.782, and 0.932, respectiv ely. \nNotably, the AUC of the pr edictive model was significantly \nhigher than that of all individual predictors (coronary artery \nste nosis severity , plaque length, MLA, fibrous plaque volume, \nPB, CA CS, F",
+          "excerpt_sha256": "e328089c7dd006eb15e0c2b0eb2bd022ae33fe42cb632c4d1181becd0db60a6e"
+        },
+        {
+          "term": "288",
+          "page": 2,
+          "text_start": 6287,
+          "text_end": 6610,
+          "excerpt": "we lever aged two \nexis ting cohorts (derivation cohort, n = 131; external \nvalidat ion cohort, n = 288) to exp lore the feasibility and \npre dictive performance of this multi-parameter integra ted \nmodel, with the goal of laying the grou ndwork for future \nlarge-scale pr ospective st udies. Nonetheless, this model ma y \n",
+          "excerpt_sha256": "7a71264c1e0dbd8aa957855870e2fd79cddb90987396994156f5c2c03d00bb15"
+        }
+      ],
+      "planned_role": "answer_source_pool",
+      "query_authoring_status": "No gold questions authored or frozen; JUA-109 must bind required facts, complete evidence sets and alternatives."
+    },
+    {
+      "article_id": "PMC13433218",
+      "filename": "diabetes-nephropathy-complications.pdf",
+      "pdf_sha256": "1eab8391f2d6c495a37c0dc9ac3ea53c9a014d89ae4cc2ec5c80214fcc00e2df",
+      "text_sha256": "3d980a356bac2baae11a9214434d3df2f3209132ec5122836810913e163d8bca",
+      "selection_summary": "Adaptive/chronic hypoxia, zinc and transporter biology; mechanistic review, preclinical evidence and incomplete dosage guidance.",
+      "selection_locations": [
+        {
+          "page": 2,
+          "text_start": 4188,
+          "text_end": 4590,
+          "excerpt": "Approximately 30–40% of\nindividuals with T2DM develop DKD ( 7). Renal hypoxia represents\na fundamental pathogenetic mechanism underlying the onset and\nprogression of DKD ( 8–11). Maintenance of zinc homeostasis is\ncritically important for the organism ’s ability to tolerate hypoxic\nconditions ( 12). Preserving optimal zinc levels may contribute to\nslowing down or even halting the progression of DKD.",
+          "excerpt_sha256": "b714834f01c145a35defb85bf9a50250cf2c1b2cda450663465e70f0b37bb788"
+        },
+        {
+          "page": 4,
+          "text_start": 14052,
+          "text_end": 14399,
+          "excerpt": "ZnT8 is em-\nbedded in the membrane of dens e insulin granules where it\nmediates zinc accumulation, storage, and preparation of insulin\nfor secretion ( 63). Unlike other transporters, ZnT8 exhibits a\nunique expression pro ﬁle largely restricted to pancreatic islets,\nhighlighting its central role in insulin processing, accumulation,\nand secretion.",
+          "excerpt_sha256": "5e743840b9367866dd355a94a32390ce065fc8dbf454a8698f2553a1b8f7b102"
+        },
+        {
+          "page": 12,
+          "text_start": 59146,
+          "text_end": 60223,
+          "excerpt": "Hypoxia developing in the kidneys during DKD is a major\ntrigger of oxidative stress. Zinc plays a key role in adapting the\norganism to a hypoxic environment ( 12), by modulating HIF-1 a\nactivity through various mechanisms. In particular, molecular\nmechanisms investigations have demonstrated that zinc induce\nHIF-1a proteasomal degradation ( 180).\nMoreover, zinc inhibits the translocation of HIF-1 a to the cell\nnucleus, preventing its binding to DNA and activation of target\ngene transcription. This may reduce activation of the HIF-1 a/\nVEGF signalling pathway and slow ﬁbrotic processes by decreasing\nangiogenesis and in ﬂammation (Figure 5 ).\nIn animal models of DKD, zinc administration reduced the\nexpression ofﬁbrotic markers (181), tubular EMT, and tubulointerstitial\nﬁbrosis via activation of the PI3K/AKT/GSK-3 b s\nignalling pathway,\naccompanied by decreased regulation of HIF-1 a expression (182).\nModulation of the HIF-1 a/VEGF signalling pathway represents a\npromising mechanism for controlling renal ﬁbrosis and protecting\nkidney tissue from irreversible damage.",
+          "excerpt_sha256": "9c4ccb65c6d19d801a64ed416a1b467fcab462fe64c0172294b76bd141bd8e58"
+        },
+        {
+          "page": 11,
+          "text_start": 53988,
+          "text_end": 55071,
+          "excerpt": "ZnT7 is localized in the perinuclear region and GA of rat kidney\ntubular epithelial cells. Overexpression of ZnT7 inhibited high-\nglucose (HG)-induced EMT, whereas knockdown of ZnT7 pro-\nmoted EMT. Furthermore, ZnT7 knockdown and the associated\nincrease in HG-induced EMT were accompanied by activation of\nthe MAPK/ERK and TGF- b/Smad pathways ( 166). It has also been\nshown that SLC30A7 exerts antioxidant effects in glucose-induced\napoptosis via the NFE2L2/HMOX1 signalling pathway ( 167).\nThe kidneys are the second organ after the pancreas in terms of\nhigh ZnT8 expression ( 168). ZnT8 is predominantly expressed in\nrenal tubular epithelial cells but only weakly in the glomerulus and\npodocytes ( 169). Studies indicate that ZnT8 protects against EMT\nand tubulointerstitial ﬁbrosis by restraining the activation of the\nTGF-b1/Smads signalling pathway in DKD ( 169). Additionally,\nZnT8 exerts protective effects against apoptosis of renal tubular\nepithelial cells through induction of TNF- a–induced protein 3\n(TNFAIP3) and subsequent suppression of the NF- kBp a t h -\nway (170).",
+          "excerpt_sha256": "c6e05bebc5585d9a27073a8f1985dd6c6a46c2e13f6842acac736074a50d7155"
+        },
+        {
+          "page": 10,
+          "text_start": 50096,
+          "text_end": 51011,
+          "excerpt": "Thus, acute activation of HIF −1a is adaptive and reversible,\ninitiating transcriptional programs to restore energy homeostasis\nand improve tissue oxygenation in response to transient hypoxia. In\ncontrast, chronic overactivation is pathological, as it leads to\npersistent expression of genes involved in angiogenesis, cell prolif-\neration, and metabolic reprogramming, and promotes chronic\ninﬂammation and tissue dysfunction.\nHIF-1a activation in DKD may have dual effects. It enables\nkidney cells adapt to hypoxia, potentially protecting the tissue by\nregulating genes involved in blood vessel growth, metabolism, and\nantioxidant defence. However, chronic overactivation of HIF-1 a in\nDKD can exacerbate in ﬂammation and ﬁbrosis, promoting further\nkidney damage. Targeted modulation of HIF-1 a activity is cur-\nrently considered a promising therapeutic strategy to minimize\nrenal injury and enhance renoprotection.",
+          "excerpt_sha256": "1f66c6cdf2ae3b9e88e4fc378c85a9cf64924717f34bc03b9c86bdb1eb463ab5"
+        },
+        {
+          "page": 2,
+          "text_start": 6481,
+          "text_end": 6737,
+          "excerpt": "However, the use of zinc\nsupplements in T2DM patients requires more precise and effective\npreventive and therapeutic strategies regarding the optimal zinc\nform, dosage, and duration of administration ( 25), which are\nbeyond the scope of the present review.",
+          "excerpt_sha256": "1c0c5145ad4f90bb8bbf4117cac17631beff15824f98d47fe0ab0f8acb26341e"
+        }
+      ],
+      "query_authoring_status": "Bound in diabetes-queries-v1 before retrieval evaluation",
+      "limitations_and_conflicts": "See case_review.json, legacy_audit.json and query-specific rubric; observational, mechanistic, simulated and trial evidence must remain distinct."
+    },
+    {
+      "article_id": "PMC13433680",
+      "filename": "diabetes-cardiovascular-outcomes.pdf",
+      "pdf_sha256": "318eb20f7938dfcc713cb0132f03506cfb1eadc7d349b50547b844c40a8ad6a7",
+      "text_sha256": "4f85a4ba5a9d7c6eff49c0b52e98d863879864fb8f29272141e1f2ece181c34c",
+      "selection_summary": "Sleep/circadian mechanisms and review-attributed cardiovascular risks; explicitly distinguish primary cohort evidence and no weekly MI/PCI change.",
+      "selection_locations": [
+        {
+          "page": 2,
+          "text_start": 7201,
+          "text_end": 7555,
+          "excerpt": "A total of 102 studies were ultimately included in the \nfinal qualitative synthesis based on their relevance and \ncontribution to the topic. Given the narrative design of \nthis review, study identification and screening were not \nconducted using a fully predefined systematic protocol, \nand intermediate screening counts were not prospectively \nrecorded.",
+          "excerpt_sha256": "6bebf434e0afeef811e04777baf3d48a26e752ab6a406cf731adac52fc843a9a"
+        },
+        {
+          "page": 3,
+          "text_start": 8910,
+          "text_end": 9200,
+          "excerpt": "compiled evidence from over 474,000 par‑\nticipants across 8 countries. They found that habitual sleep \nduration of < 6 h per night was associated with a 48% higher \nrisk of developing and/or dying from heart disease and a \n15% increased chance of developing and/or dying from a \nstroke [9].",
+          "excerpt_sha256": "88ead69e858298b5638fe656848d0fa163298aaaf05211c41f70d541c2fbfff7"
+        },
+        {
+          "page": 9,
+          "text_start": 46403,
+          "text_end": 47311,
+          "excerpt": "Rachel Leproult et al. studied 13 women and 3 men who \nwere all healthy and non‑obese with a mean age of 25. The \nsubjects were instructed to keep habitual sleep duration in \nthe first 2 weeks and followed by 6 weeks of increased sleep \nduration by an hour per night. Objectively the mean sleep \ntime increased by 44 min. Although there was no significant \nchange in overall insulin and glucose levels before and after \nthe intervention, the percent changes in fasting glucose and \ninsulin were more pronounced with sleep extension, show ‑\ning a positive correlation for glucose (r =  + 0.53, P = 0.041) \nand a negative correlation for insulin levels (r  =  − 0.60, \nP = 0.025). Additionally, insulin sensitivity improved sig ‑\nnificantly with sleep extension (r =  + 0.76, P = 0.002), indi‑\ncating that increasing sleep duration can enhance insulin \nsensitivity in adults who are habitually sleep restricted",
+          "excerpt_sha256": "11c92acee4498c1210e9cc1274113c45694cdce344fce1e898705f4c6fd9c580"
+        },
+        {
+          "page": 5,
+          "text_start": 17357,
+          "text_end": 18076,
+          "excerpt": "hospital records, Sadhu and colleagues found that this \nloss of sleep was associated with a significant, 24%, increase \nin MIs the day following the spring DST transition (RR1.24, \n95% CI 1.05–1.46; P = 0.011) after adjustment for trend, sea‑\nsonality, and hours of exposure. The opposite was also true. \nThat is, in the fall, when the clocks “fall back” and people \ngain an hour of sleep, heart attack rates fell significantly by \n21% the day following the fall transition (RR 0.79, 95% CI \n0.62–0.99; P = 0.044) [28]. In contrast to these day‑specific \neffects, no change was observed in the total weekly number \nof percutaneous coronary interventions (PCIs) for MI dur ‑\ning the first week following DST transitions.",
+          "excerpt_sha256": "b13cdae12633fa54240c87ef8571facb7587cc14e76d8b18efd0fcfb082a22cd"
+        },
+        {
+          "page": 9,
+          "text_start": 44442,
+          "text_end": 44659,
+          "excerpt": "In a landmark study of 4483 subjects of \n35–70 years of age, Isomaa et al. demonstrated that meta‑\nbolic disease significantly increased the risk of CAD, MI, \nand stroke. The RRs were 2.96, 2.63, and 2.27 respectively",
+          "excerpt_sha256": "aedbbda8aba692cef3da7d3203c1cfdfd54749f031cb86444d5e80f80a8be7f4"
+        },
+        {
+          "page": 6,
+          "text_start": 24567,
+          "text_end": 24682,
+          "excerpt": "Sleep loss increases ghrelin and reduces leptin levels, \nthereby increasing caloric intake and promoting adiposity.",
+          "excerpt_sha256": "95999a121e94211659f9bfb14927a2bebe8bf8388c42f549ba5e7e59b2f59557"
+        },
+        {
+          "page": 6,
+          "text_start": 23353,
+          "text_end": 23589,
+          "excerpt": "40% drop in the glucose clearance \nrate during sleep restriction compared with extended sleep, \nindicating a prediabetic state [50]. The insulin response was \nalso 30% lower in the sleep‑restricted condition than during \nrecovery sleep.",
+          "excerpt_sha256": "aa2524c2a1803aa2ec1a6ab47d7d762ee146a238002308568e9d3c69cee64964"
+        }
+      ],
+      "query_authoring_status": "Bound in diabetes-queries-v1 before retrieval evaluation",
+      "limitations_and_conflicts": "See case_review.json, legacy_audit.json and query-specific rubric; observational, mechanistic, simulated and trial evidence must remain distinct."
+    },
+    {
+      "article_id": "PMC13433862",
+      "filename": "cardio-heartfailure-biomarkers.pdf",
+      "pdf_sha256": "98440a13560fb770655aab38680bbb8d8f21a700eed8db59ee6ab14f1713cad0",
+      "text_sha256": "a7392cc279bda7889978699cb469095c6ea2d0fdfc4a21909562e8ffcbeffa75",
+      "selection_summary": "Retrospective 185-patient HFpEF cohort links SGLT2 inhibitor treatment with strain, diastolic measures, biomarkers and rehospitalization.",
+      "evidence_relationship": "Retain after fresh verification: compare cardiac biomarkers with renal and geriatric evidence and overall versus within-treatment correlations.",
+      "limitations_and_conflicts": "Observational treatment association; lack of diabetes interaction is not proof of independence from glycaemic control or an antifibrotic mechanism.",
+      "selection_locations": [
+        {
+          "term": "0.554",
+          "page": 5,
+          "text_start": 23545,
+          "text_end": 23870,
+          "excerpt": "is\nIn the ov er all population, ΔGLS show ed a significant positive \ncorrela tion with ΔPIIINP (r = 0.554, P < 0.001) and with ΔNT- \npr oBNP (r = 0.326, P < 0.001), drive n primarily by the betw een- \ngroup differen ces. Importantly, within the SGL T2i group alone, \nno significant correla tion was observed betw een ΔGLS and",
+          "excerpt_sha256": "29f0e24b0218ef555a9d2f14c9964ccee2efc7d59610117321617948b5a10f4e"
+        },
+        {
+          "term": "0.013",
+          "page": 5,
+          "text_start": 23785,
+          "text_end": 24110,
+          "excerpt": " the SGL T2i group alone, \nno significant correla tion was observed betw een ΔGLS and \nΔPIIINP (r = 0.013, P = 0.896) or between ΔGLS and ΔNT- \npr oBNP (r = 0.120, P = 0.238) ( Table 4 , Figur es 6A,B ). Similarly, \nwithin the control gr oup, there was no significant corre lation for \nΔPIIINP (r=–0.099, P = 0.365). These wi",
+          "excerpt_sha256": "ef4c6ffcb67df6a5e10b462ff0f27b7c14b456b54e54bfcc51862494acad077e"
+        },
+        {
+          "term": "2.49",
+          "page": 4,
+          "text_start": 20765,
+          "text_end": 21089,
+          "excerpt": "tly impro ved from baseline, changing \nfrom (−16.08 ± 1.96)% to (−18.57 ± 2.02)%, with a ΔGLS of \n(−2.49 ± 0.54)%. In contras t, the GLS in the contr ol gr oup \nchanged only from (−15.69 ± 2.30)% to (−16.13 ± 2.35)%, with a \nΔGLS of (−0.44 ± 0.52)%. The intergroup differe nce was \nsta tistica lly significant (P < 0.001; Ta",
+          "excerpt_sha256": "afc55a43cc1d827e294db524a667644db5f5e897b722cb27e6fc30f5919e0a37"
+        }
+      ],
+      "planned_role": "answer_source_pool",
+      "query_authoring_status": "No gold questions authored or frozen; JUA-109 must bind required facts, complete evidence sets and alternatives."
+    },
+    {
+      "article_id": "PMC13439631",
+      "filename": "cardio-mi-risk-stratification.pdf",
+      "pdf_sha256": "f53e37eee5fffda71935451944718520aab7cf16ad5dc7724db098b129d757f0",
+      "text_sha256": "24d5f324a1c5a6bd8f7481b08e216ecf32bda77af3932c09636a5bb854520d54",
+      "selection_summary": "725-patient retrospective STEMI PCI cohort evaluates CHA2DS2-VA no-reflow prediction, sex interactions and score/laboratory combinations.",
+      "evidence_relationship": "Retain after fresh verification: compare VA and VASc scores across STEMI and AF stroke endpoints, sex-specific adjusted estimates and discrimination.",
+      "limitations_and_conflicts": "Weak-to-moderate discrimination, single-centre retrospective data and no external validation. Score values do not imply guideline treatment thresholds.",
+      "selection_locations": [
+        {
+          "term": "0.613",
+          "page": 3,
+          "text_start": 14043,
+          "text_end": 14302,
+          "excerpt": " for the CV Score to \nDetermine NRP \nIn the overall cohort, the AUC of CV score to predict NRP was \n0.613, with 38.8% sensitivity, 79.1% specificity (p = 0.001) \nFIGURE 1 | Flowchart of patient enrollment and study grouping. \n3 of 12 Clinical Cardiology, 2026",
+          "excerpt_sha256": "6cc20036f2c5306566933767d095e607dc5dd32ef55e3050156bd3495b8257f5"
+        },
+        {
+          "term": "0.673",
+          "page": 4,
+          "text_start": 14430,
+          "text_end": 14755,
+          "excerpt": "ve \nability (Figure 2b ). However, in the female group, the AUC of \nthe CV score predicting NRP was 0.673 (78.1% sensitivity and \n47.6% specificity (p = 0.002) (Figure 2c ).\nTo evaluate whether the integration of complementary markers \nimproves predictive performance, we compared the CV score \nalone (Model 1) with a combine",
+          "excerpt_sha256": "3d32755b213879a92d95decb67aff2412a29b143b4256c0c3dec93a42641c177"
+        },
+        {
+          "term": "1.597",
+          "page": 3,
+          "text_start": 13076,
+          "text_end": 13401,
+          "excerpt": "ctive model.\nRegarding the subgroup analysis based on sex, in the female \ngroup, the CV score (AOR: 1.597, 95% CI: 1.187–2.149, \np = 0.002) and creatinine (AOR: 1.037, 95% CI: 1.009–1.066, \np = 0.009) were independent predictors of NRP (Table 5 ). In \ncontrast, among male patients, only platelet count (AOR: 0.993, \n95% CI: ",
+          "excerpt_sha256": "5f81cd11a1fd8976627320b3c792892cee79a02d2c4540f922c8b08a9d99a460"
+        }
+      ],
+      "planned_role": "answer_source_pool",
+      "query_authoring_status": "No gold questions authored or frozen; JUA-109 must bind required facts, complete evidence sets and alternatives."
+    },
+    {
+      "article_id": "PMC13472562",
+      "filename": "diabetes-sleep-multimorbidity-cohorts.pdf",
+      "pdf_sha256": "bb7c82cd722d116881f4a770f6f599407d86d425801d098bc6332d3176fdaa51",
+      "text_sha256": "77aa0fdd8e2fbc61b5ab6b3f0c029e2ddee577ab9a3c2f7bbc2babe7e7938abe",
+      "selection_summary": "Three aging cohorts, adjusted versus unadjusted associations and mediation, construct-level harmonization limitations.",
+      "selection_locations": [
+        {
+          "page": 1,
+          "text_start": 3212,
+          "text_end": 3549,
+          "excerpt": "The analysis included 13,859 participants: 4,145 from CHARLS, 4,268\nfrom ELSA, and 5,446 from HRS. In fully adjusted Cox models, good sleep\nquality was associated with lower CMM risk than poor sleep quality in CHARLS\nand ELSA. A similar trend was observed in HRS, although signiﬁcance appeared\nonly in complete-case sensitivity analysis.",
+          "excerpt_sha256": "8ac33efaaa55ce3c2b9fc4cf13a62c6bd4f8f8c12cb81ff7fc46a7796ac539c7"
+        },
+        {
+          "page": 1,
+          "text_start": 3848,
+          "text_end": 4000,
+          "excerpt": "In exploratory mediation analyses, some\nsmall indirect effects were observed in unadjusted models, but none remained\nevident after covariate adjustment.",
+          "excerpt_sha256": "6890f13e0ba7da28bb571ba9043362047c595ada856cf619006f0b38fe51cf87"
+        },
+        {
+          "page": 1,
+          "text_start": 3006,
+          "text_end": 3202,
+          "excerpt": "Because sleep measures\ndiffered across cohorts, harmonization was conducted at the construct rather\nthan raw-score level, and cross-cohort effect-size comparisons should be\ninterpreted cautiously.",
+          "excerpt_sha256": "9b2f74afb534f6eec794f60d53652abcc701d18644610f2cf209aa4d14d900bd"
+        }
+      ],
+      "query_authoring_status": "Bound in diabetes-queries-v1 before retrieval evaluation",
+      "limitations_and_conflicts": "See case_review.json, legacy_audit.json and query-specific rubric; observational, mechanistic, simulated and trial evidence must remain distinct."
+    },
+    {
+      "article_id": "PMC4804513",
+      "filename": "cardio-spironolactone-diabetes-trial.pdf",
+      "pdf_sha256": "7a9d0736403d43d29074d4ae86e207287148a915c60c436d2e796669bedd2f66",
+      "text_sha256": "1fa7ea1e51386b8bec2c48538ae64bf304763b96e9d8e62495a8dfef40ba498c",
+      "selection_summary": "Small four-week Cameroon trial randomizes 17 T2D patients with resistant hypertension to low-dose spironolactone or an alternative regimen.",
+      "evidence_relationship": "Primary interventional BP evidence with renal/potassium safety context, contrasting consensus recommendations and HFpEF empagliflozin outcomes.",
+      "limitations_and_conflicts": "Small single-blinded trial; abstract claims all achieved <130/80 but detailed results identify a patient at 140/67 and use differing office/home targets. Kidney-function wording conflicts with baseline eGFR; expose ambiguity.",
+      "selection_locations": [
+        {
+          "term": "33",
+          "page": 4,
+          "text_start": 15809,
+          "text_end": 16131,
+          "excerpt": "than in the control \ngroup, with the systolic and diastolic office BP respec\n-\ntively decreasing by 33 vs. 14 mmHg (p  = 0.024) and by \n14 vs. 5 mmHg (p = 0.006). In the control group, the tar-\nget BP was achieved neither for office BP [end-of-trial \nmean BP (mmHg)  = 144  ± 17/89  ± 12], nor for SBPM \n[end-of-trial mean",
+          "excerpt_sha256": "b8cb051d5bfeae9e9b5c3db712146807a2391710e0c5a597769cb0c01817de1d"
+        },
+        {
+          "term": "14",
+          "page": 2,
+          "text_start": 5556,
+          "text_end": 5878,
+          "excerpt": "e as well as an \nunderlying endocrine disease like primary aldosteron\n-\nism; a condition present in 14 % of type 2 diabetes mel -\nlitus (T2DM) patients with resistant hypertension [13]. \nIn addition to its classic effects on sodium-water reten\n-\ntion and excretion of potassium and magnesium, it has \nbeen proven that aldo",
+          "excerpt_sha256": "8fb5d25be883af13b65f2a499f42ef1252a693794b556ec831943d5e7ab51c1b"
+        },
+        {
+          "term": "140/67",
+          "page": 4,
+          "text_start": 15284,
+          "text_end": 15610,
+          "excerpt": "ut of nine participants in the \nspironolactone group did not reach the target office BP \n(with BP = 140/67 mmHg 1 month after); defined by sys\n-\ntolic (and diastolic) BP  <140 (and 90  mmHg). However, \nthe target for SBPM, defined by systolic BP (and dias -\ntolic) <135 (and 85 mmHg) was reached after 1 month for \nthis patien",
+          "excerpt_sha256": "1c386bb7a1519952b924f393a1b639d9bf7deb6afd9fd8d3e86578f7f7c44975"
+        }
+      ],
+      "planned_role": "answer_source_pool",
+      "query_authoring_status": "No gold questions authored or frozen; JUA-109 must bind required facts, complete evidence sets and alternatives."
+    },
+    {
+      "article_id": "PMC8866621",
+      "filename": "cardio-stemi-vasc-fmd-no-reflow.pdf",
+      "pdf_sha256": "5fac4e90fefa67859c05eb5740926afdab413a980ae6a4876b2ed691f7742928",
+      "text_sha256": "aa9921406485752eefe722a0c02d5104d49ad3c252110a7299b64a4b9459934c",
+      "selection_summary": "150-patient STEMI PCI study evaluates CHA2DS2-VASc and brachial flow-mediated dilation as no-reflow predictors.",
+      "evidence_relationship": "Genuine same-endpoint competitor for CHA2DS2-VA, with different score components, cohort and FMD evidence; also contrasts AF stroke applications.",
+      "limitations_and_conflicts": "Single centre and limited follow-up; no-reflow is not long-term MACE. Definitions and cutoffs must be tied to this paper, not transferred to the VA cohort.",
+      "selection_locations": [
+        {
+          "term": "150",
+          "page": 2,
+          "text_start": 4620,
+          "text_end": 4943,
+          "excerpt": "ies. [4].\nMethods\nThis is an observational cross-sectional case–control \nstudy in which we enrolled 150 patients who presented \nto a tertiary care university hospital with acute STEMI \namong period from January 2020 till June 2021. Patients \nwere classified into two main groups according to the \nflow result after PCI, no-",
+          "excerpt_sha256": "b386b5de0af5e4dafafe2031f2d5b86b979a0b0e2ded38255ffbb63ae0719abc"
+        },
+        {
+          "term": "26%",
+          "page": 2,
+          "text_start": 8420,
+          "text_end": 8743,
+          "excerpt": "l characteristics and angiography results\nThirty nine patients developed no-reflow complica -\ntion (26%) after 1ry PCI. Patients in the no-reflow group \nwere significantly older than those in the reflow group \n(p-value = 0.039). The mean BMI was significantly \nhigher in the no-reflow group than in the reflow group \n(p-val",
+          "excerpt_sha256": "156433eac1727cf848d148af1c2c3830ee3c39b4a9c19a0b0d232258d8701635"
+        },
+        {
+          "term": "ROC",
+          "page": 2,
+          "text_start": 5119,
+          "text_end": 5442,
+          "excerpt": "form PCI, patients with known \nchronic inflammatory diseases, and those who died dur -\ning the PCI procedure were ruled out of the study. Study \ndesign was revised and approved by the local ethical \ncommittee (FMASU MD 396/2019) following declaration \nof Helsinki last updated 2008 and an informed written \nconsent was obta",
+          "excerpt_sha256": "ebd182d508d790aecd7fde969efac9f8e4274e2ad0e2a7a538ea9c55ffde144d"
+        }
+      ],
+      "planned_role": "answer_source_pool",
+      "query_authoring_status": "No gold questions authored or frozen; JUA-109 must bind required facts, complete evidence sets and alternatives."
+    }
+  ]
+}
