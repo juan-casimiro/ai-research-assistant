@@ -1,0 +1,1102 @@
+{
+  "schema_version": "1.0",
+  "issue": "JUA-111",
+  "audit_version": "diabetes-legacy-audit-v1",
+  "legacy_query_count": 35,
+  "legacy_sources": [
+    {
+      "filename": "diabetes-pharmacotherapy-rct.pdf",
+      "pmcid": "PMC13423648",
+      "title": "Efficacy of Gegen Qinlian decoction plus metformin for type 2 diabetes mellitus: a systematic review and meta-analysis of randomized controlled trials",
+      "pdf_sha256": "2afbf5dc2056eca213a2a8ae3953e454e63e6a2c9d5d6143a485e27bc5d59e2c",
+      "extracted_text_sha256": "e3700cc45c8127da12bfd7a9e97d73e8ef6c3b96ea53413ea66c828c98663b28",
+      "page_count": 11,
+      "baseline_record": {
+        "filename": "diabetes-pharmacotherapy-rct.pdf",
+        "cluster": "diabetes",
+        "search_query": "type 2 diabetes AND pharmacotherapy AND randomized controlled trial",
+        "doi": "10.3389/fendo.2026.1837588",
+        "pmcid": "PMC13423648",
+        "title": "Efficacy of Gegen Qinlian decoction plus metformin for type 2 diabetes mellitus: a systematic review and meta-analysis of randomized controlled trials",
+        "authors": [
+          "Hongyang He",
+          "Xiaocan Gai",
+          "Zhiheng Qiao",
+          "Guoliang Ji",
+          "Shumin Liu"
+        ],
+        "journal": "Frontiers in Endocrinology",
+        "abstract_summary": "Gegen Qinlian Decoction (GQD) is frequently used as an adjunctive therapy to metformin for type 2 diabetes mellitus (T2DM), but the certainty and consistency of the supporting clinical evidence remain unclear. We searched CNKI, Wanfang Data, PubMed, EMBASE, Web of Science, and the Cochrane Central Register of Controlled Trials from database inception to January 31, 2026. Randomized controlled trials comparing GQD plus metformin with metformin alone in adults with T2DM were included. The primary outcome was glycated hemoglobin (HbA1c), and secondary outcomes were fasting plasma glucose (FPG) and 2-hour postprandial glucose (2hPG). Risk of bias was assessed using the Cochrane RoB 2 tool, and the certainty of evidence was evaluated using the GRADE framework. Random-effects meta-analyses were performed, with the primary analyses based on change-from-baseline values. Eight randomized controlled trials involving 725 participants were included. In the primary change-score analysis, GQD plus metformin did not show a statistically significant reduction in HbA1c compared with metformin alone (MD = -1.92, 95% CI: -4.43 to 0.59, P = 0.13). Statistically significant reductions were observed for FPG (MD = -1.08, 95% CI: -1.71 to -0.44, P = 0.0009) and 2hPG (MD = -1.73, 95% CI: -3.05 to -0.42, P = 0.010). However, substantial heterogeneity was present across analyses (I² = 85%–100%), and the certainty of evidence was rated as very low because of risk of bias, inconsistency, and imprecision. Current evidence is insufficient to confirm a reliable clinical benefit of GQD as an adjunct to metformin for T2DM. Although reductions in FPG and 2hPG were observed, these findings should be interpreted as exploratory because of substantial heterogeneity, methodological limitations, and very low certainty of evidence. Larger, prospectively registered, well-designed, and adequately blinded randomized trials are needed.",
+        "year": 2026,
+        "license": "CC BY",
+        "page_count": 11,
+        "has_structured_sections": true,
+        "notes": "IMPORTANT: this is a systematic review/meta-analysis OF 8 RCTs, not a primary RCT itself. Good for testing retrieval on synthesis-heavy content (tables, GRADE ratings, forest plots) but the cluster needs at least one true primary-trial article for contrast in chunking behavior. Dense in numeric detail (MDs, CIs, I-squared values) -- good stress test for numeric fidelity in generation.",
+        "pmc_version": 1
+      },
+      "selected_status": "pending_fresh_eligibility_review",
+      "direct_case_ids": [
+        "q001",
+        "q002",
+        "q003",
+        "q004",
+        "q005",
+        "q006",
+        "q007",
+        "q008"
+      ]
+    },
+    {
+      "filename": "diabetes-epidemiology-prevalence.pdf",
+      "pmcid": "PMC2993661",
+      "title": "Prevalence of Metabolic Syndrome and its influence on microvascular complications in the Indian population with Type 2 Diabetes Mellitus. Sankara Nethralaya Diabetic Retinopathy Epidemiology And Molecular Genetic Study (SN-DREAMS, report 14)",
+      "pdf_sha256": "870874e8366153bd12c21157b2fc0514157c34441196b7b08b2783799d2b1dc3",
+      "extracted_text_sha256": "19039839cf1fc12c8652745cb152e9aa2cba82614df4e40cd017faf87ec8a679",
+      "page_count": 9,
+      "baseline_record": {
+        "filename": "diabetes-epidemiology-prevalence.pdf",
+        "cluster": "diabetes",
+        "search_query": "type 2 diabetes AND epidemiology AND prevalence",
+        "doi": "10.1186/1758-5996-2-67",
+        "pmcid": "PMC2993661",
+        "title": "Prevalence of Metabolic Syndrome and its influence on microvascular complications in the Indian population with Type 2 Diabetes Mellitus. Sankara Nethralaya Diabetic Retinopathy Epidemiology And Molecular Genetic Study (SN-DREAMS, report 14)",
+        "authors": [
+          "Rajiv Raman",
+          "Aditi Gupta",
+          "Swakshyar S Pal",
+          "Suganeswari Ganesan",
+          "Kadri Venkatesh",
+          "Vaitheeswaran Kulothungan",
+          "Tarun Sharma"
+        ],
+        "journal": "Diabetology & Metabolic Syndrome",
+        "abstract_summary": "The metabolic syndrome consists of central obesity, glucose intolerance, hyperinsulinemia, low high-density lipoproteins, high triglycerides and hypertension. Different studies have observed that metabolic syndrome causes microvascular complications in patients with type 2 diabetes. The aim of this study was to determine the prevalence of metabolic syndrome in the Indian population with type 2 diabetes mellitus in relation to gender and duration of diabetes, and to evaluate the influence of metabolic syndrome and its individual components on microvascular complications such as diabetic retinopathy, diabetic nephropathy and diabetic neuropathy.",
+        "year": 2010,
+        "license": "CC BY 2.0",
+        "page_count": 9,
+        "has_structured_sections": true,
+        "notes": "Primary cross-sectional epidemiology study (1414 T2DM patients, South India), NOT a meta-analysis -- good contrast to diabetes-pharmacotherapy-rct.pdf for chunking variety. Heavy table density (7 tables of prevalence/OR data). Genuine overlap with the GQD article on terms like 'HbA1c' and 'type 2 diabetes complications', but different framing (risk-factor epidemiology vs. treatment efficacy) -- deliberately used as the cross-doc distractor pair, see golden_qa.json q008.",
+        "pmc_version": 1
+      },
+      "selected_status": "excluded_exact_licence",
+      "direct_case_ids": [
+        "q008",
+        "q009",
+        "q010",
+        "q011",
+        "q012",
+        "q013",
+        "q021",
+        "q034"
+      ]
+    },
+    {
+      "filename": "diabetes-nephropathy-complications.pdf",
+      "pmcid": "PMC13433218",
+      "title": "Zinc, type 2 diabetes, diabetic kidney disease: focus on hypoxia",
+      "pdf_sha256": "1eab8391f2d6c495a37c0dc9ac3ea53c9a014d89ae4cc2ec5c80214fcc00e2df",
+      "extracted_text_sha256": "3d980a356bac2baae11a9214434d3df2f3209132ec5122836810913e163d8bca",
+      "page_count": 17,
+      "baseline_record": {
+        "filename": "diabetes-nephropathy-complications.pdf",
+        "cluster": "diabetes",
+        "search_query": "diabetic nephropathy AND complications",
+        "doi": "10.3389/fendo.2026.1825409",
+        "pmcid": "PMC13433218",
+        "title": "Zinc, type 2 diabetes, diabetic kidney disease: focus on hypoxia",
+        "authors": [
+          "Svetlana A. Lebedeva",
+          "Ekaterina M. Mikhailova",
+          "Maria Yu Materenchuk",
+          "Denis V. Kurkin",
+          "Mikhail Samsonov",
+          "Vadim V. Tarasov",
+          "Kerim Mutig"
+        ],
+        "journal": "Frontiers in Endocrinology",
+        "abstract_summary": "The incidence of type 2 diabetes mellitus is approaching pandemic levels, posing a major global healthcare problem. Diabetic kidney disease (DKD) is the main cause of the chronic kidney disease. Hyperglycemia-dependent renal hypoxia drives the onset and progression of DKD. The adaptive cellular response to hypoxia depends on the zinc signalling, which promotes expression of the hypoxia-inducible factor-1α (HIF-1α). Zinc is further relevant for anti-inflammatory, antioxidant, anti-apoptotic, and anti-fibrotic signalling pathways with nephroprotective effects in DKD. In this review, we focus on the role of zinc homeostasis in the development of diabetes and DKD, with particular emphasis on hypoxia as the central trigger of DKD. We also discuss the role of the zinc signaling in the cellular and systemic carbohydrate metabolism in the context of diabetes and DKD.",
+        "year": 2026,
+        "license": "CC BY",
+        "page_count": 17,
+        "has_structured_sections": true,
+        "notes": "Mechanistic/molecular review (zinc homeostasis, HIF-1a signalling, transporter biology), NOT a clinical trial or epidemiology study -- third distinct document type in the diabetes cluster, good for chunking variety. Dense with gene/protein names (ZnT1-8, ZIP1-14, HIF-1a/2a/3a, GPR39, NF-kB, etc.) and multiple detailed figures. Overlaps with diabetes-epidemiology-prevalence.pdf on 'diabetic nephropathy' and 'risk factors' but the framing differs sharply: statistical/epidemiological risk factors (Raman) vs. molecular pathogenic mechanism (this article) -- used as a second cross-doc distractor pair, see golden_qa.json q021. Explicitly states dosage/administration questions for zinc supplementation are out of scope -- good source for a scope-limited unanswerable query.",
+        "pmc_version": 1
+      },
+      "selected_status": "pending_fresh_eligibility_review",
+      "direct_case_ids": [
+        "q015",
+        "q016",
+        "q017",
+        "q018",
+        "q019",
+        "q021",
+        "q027"
+      ]
+    },
+    {
+      "filename": "diabetes-genetic-risk-gwas.pdf",
+      "pmcid": "PMC13403371",
+      "title": "Disentangling Sex Differences in Sulfonylurea Drug Response With Genome-Wide Association Studies in Individuals With Type 2 Diabetes",
+      "pdf_sha256": "5539513720e81a528a5bf25bd41175064a8efa314039ddba19888670d72a0b83",
+      "extracted_text_sha256": "11c3ed2ddff795c5e70b7c7a5cfa96db79a1aedf962524d402b890176d56076b",
+      "page_count": 12,
+      "baseline_record": {
+        "filename": "diabetes-genetic-risk-gwas.pdf",
+        "cluster": "diabetes",
+        "search_query": "type 2 diabetes AND genetic risk AND GWAS",
+        "doi": "10.1002/cpt.70381",
+        "pmcid": "PMC13403371",
+        "title": "Disentangling Sex Differences in Sulfonylurea Drug Response With Genome-Wide Association Studies in Individuals With Type 2 Diabetes",
+        "authors": [
+          "Joseph H. Breeyear",
+          "John S. House",
+          "Mark Kvale",
+          "Stella Nam",
+          "Farida S. Akhtari",
+          "Hetal S. Shah",
+          "Monique M. Hedderson",
+          "Kathleen M. Giacomini",
+          "Josyf C. Mychaleckyj",
+          "Alessandro Doria",
+          "Michael J. Wagner",
+          "Josephine H. Li",
+          "Sook Wah Yee",
+          "John B. Buse",
+          "Richard P. Woychik",
+          "Daniel M. Rotroff",
+          "Alison A. Motsinger-Reif"
+        ],
+        "journal": "Clinical Pharmacology & Therapeutics",
+        "abstract_summary": "Sulfonylureas are a cornerstone of type 2 diabetes therapy despite interindividual variability in response. Despite well-documented sex-based differences, pharmacogenomic and genome-wide association studies (GWAS) have largely overlooked sex as a biological variable. We conducted the first sex-stratified GWAS of hemoglobin A1c (HbA1c) response to sulfonylureas in Action to Control Cardiovascular Risk in Diabetes (ACCORD) clinical trial participants (N = 871). Variants meeting genome-wide (P < 5.0 × 10−8) and suggestive (P < 5.0 × 10−6) significance were assessed for replication in the Pharmacogenomics of Metformin (PMET1) cohort. Replicated variants were further analyzed in the Study to Understand the Genetics of the Acute Response to Metformin and Glipizide in Humans (SUGAR-MGH) cohort to assess acute insulin and glucose responses to a single glipizide dose. Genome-wide significant loci with sex-specific effects were identified: KAZN, KIF2B, SLC39A10, and SPINK5 (combined-sex); CRACR2A, KCNK2, and TENM2 (male-only); and NACPH2 (female-only). Two suggestive variants in the TMEM64/NECAB1 locus, associated with reduced HbA1c response to sulfonylureas in the male-only ACCORD analysis, were directly replicated in the PMET1 male-only cohort. In SUGAR-MGH, one replicated variant (rs6471250-C) was significantly associated with reduced peak insulin in males (P = 0.035) but not females (P = 0.40), demonstrating sex-specific functional effects. This study identified statistically supported and biologically plausible loci with prior evidence linking nearby genes to pathways relevant to sulfonylurea action, including insulin secretion, insulin regulation/sensitivity, calcium signaling, potassium-channel biology, and glucose transport. The findings highlight sex-specific differences in sulfonylurea response, providing mechanistic insights and underscoring the importance of sex-specific precision medicine. Identification of genetic variants influencing sex-specific response could inform dosing to optimize sulfonylureas.",
+        "year": 2026,
+        "license": "CC BY-NC (NonCommercial) -- NOTE: different from the plain CC BY license on the other 3 diabetes-cluster articles. Article also states it is a U.S. Government work and in the public domain in the USA, alongside the CC BY-NC notice. Worth double-checking reuse terms before redistributing in a public portfolio repo, given the NC restriction.",
+        "page_count": 12,
+        "has_structured_sections": true,
+        "notes": "Fourth distinct document type in the diabetes cluster: primary GWAS/pharmacogenomics research (not meta-analysis, epidemiology, or mechanistic review). Very dense in statistical genetics notation (p-values, effect sizes, loci tables, replication cohorts ACCORD/PMET1/SUGAR-MGH) -- good stress test for numeric/tabular chunk retrieval. Genuine COMPLEMENTARY overlap (not distractor) with diabetes-nephropathy-complications.pdf: both discuss KATP channels, calcium signaling, and insulin secretion mechanistically. A good query on this topic should retrieve chunks from BOTH docs rather than picking one -- see golden_qa.json q027 for a synthesis-across-docs test case (distinct from the 'wrong doc' distractor pattern used in q008/q021).",
+        "pmc_version": 1
+      },
+      "selected_status": "excluded_exact_licence",
+      "direct_case_ids": [
+        "q022",
+        "q023",
+        "q024",
+        "q025",
+        "q027",
+        "q028"
+      ]
+    },
+    {
+      "filename": "diabetes-cgm-management.pdf",
+      "pmcid": "PMC13430954",
+      "title": "Retrieval-Augmented Large Language Model Counseling for Continuous Glucose Monitoring in Diabetes: Source-Masked Multirater Comparative Evaluation",
+      "pdf_sha256": "e25002f03766a70a0d260c1ba9917933a1cde3aebe091e8694a75634fb0c0b11",
+      "extracted_text_sha256": "fb07bbfd6201c00c0d65e1e396a199d70252583042674ca3ec34091a83d4fea2",
+      "page_count": 21,
+      "baseline_record": {
+        "filename": "diabetes-cgm-management.pdf",
+        "cluster": "diabetes",
+        "search_query": "diabetes management AND continuous glucose monitoring",
+        "doi": "10.2196/98519",
+        "pmcid": "PMC13430954",
+        "title": "Retrieval-Augmented Large Language Model Counseling for Continuous Glucose Monitoring in Diabetes: Source-Masked Multirater Comparative Evaluation",
+        "authors": [
+          "Zhijun Guo",
+          "Alvina Lai",
+          "Emmanouil Korakas",
+          "Aristeidis Vagenas",
+          "Irshad Ahamed",
+          "Christo Albor",
+          "Hengrui Zhang",
+          "Justin Healy",
+          "Kezhi Li"
+        ],
+        "journal": "Journal of Medical Internet Research (JMIR)",
+        "abstract_summary": "The PubMed record should be used as the authoritative version for this corpus. The previously supplied abstract should therefore be replaced with the abstract returned by the individual PubMed DOI query.",
+        "year": 2026,
+        "license": "CC BY 4.0",
+        "page_count": 21,
+        "has_structured_sections": true,
+        "notes": "META-RELEVANT: this article is itself a study evaluating a RAG-based LLM system for diabetes CGM counseling against clinician-authored responses -- directly on-theme for the user's own RAG project, not just topically adjacent. Sixth distinct document type in the diabetes cluster: an AI/clinical-informatics evaluation study, not a clinical trial, epidemiology, mechanistic review, GWAS, or narrative review. Contains rich, UNIQUE technical detail (FAISS vector index, text-embedding-3-small, chunking strategy, GPT-5.1 configuration) not found in any other corpus document -- useful as a retrieval sanity-check case, since a query about RAG architecture should trivially and unambiguously point here. Also worth deciding explicitly whether this counts as 'BIOMED content' for the corpus's intended purpose or should be treated as an AI-methods paper that happens to be diabetes-themed -- flagging for the user's judgment rather than assuming.",
+        "pmc_version": 1
+      },
+      "selected_status": "pending_fresh_eligibility_review",
+      "direct_case_ids": [
+        "q036",
+        "q037",
+        "q038",
+        "q039"
+      ]
+    },
+    {
+      "filename": "diabetes-cardiovascular-outcomes.pdf",
+      "pmcid": "PMC13433680",
+      "title": "Sleep loss as a cardiometabolic risk factor: a narrative review of clinical and public health implications",
+      "pdf_sha256": "318eb20f7938dfcc713cb0132f03506cfb1eadc7d349b50547b844c40a8ad6a7",
+      "extracted_text_sha256": "4f85a4ba5a9d7c6eff49c0b52e98d863879864fb8f29272141e1f2ece181c34c",
+      "page_count": 16,
+      "baseline_record": {
+        "filename": "diabetes-cardiovascular-outcomes.pdf",
+        "cluster": "diabetes",
+        "search_query": "type 2 diabetes AND cardiovascular outcomes",
+        "doi": "10.1007/s44470-026-00144-1",
+        "pmcid": "PMC13433680",
+        "title": "Sleep loss as a cardiometabolic risk factor: a narrative review of clinical and public health implications",
+        "authors": [
+          "Firas K. Ghanem",
+          "Hrayr Attarian",
+          "Zeina Al-Khalil",
+          "Colette S. Kabrita"
+        ],
+        "journal": "Journal of Clinical Sleep Medicine",
+        "abstract_summary": "Purpose: To synthesize current evidence on how sleep deprivation, impaired sleep architecture, and circadian misalignment affect cardiovascular and metabolic regulation across autonomic, hormonal, inflammatory, and behavioral pathways, and to highlight remaining research gaps in cardiometabolic sleep medicine. Methods: A structured literature search was conducted using PubMed, Scopus, and Google Scholar to identify peer-reviewed primary and review articles published within the past decade, using chronobiological and cardiometabolic search terms. Reference lists of retrieved articles were screened to identify additional relevant studies. Results: Experimental and epidemiologic data consistently link short or disturbed sleep with increased incidence of hypertension, coronary artery disease, stroke, obesity, type 2 diabetes, and metabolic syndrome. Sleep loss activates the sympathetic nervous system and elevates cortisol, while suppressing growth hormone, thereby promoting vasoconstriction, endothelial dysfunction, and cardiac remodeling. Parallel disruption of leptin, ghrelin, and endocannabinoid signaling increases hunger, caloric intake, and preference for energy-dense foods, driving weight gain, visceral adiposity, and insulin resistance. Circadian misalignment from shift work and social jet lag further amplifies inflammatory signaling and metabolic risk across the lifespan. Limited interventional data suggest that sleep extension can improve appetite regulation, blood pressure, and some glycemic indices, but mechanistic and long-term outcomes remain underexplored. Conclusion: Sleep deprivation and circadian disruption mediate cardiometabolic disease through converging neuroendocrine, autonomic, inflammatory, and behavioral pathways. Future research should employ longitudinal designs and integrated multi-omics approaches combined with sleep phenotyping to clarify causal mechanisms and identify novel biomarkers and therapeutic targets in clinical sleep medicine.",
+        "year": 2026,
+        "license": "CC BY 4.0",
+        "page_count": 16,
+        "has_structured_sections": true,
+        "notes": "Narrative review (NOT systematic -- explicitly acknowledges no PRISMA protocol, no formal risk-of-bias assessment, 102 studies qualitatively synthesized). Primary lens is sleep/circadian biology, with T2DM and CVD outcomes as downstream topics rather than the central focus -- a looser fit for the 'cardiovascular outcomes' search slot than a dedicated CVD-in-diabetes study would be, but content coverage of HbA1c, metabolic syndrome, and CVD risk is substantial. Genuine overlap with diabetes-epidemiology-prevalence.pdf (Raman et al.) on metabolic syndrome and cardiovascular risk, but different framing: Raman = statistical prevalence/microvascular complications in existing diabetics; this review = sleep loss as a causal driver of MS and macrovascular (CAD/MI/stroke) risk. See golden_qa.json for the resulting distractor pair.",
+        "pmc_version": 1
+      },
+      "selected_status": "pending_fresh_eligibility_review",
+      "direct_case_ids": [
+        "q029",
+        "q030",
+        "q031",
+        "q032",
+        "q034",
+        "q035"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "legacy_query": {
+        "id": "q001",
+        "question": "What was the primary outcome measured in this meta-analysis of GQD plus metformin trials?",
+        "category": "direct_lookup",
+        "expected_doc": "diabetes-pharmacotherapy-rct.pdf",
+        "expected_location": {
+          "page": 1,
+          "section": "Abstract / Methods > Outcomes"
+        },
+        "reference_answer": "HbA1c (glycated hemoglobin) was the primary outcome. FPG and 2-hour postprandial glucose were secondary outcomes."
+      },
+      "action": "revise",
+      "finding": "Correct primary HbA1c and secondary FPG/2hPG outcomes; replace this meta-analysis with an explicit He et al. identity. Useful retrieval floor, not a reasoning case.",
+      "evidence_review": "Reviewed supplied main PDF extraction and relevant sections; PDF page/table visual review recorded separately when completed",
+      "successor_ids": [
+        "q001"
+      ],
+      "status": "audit_complete; migration_complete",
+      "final_action": "revise_same_id_with_explicit_revision",
+      "final_revision": 2,
+      "final_category": "direct_lookup"
+    },
+    {
+      "legacy_query": {
+        "id": "q002",
+        "question": "How many randomized controlled trials and total participants were included in this systematic review?",
+        "category": "direct_lookup",
+        "expected_doc": "diabetes-pharmacotherapy-rct.pdf",
+        "expected_location": {
+          "page": 3,
+          "section": "Results > Study selection"
+        },
+        "reference_answer": "Eight randomized controlled trials involving 725 total participants were included."
+      },
+      "action": "revise",
+      "finding": "Eight trials/725 participants is supported, but distinguish the 196 participants/two trials in the primary change-score analysis; supply study identity.",
+      "evidence_review": "Reviewed supplied main PDF extraction and relevant sections; PDF page/table visual review recorded separately when completed",
+      "successor_ids": [
+        "q002"
+      ],
+      "status": "audit_complete; migration_complete",
+      "final_action": "revise_same_id_with_explicit_revision",
+      "final_revision": 2,
+      "final_category": "direct_lookup"
+    },
+    {
+      "legacy_query": {
+        "id": "q003",
+        "question": "In the primary change-score analysis, did GQD plus metformin produce a statistically significant reduction in HbA1c compared with metformin alone?",
+        "category": "direct_lookup",
+        "expected_doc": "diabetes-pharmacotherapy-rct.pdf",
+        "expected_location": {
+          "page": 7,
+          "section": "Results > Primary analysis of change-from-baseline values"
+        },
+        "reference_answer": "No. The mean difference was -1.92 (95% CI -4.43 to 0.59, P = 0.13), which was not statistically significant, based on only two trials with sufficient data."
+      },
+      "action": "revise",
+      "finding": "Supported null HbA1c change-score estimate -1.92 percentage points, CI -4.43 to 0.59, P=.13; preserve two-trial/196-person denominator, exploratory secondary findings and very-low certainty.",
+      "evidence_review": "Reviewed supplied main PDF extraction and relevant sections; PDF page/table visual review recorded separately when completed",
+      "successor_ids": [
+        "q003"
+      ],
+      "status": "audit_complete; migration_complete",
+      "final_action": "revise_same_id_with_explicit_revision",
+      "final_revision": 2,
+      "final_category": "direct_lookup"
+    },
+    {
+      "legacy_query": {
+        "id": "q004",
+        "question": "How do the HbA1c results from the primary change-score analysis compare with the post-treatment sensitivity analysis that used all eight trials?",
+        "category": "multi_hop",
+        "expected_doc": "diabetes-pharmacotherapy-rct.pdf",
+        "expected_location": {
+          "page": 7,
+          "section": "Results > Primary analysis (change-score) AND Sensitivity analysis 2 (post-treatment, S1-S8)"
+        },
+        "reference_answer": "The primary change-score analysis (based on only 2 trials) found no statistically significant HbA1c reduction. In contrast, the post-treatment sensitivity analysis using all 8 trials did show a statistically significant reduction (MD -1.21, 95% CI -1.99 to -0.43). However, the authors treat the sensitivity result as supportive rather than confirmatory, since post-treatment values are more vulnerable to baseline imbalance and none of the trials used blinding."
+      },
+      "action": "revise",
+      "finding": "Primary and sensitivity estimates are supported; require separate result locations and the reason post-treatment values are only supportive. Do not equate statistical significance with a reliable clinical benefit.",
+      "evidence_review": "Reviewed supplied main PDF extraction and relevant sections; PDF page/table visual review recorded separately when completed",
+      "successor_ids": [
+        "q004"
+      ],
+      "status": "audit_complete; migration_complete",
+      "final_action": "revise_same_id_with_explicit_revision",
+      "final_revision": 2,
+      "final_category": "multi_hop"
+    },
+    {
+      "legacy_query": {
+        "id": "q005",
+        "question": "What was the overall GRADE certainty rating for the three glycemic outcomes, and what were the main reasons for downgrading?",
+        "category": "multi_hop",
+        "expected_doc": "diabetes-pharmacotherapy-rct.pdf",
+        "expected_location": {
+          "page": 6,
+          "section": "Results > Certainty of evidence AND Table 2 (Summary of Findings)"
+        },
+        "reference_answer": "All three outcomes (HbA1c, FPG, 2hPG) were rated as 'very low' certainty. Downgrading reasons included high risk of bias across trials, substantial to extreme inconsistency (heterogeneity), and imprecision due to the small number of trials and participants."
+      },
+      "action": "reclassify",
+      "finding": "All outcomes very-low certainty and downgrade reasons occur together in Certainty of evidence. Label direct lookup unless a separately located primary-analysis denominator is required.",
+      "evidence_review": "Reviewed supplied main PDF extraction and relevant sections; PDF page/table visual review recorded separately when completed",
+      "successor_ids": [
+        "q005"
+      ],
+      "status": "audit_complete; migration_complete",
+      "final_action": "revise_same_id_with_explicit_revision",
+      "final_revision": 4,
+      "final_category": "direct_lookup"
+    },
+    {
+      "legacy_query": {
+        "id": "q006",
+        "question": "Which trials used random-number tables for randomization, giving them clearer evidence of proper randomization than the others?",
+        "category": "direct_lookup",
+        "expected_doc": "diabetes-pharmacotherapy-rct.pdf",
+        "expected_location": {
+          "page": 4,
+          "section": "Results > Risk of bias assessment; also Table 1"
+        },
+        "reference_answer": "Trials S1, S2, and S3 (Li H 2018; Li WJ and Li M 2021; Xiong QJ 2019) used random-number tables. Allocation concealment, however, was not described for any of them."
+      },
+      "action": "revise",
+      "finding": "S1-S3 random-number tables supported; allocation concealment unreported and all trials judged high risk of bias. Random sequence reporting alone does not establish overall low bias.",
+      "evidence_review": "Reviewed supplied main PDF extraction and relevant sections; PDF page/table visual review recorded separately when completed",
+      "successor_ids": [
+        "q006"
+      ],
+      "status": "audit_complete; migration_complete",
+      "final_action": "revise_same_id_with_explicit_revision",
+      "final_revision": 2,
+      "final_category": "direct_lookup"
+    },
+    {
+      "legacy_query": {
+        "id": "q007",
+        "question": "What specific commercial brand of metformin was administered to patients in the included trials?",
+        "category": "unanswerable",
+        "expected_doc": "diabetes-pharmacotherapy-rct.pdf",
+        "expected_location": {
+          "page": null,
+          "section": "Not present in main text -- dosing detail is referenced as being in Appendix S3, which is not part of the retrievable article body"
+        },
+        "reference_answer": "Not stated. The article references metformin dosing details as being documented in a supplementary appendix (S3) not included in the main text. A well-behaved RAG system should decline to answer or flag the information as unavailable, rather than fabricating a brand name."
+      },
+      "action": "recheck",
+      "finding": "Main PDF does not name the metformin brand; it directs dose/regimen detail to excluded Appendix S3. Keep only as explicitly main-PDF-scoped absent fact after expanded-corpus review; do not infer absence from all original trial publications.",
+      "evidence_review": "Reviewed supplied main PDF extraction and relevant sections; PDF page/table visual review recorded separately when completed",
+      "successor_ids": [
+        "q007"
+      ],
+      "status": "audit_complete; migration_complete",
+      "final_action": "revise_same_id_with_explicit_revision",
+      "final_revision": 2,
+      "final_category": "unanswerable"
+    },
+    {
+      "legacy_query": {
+        "id": "q008",
+        "question": "What HbA1c level or role does HbA1c play in relation to diabetic complications like retinopathy or nephropathy?",
+        "category": "cross_doc_distractor",
+        "expected_doc": "diabetes-epidemiology-prevalence.pdf",
+        "distractor_doc": "diabetes-pharmacotherapy-rct.pdf",
+        "expected_location": {
+          "page": 6,
+          "section": "Results > Table 7 (multiple logistic regression) and Discussion"
+        },
+        "reference_answer": "In the Raman et al. epidemiology study, glycosylated hemoglobin (HbA1c) was identified as an independent risk factor for both diabetic retinopathy (OR 1.16) and diabetic nephropathy (OR 1.24) via multivariate regression. This is distinct from the GQD/metformin meta-analysis, where HbA1c appears only as a treatment-outcome measure (whether a drug lowers it), not as a risk factor for complications. A system should retrieve the Raman et al. article for this query, not the GQD meta-analysis, despite both documents mentioning HbA1c and type 2 diabetes prominently.",
+        "notes": "Genuine lexical-overlap distractor: both docs are diabetes-cluster and both discuss HbA1c heavily, but in different roles (risk factor vs. treatment outcome). Tests whether retrieval distinguishes semantic framing, not just keyword co-occurrence."
+      },
+      "action": "rebuild",
+      "finding": "Ambiguous general HbA1c/complication question does not uniquely require Raman. Several reviews discuss that relationship. Removed epidemiology source; rebuild around a named cohort/outcome/adjusted estimate and genuine competing passage.",
+      "evidence_review": "Reviewed supplied main PDF extraction and relevant sections; PDF page/table visual review recorded separately when completed",
+      "successor_ids": [
+        "d001",
+        "d013"
+      ],
+      "status": "audit_complete; migration_complete",
+      "final_action": "retire_legacy_id; replace_scope_without_transferring_old_gold"
+    },
+    {
+      "legacy_query": {
+        "id": "q009",
+        "question": "What was the age and gender adjusted prevalence of Metabolic Syndrome in this South Indian population with type 2 diabetes?",
+        "category": "direct_lookup",
+        "expected_doc": "diabetes-epidemiology-prevalence.pdf",
+        "expected_location": {
+          "page": 1,
+          "section": "Abstract / Results"
+        },
+        "reference_answer": "73.3% (95% CI 73.2-73.3), higher in women (83.3%) than men (65.3%)."
+      },
+      "action": "retire",
+      "finding": "Raman CC BY 2.0 fails exact-version policy. Reported adjusted 73.3% CI 73.2-73.3 is unusually narrow; preserve as reported rather than repair. New cohort cannot inherit Indian estimates.",
+      "evidence_review": "Reviewed supplied main PDF extraction and relevant sections; PDF page/table visual review recorded separately when completed",
+      "successor_ids": [
+        "d001"
+      ],
+      "status": "audit_complete; migration_complete",
+      "final_action": "retire_legacy_id; replace_scope_without_transferring_old_gold"
+    },
+    {
+      "legacy_query": {
+        "id": "q010",
+        "question": "How was diabetic nephropathy diagnosed in this study?",
+        "category": "direct_lookup",
+        "expected_doc": "diabetes-epidemiology-prevalence.pdf",
+        "expected_location": {
+          "page": 2,
+          "section": "Methods > Definitions > Diabetic Nephropathy"
+        },
+        "reference_answer": "By the presence of microalbuminuria in the first morning urine sample, defined as an Albumin Creatinine Ratio (ACR) between 30 and 299 mg/g."
+      },
+      "action": "retire",
+      "finding": "First morning microalbuminuria ACR 30-299 mg/g supported in Raman Definitions; not a universal DKD diagnostic rule. Rebuild only with replacement-specific definition.",
+      "evidence_review": "Reviewed supplied main PDF extraction and relevant sections; PDF page/table visual review recorded separately when completed",
+      "successor_ids": [
+        "d001",
+        "d013"
+      ],
+      "status": "audit_complete; migration_complete",
+      "final_action": "retire_legacy_id; replace_scope_without_transferring_old_gold"
+    },
+    {
+      "legacy_query": {
+        "id": "q011",
+        "question": "What criteria were used to define Metabolic Syndrome in this study?",
+        "category": "direct_lookup",
+        "expected_doc": "diabetes-epidemiology-prevalence.pdf",
+        "expected_location": {
+          "page": 2,
+          "section": "Methods > Definitions > Metabolic syndrome"
+        },
+        "reference_answer": "The IDF consensus criteria: abdominal obesity (waist circumference thresholds by sex) plus two or more of: blood pressure >= 130/85 mmHg, fasting plasma glucose >= 5.6 mmol/l or pre-existing diabetes, elevated triglycerides, and reduced HDL cholesterol (sex-specific thresholds)."
+      },
+      "action": "retire",
+      "finding": "IDF definition supported; gold omits 90/80 cm waist values. Source prints an apparent triglyceride unit error (150 mg/l), which must not be silently harmonized. Replace with eligible source-specific definition.",
+      "evidence_review": "Reviewed supplied main PDF extraction and relevant sections; PDF page/table visual review recorded separately when completed",
+      "successor_ids": [
+        "d001"
+      ],
+      "status": "audit_complete; migration_complete",
+      "final_action": "retire_legacy_id; replace_scope_without_transferring_old_gold"
+    },
+    {
+      "legacy_query": {
+        "id": "q012",
+        "question": "How did the prevalence of Metabolic Syndrome change with increasing duration of diabetes, and did this trend differ between men and women?",
+        "category": "multi_hop",
+        "expected_doc": "diabetes-epidemiology-prevalence.pdf",
+        "expected_location": {
+          "page": 3,
+          "section": "Results (Table 1 and surrounding text)"
+        },
+        "reference_answer": "In men, MS prevalence declined significantly as diabetes duration increased (67.4% in <10 years, down to 39.1% in >20 years, trend p=0.002). In women, prevalence stayed roughly stable across duration groups (83.8%, 79.1%, 81.8%, trend p=0.401 -- not significant). So the trend was sex-specific: significant decline in men, no significant trend in women."
+      },
+      "action": "retire",
+      "finding": "Sex-specific duration trend supported but table bins 0-10/11-20/>20 differ from prose <10/10-20/>20; do not pretend exact bin equality. Cross-sectional trend is not longitudinal within-person change.",
+      "evidence_review": "Reviewed supplied main PDF extraction and relevant sections; PDF page/table visual review recorded separately when completed",
+      "successor_ids": [
+        "d001"
+      ],
+      "status": "audit_complete; migration_complete",
+      "final_action": "retire_legacy_id; replace_scope_without_transferring_old_gold"
+    },
+    {
+      "legacy_query": {
+        "id": "q013",
+        "question": "What were the independent risk factors identified for diabetic nephropathy versus diabetic neuropathy in the multivariate regression analysis?",
+        "category": "multi_hop",
+        "expected_doc": "diabetes-epidemiology-prevalence.pdf",
+        "expected_location": {
+          "page": 6,
+          "section": "Results > Table 7 and surrounding text"
+        },
+        "reference_answer": "For nephropathy: HbA1c (OR 1.24), duration of diabetes (OR 1.04), and hypertension (OR 1.80). For neuropathy: reduced serum HDL cholesterol (OR 1.03) and increased waist circumference (OR 1.02). The risk factor profiles are distinct between the two complications."
+      },
+      "action": "retire",
+      "finding": "Table 7 nephropathy HbA1c/duration/hypertension and neuropathy HDL/waist associations supported. Co-located table comparison is weak multi-hop; adjustment/direction/unit binding needed. Removed source.",
+      "evidence_review": "Reviewed supplied main PDF extraction and relevant sections; PDF page/table visual review recorded separately when completed",
+      "successor_ids": [
+        "d001",
+        "d013"
+      ],
+      "status": "audit_complete; migration_complete",
+      "final_action": "retire_legacy_id; replace_scope_without_transferring_old_gold"
+    },
+    {
+      "legacy_query": {
+        "id": "q015",
+        "question": "What percentage of individuals with type 2 diabetes mellitus develop diabetic kidney disease (DKD)?",
+        "category": "direct_lookup",
+        "expected_doc": "diabetes-nephropathy-complications.pdf",
+        "expected_location": {
+          "page": 2,
+          "section": "Introduction"
+        },
+        "reference_answer": "Approximately 30-40% of individuals with T2DM develop DKD."
+      },
+      "action": "revise",
+      "finding": "30-40% is a cited review estimate, not an incidence measured by Lebedeva et al. Add review identity and prevent mixing prevalence/incident risk across populations.",
+      "evidence_review": "Reviewed supplied main PDF extraction and relevant sections; PDF page/table visual review recorded separately when completed",
+      "successor_ids": [
+        "q015"
+      ],
+      "status": "audit_complete; migration_complete",
+      "final_action": "revise_same_id_with_explicit_revision",
+      "final_revision": 2,
+      "final_category": "direct_lookup"
+    },
+    {
+      "legacy_query": {
+        "id": "q016",
+        "question": "What is described as the fundamental pathogenetic mechanism underlying the onset and progression of diabetic kidney disease in this review?",
+        "category": "direct_lookup",
+        "expected_doc": "diabetes-nephropathy-complications.pdf",
+        "expected_location": {
+          "page": 2,
+          "section": "Introduction; also Zinc and diabetic kidney disease > Pathophysiology of DKD, p9-10"
+        },
+        "reference_answer": "Renal hypoxia, driven by chronic hyperglycemia, is presented as the fundamental pathogenetic mechanism underlying both onset and progression of DKD."
+      },
+      "action": "revise",
+      "finding": "Renal hypoxia described as fundamental mechanism; add review identity and preserve mechanistic/preclinical framing rather than imply proved treatment efficacy.",
+      "evidence_review": "Reviewed supplied main PDF extraction and relevant sections; PDF page/table visual review recorded separately when completed",
+      "successor_ids": [
+        "q016"
+      ],
+      "status": "audit_complete; migration_complete",
+      "final_action": "revise_same_id_with_explicit_revision",
+      "final_revision": 2,
+      "final_category": "direct_lookup"
+    },
+    {
+      "legacy_query": {
+        "id": "q017",
+        "question": "Which zinc transporter has an expression profile largely restricted to pancreatic islets, and what is its functional role?",
+        "category": "direct_lookup",
+        "expected_doc": "diabetes-nephropathy-complications.pdf",
+        "expected_location": {
+          "page": 4,
+          "section": "SLC30A/ZnT transporters"
+        },
+        "reference_answer": "ZnT8. It is embedded in the membrane of dense insulin granules, where it mediates zinc accumulation, storage, and preparation of insulin for secretion. Its expression profile is unusually restricted to pancreatic islets compared with other zinc transporters."
+      },
+      "action": "revise",
+      "finding": "ZnT8 insulin-granule role and largely pancreatic-islet expression supported locally. Later renal ZnT8 discussion qualifies simplistic pancreas-only inference; add section-specific scope.",
+      "evidence_review": "Reviewed supplied main PDF extraction and relevant sections; PDF page/table visual review recorded separately when completed",
+      "successor_ids": [
+        "q017"
+      ],
+      "status": "audit_complete; migration_complete",
+      "final_action": "revise_same_id_with_explicit_revision",
+      "final_revision": 2,
+      "final_category": "direct_lookup"
+    },
+    {
+      "legacy_query": {
+        "id": "q018",
+        "question": "How does zinc modulate HIF-1a activity, and what downstream effect does this have on renal fibrosis in DKD?",
+        "category": "multi_hop",
+        "expected_doc": "diabetes-nephropathy-complications.pdf",
+        "expected_location": {
+          "page": 12,
+          "section": "The role of zinc in the pathophysiology of DKD (and Figure 5)"
+        },
+        "reference_answer": "Zinc induces HIF-1a proteasomal degradation and inhibits its translocation into the cell nucleus, preventing DNA binding and target gene transcription. This reduces activation of the HIF-1a/VEGF signalling pathway, decreasing angiogenesis, fibrosis, and inflammation. In animal DKD models, zinc administration reduced fibrotic markers and tubulointerstitial fibrosis via the PI3K/AKT/GSK-3b pathway, accompanied by decreased HIF-1a expression."
+      },
+      "action": "reclassify",
+      "finding": "Zinc proteasomal degradation/nuclear exclusion and animal fibrosis findings are co-located on PDF page 12, so current multi-hop label overstates separation. Preserve may/preclinical scope and distinguish adaptive acute from pathological chronic HIF activity.",
+      "evidence_review": "Reviewed supplied main PDF extraction and relevant sections; PDF page/table visual review recorded separately when completed",
+      "successor_ids": [
+        "q018"
+      ],
+      "status": "audit_complete; migration_complete",
+      "final_action": "revise_same_id_with_explicit_revision",
+      "final_revision": 2,
+      "final_category": "direct_lookup"
+    },
+    {
+      "legacy_query": {
+        "id": "q019",
+        "question": "Compare the roles of ZnT7 and ZnT8 in protecting kidney tissue against diabetes-related fibrosis.",
+        "category": "multi_hop",
+        "expected_doc": "diabetes-nephropathy-complications.pdf",
+        "expected_location": {
+          "page": 11,
+          "section": "The role of zinc in the pathophysiology of DKD"
+        },
+        "reference_answer": "ZnT7 (localized in the perinuclear region/Golgi of rat kidney tubular cells) inhibits high-glucose-induced epithelial-mesenchymal transition (EMT) when overexpressed; its knockdown promotes EMT via activation of MAPK/ERK and TGF-b/Smad pathways. ZnT8 (predominantly in renal tubular epithelial cells) separately protects against EMT and tubulointerstitial fibrosis by restraining TGF-b1/Smads signalling, and additionally protects tubular cells from apoptosis via TNFAIP3-mediated suppression of NF-kB. Both transporters are renoprotective but act through distinct, non-identical signalling routes."
+      },
+      "action": "reclassify",
+      "finding": "ZnT7 and ZnT8 findings are co-located on page 11. Preserve different experimental contexts and pathway attribution; use direct comparison unless requiring another separate section.",
+      "evidence_review": "Reviewed supplied main PDF extraction and relevant sections; PDF page/table visual review recorded separately when completed",
+      "successor_ids": [
+        "q019"
+      ],
+      "status": "audit_complete; migration_complete",
+      "final_action": "revise_same_id_with_explicit_revision",
+      "final_revision": 2,
+      "final_category": "direct_lookup"
+    },
+    {
+      "legacy_query": {
+        "id": "q021",
+        "question": "What is the molecular mechanism by which hyperglycemia leads to progression of diabetic kidney disease?",
+        "category": "cross_doc_distractor",
+        "expected_doc": "diabetes-nephropathy-complications.pdf",
+        "distractor_doc": "diabetes-epidemiology-prevalence.pdf",
+        "expected_location": {
+          "page": 9,
+          "section": "Pathophysiology of DKD"
+        },
+        "reference_answer": "Chronic hyperglycemia drives renal hypoxia (via mechanisms including increased tubular sodium/glucose reabsorption and impaired oxygen delivery), which activates HIF-1a signalling; sustained overactivation of HIF-1a promotes epithelial-mesenchymal transition, pathological angiogenesis, and extracellular matrix accumulation, leading to renal fibrosis. This is a distinct question from the Raman et al. epidemiology study, which reports statistical/epidemiological risk factors for nephropathy (e.g. HbA1c, hypertension, duration of diabetes as regression predictors) without explaining the underlying biological mechanism. A retrieval system should favor the Lebedeva et al. mechanistic review here despite both documents using terms like 'diabetic nephropathy' and 'risk factors'.",
+        "notes": "Second cross-doc distractor pair in the diabetes cluster. Tests whether retrieval distinguishes 'statistical risk factor' framing (epidemiology) from 'biological mechanism' framing (molecular review) despite shared vocabulary around nephropathy/kidney complications."
+      },
+      "action": "rebuild",
+      "finding": "Mechanistic hypoxia evidence supported but generic question has valid alternative mechanistic reviews; removed Raman cannot remain a selected distractor. Scope to Lebedeva and compare adaptive versus sustained HIF signalling or a genuine competing clinical endpoint.",
+      "evidence_review": "Reviewed supplied main PDF extraction and relevant sections; PDF page/table visual review recorded separately when completed",
+      "successor_ids": [
+        "q021"
+      ],
+      "status": "audit_complete; migration_complete",
+      "final_action": "revise_same_id_with_explicit_revision",
+      "final_revision": 2,
+      "final_category": "direct_lookup"
+    },
+    {
+      "legacy_query": {
+        "id": "q022",
+        "question": "What was the primary finding regarding sex-specific genetic effects at the TMEM64/NECAB1 locus?",
+        "category": "direct_lookup",
+        "expected_doc": "diabetes-genetic-risk-gwas.pdf",
+        "expected_location": {
+          "page": 6,
+          "section": "Results > Direct variant replication and meta-analysis support with PMET1; Functional role of the replicated sex-specific locus"
+        },
+        "reference_answer": "Variants at TMEM64/NECAB1 (rs80334907, rs6471250) were associated with reduced sulfonylurea effectiveness specifically in males, and this was directly replicated in an independent male-only cohort (PMET1). The rs6471250-C variant additionally showed functional evidence of reduced peak insulin secretion in males (but not females) after a glipizide dose in the SUGAR-MGH cohort, confirming a male-specific effect."
+      },
+      "action": "retire",
+      "finding": "Restricted GWAS excluded. Male association and P=.035 versus female P=.40 do not alone prove a sex interaction; avoid confirming male-specific causality from unequal stratum significance. Replace drug-response and sex-specific behaviours separately.",
+      "evidence_review": "Reviewed supplied main PDF extraction and relevant sections; PDF page/table visual review recorded separately when completed",
+      "successor_ids": [
+        "d002"
+      ],
+      "status": "audit_complete; migration_complete",
+      "final_action": "retire_legacy_id; replace_scope_without_transferring_old_gold"
+    },
+    {
+      "legacy_query": {
+        "id": "q023",
+        "question": "What was the estimated heritability of HbA1c response to sulfonylureas in the male-only versus female-only strata?",
+        "category": "direct_lookup",
+        "expected_doc": "diabetes-genetic-risk-gwas.pdf",
+        "expected_location": {
+          "page": 4,
+          "section": "Results (opening paragraph)"
+        },
+        "reference_answer": "Male-only stratum: h2 = 0.87 (SE 0.22, P = 4.9x10^-5), a substantial and statistically significant heritability. Female-only stratum: h2 = 0.01 (SE 0.44, P = 0.50), not statistically significant."
+      },
+      "action": "retire",
+      "finding": "Male h2=.87 SE .22 P=4.9e-5 and female h2=.01 SE .44 P=.50 are reported. Imprecision/stratum sample size must accompany any sex-difference interpretation. Removed source; values cannot migrate.",
+      "evidence_review": "Reviewed supplied main PDF extraction and relevant sections; PDF page/table visual review recorded separately when completed",
+      "successor_ids": [
+        "d002",
+        "d003"
+      ],
+      "status": "audit_complete; migration_complete",
+      "final_action": "retire_legacy_id; replace_scope_without_transferring_old_gold"
+    },
+    {
+      "legacy_query": {
+        "id": "q024",
+        "question": "How many ACCORD trial participants were included in this sex-stratified GWAS, and how were they split by sex?",
+        "category": "direct_lookup",
+        "expected_doc": "diabetes-genetic-risk-gwas.pdf",
+        "expected_location": {
+          "page": 4,
+          "section": "Table 1 / Common variant analysis"
+        },
+        "reference_answer": "N=871 total participants (multi-ancestry combined-sex); 520 male-only and 351 female-only in the sex-stratified analyses."
+      },
+      "action": "retire",
+      "finding": "Source conflict: abstract/Table 1 report 871 total (520 male/351 female); Common variant analysis states 870/520/350. Original answer hides this conflict. No invented exclusion explanation; retire with excluded source.",
+      "evidence_review": "Reviewed supplied main PDF extraction and relevant sections; PDF page/table visual review recorded separately when completed",
+      "successor_ids": [
+        "d003"
+      ],
+      "status": "audit_complete; migration_complete",
+      "final_action": "retire_legacy_id; replace_scope_without_transferring_old_gold"
+    },
+    {
+      "legacy_query": {
+        "id": "q025",
+        "question": "How did the researchers validate the ACCORD GWAS findings, and what was the outcome specifically for the TMEM64/NECAB1 locus?",
+        "category": "multi_hop",
+        "expected_doc": "diabetes-genetic-risk-gwas.pdf",
+        "expected_location": {
+          "page": 6,
+          "section": "Direct variant replication with PMET1 AND Functional role of TMEM64/NECAB1 (SUGAR-MGH)"
+        },
+        "reference_answer": "Validation used a two-stage approach: (1) statistical replication in PMET1, an independent EHR-derived cohort, and (2) functional validation in SUGAR-MGH, where participants received an actual glipizide dose with measured insulin/glucose response. For TMEM64/NECAB1, both replicated variants showed consistent direction of effect in PMET1's male-only stratum, and rs6471250-C additionally showed a real functional effect: male-specific reduction in peak insulin after glipizide dosing."
+      },
+      "action": "retire",
+      "finding": "PMET1 replication plus SUGAR-MGH acute response are distinct evidence locations. Observational genetic/acute insulin associations are supportive follow-up, not proof of mechanism or dosing utility. Rebuild around eligible evidence.",
+      "evidence_review": "Reviewed supplied main PDF extraction and relevant sections; PDF page/table visual review recorded separately when completed",
+      "successor_ids": [
+        "d002",
+        "d004",
+        "d005"
+      ],
+      "status": "audit_complete; migration_complete",
+      "final_action": "retire_legacy_id; replace_scope_without_transferring_old_gold"
+    },
+    {
+      "legacy_query": {
+        "id": "q027",
+        "question": "What is the mechanistic link between ATP-sensitive potassium (KATP) channels, calcium influx, and insulin secretion in pancreatic beta-cells?",
+        "category": "cross_doc_synthesis",
+        "expected_docs": [
+          "diabetes-genetic-risk-gwas.pdf",
+          "diabetes-nephropathy-complications.pdf"
+        ],
+        "expected_location": {
+          "page": "GWAS doc p.2 (Introduction, sulfonylurea mechanism); zinc/DKD review p.4-5 (SLC39A/ZIP transporters and ZnR/GPR39 sections)",
+          "section": "Complementary mechanistic descriptions in both documents"
+        },
+        "reference_answer": "Both documents describe the same core mechanism from different angles. The GWAS paper explains that sulfonylureas bind the sulfonylurea receptor (SUR) on beta-cells, inhibit KATP channel potassium influx, depolarize the membrane, and trigger calcium influx that promotes insulin exocytosis; it also identifies genetic variants in calcium-signaling genes (CRACR2A, TMEM64/NECAB1) that modulate this pathway. The zinc/DKD review separately explains that zinc, acting as an intracellular signalling molecule, activates KATP channels at micromolar concentrations, suppressing calcium channel opening and providing a negative feedback loop on insulin release. A complete answer requires synthesizing both sources rather than treating either as sufficient alone.",
+        "notes": "This is NOT a 'wrong-doc' distractor like q008/q021 -- it's a genuine cross-document synthesis case where the two sources are complementary rather than competing. Useful for testing whether the RAG system's agentic layer can retrieve and combine chunks from multiple documents for one answer, rather than only testing single-document precision."
+      },
+      "action": "rebuild",
+      "finding": "Generic KATP/calcium question is answerable by the zinc review alone; current question does not demand attributed complementary facts from both papers. Gold copies GWAS potassium influx wording; do not endorse as established physiology. New synthesis must explicitly require distinct article-specific facts.",
+      "evidence_review": "Reviewed supplied main PDF extraction and relevant sections; PDF page/table visual review recorded separately when completed",
+      "successor_ids": [
+        "d011",
+        "d012"
+      ],
+      "status": "audit_complete; migration_complete",
+      "final_action": "retire_legacy_id; replace_scope_without_transferring_old_gold"
+    },
+    {
+      "legacy_query": {
+        "id": "q028",
+        "question": "Which racial/ethnic group showed significantly better HbA1c response to sulfonylureas compared to non-Hispanic Black individuals?",
+        "category": "direct_lookup",
+        "expected_doc": "diabetes-genetic-risk-gwas.pdf",
+        "expected_location": {
+          "page": 4,
+          "section": "Results (opening paragraph) and Figure 1"
+        },
+        "reference_answer": "Non-Hispanic White (NHW) individuals showed significantly better response than non-Hispanic Black (NHB) individuals (P=0.0013). No significant difference was found between NHW and Hispanic individuals (P=0.14)."
+      },
+      "action": "retire",
+      "finding": "NHW/NHB P=.0013 and NHW/Hispanic P=.14 supported but ancestry/race covariate association is not genetic causality. Restricted source excluded; preserve population differentiation in another case.",
+      "evidence_review": "Reviewed supplied main PDF extraction and relevant sections; PDF page/table visual review recorded separately when completed",
+      "successor_ids": [
+        "d011"
+      ],
+      "status": "audit_complete; migration_complete",
+      "final_action": "retire_legacy_id; replace_scope_without_transferring_old_gold"
+    },
+    {
+      "legacy_query": {
+        "id": "q029",
+        "question": "How many studies were included in the final qualitative synthesis of this narrative review, and what search methodology was used?",
+        "category": "direct_lookup",
+        "expected_doc": "diabetes-cardiovascular-outcomes.pdf",
+        "expected_location": {
+          "page": 2,
+          "section": "Methods"
+        },
+        "reference_answer": "102 studies were included. The authors searched PubMed, Scopus, and Google Scholar using chronobiology- and cardiometabolic-related keywords/MeSH terms, prioritizing the past 10 years. This was a narrative review, not a systematic review -- no PRISMA protocol was used, and intermediate screening counts were not prospectively recorded."
+      },
+      "action": "revise",
+      "finding": "102 studies and narrative/non-PRISMA method supported; no prospective intermediate screening counts. Explicit review identity and no systematic-review claim.",
+      "evidence_review": "Reviewed supplied main PDF extraction and relevant sections; PDF page/table visual review recorded separately when completed",
+      "successor_ids": [
+        "q029"
+      ],
+      "status": "audit_complete; migration_complete",
+      "final_action": "revise_same_id_with_explicit_revision",
+      "final_revision": 2,
+      "final_category": "direct_lookup"
+    },
+    {
+      "legacy_query": {
+        "id": "q030",
+        "question": "What increase in myocardial infarction and stroke risk was found by Cappuccio et al. (2011) for habitual short sleep (<6 hours) in a large longitudinal study?",
+        "category": "direct_lookup",
+        "expected_doc": "diabetes-cardiovascular-outcomes.pdf",
+        "expected_location": {
+          "page": 3,
+          "section": "Results > Sleep deprivation and cardiovascular disease"
+        },
+        "reference_answer": "Habitual sleep duration under 6 hours per night was associated with a 48% higher risk of developing and/or dying from heart disease and a 15% increased chance of developing and/or dying from stroke, based on data from over 474,000 participants across 8 countries."
+      },
+      "action": "revise",
+      "finding": "Review attributes 48% heart-disease and 15% stroke increased developing/dying risk to pooled longitudinal evidence. Question incorrectly singles out MI and a single large study; revise to review-attributed heart-disease endpoints, not new primary-trial evidence.",
+      "evidence_review": "Reviewed supplied main PDF extraction and relevant sections; PDF page/table visual review recorded separately when completed",
+      "successor_ids": [
+        "q030"
+      ],
+      "status": "audit_complete; migration_complete",
+      "final_action": "revise_same_id_with_explicit_revision",
+      "final_revision": 2,
+      "final_category": "direct_lookup"
+    },
+    {
+      "legacy_query": {
+        "id": "q031",
+        "question": "How did fasting glucose, insulin, and insulin sensitivity change with sleep extension in the Leproult et al. study?",
+        "category": "direct_lookup",
+        "expected_doc": "diabetes-cardiovascular-outcomes.pdf",
+        "expected_location": {
+          "page": 9,
+          "section": "Results > Sleep loss and cardiometabolic disease"
+        },
+        "reference_answer": "There was no significant change in overall insulin and glucose levels before versus after sleep extension. However, percent changes were more pronounced with sleep extension: a positive correlation for glucose (r=+0.53, P=0.041) and a negative correlation for insulin (r=-0.60, P=0.025). Insulin sensitivity improved significantly with sleep extension (r=+0.76, P=0.002)."
+      },
+      "action": "revise",
+      "finding": "Leproult 16 healthy non-obese adults: no overall glucose/insulin change, correlations with sleep extension reported. Avoid equating positive glucose correlation with desirable glucose reduction or calling a correlation an intervention effect size.",
+      "evidence_review": "Reviewed supplied main PDF extraction and relevant sections; PDF page/table visual review recorded separately when completed",
+      "successor_ids": [
+        "q031"
+      ],
+      "status": "audit_complete; migration_complete",
+      "final_action": "revise_same_id_with_explicit_revision",
+      "final_revision": 2,
+      "final_category": "direct_lookup"
+    },
+    {
+      "legacy_query": {
+        "id": "q032",
+        "question": "What hormonal mechanisms link sleep deprivation to both increased appetite/obesity risk and impaired glucose metabolism?",
+        "category": "multi_hop",
+        "expected_doc": "diabetes-cardiovascular-outcomes.pdf",
+        "expected_location": {
+          "page": 5,
+          "section": "Sleep loss and metabolic syndrome; Sleep problems and the development of obesity"
+        },
+        "reference_answer": "Sleep loss increases ghrelin and reduces leptin (raising the ghrelin/leptin ratio), which drives hunger and caloric intake. It also upregulates the endocannabinoid system, further increasing appetite and craving for energy-dense foods. Separately, sleep restriction disrupts cortisol secretion (evening rise, slower decline, higher nadir), which affects glucose homeostasis and insulin sensitivity. Experimentally, one week of sleep restriction produced a 40% drop in glucose clearance rate and a 30% lower insulin response on an intravenous glucose tolerance test, comparable to a prediabetic state -- linking the same hormonal disruption to both appetite dysregulation and impaired glucose handling."
+      },
+      "action": "revise",
+      "finding": "Appetite/endocannabinoid and cortisol/glucose mechanisms require separate review locations. Frame as reviewed mechanisms from different cited experiments, not proof that one hormonal change caused every reported endpoint.",
+      "evidence_review": "Reviewed supplied main PDF extraction and relevant sections; PDF page/table visual review recorded separately when completed",
+      "successor_ids": [
+        "q032"
+      ],
+      "status": "audit_complete; migration_complete",
+      "final_action": "revise_same_id_with_explicit_revision",
+      "final_revision": 2,
+      "final_category": "multi_hop"
+    },
+    {
+      "legacy_query": {
+        "id": "q034",
+        "question": "According to the evidence reviewed, what relative risks of coronary artery disease, myocardial infarction, and stroke are associated with metabolic syndrome?",
+        "category": "cross_doc_distractor",
+        "expected_doc": "diabetes-cardiovascular-outcomes.pdf",
+        "distractor_doc": "diabetes-epidemiology-prevalence.pdf",
+        "expected_location": {
+          "page": 9,
+          "section": "Results > Sleep loss and cardiometabolic disease (citing Isomaa et al. 2001)"
+        },
+        "reference_answer": "Citing Isomaa et al. (2001), metabolic syndrome significantly increased the risk of coronary artery disease, MI, and stroke, with relative risks of 2.96, 2.63, and 2.27 respectively (P<0.001). This is distinct from the Raman et al. epidemiology study, which examines metabolic syndrome's association with MICROvascular complications (retinopathy, nephropathy, neuropathy) in an existing diabetic population, not these macrovascular relative risks. A retrieval system should favor this sleep/cardiometabolic review for a question specifically about CAD/MI/stroke risk ratios, despite both documents discussing metabolic syndrome extensively.",
+        "notes": "Third cross-doc distractor pair in the diabetes cluster. Same underlying confusability pattern as q008/q021: shared vocabulary ('metabolic syndrome', 'cardiovascular risk') but different outcome focus (macrovascular RRs here vs. microvascular complication prevalence in Raman et al.)."
+      },
+      "action": "rebuild",
+      "finding": "2.96/2.63/2.27 review-attributed macrovascular risks supported; current generic evidence-reviewed question can accept alternatives. Explicitly identify review/cited cohort; use eligible prevalence paper as competing population/outcome evidence.",
+      "evidence_review": "Reviewed supplied main PDF extraction and relevant sections; PDF page/table visual review recorded separately when completed",
+      "successor_ids": [
+        "q034"
+      ],
+      "status": "audit_complete; migration_complete",
+      "final_action": "revise_same_id_with_explicit_revision",
+      "final_revision": 2,
+      "final_category": "cross_doc_distractor"
+    },
+    {
+      "legacy_query": {
+        "id": "q035",
+        "question": "What effect did daylight saving time transitions have on myocardial infarction rates, according to the Sadhu et al. analysis discussed in this review?",
+        "category": "direct_lookup",
+        "expected_doc": "diabetes-cardiovascular-outcomes.pdf",
+        "expected_location": {
+          "page": 4,
+          "section": "Results > Sleep deprivation and cardiovascular disease"
+        },
+        "reference_answer": "The spring transition (losing ~1 hour of sleep) was associated with a 24% increase in MIs the following day (RR 1.24, 95% CI 1.05-1.46, P=0.011). The fall transition (gaining ~1 hour of sleep) was associated with a 21% decrease in MIs the following day (RR 0.79, 95% CI 0.62-0.99, P=0.044). The review notes these findings should be interpreted cautiously given modest, transient effect sizes and some conflicting more recent large-scale studies."
+      },
+      "action": "revise",
+      "finding": "Review reports day-specific spring/fall MI changes and no weekly PCI-for-MI change; original wording omits weekly null result and location is stale. Preserve reviewed observational/natural-experiment scope and conflicting literature caveat.",
+      "evidence_review": "Reviewed supplied main PDF extraction and relevant sections; PDF page/table visual review recorded separately when completed",
+      "successor_ids": [
+        "q035"
+      ],
+      "status": "audit_complete; migration_complete",
+      "final_action": "revise_same_id_with_explicit_revision",
+      "final_revision": 2,
+      "final_category": "direct_lookup"
+    },
+    {
+      "legacy_query": {
+        "id": "q036",
+        "question": "What retrieval architecture (vector index, chunking strategy, embedding model) did the conversational agent system in this study use?",
+        "category": "direct_lookup",
+        "expected_doc": "diabetes-cgm-management.pdf",
+        "expected_location": {
+          "page": 5,
+          "section": "Methods > CA Design"
+        },
+        "reference_answer": "Documents were split into approximately 500-character segments with 100-character overlap using a recursive character-based splitter, embedded using OpenAI's text-embedding-3-small model, and stored in a FAISS (Facebook AI Similarity Search) vector index. At inference time, the top 2 nearest segments (top_k=2) were retrieved by L2 (Euclidean) distance using the current question as the query.",
+        "notes": "SANITY-CHECK CASE: this is the only document in the corpus discussing RAG/vector-retrieval architecture at all. No other document should plausibly compete for this query -- if retrieval pulls from any other document for this question, that's a clear signal of a retrieval pipeline problem, not genuine ambiguity."
+      },
+      "action": "revise",
+      "finding": "FAISS, 500/100 characters, text-embedding-3-small, top_k=2 and L2 supported. Name Guo CGM counseling study; its RAG architecture does not establish patient outcomes. Original note that any unrelated returned chunk proves a pipeline problem is too absolute.",
+      "evidence_review": "Reviewed supplied main PDF extraction and relevant sections; PDF page/table visual review recorded separately when completed",
+      "successor_ids": [
+        "q036"
+      ],
+      "status": "audit_complete; migration_complete",
+      "final_action": "revise_same_id_with_explicit_revision",
+      "final_revision": 4,
+      "final_category": "multi_hop"
+    },
+    {
+      "legacy_query": {
+        "id": "q037",
+        "question": "What was the estimated mean difference in overall quality score between CA-generated and clinician-authored responses in this study?",
+        "category": "direct_lookup",
+        "expected_doc": "diabetes-cgm-management.pdf",
+        "expected_location": {
+          "page": 10,
+          "section": "Results > Quality Comparisons"
+        },
+        "reference_answer": "0.782 points on a 5-point scale (95% CI 0.692-0.872, P<.001), with CA responses averaging 4.37 (SD 0.57) versus clinician responses averaging 3.58 (SD 0.90)."
+      },
+      "action": "revise",
+      "finding": "Estimated .782-point difference, CI .692-.872, P<.001 supported; means 4.37/3.58 are vignette ratings, not clinical superiority. Preserve scaffolded CA versus usual written clinician response asymmetry.",
+      "evidence_review": "Reviewed supplied main PDF extraction and relevant sections; PDF page/table visual review recorded separately when completed",
+      "successor_ids": [
+        "q037"
+      ],
+      "status": "audit_complete; migration_complete",
+      "final_action": "revise_same_id_with_explicit_revision",
+      "final_revision": 2,
+      "final_category": "cross_doc_distractor"
+    },
+    {
+      "legacy_query": {
+        "id": "q038",
+        "question": "On which two quality dimensions was the difference between CA and clinician responses the largest?",
+        "category": "direct_lookup",
+        "expected_doc": "diabetes-cgm-management.pdf",
+        "expected_location": {
+          "page": 11,
+          "section": "Results > Quality Comparisons"
+        },
+        "reference_answer": "Empathy (mean difference 1.062, 95% CI 0.948-1.177) and actionability (mean difference 0.992, 95% CI 0.877-1.106)."
+      },
+      "action": "revise",
+      "finding": "Empathy 1.062 and actionability .992 are supported. Largest rating differences do not demonstrate intrinsic empathy or better patient outcomes; useful labelled dimension binding.",
+      "evidence_review": "Reviewed supplied main PDF extraction and relevant sections; PDF page/table visual review recorded separately when completed",
+      "successor_ids": [
+        "q038"
+      ],
+      "status": "audit_complete; migration_complete",
+      "final_action": "revise_same_id_with_explicit_revision",
+      "final_revision": 2,
+      "final_category": "direct_lookup"
+    },
+    {
+      "legacy_query": {
+        "id": "q039",
+        "question": "How accurately could clinicians identify whether a given response was written by the CA or a human clinician, and what does this imply about the source-masking design?",
+        "category": "multi_hop",
+        "expected_doc": "diabetes-cgm-management.pdf",
+        "expected_location": {
+          "page": 15,
+          "section": "Results > Safety and Source Identification; Discussion > Limitations"
+        },
+        "reference_answer": "Among definitive judgments, overall identification accuracy was 87.5%, significantly above the 50% chance level (P<.001). Five of six clinicians showed high discrimination accuracy (82.3%-100%), while one performed at chance. This means that although the rating task was source-masked by design, responses were often practically distinguishable in practice -- likely due to consistent CA response style, structure, and length -- which the authors explicitly flag as a limitation affecting how the quality comparison should be interpreted."
+      },
+      "action": "revise",
+      "finding": "797 definitive judgments versus all 864 ratings is essential: 87.5% versus 80.7% correct overall, 67 unsure. Results/Limitations support imperfect practical masking and familiarity bias, not a causal source-bias estimate. Require separate result and limitation anchors.",
+      "evidence_review": "Reviewed supplied main PDF extraction and relevant sections; PDF page/table visual review recorded separately when completed",
+      "successor_ids": [
+        "q039"
+      ],
+      "status": "audit_complete; migration_complete",
+      "final_action": "revise_same_id_with_explicit_revision",
+      "final_revision": 2,
+      "final_category": "multi_hop"
+    }
+  ],
+  "overlap_review": {
+    "frozen_cardiology": "All 45 frozen cases reviewed against final additions before regression; q058 has shared diabetes mechanism scope but is owned by frozen cardio release",
+    "selected_overlap_articles": [
+      "PMC11354916",
+      "PMC11373557",
+      "PMC12683810",
+      "PMC12886974",
+      "PMC4804513",
+      "PMC11973566",
+      "PMC13433862",
+      "PMC11549774"
+    ],
+    "indirect_topics": [
+      "SGLT2 renal versus cardiac benefit",
+      "metabolic syndrome versus resistant hypertension",
+      "sex-specific disease risk versus drug response",
+      "sleep versus cardiovascular endpoints",
+      "CGM patient outcomes versus AI response quality"
+    ]
+  },
+  "baseline_files": {
+    "corpus_manifest.json": "a82dbdcce605ad6d729be662db9c795100c503bd8abf9eed005c5d696c92a9d8",
+    "golden_qa.json": "9f53d45e7b71695763092ca3c6eb03ddfd8e65bc260f6d27fbfecbc28d744e6a",
+    "benchmark/cardiology/v1/queries.json": "1da725cbbca276e554e344fd5d4d6f20418955905831873e52f3eeafcc29826d",
+    "benchmark/cardiology/v1/manifest.json": "9cc146c8f9fad941126681080ae775bd72b8e07045da0c6606f0fd395a750928"
+  },
+  "limits": [
+    "No new retrieval results or paid calls at audit stage.",
+    "Legacy files and cardiology release remain unchanged.",
+    "Excluded main-PDF supplementary material is not searchable selected evidence."
+  ]
+}

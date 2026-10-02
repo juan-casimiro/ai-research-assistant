@@ -26,12 +26,17 @@ PDF/text verification receipts. `fetch_article_metadata.py` retrieves draft
 metadata from a PMCID through the PMC ID Converter, PubMed and the chosen PMC
 deposit; `verify_cardiology_selection.py` checks the selected local bytes and
 preserved baseline. Its [45-case query release and passage scorer](benchmark/cardiology/v1/BENCHMARK.md)
-are authored for independent review; retrieval experiments remain pending, so it
-has no new retrieval results. Follow the snapshot instructions to acquire
-its PDFs separately from the original host corpus below.
+are authored for independent review; its [local C1/C2 retrieval baseline](benchmark/cardiology/v1/REPORT.md)
+reports separate document and pinned-evidence coverage. Follow the snapshot
+instructions to acquire its PDFs separately from the original host corpus below.
 The offline reachability oracle distinguishes unlimited coverage from the
 n=3/n=8 chunk budgets; versioned results report full-set and feasible-only
 evidence coverage with explicit ceilings and infeasible case IDs.
+
+The [diabetes release and cardiology interference report](benchmark/diabetes/v1/README.md)
+adds 11 verified articles, 49 diabetes cases and a paired regression of all 45
+frozen cardiology cases. Its separate 32-article selection and local retrieval
+results preserve the historical corpus and query files.
 
 ## Two ways to run this
 

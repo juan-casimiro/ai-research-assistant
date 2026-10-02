@@ -1,0 +1,520 @@
+{
+  "schema_version": "1.0",
+  "verified_at": "2026-10-02T13:31:48.574674+00:00",
+  "offline_regressions": {
+    "command": ".venv/bin/python -m unittest discover -v",
+    "tests": 151,
+    "status": "pass"
+  },
+  "selection_verification": {
+    "article_count": 32,
+    "status": "pass"
+  },
+  "reachability": {
+    "available_anchors": 55,
+    "reachable_anchors": 55,
+    "anchors_requiring_adjacent_chunks": 26,
+    "evidence_queries": 45,
+    "unlimited_reachable_evidence_queries": 45,
+    "by_depth": {
+      "n3": {
+        "feasible_queries": 38,
+        "total_queries": 45,
+        "ceiling_rate": 0.8444444444444444,
+        "feasible_ids": [
+          "d001",
+          "d002",
+          "d003",
+          "d004",
+          "d005",
+          "d006",
+          "d007",
+          "d008",
+          "d011",
+          "d014",
+          "d015",
+          "d017",
+          "d018",
+          "d019",
+          "d020",
+          "d021",
+          "d025",
+          "d026",
+          "q001",
+          "q002",
+          "q003",
+          "q005",
+          "q006",
+          "q015",
+          "q016",
+          "q017",
+          "q018",
+          "q019",
+          "q021",
+          "q029",
+          "q030",
+          "q031",
+          "q032",
+          "q034",
+          "q035",
+          "q036",
+          "q037",
+          "q038"
+        ],
+        "infeasible_ids": [
+          "d009",
+          "d010",
+          "d012",
+          "d013",
+          "d016",
+          "q004",
+          "q039"
+        ]
+      },
+      "n8": {
+        "feasible_queries": 45,
+        "total_queries": 45,
+        "ceiling_rate": 1.0,
+        "feasible_ids": [
+          "d001",
+          "d002",
+          "d003",
+          "d004",
+          "d005",
+          "d006",
+          "d007",
+          "d008",
+          "d009",
+          "d010",
+          "d011",
+          "d012",
+          "d013",
+          "d014",
+          "d015",
+          "d016",
+          "d017",
+          "d018",
+          "d019",
+          "d020",
+          "d021",
+          "d025",
+          "d026",
+          "q001",
+          "q002",
+          "q003",
+          "q004",
+          "q005",
+          "q006",
+          "q015",
+          "q016",
+          "q017",
+          "q018",
+          "q019",
+          "q021",
+          "q029",
+          "q030",
+          "q031",
+          "q032",
+          "q034",
+          "q035",
+          "q036",
+          "q037",
+          "q038",
+          "q039"
+        ],
+        "infeasible_ids": []
+      }
+    },
+    "query_feasibility": {
+      "q001": {
+        "minimum_chunks": 2,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "q002": {
+        "minimum_chunks": 1,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "q003": {
+        "minimum_chunks": 2,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "q004": {
+        "minimum_chunks": 4,
+        "by_depth": {
+          "n3": "infeasible",
+          "n8": "feasible"
+        }
+      },
+      "q005": {
+        "minimum_chunks": 2,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "q006": {
+        "minimum_chunks": 2,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "q007": {
+        "minimum_chunks": null,
+        "by_depth": {
+          "n3": "not_scored",
+          "n8": "not_scored"
+        }
+      },
+      "q015": {
+        "minimum_chunks": 1,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "q016": {
+        "minimum_chunks": 1,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "q017": {
+        "minimum_chunks": 1,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "q018": {
+        "minimum_chunks": 2,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "q019": {
+        "minimum_chunks": 3,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "q021": {
+        "minimum_chunks": 2,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "q029": {
+        "minimum_chunks": 1,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "q030": {
+        "minimum_chunks": 2,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "q031": {
+        "minimum_chunks": 2,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "q032": {
+        "minimum_chunks": 3,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "q034": {
+        "minimum_chunks": 2,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "q035": {
+        "minimum_chunks": 2,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "q036": {
+        "minimum_chunks": 3,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "q037": {
+        "minimum_chunks": 1,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "q038": {
+        "minimum_chunks": 2,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "q039": {
+        "minimum_chunks": 4,
+        "by_depth": {
+          "n3": "infeasible",
+          "n8": "feasible"
+        }
+      },
+      "d001": {
+        "minimum_chunks": 3,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "d002": {
+        "minimum_chunks": 2,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "d003": {
+        "minimum_chunks": 2,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "d004": {
+        "minimum_chunks": 2,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "d005": {
+        "minimum_chunks": 1,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "d006": {
+        "minimum_chunks": 2,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "d007": {
+        "minimum_chunks": 1,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "d008": {
+        "minimum_chunks": 1,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "d009": {
+        "minimum_chunks": 4,
+        "by_depth": {
+          "n3": "infeasible",
+          "n8": "feasible"
+        }
+      },
+      "d010": {
+        "minimum_chunks": 4,
+        "by_depth": {
+          "n3": "infeasible",
+          "n8": "feasible"
+        }
+      },
+      "d011": {
+        "minimum_chunks": 3,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "d012": {
+        "minimum_chunks": 4,
+        "by_depth": {
+          "n3": "infeasible",
+          "n8": "feasible"
+        }
+      },
+      "d013": {
+        "minimum_chunks": 4,
+        "by_depth": {
+          "n3": "infeasible",
+          "n8": "feasible"
+        }
+      },
+      "d014": {
+        "minimum_chunks": 3,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "d015": {
+        "minimum_chunks": 3,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "d016": {
+        "minimum_chunks": 4,
+        "by_depth": {
+          "n3": "infeasible",
+          "n8": "feasible"
+        }
+      },
+      "d017": {
+        "minimum_chunks": 2,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "d018": {
+        "minimum_chunks": 1,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "d019": {
+        "minimum_chunks": 2,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "d020": {
+        "minimum_chunks": 1,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "d021": {
+        "minimum_chunks": 1,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "d022": {
+        "minimum_chunks": null,
+        "by_depth": {
+          "n3": "not_scored",
+          "n8": "not_scored"
+        }
+      },
+      "d023": {
+        "minimum_chunks": null,
+        "by_depth": {
+          "n3": "not_scored",
+          "n8": "not_scored"
+        }
+      },
+      "d024": {
+        "minimum_chunks": null,
+        "by_depth": {
+          "n3": "not_scored",
+          "n8": "not_scored"
+        }
+      },
+      "d025": {
+        "minimum_chunks": 1,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "d026": {
+        "minimum_chunks": 1,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      }
+    },
+    "production_chunks": 2074,
+    "retrieval_quality_measured": false
+  },
+  "ingestion_model_source_checks": [
+    {
+      "run": "diabetes-C2-vector.json",
+      "receipt": "diabetes-C2-ingestion.json",
+      "status": "pass",
+      "executed": 49,
+      "chunk_count": 1119
+    },
+    {
+      "run": "diabetes-C3-vector.json",
+      "receipt": "combined-C3-ingestion.json",
+      "status": "pass",
+      "executed": 49,
+      "chunk_count": 2074
+    },
+    {
+      "run": "cardio-C1-vector.json",
+      "receipt": "cardio-C1-ingestion.json",
+      "status": "pass",
+      "executed": 45,
+      "chunk_count": 1270
+    },
+    {
+      "run": "cardio-C2-vector.json",
+      "receipt": "combined-C3-ingestion.json",
+      "status": "pass",
+      "executed": 45,
+      "chunk_count": 2074
+    }
+  ],
+  "cardiology_queries_and_anchors_unchanged": true,
+  "saved_context_rescore_identity": true,
+  "rescore_guard_checks": {
+    "accepted": "annotation-only corrections",
+    "rejected": [
+      "changed question",
+      "changed anchor",
+      "changed fact binding",
+      "incomplete parent"
+    ]
+  },
+  "ci": "PR checks not yet run",
+  "paid_calls": 0,
+  "generated_answer_judgments": 0
+}
