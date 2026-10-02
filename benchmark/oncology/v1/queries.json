@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "query_version": "oncology-queries-v1",
   "status": "review_ready; freeze on approved PR before retrieval comparisons",
-  "selection_sha256": "cf106c82aa57aa197c1b60291bc6979b07b309257e7e18f0b2a98d4355042c1d",
+  "selection_sha256": "5c0116e9e191a729e9dddbf359114e0bf49bac23d1d13fe4a22edd5178053803",
   "authored_for": "JUA-112",
   "anchors": [
     {
@@ -65,7 +65,6 @@
       "excerpt": "vailable. In a recent meta-analysis of 30 NSCLC studies (n = \n3,287), landmark MRD sensitivity was similar for tumor-informed \nFrontiers in Cell and Developmental Biology frontiersin.org05\nBatra et al. 10.3389/fcell.2026.1874565\nand tumor-agnostic assays (42% vs. 44%), as was longitudinal \nsensitivity (76% vs. 79%). Tumor-informed assays showed higher \nspecificity at both timepoints (landmark 97% vs. 93%; longitudinal \n96% vs. 88%) ( Lu et al., 2025 ).\nThe TRACERx study demonstrated that postoperative ctDNA \nreliably identifies persistent microscopic disease after",
       "excerpt_sha256": "d334fe2b2cd24dad5a9987c9adcd7cbd77b552c8085bdc6bac29063a94c9df8c",
       "fact_ids": [
-        "q082:f1",
         "o025:f1"
       ],
       "role": "support"
@@ -217,28 +216,6 @@
       "excerpt_sha256": "d1137e7ed42cf57d10bac6a9ee220314f93baab1eafae3b78525e9a534e9b3de",
       "fact_ids": [
         "o029:f1",
-        "o030:f1"
-      ],
-      "role": "support"
-    },
-    {
-      "id": "hunan_os",
-      "article_id": "PMC9844597",
-      "filename": "onco-nsclc-neoadjuvant-hunan.pdf",
-      "pmc_version": 1,
-      "pdf_sha256": "3b7648ae2dad0474f9713ef4fd45321baa410102e45edb9859430a69817f6017",
-      "text_sha256": "28c1a5108837001e0a4e43860ee16bb52bcbce6d4f6796e0052c889a4480bfb3",
-      "page": 11,
-      "pages": [
-        11
-      ],
-      "section": "Discussion; immature OS and follow-up limitation",
-      "text_start": 39960,
-      "text_end": 40315,
-      "excerpt": "ear OS, patients who received \nPD- 1 + Chemo and achieved MPR(CR) also achieved bet -\nter results. However, because the follow- up time was too \nlimited and the OS data were immature, further analysis \nof prognostic factors was not conducted in this study.\nPerioperative morbidity is one of the principal con-\ncerns in surgical treatment following neoadju",
-      "excerpt_sha256": "4c7c8f1dc16b95445b7513d3cc821b62a9b6de05959a0900abd0507bc63a37b2",
-      "fact_ids": [
-        "o029:f2",
         "o030:f1"
       ],
       "role": "support"
@@ -545,8 +522,7 @@
       "excerpt_sha256": "d9c2e97da78dadfb6af6c833bf4998e05f32708b9b2ec31c74d685d08f728fa4",
       "fact_ids": [
         "o023:f1",
-        "o030:f2",
-        "o019:f1"
+        "o030:f2"
       ],
       "role": "support"
     },
@@ -913,6 +889,89 @@
       "excerpt_sha256": "d2f41cd626c2a360d5516905b6a23f1b03565c364b1a3d65d7c48be94b5cda2e",
       "fact_ids": [],
       "role": "support"
+    },
+    {
+      "id": "hunan_fig1_legend",
+      "article_id": "PMC9844597",
+      "filename": "onco-nsclc-neoadjuvant-hunan.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "3b7648ae2dad0474f9713ef4fd45321baa410102e45edb9859430a69817f6017",
+      "text_sha256": "28c1a5108837001e0a4e43860ee16bb52bcbce6d4f6796e0052c889a4480bfb3",
+      "page": 9,
+      "pages": [
+        9
+      ],
+      "section": "Figure 1 legend; panel D OS curves labelled after PSM (p=0.038)",
+      "text_start": 34799,
+      "text_end": 35254,
+      "excerpt": "FIGURE 1 (A) The disease- free survival (DFS) curves for programmed cell death protein- 1 (PD- 1) + Chemo group and Chemo group \nbefore propensity score matching analysis (PSM) (p = 0.048). (B) The DFS curves for PD- 1 + Chemo group and Chemo group after PSM \n(p = 0.096). (C) The overall survival (OS) curves for PD- 1 + Chemo group and Chemo group before PSM (p = 0.012). (D) The OS curves for \nPD- 1 + Chemo group and Chemo group after PSM (p = 0.038).",
+      "excerpt_sha256": "60d6b34ebe2e1162097f6b9f4833b585147e9224a596e0e892f19836b3cd38fd",
+      "fact_ids": [
+        "o029:f2"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "hunan_os_limitation",
+      "article_id": "PMC9844597",
+      "filename": "onco-nsclc-neoadjuvant-hunan.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "3b7648ae2dad0474f9713ef4fd45321baa410102e45edb9859430a69817f6017",
+      "text_sha256": "28c1a5108837001e0a4e43860ee16bb52bcbce6d4f6796e0052c889a4480bfb3",
+      "page": 12,
+      "pages": [
+        12
+      ],
+      "section": "Discussion; limitations: follow-up too short for OS endpoint",
+      "text_start": 42597,
+      "text_end": 42857,
+      "excerpt": "Second, OS is the gold standard efficacy \nendpoint in cancer trials, but the follow- up time was too \nshort to make OS the primary endpoint of this study. It \nis necessary to make mature and stable conclusions after \na longer follow- up time in future studies.",
+      "excerpt_sha256": "730fc60a645b33f6219f7fa659fcfd06ecc42124994339bbb6962de7e338b207",
+      "fact_ids": [
+        "o029:f2",
+        "o030:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "helsinki_followup",
+      "article_id": "PMC12931073",
+      "filename": "onco-breast-pembrolizumab-helsinki.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "c21b91878e5575f47778a01e98dffe75570d63522d16b4ea59426b2d75417edf",
+      "text_sha256": "3108f6544c856644bd4fe8dc5e65960de70e79dc335eabcfe9cf5c60f5cc07c1",
+      "page": 6,
+      "pages": [
+        6
+      ],
+      "section": "Results; EFS by pCR and median follow-up per cohort",
+      "text_start": 22207,
+      "text_end": 22663,
+      "excerpt": "Event-free survival according to pCR\nIn the pembrolizumab cohort, patients with pCR had longer EFS \n(p = 0.017) (Fig ure 2) than those with residual invasive cancer \nafter surgery cohort. Median follow-up was 22 months (range \n9–31). In the cohort with patients who did not receive pembroli-\nzumab, patients with pCR had a longer EFS than those with \nresidual invasive cancer after surgery (p = 0.006), and the median \nfollow-up was 35 months (range 2–53).",
+      "excerpt_sha256": "c4165d17198899dd1342118c52a96ab5e28689cfbc11511a7a5f376298cd1dc0",
+      "fact_ids": [
+        "o021:f2"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "driver_mrd_trial",
+      "article_id": "PMC11431721",
+      "filename": "onco-driver-nonmetastatic-review.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "855c75cc83d34f8f8a78824ae1d2390e8235c1149ddc6b037c663d872fd95a4e",
+      "text_sha256": "c620e1397bfa90c892296c9d1135d9a11186cf5c2183ec6b91497045afb3e2e8",
+      "page": 7,
+      "pages": [
+        7
+      ],
+      "section": "Table 2; ongoing adjuvant trial with ctDNA-MRD-guided osimertinib",
+      "text_start": 28252,
+      "text_end": 28392,
+      "excerpt": "NCT06323148\n(ETOP-1022) III II–IIIA (N1-N2) EGFR Ex19del\nor L858R\nosimertinib guided by\nctDNA-MRD 3 years 3-year DFS rate Not yet\nrecruiting",
+      "excerpt_sha256": "73f15c41f70ba012f2e537583ba50a3ed2f245572a7b4d6621ecbbdb1085e4f2",
+      "fact_ids": [],
+      "role": "support"
     }
   ],
   "queries": [
@@ -979,7 +1038,7 @@
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -1048,7 +1107,7 @@
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -1139,76 +1198,7 @@
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
-        "tuning_exposure": "No retrieval or answer-generation results used in authoring."
-      },
-      "selection_rationale": "Coverage-led selection before evaluation."
-    },
-    {
-      "id": "q082",
-      "revision": 2,
-      "category": "direct_lookup",
-      "topics": [
-        "oncology"
-      ],
-      "question": "How does the liquid-biopsy review compare tumor-informed and tumor-agnostic MRD assays at landmark and longitudinal timepoints?",
-      "required_facts": [
-        {
-          "id": "f1",
-          "expected_text": "Sensitivity is 42% versus 44% at landmark and 76% versus 79% longitudinally; specificity is 97% versus 93% and 96% versus 88%, respectively. The order is tumor-informed then tumor-agnostic.",
-          "units": "Percent",
-          "population": "Cited 30 NSCLC studies, 3287 patients",
-          "endpoint": "MRD sensitivity and specificity",
-          "timeframe": "Pinned article publication date 2026-07-20; no unreported follow-up horizon inferred.",
-          "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
-          "contradiction_rule": "Reject changes to MRD sensitivity and specificity in Cited 30 NSCLC studies, 3287 patients, reversed group order, or omitted explicit source conflicts."
-        }
-      ],
-      "evidence_sets": [
-        {
-          "id": "primary",
-          "anchors": [
-            "mrd"
-          ],
-          "fact_anchors": {
-            "f1": [
-              "mrd"
-            ]
-          }
-        }
-      ],
-      "related_distractors": [],
-      "reference_answer": "Sensitivity is 42% versus 44% at landmark and 76% versus 79% longitudinally; specificity is 97% versus 93% and 96% versus 88%, respectively. The order is tumor-informed then tumor-agnostic.",
-      "answer_rubric": {
-        "required_claims": [
-          "f1"
-        ],
-        "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
-        "forbidden_conflations": [
-          "Do not substitute another population or endpoint for Cited 30 NSCLC studies, 3287 patients: MRD sensitivity and specificity."
-        ],
-        "judging_status": "Manual review; no automated answer judging approved."
-      },
-      "answerability": {
-        "status": "answerable"
-      },
-      "dependencies": {
-        "required": [
-          "PMC13429855"
-        ],
-        "alternatives": [],
-        "decoys": [],
-        "overlap_review": [
-          "PMC13429855"
-        ],
-        "negative_evidence": []
-      },
-      "review": {
-        "author": "Codex",
-        "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -1277,7 +1267,7 @@
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -1346,7 +1336,7 @@
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -1415,7 +1405,7 @@
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -1484,7 +1474,7 @@
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -1493,7 +1483,7 @@
     },
     {
       "id": "o029",
-      "revision": 1,
+      "revision": 2,
       "category": "multi_hop",
       "topics": [
         "oncology"
@@ -1513,14 +1503,14 @@
         },
         {
           "id": "f2",
-          "expected_text": "The study reports two-year OS of 94.1% versus 85.7% unweighted (p=0.012), and 93.8% versus 87.1% in its weighted population (p=0.038), in PD-1 plus chemotherapy versus chemotherapy order. The Discussion calls follow-up limited and OS immature when explaining why further prognostic-factor analysis was not conducted; that caveat does not erase the reported significant comparisons or establish a mature causal benefit.",
+          "expected_text": "Two-year OS was 94.1% versus 85.7% in the unweighted population (p=0.012) and 93.8% versus 87.1% in the second comparison (p=0.038), PD-1 plus chemotherapy versus chemotherapy. The Results text calls that second comparison the weighted population, while the Figure 1D legend labels the same p=0.038 curves after PSM; attribute the label used and do not silently reconcile them. The Limitations state that follow-up was too short to make OS the primary endpoint and that mature conclusions need longer follow-up, so these comparisons are not mature causal survival evidence.",
           "units": "Percent and p value",
-          "population": "Hunan cohort",
-          "endpoint": "Two-year OS comparisons and prognostic-analysis limitation",
-          "timeframe": "Two years; limited study follow-up",
-          "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
+          "population": "Hunan resected NSCLC cohort, PD-1 plus chemotherapy versus chemotherapy",
+          "endpoint": "Two-year OS comparisons, analysis-label conflict and OS maturity",
+          "timeframe": "Two years; follow-up too short for OS as primary endpoint",
+          "qualifiers": "Source-label conflict: Results \"weighted population\" versus Figure 1D legend \"after PSM\".",
           "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
-          "contradiction_rule": "Reject changes to Two-year OS comparisons and prognostic-analysis limitation in Hunan cohort, reversed group order, or omitted explicit source conflicts."
+          "contradiction_rule": "Reject reversed group order, \"no OS difference\", an invented separate weighting analysis, omission of the weighted-versus-PSM label conflict, or a mature causal OS-benefit claim."
         }
       ],
       "evidence_sets": [
@@ -1530,7 +1520,8 @@
             "hunan_response",
             "hunan_matched",
             "hunan_os_results",
-            "hunan_os"
+            "hunan_fig1_legend",
+            "hunan_os_limitation"
           ],
           "fact_anchors": {
             "f1": [
@@ -1539,22 +1530,24 @@
             ],
             "f2": [
               "hunan_os_results",
-              "hunan_os"
+              "hunan_fig1_legend",
+              "hunan_os_limitation"
             ]
           }
         }
       ],
       "related_distractors": [],
-      "reference_answer": "Unadjusted DFS was 79.3% versus 60.2% (p=0.048); after PSM the difference was no longer statistically significant (p=0.096). The study reports two-year OS of 94.1% versus 85.7% unweighted (p=0.012), and 93.8% versus 87.1% in its weighted population (p=0.038), in PD-1 plus chemotherapy versus chemotherapy order. The Discussion calls follow-up limited and OS immature when explaining why further prognostic-factor analysis was not conducted; that caveat does not erase the reported significant comparisons or establish a mature causal benefit.",
+      "reference_answer": "Unadjusted DFS was 79.3% versus 60.2% (p=0.048); after PSM the difference was no longer statistically significant (p=0.096). Two-year OS was 94.1% versus 85.7% in the unweighted population (p=0.012) and 93.8% versus 87.1% in the second comparison (p=0.038), PD-1 plus chemotherapy versus chemotherapy. The Results text calls that second comparison the weighted population, while the Figure 1D legend labels the same p=0.038 curves after PSM; attribute the label used and do not silently reconcile them. The Limitations state that follow-up was too short to make OS the primary endpoint and that mature conclusions need longer follow-up, so these comparisons are not mature causal survival evidence.",
       "answer_rubric": {
         "required_claims": [
           "f1",
           "f2"
         ],
-        "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
+        "acceptable_alternatives": "Faithful paraphrase. Either label for the p=0.038 comparison (Results: weighted population; Figure 1D legend: after PSM) is acceptable when attributed and the conflict is noted.",
         "forbidden_conflations": [
           "Do not substitute another population or endpoint for PD-1 plus chemotherapy versus chemotherapy: Two-year DFS.",
-          "Do not substitute another population or endpoint for Hunan cohort: Two-year OS comparisons and prognostic-analysis limitation."
+          "Do not substitute another population or endpoint for Hunan cohort: Two-year OS comparisons and prognostic-analysis limitation.",
+          "Do not describe a separate weighting method: the Methods describe PSM only, and the Results/Figure 1D labels conflict."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
@@ -1575,12 +1568,12 @@
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
       "selection_rationale": "Coverage-led selection before evaluation.",
-      "reasoning": "Join the unadjusted result to the separate matched analysis and discussion limitation.",
+      "reasoning": "Join the unadjusted DFS result to the separate matched analysis, then the OS results with their conflicting Figure 1D label and the Limitations statement on OS maturity.",
       "supersedes_coverage_of": "q104"
     },
     {
@@ -1646,7 +1639,7 @@
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -1724,7 +1717,7 @@
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -1795,7 +1788,7 @@
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -1865,7 +1858,7 @@
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -1953,7 +1946,7 @@
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -2025,7 +2018,7 @@
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -2112,7 +2105,7 @@
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -2185,7 +2178,7 @@
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -2259,7 +2252,7 @@
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -2328,7 +2321,7 @@
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -2336,7 +2329,7 @@
     },
     {
       "id": "o023",
-      "revision": 1,
+      "revision": 2,
       "category": "direct_lookup",
       "topics": [
         "oncology"
@@ -2378,7 +2371,8 @@
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute another population or endpoint for NSCLC diagnostic pathway: Ordering workflow and delay mechanism."
+          "Do not substitute another population or endpoint for NSCLC diagnostic pathway: Ordering workflow and delay mechanism.",
+          "Do not attribute the Gosney MDT-agreement, no-formal-request or delay details to POL-MOL; its reflex passage is partial support only."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
@@ -2401,15 +2395,15 @@
             "article_id": "PMC11547071",
             "anchor_id": "polmol_reflex",
             "role": "partial_support",
-            "assessment": "Supports pathologist initiation and agreed biomarkers; does not complete the required MDT/no-formal-request details."
+            "assessment": "Implies no oncologist request (agreed biomarkers are ordered automatically by the pathologist rather than the treating physician) but omits the MDT agreement and the delay/deterioration mechanism. Attribution to the Gosney consensus is required, so POL-MOL does not complete this task."
           }
         ]
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
+        "duplicate_leakage_check": "Absorbs withdrawn o019, which was a strict subset of this task; no requested target values disclosed.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
       "selection_rationale": "Coverage-led selection before evaluation.",
@@ -2478,7 +2472,7 @@
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -2549,7 +2543,7 @@
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -2618,7 +2612,7 @@
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -2691,7 +2685,7 @@
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -2760,7 +2754,7 @@
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -2830,7 +2824,7 @@
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -2899,7 +2893,7 @@
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -2975,7 +2969,7 @@
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -3044,7 +3038,7 @@
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -3113,7 +3107,7 @@
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -3184,7 +3178,7 @@
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -3193,7 +3187,7 @@
     },
     {
       "id": "o030",
-      "revision": 1,
+      "revision": 2,
       "category": "cross_doc_synthesis",
       "topics": [
         "oncology"
@@ -3202,14 +3196,14 @@
       "required_facts": [
         {
           "id": "f1",
-          "expected_text": "The resected Hunan cohort had higher MPR; unadjusted DFS significance disappeared after PSM. The study reports two-year OS of 94.1% versus 85.7% unweighted (p=0.012), and 93.8% versus 87.1% in its weighted population (p=0.038), in PD-1 plus chemotherapy versus chemotherapy order. The Discussion calls follow-up limited and OS immature when explaining why further prognostic-factor analysis was not conducted; that caveat does not erase the reported significant comparisons or establish a mature causal benefit.",
+          "expected_text": "The resected Hunan cohort had higher MPR; unadjusted DFS significance disappeared after PSM. Two-year OS was 94.1% versus 85.7% in the unweighted population (p=0.012) and 93.8% versus 87.1% in a second comparison (p=0.038), PD-1 plus chemotherapy versus chemotherapy. The Limitations state that follow-up was too short to make OS the primary endpoint and that mature conclusions need longer follow-up, so these are not mature causal survival evidence.",
           "units": "Qualitative",
           "population": "Hunan resected cohort",
           "endpoint": "Treatment outcomes and limitations",
           "timeframe": "Pinned article publication date 2023-06-23; no unreported follow-up horizon inferred.",
-          "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
+          "qualifiers": "The p=0.038 comparison is labelled \"weighted population\" in the Results and \"after PSM\" in the Figure 1D legend; either attributed label is acceptable here. o029 tests the conflict itself.",
           "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
-          "contradiction_rule": "Reject changes to Treatment outcomes and limitations in Hunan resected cohort, reversed group order, or omitted explicit source conflicts."
+          "contradiction_rule": "Reject reversed group order, \"no OS difference\", an invented separate weighting analysis, or a mature causal OS-benefit claim."
         },
         {
           "id": "f2",
@@ -3230,7 +3224,7 @@
             "hunan_response",
             "hunan_matched",
             "hunan_os_results",
-            "hunan_os",
+            "hunan_os_limitation",
             "reflex_def",
             "reflex_delay",
             "reflex_early"
@@ -3240,7 +3234,7 @@
               "hunan_response",
               "hunan_matched",
               "hunan_os_results",
-              "hunan_os"
+              "hunan_os_limitation"
             ],
             "f2": [
               "reflex_def",
@@ -3251,16 +3245,17 @@
         }
       ],
       "related_distractors": [],
-      "reference_answer": "The resected Hunan cohort had higher MPR; unadjusted DFS significance disappeared after PSM. The study reports two-year OS of 94.1% versus 85.7% unweighted (p=0.012), and 93.8% versus 87.1% in its weighted population (p=0.038), in PD-1 plus chemotherapy versus chemotherapy order. The Discussion calls follow-up limited and OS immature when explaining why further prognostic-factor analysis was not conducted; that caveat does not erase the reported significant comparisons or establish a mature causal benefit. The consensus advocates pathologist-initiated MDT-agreed testing, identifies delays before complete biomarker status, and argues for early EGFR testing in resectable disease. It does not measure how testing caused the Hunan outcomes or establish a driver-positive treatment effect.",
+      "reference_answer": "The resected Hunan cohort had higher MPR; unadjusted DFS significance disappeared after PSM. Two-year OS was 94.1% versus 85.7% in the unweighted population (p=0.012) and 93.8% versus 87.1% in a second comparison (p=0.038), PD-1 plus chemotherapy versus chemotherapy. The Limitations state that follow-up was too short to make OS the primary endpoint and that mature conclusions need longer follow-up, so these are not mature causal survival evidence. The consensus advocates pathologist-initiated MDT-agreed testing, identifies delays before complete biomarker status, and argues for early EGFR testing in resectable disease. It does not measure how testing caused the Hunan outcomes or establish a driver-positive treatment effect.",
       "answer_rubric": {
         "required_claims": [
           "f1",
           "f2"
         ],
-        "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
+        "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence. Either label for the Hunan p=0.038 OS comparison is acceptable when attributed.",
         "forbidden_conflations": [
           "Do not substitute another population or endpoint for Hunan resected cohort: Treatment outcomes and limitations.",
-          "Do not substitute another population or endpoint for NSCLC testing consensus: Biomarker readiness and early-stage workflow."
+          "Do not substitute another population or endpoint for NSCLC testing consensus: Biomarker readiness and early-stage workflow.",
+          "Do not describe a separate weighting method: the Methods describe PSM only, and the Results/Figure 1D labels conflict."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
@@ -3285,14 +3280,14 @@
             "article_id": "PMC11547071",
             "anchor_id": "polmol_reflex",
             "role": "partial_support",
-            "assessment": "Supports pathologist initiation and agreed biomarkers; does not complete the required MDT/no-formal-request details or the early-stage EGFR rationale."
+            "assessment": "Implies no oncologist request (agreed biomarkers are ordered automatically by the pathologist rather than the treating physician) but omits the MDT agreement and the delay/deterioration mechanism. Attribution to the Gosney consensus is required, so POL-MOL does not complete this task. It also lacks the early-stage EGFR rationale."
           }
         ]
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -3383,7 +3378,7 @@
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -3475,7 +3470,7 @@
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -3557,7 +3552,7 @@
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "duplicate_leakage_check": "Distinct from o007: derive an absolute percentage-point difference and identify the adjuvant setting, instead of reporting both stage-specific OS estimates.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -3565,96 +3560,8 @@
       "supersedes_coverage_of": "q118"
     },
     {
-      "id": "o019",
-      "revision": 2,
-      "category": "cross_doc_distractor",
-      "topics": [
-        "oncology"
-      ],
-      "question": "According to the Gosney NSCLC consensus, what roles do the MDT, pathologist and formal oncologist request have in reflex biomarker ordering?",
-      "required_facts": [
-        {
-          "id": "f1",
-          "expected_text": "A pathologist initiates prespecified MDT-agreed biomarker tests without a formal oncologist request.",
-          "units": "Qualitative",
-          "population": "NSCLC consensus",
-          "endpoint": "Reflex-testing workflow",
-          "timeframe": "Pinned article publication date 2023-06-23; no unreported follow-up horizon inferred.",
-          "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
-          "contradiction_rule": "Reject changes to Reflex-testing workflow in NSCLC consensus, reversed group order, or omitted explicit source conflicts."
-        }
-      ],
-      "evidence_sets": [
-        {
-          "id": "primary",
-          "anchors": [
-            "reflex_def"
-          ],
-          "fact_anchors": {
-            "f1": [
-              "reflex_def"
-            ]
-          }
-        }
-      ],
-      "related_distractors": [
-        {
-          "article_id": "PMC11547071",
-          "filename": "onco-polmol-testing.pdf",
-          "anchor_id": "polmol_reflex",
-          "plausible_confusion": "POL-MOL also defines pathologist-initiated testing of agreed biomarkers and discusses faster treatment initiation.",
-          "reason_inapplicable": "This passage supports the general reflex-testing concept, but does not explicitly state the consensus-specific MDT agreement and absence of a formal oncologist request required here. It is partial overlap, not evidence that reflex testing is absent from POL-MOL."
-        }
-      ],
-      "reference_answer": "A pathologist initiates prespecified MDT-agreed biomarker tests without a formal oncologist request.",
-      "answer_rubric": {
-        "required_claims": [
-          "f1"
-        ],
-        "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
-        "forbidden_conflations": [
-          "Do not substitute another population or endpoint for NSCLC consensus: Reflex-testing workflow."
-        ],
-        "judging_status": "Manual review; no automated answer judging approved."
-      },
-      "answerability": {
-        "status": "answerable"
-      },
-      "dependencies": {
-        "required": [
-          "PMC10485396"
-        ],
-        "alternatives": [],
-        "decoys": [
-          "PMC11547071"
-        ],
-        "overlap_review": [
-          "PMC10485396",
-          "PMC11547071"
-        ],
-        "negative_evidence": [],
-        "overlap_findings": [
-          {
-            "article_id": "PMC11547071",
-            "anchor_id": "polmol_reflex",
-            "role": "partial_support",
-            "assessment": "Supports pathologist initiation and agreed biomarkers; does not complete the required MDT/no-formal-request details."
-          }
-        ]
-      },
-      "review": {
-        "author": "Codex",
-        "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
-        "tuning_exposure": "No retrieval or answer-generation results used in authoring."
-      },
-      "selection_rationale": "Coverage-led selection before evaluation."
-    },
-    {
       "id": "o025",
-      "revision": 1,
+      "revision": 2,
       "category": "cross_doc_distractor",
       "topics": [
         "oncology"
@@ -3688,11 +3595,11 @@
       ],
       "related_distractors": [
         {
-          "article_id": "PMC10485396",
-          "filename": "onco-reflex-biomarker-consensus.pdf",
-          "anchor_id": "reflex_early",
-          "plausible_confusion": "Both discuss biomarker testing around curative-intent NSCLC treatment.",
-          "reason_inapplicable": "Early EGFR identification for therapy selection supplies no tumor-informed versus tumor-agnostic MRD sensitivity/specificity estimates."
+          "article_id": "PMC11431721",
+          "filename": "onco-driver-nonmetastatic-review.pdf",
+          "anchor_id": "driver_mrd_trial",
+          "plausible_confusion": "Both concern postoperative ctDNA-MRD in resected NSCLC.",
+          "reason_inapplicable": "Table 2 lists an ongoing adjuvant trial of ctDNA-MRD-guided osimertinib with a DFS endpoint; it reports no assay sensitivity or specificity and no tumor-informed versus tumor-agnostic comparison."
         }
       ],
       "reference_answer": "Tumor-informed versus tumor-agnostic landmark sensitivity is 42% versus 44%, longitudinal 76% versus 79%; specificity is 97% versus 93% and 96% versus 88%, respectively.",
@@ -3715,19 +3622,19 @@
         ],
         "alternatives": [],
         "decoys": [
-          "PMC10485396"
+          "PMC11431721"
         ],
         "overlap_review": [
           "PMC13429855",
-          "PMC13190586"
+          "PMC11431721"
         ],
         "negative_evidence": []
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
+        "duplicate_leakage_check": "Sole MRD assay-performance case after q082 was withdrawn as its duplicate; no requested target values disclosed.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
       "selection_rationale": "Coverage-led selection before evaluation.",
@@ -3744,11 +3651,9 @@
       "required_facts": [],
       "evidence_sets": [],
       "related_distractors": [],
-      "reference_answer": "Not reported in the specified source. The cohort excludes those failing surgery, and discussion explicitly says their data were absent; do not infer an excluded-patient count from included treatment groups.",
+      "reference_answer": "",
       "answer_rubric": {
-        "required_claims": [
-          "State that the requested fact is unavailable in the named study."
-        ],
+        "required_claims": [],
         "acceptable_alternatives": "Explain the study limitation without inventing a number.",
         "forbidden_conflations": [
           "Do not infer the missing requested fact from a near-miss study or endpoint."
@@ -3778,7 +3683,7 @@
             "C1",
             "C2"
           ],
-          "selection_sha256": "cf106c82aa57aa197c1b60291bc6979b07b309257e7e18f0b2a98d4355042c1d",
+          "selection_sha256": "5c0116e9e191a729e9dddbf359114e0bf49bac23d1d13fe4a22edd5178053803",
           "searched_terms": [
             "failed to undergo",
             "failed to receive surgery",
@@ -3809,14 +3714,14 @@
       "review": {
         "author": "Codex",
         "method": "Named-source full-text review and scoped competitor attribution check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "tuning_exposure": "No retrieval runs used to author gold."
       },
       "selection_rationale": "Explicit absent-fact coverage distinct from false-premise correction."
     },
     {
       "id": "o021",
-      "revision": 2,
+      "revision": 3,
       "category": "false_premise",
       "topics": [
         "oncology"
@@ -3825,46 +3730,64 @@
       "required_facts": [
         {
           "id": "f1",
-          "expected_text": "The Helsinki study retrospectively compares 75 pembrolizumab-treated patients with 102 nonmatched historical controls. It is not randomized and therefore supplies no randomized five-year OS treatment-effect estimate.",
+          "expected_text": "The Helsinki study retrospectively compares 75 consecutive pembrolizumab-treated TNBC patients with 102 nonmatched consecutive patients treated without pembrolizumab in preceding years. It is not randomized, so it cannot supply a randomized treatment effect.",
           "units": "Study design",
           "population": "Helsinki TNBC cohorts",
           "endpoint": "Design and limits of causal OS inference",
-          "timeframe": "Retrospective study window; requested five-year effect not measured",
+          "timeframe": "Retrospective cohorts; consecutive historical comparison",
           "qualifiers": "Historical nonmatched comparison.",
           "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
-          "contradiction_rule": "Reject changes to Design and limits of causal OS inference in Helsinki TNBC cohorts, reversed group order, or omitted explicit source conflicts."
+          "contradiction_rule": "Reject calling this a randomized or matched comparison."
+        },
+        {
+          "id": "f2",
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "expected_text": "It reports no five-year OS: its survival endpoint is EFS by pCR within each cohort, with median follow-up of 22 months (range 9–31) in the pembrolizumab cohort and 35 months (range 2–53) in the cohort without pembrolizumab.",
+          "units": "Months",
+          "population": "Helsinki pembrolizumab and nonpembrolizumab TNBC cohorts",
+          "endpoint": "Reported survival endpoint and follow-up",
+          "timeframe": "Median follow-up 22 and 35 months; no five-year horizon",
+          "qualifiers": "EFS is compared by pCR within cohorts, not between treatment cohorts.",
+          "contradiction_rule": "Reject any five-year OS value, an OS comparison attributed to this study, or cited KEYNOTE-522 results presented as this study's findings."
         }
       ],
       "evidence_sets": [
         {
           "id": "primary",
           "anchors": [
-            "breast_pcr"
+            "breast_pcr",
+            "helsinki_followup"
           ],
           "fact_anchors": {
             "f1": [
               "breast_pcr"
+            ],
+            "f2": [
+              "helsinki_followup"
             ]
           }
         }
       ],
       "related_distractors": [],
-      "reference_answer": "The Helsinki study retrospectively compares 75 pembrolizumab-treated patients with 102 nonmatched historical controls. It is not randomized and therefore supplies no randomized five-year OS treatment-effect estimate.",
+      "reference_answer": "The Helsinki study retrospectively compares 75 consecutive pembrolizumab-treated TNBC patients with 102 nonmatched consecutive patients treated without pembrolizumab in preceding years. It is not randomized, so it cannot supply a randomized treatment effect. It reports no five-year OS: its survival endpoint is EFS by pCR within each cohort, with median follow-up of 22 months (range 9–31) in the pembrolizumab cohort and 35 months (range 2–53) in the cohort without pembrolizumab.",
       "answer_rubric": {
         "required_claims": [
-          "f1"
+          "f1",
+          "f2"
         ],
         "acceptable_alternatives": "Explain the study limitation without inventing a number.",
         "forbidden_conflations": [
-          "Do not substitute another population or endpoint for Helsinki TNBC cohorts: Design and limits of causal OS inference."
+          "Do not substitute another population or endpoint for Helsinki TNBC cohorts: Design and limits of causal OS inference.",
+          "Do not present EFS by pCR or cited KEYNOTE-522 OS as this study's five-year OS treatment effect."
         ],
         "judging_status": "Manual review."
       },
       "answerability": {
         "status": "false_premise",
-        "offending_premise": "The Helsinki study measured a randomized treatment effect.",
+        "offending_premise": "The Helsinki study measured a randomized five-year OS treatment effect of pembrolizumab versus chemotherapy.",
         "correction_anchors": [
-          "breast_pcr"
+          "breast_pcr",
+          "helsinki_followup"
         ]
       },
       "dependencies": {
@@ -3882,8 +3805,8 @@
       },
       "review": {
         "author": "Codex",
-        "method": "Named-source full-text review and scoped competitor attribution check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "method": "Named-source full-text review; full-text search found OS only in the Introduction and in the Discussion's KEYNOTE-522 citation, with no OS result for either Helsinki cohort.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "tuning_exposure": "No retrieval runs used to author gold."
       },
       "selection_rationale": "Explicit absent-fact coverage distinct from false-premise correction."
@@ -3899,11 +3822,9 @@
       "required_facts": [],
       "evidence_sets": [],
       "related_distractors": [],
-      "reference_answer": "Not reported. No selected source reports an FDA-validated early-stage sensitivity for EarlyCDT-Lung. The review describes an investigational autoantibody panel and setting-dependent study estimates, which do not establish the requested regulatory validation.",
+      "reference_answer": "",
       "answer_rubric": {
-        "required_claims": [
-          "State that the requested fact is unavailable in the named study."
-        ],
+        "required_claims": [],
         "acceptable_alternatives": "Explain the study limitation without inventing a number.",
         "forbidden_conflations": [
           "Do not infer the missing requested fact from a near-miss study or endpoint."
@@ -3933,7 +3854,7 @@
             "C1",
             "C2"
           ],
-          "selection_sha256": "cf106c82aa57aa197c1b60291bc6979b07b309257e7e18f0b2a98d4355042c1d",
+          "selection_sha256": "5c0116e9e191a729e9dddbf359114e0bf49bac23d1d13fe4a22edd5178053803",
           "searched_terms": [
             "EarlyCDT",
             "FDA",
@@ -3977,7 +3898,7 @@
       "review": {
         "author": "Codex",
         "method": "Named-source full-text and all selected article text reviewed for requested entity, value and regulatory/geographic scope.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "tuning_exposure": "No retrieval runs used to author gold."
       },
       "selection_rationale": "Evidence-reviewed migration of a legacy unanswerable case on a retained source."
@@ -3993,11 +3914,9 @@
       "required_facts": [],
       "evidence_sets": [],
       "related_distractors": [],
-      "reference_answer": "Not reported. No selected article reports the requested Basque-programme dual-screening rate. The US BRFSS study is a different population and endpoint; generic FIT discussion does not supply the requested rate.",
+      "reference_answer": "",
       "answer_rubric": {
-        "required_claims": [
-          "State that the requested fact is unavailable in the named study."
-        ],
+        "required_claims": [],
         "acceptable_alternatives": "Explain the study limitation without inventing a number.",
         "forbidden_conflations": [
           "Do not infer the missing requested fact from a near-miss study or endpoint."
@@ -4027,7 +3946,7 @@
             "C1",
             "C2"
           ],
-          "selection_sha256": "cf106c82aa57aa197c1b60291bc6979b07b309257e7e18f0b2a98d4355042c1d",
+          "selection_sha256": "5c0116e9e191a729e9dddbf359114e0bf49bac23d1d13fe4a22edd5178053803",
           "searched_terms": [
             "Basque",
             "FIT",
@@ -4071,7 +3990,7 @@
       "review": {
         "author": "Codex",
         "method": "Named-source full-text and all selected article text reviewed for requested entity, value and regulatory/geographic scope.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "tuning_exposure": "No retrieval runs used to author gold."
       },
       "selection_rationale": "Evidence-reviewed migration of a legacy unanswerable case on a retained source."
@@ -4143,7 +4062,7 @@
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },

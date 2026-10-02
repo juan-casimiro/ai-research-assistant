@@ -50,12 +50,108 @@ def verify_linkage(release: Path, benchmark: dict, manifest: dict, conditions: d
     evidence = json.loads((release / "evidence_map.json").read_text())
     if {a["article_id"] for a in evidence["articles"]} != {a["article_id"] for a in manifest["articles"]}:
         raise ValueError("evidence_map.json: article membership differs")
+    query_ids = {q["id"] for q in benchmark["queries"]}
+    evidence_ids = {q["id"] for q in benchmark["queries"] if q.get("evidence_sets")}
     for condition in ["C1", "C2"]:
         result = json.loads((release / "results" / f"offline-{condition}.json").read_text())
         if (result["query_sha256"] != query_hash or
                 result["selection_sha256"] != manifest["fingerprint_sha256"] or
                 result["conditions_sha256"] != canonical_hash(conditions)):
             raise ValueError(f"offline-{condition}.json: stale oracle linkage")
+        oracle = result["result"]
+        if (result["condition"] != condition or
+                result["membership_sha256"] != conditions["conditions"][condition]["membership_sha256"] or
+                set(oracle["query_feasibility"]) != query_ids or oracle["evidence_queries"] != len(evidence_ids) or
+                {qid for qid, f in oracle["query_feasibility"].items() if f["minimum_chunks"] is not None} != evidence_ids or
+                any(set(depth["feasible_ids"]) | set(depth["infeasible_ids"]) != evidence_ids
+                    for depth in oracle["by_depth"].values())):
+            raise ValueError(f"offline-{condition}.json: oracle content does not cover the evidence cases")
+
+
+def verify_attribution(articles: list[dict], attribution: str) -> None:
+    markers = list(re.finditer(r'<a id="([^"]+)"></a>', attribution))
+    if (len(markers) != len(articles) or
+            {match.group(1) for match in markers} != {a["attribution_id"] for a in articles}):
+        raise ValueError("Attribution inventory membership differs from manifest")
+    citations = {match.group(1): attribution[match.end():markers[i + 1].start() if i + 1 < len(markers) else len(attribution)]
+                 for i, match in enumerate(markers)}
+    for article in articles:
+        for citation in [article["title"], article["doi"], article["article_url"], article["licence"]["url"], *article["authors"]]:
+            if citation not in citations[article["attribution_id"]]:
+                raise ValueError(f"{article['article_id']}: missing attribution citation component")
+
+
+def verify_query_roles(benchmark: dict) -> None:
+    """Keep dependency, decoy and overlap records consistent with the gold evidence."""
+    anchors = {a["id"]: a for a in benchmark["anchors"]}
+    for query in benchmark["queries"]:
+        qid, dependencies = query["id"], query["dependencies"]
+        primary = {anchors[aid]["article_id"] for aid in query["evidence_sets"][0]["anchors"]} if query["evidence_sets"] else set()
+        alternatives = {anchors[aid]["article_id"] for s in query["evidence_sets"][1:] for aid in s["anchors"]}
+        if set(dependencies["required"]) != primary or set(dependencies["alternatives"]) != alternatives:
+            raise ValueError(f"{qid}: evidence and dependency source sets differ")
+        decoys = {d["article_id"] for d in query["related_distractors"]}
+        if set(dependencies["decoys"]) != decoys:
+            raise ValueError(f"{qid}: decoy dependencies differ")
+        findings = dependencies.get("overlap_findings", [])
+        for record in findings + dependencies.get("negative_context", []):
+            anchor = anchors.get(record["anchor_id"])
+            if anchor is None or anchor["article_id"] != record.get("article_id", anchor["article_id"]):
+                raise ValueError(f"{qid}: overlap or negative-context anchor does not resolve")
+        if any(f["article_id"] in decoys and f["role"] != "decoy" for f in findings):
+            raise ValueError(f"{qid}: article is both a named decoy and supporting overlap")
+        involved = set(dependencies["required"]) | alternatives | decoys | {f["article_id"] for f in findings}
+        if not involved <= set(dependencies["overlap_review"]):
+            raise ValueError(f"{qid}: overlap review omits a source, decoy or overlap article")
+        evidence = {aid for s in query["evidence_sets"] for aid in s["anchors"]}
+        if not set(query["answerability"].get("correction_anchors", [])) <= evidence:
+            raise ValueError(f"{qid}: correction anchor is not gold evidence")
+
+
+def verify_migration(audit: dict, active: dict, legacy: dict) -> None:
+    if {case["id"] for case in audit["cases"]} != {f"q{n:03d}" for n in range(78, 120)}:
+        raise ValueError("Legacy oncology cases are not fully accounted for")
+    for case in audit["cases"]:
+        if case["question"] != legacy[case["id"]]["question"]:
+            raise ValueError(f"{case['id']}: migration does not preserve legacy question")
+        if not set(case["replacement_cases"]) <= active.keys():
+            raise ValueError(f"{case['id']}: unknown replacement case")
+        if case["action"] == "retire_legacy_case" and case["id"] in active:
+            raise ValueError(f"{case['id']}: retired ID remains active")
+        if case["action"] == "revise_in_v1":
+            revised = active.get(case["id"])
+            if revised is None or revised["revision"] < 2:
+                raise ValueError(f"{case['id']}: missing revised case")
+            if case.get("revised_question") != revised["question"]:
+                raise ValueError(f"{case['id']}: audit revised question differs from active query")
+            if (case["legacy_category"] == "unanswerable" and
+                    case["negative_scope_review"] != revised["answerability"]["status"]):
+                raise ValueError(f"{case['id']}: audit answerability differs from active query")
+        if case["action"] not in {"retire_legacy_case", "revise_in_v1"}:
+            raise ValueError(f"{case['id']}: invalid migration action")
+
+
+def verify_ledger(ledger: dict, active: dict, audit: dict) -> None:
+    """Cross-check renamed, withdrawn and retained-ID records against the active release."""
+    actions = {case["id"]: case for case in audit["cases"]}
+    renamed = ledger["renamed_coverage_cases"]
+    superseding = {q["supersedes_coverage_of"]: qid for qid, q in active.items() if "supersedes_coverage_of" in q}
+    if superseding != renamed:
+        raise ValueError("revision_ledger.json: renamed coverage differs from active supersedes_coverage_of")
+    for old, new in renamed.items():
+        if old in active or actions[old]["action"] != "retire_legacy_case" or new not in actions[old]["replacement_cases"]:
+            raise ValueError(f"revision_ledger.json: {old} is not retired in favour of {new}")
+    for qid, record in ledger["withdrawn_cases"].items():
+        if qid in active or record["coverage_retained_by"] not in active:
+            raise ValueError(f"revision_ledger.json: withdrawn {qid} is active or has no active coverage")
+        if qid in actions and actions[qid]["action"] != "retire_legacy_case":
+            raise ValueError(f"revision_ledger.json: withdrawn legacy {qid} is not retired")
+    for qid in ledger["retained_id_task_changes"]:
+        if qid not in active or actions[qid]["action"] != "revise_in_v1":
+            raise ValueError(f"revision_ledger.json: retained-ID note for inactive or unrevised {qid}")
+    latest = ledger["revisions"][-1]
+    if latest["query_sha256"] != ledger["query_sha256"] or not set(latest["changed_cases"]) <= active.keys():
+        raise ValueError("revision_ledger.json: latest revision does not describe the active queries")
 
 
 def verify(release: Path, corpus: Path) -> dict:
@@ -64,13 +160,7 @@ def verify(release: Path, corpus: Path) -> dict:
     by_id = {a["article_id"]: a for a in articles}
     if {p.name for p in corpus.glob("*.pdf")} != {a["filename"] for a in articles}:
         raise ValueError("Corpus directory has missing or unselected PDFs; archive acquisition candidates separately")
-    attribution = (release / "ATTRIBUTION.md").read_text()
-    markers = list(re.finditer(r'<a id="([^"]+)"></a>', attribution))
-    if (len(markers) != len(articles) or
-            {match.group(1) for match in markers} != {a["attribution_id"] for a in articles}):
-        raise ValueError("Attribution inventory membership differs from manifest")
-    citations = {match.group(1): attribution[match.end():markers[i + 1].start() if i + 1 < len(markers) else len(attribution)]
-                 for i, match in enumerate(markers)}
+    verify_attribution(articles, (release / "ATTRIBUTION.md").read_text())
     for field in ["article_id", "filename", "doi", "pmid"]:
         if len({a[field] for a in articles}) != len(articles):
             raise ValueError(f"Duplicate {field}")
@@ -97,9 +187,6 @@ def verify(release: Path, corpus: Path) -> dict:
         pubmed = (release / article["metadata_sources"]["pubmed.xml"]["archive"]).read_bytes()
         identifiers = json.loads((release / article["metadata_sources"]["id-converter.json"]["archive"]).read_text())
         verify_metadata(article, cloud, xml.read_bytes(), pubmed, identifiers)
-        for citation in [article["title"], article["doi"], article["article_url"], article["licence"]["url"], *article["authors"]]:
-            if citation not in citations[article["attribution_id"]]:
-                raise ValueError(f"{aid}: missing attribution citation component")
         pdf = corpus / article["filename"]
         receipt = article["download"]
         if (len(pdf.read_bytes()) != receipt["byte_count"] or
@@ -115,13 +202,7 @@ def verify(release: Path, corpus: Path) -> dict:
             raise ValueError(f"{aid}: extraction differs from pinned text")
     anchors = {a["id"]: a for a in benchmark["anchors"]}
     required = {anchors[aid]["article_id"] for q in benchmark["queries"] for s in q["evidence_sets"] for aid in s["anchors"]}
-    for query in benchmark["queries"]:
-        primary = {anchors[aid]["article_id"] for aid in query["evidence_sets"][0]["anchors"]} if query["evidence_sets"] else set()
-        alternatives = {anchors[aid]["article_id"] for s in query["evidence_sets"][1:] for aid in s["anchors"]}
-        if set(query["dependencies"]["required"]) != primary or set(query["dependencies"]["alternatives"]) != alternatives:
-            raise ValueError(f"{query['id']}: evidence and dependency source sets differ")
-        if set(query["dependencies"]["decoys"]) != {d["article_id"] for d in query["related_distractors"]}:
-            raise ValueError(f"{query['id']}: decoy dependencies differ")
+    verify_query_roles(benchmark)
     if required != set(conditions["conditions"]["C1"]["article_ids"]):
         raise ValueError("C1 is not the exact answer-source union")
     c2 = conditions["conditions"]["C2"]
@@ -138,22 +219,11 @@ def verify(release: Path, corpus: Path) -> dict:
             raise ValueError(f"{name}: invalid nested membership or fingerprint")
         previous = set(ids)
     audit = json.loads((release / "legacy_audit.json").read_text())
-    if {case["id"] for case in audit["cases"]} != {f"q{n:03d}" for n in range(78, 120)}:
-        raise ValueError("Legacy oncology cases are not fully accounted for")
     root = release.resolve().parents[2]
     active = {q["id"]: q for q in benchmark["queries"]}
     legacy = {q["id"]: q for q in json.loads((root / "golden_qa.json").read_text())["queries"]}
-    for case in audit["cases"]:
-        if case["question"] != legacy[case["id"]]["question"]:
-            raise ValueError(f"{case['id']}: migration does not preserve legacy question")
-        if not set(case["replacement_cases"]) <= active.keys():
-            raise ValueError(f"{case['id']}: unknown replacement case")
-        if case["action"] == "retire_legacy_case" and case["id"] in active:
-            raise ValueError(f"{case['id']}: retired ID remains active")
-        if case["action"] == "revise_in_v1" and (case["id"] not in active or active[case["id"]]["revision"] < 2):
-            raise ValueError(f"{case['id']}: missing revised case")
-        if case["action"] not in {"retire_legacy_case", "revise_in_v1"}:
-            raise ValueError(f"{case['id']}: invalid migration action")
+    verify_migration(audit, active, legacy)
+    verify_ledger(json.loads((release / "revision_ledger.json").read_text()), active, audit)
     for name, expected in audit["baseline_hashes"].items():
         if digest((root / name).read_bytes()) != expected:
             raise ValueError(f"Preserved legacy baseline changed: {name}")

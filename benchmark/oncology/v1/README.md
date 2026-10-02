@@ -1,7 +1,7 @@
 # Oncology selection and query release — v1
 
 JUA-112 review candidate, 2026-10-02. **14 articles**, 187 physical PDF pages,
-25,168,522 downloaded bytes; **42 cases** and 42 exact extraction anchors.
+25,168,522 downloaded bytes; **40 cases** and 45 exact extraction anchors.
 Selection and gold were authored without retrieval results. Independent review
 and freeze are pending; this release makes no retrieval-quality claim.
 
@@ -41,8 +41,8 @@ manifest, golden cases, prior evaluation results and shared collections are pres
 
 ## Cases and conditions
 
-[queries.json](queries.json) contains 19 lookups, 7 same-article multi-hop cases,
-3 cross-document synthesis cases, 3 named-distractor cases, 7 false-premise cases
+[queries.json](queries.json) contains 18 lookups, 7 same-article multi-hop cases,
+3 cross-document synthesis cases, 2 named-distractor cases, 7 false-premise cases
 and 3 absent-fact cases. Each answer fact names its population, endpoint, units,
 timeframe, tolerance and contradiction rule. Evidence includes physical page,
 section, exact raw extraction offsets and hashes. Required evidence is bound to
@@ -51,16 +51,18 @@ The three absent cases ask for facts not reported by specifically named studies;
 their scopes include the whole selected oncology corpus. Broader combined-corpus
 negative claims require another scope review in JUA-114.
 
-Of the legacy cases, 12 IDs have explicit revisions and 30 are retired. New
-oncology-local IDs are o001–o030. [revision_ledger.json](revision_ledger.json) records
-the pre-freeze corrections and renamed coverage tasks. These are coverage replacements, not equivalent
+Of the legacy cases, 11 IDs have explicit revisions and 31 are retired. New
+oncology-local IDs are o001–o030 except o019. Before freeze, q082 and o019 were withdrawn
+as near-duplicates of o025 and o023. [revision_ledger.json](revision_ledger.json) records
+the pre-freeze corrections, renamed coverage tasks, withdrawn cases and retained IDs whose task changed. These are coverage replacements, not equivalent
 labels: historical scores must not be compared as if sources and gold were unchanged.
 [case_dependencies.json](case_dependencies.json) and [evidence_map.json](evidence_map.json)
 record required sources, decoys, overlap review and selected evidence relationships.
 Shared evidence supports distinct tasks; no fixed query or article count was used.
 
 Important source conflicts are explicit: Hunan unadjusted DFS significance
-disappears after matching; the stage III cohort's MPR narrative and table disagree;
+disappears after matching, and its p=0.038 OS comparison is a "weighted population"
+in the Results but "after PSM" in the Figure 1D legend; the stage III cohort's MPR narrative and table disagree;
 the Vietnam afatinib abstract reverses starting-dose shares relative to Table 2;
 Helsinki postoperative discontinuation percentages use different denominators.
 Screening flow-chart counts are requested as printed; the chart's age label and

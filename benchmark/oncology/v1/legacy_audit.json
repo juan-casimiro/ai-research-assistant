@@ -146,7 +146,7 @@
       "replacement_cases": [
         "q079",
         "q080",
-        "q082"
+        "o025"
       ],
       "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
     },
@@ -163,7 +163,8 @@
       "replacement_cases": [
         "q079"
       ],
-      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable."
+      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable.",
+      "revised_question": "According to the liquid-biopsy review, distinguish the pooled CSF ctDNA detection rate from sensitivity and specificity for CNS metastases in NSCLC, and compare detection with cytology."
     },
     {
       "id": "q080",
@@ -178,7 +179,8 @@
       "replacement_cases": [
         "q080"
       ],
-      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable."
+      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable.",
+      "revised_question": "What did the liquid-biopsy review report about plasma versus tissue testing in NILE, including turnaround and biomarker identification?"
     },
     {
       "id": "q081",
@@ -193,7 +195,8 @@
       "replacement_cases": [
         "q081"
       ],
-      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable."
+      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable.",
+      "revised_question": "Does the liquid-biopsy review establish that blood-based MCED has the same demonstrated lung-cancer mortality benefit as LDCT?"
     },
     {
       "id": "q082",
@@ -202,13 +205,13 @@
       "source_dependencies": [
         "onco-lung-liquidbiopsy.pdf"
       ],
-      "action": "revise_in_v1",
+      "action": "retire_legacy_case",
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "not_applicable",
       "replacement_cases": [
-        "q082"
+        "o025"
       ],
-      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable."
+      "reason": "Withdrawn before freeze as a duplicate of o025; coverage relationship, not equivalent gold."
     },
     {
       "id": "q083",
@@ -223,7 +226,8 @@
       "replacement_cases": [
         "q083"
       ],
-      "reason": "Retained source independently reviewed; requested absent regulatory/geographic fact or positively corrected target attribution."
+      "reason": "Retained source independently reviewed; requested absent regulatory/geographic fact or positively corrected target attribution.",
+      "revised_question": "What FDA-validated early-stage sensitivity value for EarlyCDT-Lung is reported in the selected oncology corpus?"
     },
     {
       "id": "q084",
@@ -253,7 +257,8 @@
       "replacement_cases": [
         "q085"
       ],
-      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable."
+      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable.",
+      "revised_question": "How does the immune-exclusion definition review distinguish inflamed, desert and excluded tumors spatially?"
     },
     {
       "id": "q086",
@@ -342,10 +347,8 @@
       "action": "retire_legacy_case",
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "Old null-source attribution retired or reclassified; new absent facts have explicit scope.",
-      "replacement_cases": [
-        "o013"
-      ],
-      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold.",
+      "replacement_cases": [],
+      "reason": "Legacy source/claim not carried into this release; the question is not recast onto another study, so no replacement case is linked.",
       "legacy_answerability_review": {
         "status": "false_premise",
         "decision": "Retired: the source supporting the named study is not eligible in this release; the original question is preserved rather than recast onto a different study.",
@@ -412,7 +415,8 @@
       "replacement_cases": [
         "q095"
       ],
-      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable."
+      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable.",
+      "revised_question": "What four mutually exclusive screening categories and percentages did the US dual-screening study report for women ages 50–64?"
     },
     {
       "id": "q096",
@@ -427,7 +431,8 @@
       "replacement_cases": [
         "q096"
       ],
-      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable."
+      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable.",
+      "revised_question": "In the US dual-screening study, how much more common was cervical-only than CRC-only screening?"
     },
     {
       "id": "q097",
@@ -488,7 +493,8 @@
       "replacement_cases": [
         "q100"
       ],
-      "reason": "Retained source independently reviewed; requested absent regulatory/geographic fact or positively corrected target attribution."
+      "reason": "Retained source independently reviewed; requested absent regulatory/geographic fact or positively corrected target attribution.",
+      "revised_question": "What dual-screening rate for the Basque Country FIT programme is reported in the selected oncology corpus?"
     },
     {
       "id": "q101",
@@ -503,7 +509,8 @@
       "replacement_cases": [
         "q101"
       ],
-      "reason": "Retained source independently reviewed; requested absent regulatory/geographic fact or positively corrected target attribution."
+      "reason": "Retained source independently reviewed; requested absent regulatory/geographic fact or positively corrected target attribution.",
+      "revised_question": "Are the HP2030 cervical and colorectal screening goals cited by Harper the study’s own achieved rates?"
     },
     {
       "id": "q102",
@@ -518,7 +525,8 @@
       "replacement_cases": [
         "q102"
       ],
-      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable."
+      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable.",
+      "revised_question": "What hysterectomy exclusion and final analysis-group counts appear in the US dual-screening study’s Appendix 1 flow diagram?"
     },
     {
       "id": "q103",
@@ -605,11 +613,12 @@
       ],
       "action": "revise_in_v1",
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
-      "negative_scope_review": "Old null-source attribution retired or reclassified; new absent facts have explicit scope.",
+      "negative_scope_review": "false_premise",
       "replacement_cases": [
         "q108"
       ],
-      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable."
+      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable.",
+      "revised_question": "Are the ADAURA hazard ratios in the nonmetastatic driver review outcomes measured by the review’s own newly enrolled cohort?"
     },
     {
       "id": "q109",
@@ -621,11 +630,8 @@
       "action": "retire_legacy_case",
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "Old null-source attribution retired or reclassified; new absent facts have explicit scope.",
-      "replacement_cases": [
-        "o007",
-        "o020"
-      ],
-      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold.",
+      "replacement_cases": [],
+      "reason": "Legacy source/claim not carried into this release; the question is not recast onto another study, so no replacement case is linked.",
       "legacy_answerability_review": {
         "status": "absent_fact",
         "decision": "Retired: the source supporting the named study is not eligible in this release; the original question is preserved rather than recast onto a different study.",
@@ -718,10 +724,8 @@
       "action": "retire_legacy_case",
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "Old null-source attribution retired or reclassified; new absent facts have explicit scope.",
-      "replacement_cases": [
-        "o019"
-      ],
-      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold.",
+      "replacement_cases": [],
+      "reason": "Legacy source/claim not carried into this release; the question is not recast onto another study, so no replacement case is linked.",
       "legacy_answerability_review": {
         "status": "absent_fact",
         "decision": "Retired: the source supporting the named study is not eligible in this release; the original question is preserved rather than recast onto a different study.",

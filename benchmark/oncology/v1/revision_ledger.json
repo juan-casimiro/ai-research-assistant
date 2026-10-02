@@ -1,8 +1,6 @@
 {
   "status": "pre-freeze corrections; no retrieval exposure",
-  "previous_commit": "8b1adbed1e88552bab5b584e003b809215ea12e6",
-  "previous_query_sha256": "8d5407f5a35f62b881075fd70346973158ffef69c40ab87ac08a552a5aad73ba",
-  "query_sha256": "9966fbdc67ef26102b347d8855f9134f87b2c2d7018c8b1b3ec89b6debec1aff",
+  "query_sha256": "323ac452cbcd1f12030d5e5c09b05b8cb723e74ea729c29bb23b33533c216b0b",
   "renamed_coverage_cases": {
     "q103": "o022",
     "q111": "o023",
@@ -14,49 +12,100 @@
     "q104": "o029",
     "q117": "o030"
   },
-  "changed_cases": [
-    "q079",
-    "q080",
-    "q081",
-    "q082",
-    "q095",
-    "q096",
-    "q102",
-    "o022",
-    "o029",
-    "o028",
-    "o001",
-    "o002",
-    "o003",
-    "o004",
-    "o005",
-    "o027",
-    "o006",
-    "q108",
-    "o007",
-    "o023",
-    "o008",
-    "o009",
-    "o010",
-    "o011",
-    "o026",
-    "o012",
-    "q085",
-    "o013",
-    "o014",
-    "o015",
-    "o016",
-    "o030",
-    "o017",
-    "o018",
-    "o024",
-    "o019",
-    "o025",
-    "o020",
-    "o021",
-    "q083",
-    "q100",
-    "q101"
-  ],
-  "reason": "Validated Claude review: complete OS and HR scope, reflex overlap, non-reused IDs, positive premise correction and legacy negative migration."
+  "withdrawn_cases": {
+    "q082": {
+      "reason": "Same mrd anchor, facts and near-identical wording as o025; retained only one MRD assay-performance case.",
+      "coverage_retained_by": "o025"
+    },
+    "o019": {
+      "reason": "Strict subset of o023 (same reflex_def anchor and Gosney MDT/pathologist/oncologist-request task); it also used POL-MOL as a decoy while other cases record it as partial support.",
+      "coverage_retained_by": "o023"
+    }
+  },
+  "retained_id_task_changes": {
+    "q081": "Legacy multi-hop modality comparison is now a false-premise check that MCED shares LDCT's demonstrated mortality benefit.",
+    "q095": "Legacy dual-screening percentage plus single-cancer comparison is now the four mutually exclusive screening categories.",
+    "q108": "Legacy question on an ineligible NSCLC paper is now the ADAURA attribution check in the eligible nonmetastatic driver review."
+  },
+  "revisions": [
+    {
+      "previous_commit": "8b1adbed1e88552bab5b584e003b809215ea12e6",
+      "previous_query_sha256": "8d5407f5a35f62b881075fd70346973158ffef69c40ab87ac08a552a5aad73ba",
+      "query_sha256": "9966fbdc67ef26102b347d8855f9134f87b2c2d7018c8b1b3ec89b6debec1aff",
+      "changed_cases": [
+        "q079",
+        "q080",
+        "q081",
+        "q082",
+        "q095",
+        "q096",
+        "q102",
+        "o022",
+        "o029",
+        "o028",
+        "o001",
+        "o002",
+        "o003",
+        "o004",
+        "o005",
+        "o027",
+        "o006",
+        "q108",
+        "o007",
+        "o023",
+        "o008",
+        "o009",
+        "o010",
+        "o011",
+        "o026",
+        "o012",
+        "q085",
+        "o013",
+        "o014",
+        "o015",
+        "o016",
+        "o030",
+        "o017",
+        "o018",
+        "o024",
+        "o019",
+        "o025",
+        "o020",
+        "o021",
+        "q083",
+        "q100",
+        "q101"
+      ],
+      "reason": "Validated Claude review: complete OS and HR scope, reflex overlap, non-reused IDs, positive premise correction and legacy negative migration."
+    },
+    {
+      "previous_commit": "a226bbac6f67589891acfbd622ba33ff5ac87632",
+      "previous_query_sha256": "9966fbdc67ef26102b347d8855f9134f87b2c2d7018c8b1b3ec89b6debec1aff",
+      "query_sha256": "323ac452cbcd1f12030d5e5c09b05b8cb723e74ea729c29bb23b33533c216b0b",
+      "changed_cases": [
+        "o020",
+        "o021",
+        "o023",
+        "o025",
+        "o029",
+        "o030",
+        "q083",
+        "q100"
+      ],
+      "withdrawn_cases": [
+        "o019",
+        "q082"
+      ],
+      "added_anchors": [
+        "driver_mrd_trial",
+        "helsinki_followup",
+        "hunan_fig1_legend",
+        "hunan_os_limitation"
+      ],
+      "removed_anchors": [
+        "hunan_os"
+      ],
+      "reason": "Claude re-review: Hunan OS label conflict and Limitations anchor, Helsinki five-year OS correction, duplicate withdrawal with one POL-MOL role, same-field MRD decoy, per-article search provenance."
+    }
+  ]
 }

@@ -1,6 +1,6 @@
 {
-  "query_sha256": "9966fbdc67ef26102b347d8855f9134f87b2c2d7018c8b1b3ec89b6debec1aff",
   "query_version": "oncology-queries-v1",
+  "query_sha256": "323ac452cbcd1f12030d5e5c09b05b8cb723e74ea729c29bb23b33533c216b0b",
   "cases": [
     {
       "id": "q079",
@@ -34,20 +34,6 @@
       "id": "q081",
       "revision": 2,
       "category": "false_premise",
-      "required": [
-        "PMC13429855"
-      ],
-      "alternatives": [],
-      "decoys": [],
-      "overlap_review": [
-        "PMC13429855"
-      ],
-      "negative_evidence": []
-    },
-    {
-      "id": "q082",
-      "revision": 2,
-      "category": "direct_lookup",
       "required": [
         "PMC13429855"
       ],
@@ -116,7 +102,7 @@
     },
     {
       "id": "o029",
-      "revision": 1,
+      "revision": 2,
       "category": "multi_hop",
       "required": [
         "PMC9844597"
@@ -270,7 +256,7 @@
     },
     {
       "id": "o023",
-      "revision": 1,
+      "revision": 2,
       "category": "direct_lookup",
       "required": [
         "PMC10485396"
@@ -287,7 +273,7 @@
           "article_id": "PMC11547071",
           "anchor_id": "polmol_reflex",
           "role": "partial_support",
-          "assessment": "Supports pathologist initiation and agreed biomarkers; does not complete the required MDT/no-formal-request details."
+          "assessment": "Implies no oncologist request (agreed biomarkers are ordered automatically by the pathologist rather than the treating physician) but omits the MDT agreement and the delay/deterioration mechanism. Attribution to the Gosney consensus is required, so POL-MOL does not complete this task."
         }
       ]
     },
@@ -447,7 +433,7 @@
     },
     {
       "id": "o030",
-      "revision": 1,
+      "revision": 2,
       "category": "cross_doc_synthesis",
       "required": [
         "PMC10485396",
@@ -466,7 +452,7 @@
           "article_id": "PMC11547071",
           "anchor_id": "polmol_reflex",
           "role": "partial_support",
-          "assessment": "Supports pathologist initiation and agreed biomarkers; does not complete the required MDT/no-formal-request details or the early-stage EGFR rationale."
+          "assessment": "Implies no oncologist request (agreed biomarkers are ordered automatically by the pathologist rather than the treating physician) but omits the MDT agreement and the delay/deterioration mechanism. Attribution to the Gosney consensus is required, so POL-MOL does not complete this task. It also lacks the early-stage EGFR rationale."
         }
       ]
     },
@@ -520,44 +506,19 @@
       "negative_evidence": []
     },
     {
-      "id": "o019",
-      "revision": 2,
-      "category": "cross_doc_distractor",
-      "required": [
-        "PMC10485396"
-      ],
-      "alternatives": [],
-      "decoys": [
-        "PMC11547071"
-      ],
-      "overlap_review": [
-        "PMC10485396",
-        "PMC11547071"
-      ],
-      "negative_evidence": [],
-      "overlap_findings": [
-        {
-          "article_id": "PMC11547071",
-          "anchor_id": "polmol_reflex",
-          "role": "partial_support",
-          "assessment": "Supports pathologist initiation and agreed biomarkers; does not complete the required MDT/no-formal-request details."
-        }
-      ]
-    },
-    {
       "id": "o025",
-      "revision": 1,
+      "revision": 2,
       "category": "cross_doc_distractor",
       "required": [
         "PMC13429855"
       ],
       "alternatives": [],
       "decoys": [
-        "PMC10485396"
+        "PMC11431721"
       ],
       "overlap_review": [
         "PMC13429855",
-        "PMC13190586"
+        "PMC11431721"
       ],
       "negative_evidence": []
     },
@@ -581,7 +542,7 @@
     },
     {
       "id": "o021",
-      "revision": 2,
+      "revision": 3,
       "category": "false_premise",
       "required": [
         "PMC12931073"

@@ -1,25 +1,25 @@
 {
   "kind": "offline_evidence_reachability_oracle",
   "retrieval_quality_measured": false,
-  "selection_sha256": "cf106c82aa57aa197c1b60291bc6979b07b309257e7e18f0b2a98d4355042c1d",
-  "query_sha256": "9966fbdc67ef26102b347d8855f9134f87b2c2d7018c8b1b3ec89b6debec1aff",
-  "conditions_sha256": "c92cce4a1cc6081cfd924bcd1f39d0d8bfa5e9a3c9de7bf97b6cd3da6e23522e",
+  "selection_sha256": "5c0116e9e191a729e9dddbf359114e0bf49bac23d1d13fe4a22edd5178053803",
+  "query_sha256": "323ac452cbcd1f12030d5e5c09b05b8cb723e74ea729c29bb23b33533c216b0b",
+  "conditions_sha256": "00e5a3f48f7baa76b16ad4e50d64b0cf738089afd03ae34dd7e8048914143a25",
   "condition": "C2",
   "membership_sha256": "fc2ceb51196c8d082997fd540aa3aab3f4a65e6ea26f0960e72045aa516af12d",
   "scorer_version": "pinned-span-coverage-v3",
   "feasibility_version": "minimum-evidence-chunks-v3",
   "production_chunker_source_sha256": "2bce57440e693cdc844c8543c324d8f534128b735ced56c5105d2643f906a71b",
   "result": {
-    "available_anchors": 42,
-    "reachable_anchors": 42,
+    "available_anchors": 45,
+    "reachable_anchors": 45,
     "anchors_requiring_adjacent_chunks": 21,
-    "evidence_queries": 39,
-    "unlimited_reachable_evidence_queries": 39,
+    "evidence_queries": 37,
+    "unlimited_reachable_evidence_queries": 37,
     "by_depth": {
       "n3": {
-        "feasible_queries": 31,
-        "total_queries": 39,
-        "ceiling_rate": 0.7948717948717948,
+        "feasible_queries": 29,
+        "total_queries": 37,
+        "ceiling_rate": 0.7837837837837838,
         "feasible_ids": [
           "o001",
           "o002",
@@ -34,7 +34,6 @@
           "o012",
           "o014",
           "o015",
-          "o019",
           "o021",
           "o022",
           "o023",
@@ -45,7 +44,6 @@
           "o028",
           "q079",
           "q080",
-          "q082",
           "q085",
           "q095",
           "q096",
@@ -65,8 +63,8 @@
         ]
       },
       "n8": {
-        "feasible_queries": 39,
-        "total_queries": 39,
+        "feasible_queries": 37,
+        "total_queries": 37,
         "ceiling_rate": 1.0,
         "feasible_ids": [
           "o001",
@@ -87,7 +85,6 @@
           "o016",
           "o017",
           "o018",
-          "o019",
           "o021",
           "o022",
           "o023",
@@ -101,7 +98,6 @@
           "q079",
           "q080",
           "q081",
-          "q082",
           "q085",
           "q095",
           "q096",
@@ -134,13 +130,6 @@
           "n8": "feasible"
         }
       },
-      "q082": {
-        "minimum_chunks": 2,
-        "by_depth": {
-          "n3": "feasible",
-          "n8": "feasible"
-        }
-      },
       "q095": {
         "minimum_chunks": 1,
         "by_depth": {
@@ -170,7 +159,7 @@
         }
       },
       "o029": {
-        "minimum_chunks": 5,
+        "minimum_chunks": 6,
         "by_depth": {
           "n3": "infeasible",
           "n8": "feasible"
@@ -331,7 +320,7 @@
         }
       },
       "o030": {
-        "minimum_chunks": 8,
+        "minimum_chunks": 7,
         "by_depth": {
           "n3": "infeasible",
           "n8": "feasible"
@@ -358,13 +347,6 @@
           "n8": "feasible"
         }
       },
-      "o019": {
-        "minimum_chunks": 1,
-        "by_depth": {
-          "n3": "feasible",
-          "n8": "feasible"
-        }
-      },
       "o025": {
         "minimum_chunks": 2,
         "by_depth": {
@@ -380,7 +362,7 @@
         }
       },
       "o021": {
-        "minimum_chunks": 1,
+        "minimum_chunks": 2,
         "by_depth": {
           "n3": "feasible",
           "n8": "feasible"
