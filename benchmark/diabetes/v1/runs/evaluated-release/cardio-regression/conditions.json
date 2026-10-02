@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "corpus_version": "cardiology-diabetes-selection-v1",
-  "query_version": "diabetes-queries-v1",
-  "query_sha256": "38d3ad95fbcd3d38d0bdfd4b2d9388524a889aa572c14c5a3f09762cce4c3d44",
+  "query_version": "cardiology-queries-v1",
+  "query_sha256": "be2c9eb95fe4892f174de21ca78bb383c62f054b727c485ff5896635f1b8766c",
   "status": "author-reviewed frozen membership; independent review pending",
   "article_tuples": [
     {
@@ -201,47 +201,68 @@
   "conditions": {
     "C1": {
       "article_ids": [
-        "PMC10452755",
+        "PMC10363301",
+        "PMC10607686",
+        "PMC10619268",
+        "PMC10985250",
+        "PMC11265054",
         "PMC11354916",
         "PMC11373557",
-        "PMC11847805",
-        "PMC12419643",
+        "PMC11374717",
+        "PMC11514186",
+        "PMC11549774",
+        "PMC11973566",
+        "PMC12003177",
+        "PMC12436478",
         "PMC12683810",
+        "PMC12880197",
         "PMC12886974",
-        "PMC13107781",
-        "PMC13175446",
-        "PMC13311226",
-        "PMC13423648",
-        "PMC13430954",
-        "PMC13433218",
-        "PMC13433680",
-        "PMC13472562",
-        "PMC4804513"
+        "PMC13433181",
+        "PMC13433862",
+        "PMC13439631",
+        "PMC4804513",
+        "PMC8866621"
       ],
-      "membership_sha256": "cf5f8192670d1fe620c90aab640a1187e88cb8a30ad45048042541d0ae9a3a6f",
-      "purpose": "Exact union of diabetes required and accepted alternative sources."
+      "membership_sha256": "90ac2dc3f266e8e5c7d23c2d7a3e9efe09c3932a90b167dbaa5903cb6383bb32",
+      "purpose": "Original 21-article selected cardiology corpus, fresh paired baseline."
     },
     "C2": {
       "article_ids": [
+        "PMC10363301",
         "PMC10452755",
+        "PMC10607686",
+        "PMC10619268",
+        "PMC10985250",
+        "PMC11265054",
         "PMC11354916",
         "PMC11373557",
+        "PMC11374717",
+        "PMC11514186",
+        "PMC11549774",
         "PMC11847805",
+        "PMC11973566",
+        "PMC12003177",
         "PMC12419643",
+        "PMC12436478",
         "PMC12683810",
+        "PMC12880197",
         "PMC12886974",
         "PMC13107781",
         "PMC13175446",
         "PMC13311226",
         "PMC13423648",
         "PMC13430954",
+        "PMC13433181",
         "PMC13433218",
         "PMC13433680",
+        "PMC13433862",
+        "PMC13439631",
         "PMC13472562",
-        "PMC4804513"
+        "PMC4804513",
+        "PMC8866621"
       ],
-      "membership_sha256": "cf5f8192670d1fe620c90aab640a1187e88cb8a30ad45048042541d0ae9a3a6f",
-      "purpose": "Same 16 articles: all selected diabetes/overlap articles serve authored cases; query-relative competitors remain present. C1 run omitted as redundant."
+      "membership_sha256": "2e46c354c72c4dafddb828c8b8b4762a65c4d5b9291c600c4aef6e65e7be1bf7",
+      "purpose": "Identical corpus plus 11 verified diabetes additions; all 45 cases and anchors frozen."
     },
     "C3": {
       "article_ids": [
@@ -279,7 +300,7 @@
         "PMC8866621"
       ],
       "membership_sha256": "2e46c354c72c4dafddb828c8b8b4762a65c4d5b9291c600c4aef6e65e7be1bf7",
-      "purpose": "All 32 verified cardiology and diabetes articles; interference expansion."
+      "purpose": "Same as C2; omit redundant run."
     }
   }
 }

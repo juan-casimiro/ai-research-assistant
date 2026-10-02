@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "query_version": "diabetes-queries-v1",
   "status": "author_reviewed; source-based category/reference clarification after initial retrieval; independent_PR_review_pending",
-  "selection_sha256": "1f3380e8df6021193924fb0eec692114dedd2b931a79bb81a67f35a236ee2ca9",
+  "selection_sha256": "ca7406b820f520481da7fc04d1e97fe01abd0112f89c08891305f56ab4d246eb",
   "authored_for": "JUA-111",
   "anchors": [
     {
@@ -1594,7 +1594,7 @@
     },
     {
       "id": "q005",
-      "revision": 4,
+      "revision": 3,
       "category": "direct_lookup",
       "topics": [
         "diabetes"
@@ -1635,7 +1635,7 @@
         "method": "Main-PDF full-text methods/results/limitations; pinned extraction and relevant JATS/table cross-check",
         "independent_review": "Pending Juan PR review; author review is not independent clinical review",
         "duplicate_leakage_check": "No requested gold values in question; shared anchors serve different scope/comparison tasks",
-        "tuning_exposure": "Questions and evidence anchors frozen before retrieval; category/reference annotations corrected afterward by source/standards review; this revision clarifies that chronology. No score-driven tuning."
+        "tuning_exposure": "Authored and frozen before retrieval scores"
       },
       "selection_rationale": "Coverage and evidence distinction identified in legacy audit, before retrieval evaluation",
       "reference_answer": "All three outcomes were very-low certainty. HbA1c was downgraded for high bias, extreme inconsistency and imprecision; FPG/2hPG for only two trials, substantial heterogeneity and methodological limitations.",
@@ -3179,7 +3179,7 @@
     },
     {
       "id": "q036",
-      "revision": 4,
+      "revision": 3,
       "category": "multi_hop",
       "topics": [
         "diabetes"
@@ -3222,7 +3222,7 @@
         "method": "Main-PDF full-text methods/results/limitations; pinned extraction and relevant JATS/table cross-check",
         "independent_review": "Pending Juan PR review; author review is not independent clinical review",
         "duplicate_leakage_check": "No requested gold values in question; shared anchors serve different scope/comparison tasks",
-        "tuning_exposure": "Questions and evidence anchors frozen before retrieval; category/reference annotations corrected afterward by source/standards review; this revision clarifies that chronology. No score-driven tuning."
+        "tuning_exposure": "Authored and frozen before retrieval scores"
       },
       "selection_rationale": "Coverage and evidence distinction identified in legacy audit, before retrieval evaluation",
       "reference_answer": "FAISS with text-embedding-3-small, about 500-character segments and 100-character overlap, top_k=2 using Euclidean/L2 distance.",
@@ -5092,7 +5092,7 @@
     },
     {
       "id": "d014",
-      "revision": 3,
+      "revision": 2,
       "category": "multi_hop",
       "topics": [
         "diabetes"
@@ -5135,7 +5135,7 @@
         "method": "Main-PDF full-text methods/results/limitations; pinned extraction and relevant JATS/table cross-check",
         "independent_review": "Pending Juan PR review; author review is not independent clinical review",
         "duplicate_leakage_check": "No requested gold values in question; shared anchors serve different scope/comparison tasks",
-        "tuning_exposure": "Questions and evidence anchors frozen before retrieval; category/reference annotations corrected afterward by source/standards review; this revision clarifies that chronology. No score-driven tuning."
+        "tuning_exposure": "Authored and frozen before retrieval scores"
       },
       "selection_rationale": "Coverage and evidence distinction identified in legacy audit, before retrieval evaluation",
       "reference_answer": "Daily spironolactone 25 mg over four weeks; office systolic/diastolic reductions were 33 versus 14 and 14 versus 5 mmHg. This is BP response in T2DM resistant hypertension, not glycemic drug response.",
@@ -5196,7 +5196,7 @@
     },
     {
       "id": "d015",
-      "revision": 3,
+      "revision": 2,
       "category": "multi_hop",
       "topics": [
         "diabetes"
@@ -5239,7 +5239,7 @@
         "method": "Main-PDF full-text methods/results/limitations; pinned extraction and relevant JATS/table cross-check",
         "independent_review": "Pending Juan PR review; author review is not independent clinical review",
         "duplicate_leakage_check": "No requested gold values in question; shared anchors serve different scope/comparison tasks",
-        "tuning_exposure": "Questions and evidence anchors frozen before retrieval; category/reference annotations corrected afterward by source/standards review; this revision clarifies that chronology. No score-driven tuning."
+        "tuning_exposure": "Authored and frozen before retrieval scores"
       },
       "selection_rationale": "Coverage and evidence distinction identified in legacy audit, before retrieval evaluation",
       "reference_answer": "An inverse cluster associates higher T2DM risk with lower BP; genetics does not fully explain the comorbidity and environmental factors remain. Do not infer a universal positive axis or a causal treatment effect.",
@@ -5300,7 +5300,7 @@
     },
     {
       "id": "d016",
-      "revision": 3,
+      "revision": 2,
       "category": "multi_hop",
       "topics": [
         "diabetes"
@@ -5343,7 +5343,7 @@
         "method": "Main-PDF full-text methods/results/limitations; pinned extraction and relevant JATS/table cross-check",
         "independent_review": "Pending Juan PR review; author review is not independent clinical review",
         "duplicate_leakage_check": "No requested gold values in question; shared anchors serve different scope/comparison tasks",
-        "tuning_exposure": "Questions and evidence anchors frozen before retrieval; category/reference annotations corrected afterward by source/standards review; this revision clarifies that chronology. No score-driven tuning."
+        "tuning_exposure": "Authored and frozen before retrieval scores"
       },
       "selection_rationale": "Coverage and evidence distinction identified in legacy audit, before retrieval evaluation",
       "reference_answer": "No significant drug-class differences in HFpEF CV mortality, all-cause mortality or HF events were reported; comparisons were placebo-anchored indirect evidence, not randomized head-to-head superiority.",
@@ -5505,7 +5505,7 @@
     },
     {
       "id": "d018",
-      "revision": 3,
+      "revision": 2,
       "category": "direct_lookup",
       "topics": [
         "diabetes"
@@ -5546,7 +5546,7 @@
         "method": "Main-PDF full-text methods/results/limitations; pinned extraction and relevant JATS/table cross-check",
         "independent_review": "Pending Juan PR review; author review is not independent clinical review",
         "duplicate_leakage_check": "No requested gold values in question; shared anchors serve different scope/comparison tasks",
-        "tuning_exposure": "Questions and evidence anchors frozen before retrieval; category/reference annotations corrected afterward by source/standards review; this revision clarifies that chronology. No score-driven tuning."
+        "tuning_exposure": "Authored and frozen before retrieval scores"
       },
       "selection_rationale": "Coverage and evidence distinction identified in legacy audit, before retrieval evaluation",
       "reference_answer": "The review describes oxidative-stress pathways, inflammation, EMT/pathological angiogenesis and renal fibrosis. Its broader HIF roles also include EPO/angiogenesis; do not portray every HIF role as harmful or infer a clinical zinc regimen.",

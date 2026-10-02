@@ -130,3 +130,37 @@ that invariance, recomputes metrics on the original contexts, requires identical
 per-case scores and records parent hashes/provenance. The `*-reviewed.json` pair
 contains the final category summaries; it makes **zero retrieval calls** and
 is explicitly derived, rather than relabelling the original run.
+
+## Descriptive corrections after review
+
+Claude review identified rank wording, stale Guo selection-summary notes,
+per-case freeze chronology and retrieved-list disclosure. The current manifests
+and query review fields are corrected with linked fingerprints and explicit
+case revisions. [review_corrections.json](review_corrections.json) records the
+changes and preserved original output hashes. Questions, gold anchors, source
+bytes, evidence bindings and membership tuples are unchanged.
+
+All published evaluation outputs remain byte-identical. The preserved
+[runs/evaluated-release/](runs/evaluated-release/) snapshot contains the envelopes
+for the reviewed diabetes summaries and cardiology regression. Original diabetes
+vector runs use `runs/initial-authoring/queries.json` and its conditions, with the
+same frozen manifest preserved in `runs/evaluated-release/`. New runs
+using the current descriptive revision have different release fingerprints and
+must not be directly paired with those historical files. To reproduce their
+original envelopes, substitute `--benchmark benchmark/diabetes/v1/runs/evaluated-release`
+in the ingestion/evaluation commands; for cardiology use its `cardio-regression`
+subdirectory. The source corpus is still `corpus/diabetes-v1`. Archived metadata
+responses remain in this release's original `metadata/` directory.
+
+The saved-context rescore can be reproduced without loading models or retrieving:
+
+```sh
+PYTHONPATH=. .venv/bin/python benchmark/diabetes/v1/runs/rescore_saved.py \
+  benchmark/diabetes/v1/runs/diabetes-C2-vector.json /tmp/jua111-rescore-check.json \
+  --benchmark benchmark/diabetes/v1/runs/evaluated-release
+```
+
+[retrieval_list_changes.json](runs/retrieval_list_changes.json) records five
+changed case-depth lists despite unchanged verdicts. Each focused-review context
+set identifies its exact original parent run. The q051 AF hit moves from rank 1
+to rank 0; its underlying candidate-pool mechanism remains unconfirmed.

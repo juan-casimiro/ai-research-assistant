@@ -3,8 +3,8 @@
   "issue": "JUA-111",
   "reviewer": "Codex GPT-6 (author review)",
   "independent_review": "Pending Juan PR review; no independent clinical adjudication claimed",
-  "selection_sha256": "ca7406b820f520481da7fc04d1e97fe01abd0112f89c08891305f56ab4d246eb",
-  "query_sha256": "7f1288ad0663fe50a09455af8d230b2330ae130d4a46450a9bb5a83b56a90f9f",
+  "selection_sha256": "1f3380e8df6021193924fb0eec692114dedd2b931a79bb81a67f35a236ee2ca9",
+  "query_sha256": "38d3ad95fbcd3d38d0bdfd4b2d9388524a889aa572c14c5a3f09762cce4c3d44",
   "status": "Author-reviewed final annotations; initial frozen retrieval questions/anchors unchanged",
   "source_selection": "32 pinned articles: original 21 retained unchanged, 11 verified diabetes additions; CC BY 4.0/CC0 1.0 only",
   "legacy_audit": "35 full legacy records with findings/actions in legacy_audit.json; 23 revised IDs, 12 retired IDs, 26 new IDs",
@@ -55,7 +55,19 @@
     },
     "reference_precision": "q005: imprecision is specifically the HbA1c downgrade; FPG/2hPG have small trial count, heterogeneity and methodological limits. d018: mechanistic HIF effects include both adaptive and pathogenic functions; do not label every role harmful.",
     "score_driven_gold_changes": false,
-    "annotation_changes_after_initial_retrieval": true
+    "annotation_changes_after_initial_retrieval": true,
+    "review_wording_corrections": {
+      "ids": [
+        "q005",
+        "q036",
+        "d014",
+        "d015",
+        "d016",
+        "d018"
+      ],
+      "evaluated_snapshot": "runs/evaluated-release",
+      "reason": "Clarify frozen question/anchor chronology; only descriptive review text and explicit revisions changed. Original run envelopes/fingerprints preserved."
+    }
   },
   "pdf_visual_review": [
     {
