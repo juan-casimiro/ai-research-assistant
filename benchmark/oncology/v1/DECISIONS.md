@@ -12,9 +12,16 @@ These legacy cases were retired on retained sources even though the pinned text 
 The original author recorded no case-specific reason, so the choice to restore them or confirm retirement is open:
 
 - **q078** (direct_lookup): How much does combining ctDNA and ctRNA analysis improve gene fusion detection yield compared with ctDNA alone in lung cancer liquid biopsy?
+  - Original author's rationale: PLACEHOLDER (Codex): state why this case was retired although its evidence is in the pinned source, or recommend restoring it.
 - **q097** (direct_lookup): In the multivariate multinomial regression, what were the adjusted odds ratios for college graduation and for having the highest income level, in predicting dual-screening versus neither screen?
+  - Original author's rationale: PLACEHOLDER (Codex): state why this case was retired although its evidence is in the pinned source, or recommend restoring it.
 - **q098** (multi_hop): How did the screening patterns of Hispanic women differ from those of Black women in this study, when comparing dual-screening to single-screen or no-screen outcomes?
+  - Original author's rationale: PLACEHOLDER (Codex): state why this case was retired although its evidence is in the pinned source, or recommend restoring it.
 - **q099** (multi_hop): What three levels of decision-making does the paper propose to explain why screening behavior diverges by age between cervical cancer screening and CRC screening?
+  - Original author's rationale: PLACEHOLDER (Codex): state why this case was retired although its evidence is in the pinned source, or recommend restoring it.
+
+To resolve one, replace its `original_author_rationale` placeholder in legacy_audit.json, set
+`open_decision` to false once Juan decides, update `reason`, then re-render this file and run the verifier.
 
 ## Decision principles
 

@@ -61,7 +61,11 @@ lines = ['# Oncology v1 decision record', '',
 open_cases = [c for c in audit['cases'] if c['open_decision']]
 lines += ['These legacy cases were retired on retained sources even though the pinned text contains their evidence.',
           'The original author recorded no case-specific reason, so the choice to restore them or confirm retirement is open:', '']
-lines += [f'- **{c["id"]}** ({c["legacy_category"]}): {c["question"]}' for c in open_cases]
+for c in open_cases:
+    lines += [f'- **{c["id"]}** ({c["legacy_category"]}): {c["question"]}',
+              f'  - Original author\'s rationale: {c.get("original_author_rationale", "not recorded")}']
+lines += ['', 'To resolve one, replace its `original_author_rationale` placeholder in legacy_audit.json, set',
+          '`open_decision` to false once Juan decides, update `reason`, then re-render this file and run the verifier.']
 lines += ['', '## Decision principles', '']
 lines += [bullet(label, text) for label, text in PRINCIPLES]
 
