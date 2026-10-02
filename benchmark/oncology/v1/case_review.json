@@ -1,7 +1,7 @@
 {
   "status": "review_ready; independent review pending",
   "query_version": "oncology-queries-v1",
-  "query_sha256": "d55dd965fb0c1a731fd9613e9bcf300545347099fe757dea8e74ecd624b53b3b",
+  "query_sha256": "5cab6de39c5933421f7a096e1c79c650e698663a5b14db5021ed029313c42057",
   "method": "Exact pinned PDF extraction offsets; relevant full-text/JATS context and competing endpoints; representative PDF visuals and separate table/flow bindings.",
   "source_conflicts": [
     {
@@ -31,6 +31,14 @@
         "q102"
       ],
       "finding": "Flow diagram labels 50–65 versus main 50–64 and contains inconsistent subtraction arithmetic; gold requests printed counts."
+    },
+    {
+      "article_id": "PMC9239676",
+      "cases": [
+        "q097",
+        "q098"
+      ],
+      "finding": "Analysis cohort 40,511 versus Table 4 N=42,701; optional source-attributed counts accepted."
     }
   ],
   "negative_review": [
@@ -56,7 +64,7 @@
         "C1",
         "C2"
       ],
-      "selection_sha256": "5c0116e9e191a729e9dddbf359114e0bf49bac23d1d13fe4a22edd5178053803",
+      "selection_sha256": "fbd89e220a50c8fe0486c69166626ffeaf2706d4a3e3159004a3d468150cbfd7",
       "searched_terms": [
         "failed to undergo",
         "failed to receive surgery",
@@ -90,7 +98,7 @@
         "C1",
         "C2"
       ],
-      "selection_sha256": "5c0116e9e191a729e9dddbf359114e0bf49bac23d1d13fe4a22edd5178053803",
+      "selection_sha256": "fbd89e220a50c8fe0486c69166626ffeaf2706d4a3e3159004a3d468150cbfd7",
       "searched_terms": [
         "EarlyCDT",
         "FDA",
@@ -124,7 +132,7 @@
         "C1",
         "C2"
       ],
-      "selection_sha256": "5c0116e9e191a729e9dddbf359114e0bf49bac23d1d13fe4a22edd5178053803",
+      "selection_sha256": "fbd89e220a50c8fe0486c69166626ffeaf2706d4a3e3159004a3d468150cbfd7",
       "searched_terms": [
         "Basque",
         "FIT",
@@ -138,5 +146,336 @@
     }
   ],
   "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; corrected draft requires re-review before freeze.",
-  "tuning_exposure": "No retrieval or model answers seen during authoring."
+  "tuning_exposure": "No retrieval or model answers seen during authoring.",
+  "alternative_evidence_review": {
+    "scope": "All 41 evidence-bearing cases: same-source restatement searches and surrounding full-text/table review in their named selected articles; other selected articles assessed by question attribution and existing overlap/decoy scope.",
+    "limits": "Pinned alternatives are conservative and not exhaustive semantic matching. External cited studies and unselected candidates were not re-audited.",
+    "cases": [
+      {
+        "id": "q079",
+        "evidence_sets": [
+          "primary"
+        ],
+        "disposition": "CSF detection/sensitivity/specificity and cytology comparison occur only in the pinned meta-analysis paragraph; no complete restatement found."
+      },
+      {
+        "id": "q080",
+        "evidence_sets": [
+          "primary"
+        ],
+        "disposition": "NILE population, biomarker findings and turnaround occur only in the pinned NILE paragraph."
+      },
+      {
+        "id": "q081",
+        "evidence_sets": [
+          "primary"
+        ],
+        "disposition": "Other LDCT/MCED mentions do not reproduce the NLST 20% comparison plus no demonstrated MCED mortality benefit; primary pair retained."
+      },
+      {
+        "id": "q095",
+        "evidence_sets": [
+          "primary",
+          "results",
+          "table2"
+        ],
+        "disposition": "Complete restatements in Results/tables/conclusion are pinned as additional fact-bound evidence sets; partial or wrong-contrast matches were excluded."
+      },
+      {
+        "id": "q096",
+        "evidence_sets": [
+          "primary",
+          "results",
+          "table2",
+          "reported_ratio",
+          "screen_single_discussion",
+          "screen_single_healthsystem"
+        ],
+        "disposition": "Complete restatements in Results/tables/conclusion are pinned as additional fact-bound evidence sets; partial or wrong-contrast matches were excluded."
+      },
+      {
+        "id": "q102",
+        "evidence_sets": [
+          "primary"
+        ],
+        "disposition": "The hysterectomy exclusion is flow-specific; other analysis-count mentions alone cannot answer both requested counts."
+      },
+      {
+        "id": "o022",
+        "evidence_sets": [
+          "primary"
+        ],
+        "disposition": "Introduction repeats 190 patients and Discussion repeats surgery selection; neither supplies the complete treatment split, ECOG and exclusion; primary Methods retained."
+      },
+      {
+        "id": "o029",
+        "evidence_sets": [
+          "primary",
+          "results_dfs"
+        ],
+        "disposition": "Complete restatements in Results/tables/conclusion are pinned as additional fact-bound evidence sets; partial or wrong-contrast matches were excluded."
+      },
+      {
+        "id": "o028",
+        "evidence_sets": [
+          "primary",
+          "results",
+          "table2",
+          "discussion_with_significance"
+        ],
+        "disposition": "Complete restatements in Results/tables/conclusion are pinned as additional fact-bound evidence sets; partial or wrong-contrast matches were excluded."
+      },
+      {
+        "id": "o001",
+        "evidence_sets": [
+          "primary",
+          "table_and_results",
+          "table_and_discussion"
+        ],
+        "disposition": "Complete restatements in Results/tables/conclusion are pinned as additional fact-bound evidence sets; partial or wrong-contrast matches were excluded."
+      },
+      {
+        "id": "o002",
+        "evidence_sets": [
+          "primary"
+        ],
+        "disposition": "Other MPR rates repeat 65.3/15.1 but not the narrative 19/26 versus Table 2 17/26 conflict; original pair retained."
+      },
+      {
+        "id": "o003",
+        "evidence_sets": [
+          "primary",
+          "breast_pcr_results",
+          "breast_pcr_table"
+        ],
+        "disposition": "Complete restatements in Results/tables/conclusion are pinned as additional fact-bound evidence sets; partial or wrong-contrast matches were excluded."
+      },
+      {
+        "id": "o004",
+        "evidence_sets": [
+          "primary",
+          "tables_with_monitoring"
+        ],
+        "disposition": "Complete restatements in Results/tables/conclusion are pinned as additional fact-bound evidence sets; partial or wrong-contrast matches were excluded."
+      },
+      {
+        "id": "o005",
+        "evidence_sets": [
+          "primary",
+          "alternative_1"
+        ],
+        "disposition": "Complete restatements in Results/tables/conclusion are pinned as additional fact-bound evidence sets; partial or wrong-contrast matches were excluded."
+      },
+      {
+        "id": "o027",
+        "evidence_sets": [
+          "primary",
+          "separated_endpoints",
+          "alternative_2",
+          "orr_table"
+        ],
+        "disposition": "Complete restatements in Results/tables/conclusion are pinned as additional fact-bound evidence sets; partial or wrong-contrast matches were excluded."
+      },
+      {
+        "id": "o006",
+        "evidence_sets": [
+          "primary"
+        ],
+        "disposition": "Results/Discussion repeat dose shares, but the question explicitly asks abstract versus Table 2; those source locations remain required, and counts need Table 2."
+      },
+      {
+        "id": "q108",
+        "evidence_sets": [
+          "primary"
+        ],
+        "disposition": "Other EGFR trial rows have different trials, stages or confidence levels; no complete alternative for the initial ADAURA DFS estimates."
+      },
+      {
+        "id": "o007",
+        "evidence_sets": [
+          "primary"
+        ],
+        "disposition": "Other trial summaries have different endpoints or populations; complete ADAURA five-year OS estimates and both confidence intervals occur in driver_os."
+      },
+      {
+        "id": "o023",
+        "evidence_sets": [
+          "primary"
+        ],
+        "disposition": "Implementation principles repeat pathologist initiation but omit the full no-oncologist-request definition or deterioration mechanism; POL-MOL remains partial support."
+      },
+      {
+        "id": "o008",
+        "evidence_sets": [
+          "primary"
+        ],
+        "disposition": "Other EGFR mentions concern metastatic care or citations; only reflex_early combines adjuvant/neoadjuvant rationale with resected or presurgical specimens."
+      },
+      {
+        "id": "o009",
+        "evidence_sets": [
+          "primary",
+          "results_with_hr_scope"
+        ],
+        "disposition": "Results 3.2 and 3.4 repeat population, prevalence and HR; together with the four-study HR-scope limitation they form a complete alternative. Prevalence is not a comparator-relative risk despite the Results wording."
+      },
+      {
+        "id": "o010",
+        "evidence_sets": [
+          "primary",
+          "results"
+        ],
+        "disposition": "Complete restatements in Results/tables/conclusion are pinned as additional fact-bound evidence sets; partial or wrong-contrast matches were excluded."
+      },
+      {
+        "id": "o011",
+        "evidence_sets": [
+          "primary",
+          "results"
+        ],
+        "disposition": "Complete restatements in Results/tables/conclusion are pinned as additional fact-bound evidence sets; partial or wrong-contrast matches were excluded."
+      },
+      {
+        "id": "o026",
+        "evidence_sets": [
+          "primary",
+          "results"
+        ],
+        "disposition": "Results repeat 5,076 patients, 3,746 deaths, NSCLC 85.34%, CVD components 1.17%+1.63%=2.80%, and the same CHF/Medicaid sHRs. These three source-bound spans form a complete alternative; Table 2 uses different reference directions and is not substituted."
+      },
+      {
+        "id": "o012",
+        "evidence_sets": [
+          "primary",
+          "results"
+        ],
+        "disposition": "Complete restatements in Results/tables/conclusion are pinned as additional fact-bound evidence sets; partial or wrong-contrast matches were excluded."
+      },
+      {
+        "id": "q085",
+        "evidence_sets": [
+          "primary"
+        ],
+        "disposition": "Other sections discuss outcomes or study-specific cutoffs without all three spatial definitions and the historical cold-label caveat; primary definition retained."
+      },
+      {
+        "id": "o013",
+        "evidence_sets": [
+          "primary",
+          "alternative_1",
+          "alternative_2",
+          "alternative_3"
+        ],
+        "disposition": "Complete restatements in Results/tables/conclusion are pinned as additional fact-bound evidence sets; partial or wrong-contrast matches were excluded."
+      },
+      {
+        "id": "o014",
+        "evidence_sets": [
+          "primary"
+        ],
+        "disposition": "Biomarker framework and Figure 1 repeat CALR/ATP/HMGB1 but omit P2RX7 plus IL-1β/IL-18; only the pinned DAMP passage is complete."
+      },
+      {
+        "id": "o015",
+        "evidence_sets": [
+          "primary"
+        ],
+        "disposition": "Other cold-phenotype mentions omit one of the spatial/function distinctions; primary phenotype passage retained."
+      },
+      {
+        "id": "o016",
+        "evidence_sets": [
+          "primary"
+        ],
+        "disposition": "Earlier stress paragraph omits PERK and later figure/framework omits P2RX7/inflammasome detail; primary stress-plus-DAMP pair retained."
+      },
+      {
+        "id": "o030",
+        "evidence_sets": [
+          "primary",
+          "results_response",
+          "discussion_response"
+        ],
+        "disposition": "Hunan MPR is restated in Results 3.3 and Discussion; each can replace the abstract response anchor while retaining the DFS/OS/maturity and Gosney evidence. POL-MOL supplies only partial testing support."
+      },
+      {
+        "id": "o017",
+        "evidence_sets": [
+          "primary",
+          "alternative_1",
+          "observational_results",
+          "both_results"
+        ],
+        "disposition": "Observational Results plus the four-study scope caveat and the PD-1 cohort Results give complete same-endpoint alternatives. Each source still supplies its own population/comparator; no pooled causal interpretation is accepted."
+      },
+      {
+        "id": "o018",
+        "evidence_sets": [
+          "primary",
+          "myocarditis_table",
+          "alternative_2",
+          "tables_and_results"
+        ],
+        "disposition": "Complete restatements in Results/tables/conclusion are pinned as additional fact-bound evidence sets; partial or wrong-contrast matches were excluded."
+      },
+      {
+        "id": "o024",
+        "evidence_sets": [
+          "primary"
+        ],
+        "disposition": "Other ADAURA mentions omit the complete stage II–IIIA OS estimates or adjuvant setting. The afatinib source remains a question-specific decoy."
+      },
+      {
+        "id": "o025",
+        "evidence_sets": [
+          "primary"
+        ],
+        "disposition": "Driver-review trial row has DFS and recruitment status, not assay sensitivity/specificity; no alternative to the MRD comparison passage."
+      },
+      {
+        "id": "o021",
+        "evidence_sets": [
+          "primary"
+        ],
+        "disposition": "Methods repeat nonmatched retrospective design but not all cohort sizes in one span; other OS mentions concern KEYNOTE-522, not Helsinki five-year OS; original complete correction retained."
+      },
+      {
+        "id": "q101",
+        "evidence_sets": [
+          "primary"
+        ],
+        "disposition": "The pinned Discussion is the only passage joining both HP2030 targets to observed dual screening."
+      },
+      {
+        "id": "q078",
+        "evidence_sets": [
+          "primary"
+        ],
+        "disposition": "Other fusion/RNA mentions lack the 28–37% range and NCCN no-driver recommendation together; primary passage retained."
+      },
+      {
+        "id": "q097",
+        "evidence_sets": [
+          "primary",
+          "table4"
+        ],
+        "disposition": "Complete restatements in Results/tables/conclusion are pinned as additional fact-bound evidence sets; partial or wrong-contrast matches were excluded."
+      },
+      {
+        "id": "q098",
+        "evidence_sets": [
+          "primary",
+          "results_subsections"
+        ],
+        "disposition": "Complete restatements in Results/tables/conclusion are pinned as additional fact-bound evidence sets; partial or wrong-contrast matches were excluded."
+      },
+      {
+        "id": "q099",
+        "evidence_sets": [
+          "primary"
+        ],
+        "disposition": "All three decision levels are developed together only in the pinned Discussion section; other fivefold mentions cannot replace the level hypotheses."
+      }
+    ]
+  }
 }

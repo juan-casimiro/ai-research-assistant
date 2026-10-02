@@ -12,19 +12,28 @@ are not comparable to this revised evidence benchmark.
 - Offline release verification: complete selected metadata, archived receipts,
   pinned article XML, PDF/text identity, exact anchors, C1 answer-source union,
   nested C1/C2 membership and unchanged original global files.
-- Fault checks: a changed metadata archive was rejected; altered questions without
-  matching reviewed condition linkage were rejected. Checks used temporary copies.
-- Required offline regressions: **193 tests passed**, including 42 release-verifier tests.
+- Fault checks on temporary copies reject changed metadata/linkage, edited DECISIONS
+  prose, legacy-category drift, broken ledger history, zeroed chunker hashes and
+  false oracle rates. Each of 79 complete evidence sets separately passes a
+  production-chunk witness through the scorer.
+- Required offline regressions: **206 tests passed**, including 55 release-verifier tests.
+- Third-review corrections: q098's missing Black-versus-White contrast, distinct
+  o001/o002 required gold, alternative-evidence review of all 41 evidence cases
+  (20 with complete alternatives), search provenance, migration and rubric wording.
+- Integrity checks now reject inconsistent oracle values, changed generated decision
+  prose, legacy-category drift, broken ledger history and anchor fact-binding drift.
+  Both committed oracles are compared with production-chunker recomputation.
 - Production-chunker reachability: all **41 evidence-bearing cases** are reachable
   with their exact fact-bound gold. The three absent-fact cases deliberately have no
   invented evidence sets. [C1](results/offline-C1.json) and
   [C2](results/offline-C2.json) preserve complete oracle output and provenance.
 
-At n=3, 32/41 evidence cases can fit all required evidence; nine cannot:
-o004, o013, o016, o017, o018, q081, q099, o029 and o030. At n=8 all 41 can fit;
-o030 needs exactly eight chunks.
+At n=3, 33/41 evidence cases can fit all required evidence; eight cannot:
+o013, o016, o017, o018, q081, q099, o029 and o030. At n=8 all 41 can fit;
+o030 needs seven chunks. Its pre-correction primary set also needed seven;
+adding the Figure 1 legend to that set would need nine, exceeding n=8.
 These are evidence-budget feasibility ceilings, **not retrieval success rates**.
-Twenty-three pinned spans require adjacent production chunks in C2. The scorer accounts
+Thirty-seven of 84 pinned spans require adjacent production chunks in C2. The scorer accounts
 for that adjacency; changing gold merely to improve a score would invalidate the
 comparison. Fact recall and complete evidence coverage must be reported separately.
 
@@ -40,7 +49,7 @@ strategies and endpoint definitions. It includes actual TNBC treatment evidence,
 instead of relying on the old breast-labelled NSCLC filename. o030 joins treatment
 outcomes to reflex-testing barriers without claiming the consensus measured the
 cohort's testing implementation. o024 separates adjuvant osimertinib OS from advanced
-afatinib mTTF; o025 separates MRD assay performance from an ongoing ctDNA-MRD-guided
+afatinib mTTF; o025 separates MRD assay performance from a not-yet-recruiting ctDNA-MRD-guided
 adjuvant trial listing.
 
 Cardio-oncology evidence supplies observational CV events, RCT cardiac adverse
@@ -55,6 +64,9 @@ heterogeneity; its estimate is not a causal treatment-effect claim.
 afatinib dose shares, differing TNBC discontinuation denominators, screening flow
 chart discrepancies. Explicitly
 attributed source conflicts are valid responses; silently correcting them is not.
+The analysis-count/Table 4 denominator discrepancy is recorded too. Manifest
+fingerprints changed because search-provenance notes were corrected; selected
+article/version/PDF/text tuples and condition membership hashes are unchanged.
 Clinical-trial citation claims in the ICD mini-review were not adopted as clinical
 efficacy gold. Its authored cases are scoped to reported mechanistic pathways.
 
@@ -94,3 +106,9 @@ regressions remain outstanding, so JUA-112 is not complete.
 responses. The initial draft is preserved at commit 8b1adbe and the first correction at
 a226bba. No retrieval results were used to change gold; selection and queries
 remain unfrozen for re-review.
+
+The third review of b626fbb was independently checked by Codex and corrected in
+this pass. Each evidence case records accepted restatements or why other mentions
+cannot supply a complete answer. Individual alternative witnesses were checked
+against the production chunker and scorer. This is author verification of the
+correction, not independent approval of the changed gold.

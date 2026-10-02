@@ -30,10 +30,10 @@ None.
 - **Answerability:** Absent facts are scoped to the whole selected oncology corpus and record near-miss context. False premises need positive correction anchors. Combined-corpus negative claims are rechecked in JUA-114.
 - **Near-duplicates:** A strict subset or duplicate of another case is withdrawn (q082, o019; legacy q084). Overlapping cases are retained only with a distinct failure mode, recorded per case below.
 - **Categories:** Categories follow STANDARDS: a direct lookup uses one local passage, and separated passages in one article make a case multi-hop. o009 and o023 were recategorised for this reason.
-- **Evidence budget:** Every evidence case must be completely retrievable at n=8. Where a required span would exceed that, the fact is tested in a companion case instead (o030 attributes the Hunan OS label conflict that o029 requires).
+- **Evidence budget:** Every evidence case must be completely retrievable at n=8. Where a required span would exceed that, the fact is tested in a companion case instead (o030 accepts either attributed Hunan OS label; o029 requires the Results/legend conflict. The pre-correction primary o030 set needed 7 chunks, and adding its legend needed 9).
 - **Conditions:** C1 is the exact answer-source union; C2 adds POL-MOL as competition; C3 is an oncology-only placeholder until JUA-114.
 - **Provenance honesty:** Each article's search string is labelled legacy, topical or targeted lookup. Unpreserved discovery queries are stated as unpreserved, not reconstructed.
-- **No tuning exposure:** No retrieval output, generated answer or paid call informed selection or gold. Two Claude reviews (8b1adbe, a226bba) drove the recorded corrections.
+- **No tuning exposure:** No retrieval output, generated answer or paid call informed selection or gold. Three Claude reviews (8b1adbe, a226bba, b626fbb) and the Codex correction pass drove the recorded corrections.
 
 ## Legacy articles
 
@@ -111,7 +111,7 @@ None.
 - **Named decoy for:** o024
 - **Partial-support overlap for:** none
 - **Conditions:** C1, C2, C3
-- **Search provenance:** targeted_lookup — Lookup with publication-specific values ("Vietnam", "21.5", "37.9"). The original topical discovery query was not preserved. Search strings are not eligibility evidence.
+- **Search provenance:** targeted_lookup — Targeted lookup included 21.5 and 37.9 from legacy q113 reference gold. Neither value is in this Pham 2024 article (starting-dose mTTF 16.7/16.9 months); this is related replacement evidence, not the legacy analysis. Original discovery query was not preserved.
 
 ### PMC11891047 — onco-ici-cv-observational
 
@@ -122,7 +122,7 @@ None.
 - **Named decoy for:** none
 - **Partial-support overlap for:** none
 - **Conditions:** C1, C2, C3
-- **Search provenance:** targeted_lookup — Lookup with a publication-specific value ("4.602") that also returned PMC11181582. The original topical discovery query was not preserved. Search strings are not eligibility evidence.
+- **Search provenance:** targeted_lookup — Targeted lookup included 4.602 from legacy q112 reference gold; that value is not in this selected article. The lookup found related cardiovascular-event evidence, not the legacy estimate. Original discovery query was not preserved.
 
 ### PMC11181582 — onco-ici-cardiac-rct-meta
 
@@ -133,7 +133,7 @@ None.
 - **Named decoy for:** none
 - **Partial-support overlap for:** none
 - **Conditions:** C1, C2, C3
-- **Search provenance:** targeted_lookup — Recorded string is a lookup with a publication-specific value ("4.602") that also returned this article. The original topical discovery query was not preserved. Search strings are not eligibility evidence.
+- **Search provenance:** targeted_lookup — Targeted lookup included 4.602 from legacy q112 reference gold; that value is not in this selected article. The lookup found related cardiovascular-event evidence, not the legacy estimate. Original discovery query was not preserved.
 
 ### PMC11431721 — onco-driver-nonmetastatic-review
 
@@ -155,7 +155,7 @@ None.
 - **Named decoy for:** none
 - **Partial-support overlap for:** o023, o030
 - **Conditions:** C2, C3
-- **Search provenance:** targeted_lookup — Lookup with an author name ("Marjanski"). The original topical discovery query was not preserved. Search strings are not eligibility evidence.
+- **Search provenance:** targeted_lookup — Targeted lookup terms, including Marjanski, were copied from legacy q111 reference gold, not POL-MOL authorship. The selected Kowalski et al. article was found as related testing evidence; the original discovery query was not preserved.
 
 ### PMC10485396 — onco-reflex-biomarker-consensus
 
@@ -177,7 +177,7 @@ None.
 - **Named decoy for:** none
 - **Partial-support overlap for:** none
 - **Conditions:** C1, C2, C3
-- **Search provenance:** topical_search — Topical search string recorded during the JUA-112 audit; it contains no publication-specific values. The same string also returned PMC10073666. Search strings are not eligibility evidence.
+- **Search provenance:** topical_search — Topical search string recorded during the JUA-112 audit; it contains no publication-specific values. The same string also returned PMC10073666. Search strings are not eligibility evidence. The recorded lookup used a -BioRender exclusion filter; eligibility was verified from notices and credits, not inferred from that filter.
 
 ### PMC10073666 — onco-immune-exclusion-definition
 
@@ -188,7 +188,7 @@ None.
 - **Named decoy for:** none
 - **Partial-support overlap for:** none
 - **Conditions:** C1, C2, C3
-- **Search provenance:** topical_search — Topical search string recorded during the JUA-112 audit; it contains no publication-specific values. The same string also returned PMC13190586. Search strings are not eligibility evidence.
+- **Search provenance:** topical_search — Topical search string recorded during the JUA-112 audit; it contains no publication-specific values. The same string also returned PMC13190586. Search strings are not eligibility evidence. The recorded lookup used a -BioRender exclusion filter; eligibility was verified from notices and credits, not inferred from that filter.
 
 ### PMC12495207 — onco-pd1-cause-specific-mortality
 
@@ -222,365 +222,404 @@ None.
 
 ## Active cases
 
-### direct_lookup (19)
+### direct_lookup (21)
 
-#### q079 (revision 2)
+#### q079 (revision 3)
 
 > According to the liquid-biopsy review, distinguish the pooled CSF ctDNA detection rate from sensitivity and specificity for CNS metastases in NSCLC, and compare detection with cytology.
 
 - **Why this case:** Tests separating the cited meta-analysis's pooled CSF ctDNA detection rate (versus cytology) from its sensitivity and specificity, which are different diagnostic measures. Direct lookup: one passage holds all values.
-- **Evidence:** csf
+- **Evidence:** primary: csf
+- **Alternative-evidence review:** CSF detection/sensitivity/specificity and cytology comparison occur only in the pinned meta-analysis paragraph; no complete restatement found.
 - **Near-duplicate review:** Shares no evidence anchor with another case; the question identifies the source without disclosing target values. Absorbs retired legacy q084, whose detection-rate fact is required here.
 
-#### q080 (revision 2)
+#### q080 (revision 3)
 
 > What did the liquid-biopsy review report about plasma versus tissue testing in NILE, including turnaround and biomarker identification?
 
 - **Why this case:** Tests attributing NILE plasma-versus-tissue results to the cited trial population (untreated metastatic NSCLC), including noninferiority, biomarker identification and turnaround. Direct lookup: one passage.
-- **Evidence:** nile
+- **Evidence:** primary: nile
+- **Alternative-evidence review:** NILE population, biomarker findings and turnaround occur only in the pinned NILE paragraph.
 - **Near-duplicate review:** Shares no evidence anchor with another case; the question identifies the source without disclosing target values.
 
-#### q095 (revision 2)
+#### q095 (revision 3)
 
 > What four mutually exclusive screening categories and percentages did the US dual-screening study report for women ages 50–64?
 
 - **Why this case:** Tests reporting the study's four mutually exclusive screening categories and not treating dual screening as the CRC screening rate. Direct lookup: one table passage.
-- **Evidence:** screen
+- **Evidence:** primary: screen; OR results: screen_results; OR table2: screen_table2
+- **Alternative-evidence review:** Complete restatements in Results/tables/conclusion are pinned as additional fact-bound evidence sets; partial or wrong-contrast matches were excluded.
 - **Near-duplicate review:** Shares the screen anchor with q096 and the q100 negative context. Distinct: q095 asks for the category distribution; q096 asks for a derived comparison; q100 is an absent-fact near miss.
 
-#### q096 (revision 2)
+#### q096 (revision 3)
 
 > In the US dual-screening study, how much more common was cervical-only than CRC-only screening?
 
-- **Why this case:** Tests a derived comparison between the mutually exclusive cervical-only and CRC-only categories (about fivefold) rather than overall single-cancer rates. Direct lookup: one passage, light arithmetic.
-- **Evidence:** screen
-- **Near-duplicate review:** Near-duplicate of q095 (same anchor). Retained for a distinct failure mode: comparing mutually exclusive categories correctly. The question does not disclose either percentage.
+- **Why this case:** Tests the cervical-only versus CRC-only comparison (27.1% versus 5.4%, approximately fivefold), which the Results explicitly state. q095 instead asks all four categories; this is not solely a derived-arithmetic case.
+- **Evidence:** primary: screen; OR results: screen_results; OR table2: screen_table2; OR reported_ratio: screen_single_results; OR screen_single_discussion: screen_single_discussion; OR screen_single_healthsystem: screen_single_healthsystem
+- **Alternative-evidence review:** Complete restatements in Results/tables/conclusion are pinned as additional fact-bound evidence sets; partial or wrong-contrast matches were excluded.
+- **Near-duplicate review:** Overlaps q095 in the two single-screen percentages, but requires their comparison; q095 requires four categories. The Results directly state the ratio, and complete alternatives are pinned.
 
-#### q102 (revision 2)
+#### q102 (revision 3)
 
 > What hysterectomy exclusion and final analysis-group counts appear in the US dual-screening study’s Appendix 1 flow diagram?
 
 - **Why this case:** Tests reporting printed flow-diagram counts without silently correcting the diagram's inconsistent subtraction or age label. Direct lookup on a figure; exercises figure extraction.
-- **Evidence:** flow
+- **Evidence:** primary: flow
+- **Alternative-evidence review:** The hysterectomy exclusion is flow-specific; other analysis-count mentions alone cannot answer both requested counts.
 - **Near-duplicate review:** Shares no evidence anchor with another case; the question identifies the source without disclosing target values.
 
-#### o022 (revision 1)
+#### o022 (revision 2)
 
 > What population and treatment-group sizes were included in the Hunan neoadjuvant NSCLC cohort, and what surgical-selection restriction matters?
 
 - **Why this case:** Tests population size, treatment-group counts and the surgical-selection restriction (resected patients only) that limits generalisation. Replaces legacy q103's population/group-size coverage on an eligible study. Direct lookup: one passage.
-- **Evidence:** hunan_population
+- **Evidence:** primary: hunan_population
+- **Alternative-evidence review:** Introduction repeats 190 patients and Discussion repeats surgery selection; neither supplies the complete treatment split, ECOG and exclusion; primary Methods retained.
 - **Near-duplicate review:** Shares no evidence anchor with another case; the question identifies the source without disclosing target values.
 - **Replaces coverage of:** legacy q103
 
-#### o028 (revision 1)
+#### o028 (revision 2)
 
 > What unadjusted MPR rates did the Hunan cohort report for PD-1 plus chemotherapy versus chemotherapy alone?
 
 - **Why this case:** Tests endpoint separation: unadjusted MPR rates are pathological responses, not DFS. Replaces legacy q105's response-rate coverage. Direct lookup: one passage.
-- **Evidence:** hunan_response
+- **Evidence:** primary: hunan_response; OR results: hunan_mpr_results; OR table2: hunan_mpr_table_header + hunan_mpr_table; OR discussion_with_significance: hunan_mpr_discussion + hunan_mpr_table_header + hunan_mpr_table
+- **Alternative-evidence review:** Complete restatements in Results/tables/conclusion are pinned as additional fact-bound evidence sets; partial or wrong-contrast matches were excluded.
 - **Near-duplicate review:** Shares hunan_response with o029 and o030, which use it for DFS context and state only "higher MPR". o028 alone asks for the MPR values.
 - **Replaces coverage of:** legacy q105
 
-#### o003 (revision 1)
+#### o003 (revision 2)
 
 > How did pCR and study design differ between the Helsinki pembrolizumab and historical chemotherapy TNBC cohorts?
 
 - **Why this case:** Tests TNBC pCR by cohort with the design caveat (retrospective, nonmatched historical comparator), so the difference is not a randomized effect. Actual breast immunotherapy evidence replaces the mislabelled legacy file. Direct lookup: one abstract passage.
-- **Evidence:** breast_pcr
+- **Evidence:** primary: breast_pcr; OR breast_pcr_results: breast_design + breast_pcr_results; OR breast_pcr_table: breast_design + breast_pcr_table
+- **Alternative-evidence review:** Complete restatements in Results/tables/conclusion are pinned as additional fact-bound evidence sets; partial or wrong-contrast matches were excluded.
 - **Near-duplicate review:** Shares breast_pcr with o021. Distinct: o003 asks pCR values; o021 is a false-premise correction about randomized five-year OS.
 
-#### o007 (revision 1)
+#### o027 (revision 2)
+
+> Did the Vietnam afatinib study’s higher ORR at a 40-mg starting dose also translate to significantly longer mTTF?
+
+- **Why this case:** Tests higher ORR without significantly longer mTTF by starting dose in the Vietnam afatinib cohort. The Dose adjustment Results paragraph reports both endpoints locally; separated abstract/table alternatives are also accepted.
+- **Evidence:** primary: afatinib_dose_results; OR separated_endpoints: afatinib_orr + afatinib_ttf; OR alternative_2: afatinib_orr + afatinib_ttf_discussion; OR orr_table: afatinib_orr_table_header + afatinib_orr_table_row + afatinib_ttf
+- **Multi-hop link:** Compare response in the abstract with the separate time-to-failure analysis.
+- **Alternative-evidence review:** Complete restatements in Results/tables/conclusion are pinned as additional fact-bound evidence sets; partial or wrong-contrast matches were excluded.
+- **Near-duplicate review:** Shares afatinib_ttf with o006 and with o024 (decoy). Distinct: o006 tests the dose-share conflict; o024 uses the passage as a wrong-setting competitor.
+- **Replaces coverage of:** legacy q113
+
+#### o007 (revision 2)
 
 > What five-year OS results does the driver-altered nonmetastatic review attribute to ADAURA, distinguishing stage populations?
 
 - **Why this case:** Tests stage-population-specific five-year OS attributed to ADAURA (stage II–IIIA versus IB–IIIA), with HR and CI. Direct lookup: one passage.
-- **Evidence:** driver_os
+- **Evidence:** primary: driver_os
+- **Alternative-evidence review:** Other trial summaries have different endpoints or populations; complete ADAURA five-year OS estimates and both confidence intervals occur in driver_os.
 - **Near-duplicate review:** Shares driver_os with o024. Distinct: o024 derives the absolute difference for one stage population, identifies the adjuvant setting and must outrank an afatinib decoy.
 
-#### o008 (revision 1)
+#### o008 (revision 2)
 
 > Why does the reflex-testing consensus also argue for early testing in resectable NSCLC?
 
 - **Why this case:** Tests why the consensus argues for early EGFR testing in resectable disease, not only metastatic disease. Direct lookup: one passage.
-- **Evidence:** reflex_early
+- **Evidence:** primary: reflex_early
+- **Alternative-evidence review:** Other EGFR mentions concern metastatic care or citations; only reflex_early combines adjuvant/neoadjuvant rationale with resected or presurgical specimens.
 - **Near-duplicate review:** Shares reflex_early with o030, which needs it only as part of its synthesis.
 
-#### o010 (revision 1)
+#### o010 (revision 2)
 
 > In the lung-cancer RCT meta-analysis, how did single ICI and ICI plus chemotherapy compare with chemotherapy for cardiac adverse events?
 
 - **Why this case:** Tests comparator-relative cardiac adverse-event RRs by regimen versus chemotherapy, not CVD mortality. Direct lookup: one passage.
-- **Evidence:** rct_cv
+- **Evidence:** primary: rct_cv; OR results: rct_population_results + rct_primary_results
+- **Alternative-evidence review:** Complete restatements in Results/tables/conclusion are pinned as additional fact-bound evidence sets; partial or wrong-contrast matches were excluded.
 - **Near-duplicate review:** Shares rct_cv with o011 and o018. Distinct: o011 is a false premise about the null heart-failure subgroup; o018 compares across documents.
 
-#### o026 (revision 1)
+#### o026 (revision 2)
 
 > Among deaths in the older advanced-NSCLC PD-1 cohort, what shares were attributed to NSCLC and CVD, and which factors were associated with CVD mortality?
 
 - **Why this case:** Tests cause-specific death shares (denominator: deaths, not patients) and factors associated with CVD mortality, including the insurance comparator. Replaces legacy q112's CVD-mortality coverage. Direct lookup: one passage.
-- **Evidence:** mortality
+- **Evidence:** primary: mortality; OR results: mortality_deaths_results + mortality_medicaid_results + mortality_chf_results
+- **Alternative-evidence review:** Results repeat 5,076 patients, 3,746 deaths, NSCLC 85.34%, CVD components 1.17%+1.63%=2.80%, and the same CHF/Medicaid sHRs. These three source-bound spans form a complete alternative; Table 2 uses different reference directions and is not substituted.
 - **Near-duplicate review:** Shares mortality with o012 and o017. Distinct: o012 asks the between-drug comparison; o017 uses it in a cross-document endpoint contrast.
 - **Replaces coverage of:** legacy q112
 
-#### o012 (revision 1)
+#### o012 (revision 2)
 
 > How did pembrolizumab versus nivolumab compare for cause-specific mortality in the older NSCLC cohort?
 
 - **Why this case:** Tests that pembrolizumab-versus-nivolumab cause-specific mortality is a comparison between two PD-1 drugs, not with untreated controls; CVD sHR null, NSCLC sHR lower. Direct lookup: one passage.
-- **Evidence:** mortality
+- **Evidence:** primary: mortality; OR results: mortality_drug_results
+- **Alternative-evidence review:** Complete restatements in Results/tables/conclusion are pinned as additional fact-bound evidence sets; partial or wrong-contrast matches were excluded.
 - **Near-duplicate review:** Shares mortality with o026 and o017, which use different facts from the passage.
 
-#### q085 (revision 2)
+#### q085 (revision 3)
 
 > How does the immune-exclusion definition review distinguish inflamed, desert and excluded tumors spatially?
 
 - **Why this case:** Tests the spatial distinction among inflamed, desert and excluded tumours in the immune-exclusion review, and its note on inconsistent use of "cold". Revised onto an eligible source because the legacy source is deferred. Direct lookup: one passage.
-- **Evidence:** exclusion
+- **Evidence:** primary: exclusion
+- **Alternative-evidence review:** Other sections discuss outcomes or study-specific cutoffs without all three spatial definitions and the historical cold-label caveat; primary definition retained.
 - **Near-duplicate review:** Shares no evidence anchor with another case; the question identifies the source without disclosing target values. o015 covers a different review's phenotypes; each question names its source.
 
-#### o014 (revision 1)
+#### o014 (revision 2)
 
 > In the ICD mini-review, what distinct dendritic-cell mechanisms are attributed to CALR, ATP and HMGB1?
 
 - **Why this case:** Tests distinct dendritic-cell mechanisms of CALR, ATP and HMGB1 as reviewed mechanisms, not clinical treatment effects. Direct lookup: one passage.
-- **Evidence:** icd_damp
+- **Evidence:** primary: icd_damp
+- **Alternative-evidence review:** Biomarker framework and Figure 1 repeat CALR/ATP/HMGB1 but omit P2RX7 plus IL-1β/IL-18; only the pinned DAMP passage is complete.
 - **Near-duplicate review:** Shares icd_damp with o016, which links these mechanisms to separate cellular-stress pathways.
 
-#### o015 (revision 1)
+#### o015 (revision 2)
 
 > How does the ICD mini-review distinguish excluded, desert and immunosuppressed cold tumors?
 
 - **Why this case:** Tests the ICD review's cold-tumour phenotypes, including the immunosuppressed phenotype absent from q085's source. Direct lookup: one passage.
-- **Evidence:** icd_phenotype
+- **Evidence:** primary: icd_phenotype
+- **Alternative-evidence review:** Other cold-phenotype mentions omit one of the spatial/function distinctions; primary phenotype passage retained.
 - **Near-duplicate review:** Shares no evidence anchor with another case; the question identifies the source without disclosing target values.
 
-#### q078 (revision 2)
+#### q078 (revision 3)
 
 > According to the liquid-biopsy review, how much does combining ctDNA with ctRNA analysis change gene-fusion detection yield compared with ctDNA alone, and what RNA-testing recommendation does the review connect to this?
 
 - **Why this case:** Restored legacy case. Tests attributing a cited-study range (about 28%–37% higher fusion yield with combined ctDNA/ctRNA) without converting it into a single pooled or absolute value, and linking it to the NCCN RNA-testing recommendation. Direct lookup: one passage.
-- **Evidence:** fusion_yield
+- **Evidence:** primary: fusion_yield
+- **Alternative-evidence review:** Other fusion/RNA mentions lack the 28–37% range and NCCN no-driver recommendation together; primary passage retained.
 - **Near-duplicate review:** Shares no evidence anchor with another case; the question names the comparison without disclosing the range.
 
-#### q097 (revision 2)
+#### q097 (revision 3)
 
 > In the US dual-screening study's multinomial regression, what adjusted odds ratios were reported for college graduation and for the highest income level when predicting dual screening versus neither screen?
 
 - **Why this case:** Restored legacy case. Tests binding adjusted odds ratios to the correct outcome contrast (dual versus neither), because the same predictors have different aORs for cervical-only and CRC-only screening. Direct lookup: one Results passage.
-- **Evidence:** screen_regression
+- **Evidence:** primary: screen_regression; OR table4: screen_table4_predictors
+- **Alternative-evidence review:** Complete restatements in Results/tables/conclusion are pinned as additional fact-bound evidence sets; partial or wrong-contrast matches were excluded.
 - **Near-duplicate review:** Shares screen_regression with q098, which uses its race findings instead. Distinct from q095/q096, which ask descriptive category percentages, not adjusted odds.
 
-#### q099 (revision 2)
+#### q098 (revision 3)
+
+> In the US dual-screening study's adjusted analyses, how did the screening patterns of Black and Hispanic women differ, each compared with White women?
+
+- **Why this case:** Restored race comparison with White women as reference in each outcome contrast. Results require joining 1b and 2a, but Table 4 provides all required estimates locally, so the case is direct_lookup with a separated-Results alternative.
+- **Evidence:** primary: screen_table4_race; OR results_subsections: screen_regression + screen_hispanic_single
+- **Multi-hop link:** Bind each race estimate to White women and the appropriate outcome referent; Results 1b and 2a are separated, while Table 4 supplies a complete local alternative.
+- **Alternative-evidence review:** Complete restatements in Results/tables/conclusion are pinned as additional fact-bound evidence sets; partial or wrong-contrast matches were excluded.
+- **Near-duplicate review:** Shares screen_regression with q097, which uses its education and income findings. Only q098 needs the separate cervical-only-versus-dual result.
+
+#### q099 (revision 3)
 
 > What decision levels does the US dual-screening study's Discussion propose to explain why cervical and colorectal screening diverge with age?
 
 - **Why this case:** Restored legacy case. Tests reporting the Discussion's three proposed decision levels (physician, patient, health system) as hypotheses rather than findings. Direct lookup: one contiguous Discussion section spanning adjacent chunks.
-- **Evidence:** screen_levels
+- **Evidence:** primary: screen_levels
+- **Alternative-evidence review:** All three decision levels are developed together only in the pinned Discussion section; other fivefold mentions cannot replace the level hypotheses.
 - **Near-duplicate review:** Shares no evidence anchor with another case; the question asks for the levels without disclosing them.
 
-### multi_hop (10)
+### multi_hop (8)
 
-#### o029 (revision 2)
+#### o029 (revision 3)
 
 > How did the Hunan study’s unadjusted two-year DFS comparison change after propensity matching, and how should its OS evidence be interpreted?
 
 - **Why this case:** Tests response-versus-survival reasoning in one cohort: unadjusted DFS significance lost after PSM, the reported OS comparisons with their conflicting weighted/PSM labels, and the Limitations statement that OS is immature. Multi-hop: five separated anchors in one article.
-- **Evidence:** hunan_response + hunan_matched + hunan_os_results + hunan_fig1_legend + hunan_os_limitation
+- **Evidence:** primary: hunan_response + hunan_matched + hunan_os_results + hunan_fig1_legend + hunan_os_limitation; OR results_dfs: hunan_matched + hunan_os_results + hunan_fig1_legend + hunan_os_limitation
 - **Multi-hop link:** Join the unadjusted DFS result to the separate matched analysis, then the OS results with their conflicting Figure 1D label and the Limitations statement on OS maturity.
+- **Alternative-evidence review:** Complete restatements in Results/tables/conclusion are pinned as additional fact-bound evidence sets; partial or wrong-contrast matches were excluded.
 - **Near-duplicate review:** Shares Hunan anchors with o028 (hunan_response) and o030 (DFS/OS anchors). Distinct: o028 asks only MPR values; o030 is a cross-document synthesis that accepts either OS label; o029 alone requires the label conflict.
 - **Replaces coverage of:** legacy q104
 
-#### o002 (revision 2)
+#### o002 (revision 3)
 
 > Are the Zhongshan stage III cohort’s narrative and Table 2 MPR counts consistent for the chemoimmunotherapy arm?
 
 - **Why this case:** Tests detecting and attributing an internal numeric conflict (narrative 19/26 versus Table 2 17/26) instead of reconciling it. Multi-hop: narrative and table are separated.
-- **Evidence:** stage_narrative + stage_table
+- **Evidence:** primary: stage_narrative + stage_table
 - **Multi-hop link:** Compare the narrative count with the separately positioned table row and its treatment columns.
-- **Near-duplicate review:** Evidence is a subset of o001's. Retained because o002 isolates conflict detection, while o001 tests causal overreach; o001's question does not ask about the conflict.
+- **Alternative-evidence review:** Other MPR rates repeat 65.3/15.1 but not the narrative 19/26 versus Table 2 17/26 conflict; original pair retained.
+- **Near-duplicate review:** o002 requires attributing conflicting narrative/table counts; o001 no longer requires this conflict and instead requires nonsignificant DFS and response-versus-survival interpretation.
 
-#### o004 (revision 1)
+#### o004 (revision 2)
 
 > In the Helsinki TNBC cohort, distinguish myocarditis from any new troponin elevation and explain the surveillance used.
 
 - **Why this case:** Tests distinguishing myocarditis (11, 14.7%) from new troponin elevation (23) and explaining the surveillance and diagnostic criteria. Multi-hop: methods and results anchors.
-- **Evidence:** breast_cardio + breast_ae + breast_monitor
+- **Evidence:** primary: breast_cardio + breast_ae + breast_monitor; OR tables_with_monitoring: breast_cardio_table + breast_troponin_table + breast_monitor
 - **Multi-hop link:** Connect diagnostic monitoring in methods to the distinct outcomes reported in results.
+- **Alternative-evidence review:** Complete restatements in Results/tables/conclusion are pinned as additional fact-bound evidence sets; partial or wrong-contrast matches were excluded.
 - **Near-duplicate review:** Shares Helsinki cardiac anchors with o018 and breast_ae with o005. Distinct: o018 compares these with RCT risk ratios across documents; o005 reconciles discontinuation denominators.
 
-#### o005 (revision 1)
+#### o005 (revision 2)
 
 > Why do postoperative pembrolizumab discontinuation percentages differ between the Helsinki abstract and results?
 
 - **Why this case:** Tests reconciling apparently conflicting percentages (10.7% versus 23.5%) by binding the same count (eight patients) to different denominators. Multi-hop: abstract and results.
-- **Evidence:** breast_ae + breast_stop
+- **Evidence:** primary: breast_ae + breast_stop; OR alternative_1: breast_ae + breast_stop_results
 - **Multi-hop link:** Resolve apparently conflicting percentages by joining each count to its separate denominator.
+- **Alternative-evidence review:** Complete restatements in Results/tables/conclusion are pinned as additional fact-bound evidence sets; partial or wrong-contrast matches were excluded.
 - **Near-duplicate review:** Shares breast_ae with o004 and o018, which use it for cardiac adverse events, not discontinuation.
 
-#### o027 (revision 1)
-
-> Did the Vietnam afatinib study’s higher ORR at a 40-mg starting dose also translate to significantly longer mTTF?
-
-- **Why this case:** Tests that higher ORR at 40 mg (p=0.034) did not translate into longer mTTF (p=0.755); ORR and time to treatment failure are separate endpoints. Replaces legacy q113's afatinib-dosing coverage. Multi-hop: abstract response and separate TTF analysis.
-- **Evidence:** afatinib_orr + afatinib_ttf
-- **Multi-hop link:** Compare response in the abstract with the separate time-to-failure analysis.
-- **Near-duplicate review:** Shares afatinib_ttf with o006 and with o024 (decoy). Distinct: o006 tests the dose-share conflict; o024 uses the passage as a wrong-setting competitor.
-- **Replaces coverage of:** legacy q113
-
-#### o006 (revision 1)
+#### o006 (revision 2)
 
 > Are the Vietnam afatinib abstract and Table 2 consistent about the 30-mg and 40-mg starting-dose shares?
 
 - **Why this case:** Tests keeping an abstract/Table 2 reversal of 30-mg and 40-mg starting-dose shares explicit. Multi-hop: abstract and table are separated.
-- **Evidence:** afatinib_abstract + afatinib_ttf
+- **Evidence:** primary: afatinib_abstract + afatinib_ttf
 - **Multi-hop link:** Bind each percentage to its dose in two separated source locations.
+- **Alternative-evidence review:** Results/Discussion repeat dose shares, but the question explicitly asks abstract versus Table 2; those source locations remain required, and counts need Table 2.
 - **Near-duplicate review:** Shares afatinib_ttf with o027 and o024 (decoy), which use other values from the same table region.
 
-#### o023 (revision 3)
+#### o023 (revision 4)
 
 > In the Gosney expert consensus, who initiates reflex NSCLC biomarker testing, what is agreed by the MDT, and is a formal oncologist request required? Explain the reported delay mechanism.
 
 - **Why this case:** Tests the Gosney consensus reflex-testing workflow (pathologist initiates an MDT-agreed panel without a formal oncologist request) and its delay mechanism. POL-MOL is recorded as partial support, so attribution to the consensus is required. Multi-hop: definition and delay passages are separated (recategorised from direct lookup).
-- **Evidence:** reflex_def + reflex_delay
+- **Evidence:** primary: reflex_def + reflex_delay
 - **Multi-hop link:** Join the definition of pathologist-initiated reflex testing to the separate Introduction passage on delays and suboptimal therapy.
-- **Overlap:** PMC11547071 `polmol_reflex` (partial_support). Implies no oncologist request (agreed biomarkers are ordered automatically by the pathologist rather than the treating physician) but omits the MDT agreement and the delay/deterioration mechanism. Attribution to the Gosney consensus is required, so POL-MOL does not complete this task.
+- **Overlap:** PMC11547071 `polmol_reflex` (partial_support). POL-MOL describes pathologist-ordered agreed biomarkers and faster time to optimal treatment initiation, but does not name MDT agreement or the deterioration/suboptimal-therapy mechanism before complete biomarker status. Partial support, not a named decoy for this question.
+- **Alternative-evidence review:** Implementation principles repeat pathologist initiation but omit the full no-oncologist-request definition or deterioration mechanism; POL-MOL remains partial support.
 - **Near-duplicate review:** Absorbs withdrawn o019, a strict subset. Shares reflex_def and reflex_delay with o030, which needs them only for its synthesis.
 - **Replaces coverage of:** legacy q111
 
-#### o009 (revision 3)
+#### o009 (revision 4)
 
 > What CV-event estimates and study design did the observational NSCLC immunotherapy meta-analysis report?
 
 - **Why this case:** Tests separating overall CV-event prevalence (3%, noncomparative) from the pooled HR, which only four of twelve observational studies contribute. Association is not causation or CVD mortality. Multi-hop: abstract and Limitations anchors (recategorised from direct lookup).
-- **Evidence:** obs_cv + obs_hr_scope
+- **Evidence:** primary: obs_cv + obs_hr_scope; OR results_with_hr_scope: obs_population_results + obs_prevalence_results + obs_hr_results + obs_hr_scope
 - **Multi-hop link:** Join the abstract's prevalence and pooled HR to the Limitations statement that only four studies contribute to that HR.
+- **Alternative-evidence review:** Results 3.2 and 3.4 repeat population, prevalence and HR; together with the four-study HR-scope limitation they form a complete alternative. Prevalence is not a comparator-relative risk despite the Results wording.
 - **Near-duplicate review:** Evidence is a subset of o017's. Retained because o017 tests cross-document endpoint separation, while o009 tests single-source scope of the HR.
 
-#### o016 (revision 1)
+#### o016 (revision 2)
 
 > How do the ICD review’s ER stress and autophagy pathways connect to the dendritic-cell effects of CALR and ATP?
 
 - **Why this case:** Tests linking ER stress/PERK and autophagy pathways to CALR exposure and ATP secretion and then to dendritic-cell effects. Multi-hop: requires four production chunks (see REVIEW.md).
-- **Evidence:** icd_stress + icd_damp
+- **Evidence:** primary: icd_stress + icd_damp
 - **Multi-hop link:** Link separate cellular-stress and extracellular-danger-signal sections.
+- **Alternative-evidence review:** Earlier stress paragraph omits PERK and later figure/framework omits P2RX7/inflammasome detail; primary stress-plus-DAMP pair retained.
 - **Near-duplicate review:** Shares icd_damp with o014; o016 alone requires the cellular-stress anchor.
-
-#### q098 (revision 2)
-
-> In the US dual-screening study's adjusted analyses, how did the screening patterns of Black and Hispanic women differ, each compared with White women?
-
-- **Why this case:** Restored legacy case, reframed to the paper's design: Black and Hispanic women are each compared with White women, not with each other. Tests keeping reference groups and outcome contrasts straight across two Results subsections. Multi-hop: the "versus neither" and "versus dual" results are separated.
-- **Evidence:** screen_regression + screen_hispanic_single
-- **Multi-hop link:** Join the regression results versus neither screen for both groups to the separate result versus dual screening, where only Hispanic women differ.
-- **Near-duplicate review:** Shares screen_regression with q097, which uses its education and income findings. Only q098 needs the separate cervical-only-versus-dual result.
 
 ### cross_doc_synthesis (3)
 
-#### o030 (revision 2)
+#### o030 (revision 3)
 
 > Combine the Hunan neoadjuvant study with the reflex-testing consensus: what does each contribute to interpreting perioperative NSCLC treatment and biomarker readiness?
 
 - **Why this case:** Synthesis replacing legacy q117: treatment outcomes and limitations from the Hunan cohort combined with the consensus on biomarker readiness and early testing, without claiming the consensus explains the cohort's outcomes. Cross-document synthesis: both articles contribute required facts.
-- **Evidence:** hunan_response + hunan_matched + hunan_os_results + hunan_os_limitation + reflex_def + reflex_delay + reflex_early
-- **Overlap:** PMC11547071 `polmol_reflex` (partial_support). Implies no oncologist request (agreed biomarkers are ordered automatically by the pathologist rather than the treating physician) but omits the MDT agreement and the delay/deterioration mechanism. Attribution to the Gosney consensus is required, so POL-MOL does not complete this task. It also lacks the early-stage EGFR rationale.
+- **Evidence:** primary: hunan_response + hunan_matched + hunan_os_results + hunan_os_limitation + reflex_def + reflex_delay + reflex_early; OR results_response: hunan_mpr_results + hunan_matched + hunan_os_results + hunan_os_limitation + reflex_def + reflex_delay + reflex_early; OR discussion_response: hunan_mpr_discussion + hunan_matched + hunan_os_results + hunan_os_limitation + reflex_def + reflex_delay + reflex_early
+- **Overlap:** PMC11547071 `polmol_reflex` (partial_support). POL-MOL describes pathologist-ordered agreed biomarkers and faster time to optimal treatment initiation, but does not name MDT agreement or the deterioration/suboptimal-therapy mechanism before complete biomarker status. Partial support, not a named decoy for this question.
+- **Alternative-evidence review:** Hunan MPR is restated in Results 3.3 and Discussion; each can replace the abstract response anchor while retaining the DFS/OS/maturity and Gosney evidence. POL-MOL supplies only partial testing support.
 - **Near-duplicate review:** Shares anchors with o028, o029, o023 and o008, each of which tests one component. Retained as the only case requiring the treatment/readiness synthesis.
 - **Replaces coverage of:** legacy q117
 
-#### o017 (revision 2)
+#### o017 (revision 3)
 
 > Why can the observational CV-event meta-analysis and older PD-1 cause-specific mortality cohort not be read as the same cardiovascular endpoint?
 
 - **Why this case:** Synthesis: observational CV events (prevalence and four-study HR) and cause-specific mortality between two PD-1 drugs are different endpoints, populations and comparators, so they do not contradict each other. Cross-document synthesis.
-- **Evidence:** obs_cv + obs_hr_scope + mortality
+- **Evidence:** primary: obs_cv + obs_hr_scope + mortality; OR alternative_1: obs_cv + obs_hr_scope + mortality_drug_results; OR observational_results: obs_population_results + obs_prevalence_results + obs_hr_results + obs_hr_scope + mortality; OR both_results: obs_population_results + obs_prevalence_results + obs_hr_results + obs_hr_scope + mortality_drug_results
+- **Alternative-evidence review:** Observational Results plus the four-study scope caveat and the PD-1 cohort Results give complete same-endpoint alternatives. Each source still supplies its own population/comparator; no pooled causal interpretation is accepted.
 - **Near-duplicate review:** Contains o009's evidence plus the mortality passage; distinct because the failure mode is cross-document endpoint conflation.
 
-#### o018 (revision 1)
+#### o018 (revision 2)
 
 > How should the Helsinki TNBC myocarditis frequency and lung-cancer RCT cardiac-adverse-event risks be compared?
 
 - **Why this case:** Synthesis: TNBC absolute myocarditis frequency under intensive surveillance versus lung-cancer RCT comparator-relative cardiac adverse-event RRs. Cross-document synthesis.
-- **Evidence:** breast_ae + breast_cardio + breast_monitor + rct_cv
+- **Evidence:** primary: breast_ae + breast_cardio + breast_monitor + rct_cv; OR myocarditis_table: breast_cardio_table + breast_monitor + rct_cv; OR alternative_2: breast_ae + breast_cardio + breast_monitor + rct_primary_results; OR tables_and_results: breast_cardio_table + breast_monitor + rct_primary_results
+- **Alternative-evidence review:** Complete restatements in Results/tables/conclusion are pinned as additional fact-bound evidence sets; partial or wrong-contrast matches were excluded.
 - **Near-duplicate review:** Contains o004's cardiac evidence and o010's rct_cv; distinct because it tests cross-population, cross-endpoint comparison.
 
 ### cross_doc_distractor (2)
 
-#### o024 (revision 1)
+#### o024 (revision 2)
 
-> In the driver-altered NSCLC review’s stage II–IIIA ADAURA results, what absolute five-year OS difference is reported between osimertinib and placebo, and what treatment setting does it describe?
+> In the driver-altered NSCLC review’s stage II–IIIA ADAURA results, what absolute difference do the reported five-year OS rates imply between osimertinib and placebo, and what treatment setting does it describe?
 
 - **Why this case:** Named distractor replacing legacy q118: absolute five-year OS difference for stage II–IIIA adjuvant osimertinib (12 points) must outrank an advanced first-line afatinib time-to-treatment-failure passage. Cross-document distractor.
-- **Evidence:** driver_os + driver_dfs
+- **Evidence:** primary: driver_os + driver_dfs
 - **Named decoy:** PMC10840225 `afatinib_ttf`. Both concern EGFR-directed NSCLC treatment and survival-like estimates. Advanced first-line afatinib mTTF by dose does not answer adjuvant osimertinib five-year OS.
+- **Alternative-evidence review:** Other ADAURA mentions omit the complete stage II–IIIA OS estimates or adjuvant setting. The afatinib source remains a question-specific decoy.
 - **Near-duplicate review:** Shares driver_os with o007 and driver_dfs with q108; o024 alone derives the absolute difference and faces a decoy.
-- **Replaces coverage of:** legacy q118
 
-#### o025 (revision 2)
+#### o025 (revision 3)
 
 > For NSCLC MRD assessment in the Batra liquid-biopsy review, how do tumor-informed and tumor-agnostic assays compare at landmark and longitudinal timepoints?
 
 - **Why this case:** Named distractor replacing legacy q119: tumour-informed versus tumour-agnostic MRD assay performance must outrank a same-field ctDNA-MRD-guided adjuvant trial listing that reports no assay performance. Cross-document distractor.
-- **Evidence:** mrd
+- **Evidence:** primary: mrd
 - **Named decoy:** PMC11431721 `driver_mrd_trial`. Both concern postoperative ctDNA-MRD in resected NSCLC. Table 2 lists an ongoing adjuvant trial of ctDNA-MRD-guided osimertinib with a DFS endpoint; it reports no assay sensitivity or specificity and no tumor-informed versus tumor-agnostic comparison.
+- **Alternative-evidence review:** Driver-review trial row has DFS and recruitment status, not assay sensitivity/specificity; no alternative to the MRD comparison passage.
 - **Near-duplicate review:** Sole MRD assay-performance case after q082 was withdrawn as its duplicate.
-- **Replaces coverage of:** legacy q119
 
 ### false_premise (7)
 
-#### q081 (revision 2)
+#### q081 (revision 3)
 
 > Does the liquid-biopsy review establish that blood-based MCED has the same demonstrated lung-cancer mortality benefit as LDCT?
 
 - **Why this case:** False premise: that MCED shares LDCT's demonstrated mortality benefit. The correction needs the LDCT/NLST benefit and the statement that no MCED test has shown mortality benefit, without overstating that as proven ineffectiveness.
-- **Evidence:** ldct + mced
+- **Evidence:** primary: ldct + mced
+- **Alternative-evidence review:** Other LDCT/MCED mentions do not reproduce the NLST 20% comparison plus no demonstrated MCED mortality benefit; primary pair retained.
 - **Near-duplicate review:** Shares no evidence anchor with another case; the question identifies the source without disclosing target values.
 
-#### o001 (revision 2)
+#### o001 (revision 3)
 
 > Did the Zhongshan stage III neoadjuvant cohort demonstrate statistically significant DFS improvement because its pathological responses were higher?
 
-- **Why this case:** False premise: that higher pathological response caused significant DFS improvement in the Zhongshan stage III cohort. Correction: response gain with nonsignificant DFS (p=0.129), plus the explicit narrative/table MPR conflict.
-- **Evidence:** stage_response + stage_narrative + stage_table
-- **Near-duplicate review:** Shares stage_narrative and stage_table with o002. Distinct failure modes: o001 rejects a response-to-survival causal premise; o002 detects an internal numeric conflict without the DFS question.
+- **Why this case:** False premise: higher pathological response establishes significant DFS improvement. The abstract supplies response rates and nonsignificant DFS (p=0.129); internal count-conflict detection is optional here and required only by o002.
+- **Evidence:** primary: stage_response; OR table_and_results: stage_table + stage_dfs_results; OR table_and_discussion: stage_table + stage_dfs_discussion
+- **Alternative-evidence review:** Complete restatements in Results/tables/conclusion are pinned as additional fact-bound evidence sets; partial or wrong-contrast matches were excluded.
+- **Near-duplicate review:** o001 requires response-versus-survival separation; o002 alone requires narrative/table MPR count-conflict detection. Neither complete gold answer is a subset of the other.
 
-#### q108 (revision 2)
+#### q108 (revision 3)
 
 > Are the ADAURA hazard ratios in the nonmetastatic driver review outcomes measured by the review’s own newly enrolled cohort?
 
 - **Why this case:** False premise: that the review's ADAURA hazard ratios come from its own cohort. Correction attributes the DFS HRs to the cited trial. Migrated from a legacy unanswerable case on an ineligible source.
-- **Evidence:** driver_dfs
+- **Evidence:** primary: driver_dfs
+- **Alternative-evidence review:** Other EGFR trial rows have different trials, stages or confidence levels; no complete alternative for the initial ADAURA DFS estimates.
 - **Near-duplicate review:** Shares driver_dfs with o024. Distinct: q108 tests source attribution; o024 asks an absolute OS difference with a distractor.
 
-#### o011 (revision 1)
+#### o011 (revision 2)
 
 > Does the RCT meta-analysis prove ICIs cannot cause heart failure because that subgroup result was nonsignificant?
 
 - **Why this case:** False premise: that a nonsignificant heart-failure subgroup RR proves no risk. Correction: an imprecise null estimate does not establish absence of risk.
-- **Evidence:** rct_cv
+- **Evidence:** primary: rct_cv; OR results: rct_failure_results + rct_primary_results
+- **Alternative-evidence review:** Complete restatements in Results/tables/conclusion are pinned as additional fact-bound evidence sets; partial or wrong-contrast matches were excluded.
 - **Near-duplicate review:** Shares rct_cv with o010 and o018; o011 alone uses the heart-failure subgroup.
 
-#### o013 (revision 1)
+#### o013 (revision 2)
 
 > Does the immune-exclusion review establish a universal clinically validated numeric cutoff for every tumor?
 
 - **Why this case:** False premise: that the review establishes a universal clinically validated numeric cutoff. Correction: lack of consensus, arbitrary cutoffs and heterogeneity, with the review's proposed reporting approach.
-- **Evidence:** exclusion_limits + exclusion_solution
+- **Evidence:** primary: exclusion_limits + exclusion_solution; OR alternative_1: exclusion_limits + exclusion_conclusion; OR alternative_2: exclusion_limits_discussion + exclusion_solution; OR alternative_3: exclusion_limits_discussion + exclusion_conclusion
+- **Alternative-evidence review:** Complete restatements in Results/tables/conclusion are pinned as additional fact-bound evidence sets; partial or wrong-contrast matches were excluded.
 - **Near-duplicate review:** Shares no evidence anchor with another case; the question identifies the source without disclosing target values.
 
-#### o021 (revision 3)
+#### o021 (revision 4)
 
 > What randomized five-year pembrolizumab-versus-chemotherapy OS treatment effect did the Helsinki TNBC study measure?
 
 - **Why this case:** False premise: that the Helsinki study measured a randomized five-year OS effect. Correction: retrospective nonmatched design, and no OS at all (EFS by pCR; median follow-up 22 and 35 months).
-- **Evidence:** breast_pcr + helsinki_followup
+- **Evidence:** primary: breast_pcr + helsinki_followup
+- **Alternative-evidence review:** Methods repeat nonmatched retrospective design but not all cohort sizes in one span; other OS mentions concern KEYNOTE-522, not Helsinki five-year OS; original complete correction retained.
 - **Near-duplicate review:** Shares breast_pcr with o003, which asks pCR values rather than design and follow-up.
 
-#### q101 (revision 2)
+#### q101 (revision 3)
 
 > Are the HP2030 cervical and colorectal screening goals cited by Harper the study’s own achieved rates?
 
 - **Why this case:** False premise: that the cited HP2030 targets are the study's achieved rates. Correction: targets (cervical 84.3%, CRC 74.4%) versus observed dual screening 58.2%.
-- **Evidence:** screen_goals
+- **Evidence:** primary: screen_goals
+- **Alternative-evidence review:** The pinned Discussion is the only passage joining both HP2030 targets to observed dual screening.
 - **Near-duplicate review:** Shares no evidence anchor with another case; the question identifies the source without disclosing target values.
 
 ### unanswerable (3)
@@ -592,6 +631,7 @@ None.
 - **Why this case:** Absent fact: the number and reasons of Hunan patients who started neoadjuvant therapy but did not undergo surgery. The paper excludes them and states their data are absent; no count may be inferred. Scope: whole selected oncology corpus.
 - **Evidence:** none (absent fact)
 - **Near-miss context:** `hunan_absence`. Explicit absence of data about those who failed to receive surgery. Other-study failure percentages and patients found unresectable after receiving surgery do not supply this missing excluded-patient denominator.
+- **Alternative-evidence review:** Not yet recorded.
 - **Near-duplicate review:** Uses hunan_absence only as negative context; no other case uses it.
 
 #### q083 (revision 2)
@@ -601,6 +641,7 @@ None.
 - **Why this case:** Absent fact on a retained source: an FDA-validated early-stage EarlyCDT-Lung sensitivity. The review describes an investigational panel with setting-dependent estimates; the question's "FDA-validated" wording itself presupposes a status the corpus does not report. Scope: whole selected oncology corpus.
 - **Evidence:** none (absent fact)
 - **Near-miss context:** `earlycdt`. No selected source reports an FDA-validated early-stage sensitivity for EarlyCDT-Lung. The review describes an investigational autoantibody panel and setting-dependent study estimates, which do not establish the requested regulatory validation.
+- **Alternative-evidence review:** Not yet recorded.
 - **Near-duplicate review:** Uses earlycdt only as negative context.
 
 #### q100 (revision 2)
@@ -610,6 +651,7 @@ None.
 - **Why this case:** Absent fact on a retained source: a Basque FIT-programme dual-screening rate. The US BRFSS study reports a different population and endpoint. Scope: whole selected oncology corpus.
 - **Evidence:** none (absent fact)
 - **Near-miss context:** `screen`. No selected article reports the requested Basque-programme dual-screening rate. The US BRFSS study is a different population and endpoint; generic FIT discussion does not supply the requested rate.
+- **Alternative-evidence review:** Not yet recorded.
 - **Near-duplicate review:** Uses screen (q095/q096 evidence) only as near-miss negative context.
 
 ## Withdrawn before freeze
@@ -629,15 +671,15 @@ None.
 | q083 | revise_in_v1 | q083 | Revised on the retained review as a scoped absent fact; the "FDA-validated" presupposition is recorded in the case rationale. | Revised in place. |
 | q084 | retire_legacy_case | q079 | Retired as a near-duplicate: its CSF detection-rate fact is required by revised q079. | q079 requires the same detection-rate fact. |
 | q085 | revise_in_v1 | q085 | Revised onto the eligible immune-exclusion review (PMC10073666) for the same desert/excluded distinction. Legacy source onco-tumor-microenvironment.pdf (PMC13430506) is deferred: its acknowledgements credit BioRender, so complete-PDF reuse rights are unresolved. | Revised in place. |
-| q086 | retire_legacy_case | — | Retired: RELATIVITY-047 melanoma PFS appears only in the deferred source. Legacy source onco-tumor-microenvironment.pdf (PMC13430506) is deferred: its acknowledgements credit BioRender, so complete-PDF reuse rights are unresolved. No selected case tests the same evidence type, so no replacement is linked. | — |
-| q087 | retire_legacy_case | — | Retired: KEYNOTE-942 melanoma RFS appears only in the deferred source. Legacy source onco-tumor-microenvironment.pdf (PMC13430506) is deferred: its acknowledgements credit BioRender, so complete-PDF reuse rights are unresolved. No selected case tests the same evidence type, so no replacement is linked. | — |
+| q086 | retire_legacy_case | o007 | Legacy trial-specific claim is retired with its source; review-attributed trial-result reasoning is retained by o007, using ADAURA rather than the original trial. | Same reasoning task: bind a cited trial result to its population/endpoint and attribute it to a review. Different trial, treatment and numbers; not equivalent clinical coverage. |
+| q087 | retire_legacy_case | o007 | Legacy trial-specific claim is retired with its source; review-attributed trial-result reasoning is retained by o007, using ADAURA rather than the original trial. | Same reasoning task: bind a cited trial result to its population/endpoint and attribute it to a review. Different trial, treatment and numbers; not equivalent clinical coverage. |
 | q088 | retire_legacy_case | o014 | Retired: IDO1 trial-failure discussion appears only in the deferred source. Legacy source onco-tumor-microenvironment.pdf (PMC13430506) is deferred: its acknowledgements credit BioRender, so complete-PDF reuse rights are unresolved. | o014 tests the same reasoning task: reviewed mechanisms are not clinical treatment benefit. |
-| q089 | retire_legacy_case | q085, o015 | Retired: the static-versus-dynamic biomarker framework appears only in the deferred source. Legacy source onco-tumor-microenvironment.pdf (PMC13430506) is deferred: its acknowledgements credit BioRender, so complete-PDF reuse rights are unresolved. | q085 and o015 cover cold/hot tumour phenotype definitions in eligible reviews. |
+| q089 | retire_legacy_case | — | Retired: the static-versus-dynamic biomarker framework appears only in the deferred source. Legacy source onco-tumor-microenvironment.pdf (PMC13430506) is deferred: its acknowledgements credit BioRender, so complete-PDF reuse rights are unresolved. No reasoning-task replacement link is retained: the previous link was topical only. | — |
 | q090 | retire_legacy_case | — | Retired: the chemo/radiotherapy maturity comparison appears only in the deferred source. Legacy source onco-tumor-microenvironment.pdf (PMC13430506) is deferred: its acknowledgements credit BioRender, so complete-PDF reuse rights are unresolved. No selected case tests the same evidence type, so no replacement is linked. | — |
 | q091 | retire_legacy_case | — | Retired: Legacy source onco-tumor-microenvironment.pdf (PMC13430506) is deferred: its acknowledgements credit BioRender, so complete-PDF reuse rights are unresolved. The question is not recast onto another study, so no replacement case is linked. | — |
 | q092 | retire_legacy_case | — | Retired: the syngeneic-model exception appears only in the deferred source. Legacy source onco-tumor-microenvironment.pdf (PMC13430506) is deferred: its acknowledgements credit BioRender, so complete-PDF reuse rights are unresolved. No selected case tests the same evidence type, so no replacement is linked. | — |
-| q093 | retire_legacy_case | o025 | Retired: one of its two documents is the deferred source. Legacy source onco-tumor-microenvironment.pdf (PMC13430506) is deferred: its acknowledgements credit BioRender, so complete-PDF reuse rights are unresolved. | o025 keeps ctDNA in the liquid-biopsy review as a named-distractor task. |
-| q094 | retire_legacy_case | o025 | Retired: one of its two documents is the deferred source. Legacy source onco-tumor-microenvironment.pdf (PMC13430506) is deferred: its acknowledgements credit BioRender, so complete-PDF reuse rights are unresolved. | o025 keeps ctDNA monitoring performance from the liquid-biopsy review. |
+| q093 | retire_legacy_case | — | Retired: one of its two documents is the deferred source. Legacy source onco-tumor-microenvironment.pdf (PMC13430506) is deferred: its acknowledgements credit BioRender, so complete-PDF reuse rights are unresolved. No reasoning-task replacement link is retained: the previous link was topical only. | — |
+| q094 | retire_legacy_case | — | Retired: one of its two documents is the deferred source. Legacy source onco-tumor-microenvironment.pdf (PMC13430506) is deferred: its acknowledgements credit BioRender, so complete-PDF reuse rights are unresolved. No reasoning-task replacement link is retained: the previous link was topical only. | — |
 | q095 | revise_in_v1 | q095 | Revised on the retained study to the four mutually exclusive categories; task change recorded in revision_ledger.json. | Revised in place. |
 | q096 | revise_in_v1 | q096 | Revised on the retained study: compare the mutually exclusive cervical-only and CRC-only categories. | Revised in place. |
 | q097 | revise_in_v1 | q097 | Restored on 2026-10-02 at Juan's request after the original author confirmed no case-specific retirement reason; revised on the retained source with pinned evidence. | Revised in place. |
@@ -649,7 +691,7 @@ None.
 | q103 | retire_legacy_case | o022 | Retired; study-specific task moved to a new ID. Legacy source onco-breast-immunotherapy.pdf (PMC13438349) is a driver-positive NSCLC perioperative study under CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy. | o022 asks population and treatment-group sizes in an eligible perioperative NSCLC cohort. |
 | q104 | retire_legacy_case | o029 | Retired; study-specific task moved to a new ID. Legacy source onco-breast-immunotherapy.pdf (PMC13438349) is a driver-positive NSCLC perioperative study under CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy. | o029 asks DFS and OS interpretation in an eligible perioperative NSCLC cohort. |
 | q105 | retire_legacy_case | o028 | Retired; study-specific task moved to a new ID. Legacy source onco-breast-immunotherapy.pdf (PMC13438349) is a driver-positive NSCLC perioperative study under CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy. | o028 asks pathological response rates in an eligible perioperative NSCLC cohort. |
-| q106 | retire_legacy_case | o001, o002 | Retired: the EGFR-mutant neoadjuvant-targeted subgroup appears only in the restricted source. Legacy source onco-breast-immunotherapy.pdf (PMC13438349) is a driver-positive NSCLC perioperative study under CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy. | o001 and o002 test pathological response versus DFS in another perioperative cohort. |
+| q106 | retire_legacy_case | — | Retired: the EGFR-mutant neoadjuvant-targeted subgroup appears only in the restricted source. Legacy source onco-breast-immunotherapy.pdf (PMC13438349) is a driver-positive NSCLC perioperative study under CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy. No reasoning-task replacement link is retained: the previous link was topical only. | — |
 | q107 | retire_legacy_case | o029 | Retired: MPR-to-survival subgroup results appear only in the restricted source. Legacy source onco-breast-immunotherapy.pdf (PMC13438349) is a driver-positive NSCLC perioperative study under CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy. | o029 tests response versus survival interpretation in an eligible cohort. |
 | q108 | revise_in_v1 | q108 | Revised onto the eligible driver review as an ADAURA attribution false premise. Legacy source onco-breast-immunotherapy.pdf (PMC13438349) is a driver-positive NSCLC perioperative study under CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy. | Revised in place. |
 | q109 | retire_legacy_case | — | Retired: Legacy source onco-breast-immunotherapy.pdf (PMC13438349) is a driver-positive NSCLC perioperative study under CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy. The question is not recast onto another study, so no replacement case is linked. | — |
@@ -659,10 +701,10 @@ None.
 | q113 | retire_legacy_case | o027 | Retired; study-specific task moved to a new ID. Legacy source onco-genomics-precision-medicine.pdf (PMC13434091) is CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy. | o027 tests afatinib dose and outcomes in the eligible Vietnam cohort. |
 | q114 | retire_legacy_case | — | Retired: the environmental-exposure synthesis appears only in the restricted source. Legacy source onco-genomics-precision-medicine.pdf (PMC13434091) is CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy. No selected case tests the same evidence type, so no replacement is linked. | — |
 | q115 | retire_legacy_case | — | Retired: Legacy source onco-genomics-precision-medicine.pdf (PMC13434091) is CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy. The question is not recast onto another study, so no replacement case is linked. | — |
-| q116 | retire_legacy_case | o011, o012 | Retired: the radon causation question appears only in the restricted source. Legacy source onco-genomics-precision-medicine.pdf (PMC13434091) is CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy. | o011 and o012 test the same reasoning task: association or a null estimate does not prove causation or absence of risk. |
+| q116 | retire_legacy_case | o011 | Retired: the radon causation question appears only in the restricted source. Legacy source onco-genomics-precision-medicine.pdf (PMC13434091) is CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy. | o011 retains the reasoning task that a null/imprecise estimate does not prove absence of risk; o012 is a between-drug comparison and is not a causation-task replacement. |
 | q117 | retire_legacy_case | o030 | Retired; study-specific task moved to a new ID. Legacy source onco-breast-immunotherapy.pdf (PMC13438349) is a driver-positive NSCLC perioperative study under CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy. Legacy source onco-genomics-precision-medicine.pdf (PMC13434091) is CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy. | o030 synthesises treatment outcomes with real-world testing readiness from eligible sources. |
-| q118 | retire_legacy_case | o024 | Retired; study-specific task moved to a new ID. Legacy source onco-breast-immunotherapy.pdf (PMC13438349) is a driver-positive NSCLC perioperative study under CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy. Legacy source onco-genomics-precision-medicine.pdf (PMC13434091) is CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy. | o024 tests EGFR-directed treatment outcomes against a dosing-study distractor. |
-| q119 | retire_legacy_case | o025 | Retired; study-specific task moved to a new ID. Legacy source onco-breast-immunotherapy.pdf (PMC13438349) is a driver-positive NSCLC perioperative study under CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy. | o025 tests longitudinal ctDNA monitoring performance against a distractor. |
+| q118 | retire_legacy_case | — | Retired; no same-task replacement is linked. Legacy source onco-breast-immunotherapy.pdf (PMC13438349) is a driver-positive NSCLC perioperative study under CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy. Legacy source onco-genomics-precision-medicine.pdf (PMC13434091) is CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy. No reasoning-task replacement link is retained: the previous link was topical only. | — |
+| q119 | retire_legacy_case | — | Retired; no same-task replacement is linked. Legacy source onco-breast-immunotherapy.pdf (PMC13438349) is a driver-positive NSCLC perioperative study under CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy. No reasoning-task replacement link is retained: the previous link was topical only. | — |
 
 ## Retained IDs whose task changed
 
@@ -670,6 +712,8 @@ None.
 - **q095:** Legacy dual-screening percentage plus single-cancer comparison is now the four mutually exclusive screening categories.
 - **q108:** Legacy question on an ineligible NSCLC paper is now the ADAURA attribution check in the eligible nonmetastatic driver review.
 - **q098:** Legacy Hispanic-versus-Black framing is now each group compared with White women, matching the paper's regression reference.
+- **q078:** Retains cited fusion-yield comparison and now also requires the related NCCN RNA-testing recommendation.
+- **q099:** Legacy multi_hop is now direct_lookup because one contiguous Discussion section contains all three proposed levels; faithful clinician/woman synonyms are accepted.
 
 ## Revision history
 
@@ -677,3 +721,4 @@ None.
 2. From `a226bba`: Claude re-review: Hunan OS label conflict and Limitations anchor, Helsinki five-year OS correction, duplicate withdrawal with one POL-MOL role, same-field MRD decoy, per-article search provenance.
 3. From `fd4eadf`: Decision documentation: case-specific selection rationale and near-duplicate review, specific legacy reasons and replacement bases, lower-priority candidate coverage, and multi_hop categories for two cases needing separated passages.
 4. From `fa0245a`: Restored legacy q078, q097, q098 and q099 on retained sources: no retirement reason existed and their evidence is pinned.
+5. From `b626fbb`: Review correction: q098 race contrast, distinct o001/o002 gold, complete alternative-evidence sweep, honest search provenance and migration traceability; strengthened offline verifier. No retrieval exposure.

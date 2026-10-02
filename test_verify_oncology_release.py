@@ -8,8 +8,28 @@ from unittest.mock import patch
 
 from benchmark_scoring import canonical_hash
 from fetch_article_metadata import parse_record
-from verify_oncology_release import (verify, verify_attribution, verify_decision_record, verify_ledger, verify_linkage,
-                                     verify_metadata, verify_migration, verify_query_roles)
+from verify_oncology_release import (ROOT, digest, verify, verify_attribution, verify_decision_record, verify_ledger, verify_linkage,
+                                     verify_metadata, verify_migration, verify_production_oracle, verify_query_roles)
+
+
+class ProductionOracleTests(unittest.TestCase):
+    def test_self_consistent_false_ceiling_is_rejected_by_recomputation(self):
+        from main import chunk_text
+        from verify_benchmark_reachability import verify_reachability
+        text = "A synthetic source reports a measured value of 7."
+        benchmark = {"anchors": [{"id": "some_span", "article_id": "PMC123", "filename": "some-source.pdf",
+                                   "text_start": 0, "text_end": len(text), "excerpt": text}],
+                     "queries": [{"id": "o001", "category": "direct_lookup", "answerability": {"status": "answerable"},
+                                  "required_facts": [{"id": "f1"}], "related_distractors": [],
+                                  "evidence_sets": [{"anchors": ["some_span"], "fact_anchors": {"f1": ["some_span"]}}]}]}
+        source_text = {"some-source.pdf": text}
+        actual = verify_reachability(benchmark, source_text, chunk_text)
+        verify_production_oracle(benchmark, source_text, actual)
+        actual["query_feasibility"]["o001"] = {"minimum_chunks": 99, "by_depth": {"n3": "infeasible", "n8": "infeasible"}}
+        for depth in actual["by_depth"].values():
+            depth.update(feasible_ids=[], infeasible_ids=["o001"], feasible_queries=0, ceiling_rate=0.0)
+        with self.assertRaisesRegex(ValueError, "production-chunker recomputation"):
+            verify_production_oracle(benchmark, source_text, actual)
 
 
 class ArchivedMetadataTests(unittest.TestCase):
@@ -78,9 +98,12 @@ class AuxiliaryLinkageTests(unittest.TestCase):
             "query_sha256": canonical_hash(self.benchmark), "selection_sha256": "selection-hash",
             "conditions_sha256": canonical_hash(self.conditions), "condition": condition,
             "membership_sha256": self.conditions["conditions"][condition]["membership_sha256"],
+            "production_chunker_source_sha256": digest((ROOT / "main.py").read_bytes()),
             "result": {"evidence_queries": len(feasible_ids),
-                       "query_feasibility": {qid: {"minimum_chunks": 1} for qid in feasible_ids},
-                       "by_depth": {"n3": {"feasible_ids": feasible_ids, "infeasible_ids": []}}}})
+                       "query_feasibility": {qid: {"minimum_chunks": 1, "by_depth": {"n3": "feasible", "n8": "feasible"}} for qid in feasible_ids},
+                       "by_depth": {depth: {"feasible_ids": feasible_ids, "infeasible_ids": [],
+                                            "feasible_queries": len(feasible_ids), "total_queries": len(feasible_ids),
+                                            "ceiling_rate": 1.0 if feasible_ids else None} for depth in ["n3", "n8"]}}})
 
     def write(self, name, value):
         (self.release / name).write_text(json.dumps(value))
@@ -110,6 +133,25 @@ class AuxiliaryLinkageTests(unittest.TestCase):
         self.write_oracle("C2", [])
         with self.assertRaisesRegex(ValueError, "oracle content"):
             self.verify()
+
+    def test_oracle_tampering_is_rejected_with_current_linkage(self):
+        changes = [
+            lambda r: r["result"]["query_feasibility"]["o001"].update(minimum_chunks=99),
+            lambda r: r["result"]["by_depth"]["n3"]["infeasible_ids"].append("o001"),
+            lambda r: r["result"]["by_depth"]["n3"]["feasible_ids"].append("o001"),
+            lambda r: r["result"]["by_depth"]["n3"].update(ceiling_rate=0.5),
+            lambda r: r["result"]["by_depth"]["n8"].update(feasible_queries=99),
+            lambda r: r.update(production_chunker_source_sha256="0" * 64),
+            lambda r: r["result"]["query_feasibility"]["o001"]["by_depth"].update(n3="infeasible"),
+        ]
+        for change in changes:
+            with self.subTest(change=changes.index(change)):
+                self.write_oracle("C2", ["o001"])
+                result = json.loads((self.release / "results/offline-C2.json").read_text())
+                change(result)
+                self.write("results/offline-C2.json", result)
+                with self.assertRaisesRegex(ValueError, "oracle content"):
+                    self.verify()
 
 
 class CorpusMembershipTests(unittest.TestCase):
@@ -154,9 +196,10 @@ class AttributionTests(unittest.TestCase):
 
 class QueryRoleTests(unittest.TestCase):
     def setUp(self):
-        anchors = [{"id": "source_span", "article_id": "PMC1"}, {"id": "decoy_span", "article_id": "PMC2"},
-                   {"id": "overlap_span", "article_id": "PMC3"}]
-        query = {"id": "o001", "evidence_sets": [{"anchors": ["source_span"]}],
+        anchors = [{"id": "source_span", "article_id": "PMC1", "role": "support", "fact_ids": ["o001:f1"]},
+                   {"id": "decoy_span", "article_id": "PMC2", "role": "support", "fact_ids": []},
+                   {"id": "overlap_span", "article_id": "PMC3", "role": "support", "fact_ids": []}]
+        query = {"id": "o001", "evidence_sets": [{"anchors": ["source_span"], "fact_anchors": {"f1": ["source_span"]}}],
                  "related_distractors": [{"article_id": "PMC2", "anchor_id": "decoy_span"}],
                  "answerability": {"status": "answerable"},
                  "dependencies": {"required": ["PMC1"], "alternatives": [], "decoys": ["PMC2"],
@@ -199,17 +242,38 @@ class QueryRoleTests(unittest.TestCase):
         self.query["answerability"]["correction_anchors"] = ["decoy_span"]
         self.assert_rejected("correction anchor")
 
+    def test_false_premise_requires_positive_evidence(self):
+        self.query["answerability"]["status"] = "false_premise"
+        self.assert_rejected("positive correction")
+
+    def test_anchor_fact_binding_and_role_tampering_is_rejected(self):
+        for field, value in [("fact_ids", ["o001:unknown"]), ("fact_ids", []), ("role", "unknown")]:
+            with self.subTest(field=field, value=value):
+                self.setUp()
+                self.benchmark["anchors"][0][field] = value
+                self.assert_rejected("anchor role/fact_ids")
+
+    def test_article_can_answer_one_query_and_distract_another(self):
+        other = copy.deepcopy(self.query)
+        other.update(id="o002", evidence_sets=[{"anchors": ["decoy_span"], "fact_anchors": {"f1": ["decoy_span"]}}],
+                     related_distractors=[])
+        other["dependencies"].update(required=["PMC2"], decoys=[])
+        self.benchmark["queries"].append(other)
+        self.benchmark["anchors"][1]["fact_ids"] = ["o002:f1"]
+        verify_query_roles(self.benchmark)
+
 
 class MigrationTests(unittest.TestCase):
     def setUp(self):
         ids = [f"q{n:03d}" for n in range(78, 120)]
-        self.legacy = {qid: {"question": f"legacy question {qid}"} for qid in ids}
+        self.legacy = {qid: {"question": f"legacy question {qid}", "category": "direct_lookup"} for qid in ids}
         self.audit = {"cases": [{"id": qid, "question": f"legacy question {qid}", "legacy_category": "direct_lookup",
                                  "action": "retire_legacy_case", "replacement_cases": [], "negative_scope_review": "not_applicable"}
                                 for qid in ids]}
         self.revised = self.audit["cases"][5]
         self.revised.update(action="revise_in_v1", legacy_category="unanswerable", negative_scope_review="absent_fact",
                             revised_question="revised test question", replacement_cases=[self.revised["id"]])
+        self.legacy[self.revised["id"]]["category"] = "unanswerable"
         self.active = {self.revised["id"]: {"revision": 2, "question": "revised test question",
                                             "answerability": {"status": "absent_fact"}},
                        "o001": {"revision": 1, "question": "test question", "answerability": {"status": "answerable"}}}
@@ -248,6 +312,14 @@ class MigrationTests(unittest.TestCase):
     def test_unrevised_active_case_is_rejected(self):
         self.active[self.revised["id"]]["revision"] = 1
         self.assert_rejected("missing revised case")
+
+    def test_legacy_category_drift_is_rejected(self):
+        self.audit["cases"][0]["legacy_category"] = "multi_hop"
+        self.assert_rejected("legacy category")
+
+    def test_revised_case_cannot_link_to_unrelated_active_case(self):
+        self.revised["replacement_cases"] = ["o001"]
+        self.assert_rejected("link to itself")
 
 
 class LedgerTests(unittest.TestCase):
@@ -296,6 +368,29 @@ class LedgerTests(unittest.TestCase):
         self.ledger["revisions"][-1]["query_sha256"] = "stale"
         self.assert_rejected("latest revision")
 
+    def test_broken_revision_hash_chain_is_rejected(self):
+        self.ledger["revisions"].insert(0, {"query_sha256": "previous-query-hash"})
+        self.ledger["revisions"][-1]["previous_query_sha256"] = "broken"
+        self.assert_rejected("broken query revision chain")
+
+    def test_category_history_must_agree_with_current_case(self):
+        self.active["o001"]["category"] = "multi_hop"
+        self.ledger["revisions"][-1]["recategorised_cases"] = {"o001": "direct_lookup -> false_premise"}
+        self.assert_rejected("recategorised cases")
+
+    def test_restored_case_must_be_revised_in_migration(self):
+        self.ledger["revisions"][-1]["restored_cases"] = ["q100"]
+        self.assert_rejected("restored cases")
+
+    def test_dropped_link_cannot_remain_in_migration(self):
+        self.ledger["revisions"][-1]["dropped_replacement_links"] = {"q100": ["o002"]}
+        self.assert_rejected("dropped replacement links")
+
+    def test_explicit_reintroduction_of_a_dropped_link_passes(self):
+        self.ledger["revisions"][-1].update(dropped_replacement_links={"q100": ["o002"]},
+                                            added_replacement_links={"q100": ["o002"]})
+        verify_ledger(self.ledger, self.active, self.audit)
+
 
 class DecisionRecordTests(unittest.TestCase):
     def setUp(self):
@@ -312,6 +407,11 @@ class DecisionRecordTests(unittest.TestCase):
 
     def test_complete_record_passes(self):
         self.verify()
+
+    def test_body_edit_is_rejected_even_when_every_heading_is_present(self):
+        with self.assertRaisesRegex(ValueError, "generated decision record"):
+            verify_decision_record(self.record + "Changed rationale.\n", self.benchmark, self.audit,
+                                   self.candidates, self.ledger, expected_record=self.record)
 
     def test_shared_boilerplate_rationale_is_rejected(self):
         self.benchmark["queries"][1]["selection_rationale"] = "test rationale one"

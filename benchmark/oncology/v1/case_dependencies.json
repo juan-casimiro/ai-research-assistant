@@ -1,10 +1,10 @@
 {
   "query_version": "oncology-queries-v1",
-  "query_sha256": "d55dd965fb0c1a731fd9613e9bcf300545347099fe757dea8e74ecd624b53b3b",
+  "query_sha256": "5cab6de39c5933421f7a096e1c79c650e698663a5b14db5021ed029313c42057",
   "cases": [
     {
       "id": "q079",
-      "revision": 2,
+      "revision": 3,
       "category": "direct_lookup",
       "required": [
         "PMC13429855"
@@ -18,7 +18,7 @@
     },
     {
       "id": "q080",
-      "revision": 2,
+      "revision": 3,
       "category": "direct_lookup",
       "required": [
         "PMC13429855"
@@ -32,7 +32,7 @@
     },
     {
       "id": "q081",
-      "revision": 2,
+      "revision": 3,
       "category": "false_premise",
       "required": [
         "PMC13429855"
@@ -46,12 +46,14 @@
     },
     {
       "id": "q095",
-      "revision": 2,
+      "revision": 3,
       "category": "direct_lookup",
       "required": [
         "PMC9239676"
       ],
-      "alternatives": [],
+      "alternatives": [
+        "PMC9239676"
+      ],
       "decoys": [],
       "overlap_review": [
         "PMC9239676"
@@ -60,12 +62,14 @@
     },
     {
       "id": "q096",
-      "revision": 2,
+      "revision": 3,
       "category": "direct_lookup",
       "required": [
         "PMC9239676"
       ],
-      "alternatives": [],
+      "alternatives": [
+        "PMC9239676"
+      ],
       "decoys": [],
       "overlap_review": [
         "PMC9239676"
@@ -74,7 +78,7 @@
     },
     {
       "id": "q102",
-      "revision": 2,
+      "revision": 3,
       "category": "direct_lookup",
       "required": [
         "PMC9239676"
@@ -88,7 +92,7 @@
     },
     {
       "id": "o022",
-      "revision": 1,
+      "revision": 2,
       "category": "direct_lookup",
       "required": [
         "PMC9844597"
@@ -102,12 +106,14 @@
     },
     {
       "id": "o029",
-      "revision": 2,
+      "revision": 3,
       "category": "multi_hop",
       "required": [
         "PMC9844597"
       ],
-      "alternatives": [],
+      "alternatives": [
+        "PMC9844597"
+      ],
       "decoys": [],
       "overlap_review": [
         "PMC9844597"
@@ -116,12 +122,14 @@
     },
     {
       "id": "o028",
-      "revision": 1,
+      "revision": 2,
       "category": "direct_lookup",
       "required": [
         "PMC9844597"
       ],
-      "alternatives": [],
+      "alternatives": [
+        "PMC9844597"
+      ],
       "decoys": [],
       "overlap_review": [
         "PMC9844597"
@@ -130,12 +138,14 @@
     },
     {
       "id": "o001",
-      "revision": 2,
+      "revision": 3,
       "category": "false_premise",
       "required": [
         "PMC10770829"
       ],
-      "alternatives": [],
+      "alternatives": [
+        "PMC10770829"
+      ],
       "decoys": [],
       "overlap_review": [
         "PMC10770829"
@@ -144,7 +154,7 @@
     },
     {
       "id": "o002",
-      "revision": 2,
+      "revision": 3,
       "category": "multi_hop",
       "required": [
         "PMC10770829"
@@ -158,12 +168,14 @@
     },
     {
       "id": "o003",
-      "revision": 1,
+      "revision": 2,
       "category": "direct_lookup",
       "required": [
         "PMC12931073"
       ],
-      "alternatives": [],
+      "alternatives": [
+        "PMC12931073"
+      ],
       "decoys": [],
       "overlap_review": [
         "PMC12931073"
@@ -172,12 +184,14 @@
     },
     {
       "id": "o004",
-      "revision": 1,
+      "revision": 2,
       "category": "multi_hop",
       "required": [
         "PMC12931073"
       ],
-      "alternatives": [],
+      "alternatives": [
+        "PMC12931073"
+      ],
       "decoys": [],
       "overlap_review": [
         "PMC12931073"
@@ -186,12 +200,14 @@
     },
     {
       "id": "o005",
-      "revision": 1,
+      "revision": 2,
       "category": "multi_hop",
       "required": [
         "PMC12931073"
       ],
-      "alternatives": [],
+      "alternatives": [
+        "PMC12931073"
+      ],
       "decoys": [],
       "overlap_review": [
         "PMC12931073"
@@ -200,12 +216,14 @@
     },
     {
       "id": "o027",
-      "revision": 1,
-      "category": "multi_hop",
+      "revision": 2,
+      "category": "direct_lookup",
       "required": [
         "PMC10840225"
       ],
-      "alternatives": [],
+      "alternatives": [
+        "PMC10840225"
+      ],
       "decoys": [],
       "overlap_review": [
         "PMC10840225"
@@ -214,7 +232,7 @@
     },
     {
       "id": "o006",
-      "revision": 1,
+      "revision": 2,
       "category": "multi_hop",
       "required": [
         "PMC10840225"
@@ -228,7 +246,7 @@
     },
     {
       "id": "q108",
-      "revision": 2,
+      "revision": 3,
       "category": "false_premise",
       "required": [
         "PMC11431721"
@@ -242,7 +260,7 @@
     },
     {
       "id": "o007",
-      "revision": 1,
+      "revision": 2,
       "category": "direct_lookup",
       "required": [
         "PMC11431721"
@@ -256,7 +274,7 @@
     },
     {
       "id": "o023",
-      "revision": 3,
+      "revision": 4,
       "category": "multi_hop",
       "required": [
         "PMC10485396"
@@ -273,13 +291,13 @@
           "article_id": "PMC11547071",
           "anchor_id": "polmol_reflex",
           "role": "partial_support",
-          "assessment": "Implies no oncologist request (agreed biomarkers are ordered automatically by the pathologist rather than the treating physician) but omits the MDT agreement and the delay/deterioration mechanism. Attribution to the Gosney consensus is required, so POL-MOL does not complete this task."
+          "assessment": "POL-MOL describes pathologist-ordered agreed biomarkers and faster time to optimal treatment initiation, but does not name MDT agreement or the deterioration/suboptimal-therapy mechanism before complete biomarker status. Partial support, not a named decoy for this question."
         }
       ]
     },
     {
       "id": "o008",
-      "revision": 1,
+      "revision": 2,
       "category": "direct_lookup",
       "required": [
         "PMC10485396"
@@ -293,12 +311,14 @@
     },
     {
       "id": "o009",
-      "revision": 3,
+      "revision": 4,
       "category": "multi_hop",
       "required": [
         "PMC11891047"
       ],
-      "alternatives": [],
+      "alternatives": [
+        "PMC11891047"
+      ],
       "decoys": [],
       "overlap_review": [
         "PMC11891047"
@@ -307,12 +327,14 @@
     },
     {
       "id": "o010",
-      "revision": 1,
+      "revision": 2,
       "category": "direct_lookup",
       "required": [
         "PMC11181582"
       ],
-      "alternatives": [],
+      "alternatives": [
+        "PMC11181582"
+      ],
       "decoys": [],
       "overlap_review": [
         "PMC11181582"
@@ -321,12 +343,14 @@
     },
     {
       "id": "o011",
-      "revision": 1,
+      "revision": 2,
       "category": "false_premise",
       "required": [
         "PMC11181582"
       ],
-      "alternatives": [],
+      "alternatives": [
+        "PMC11181582"
+      ],
       "decoys": [],
       "overlap_review": [
         "PMC11181582"
@@ -335,12 +359,14 @@
     },
     {
       "id": "o026",
-      "revision": 1,
+      "revision": 2,
       "category": "direct_lookup",
       "required": [
         "PMC12495207"
       ],
-      "alternatives": [],
+      "alternatives": [
+        "PMC12495207"
+      ],
       "decoys": [],
       "overlap_review": [
         "PMC12495207"
@@ -349,12 +375,14 @@
     },
     {
       "id": "o012",
-      "revision": 1,
+      "revision": 2,
       "category": "direct_lookup",
       "required": [
         "PMC12495207"
       ],
-      "alternatives": [],
+      "alternatives": [
+        "PMC12495207"
+      ],
       "decoys": [],
       "overlap_review": [
         "PMC12495207"
@@ -363,7 +391,7 @@
     },
     {
       "id": "q085",
-      "revision": 2,
+      "revision": 3,
       "category": "direct_lookup",
       "required": [
         "PMC10073666"
@@ -377,12 +405,14 @@
     },
     {
       "id": "o013",
-      "revision": 1,
+      "revision": 2,
       "category": "false_premise",
       "required": [
         "PMC10073666"
       ],
-      "alternatives": [],
+      "alternatives": [
+        "PMC10073666"
+      ],
       "decoys": [],
       "overlap_review": [
         "PMC10073666"
@@ -391,7 +421,7 @@
     },
     {
       "id": "o014",
-      "revision": 1,
+      "revision": 2,
       "category": "direct_lookup",
       "required": [
         "PMC13190586"
@@ -405,7 +435,7 @@
     },
     {
       "id": "o015",
-      "revision": 1,
+      "revision": 2,
       "category": "direct_lookup",
       "required": [
         "PMC13190586"
@@ -419,7 +449,7 @@
     },
     {
       "id": "o016",
-      "revision": 1,
+      "revision": 2,
       "category": "multi_hop",
       "required": [
         "PMC13190586"
@@ -433,13 +463,16 @@
     },
     {
       "id": "o030",
-      "revision": 2,
+      "revision": 3,
       "category": "cross_doc_synthesis",
       "required": [
         "PMC10485396",
         "PMC9844597"
       ],
-      "alternatives": [],
+      "alternatives": [
+        "PMC10485396",
+        "PMC9844597"
+      ],
       "decoys": [],
       "overlap_review": [
         "PMC10485396",
@@ -452,19 +485,22 @@
           "article_id": "PMC11547071",
           "anchor_id": "polmol_reflex",
           "role": "partial_support",
-          "assessment": "Implies no oncologist request (agreed biomarkers are ordered automatically by the pathologist rather than the treating physician) but omits the MDT agreement and the delay/deterioration mechanism. Attribution to the Gosney consensus is required, so POL-MOL does not complete this task. It also lacks the early-stage EGFR rationale."
+          "assessment": "POL-MOL describes pathologist-ordered agreed biomarkers and faster time to optimal treatment initiation, but does not name MDT agreement or the deterioration/suboptimal-therapy mechanism before complete biomarker status. Partial support, not a named decoy for this question."
         }
       ]
     },
     {
       "id": "o017",
-      "revision": 2,
+      "revision": 3,
       "category": "cross_doc_synthesis",
       "required": [
         "PMC11891047",
         "PMC12495207"
       ],
-      "alternatives": [],
+      "alternatives": [
+        "PMC11891047",
+        "PMC12495207"
+      ],
       "decoys": [],
       "overlap_review": [
         "PMC11891047",
@@ -474,13 +510,16 @@
     },
     {
       "id": "o018",
-      "revision": 1,
+      "revision": 2,
       "category": "cross_doc_synthesis",
       "required": [
         "PMC11181582",
         "PMC12931073"
       ],
-      "alternatives": [],
+      "alternatives": [
+        "PMC11181582",
+        "PMC12931073"
+      ],
       "decoys": [],
       "overlap_review": [
         "PMC11181582",
@@ -490,7 +529,7 @@
     },
     {
       "id": "o024",
-      "revision": 1,
+      "revision": 2,
       "category": "cross_doc_distractor",
       "required": [
         "PMC11431721"
@@ -507,7 +546,7 @@
     },
     {
       "id": "o025",
-      "revision": 2,
+      "revision": 3,
       "category": "cross_doc_distractor",
       "required": [
         "PMC13429855"
@@ -542,7 +581,7 @@
     },
     {
       "id": "o021",
-      "revision": 3,
+      "revision": 4,
       "category": "false_premise",
       "required": [
         "PMC12931073"
@@ -620,7 +659,7 @@
     },
     {
       "id": "q101",
-      "revision": 2,
+      "revision": 3,
       "category": "false_premise",
       "required": [
         "PMC9239676"
@@ -634,7 +673,7 @@
     },
     {
       "id": "q078",
-      "revision": 2,
+      "revision": 3,
       "category": "direct_lookup",
       "required": [
         "PMC13429855"
@@ -648,12 +687,14 @@
     },
     {
       "id": "q097",
-      "revision": 2,
+      "revision": 3,
       "category": "direct_lookup",
       "required": [
         "PMC9239676"
       ],
-      "alternatives": [],
+      "alternatives": [
+        "PMC9239676"
+      ],
       "decoys": [],
       "overlap_review": [
         "PMC9239676"
@@ -662,12 +703,14 @@
     },
     {
       "id": "q098",
-      "revision": 2,
-      "category": "multi_hop",
+      "revision": 3,
+      "category": "direct_lookup",
       "required": [
         "PMC9239676"
       ],
-      "alternatives": [],
+      "alternatives": [
+        "PMC9239676"
+      ],
       "decoys": [],
       "overlap_review": [
         "PMC9239676"
@@ -676,7 +719,7 @@
     },
     {
       "id": "q099",
-      "revision": 2,
+      "revision": 3,
       "category": "direct_lookup",
       "required": [
         "PMC9239676"

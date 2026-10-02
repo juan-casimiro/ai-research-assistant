@@ -1,14 +1,15 @@
 # Oncology selection and query release — v1
 
 JUA-112 review candidate, 2026-10-02. **14 articles**, 187 physical PDF pages,
-25,168,522 downloaded bytes; **44 cases** and 49 exact extraction anchors.
+25,168,522 downloaded bytes; **44 cases** and 84 exact extraction anchors.
 Selection and gold were authored without retrieval results. Independent review
 and freeze are pending; this release makes no retrieval-quality claim.
 
 [DECISIONS.md](DECISIONS.md) explains every article, candidate, case and legacy-migration
 decision, and lists open decisions. [render_decisions.py](render_decisions.py) generates it from the
 release JSON files plus the article rationales and principles held in that script. The verifier
-rejects a release whose decisions are undocumented or share boilerplate rationale.
+rejects undocumented decisions, shared boilerplate rationale and prose that differs
+from a fresh in-memory render.
 
 ## Audit and selection
 
@@ -46,7 +47,7 @@ manifest, golden cases, prior evaluation results and shared collections are pres
 
 ## Cases and conditions
 
-[queries.json](queries.json) contains 19 lookups, 10 same-article multi-hop cases,
+[queries.json](queries.json) contains 21 lookups, 8 same-article multi-hop cases,
 3 cross-document synthesis cases, 2 named-distractor cases, 7 false-premise cases
 and 3 absent-fact cases. Each answer fact names its population, endpoint, units,
 timeframe, tolerance and contradiction rule. Evidence includes physical page,
@@ -65,6 +66,14 @@ labels: historical scores must not be compared as if sources and gold were uncha
 record required sources, decoys, overlap review and selected evidence relationships.
 Shared evidence supports distinct tasks; no fixed query or article count was used.
 
+All 41 evidence-bearing cases received a restatement review, recorded per case in
+[case_review.json](case_review.json). Twenty cases have complete alternative sets,
+including Results/table screening rates, Table 4 race contrasts and the Hunan MPR
+Results. One complete alternative suffices; matching only part of an alternative
+does not. q098 and o027 are direct lookups because a local table/Results passage
+supplies their complete gold. Alternatives remain conservative pinned spans, not
+exhaustive semantic matching; the review did not re-audit external cited studies.
+
 Important source conflicts are explicit: Hunan unadjusted DFS significance
 disappears after matching, and its p=0.038 OS comparison is a "weighted population"
 in the Results but "after PSM" in the Figure 1D legend; the stage III cohort's MPR narrative and table disagree;
@@ -72,6 +81,11 @@ the Vietnam afatinib abstract reverses starting-dose shares relative to Table 2;
 Helsinki postoperative discontinuation percentages use different denominators.
 Screening flow-chart counts are requested as printed; the chart's age label and
 subtraction arithmetic are inconsistent. Do not invent corrected cohort counts.
+Table 4 labels N=42,701 although the analysis group is 40,511; q097/q098 accept
+either optional count when attributed and do not require a denominator. o001's
+response-versus-DFS correction no longer requires the separate count-conflict task
+tested by o002. The q098 cervical-only-versus-dual contrast includes both Hispanic
+women's higher odds and Black women's lower odds, each relative to White women.
 Cardiac events, myocarditis, troponin elevation, cause-specific death, pathological
 response and mature survival benefit remain distinct endpoints.
 
@@ -114,6 +128,10 @@ PY
 When using a worktree, invoke the existing repository virtual environment by its
 absolute path if `.venv` is absent. Readability alone does not certify byte identity;
 the separate verifier rejects changed PDFs, extraction, metadata and gold linkage.
+It also checks oracle counts/rates/labels and the production chunker fingerprint,
+recomputes both oracles, validates ledger hash/category history and migration links,
+and checks anchor fact bindings and positive false-premise correction evidence.
+Source/decoy roles remain question-specific, as required by STANDARDS.
 
 ## Remaining evaluation
 

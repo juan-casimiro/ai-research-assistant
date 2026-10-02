@@ -1,29 +1,30 @@
 {
   "kind": "offline_evidence_reachability_oracle",
   "retrieval_quality_measured": false,
-  "selection_sha256": "5c0116e9e191a729e9dddbf359114e0bf49bac23d1d13fe4a22edd5178053803",
-  "query_sha256": "d55dd965fb0c1a731fd9613e9bcf300545347099fe757dea8e74ecd624b53b3b",
-  "conditions_sha256": "32dc7c59f56bfd8cd7d8abb2baa8f9619366733586ee74d1971b48310137244d",
+  "selection_sha256": "fbd89e220a50c8fe0486c69166626ffeaf2706d4a3e3159004a3d468150cbfd7",
+  "query_sha256": "5cab6de39c5933421f7a096e1c79c650e698663a5b14db5021ed029313c42057",
+  "conditions_sha256": "b45a1d628336d24b1930c5dff043904866980b7d3cf8b0ee1f2237a97459ca73",
   "condition": "C2",
   "membership_sha256": "fc2ceb51196c8d082997fd540aa3aab3f4a65e6ea26f0960e72045aa516af12d",
   "scorer_version": "pinned-span-coverage-v3",
   "feasibility_version": "minimum-evidence-chunks-v3",
   "production_chunker_source_sha256": "2bce57440e693cdc844c8543c324d8f534128b735ced56c5105d2643f906a71b",
   "result": {
-    "available_anchors": 49,
-    "reachable_anchors": 49,
-    "anchors_requiring_adjacent_chunks": 23,
+    "available_anchors": 84,
+    "reachable_anchors": 84,
+    "anchors_requiring_adjacent_chunks": 37,
     "evidence_queries": 41,
     "unlimited_reachable_evidence_queries": 41,
     "by_depth": {
       "n3": {
-        "feasible_queries": 32,
+        "feasible_queries": 33,
         "total_queries": 41,
-        "ceiling_rate": 0.7804878048780488,
+        "ceiling_rate": 0.8048780487804879,
         "feasible_ids": [
           "o001",
           "o002",
           "o003",
+          "o004",
           "o005",
           "o006",
           "o007",
@@ -55,7 +56,6 @@
           "q108"
         ],
         "infeasible_ids": [
-          "o004",
           "o013",
           "o016",
           "o017",
@@ -167,7 +167,7 @@
         }
       },
       "o029": {
-        "minimum_chunks": 6,
+        "minimum_chunks": 5,
         "by_depth": {
           "n3": "infeasible",
           "n8": "feasible"
@@ -181,7 +181,7 @@
         }
       },
       "o001": {
-        "minimum_chunks": 3,
+        "minimum_chunks": 1,
         "by_depth": {
           "n3": "feasible",
           "n8": "feasible"
@@ -202,9 +202,9 @@
         }
       },
       "o004": {
-        "minimum_chunks": 4,
+        "minimum_chunks": 3,
         "by_depth": {
-          "n3": "infeasible",
+          "n3": "feasible",
           "n8": "feasible"
         }
       },
@@ -216,7 +216,7 @@
         }
       },
       "o027": {
-        "minimum_chunks": 3,
+        "minimum_chunks": 2,
         "by_depth": {
           "n3": "feasible",
           "n8": "feasible"
@@ -342,7 +342,7 @@
         }
       },
       "o018": {
-        "minimum_chunks": 6,
+        "minimum_chunks": 4,
         "by_depth": {
           "n3": "infeasible",
           "n8": "feasible"
@@ -412,7 +412,7 @@
         }
       },
       "q098": {
-        "minimum_chunks": 3,
+        "minimum_chunks": 2,
         "by_depth": {
           "n3": "feasible",
           "n8": "feasible"

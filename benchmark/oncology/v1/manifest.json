@@ -1460,7 +1460,7 @@
         "reviewed_at": "2026-10-02T13:21:44.117447+00:00"
       },
       "attribution_id": "PMC10840225",
-      "search_provenance_note": "Lookup with publication-specific values (\"Vietnam\", \"21.5\", \"37.9\"). The original topical discovery query was not preserved. Search strings are not eligibility evidence.",
+      "search_provenance_note": "Targeted lookup included 21.5 and 37.9 from legacy q113 reference gold. Neither value is in this Pham 2024 article (starting-dose mTTF 16.7/16.9 months); this is related replacement evidence, not the legacy analysis. Original discovery query was not preserved.",
       "search_query_type": "targeted_lookup"
     },
     {
@@ -1691,7 +1691,7 @@
         "reviewed_at": "2026-10-02T13:21:44.117447+00:00"
       },
       "attribution_id": "PMC11891047",
-      "search_provenance_note": "Lookup with a publication-specific value (\"4.602\") that also returned PMC11181582. The original topical discovery query was not preserved. Search strings are not eligibility evidence.",
+      "search_provenance_note": "Targeted lookup included 4.602 from legacy q112 reference gold; that value is not in this selected article. The lookup found related cardiovascular-event evidence, not the legacy estimate. Original discovery query was not preserved.",
       "search_query_type": "targeted_lookup"
     },
     {
@@ -1922,7 +1922,7 @@
         "reviewed_at": "2026-10-02T13:21:44.117447+00:00"
       },
       "attribution_id": "PMC11181582",
-      "search_provenance_note": "Recorded string is a lookup with a publication-specific value (\"4.602\") that also returned this article. The original topical discovery query was not preserved. Search strings are not eligibility evidence.",
+      "search_provenance_note": "Targeted lookup included 4.602 from legacy q112 reference gold; that value is not in this selected article. The lookup found related cardiovascular-event evidence, not the legacy estimate. Original discovery query was not preserved.",
       "search_query_type": "targeted_lookup"
     },
     {
@@ -2397,7 +2397,7 @@
         "reviewed_at": "2026-10-02T13:21:44.117447+00:00"
       },
       "attribution_id": "PMC11547071",
-      "search_provenance_note": "Lookup with an author name (\"Marjanski\"). The original topical discovery query was not preserved. Search strings are not eligibility evidence.",
+      "search_provenance_note": "Targeted lookup terms, including Marjanski, were copied from legacy q111 reference gold, not POL-MOL authorship. The selected Kowalski et al. article was found as related testing evidence; the original discovery query was not preserved.",
       "search_query_type": "targeted_lookup"
     },
     {
@@ -2765,7 +2765,7 @@
         "reviewed_at": "2026-10-02T13:21:44.117447+00:00"
       },
       "attribution_id": "PMC13190586",
-      "search_provenance_note": "Topical search string recorded during the JUA-112 audit; it contains no publication-specific values. The same string also returned PMC10073666. Search strings are not eligibility evidence.",
+      "search_provenance_note": "Topical search string recorded during the JUA-112 audit; it contains no publication-specific values. The same string also returned PMC10073666. Search strings are not eligibility evidence. The recorded lookup used a -BioRender exclusion filter; eligibility was verified from notices and credits, not inferred from that filter.",
       "search_query_type": "topical_search"
     },
     {
@@ -2965,7 +2965,7 @@
         "reviewed_at": "2026-10-02T13:21:44.117447+00:00"
       },
       "attribution_id": "PMC10073666",
-      "search_provenance_note": "Topical search string recorded during the JUA-112 audit; it contains no publication-specific values. The same string also returned PMC13190586. Search strings are not eligibility evidence.",
+      "search_provenance_note": "Topical search string recorded during the JUA-112 audit; it contains no publication-specific values. The same string also returned PMC13190586. Search strings are not eligibility evidence. The recorded lookup used a -BioRender exclusion filter; eligibility was verified from notices and credits, not inferred from that filter.",
       "search_query_type": "topical_search"
     },
     {
@@ -3486,5 +3486,5 @@
     }
   ],
   "canonicalization": "sort_keys=True, compact separators, ensure_ascii=False; own fingerprint excluded",
-  "fingerprint_sha256": "5c0116e9e191a729e9dddbf359114e0bf49bac23d1d13fe4a22edd5178053803"
+  "fingerprint_sha256": "fbd89e220a50c8fe0486c69166626ffeaf2706d4a3e3159004a3d468150cbfd7"
 }

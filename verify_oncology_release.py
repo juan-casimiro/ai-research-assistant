@@ -1,6 +1,7 @@
 """Verify the oncology release offline, without models, ingestion or API calls."""
 import argparse
 import hashlib
+import importlib.util
 import json
 import re
 import xml.etree.ElementTree as ET
@@ -11,6 +12,54 @@ from pypdf import PdfReader
 from benchmark_scoring import canonical_hash
 from eval_benchmark import read_release
 from fetch_article_metadata import element_text, parse_record
+
+ROOT = Path(__file__).resolve().parent
+
+
+def render_decision_record(release: Path, benchmark: dict, manifest: dict, conditions: dict,
+                           audit: dict, candidates: dict, ledger: dict) -> str:
+    spec = importlib.util.spec_from_file_location("oncology_decisions", release / "render_decisions.py")
+    renderer = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(renderer)
+    return renderer.render_decisions(manifest, benchmark, audit, candidates, ledger, conditions)
+
+
+def verify_production_oracle(benchmark: dict, source_text: dict, actual: dict) -> None:
+    from main import chunk_text
+    from verify_benchmark_reachability import verify_reachability
+    if actual != verify_reachability(benchmark, source_text, chunk_text):
+        raise ValueError("oracle differs from production-chunker recomputation")
+
+
+def verify_oracle(result: dict, query_ids: set, evidence_ids: set) -> None:
+    """Check all reported ceilings, including contradictory memberships and labels."""
+    oracle = result["result"]
+    feasibility = oracle["query_feasibility"]
+    if (set(feasibility) != query_ids or oracle["evidence_queries"] != len(evidence_ids) or
+            set(oracle["by_depth"]) != {"n3", "n8"} or
+            result.get("production_chunker_source_sha256") != digest((ROOT / "main.py").read_bytes())):
+        raise ValueError("oracle content or production chunker fingerprint differs")
+    for qid, case in feasibility.items():
+        minimum = case["minimum_chunks"]
+        if ((qid in evidence_ids and (type(minimum) is not int or minimum < 1)) or
+                (qid not in evidence_ids and minimum is not None)):
+            raise ValueError("oracle content has invalid minimum chunks")
+        if set(case["by_depth"]) != {"n3", "n8"}:
+            raise ValueError("oracle content has incomplete case depths")
+        for label, depth in [("n3", 3), ("n8", 8)]:
+            expected = "not_scored" if minimum is None else "feasible" if minimum <= depth else "infeasible"
+            if case["by_depth"][label] != expected:
+                raise ValueError("oracle content minimum chunks and feasibility disagree")
+    for label in ["n3", "n8"]:
+        depth = oracle["by_depth"][label]
+        feasible, infeasible = depth["feasible_ids"], depth["infeasible_ids"]
+        expected = {qid for qid in evidence_ids if feasibility[qid]["by_depth"][label] == "feasible"}
+        rate = len(expected) / len(evidence_ids) if evidence_ids else None
+        if (len(feasible) != len(set(feasible)) or len(infeasible) != len(set(infeasible)) or
+                set(feasible) != expected or set(infeasible) != evidence_ids - expected or
+                depth["feasible_queries"] != len(expected) or depth["total_queries"] != len(evidence_ids) or
+                depth["ceiling_rate"] != rate):
+            raise ValueError("oracle content has inconsistent depth membership/count/rate")
 
 
 def digest(data: bytes) -> str:
@@ -59,6 +108,7 @@ def verify_linkage(release: Path, benchmark: dict, manifest: dict, conditions: d
                 result["conditions_sha256"] != canonical_hash(conditions)):
             raise ValueError(f"offline-{condition}.json: stale oracle linkage")
         oracle = result["result"]
+        verify_oracle(result, query_ids, evidence_ids)
         if (result["condition"] != condition or
                 result["membership_sha256"] != conditions["conditions"][condition]["membership_sha256"] or
                 set(oracle["query_feasibility"]) != query_ids or oracle["evidence_queries"] != len(evidence_ids) or
@@ -84,6 +134,7 @@ def verify_attribution(articles: list[dict], attribution: str) -> None:
 def verify_query_roles(benchmark: dict) -> None:
     """Keep dependency, decoy and overlap records consistent with the gold evidence."""
     anchors = {a["id"]: a for a in benchmark["anchors"]}
+    expected_facts = {aid: set() for aid in anchors}
     for query in benchmark["queries"]:
         qid, dependencies = query["id"], query["dependencies"]
         primary = {anchors[aid]["article_id"] for aid in query["evidence_sets"][0]["anchors"]} if query["evidence_sets"] else set()
@@ -104,8 +155,19 @@ def verify_query_roles(benchmark: dict) -> None:
         if not involved <= set(dependencies["overlap_review"]):
             raise ValueError(f"{qid}: overlap review omits a source, decoy or overlap article")
         evidence = {aid for s in query["evidence_sets"] for aid in s["anchors"]}
+        for evidence_set in query["evidence_sets"]:
+            for fid, aids in evidence_set["fact_anchors"].items():
+                for aid in aids:
+                    expected_facts[aid].add(f"{qid}:{fid}")
+        if query["answerability"]["status"] == "false_premise" and not query["answerability"].get("correction_anchors"):
+            raise ValueError(f"{qid}: false premise needs positive correction anchors")
         if not set(query["answerability"].get("correction_anchors", [])) <= evidence:
             raise ValueError(f"{qid}: correction anchor is not gold evidence")
+    # Roles belong to each query. Registry spans are support-capable, including near-miss context.
+    for aid, anchor in anchors.items():
+        if (anchor.get("role") != "support" or len(anchor.get("fact_ids", [])) != len(expected_facts[aid]) or
+                set(anchor.get("fact_ids", [])) != expected_facts[aid]):
+            raise ValueError(f"{aid}: anchor role/fact_ids differ from fact bindings")
 
 
 def verify_migration(audit: dict, active: dict, legacy: dict) -> None:
@@ -114,11 +176,15 @@ def verify_migration(audit: dict, active: dict, legacy: dict) -> None:
     for case in audit["cases"]:
         if case["question"] != legacy[case["id"]]["question"]:
             raise ValueError(f"{case['id']}: migration does not preserve legacy question")
+        if case["legacy_category"] != legacy[case["id"]]["category"]:
+            raise ValueError(f"{case['id']}: migration legacy category differs")
         if not set(case["replacement_cases"]) <= active.keys():
             raise ValueError(f"{case['id']}: unknown replacement case")
         if case["action"] == "retire_legacy_case" and case["id"] in active:
             raise ValueError(f"{case['id']}: retired ID remains active")
         if case["action"] == "revise_in_v1":
+            if case["replacement_cases"] != [case["id"]]:
+                raise ValueError(f"{case['id']}: revised case must link to itself")
             revised = active.get(case["id"])
             if revised is None or revised["revision"] < 2:
                 raise ValueError(f"{case['id']}: missing revised case")
@@ -152,9 +218,35 @@ def verify_ledger(ledger: dict, active: dict, audit: dict) -> None:
     latest = ledger["revisions"][-1]
     if latest["query_sha256"] != ledger["query_sha256"] or not set(latest["changed_cases"]) <= active.keys():
         raise ValueError("revision_ledger.json: latest revision does not describe the active queries")
+    categories, restored, dropped = {}, set(), {}
+    previous = None
+    for revision in ledger["revisions"]:
+        if previous is not None and revision["previous_query_sha256"] != previous:
+            raise ValueError("revision_ledger.json: broken query revision chain")
+        previous = revision["query_sha256"]
+        for qid, transition in revision.get("recategorised_cases", {}).items():
+            before, after = transition.split(" -> ")
+            if qid in categories and categories[qid] != before:
+                raise ValueError("revision_ledger.json: broken category revision chain")
+            categories[qid] = after
+        restored.update(revision.get("restored_cases", []))
+        restored.difference_update(revision.get("withdrawn_cases", []))
+        for qid, links in revision.get("dropped_replacement_links", {}).items():
+            dropped.setdefault(qid, set()).update(links)
+        for qid, links in revision.get("added_replacement_links", {}).items():
+            dropped.setdefault(qid, set()).difference_update(links)
+            if not set(links) <= set(actions[qid]["replacement_cases"]):
+                raise ValueError("revision_ledger.json: added replacement links differ from audit")
+    if any(qid not in active or active[qid]["category"] != category for qid, category in categories.items()):
+        raise ValueError("revision_ledger.json: recategorised cases differ from active categories")
+    if any(qid not in active or actions.get(qid, {}).get("action") != "revise_in_v1" for qid in restored):
+        raise ValueError("revision_ledger.json: restored cases differ from migration")
+    if any(links & set(actions[qid]["replacement_cases"]) for qid, links in dropped.items()):
+        raise ValueError("revision_ledger.json: dropped replacement links remain in migration")
 
 
-def verify_decision_record(record: str, benchmark: dict, audit: dict, candidates: dict, ledger: dict) -> None:
+def verify_decision_record(record: str, benchmark: dict, audit: dict, candidates: dict, ledger: dict,
+                           expected_record: str | None = None) -> None:
     """Every article, candidate and case decision must be explained, not left as shared boilerplate."""
     rationales = [q["selection_rationale"] for q in benchmark["queries"]]
     if not all(r.strip() for r in rationales) or len(set(rationales)) != len(rationales):
@@ -173,6 +265,8 @@ def verify_decision_record(record: str, benchmark: dict, audit: dict, candidates
     missing = sorted(item for item in expected if item not in record)
     if missing:
         raise ValueError(f"DECISIONS.md does not record: {missing[:5]}")
+    if expected_record is not None and record != expected_record:
+        raise ValueError("DECISIONS.md differs from its generated decision record")
 
 
 def verify(release: Path, corpus: Path) -> dict:
@@ -246,12 +340,17 @@ def verify(release: Path, corpus: Path) -> dict:
     verify_migration(audit, active, legacy)
     ledger = json.loads((release / "revision_ledger.json").read_text())
     verify_ledger(ledger, active, audit)
-    verify_decision_record((release / "DECISIONS.md").read_text(), benchmark, audit,
-                           json.loads((release / "candidate_log.json").read_text()), ledger)
+    candidates = json.loads((release / "candidate_log.json").read_text())
+    expected_record = render_decision_record(release, benchmark, manifest, conditions, audit, candidates, ledger)
+    verify_decision_record((release / "DECISIONS.md").read_text(), benchmark, audit, candidates, ledger, expected_record)
     for name, expected in audit["baseline_hashes"].items():
         if digest((root / name).read_bytes()) != expected:
             raise ValueError(f"Preserved legacy baseline changed: {name}")
     verify_linkage(release, benchmark, manifest, conditions)
+    for name in ["C1", "C2"]:
+        _, _, _, _, _, source_text = read_release(release, corpus, name)
+        actual = json.loads((release / "results" / f"offline-{name}.json").read_text())["result"]
+        verify_production_oracle(benchmark, source_text, actual)
     return {"articles": len(articles), "queries": len(benchmark["queries"]),
             "anchors": len(benchmark["anchors"]), "selection_sha256": manifest["fingerprint_sha256"],
             "query_sha256": canonical_hash(benchmark), "retrieval_quality_measured": False}

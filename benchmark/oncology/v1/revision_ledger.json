@@ -1,11 +1,9 @@
 {
   "status": "pre-freeze corrections; no retrieval exposure",
-  "query_sha256": "d55dd965fb0c1a731fd9613e9bcf300545347099fe757dea8e74ecd624b53b3b",
+  "query_sha256": "5cab6de39c5933421f7a096e1c79c650e698663a5b14db5021ed029313c42057",
   "renamed_coverage_cases": {
     "q103": "o022",
     "q111": "o023",
-    "q118": "o024",
-    "q119": "o025",
     "q112": "o026",
     "q113": "o027",
     "q105": "o028",
@@ -26,7 +24,9 @@
     "q081": "Legacy multi-hop modality comparison is now a false-premise check that MCED shares LDCT's demonstrated mortality benefit.",
     "q095": "Legacy dual-screening percentage plus single-cancer comparison is now the four mutually exclusive screening categories.",
     "q108": "Legacy question on an ineligible NSCLC paper is now the ADAURA attribution check in the eligible nonmetastatic driver review.",
-    "q098": "Legacy Hispanic-versus-Black framing is now each group compared with White women, matching the paper's regression reference."
+    "q098": "Legacy Hispanic-versus-Black framing is now each group compared with White women, matching the paper's regression reference.",
+    "q078": "Retains cited fusion-yield comparison and now also requires the related NCCN RNA-testing recommendation.",
+    "q099": "Legacy multi_hop is now direct_lookup because one contiguous Discussion section contains all three proposed levels; faithful clinician/woman synonyms are accepted."
   },
   "revisions": [
     {
@@ -204,7 +204,138 @@
         "screen_levels",
         "screen_regression"
       ],
-      "reason": "Restored legacy q078, q097, q098 and q099 on retained sources: no retirement reason existed and their evidence is pinned."
+      "reason": "Restored legacy q078, q097, q098 and q099 on retained sources: no retirement reason existed and their evidence is pinned.",
+      "recategorised_cases": {
+        "q099": "multi_hop -> direct_lookup"
+      }
+    },
+    {
+      "previous_commit": "b626fbba7da959a8715a1da01e251a7d3cd21291",
+      "previous_query_sha256": "d55dd965fb0c1a731fd9613e9bcf300545347099fe757dea8e74ecd624b53b3b",
+      "query_sha256": "5cab6de39c5933421f7a096e1c79c650e698663a5b14db5021ed029313c42057",
+      "changed_cases": [
+        "o001",
+        "o002",
+        "o003",
+        "o004",
+        "o005",
+        "o006",
+        "o007",
+        "o008",
+        "o009",
+        "o010",
+        "o011",
+        "o012",
+        "o013",
+        "o014",
+        "o015",
+        "o016",
+        "o017",
+        "o018",
+        "o021",
+        "o022",
+        "o023",
+        "o024",
+        "o025",
+        "o026",
+        "o027",
+        "o028",
+        "o029",
+        "o030",
+        "q078",
+        "q079",
+        "q080",
+        "q081",
+        "q085",
+        "q095",
+        "q096",
+        "q097",
+        "q098",
+        "q099",
+        "q101",
+        "q102",
+        "q108"
+      ],
+      "recategorised_cases": {
+        "q098": "multi_hop -> direct_lookup",
+        "o027": "multi_hop -> direct_lookup"
+      },
+      "dropped_replacement_links": {
+        "q089": [
+          "q085",
+          "o015"
+        ],
+        "q093": [
+          "o025"
+        ],
+        "q094": [
+          "o025"
+        ],
+        "q106": [
+          "o001",
+          "o002"
+        ],
+        "q116": [
+          "o012"
+        ],
+        "q118": [
+          "o024"
+        ],
+        "q119": [
+          "o025"
+        ]
+      },
+      "added_replacement_links": {
+        "q086": [
+          "o007"
+        ],
+        "q087": [
+          "o007"
+        ]
+      },
+      "removed_renamed_coverage": {
+        "q118": "o024",
+        "q119": "o025"
+      },
+      "added_anchors": [
+        "afatinib_dose_results",
+        "afatinib_orr_table_header",
+        "afatinib_orr_table_row",
+        "afatinib_ttf_discussion",
+        "breast_cardio_table",
+        "breast_design",
+        "breast_pcr_results",
+        "breast_pcr_table",
+        "breast_stop_results",
+        "breast_troponin_table",
+        "exclusion_conclusion",
+        "exclusion_limits_discussion",
+        "hunan_mpr_discussion",
+        "hunan_mpr_results",
+        "hunan_mpr_table",
+        "hunan_mpr_table_header",
+        "mortality_chf_results",
+        "mortality_deaths_results",
+        "mortality_drug_results",
+        "mortality_medicaid_results",
+        "obs_hr_results",
+        "obs_population_results",
+        "obs_prevalence_results",
+        "rct_failure_results",
+        "rct_population_results",
+        "rct_primary_results",
+        "screen_results",
+        "screen_single_discussion",
+        "screen_single_healthsystem",
+        "screen_single_results",
+        "screen_table2",
+        "screen_table4_predictors",
+        "screen_table4_race",
+        "stage_dfs_discussion",
+        "stage_dfs_results"
+      ],
+      "reason": "Review correction: q098 race contrast, distinct o001/o002 gold, complete alternative-evidence sweep, honest search provenance and migration traceability; strengthened offline verifier. No retrieval exposure.",
+      "backfilled_metadata": "Recorded q099 category transition in its restoration revision; no historical query hash was changed."
     }
   ]
 }

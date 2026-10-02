@@ -280,9 +280,11 @@
       "action": "retire_legacy_case",
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "not_applicable",
-      "replacement_cases": [],
-      "reason": "Retired: RELATIVITY-047 melanoma PFS appears only in the deferred source. Legacy source onco-tumor-microenvironment.pdf (PMC13430506) is deferred: its acknowledgements credit BioRender, so complete-PDF reuse rights are unresolved. No selected case tests the same evidence type, so no replacement is linked.",
-      "replacement_basis": null,
+      "replacement_cases": [
+        "o007"
+      ],
+      "reason": "Legacy trial-specific claim is retired with its source; review-attributed trial-result reasoning is retained by o007, using ADAURA rather than the original trial.",
+      "replacement_basis": "Same reasoning task: bind a cited trial result to its population/endpoint and attribute it to a review. Different trial, treatment and numbers; not equivalent clinical coverage.",
       "open_decision": false
     },
     {
@@ -295,9 +297,11 @@
       "action": "retire_legacy_case",
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "not_applicable",
-      "replacement_cases": [],
-      "reason": "Retired: KEYNOTE-942 melanoma RFS appears only in the deferred source. Legacy source onco-tumor-microenvironment.pdf (PMC13430506) is deferred: its acknowledgements credit BioRender, so complete-PDF reuse rights are unresolved. No selected case tests the same evidence type, so no replacement is linked.",
-      "replacement_basis": null,
+      "replacement_cases": [
+        "o007"
+      ],
+      "reason": "Legacy trial-specific claim is retired with its source; review-attributed trial-result reasoning is retained by o007, using ADAURA rather than the original trial.",
+      "replacement_basis": "Same reasoning task: bind a cited trial result to its population/endpoint and attribute it to a review. Different trial, treatment and numbers; not equivalent clinical coverage.",
       "open_decision": false
     },
     {
@@ -327,12 +331,9 @@
       "action": "retire_legacy_case",
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "not_applicable",
-      "replacement_cases": [
-        "q085",
-        "o015"
-      ],
-      "reason": "Retired: the static-versus-dynamic biomarker framework appears only in the deferred source. Legacy source onco-tumor-microenvironment.pdf (PMC13430506) is deferred: its acknowledgements credit BioRender, so complete-PDF reuse rights are unresolved.",
-      "replacement_basis": "q085 and o015 cover cold/hot tumour phenotype definitions in eligible reviews.",
+      "replacement_cases": [],
+      "reason": "Retired: the static-versus-dynamic biomarker framework appears only in the deferred source. Legacy source onco-tumor-microenvironment.pdf (PMC13430506) is deferred: its acknowledgements credit BioRender, so complete-PDF reuse rights are unresolved. No reasoning-task replacement link is retained: the previous link was topical only.",
+      "replacement_basis": null,
       "open_decision": false
     },
     {
@@ -396,11 +397,9 @@
       "action": "retire_legacy_case",
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "not_applicable",
-      "replacement_cases": [
-        "o025"
-      ],
-      "reason": "Retired: one of its two documents is the deferred source. Legacy source onco-tumor-microenvironment.pdf (PMC13430506) is deferred: its acknowledgements credit BioRender, so complete-PDF reuse rights are unresolved.",
-      "replacement_basis": "o025 keeps ctDNA in the liquid-biopsy review as a named-distractor task.",
+      "replacement_cases": [],
+      "reason": "Retired: one of its two documents is the deferred source. Legacy source onco-tumor-microenvironment.pdf (PMC13430506) is deferred: its acknowledgements credit BioRender, so complete-PDF reuse rights are unresolved. No reasoning-task replacement link is retained: the previous link was topical only.",
+      "replacement_basis": null,
       "open_decision": false
     },
     {
@@ -414,11 +413,9 @@
       "action": "retire_legacy_case",
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "not_applicable",
-      "replacement_cases": [
-        "o025"
-      ],
-      "reason": "Retired: one of its two documents is the deferred source. Legacy source onco-tumor-microenvironment.pdf (PMC13430506) is deferred: its acknowledgements credit BioRender, so complete-PDF reuse rights are unresolved.",
-      "replacement_basis": "o025 keeps ctDNA monitoring performance from the liquid-biopsy review.",
+      "replacement_cases": [],
+      "reason": "Retired: one of its two documents is the deferred source. Legacy source onco-tumor-microenvironment.pdf (PMC13430506) is deferred: its acknowledgements credit BioRender, so complete-PDF reuse rights are unresolved. No reasoning-task replacement link is retained: the previous link was topical only.",
+      "replacement_basis": null,
       "open_decision": false
     },
     {
@@ -621,12 +618,9 @@
       "action": "retire_legacy_case",
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "not_applicable",
-      "replacement_cases": [
-        "o001",
-        "o002"
-      ],
-      "reason": "Retired: the EGFR-mutant neoadjuvant-targeted subgroup appears only in the restricted source. Legacy source onco-breast-immunotherapy.pdf (PMC13438349) is a driver-positive NSCLC perioperative study under CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy.",
-      "replacement_basis": "o001 and o002 test pathological response versus DFS in another perioperative cohort.",
+      "replacement_cases": [],
+      "reason": "Retired: the EGFR-mutant neoadjuvant-targeted subgroup appears only in the restricted source. Legacy source onco-breast-immunotherapy.pdf (PMC13438349) is a driver-positive NSCLC perioperative study under CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy. No reasoning-task replacement link is retained: the previous link was topical only.",
+      "replacement_basis": null,
       "open_decision": false
     },
     {
@@ -795,11 +789,10 @@
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "not_applicable",
       "replacement_cases": [
-        "o011",
-        "o012"
+        "o011"
       ],
       "reason": "Retired: the radon causation question appears only in the restricted source. Legacy source onco-genomics-precision-medicine.pdf (PMC13434091) is CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy.",
-      "replacement_basis": "o011 and o012 test the same reasoning task: association or a null estimate does not prove causation or absence of risk.",
+      "replacement_basis": "o011 retains the reasoning task that a null/imprecise estimate does not prove absence of risk; o012 is a between-drug comparison and is not a causation-task replacement.",
       "open_decision": false
     },
     {
@@ -831,11 +824,9 @@
       "action": "retire_legacy_case",
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "not_applicable",
-      "replacement_cases": [
-        "o024"
-      ],
-      "reason": "Retired; study-specific task moved to a new ID. Legacy source onco-breast-immunotherapy.pdf (PMC13438349) is a driver-positive NSCLC perioperative study under CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy. Legacy source onco-genomics-precision-medicine.pdf (PMC13434091) is CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy.",
-      "replacement_basis": "o024 tests EGFR-directed treatment outcomes against a dosing-study distractor.",
+      "replacement_cases": [],
+      "reason": "Retired; no same-task replacement is linked. Legacy source onco-breast-immunotherapy.pdf (PMC13438349) is a driver-positive NSCLC perioperative study under CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy. Legacy source onco-genomics-precision-medicine.pdf (PMC13434091) is CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy. No reasoning-task replacement link is retained: the previous link was topical only.",
+      "replacement_basis": null,
       "open_decision": false
     },
     {
@@ -849,11 +840,9 @@
       "action": "retire_legacy_case",
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "not_applicable",
-      "replacement_cases": [
-        "o025"
-      ],
-      "reason": "Retired; study-specific task moved to a new ID. Legacy source onco-breast-immunotherapy.pdf (PMC13438349) is a driver-positive NSCLC perioperative study under CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy.",
-      "replacement_basis": "o025 tests longitudinal ctDNA monitoring performance against a distractor.",
+      "replacement_cases": [],
+      "reason": "Retired; no same-task replacement is linked. Legacy source onco-breast-immunotherapy.pdf (PMC13438349) is a driver-positive NSCLC perioperative study under CC BY-NC 4.0, which fails the CC BY 4.0/CC0 policy. No reasoning-task replacement link is retained: the previous link was topical only.",
+      "replacement_basis": null,
       "open_decision": false
     }
   ],
