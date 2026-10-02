@@ -36,7 +36,8 @@ local corpus are preserved. No server, collection, ingestion or golden run was
 started. Historical retrieval percentages describe the original benchmark only.
 The [45-case query release and scorer](BENCHMARK.md) are authored under the
 [shared standards](../../STANDARDS.md), pending independent PR review/freeze.
-Actual C1/C2/C3 retrieval experiments remain JUA-110 work. Most selected papers are sources;
+The [first C1/C2 retrieval baseline](REPORT.md) records JUA-110 results and
+manual evidence review; C3 adds no articles yet. Most selected papers are sources;
 roles remain query specific and the two competitors are not topic outliers.
 
 The query files are `queries.json`, `case_dependencies.json` and `case_review.json`.
