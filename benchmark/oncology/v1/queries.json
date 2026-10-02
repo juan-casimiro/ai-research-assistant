@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "query_version": "oncology-queries-v1",
   "status": "review_ready; freeze on approved PR before retrieval comparisons",
-  "selection_sha256": "7e48ab1c265b63ce90d21b85429f4c1c25cea85dd68618cb553518a1078f7ef7",
+  "selection_sha256": "cf106c82aa57aa197c1b60291bc6979b07b309257e7e18f0b2a98d4355042c1d",
   "authored_for": "JUA-112",
   "anchors": [
     {
@@ -66,7 +66,7 @@
       "excerpt_sha256": "d334fe2b2cd24dad5a9987c9adcd7cbd77b552c8085bdc6bac29063a94c9df8c",
       "fact_ids": [
         "q082:f1",
-        "q119:f1"
+        "o025:f1"
       ],
       "role": "support"
     },
@@ -172,7 +172,7 @@
       "excerpt": "h clinical stage IB–  \nIIIB (T3- 4N2) (American Joint Committee on Cancer, \n8th edition) NSCLC and received neoadjuvant chemo-\ntherapy (±PD- 1 inhibitors) (one cycle at least) followed \nby surgery between December 2018 and December 2020 \nat Hunan Cancer hospital. All patients had an Eastern \nCooperative Oncology Group (ECOG) performance sta-\ntus (PS) score of 0 or 1. Patients were excluded based \non the following criteria: (1) pathological non- NSCLC \ncomponents included; (2) patients with distant metas-\ntasis before neoadjuvant treatment; (3) patients who \nreceived other therapies prior to surgery except neoad-\njuvant chemotherapy (±PD- 1 inhibitors); (4) patients \nwith a history of previous cancers or other concurrent \nmalignant diseases; (5) patients who failed to undergo \nsurgery for any reason. In total, there were 190 patients \nincluded in this study, including 69 patients who re-\nceived neoadjuvant PD- 1 inhibitors plus chemotherapy, \nand 121 patients who received neoadjuvant chemother-\napy alone. Detailed demographic and clinicopathologi-\ncal characteristics were retrospectively retrieved from \nmedical records and analyzed.\nThe study was conduc",
       "excerpt_sha256": "3725bea9e2315f441677814680d39b8b3af2a4959417c3a70302d1e47f4e1e9b",
       "fact_ids": [
-        "q103:f1"
+        "o022:f1"
       ],
       "role": "support"
     },
@@ -193,9 +193,9 @@
       "excerpt": "\n121 in the Chemo group. The major pathological response (MPR) rate in the \nPD- 1 + Chemo group was 49.3%, higher than that of 19.0% in the Chemo group \n(p < 0.001). The 2- year disease- free survival (DFS) rate was 79.3% and 60.2%, re-\nspectively, in the two groups (p = 0.048). Multivariate analysis identified surgical \nradicality (hazard ratio (HR), 2.954, 95% confidence interval (CI),",
       "excerpt_sha256": "7e9be93589ff9c433ed536aa2882851a5da6269d99f74b62c9f1df4ceb4a632c",
       "fact_ids": [
-        "q104:f1",
-        "q105:f1",
-        "q117:f1"
+        "o029:f1",
+        "o028:f1",
+        "o030:f1"
       ],
       "role": "support"
     },
@@ -216,8 +216,8 @@
       "excerpt": " the 2-  year DFS rate was 79.3% in the \nPD- 1 + Chemo group, which was higher than that of \nChemo group (60.2%; p = 0.048; Figure 1A). After PSM, the \nstatistical significance disappeared (Figure 1B, p = 0.096); \nhowever, the survival curves were separate, indicating that \nneoadjuvant PD- 1 + chemotherapy might achieve longer \ntumor control. Other factors including histology, radical \nsurgery, radiographic tumor response, pat",
       "excerpt_sha256": "d1137e7ed42cf57d10bac6a9ee220314f93baab1eafae3b78525e9a534e9b3de",
       "fact_ids": [
-        "q104:f1",
-        "q117:f1"
+        "o029:f1",
+        "o030:f1"
       ],
       "role": "support"
     },
@@ -238,8 +238,8 @@
       "excerpt": "ear OS, patients who received \nPD- 1 + Chemo and achieved MPR(CR) also achieved bet -\nter results. However, because the follow- up time was too \nlimited and the OS data were immature, further analysis \nof prognostic factors was not conducted in this study.\nPerioperative morbidity is one of the principal con-\ncerns in surgical treatment following neoadju",
       "excerpt_sha256": "4c7c8f1dc16b95445b7513d3cc821b62a9b6de05959a0900abd0507bc63a37b2",
       "fact_ids": [
-        "q104:f2",
-        "q117:f1"
+        "o029:f2",
+        "o030:f1"
       ],
       "role": "support"
     },
@@ -281,6 +281,7 @@
       "excerpt": "are presented\nin Table 2. A major pathological response occurred in 19 of the 26\npatients in the neoadjuvant chemoimmunotherapy group and in 5 of\nthe 33 patients in the neoadjuvant chemotherapy group (relative risk\n[RR]: 4.315; 95% con ﬁdence interval [CI]: 1.836 to 10.142)\n(Figure 2A). A pCR occurred in 9 of 26 patients in the neoadjuvant\nchemoimmunotherapy group and in 1 of 33 patients in the\nneoadjuvant chemotherapy group (RR: 11.423; 95% CI: 1.544 to\n8",
       "excerpt_sha256": "07e8afd618e607ae16c83418f0f88e713b90700d82e33c76eea41557e2311d3a",
       "fact_ids": [
+        "o001:f1",
         "o002:f1"
       ],
       "role": "support"
@@ -302,6 +303,7 @@
       "excerpt": "ntinuously increased with thenumber of treatment courses.\nTABLE 2 Comparison of the ef ﬁcacy after neoadjuvant therapy in 59 patients with non-small-cell lung cancer.\nEfﬁcacy evaluation Neoadjuvant\nchemoimmun-\notherapy group\n(n = 26)\nNeoadjuvant\nchemotherapy\ngroup (n = 33)\nc\n2\nvalue\nP-value\nCR 1 (3.8%) 0 0.015 0.904\nPR 18 (69.3%) 15 (45.5%) 3.335 0.068\nSD 6 (23.1%) 18 (54.5) 5.968 0.015\nPD 1 (3.8%) 0 0.015 0.904\nORR 19 (73.1%) 15 (45.5%) 4.544 0.033\nDCR 25 (96.2%) 33 (100%) 0.015 0.904\npCR 9 (34.6%) 1 (3.0%) 8.185 0.004\nMPR 17 (65.3%) 5 (15.1%) 15.693 0.000\nypN 0.135 0",
       "excerpt_sha256": "7957381b9a78151f26c8bf86f2c327d43b43fbeb42dab55f723975dc530abe77",
       "fact_ids": [
+        "o001:f1",
         "o002:f1"
       ],
       "role": "support"
@@ -323,7 +325,8 @@
       "excerpt": "hologic complete \nresponse (pCR) in the pembrolizumab cohort.\nPatient/material and methods: The data of 75 consecutive TNBC patients treated with neoadjuvant che-\nmotherapy and pembrolizumab at the Helsinki University Hospital Comprehensive Cancer Center were \nretrospectively collected. Treatment outcome and predictive factors for pCR were analyzed. Additionally, \nthe outcome of nonmatched 102 consecutive TNBC patients treated without pembrolizumab during the \npreceding years is reported.\nResults: Forty-two patients (56.0%) achieved pCR to pembrolizumab-based NAT, while 47 patients (46.1%) \nwithout pembrolizumab had pCR. Lymph node metastasis (p = 0.011) and mul",
       "excerpt_sha256": "0f9e8d23b78ebbccd8677e6d21fdb2ce567ed467b7e889b758989becf88bac58",
       "fact_ids": [
-        "o003:f1"
+        "o003:f1",
+        "o021:f1"
       ],
       "role": "support"
     },
@@ -433,7 +436,7 @@
       "excerpt": "ubgroup, and 75.0% in the \nuncommon mutation subgroup (p > 0.05). The univariate and multivariate analyses indicate that the ORR increased \nwhen the starting dose was 40 mg compared to starting doses below 40 mg (83.9% vs. 74.3%, p = 0.034). The median \nTTF (mTTF) was 16.7 months (CI 95%: 14.8–18.5) in all patients, with a median follow-up time of 26.2 month",
       "excerpt_sha256": "d68ed0b2d9238f76404708892fff7071da99afccbc0d41391cabaa433ba23460",
       "fact_ids": [
-        "q113:f1"
+        "o027:f1"
       ],
       "role": "support"
     },
@@ -454,7 +457,7 @@
       "excerpt": "tor found to \nhave an influence on ORR was the starting dose, and it \nremained a prognostic factor in the multivariate analysis. \nHowever, there was no significant difference in mTTF \nbetween the two initial doses (16.7 months vs. 16.9 \nmonths, p = 0.755) (Fig. 2a).\nTable 2 Afatinib dosage and treatment features\nCharacteristics N = 343 (%)\nStarting dose\n • 20 mg 5 (1.5)\n • 30 mg 201 (58.6)\n • 40 mg 137 (39.9)\nDose adjustment after 1 month\n • Dose increase 25 (7.3)\n • Dose reduction 37 (10.8)\n • Dose maintain 281 (81.9)\nDose reductions during treatment\n • Yes 81 (23.6)\n • No",
       "excerpt_sha256": "24f4e5a5c5e5d50bf3bebbc1030d50f45682caea9114cdc465fdeb1edcb73142",
       "fact_ids": [
-        "q113:f2",
+        "o027:f2",
         "o006:f1"
       ],
       "role": "support"
@@ -497,7 +500,8 @@
       "excerpt": "arcinoma histology and had\nundergone a lobectomy, and 60% had received adjuvant platinum-based chemotherapy.\nEGFR exon 19 deletions were predominant (55%) compared to exon 21 L858R (45%) [44].\nThe primary endpoint was met as the trial demonstrated a statistically signiﬁcant and\nclinically meaningful improvement in DFS among patients with stage II–IIIA compared to\nthe placebo with an 83% reduction in the risk of recurrence or death (HR 0.17; 99.06% CI,\n0.11 to 0.26; p < 0.001), leading to the FDA approval of adjuvant osimertinib in 2020 [44].\nThe beneﬁt was also observed in the overall stage IB–IIIA population, with an 80% reduc-\ntion in the risk of recurrence or death (HR 0.20; 99.12% CI, 0.14 to 0.30; p < 0.001). The\nfavorable beneﬁt of osimertinib was observed in all the pre-speciﬁed subgroups, in",
       "excerpt_sha256": "96d88fb42ba6287143e413f38ef090e970531d0ef3bf031a66e7e7fd99f5ba0d",
       "fact_ids": [
-        "q108:f1"
+        "q108:f1",
+        "o024:f1"
       ],
       "role": "support"
     },
@@ -519,7 +523,7 @@
       "excerpt_sha256": "ccf79bd6835c0b0073d4c9fc8040c0c22d4ceb066c9ca168298c706a99418a4e",
       "fact_ids": [
         "o007:f1",
-        "q118:f1"
+        "o024:f1"
       ],
       "role": "support"
     },
@@ -540,8 +544,8 @@
       "excerpt": "Reﬂex testing is an approach to testing in which the\npathologist handling the case is responsible for initiating\nand controlling testing for a set of prespeci ﬁed biomarkers,\nagreed upon within the context of the multidisciplinary\nteam (MDT), but without the need for a formal request\nfrom an oncologist.\n11 This approach was recommended in\nthe earliest days of genomic pro ﬁling ",
       "excerpt_sha256": "d9c2e97da78dadfb6af6c833bf4998e05f32708b9b2ec31c74d685d08f728fa4",
       "fact_ids": [
-        "q111:f1",
-        "q117:f2",
+        "o023:f1",
+        "o030:f2",
         "o019:f1"
       ],
       "role": "support"
@@ -564,8 +568,8 @@
       "excerpt": "1587 1\ncomplex and often lengthy testing procedures and, there-\nfore, delays the availability of the information necessary to\ninform therapy.5,6 Because there is a risk of clinical deteri-\noration while waiting for the results of biomarker tests,\ndelays in test reporting can lead to the initiation of sub-\noptimal therapy before determining complete biomarker\nstatus.\n7 Long test turnaround times may also deter clinicians\nfrom ordering biomarker te",
       "excerpt_sha256": "61f602e28abc7af679e344f0583e5fdc25db1beeff07454ff085a77b4e33d2b0",
       "fact_ids": [
-        "q111:f1",
-        "q117:f2"
+        "o023:f1",
+        "o030:f2"
       ],
       "role": "support"
     },
@@ -587,7 +591,7 @@
       "excerpt_sha256": "44188bde98d3cfaf110da2b2478cf0f613f268fabf9fffbc4904b92722191588",
       "fact_ids": [
         "o008:f1",
-        "q117:f2"
+        "o030:f2"
       ],
       "role": "support"
     },
@@ -653,7 +657,7 @@
       "excerpt": " analyses.\nResults: Among 5076 patients, 68.36% received nivolumab and 31.64% received pembrolizumab. Of 3746 deaths, most were\nfrom NSCLC (85.34%), while 2.80% were from CVD. No signiﬁcant difference in CVD mortality risk was observed between the\ntwo PD-1i (sub-distribution HR [sHR] = 1.08; 95% CI: 0.63-1.84), but NSCLC mortality was associated with a lower risk in the\npembrolizumab group (sHR = 0.67; 95% CI: 0.60-0.74) compared to the nivolumab group. A history of CHF (sHR = 2.10; 95%\nCI: 1.37-3.21) and Medicaid dual eligibility (sHR = 2.70 vs private insurance; 95% CI: 1.28-5.56) were associated with increased\nCVD mortality. NSCLC mortality was higher in Stage IV/dista",
       "excerpt_sha256": "33b5f120058cd102480318150b58cec95215682c093d57e74822d466d91eff5d",
       "fact_ids": [
-        "q112:f1",
+        "o026:f1",
         "o012:f1",
         "o017:f2"
       ],
@@ -788,23 +792,127 @@
       "role": "support"
     },
     {
-      "id": "polmol",
+      "id": "hunan_os_results",
+      "article_id": "PMC9844597",
+      "filename": "onco-nsclc-neoadjuvant-hunan.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "3b7648ae2dad0474f9713ef4fd45321baa410102e45edb9859430a69817f6017",
+      "text_sha256": "28c1a5108837001e0a4e43860ee16bb52bcbce6d4f6796e0052c889a4480bfb3",
+      "page": 7,
+      "pages": [
+        7
+      ],
+      "section": "Results; unweighted and weighted two-year OS, Figure 1C/D",
+      "text_start": 26396,
+      "text_end": 26774,
+      "excerpt": "Furthermore, in the unweighted population, the 2- year \nOS rate in the PD- 1 + Chemo group was 94.1%, which was \nsignificantly longer than that of the Chemo group (85.7%; \np  =  0.012; Figure 1C). The weighted population yielded \n93.8% versus 87.1%, respectively (Figure  1D, p  =  0.038). \nThe 2-  year OS in patients who achieved MPR(CR) was \n98.2%, which was significantly hi",
+      "excerpt_sha256": "2b7422ee094e59f2ac71c9af546b1ec7095ee8d9c08fa133f75248427429c816",
+      "fact_ids": [
+        "o029:f2",
+        "o030:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "obs_hr_scope",
+      "article_id": "PMC11891047",
+      "filename": "onco-ici-cv-observational.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "c5b888eeddb09eb5f0eb9a87a0f80865f1b3c23b5c593d84f0e9b1e959a45052",
+      "text_sha256": "951e0f660ba1d43156b2b831ad9da1002294f302c31568684239f9a0336ea883",
+      "page": 14,
+      "pages": [
+        14
+      ],
+      "section": "Discussion; limitations: four studies contribute to HR",
+      "text_start": 37585,
+      "text_end": 37953,
+      "excerpt": "dverse cardiovascular events ( 45).\nOur study had the following limitations: (a) only observational\nstudies were included; (b) moderate heterogeneity was observed in\nHR while high heterogeneity was seen in prevalence analysis; (c) only\n4 studies were used in analyzing HR. Nonetheless, these studies were\npivotal in performing our analysis and conducting this research",
+      "excerpt_sha256": "2553427cffd335764529de53929828f275221eec58bfa2d79cfdb9c99b73a517",
+      "fact_ids": [
+        "o009:f1",
+        "o017:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "polmol_reflex",
       "article_id": "PMC11547071",
       "filename": "onco-polmol-testing.pdf",
       "pmc_version": 1,
       "pdf_sha256": "773f4d6d7babdfef218232a0cc2e4c825790f3420eeb1313954b481a14c49701",
       "text_sha256": "aecc3690ab9e2438bd9469beae209f850307e53aab032e4ede390b6b2593ab21",
-      "page": 1,
+      "page": 14,
       "pages": [
-        1
+        14,
+        15
       ],
-      "section": "Abstract; Polish systemic-treatment testing cohort",
-      "text_start": 2580,
-      "text_end": 3500,
-      "excerpt": "m of the POL-MOL study was to\ninvestigate the frequency of using molecular testing in Polish patients with NSCLC. The invited\nPolish oncologists completed two questionnaires, and data for 1001 patients undergoing systemic\ntreatment for NSCLC were collected. The use of molecular tests for the following genetic mutations\nwas recorded: EGFR (del19, sub21), EGFR (other than del19/sub21), EGFR T790M, ALK (expression\nand rearrangement), RET, NTRK, ROS1, BRAF, HER2, and MET, as well as for immunochemical\nassessment of programmed cell death ligand 1 (PD-L1). Thanks to the weighting procedure, the\nresults are representative of the population of Polish patients treated for NSCLC. Molecular tests\nwere applied in 78% of patients with NSCL, 70% of patients with NSCLC not otherwise specified, and\nin 12% of patients with squamous cell carcinoma of the lung. The frequency of application increased\nwith disease stage in all ",
-      "excerpt_sha256": "15d300bf29e213f784335a4767f7cfaf435bf1a8912dd683f33e4d61dc1524fc",
+      "section": "Discussion; reflex ordering definition and implementation benefits",
+      "text_start": 48414,
+      "text_end": 49350,
+      "excerpt": "Limited reimbursement favors on-demand testing, in which molecular testing is\nordered by the treating physician, over reflex testing, in which testing for specific, agreed-\nupon biomarkers is automatically ordered by the pathologist as soon as the NSCLC diag-\nnosis is made [30,39,48]. Reflex testing can facilitate optimal use of tissue, increase testing\nrates, reduce the time to optimal treatment initiation due to early availability of results,\nand improve the quality of biomarker testing [11,20,30,39,48]. With reflex testing, higher\nmutation detection rates were observed, which is explained by the lack of preselection of\npatients based on clinical characteristics and the more comprehensive panel screened [39].\nOther advantages include the ability to select patients for prospective clinical trials and\nretrospective patient outcome studies regarding both the prognostic value of different\nInt. J. Mol. Sci. 2024, 25, 11354 15",
+      "excerpt_sha256": "195841860a42815058725fcc90a562a2b819cdc3288cedb6a368c950677e904a",
       "fact_ids": [],
-      "role": "decoy"
+      "role": "support"
+    },
+    {
+      "id": "screen_goals",
+      "article_id": "PMC9239676",
+      "filename": "onco-colorectal-screening.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "5c288149e5302d2a0df3b1f5b5eac2aa66fdbf814e2f6b4a1e3edd221e91b9e9",
+      "text_sha256": "7810d2970ea970c2d6f1a545e2d837e6307483394f4b3bfbd00e4d88f2ffa282",
+      "page": 11,
+      "pages": [
+        11
+      ],
+      "section": "Discussion; cited HP2030 individual-screening goals versus observed dual screening",
+      "text_start": 33380,
+      "text_end": 33930,
+      "excerpt": "ew perspective that the rate of women \nwho screened for both cervix cancer and CRC (58.2%) is far below the recommended rates for each \ncancer individually (HP2030 goals cervix: 84.3% and CRC: 74.4%) (US Department of Health & \nHuman Services, 2013), HP2030- C07 (Harper et al., 2021a). Another new finding is that women \n50–64 years old screen for cervical cancer alone five times more often than CRC alone. We show that \nthe 50- to 64- year age range is dynamic with changing cancer screening behaviors from predomi-\nnantly cervical screening at 50",
+      "excerpt_sha256": "88ed03857cceeeba33027ba6dfb50fec972951647e2add41c861216b01ddce71",
+      "fact_ids": [
+        "q101:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "earlycdt",
+      "article_id": "PMC13429855",
+      "filename": "onco-lung-liquidbiopsy.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "7c9c6384315c78c2d87b85a626a77df3f062cb844d938d63555a43cbc485f5fe",
+      "text_sha256": "58575a81d8a421f828c2df5ee858c9cc6042affcd304fa806ba272ecc77fbdd5",
+      "page": 4,
+      "pages": [
+        4
+      ],
+      "section": "Table 1; autoantibody panel, cited trials and investigational status",
+      "text_start": 17020,
+      "text_end": 17767,
+      "excerpt": "ctDNA levels at \nearly stage; clonal \nhematopoiesis \ninterference; \nhistology-dependent \nshedding\nInvestigational\nTumor-Aab panel \n( Sullivan et al., \n2021 ; González \net al., 2021 )\nDetection of host \nimmune response to \ntumor antigens\nECLS trial \n(EarlyCDT-Lung), \nLUSI trial evaluation \n( Sullivan et al., 2021 ; \nGonzález et al., \n2021 )\n~13–41% (variable \nby setting)\n~88–91% Detects immune \nresponse that may \nprecede \nradiographic \nappearance; \ninexpensive; non- \ninvasive\nModest sensitivity, \nespecially for small \nLDCT-detectable \ntumors; panel- \ndependent; limited \nstage-shift data\nInvestigational \nCommercially \navailable in limited \nsettings\nAbbreviations: AAb, autoantibodies; ctDNA, circulating tumor DNA; LDCT, low-dose computed to",
+      "excerpt_sha256": "a7083647b84bd3acc73af423309f25cd2fb71dfc8680cfb6c542ba62445d8635",
+      "fact_ids": [],
+      "role": "support"
+    },
+    {
+      "id": "hunan_absence",
+      "article_id": "PMC9844597",
+      "filename": "onco-nsclc-neoadjuvant-hunan.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "3b7648ae2dad0474f9713ef4fd45321baa410102e45edb9859430a69817f6017",
+      "text_sha256": "28c1a5108837001e0a4e43860ee16bb52bcbce6d4f6796e0052c889a4480bfb3",
+      "page": 9,
+      "pages": [
+        9
+      ],
+      "section": "Discussion; absent data for patients who failed surgery",
+      "text_start": 34230,
+      "text_end": 34620,
+      "excerpt": "% of patients underwent \nsuccessful R0 resection after neoadjuvant chemoimmuno-\ntherapy in previous reports.16– 18,20 Unfortunately, the data \non patients who failed to receive surgery were absent be -\ncause this study only included patients who received sur -\ngery after neoadjuvant therapy.\nConsidering the possibility of fibrosis and adhesion \nafter neoadjuvant therapy, it is still deba",
+      "excerpt_sha256": "d2f41cd626c2a360d5516905b6a23f1b03565c364b1a3d65d7c48be94b5cda2e",
+      "fact_ids": [],
+      "role": "support"
     }
   ],
   "queries": [
@@ -823,10 +931,10 @@
           "units": "Percent",
           "population": "Cited CNS/NSCLC pooled evidence",
           "endpoint": "Detection, sensitivity and specificity",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2026-07-20; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to Detection, sensitivity and specificity in Cited CNS/NSCLC pooled evidence, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
@@ -850,7 +958,7 @@
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for Cited CNS/NSCLC pooled evidence: Detection, sensitivity and specificity."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
@@ -864,27 +972,14 @@
         "alternatives": [],
         "decoys": [],
         "overlap_review": [
-          "PMC10073666",
-          "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
-          "PMC9844597"
+          "PMC13429855"
         ],
         "negative_evidence": []
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -905,10 +1000,10 @@
           "units": "Days",
           "population": "282 untreated metastatic NSCLC patients",
           "endpoint": "Genotyping yield and turnaround",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2026-07-20; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to Genotyping yield and turnaround in 282 untreated metastatic NSCLC patients, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
@@ -932,7 +1027,7 @@
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for 282 untreated metastatic NSCLC patients: Genotyping yield and turnaround."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
@@ -946,27 +1041,14 @@
         "alternatives": [],
         "decoys": [],
         "overlap_review": [
-          "PMC10073666",
-          "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
-          "PMC9844597"
+          "PMC13429855"
         ],
         "negative_evidence": []
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -987,10 +1069,10 @@
           "units": "Relative percent",
           "population": "Cited screening trials",
           "endpoint": "Lung-cancer mortality",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2026-07-20; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to Lung-cancer mortality in Cited screening trials, reversed group order, or omitted explicit source conflicts."
         },
         {
           "id": "f2",
@@ -998,10 +1080,10 @@
           "units": "Qualitative",
           "population": "MCED evidence reviewed",
           "endpoint": "Mortality benefit",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2026-07-20; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to Mortality benefit in MCED evidence reviewed, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
@@ -1030,12 +1112,18 @@
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for Cited screening trials: Lung-cancer mortality.",
+          "Do not substitute another population or endpoint for MCED evidence reviewed: Mortality benefit."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
       "answerability": {
-        "status": "false_premise"
+        "status": "false_premise",
+        "offending_premise": "Does the liquid-biopsy review establish that blood-based MCED has the same demonstrated lung-cancer mortality benefit as LDCT?",
+        "correction_anchors": [
+          "ldct",
+          "mced"
+        ]
       },
       "dependencies": {
         "required": [
@@ -1044,27 +1132,14 @@
         "alternatives": [],
         "decoys": [],
         "overlap_review": [
-          "PMC10073666",
-          "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
-          "PMC9844597"
+          "PMC13429855"
         ],
         "negative_evidence": []
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -1085,10 +1160,10 @@
           "units": "Percent",
           "population": "Cited 30 NSCLC studies, 3287 patients",
           "endpoint": "MRD sensitivity and specificity",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2026-07-20; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to MRD sensitivity and specificity in Cited 30 NSCLC studies, 3287 patients, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
@@ -1112,7 +1187,7 @@
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for Cited 30 NSCLC studies, 3287 patients: MRD sensitivity and specificity."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
@@ -1126,27 +1201,14 @@
         "alternatives": [],
         "decoys": [],
         "overlap_review": [
-          "PMC10073666",
-          "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
-          "PMC9844597"
+          "PMC13429855"
         ],
         "negative_evidence": []
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -1167,10 +1229,10 @@
           "units": "Percent",
           "population": "US women aged 50–64",
           "endpoint": "Screening categories",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2022-06-28; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to Screening categories in US women aged 50–64, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
@@ -1194,7 +1256,7 @@
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for US women aged 50–64: Screening categories."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
@@ -1208,27 +1270,14 @@
         "alternatives": [],
         "decoys": [],
         "overlap_review": [
-          "PMC10073666",
-          "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
-          "PMC9844597"
+          "PMC9239676"
         ],
         "negative_evidence": []
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -1249,10 +1298,10 @@
           "units": "Percent and ratio",
           "population": "US women aged 50–64",
           "endpoint": "Single-screen prevalence",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2022-06-28; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to Single-screen prevalence in US women aged 50–64, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
@@ -1276,7 +1325,7 @@
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for US women aged 50–64: Single-screen prevalence."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
@@ -1290,27 +1339,14 @@
         "alternatives": [],
         "decoys": [],
         "overlap_review": [
-          "PMC10073666",
-          "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
-          "PMC9844597"
+          "PMC9239676"
         ],
         "negative_evidence": []
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -1331,10 +1367,10 @@
           "units": "Patients",
           "population": "Appendix flow diagram and main study population",
           "endpoint": "Exclusion and analysis counts",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2022-06-28; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to Exclusion and analysis counts in Appendix flow diagram and main study population, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
@@ -1358,7 +1394,7 @@
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for Appendix flow diagram and main study population: Exclusion and analysis counts."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
@@ -1372,35 +1408,22 @@
         "alternatives": [],
         "decoys": [],
         "overlap_review": [
-          "PMC10073666",
-          "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
-          "PMC9844597"
+          "PMC9239676"
         ],
         "negative_evidence": []
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
       "selection_rationale": "Coverage-led selection before evaluation."
     },
     {
-      "id": "q103",
-      "revision": 2,
+      "id": "o022",
+      "revision": 1,
       "category": "direct_lookup",
       "topics": [
         "oncology"
@@ -1413,10 +1436,10 @@
           "units": "Patients",
           "population": "Hunan retrospective resected cohort",
           "endpoint": "Eligibility and cohort composition",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2022-05-27; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to Eligibility and cohort composition in Hunan retrospective resected cohort, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
@@ -1440,7 +1463,7 @@
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for Hunan retrospective resected cohort: Eligibility and cohort composition."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
@@ -1454,19 +1477,6 @@
         "alternatives": [],
         "decoys": [],
         "overlap_review": [
-          "PMC10073666",
-          "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
           "PMC9844597"
         ],
         "negative_evidence": []
@@ -1474,15 +1484,16 @@
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation."
+      "selection_rationale": "Coverage-led selection before evaluation.",
+      "supersedes_coverage_of": "q103"
     },
     {
-      "id": "q104",
-      "revision": 2,
+      "id": "o029",
+      "revision": 1,
       "category": "multi_hop",
       "topics": [
         "oncology"
@@ -1497,19 +1508,19 @@
           "endpoint": "Two-year DFS",
           "timeframe": "Two years",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to Two-year DFS in PD-1 plus chemotherapy versus chemotherapy, reversed group order, or omitted explicit source conflicts."
         },
         {
           "id": "f2",
-          "expected_text": "OS data were immature with limited follow-up; do not infer an established mature survival benefit or absence of benefit.",
-          "units": "Qualitative",
+          "expected_text": "The study reports two-year OS of 94.1% versus 85.7% unweighted (p=0.012), and 93.8% versus 87.1% in its weighted population (p=0.038), in PD-1 plus chemotherapy versus chemotherapy order. The Discussion calls follow-up limited and OS immature when explaining why further prognostic-factor analysis was not conducted; that caveat does not erase the reported significant comparisons or establish a mature causal benefit.",
+          "units": "Percent and p value",
           "population": "Hunan cohort",
-          "endpoint": "Overall survival maturity",
-          "timeframe": "As reported in pinned version 1",
+          "endpoint": "Two-year OS comparisons and prognostic-analysis limitation",
+          "timeframe": "Two years; limited study follow-up",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to Two-year OS comparisons and prognostic-analysis limitation in Hunan cohort, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
@@ -1518,6 +1529,7 @@
           "anchors": [
             "hunan_response",
             "hunan_matched",
+            "hunan_os_results",
             "hunan_os"
           ],
           "fact_anchors": {
@@ -1526,13 +1538,14 @@
               "hunan_matched"
             ],
             "f2": [
+              "hunan_os_results",
               "hunan_os"
             ]
           }
         }
       ],
       "related_distractors": [],
-      "reference_answer": "Unadjusted DFS was 79.3% versus 60.2% (p=0.048); after PSM the difference was no longer statistically significant (p=0.096). OS data were immature with limited follow-up; do not infer an established mature survival benefit or absence of benefit.",
+      "reference_answer": "Unadjusted DFS was 79.3% versus 60.2% (p=0.048); after PSM the difference was no longer statistically significant (p=0.096). The study reports two-year OS of 94.1% versus 85.7% unweighted (p=0.012), and 93.8% versus 87.1% in its weighted population (p=0.038), in PD-1 plus chemotherapy versus chemotherapy order. The Discussion calls follow-up limited and OS immature when explaining why further prognostic-factor analysis was not conducted; that caveat does not erase the reported significant comparisons or establish a mature causal benefit.",
       "answer_rubric": {
         "required_claims": [
           "f1",
@@ -1540,7 +1553,8 @@
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for PD-1 plus chemotherapy versus chemotherapy: Two-year DFS.",
+          "Do not substitute another population or endpoint for Hunan cohort: Two-year OS comparisons and prognostic-analysis limitation."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
@@ -1554,19 +1568,6 @@
         "alternatives": [],
         "decoys": [],
         "overlap_review": [
-          "PMC10073666",
-          "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
           "PMC9844597"
         ],
         "negative_evidence": []
@@ -1574,16 +1575,17 @@
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
       "selection_rationale": "Coverage-led selection before evaluation.",
-      "reasoning": "Join the unadjusted result to the separate matched analysis and discussion limitation."
+      "reasoning": "Join the unadjusted result to the separate matched analysis and discussion limitation.",
+      "supersedes_coverage_of": "q104"
     },
     {
-      "id": "q105",
-      "revision": 2,
+      "id": "o028",
+      "revision": 1,
       "category": "direct_lookup",
       "topics": [
         "oncology"
@@ -1596,10 +1598,10 @@
           "units": "Percent",
           "population": "Hunan PD-1 plus chemotherapy versus chemotherapy",
           "endpoint": "MPR",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2022-05-27; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to MPR in Hunan PD-1 plus chemotherapy versus chemotherapy, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
@@ -1623,7 +1625,7 @@
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for Hunan PD-1 plus chemotherapy versus chemotherapy: MPR."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
@@ -1637,19 +1639,6 @@
         "alternatives": [],
         "decoys": [],
         "overlap_review": [
-          "PMC10073666",
-          "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
           "PMC9844597"
         ],
         "negative_evidence": []
@@ -1657,60 +1646,69 @@
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation."
+      "selection_rationale": "Coverage-led selection before evaluation.",
+      "supersedes_coverage_of": "q105"
     },
     {
       "id": "o001",
-      "revision": 1,
+      "revision": 2,
       "category": "false_premise",
       "topics": [
         "oncology"
       ],
-      "question": "Did the stage III neoadjuvant cohort demonstrate statistically significant DFS improvement because its pathological responses were higher?",
+      "question": "Did the Zhongshan stage III neoadjuvant cohort demonstrate statistically significant DFS improvement because its pathological responses were higher?",
       "required_facts": [
         {
           "id": "f1",
-          "expected_text": "No. MPR was 65.3% versus 15.1% and pCR 34.6% versus 3.0%, but DFS was not statistically different (p=0.129); response does not establish survival benefit.",
+          "expected_text": "The Zhongshan cohort reports table/abstract MPR 65.3% versus 15.1% and pCR 34.6% versus 3.0%, while DFS was not statistically different (p=0.129). Its narrative MPR count conflicts with Table 2 (19/26 versus 17/26); do not silently reconcile it. Response does not establish survival benefit.",
           "units": "Percent and p value",
           "population": "Stage III neoadjuvant combo versus chemotherapy cohort",
           "endpoint": "Pathological response versus DFS",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2023-12-22; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to Pathological response versus DFS in Stage III neoadjuvant combo versus chemotherapy cohort, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
         {
           "id": "primary",
           "anchors": [
-            "stage_response"
+            "stage_response",
+            "stage_narrative",
+            "stage_table"
           ],
           "fact_anchors": {
             "f1": [
-              "stage_response"
+              "stage_response",
+              "stage_narrative",
+              "stage_table"
             ]
           }
         }
       ],
       "related_distractors": [],
-      "reference_answer": "No. MPR was 65.3% versus 15.1% and pCR 34.6% versus 3.0%, but DFS was not statistically different (p=0.129); response does not establish survival benefit.",
+      "reference_answer": "The Zhongshan cohort reports table/abstract MPR 65.3% versus 15.1% and pCR 34.6% versus 3.0%, while DFS was not statistically different (p=0.129). Its narrative MPR count conflicts with Table 2 (19/26 versus 17/26); do not silently reconcile it. Response does not establish survival benefit.",
       "answer_rubric": {
         "required_claims": [
           "f1"
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for Stage III neoadjuvant combo versus chemotherapy cohort: Pathological response versus DFS."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
       "answerability": {
-        "status": "false_premise"
+        "status": "false_premise",
+        "offending_premise": "Did the Zhongshan stage III neoadjuvant cohort demonstrate statistically significant DFS improvement because its pathological responses were higher?",
+        "correction_anchors": [
+          "stage_response"
+        ]
       },
       "dependencies": {
         "required": [
@@ -1719,27 +1717,14 @@
         "alternatives": [],
         "decoys": [],
         "overlap_review": [
-          "PMC10073666",
-          "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
-          "PMC9844597"
+          "PMC10770829"
         ],
         "negative_evidence": []
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -1747,12 +1732,12 @@
     },
     {
       "id": "o002",
-      "revision": 1,
+      "revision": 2,
       "category": "multi_hop",
       "topics": [
         "oncology"
       ],
-      "question": "Are the stage III cohort’s narrative and Table 2 MPR counts consistent for the chemoimmunotherapy arm?",
+      "question": "Are the Zhongshan stage III cohort’s narrative and Table 2 MPR counts consistent for the chemoimmunotherapy arm?",
       "required_facts": [
         {
           "id": "f1",
@@ -1760,10 +1745,10 @@
           "units": "Patients and percent",
           "population": "Stage III NICT versus NCT",
           "endpoint": "MPR count conflict",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2023-12-22; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to MPR count conflict in Stage III NICT versus NCT, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
@@ -1789,7 +1774,7 @@
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for Stage III NICT versus NCT: MPR count conflict."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
@@ -1803,27 +1788,14 @@
         "alternatives": [],
         "decoys": [],
         "overlap_review": [
-          "PMC10073666",
-          "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
-          "PMC9844597"
+          "PMC10770829"
         ],
         "negative_evidence": []
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -1845,10 +1817,10 @@
           "units": "Patients and percent",
           "population": "Helsinki TNBC cohorts",
           "endpoint": "pCR and comparator design",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2026-02-19; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to pCR and comparator design in Helsinki TNBC cohorts, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
@@ -1872,7 +1844,7 @@
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for Helsinki TNBC cohorts: pCR and comparator design."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
@@ -1886,27 +1858,14 @@
         "alternatives": [],
         "decoys": [],
         "overlap_review": [
-          "PMC10073666",
-          "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
-          "PMC9844597"
+          "PMC12931073"
         ],
         "negative_evidence": []
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -1927,10 +1886,10 @@
           "units": "Patients and percent",
           "population": "75 pembrolizumab-treated TNBC patients",
           "endpoint": "Myocarditis versus troponin elevation",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2026-02-19; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to Myocarditis versus troponin elevation in 75 pembrolizumab-treated TNBC patients, reversed group order, or omitted explicit source conflicts."
         },
         {
           "id": "f2",
@@ -1938,10 +1897,10 @@
           "units": "Qualitative",
           "population": "Helsinki pembrolizumab cohort",
           "endpoint": "Surveillance and diagnostic criteria",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2026-02-19; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to Surveillance and diagnostic criteria in Helsinki pembrolizumab cohort, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
@@ -1972,7 +1931,8 @@
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for 75 pembrolizumab-treated TNBC patients: Myocarditis versus troponin elevation.",
+          "Do not substitute another population or endpoint for Helsinki pembrolizumab cohort: Surveillance and diagnostic criteria."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
@@ -1986,27 +1946,14 @@
         "alternatives": [],
         "decoys": [],
         "overlap_review": [
-          "PMC10073666",
-          "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
-          "PMC9844597"
+          "PMC12931073"
         ],
         "negative_evidence": []
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -2030,8 +1977,8 @@
           "endpoint": "Adverse-event discontinuation",
           "timeframe": "Postoperative",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to Adverse-event discontinuation in All treated versus postoperative starters, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
@@ -2057,7 +2004,7 @@
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for All treated versus postoperative starters: Adverse-event discontinuation."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
@@ -2071,27 +2018,14 @@
         "alternatives": [],
         "decoys": [],
         "overlap_review": [
-          "PMC10073666",
-          "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
-          "PMC9844597"
+          "PMC12931073"
         ],
         "negative_evidence": []
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -2099,8 +2033,8 @@
       "reasoning": "Resolve apparently conflicting percentages by joining each count to its separate denominator."
     },
     {
-      "id": "q113",
-      "revision": 2,
+      "id": "o027",
+      "revision": 1,
       "category": "multi_hop",
       "topics": [
         "oncology"
@@ -2113,10 +2047,10 @@
           "units": "Percent",
           "population": "Advanced EGFR-mutant Vietnam cohort",
           "endpoint": "ORR by starting dose",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2024-02-05; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to ORR by starting dose in Advanced EGFR-mutant Vietnam cohort, reversed group order, or omitted explicit source conflicts."
         },
         {
           "id": "f2",
@@ -2124,10 +2058,10 @@
           "units": "Months",
           "population": "40 mg versus below 40 mg",
           "endpoint": "mTTF by initial dose",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2024-02-05; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to mTTF by initial dose in 40 mg versus below 40 mg, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
@@ -2156,7 +2090,8 @@
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for Advanced EGFR-mutant Vietnam cohort: ORR by starting dose.",
+          "Do not substitute another population or endpoint for 40 mg versus below 40 mg: mTTF by initial dose."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
@@ -2170,32 +2105,20 @@
         "alternatives": [],
         "decoys": [],
         "overlap_review": [
-          "PMC10073666",
-          "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
-          "PMC9844597"
+          "PMC10840225"
         ],
         "negative_evidence": []
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
       "selection_rationale": "Coverage-led selection before evaluation.",
-      "reasoning": "Compare response in the abstract with the separate time-to-failure analysis."
+      "reasoning": "Compare response in the abstract with the separate time-to-failure analysis.",
+      "supersedes_coverage_of": "q113"
     },
     {
       "id": "o006",
@@ -2212,10 +2135,10 @@
           "units": "Patients, mg and percent",
           "population": "343 Vietnam first-line afatinib patients",
           "endpoint": "Starting-dose distribution conflict",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2024-02-05; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to Starting-dose distribution conflict in 343 Vietnam first-line afatinib patients, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
@@ -2241,7 +2164,7 @@
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for 343 Vietnam first-line afatinib patients: Starting-dose distribution conflict."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
@@ -2255,27 +2178,14 @@
         "alternatives": [],
         "decoys": [],
         "overlap_review": [
-          "PMC10073666",
-          "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
-          "PMC9844597"
+          "PMC10840225"
         ],
         "negative_evidence": []
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -2297,10 +2207,10 @@
           "units": "Hazard ratio",
           "population": "Cited ADAURA trial populations",
           "endpoint": "DFS attribution and population",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2024-08-30; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to DFS attribution and population in Cited ADAURA trial populations, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
@@ -2324,12 +2234,16 @@
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for Cited ADAURA trial populations: DFS attribution and population."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
       "answerability": {
-        "status": "false_premise"
+        "status": "false_premise",
+        "offending_premise": "Are the ADAURA hazard ratios in the nonmetastatic driver review outcomes measured by the review’s own newly enrolled cohort?",
+        "correction_anchors": [
+          "driver_dfs"
+        ]
       },
       "dependencies": {
         "required": [
@@ -2338,27 +2252,14 @@
         "alternatives": [],
         "decoys": [],
         "overlap_review": [
-          "PMC10073666",
-          "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
-          "PMC9844597"
+          "PMC11431721"
         ],
         "negative_evidence": []
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -2381,8 +2282,8 @@
           "endpoint": "Five-year OS",
           "timeframe": "Five years",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to Five-year OS in Cited ADAURA stage II–IIIA versus IB–IIIA populations, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
@@ -2406,7 +2307,7 @@
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for Cited ADAURA stage II–IIIA versus IB–IIIA populations: Five-year OS."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
@@ -2420,40 +2321,27 @@
         "alternatives": [],
         "decoys": [],
         "overlap_review": [
-          "PMC10073666",
-          "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
-          "PMC9844597"
+          "PMC11431721"
         ],
         "negative_evidence": []
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
       "selection_rationale": "Coverage-led selection before evaluation."
     },
     {
-      "id": "q111",
-      "revision": 2,
+      "id": "o023",
+      "revision": 1,
       "category": "direct_lookup",
       "topics": [
         "oncology"
       ],
-      "question": "According to the reflex-testing consensus, what ordering change addresses delays that can leave NSCLC patients starting therapy before complete biomarker results?",
+      "question": "In the Gosney expert consensus, who initiates reflex NSCLC biomarker testing, what is agreed by the MDT, and is a formal oncologist request required? Explain the reported delay mechanism.",
       "required_facts": [
         {
           "id": "f1",
@@ -2461,10 +2349,10 @@
           "units": "Qualitative",
           "population": "NSCLC diagnostic pathway",
           "endpoint": "Ordering workflow and delay mechanism",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2023-06-23; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to Ordering workflow and delay mechanism in NSCLC diagnostic pathway, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
@@ -2490,7 +2378,7 @@
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for NSCLC diagnostic pathway: Ordering workflow and delay mechanism."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
@@ -2504,31 +2392,28 @@
         "alternatives": [],
         "decoys": [],
         "overlap_review": [
-          "PMC10073666",
           "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
-          "PMC9844597"
+          "PMC11547071"
         ],
-        "negative_evidence": []
+        "negative_evidence": [],
+        "overlap_findings": [
+          {
+            "article_id": "PMC11547071",
+            "anchor_id": "polmol_reflex",
+            "role": "partial_support",
+            "assessment": "Supports pathologist initiation and agreed biomarkers; does not complete the required MDT/no-formal-request details."
+          }
+        ]
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation."
+      "selection_rationale": "Coverage-led selection before evaluation.",
+      "supersedes_coverage_of": "q111"
     },
     {
       "id": "o008",
@@ -2545,10 +2430,10 @@
           "units": "Qualitative",
           "population": "Early-stage resectable NSCLC",
           "endpoint": "Timing and rationale for EGFR testing",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2023-06-23; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to Timing and rationale for EGFR testing in Early-stage resectable NSCLC, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
@@ -2572,7 +2457,7 @@
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for Early-stage resectable NSCLC: Timing and rationale for EGFR testing."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
@@ -2586,27 +2471,14 @@
         "alternatives": [],
         "decoys": [],
         "overlap_review": [
-          "PMC10073666",
-          "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
-          "PMC9844597"
+          "PMC10485396"
         ],
         "negative_evidence": []
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -2614,7 +2486,7 @@
     },
     {
       "id": "o009",
-      "revision": 1,
+      "revision": 2,
       "category": "direct_lookup",
       "topics": [
         "oncology"
@@ -2623,38 +2495,40 @@
       "required_facts": [
         {
           "id": "f1",
-          "expected_text": "Twelve observational studies with 23,621 patients reported CV-event prevalence 3% and HR 1.78 (95% CI 1.46–2.17), I²=72%, versus other drugs. Observational association is not proof of causation or a cause-specific mortality estimate.",
+          "expected_text": "Twelve observational studies included 23,621 NSCLC patients; overall CV-event prevalence was 3%, not a comparative risk. Only four studies contributed to the pooled HR 1.78 (95% CI 1.46–2.17), I²=72%, comparing ICI with non-ICI treatment. Observational association is not proof of causation or CVD mortality.",
           "units": "Percent and hazard ratio",
           "population": "Observational NSCLC cohorts",
           "endpoint": "CV-event prevalence and hazard",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2025-02-24; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to CV-event prevalence and hazard in Observational NSCLC cohorts, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
         {
           "id": "primary",
           "anchors": [
-            "obs_cv"
+            "obs_cv",
+            "obs_hr_scope"
           ],
           "fact_anchors": {
             "f1": [
-              "obs_cv"
+              "obs_cv",
+              "obs_hr_scope"
             ]
           }
         }
       ],
       "related_distractors": [],
-      "reference_answer": "Twelve observational studies with 23,621 patients reported CV-event prevalence 3% and HR 1.78 (95% CI 1.46–2.17), I²=72%, versus other drugs. Observational association is not proof of causation or a cause-specific mortality estimate.",
+      "reference_answer": "Twelve observational studies included 23,621 NSCLC patients; overall CV-event prevalence was 3%, not a comparative risk. Only four studies contributed to the pooled HR 1.78 (95% CI 1.46–2.17), I²=72%, comparing ICI with non-ICI treatment. Observational association is not proof of causation or CVD mortality.",
       "answer_rubric": {
         "required_claims": [
           "f1"
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for Observational NSCLC cohorts: CV-event prevalence and hazard."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
@@ -2668,27 +2542,14 @@
         "alternatives": [],
         "decoys": [],
         "overlap_review": [
-          "PMC10073666",
-          "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
-          "PMC9844597"
+          "PMC11891047"
         ],
         "negative_evidence": []
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -2709,10 +2570,10 @@
           "units": "Risk ratio",
           "population": "Lung-cancer RCT meta-analysis",
           "endpoint": "Cardiac adverse-event risk",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2024-06-17; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to Cardiac adverse-event risk in Lung-cancer RCT meta-analysis, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
@@ -2736,7 +2597,7 @@
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for Lung-cancer RCT meta-analysis: Cardiac adverse-event risk."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
@@ -2750,27 +2611,14 @@
         "alternatives": [],
         "decoys": [],
         "overlap_review": [
-          "PMC10073666",
-          "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
-          "PMC9844597"
+          "PMC11181582"
         ],
         "negative_evidence": []
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -2791,10 +2639,10 @@
           "units": "Risk ratio and p value",
           "population": "Lung-cancer RCT meta-analysis",
           "endpoint": "Heart failure versus broader cardiac adverse events",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2024-06-17; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to Heart failure versus broader cardiac adverse events in Lung-cancer RCT meta-analysis, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
@@ -2818,12 +2666,16 @@
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for Lung-cancer RCT meta-analysis: Heart failure versus broader cardiac adverse events."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
       "answerability": {
-        "status": "false_premise"
+        "status": "false_premise",
+        "offending_premise": "Does the RCT meta-analysis prove ICIs cannot cause heart failure because that subgroup result was nonsignificant?",
+        "correction_anchors": [
+          "rct_cv"
+        ]
       },
       "dependencies": {
         "required": [
@@ -2832,35 +2684,22 @@
         "alternatives": [],
         "decoys": [],
         "overlap_review": [
-          "PMC10073666",
-          "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
-          "PMC9844597"
+          "PMC11181582"
         ],
         "negative_evidence": []
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
       "selection_rationale": "Coverage-led selection before evaluation."
     },
     {
-      "id": "q112",
-      "revision": 2,
+      "id": "o026",
+      "revision": 1,
       "category": "direct_lookup",
       "topics": [
         "oncology"
@@ -2869,14 +2708,14 @@
       "required_facts": [
         {
           "id": "f1",
-          "expected_text": "Of 3,746 deaths among 5,076 patients, 85.34% were NSCLC and 2.80% CVD. CHF history sHR 2.10 (95% CI 1.37–3.21) and Medicaid dual eligibility sHR 2.70 (1.28–5.56) were associated with CVD mortality. Percentages use deaths, not all patients.",
+          "expected_text": "Of 3,746 deaths among 5,076 patients, 85.34% were NSCLC and 2.80% CVD. CHF history sHR 2.10 (95% CI 1.37–3.21) and Medicaid dual eligibility versus private insurance sHR 2.70 (1.28–5.56) were associated with CVD mortality. Percentages use deaths, not all patients.",
           "units": "Percent and subdistribution hazard ratio",
           "population": "Older advanced-NSCLC PD-1 cohort",
           "endpoint": "Cause-of-death shares and CVD mortality associations",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2025-10-03; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to Cause-of-death shares and CVD mortality associations in Older advanced-NSCLC PD-1 cohort, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
@@ -2893,14 +2732,14 @@
         }
       ],
       "related_distractors": [],
-      "reference_answer": "Of 3,746 deaths among 5,076 patients, 85.34% were NSCLC and 2.80% CVD. CHF history sHR 2.10 (95% CI 1.37–3.21) and Medicaid dual eligibility sHR 2.70 (1.28–5.56) were associated with CVD mortality. Percentages use deaths, not all patients.",
+      "reference_answer": "Of 3,746 deaths among 5,076 patients, 85.34% were NSCLC and 2.80% CVD. CHF history sHR 2.10 (95% CI 1.37–3.21) and Medicaid dual eligibility versus private insurance sHR 2.70 (1.28–5.56) were associated with CVD mortality. Percentages use deaths, not all patients.",
       "answer_rubric": {
         "required_claims": [
           "f1"
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for Older advanced-NSCLC PD-1 cohort: Cause-of-death shares and CVD mortality associations."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
@@ -2914,31 +2753,19 @@
         "alternatives": [],
         "decoys": [],
         "overlap_review": [
-          "PMC10073666",
-          "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
-          "PMC9844597"
+          "PMC12495207"
         ],
         "negative_evidence": []
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation."
+      "selection_rationale": "Coverage-led selection before evaluation.",
+      "supersedes_coverage_of": "q112"
     },
     {
       "id": "o012",
@@ -2955,10 +2782,10 @@
           "units": "Subdistribution hazard ratio",
           "population": "Older advanced-NSCLC pembrolizumab versus nivolumab cohort",
           "endpoint": "Cause-specific mortality",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2025-10-03; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to Cause-specific mortality in Older advanced-NSCLC pembrolizumab versus nivolumab cohort, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
@@ -2982,7 +2809,7 @@
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for Older advanced-NSCLC pembrolizumab versus nivolumab cohort: Cause-specific mortality."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
@@ -2996,27 +2823,14 @@
         "alternatives": [],
         "decoys": [],
         "overlap_review": [
-          "PMC10073666",
-          "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
-          "PMC9844597"
+          "PMC12495207"
         ],
         "negative_evidence": []
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -3037,10 +2851,10 @@
           "units": "Qualitative",
           "population": "Tumor immune spatial phenotypes",
           "endpoint": "Immune cell distribution",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2023-03-22; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to Immune cell distribution in Tumor immune spatial phenotypes, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
@@ -3064,7 +2878,7 @@
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for Tumor immune spatial phenotypes: Immune cell distribution."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
@@ -3078,27 +2892,14 @@
         "alternatives": [],
         "decoys": [],
         "overlap_review": [
-          "PMC10073666",
-          "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
-          "PMC9844597"
+          "PMC10073666"
         ],
         "negative_evidence": []
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -3119,10 +2920,10 @@
           "units": "Qualitative",
           "population": "Immune-exclusion definitions across tumors",
           "endpoint": "Definition limitations and proposed improvements",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2023-03-22; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to Definition limitations and proposed improvements in Immune-exclusion definitions across tumors, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
@@ -3148,12 +2949,17 @@
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for Immune-exclusion definitions across tumors: Definition limitations and proposed improvements."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
       "answerability": {
-        "status": "false_premise"
+        "status": "false_premise",
+        "offending_premise": "Does the immune-exclusion review establish a universal clinically validated numeric cutoff for every tumor?",
+        "correction_anchors": [
+          "exclusion_limits",
+          "exclusion_solution"
+        ]
       },
       "dependencies": {
         "required": [
@@ -3162,27 +2968,14 @@
         "alternatives": [],
         "decoys": [],
         "overlap_review": [
-          "PMC10073666",
-          "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
-          "PMC9844597"
+          "PMC10073666"
         ],
         "negative_evidence": []
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -3203,10 +2996,10 @@
           "units": "Qualitative",
           "population": "Mechanistic ICD review",
           "endpoint": "DAMP–dendritic cell pathways",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2026-05-07; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to DAMP–dendritic cell pathways in Mechanistic ICD review, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
@@ -3230,7 +3023,7 @@
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for Mechanistic ICD review: DAMP–dendritic cell pathways."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
@@ -3244,27 +3037,14 @@
         "alternatives": [],
         "decoys": [],
         "overlap_review": [
-          "PMC10073666",
-          "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
-          "PMC9844597"
+          "PMC13190586"
         ],
         "negative_evidence": []
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -3285,10 +3065,10 @@
           "units": "Qualitative",
           "population": "Reviewed cold tumor phenotypes",
           "endpoint": "Spatial versus functional immune barriers",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2026-05-07; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to Spatial versus functional immune barriers in Reviewed cold tumor phenotypes, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
@@ -3312,7 +3092,7 @@
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for Reviewed cold tumor phenotypes: Spatial versus functional immune barriers."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
@@ -3326,27 +3106,14 @@
         "alternatives": [],
         "decoys": [],
         "overlap_review": [
-          "PMC10073666",
-          "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
-          "PMC9844597"
+          "PMC13190586"
         ],
         "negative_evidence": []
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -3367,10 +3134,10 @@
           "units": "Qualitative",
           "population": "Mechanistic ICD pathways",
           "endpoint": "Stress, DAMP release and dendritic-cell activation",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2026-05-07; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to Stress, DAMP release and dendritic-cell activation in Mechanistic ICD pathways, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
@@ -3396,7 +3163,7 @@
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for Mechanistic ICD pathways: Stress, DAMP release and dendritic-cell activation."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
@@ -3410,27 +3177,14 @@
         "alternatives": [],
         "decoys": [],
         "overlap_review": [
-          "PMC10073666",
-          "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
-          "PMC9844597"
+          "PMC13190586"
         ],
         "negative_evidence": []
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -3438,8 +3192,8 @@
       "reasoning": "Link separate cellular-stress and extracellular-danger-signal sections."
     },
     {
-      "id": "q117",
-      "revision": 2,
+      "id": "o030",
+      "revision": 1,
       "category": "cross_doc_synthesis",
       "topics": [
         "oncology"
@@ -3448,14 +3202,14 @@
       "required_facts": [
         {
           "id": "f1",
-          "expected_text": "The Hunan resected cohort had higher MPR, but its unadjusted DFS significance disappeared after matching and OS remained immature.",
+          "expected_text": "The resected Hunan cohort had higher MPR; unadjusted DFS significance disappeared after PSM. The study reports two-year OS of 94.1% versus 85.7% unweighted (p=0.012), and 93.8% versus 87.1% in its weighted population (p=0.038), in PD-1 plus chemotherapy versus chemotherapy order. The Discussion calls follow-up limited and OS immature when explaining why further prognostic-factor analysis was not conducted; that caveat does not erase the reported significant comparisons or establish a mature causal benefit.",
           "units": "Qualitative",
           "population": "Hunan resected cohort",
           "endpoint": "Treatment outcomes and limitations",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2023-06-23; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to Treatment outcomes and limitations in Hunan resected cohort, reversed group order, or omitted explicit source conflicts."
         },
         {
           "id": "f2",
@@ -3463,10 +3217,10 @@
           "units": "Qualitative",
           "population": "NSCLC testing consensus",
           "endpoint": "Biomarker readiness and early-stage workflow",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2023-06-23; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to Biomarker readiness and early-stage workflow in NSCLC testing consensus, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
@@ -3475,6 +3229,7 @@
           "anchors": [
             "hunan_response",
             "hunan_matched",
+            "hunan_os_results",
             "hunan_os",
             "reflex_def",
             "reflex_delay",
@@ -3484,6 +3239,7 @@
             "f1": [
               "hunan_response",
               "hunan_matched",
+              "hunan_os_results",
               "hunan_os"
             ],
             "f2": [
@@ -3495,7 +3251,7 @@
         }
       ],
       "related_distractors": [],
-      "reference_answer": "The Hunan resected cohort had higher MPR, but its unadjusted DFS significance disappeared after matching and OS remained immature. The consensus advocates pathologist-initiated MDT-agreed testing, identifies delays before complete biomarker status, and argues for early EGFR testing in resectable disease. It does not measure how testing caused the Hunan outcomes or establish a driver-positive treatment effect.",
+      "reference_answer": "The resected Hunan cohort had higher MPR; unadjusted DFS significance disappeared after PSM. The study reports two-year OS of 94.1% versus 85.7% unweighted (p=0.012), and 93.8% versus 87.1% in its weighted population (p=0.038), in PD-1 plus chemotherapy versus chemotherapy order. The Discussion calls follow-up limited and OS immature when explaining why further prognostic-factor analysis was not conducted; that caveat does not erase the reported significant comparisons or establish a mature causal benefit. The consensus advocates pathologist-initiated MDT-agreed testing, identifies delays before complete biomarker status, and argues for early EGFR testing in resectable disease. It does not measure how testing caused the Hunan outcomes or establish a driver-positive treatment effect.",
       "answer_rubric": {
         "required_claims": [
           "f1",
@@ -3503,7 +3259,8 @@
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for Hunan resected cohort: Treatment outcomes and limitations.",
+          "Do not substitute another population or endpoint for NSCLC testing consensus: Biomarker readiness and early-stage workflow."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
@@ -3518,35 +3275,33 @@
         "alternatives": [],
         "decoys": [],
         "overlap_review": [
-          "PMC10073666",
           "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
-          "PMC9844597"
+          "PMC9844597",
+          "PMC11547071"
         ],
-        "negative_evidence": []
+        "negative_evidence": [],
+        "overlap_findings": [
+          {
+            "article_id": "PMC11547071",
+            "anchor_id": "polmol_reflex",
+            "role": "partial_support",
+            "assessment": "Supports pathologist initiation and agreed biomarkers; does not complete the required MDT/no-formal-request details or the early-stage EGFR rationale."
+          }
+        ]
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation."
+      "selection_rationale": "Coverage-led selection before evaluation.",
+      "supersedes_coverage_of": "q117"
     },
     {
       "id": "o017",
-      "revision": 1,
+      "revision": 2,
       "category": "cross_doc_synthesis",
       "topics": [
         "oncology"
@@ -3555,14 +3310,14 @@
       "required_facts": [
         {
           "id": "f1",
-          "expected_text": "The observational synthesis reports CV events, 3% prevalence and HR 1.78 versus other drugs.",
+          "expected_text": "The observational synthesis included twelve NSCLC studies, but only four contributed to HR 1.78 versus non-ICI treatment; overall CV-event prevalence 3% is a separate, noncomparative measure.",
           "units": "Percent and hazard ratio",
           "population": "Observational NSCLC cohorts",
           "endpoint": "CV events",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2025-02-24; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to CV events in Observational NSCLC cohorts, reversed group order, or omitted explicit source conflicts."
         },
         {
           "id": "f2",
@@ -3570,10 +3325,10 @@
           "units": "Subdistribution hazard ratio",
           "population": "Older PD-1-treated advanced NSCLC",
           "endpoint": "CVD mortality",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2025-02-24; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to CVD mortality in Older PD-1-treated advanced NSCLC, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
@@ -3581,11 +3336,13 @@
           "id": "primary",
           "anchors": [
             "obs_cv",
+            "obs_hr_scope",
             "mortality"
           ],
           "fact_anchors": {
             "f1": [
-              "obs_cv"
+              "obs_cv",
+              "obs_hr_scope"
             ],
             "f2": [
               "mortality"
@@ -3594,7 +3351,7 @@
         }
       ],
       "related_distractors": [],
-      "reference_answer": "The observational synthesis reports CV events, 3% prevalence and HR 1.78 versus other drugs. The older cohort reports cause-specific deaths and compares pembrolizumab with nivolumab: CVD sHR 1.08 was nonsignificant. Different endpoints, populations and comparators prevent treating this as a contradiction or pooled causal estimate.",
+      "reference_answer": "The observational synthesis included twelve NSCLC studies, but only four contributed to HR 1.78 versus non-ICI treatment; overall CV-event prevalence 3% is a separate, noncomparative measure. The older cohort reports cause-specific deaths and compares pembrolizumab with nivolumab: CVD sHR 1.08 was nonsignificant. Different endpoints, populations and comparators prevent treating this as a contradiction or pooled causal estimate.",
       "answer_rubric": {
         "required_claims": [
           "f1",
@@ -3602,7 +3359,8 @@
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for Observational NSCLC cohorts: CV events.",
+          "Do not substitute another population or endpoint for Older PD-1-treated advanced NSCLC: CVD mortality."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
@@ -3617,27 +3375,15 @@
         "alternatives": [],
         "decoys": [],
         "overlap_review": [
-          "PMC10073666",
-          "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
           "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
-          "PMC9844597"
+          "PMC12495207"
         ],
         "negative_evidence": []
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
@@ -3658,10 +3404,10 @@
           "units": "Patients and percent",
           "population": "Helsinki TNBC cohort",
           "endpoint": "Myocarditis frequency and surveillance",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2024-06-17; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to Myocarditis frequency and surveillance in Helsinki TNBC cohort, reversed group order, or omitted explicit source conflicts."
         },
         {
           "id": "f2",
@@ -3669,10 +3415,10 @@
           "units": "Risk ratio",
           "population": "Lung-cancer RCT synthesis",
           "endpoint": "Broad cardiac adverse-event relative risk",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2024-06-17; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to Broad cardiac adverse-event relative risk in Lung-cancer RCT synthesis, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
@@ -3705,7 +3451,8 @@
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for Helsinki TNBC cohort: Myocarditis frequency and surveillance.",
+          "Do not substitute another population or endpoint for Lung-cancer RCT synthesis: Broad cardiac adverse-event relative risk."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
@@ -3720,62 +3467,52 @@
         "alternatives": [],
         "decoys": [],
         "overlap_review": [
-          "PMC10073666",
-          "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
           "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
-          "PMC9844597"
+          "PMC12931073"
         ],
         "negative_evidence": []
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
       "selection_rationale": "Coverage-led selection before evaluation."
     },
     {
-      "id": "q118",
-      "revision": 2,
+      "id": "o024",
+      "revision": 1,
       "category": "cross_doc_distractor",
       "topics": [
         "oncology"
       ],
-      "question": "What five-year ADAURA OS estimates does the nonmetastatic driver review report, rather than the advanced-disease afatinib dose study?",
+      "question": "In the driver-altered NSCLC review’s stage II–IIIA ADAURA results, what absolute five-year OS difference is reported between osimertinib and placebo, and what treatment setting does it describe?",
       "required_facts": [
         {
           "id": "f1",
-          "expected_text": "Stage II–IIIA OS was 85% versus 73%; overall stage IB–IIIA 88% versus 78%, with HR 0.49 in each. These are cited adjuvant osimertinib results.",
-          "units": "Percent and hazard ratio",
-          "population": "Cited ADAURA trial",
-          "endpoint": "Five-year OS",
+          "expected_text": "The cited stage II–IIIA ADAURA comparison reports five-year OS 85% with osimertinib versus 73% with placebo, an absolute difference of 12 percentage points (HR 0.49, 95.03% CI 0.33–0.73). This is adjuvant osimertinib in resected NSCLC, not first-line advanced afatinib mTTF by starting dose.",
+          "units": "Percentage points, percent and hazard ratio",
+          "population": "Cited ADAURA stage II–IIIA resected NSCLC",
+          "endpoint": "Absolute five-year OS difference and adjuvant treatment setting",
           "timeframe": "Five years",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to Five-year OS in Cited ADAURA trial, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
         {
           "id": "primary",
           "anchors": [
-            "driver_os"
+            "driver_os",
+            "driver_dfs"
           ],
           "fact_anchors": {
             "f1": [
-              "driver_os"
+              "driver_os",
+              "driver_dfs"
             ]
           }
         }
@@ -3789,14 +3526,14 @@
           "reason_inapplicable": "Advanced first-line afatinib mTTF by dose does not answer adjuvant osimertinib five-year OS."
         }
       ],
-      "reference_answer": "Stage II–IIIA OS was 85% versus 73%; overall stage IB–IIIA 88% versus 78%, with HR 0.49 in each. These are cited adjuvant osimertinib results.",
+      "reference_answer": "The cited stage II–IIIA ADAURA comparison reports five-year OS 85% with osimertinib versus 73% with placebo, an absolute difference of 12 percentage points (HR 0.49, 95.03% CI 0.33–0.73). This is adjuvant osimertinib in resected NSCLC, not first-line advanced afatinib mTTF by starting dose.",
       "answer_rubric": {
         "required_claims": [
           "f1"
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for Cited ADAURA trial: Five-year OS."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
@@ -3812,40 +3549,29 @@
           "PMC10840225"
         ],
         "overlap_review": [
-          "PMC10073666",
-          "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
           "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
-          "PMC9844597"
+          "PMC10840225"
         ],
         "negative_evidence": []
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
-        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "duplicate_leakage_check": "Distinct from o007: derive an absolute percentage-point difference and identify the adjuvant setting, instead of reporting both stage-specific OS estimates.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation."
+      "selection_rationale": "Coverage-led selection before evaluation.",
+      "supersedes_coverage_of": "q118"
     },
     {
       "id": "o019",
-      "revision": 1,
+      "revision": 2,
       "category": "cross_doc_distractor",
       "topics": [
         "oncology"
       ],
-      "question": "What pathologist-led ordering workflow is defined in the reflex consensus, rather than a percentage of Polish patients tested in POL-MOL?",
+      "question": "According to the Gosney NSCLC consensus, what roles do the MDT, pathologist and formal oncologist request have in reflex biomarker ordering?",
       "required_facts": [
         {
           "id": "f1",
@@ -3853,10 +3579,10 @@
           "units": "Qualitative",
           "population": "NSCLC consensus",
           "endpoint": "Reflex-testing workflow",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2023-06-23; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to Reflex-testing workflow in NSCLC consensus, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
@@ -3876,9 +3602,9 @@
         {
           "article_id": "PMC11547071",
           "filename": "onco-polmol-testing.pdf",
-          "anchor_id": "polmol",
-          "plausible_confusion": "Both discuss NSCLC biomarker testing.",
-          "reason_inapplicable": "The Polish systemic-treatment questionnaire describes testing use rather than defining the reflex ordering protocol."
+          "anchor_id": "polmol_reflex",
+          "plausible_confusion": "POL-MOL also defines pathologist-initiated testing of agreed biomarkers and discusses faster treatment initiation.",
+          "reason_inapplicable": "This passage supports the general reflex-testing concept, but does not explicitly state the consensus-specific MDT agreement and absence of a formal oncologist request required here. It is partial overlap, not evidence that reflex testing is absent from POL-MOL."
         }
       ],
       "reference_answer": "A pathologist initiates prespecified MDT-agreed biomarker tests without a formal oncologist request.",
@@ -3888,7 +3614,7 @@
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for NSCLC consensus: Reflex-testing workflow."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
@@ -3904,40 +3630,36 @@
           "PMC11547071"
         ],
         "overlap_review": [
-          "PMC10073666",
           "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
-          "PMC9844597"
+          "PMC11547071"
         ],
-        "negative_evidence": []
+        "negative_evidence": [],
+        "overlap_findings": [
+          {
+            "article_id": "PMC11547071",
+            "anchor_id": "polmol_reflex",
+            "role": "partial_support",
+            "assessment": "Supports pathologist initiation and agreed biomarkers; does not complete the required MDT/no-formal-request details."
+          }
+        ]
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
       "selection_rationale": "Coverage-led selection before evaluation."
     },
     {
-      "id": "q119",
-      "revision": 2,
+      "id": "o025",
+      "revision": 1,
       "category": "cross_doc_distractor",
       "topics": [
         "oncology"
       ],
-      "question": "Which pooled NSCLC MRD assay sensitivity and specificity values does the liquid-biopsy review report, rather than the ICD review’s danger-signal mechanisms?",
+      "question": "For NSCLC MRD assessment in the Batra liquid-biopsy review, how do tumor-informed and tumor-agnostic assays compare at landmark and longitudinal timepoints?",
       "required_facts": [
         {
           "id": "f1",
@@ -3945,10 +3667,10 @@
           "units": "Percent",
           "population": "Cited NSCLC MRD assay studies",
           "endpoint": "Sensitivity and specificity",
-          "timeframe": "As reported in pinned version 1",
+          "timeframe": "Pinned article publication date 2026-07-20; no unreported follow-up horizon inferred.",
           "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
-          "tolerance": "Reported rounding only; no substitution across populations or endpoints.",
-          "contradiction_rule": "Reject reversal of groups, causal overstatement or silent reconciliation of inconsistent source values."
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to Sensitivity and specificity in Cited NSCLC MRD assay studies, reversed group order, or omitted explicit source conflicts."
         }
       ],
       "evidence_sets": [
@@ -3966,11 +3688,11 @@
       ],
       "related_distractors": [
         {
-          "article_id": "PMC13190586",
-          "filename": "onco-icd-cold-tumor-review.pdf",
-          "anchor_id": "icd_damp",
-          "plausible_confusion": "Both use tumor-derived biological signals and discuss cancer monitoring or immune response.",
-          "reason_inapplicable": "CALR, ATP and HMGB1 mechanisms do not provide ctDNA MRD assay performance estimates."
+          "article_id": "PMC10485396",
+          "filename": "onco-reflex-biomarker-consensus.pdf",
+          "anchor_id": "reflex_early",
+          "plausible_confusion": "Both discuss biomarker testing around curative-intent NSCLC treatment.",
+          "reason_inapplicable": "Early EGFR identification for therapy selection supplies no tumor-informed versus tumor-agnostic MRD sensitivity/specificity estimates."
         }
       ],
       "reference_answer": "Tumor-informed versus tumor-agnostic landmark sensitivity is 42% versus 44%, longitudinal 76% versus 79%; specificity is 97% versus 93% and 96% versus 88%, respectively.",
@@ -3980,7 +3702,7 @@
         ],
         "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
         "forbidden_conflations": [
-          "Do not substitute a cited trial for the review author cohort, or equate response, survival, event risk and cause-specific mortality."
+          "Do not substitute another population or endpoint for Cited NSCLC MRD assay studies: Sensitivity and specificity."
         ],
         "judging_status": "Manual review; no automated answer judging approved."
       },
@@ -3993,38 +3715,27 @@
         ],
         "alternatives": [],
         "decoys": [
-          "PMC13190586"
+          "PMC10485396"
         ],
         "overlap_review": [
-          "PMC10073666",
-          "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
           "PMC13429855",
-          "PMC9239676",
-          "PMC9844597"
+          "PMC13190586"
         ],
         "negative_evidence": []
       },
       "review": {
         "author": "Codex",
         "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
-        "independent_review": "Pending independent PR review; author verification is not clinical peer review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring."
       },
-      "selection_rationale": "Coverage-led selection before evaluation."
+      "selection_rationale": "Coverage-led selection before evaluation.",
+      "supersedes_coverage_of": "q119"
     },
     {
       "id": "o020",
-      "revision": 1,
+      "revision": 2,
       "category": "unanswerable",
       "topics": [
         "oncology"
@@ -4040,7 +3751,7 @@
         ],
         "acceptable_alternatives": "Explain the study limitation without inventing a number.",
         "forbidden_conflations": [
-          "Do not substitute results from cited or competing trials."
+          "Do not infer the missing requested fact from a near-miss study or endpoint."
         ],
         "judging_status": "Manual review."
       },
@@ -4067,7 +3778,7 @@
             "C1",
             "C2"
           ],
-          "selection_sha256": "7e48ab1c265b63ce90d21b85429f4c1c25cea85dd68618cb553518a1078f7ef7",
+          "selection_sha256": "cf106c82aa57aa197c1b60291bc6979b07b309257e7e18f0b2a98d4355042c1d",
           "searched_terms": [
             "failed to undergo",
             "failed to receive surgery",
@@ -4084,53 +3795,118 @@
         "required": [],
         "alternatives": [],
         "decoys": [],
-        "overlap_review": [
-          "PMC10073666",
-          "PMC10485396",
-          "PMC10770829",
-          "PMC10840225",
-          "PMC11181582",
-          "PMC11431721",
-          "PMC11547071",
-          "PMC11891047",
-          "PMC12495207",
-          "PMC12931073",
-          "PMC13190586",
-          "PMC13429855",
-          "PMC9239676",
-          "PMC9844597"
-        ],
+        "overlap_review": [],
         "negative_evidence": [
           "PMC9844597"
+        ],
+        "negative_context": [
+          {
+            "anchor_id": "hunan_absence",
+            "assessment": "Explicit absence of data about those who failed to receive surgery. Other-study failure percentages and patients found unresectable after receiving surgery do not supply this missing excluded-patient denominator."
+          }
         ]
       },
       "review": {
         "author": "Codex",
         "method": "Named-source full-text review and scoped competitor attribution check.",
-        "independent_review": "Pending independent PR review.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "tuning_exposure": "No retrieval runs used to author gold."
       },
       "selection_rationale": "Explicit absent-fact coverage distinct from false-premise correction."
     },
     {
       "id": "o021",
-      "revision": 1,
-      "category": "unanswerable",
+      "revision": 2,
+      "category": "false_premise",
       "topics": [
         "oncology"
       ],
       "question": "What randomized five-year pembrolizumab-versus-chemotherapy OS treatment effect did the Helsinki TNBC study measure?",
+      "required_facts": [
+        {
+          "id": "f1",
+          "expected_text": "The Helsinki study retrospectively compares 75 pembrolizumab-treated patients with 102 nonmatched historical controls. It is not randomized and therefore supplies no randomized five-year OS treatment-effect estimate.",
+          "units": "Study design",
+          "population": "Helsinki TNBC cohorts",
+          "endpoint": "Design and limits of causal OS inference",
+          "timeframe": "Retrospective study window; requested five-year effect not measured",
+          "qualifiers": "Historical nonmatched comparison.",
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to Design and limits of causal OS inference in Helsinki TNBC cohorts, reversed group order, or omitted explicit source conflicts."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "primary",
+          "anchors": [
+            "breast_pcr"
+          ],
+          "fact_anchors": {
+            "f1": [
+              "breast_pcr"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [],
+      "reference_answer": "The Helsinki study retrospectively compares 75 pembrolizumab-treated patients with 102 nonmatched historical controls. It is not randomized and therefore supplies no randomized five-year OS treatment-effect estimate.",
+      "answer_rubric": {
+        "required_claims": [
+          "f1"
+        ],
+        "acceptable_alternatives": "Explain the study limitation without inventing a number.",
+        "forbidden_conflations": [
+          "Do not substitute another population or endpoint for Helsinki TNBC cohorts: Design and limits of causal OS inference."
+        ],
+        "judging_status": "Manual review."
+      },
+      "answerability": {
+        "status": "false_premise",
+        "offending_premise": "The Helsinki study measured a randomized treatment effect.",
+        "correction_anchors": [
+          "breast_pcr"
+        ]
+      },
+      "dependencies": {
+        "required": [
+          "PMC12931073"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC12931073"
+        ],
+        "negative_evidence": [
+          "PMC12931073"
+        ]
+      },
+      "review": {
+        "author": "Codex",
+        "method": "Named-source full-text review and scoped competitor attribution check.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "tuning_exposure": "No retrieval runs used to author gold."
+      },
+      "selection_rationale": "Explicit absent-fact coverage distinct from false-premise correction."
+    },
+    {
+      "id": "q083",
+      "revision": 2,
+      "category": "unanswerable",
+      "topics": [
+        "oncology"
+      ],
+      "question": "What FDA-validated early-stage sensitivity value for EarlyCDT-Lung is reported in the selected oncology corpus?",
       "required_facts": [],
       "evidence_sets": [],
       "related_distractors": [],
-      "reference_answer": "Not reported in the specified source. The Helsinki study is retrospective with a nonmatched historical comparator; it does not report a randomized five-year OS treatment-effect estimate.",
+      "reference_answer": "Not reported. No selected source reports an FDA-validated early-stage sensitivity for EarlyCDT-Lung. The review describes an investigational autoantibody panel and setting-dependent study estimates, which do not establish the requested regulatory validation.",
       "answer_rubric": {
         "required_claims": [
           "State that the requested fact is unavailable in the named study."
         ],
         "acceptable_alternatives": "Explain the study limitation without inventing a number.",
         "forbidden_conflations": [
-          "Do not substitute results from cited or competing trials."
+          "Do not infer the missing requested fact from a near-miss study or endpoint."
         ],
         "judging_status": "Manual review."
       },
@@ -4157,25 +3933,25 @@
             "C1",
             "C2"
           ],
-          "selection_sha256": "7e48ab1c265b63ce90d21b85429f4c1c25cea85dd68618cb553518a1078f7ef7",
+          "selection_sha256": "cf106c82aa57aa197c1b60291bc6979b07b309257e7e18f0b2a98d4355042c1d",
           "searched_terms": [
-            "random",
-            "five-year",
-            "5-year",
-            "overall survival",
-            "nonmatched"
+            "EarlyCDT",
+            "FDA",
+            "autoantibod",
+            "validated"
           ],
           "reviewed_sections": [
             "Named study full text, methods, results, tables and discussion; selected competitor populations and endpoints"
           ],
-          "rationale": "The Helsinki study is retrospective with a nonmatched historical comparator; it does not report a randomized five-year OS treatment-effect estimate."
+          "rationale": "No selected source reports an FDA-validated early-stage sensitivity for EarlyCDT-Lung. The review describes an investigational autoantibody panel and setting-dependent study estimates, which do not establish the requested regulatory validation."
         }
       },
       "dependencies": {
         "required": [],
         "alternatives": [],
         "decoys": [],
-        "overlap_review": [
+        "overlap_review": [],
+        "negative_evidence": [
           "PMC10073666",
           "PMC10485396",
           "PMC10770829",
@@ -4191,17 +3967,187 @@
           "PMC9239676",
           "PMC9844597"
         ],
-        "negative_evidence": [
-          "PMC12931073"
+        "negative_context": [
+          {
+            "anchor_id": "earlycdt",
+            "assessment": "No selected source reports an FDA-validated early-stage sensitivity for EarlyCDT-Lung. The review describes an investigational autoantibody panel and setting-dependent study estimates, which do not establish the requested regulatory validation."
+          }
         ]
       },
       "review": {
         "author": "Codex",
-        "method": "Named-source full-text review and scoped competitor attribution check.",
-        "independent_review": "Pending independent PR review.",
+        "method": "Named-source full-text and all selected article text reviewed for requested entity, value and regulatory/geographic scope.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
         "tuning_exposure": "No retrieval runs used to author gold."
       },
-      "selection_rationale": "Explicit absent-fact coverage distinct from false-premise correction."
+      "selection_rationale": "Evidence-reviewed migration of a legacy unanswerable case on a retained source."
+    },
+    {
+      "id": "q100",
+      "revision": 2,
+      "category": "unanswerable",
+      "topics": [
+        "oncology"
+      ],
+      "question": "What dual-screening rate for the Basque Country FIT programme is reported in the selected oncology corpus?",
+      "required_facts": [],
+      "evidence_sets": [],
+      "related_distractors": [],
+      "reference_answer": "Not reported. No selected article reports the requested Basque-programme dual-screening rate. The US BRFSS study is a different population and endpoint; generic FIT discussion does not supply the requested rate.",
+      "answer_rubric": {
+        "required_claims": [
+          "State that the requested fact is unavailable in the named study."
+        ],
+        "acceptable_alternatives": "Explain the study limitation without inventing a number.",
+        "forbidden_conflations": [
+          "Do not infer the missing requested fact from a near-miss study or endpoint."
+        ],
+        "judging_status": "Manual review."
+      },
+      "answerability": {
+        "status": "absent_fact",
+        "search_scope": {
+          "article_ids": [
+            "PMC10073666",
+            "PMC10485396",
+            "PMC10770829",
+            "PMC10840225",
+            "PMC11181582",
+            "PMC11431721",
+            "PMC11547071",
+            "PMC11891047",
+            "PMC12495207",
+            "PMC12931073",
+            "PMC13190586",
+            "PMC13429855",
+            "PMC9239676",
+            "PMC9844597"
+          ],
+          "conditions": [
+            "C1",
+            "C2"
+          ],
+          "selection_sha256": "cf106c82aa57aa197c1b60291bc6979b07b309257e7e18f0b2a98d4355042c1d",
+          "searched_terms": [
+            "Basque",
+            "FIT",
+            "dual-screen",
+            "Spain"
+          ],
+          "reviewed_sections": [
+            "Named study full text, methods, results, tables and discussion; selected competitor populations and endpoints"
+          ],
+          "rationale": "No selected article reports the requested Basque-programme dual-screening rate. The US BRFSS study is a different population and endpoint; generic FIT discussion does not supply the requested rate."
+        }
+      },
+      "dependencies": {
+        "required": [],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [],
+        "negative_evidence": [
+          "PMC10073666",
+          "PMC10485396",
+          "PMC10770829",
+          "PMC10840225",
+          "PMC11181582",
+          "PMC11431721",
+          "PMC11547071",
+          "PMC11891047",
+          "PMC12495207",
+          "PMC12931073",
+          "PMC13190586",
+          "PMC13429855",
+          "PMC9239676",
+          "PMC9844597"
+        ],
+        "negative_context": [
+          {
+            "anchor_id": "screen",
+            "assessment": "No selected article reports the requested Basque-programme dual-screening rate. The US BRFSS study is a different population and endpoint; generic FIT discussion does not supply the requested rate."
+          }
+        ]
+      },
+      "review": {
+        "author": "Codex",
+        "method": "Named-source full-text and all selected article text reviewed for requested entity, value and regulatory/geographic scope.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "tuning_exposure": "No retrieval runs used to author gold."
+      },
+      "selection_rationale": "Evidence-reviewed migration of a legacy unanswerable case on a retained source."
+    },
+    {
+      "id": "q101",
+      "revision": 2,
+      "category": "false_premise",
+      "topics": [
+        "oncology"
+      ],
+      "question": "Are the HP2030 cervical and colorectal screening goals cited by Harper the study’s own achieved rates?",
+      "required_facts": [
+        {
+          "id": "f1",
+          "expected_text": "No. The cited individual-screening goals are cervical 84.3% and CRC 74.4%, whereas the study reports observed dual screening 58.2%; targets, separate-screen rates and joint screening are different measures.",
+          "units": "Percent",
+          "population": "HP2030 individual-screening targets versus US BRFSS cohort",
+          "endpoint": "Cited targets versus observed dual-screening rate",
+          "timeframe": "Pinned article publication date 2022-06-28; no unreported follow-up horizon inferred.",
+          "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject changes to Cited targets versus observed dual-screening rate in HP2030 individual-screening targets versus US BRFSS cohort, reversed group order, or omitted explicit source conflicts."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "primary",
+          "anchors": [
+            "screen_goals"
+          ],
+          "fact_anchors": {
+            "f1": [
+              "screen_goals"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [],
+      "reference_answer": "No. The cited individual-screening goals are cervical 84.3% and CRC 74.4%, whereas the study reports observed dual screening 58.2%; targets, separate-screen rates and joint screening are different measures.",
+      "answer_rubric": {
+        "required_claims": [
+          "f1"
+        ],
+        "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
+        "forbidden_conflations": [
+          "Do not substitute another population or endpoint for HP2030 individual-screening targets versus US BRFSS cohort: Cited targets versus observed dual-screening rate."
+        ],
+        "judging_status": "Manual review; no automated answer judging approved."
+      },
+      "answerability": {
+        "status": "false_premise",
+        "offending_premise": "Cited population targets are study-achieved rates.",
+        "correction_anchors": [
+          "screen_goals"
+        ]
+      },
+      "dependencies": {
+        "required": [
+          "PMC9239676"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC9239676"
+        ],
+        "negative_evidence": []
+      },
+      "review": {
+        "author": "Codex",
+        "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
+        "independent_review": "Claude reviewed initial commit 8b1adbe; confirmed findings corrected here. Independent re-review of changed gold pending.",
+        "duplicate_leakage_check": "No requested target values disclosed; shared spans serve distinct tasks.",
+        "tuning_exposure": "No retrieval or answer-generation results used in authoring."
+      },
+      "selection_rationale": "Coverage-led selection before evaluation."
     }
   ]
 }

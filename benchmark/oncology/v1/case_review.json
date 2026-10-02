@@ -1,7 +1,7 @@
 {
   "status": "review_ready; independent review pending",
   "query_version": "oncology-queries-v1",
-  "query_sha256": "8d5407f5a35f62b881075fd70346973158ffef69c40ab87ac08a552a5aad73ba",
+  "query_sha256": "9966fbdc67ef26102b347d8855f9134f87b2c2d7018c8b1b3ec89b6debec1aff",
   "method": "Exact pinned PDF extraction offsets; relevant full-text/JATS context and competing endpoints; representative PDF visuals and separate table/flow bindings.",
   "source_conflicts": [
     {
@@ -56,7 +56,7 @@
         "C1",
         "C2"
       ],
-      "selection_sha256": "7e48ab1c265b63ce90d21b85429f4c1c25cea85dd68618cb553518a1078f7ef7",
+      "selection_sha256": "cf106c82aa57aa197c1b60291bc6979b07b309257e7e18f0b2a98d4355042c1d",
       "searched_terms": [
         "failed to undergo",
         "failed to receive surgery",
@@ -69,7 +69,7 @@
       "rationale": "The cohort excludes those failing surgery, and discussion explicitly says their data were absent; do not infer an excluded-patient count from included treatment groups."
     },
     {
-      "id": "o021",
+      "id": "q083",
       "article_ids": [
         "PMC10073666",
         "PMC10485396",
@@ -90,20 +90,53 @@
         "C1",
         "C2"
       ],
-      "selection_sha256": "7e48ab1c265b63ce90d21b85429f4c1c25cea85dd68618cb553518a1078f7ef7",
+      "selection_sha256": "cf106c82aa57aa197c1b60291bc6979b07b309257e7e18f0b2a98d4355042c1d",
       "searched_terms": [
-        "random",
-        "five-year",
-        "5-year",
-        "overall survival",
-        "nonmatched"
+        "EarlyCDT",
+        "FDA",
+        "autoantibod",
+        "validated"
       ],
       "reviewed_sections": [
         "Named study full text, methods, results, tables and discussion; selected competitor populations and endpoints"
       ],
-      "rationale": "The Helsinki study is retrospective with a nonmatched historical comparator; it does not report a randomized five-year OS treatment-effect estimate."
+      "rationale": "No selected source reports an FDA-validated early-stage sensitivity for EarlyCDT-Lung. The review describes an investigational autoantibody panel and setting-dependent study estimates, which do not establish the requested regulatory validation."
+    },
+    {
+      "id": "q100",
+      "article_ids": [
+        "PMC10073666",
+        "PMC10485396",
+        "PMC10770829",
+        "PMC10840225",
+        "PMC11181582",
+        "PMC11431721",
+        "PMC11547071",
+        "PMC11891047",
+        "PMC12495207",
+        "PMC12931073",
+        "PMC13190586",
+        "PMC13429855",
+        "PMC9239676",
+        "PMC9844597"
+      ],
+      "conditions": [
+        "C1",
+        "C2"
+      ],
+      "selection_sha256": "cf106c82aa57aa197c1b60291bc6979b07b309257e7e18f0b2a98d4355042c1d",
+      "searched_terms": [
+        "Basque",
+        "FIT",
+        "dual-screen",
+        "Spain"
+      ],
+      "reviewed_sections": [
+        "Named study full text, methods, results, tables and discussion; selected competitor populations and endpoints"
+      ],
+      "rationale": "No selected article reports the requested Basque-programme dual-screening rate. The US BRFSS study is a different population and endpoint; generic FIT discussion does not supply the requested rate."
     }
   ],
-  "independent_review": "Pending Juan PR review; full topic integration needs renewed negative scope checks.",
+  "independent_review": "Claude reviewed initial commit; corrected draft requires re-review before freeze.",
   "tuning_exposure": "No retrieval or model answers seen during authoring."
 }

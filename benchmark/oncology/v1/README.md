@@ -1,7 +1,7 @@
 # Oncology selection and query release — v1
 
 JUA-112 review candidate, 2026-10-02. **14 articles**, 187 physical PDF pages,
-25,168,522 downloaded bytes; **39 cases** and 37 exact extraction anchors.
+25,168,522 downloaded bytes; **42 cases** and 42 exact extraction anchors.
 Selection and gold were authored without retrieval results. Independent review
 and freeze are pending; this release makes no retrieval-quality claim.
 
@@ -42,17 +42,18 @@ manifest, golden cases, prior evaluation results and shared collections are pres
 ## Cases and conditions
 
 [queries.json](queries.json) contains 19 lookups, 7 same-article multi-hop cases,
-3 cross-document synthesis cases, 3 named-distractor cases, 5 false-premise cases
-and 2 absent-fact cases. Each answer fact names its population, endpoint, units,
+3 cross-document synthesis cases, 3 named-distractor cases, 7 false-premise cases
+and 3 absent-fact cases. Each answer fact names its population, endpoint, units,
 timeframe, tolerance and contradiction rule. Evidence includes physical page,
 section, exact raw extraction offsets and hashes. Required evidence is bound to
 each fact; decoys identify the plausible confusion and why their scope differs.
-The two absent cases ask for facts not reported by specifically named studies;
+The three absent cases ask for facts not reported by specifically named studies;
 their scopes include the whole selected oncology corpus. Broader combined-corpus
 negative claims require another scope review in JUA-114.
 
-Of the legacy cases, 18 IDs have explicit revision 2 and 24 are retired. New
-oncology-local IDs are o001–o021. These are coverage replacements, not equivalent
+Of the legacy cases, 12 IDs have explicit revisions and 30 are retired. New
+oncology-local IDs are o001–o030. [revision_ledger.json](revision_ledger.json) records
+the pre-freeze corrections and renamed coverage tasks. These are coverage replacements, not equivalent
 labels: historical scores must not be compared as if sources and gold were unchanged.
 [case_dependencies.json](case_dependencies.json) and [evidence_map.json](evidence_map.json)
 record required sources, decoys, overlap review and selected evidence relationships.
@@ -113,12 +114,14 @@ The [verification report](REPORT.md) contains offline results only. Freeze revie
 selection, queries and scorer before retrieval comparisons, as required by the
 [shared standards](../../STANDARDS.md). After review, use an isolated oncology
 collection and explicit output paths, selecting affected IDs from dependencies.
-q117, q118 and q119 plus treatment, dose-conflict, TNBC and cardio-oncology cases
+o030, o024 and o025 plus treatment, dose-conflict, TNBC and cardio-oncology cases
 are the initial focused sample. Then obtain declared complete coverage before
 reporting a full oncology baseline. Validate requested-ID coverage, collection
 membership and artifact hashes. Use the same fixed questions for C1/C2 comparisons.
 Selected article changes warrant a small cardiology/diabetes regression sample,
 but current outputs of those parallel tasks must first be fixed and available.
+
+Raw duplicate PDFs and deferred candidates are archived below `corpus/oncology-v1/acquisition/`, outside the selected directory’s top-level PDF membership.
 
 No model loading, collection creation, ingestion, retrieval, rewriting, generation
 or answer judging was performed here. Paid rewrite/generation/judge runs require

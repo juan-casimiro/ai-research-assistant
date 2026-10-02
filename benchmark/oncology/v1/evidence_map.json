@@ -11,7 +11,7 @@
         "q080",
         "q081",
         "q082",
-        "q119"
+        "o025"
       ],
       "decoy_cases": [],
       "selection_locations": [
@@ -100,6 +100,23 @@
           "text_end": 2110,
           "excerpt": "pplications under \nprospective evaluation, and applications not yet ready for routine clinical use. No \nmulti-cancer early detection (MCED) test has shown a mortality benefit to date, \nand ctDNA-guided treatment changes in metastatic disease still lack randomized \noverall-survival data.\nKE",
           "excerpt_sha256": "55340fb7777f12292c1a82f67820c0b25bde4e7c277e18171eb86d879ef06c79"
+        },
+        {
+          "id": "earlycdt",
+          "article_id": "PMC13429855",
+          "filename": "onco-lung-liquidbiopsy.pdf",
+          "pmc_version": 1,
+          "pdf_sha256": "7c9c6384315c78c2d87b85a626a77df3f062cb844d938d63555a43cbc485f5fe",
+          "text_sha256": "58575a81d8a421f828c2df5ee858c9cc6042affcd304fa806ba272ecc77fbdd5",
+          "page": 4,
+          "pages": [
+            4
+          ],
+          "section": "Table 1; autoantibody panel, cited trials and investigational status",
+          "text_start": 17020,
+          "text_end": 17767,
+          "excerpt": "ctDNA levels at \nearly stage; clonal \nhematopoiesis \ninterference; \nhistology-dependent \nshedding\nInvestigational\nTumor-Aab panel \n( Sullivan et al., \n2021 ; González \net al., 2021 )\nDetection of host \nimmune response to \ntumor antigens\nECLS trial \n(EarlyCDT-Lung), \nLUSI trial evaluation \n( Sullivan et al., 2021 ; \nGonzález et al., \n2021 )\n~13–41% (variable \nby setting)\n~88–91% Detects immune \nresponse that may \nprecede \nradiographic \nappearance; \ninexpensive; non- \ninvasive\nModest sensitivity, \nespecially for small \nLDCT-detectable \ntumors; panel- \ndependent; limited \nstage-shift data\nInvestigational \nCommercially \navailable in limited \nsettings\nAbbreviations: AAb, autoantibodies; ctDNA, circulating tumor DNA; LDCT, low-dose computed to",
+          "excerpt_sha256": "a7083647b84bd3acc73af423309f25cd2fb71dfc8680cfb6c542ba62445d8635"
         }
       ],
       "interpretation_limits": "Use the population, endpoint, time horizon and contradiction rules in the linked query facts; review articles attribute cited primary studies, rather than supplying new cohorts."
@@ -112,7 +129,8 @@
       "answer_cases": [
         "q095",
         "q096",
-        "q102"
+        "q102",
+        "q101"
       ],
       "decoy_cases": [],
       "selection_locations": [
@@ -149,6 +167,23 @@
           "text_end": 55340,
           "excerpt": "0. DOI: https://doi.org/10.7554/eLife.76070  17 of 19\nAppendix 1\nWomen 50-65 years old:\nN=67,473\nExclusions\nHysterectomy: N=19,011\nEndometrial cancer: N=1\nCervical cancer : N=29\nColon cancer : N=17\nRectal cancer: N=6\nN=48,209\n Exclusions\nIncomplete data on \nscreening outcomes: \nN=7,898\nAnalysis Group\nN=40,511\nAppendix 1—figure 1. Consort diagram.\nAppendix results\nAppendix 1—tab",
           "excerpt_sha256": "1da3869ed42614d3925cfa76fd0f974cd7250228cb5e6e1e7ab4477e212de6bc"
+        },
+        {
+          "id": "screen_goals",
+          "article_id": "PMC9239676",
+          "filename": "onco-colorectal-screening.pdf",
+          "pmc_version": 1,
+          "pdf_sha256": "5c288149e5302d2a0df3b1f5b5eac2aa66fdbf814e2f6b4a1e3edd221e91b9e9",
+          "text_sha256": "7810d2970ea970c2d6f1a545e2d837e6307483394f4b3bfbd00e4d88f2ffa282",
+          "page": 11,
+          "pages": [
+            11
+          ],
+          "section": "Discussion; cited HP2030 individual-screening goals versus observed dual screening",
+          "text_start": 33380,
+          "text_end": 33930,
+          "excerpt": "ew perspective that the rate of women \nwho screened for both cervix cancer and CRC (58.2%) is far below the recommended rates for each \ncancer individually (HP2030 goals cervix: 84.3% and CRC: 74.4%) (US Department of Health & \nHuman Services, 2013), HP2030- C07 (Harper et al., 2021a). Another new finding is that women \n50–64 years old screen for cervical cancer alone five times more often than CRC alone. We show that \nthe 50- to 64- year age range is dynamic with changing cancer screening behaviors from predomi-\nnantly cervical screening at 50",
+          "excerpt_sha256": "88ed03857cceeeba33027ba6dfb50fec972951647e2add41c861216b01ddce71"
         }
       ],
       "interpretation_limits": "Use the population, endpoint, time horizon and contradiction rules in the linked query facts; review articles attribute cited primary studies, rather than supplying new cohorts."
@@ -159,10 +194,10 @@
       "selection_rationale": "Resected real-world NSCLC; pathological response and unadjusted versus matched DFS",
       "abstract_summary": "Retrospective Hunan resection cohort comparing PD-1 inhibitor plus chemotherapy with chemotherapy alone. Higher pathological responses and unadjusted DFS differ from matched DFS; surgical complexity, selection bias and immature OS limit interpretation.",
       "answer_cases": [
-        "q103",
-        "q104",
-        "q105",
-        "q117"
+        "o022",
+        "o029",
+        "o028",
+        "o030"
       ],
       "decoy_cases": [],
       "selection_locations": [
@@ -233,6 +268,40 @@
           "text_end": 40315,
           "excerpt": "ear OS, patients who received \nPD- 1 + Chemo and achieved MPR(CR) also achieved bet -\nter results. However, because the follow- up time was too \nlimited and the OS data were immature, further analysis \nof prognostic factors was not conducted in this study.\nPerioperative morbidity is one of the principal con-\ncerns in surgical treatment following neoadju",
           "excerpt_sha256": "4c7c8f1dc16b95445b7513d3cc821b62a9b6de05959a0900abd0507bc63a37b2"
+        },
+        {
+          "id": "hunan_os_results",
+          "article_id": "PMC9844597",
+          "filename": "onco-nsclc-neoadjuvant-hunan.pdf",
+          "pmc_version": 1,
+          "pdf_sha256": "3b7648ae2dad0474f9713ef4fd45321baa410102e45edb9859430a69817f6017",
+          "text_sha256": "28c1a5108837001e0a4e43860ee16bb52bcbce6d4f6796e0052c889a4480bfb3",
+          "page": 7,
+          "pages": [
+            7
+          ],
+          "section": "Results; unweighted and weighted two-year OS, Figure 1C/D",
+          "text_start": 26396,
+          "text_end": 26774,
+          "excerpt": "Furthermore, in the unweighted population, the 2- year \nOS rate in the PD- 1 + Chemo group was 94.1%, which was \nsignificantly longer than that of the Chemo group (85.7%; \np  =  0.012; Figure 1C). The weighted population yielded \n93.8% versus 87.1%, respectively (Figure  1D, p  =  0.038). \nThe 2-  year OS in patients who achieved MPR(CR) was \n98.2%, which was significantly hi",
+          "excerpt_sha256": "2b7422ee094e59f2ac71c9af546b1ec7095ee8d9c08fa133f75248427429c816"
+        },
+        {
+          "id": "hunan_absence",
+          "article_id": "PMC9844597",
+          "filename": "onco-nsclc-neoadjuvant-hunan.pdf",
+          "pmc_version": 1,
+          "pdf_sha256": "3b7648ae2dad0474f9713ef4fd45321baa410102e45edb9859430a69817f6017",
+          "text_sha256": "28c1a5108837001e0a4e43860ee16bb52bcbce6d4f6796e0052c889a4480bfb3",
+          "page": 9,
+          "pages": [
+            9
+          ],
+          "section": "Discussion; absent data for patients who failed surgery",
+          "text_start": 34230,
+          "text_end": 34620,
+          "excerpt": "% of patients underwent \nsuccessful R0 resection after neoadjuvant chemoimmuno-\ntherapy in previous reports.16– 18,20 Unfortunately, the data \non patients who failed to receive surgery were absent be -\ncause this study only included patients who received sur -\ngery after neoadjuvant therapy.\nConsidering the possibility of fibrosis and adhesion \nafter neoadjuvant therapy, it is still deba",
+          "excerpt_sha256": "d2f41cd626c2a360d5516905b6a23f1b03565c364b1a3d65d7c48be94b5cda2e"
         }
       ],
       "interpretation_limits": "Use the population, endpoint, time horizon and contradiction rules in the linked query facts; review articles attribute cited primary studies, rather than supplying new cohorts."
@@ -311,7 +380,8 @@
         "o003",
         "o004",
         "o005",
-        "o018"
+        "o018",
+        "o021"
       ],
       "decoy_cases": [],
       "selection_locations": [
@@ -410,11 +480,11 @@
       "selection_rationale": "Advanced EGFR-mutant disease; dose/ORR versus TTF; abstract/results conflict",
       "abstract_summary": "Nine-hospital Vietnamese retrospective first-line afatinib cohort in advanced EGFR-mutant NSCLC. Higher starting-dose ORR did not correspond to significantly different TTF; abstract dose frequencies conflict with Table 2 and detailed results.",
       "answer_cases": [
-        "q113",
+        "o027",
         "o006"
       ],
       "decoy_cases": [
-        "q118"
+        "o024"
       ],
       "selection_locations": [
         {
@@ -498,6 +568,23 @@
           "text_end": 2270,
           "excerpt": "d\nthrough qualitative analysis.\nResults: Twelve observational studies using Real world Data were included,\nencompassing 23,621 patients with NSCLC. Our ﬁndings indicated that patients\ntreated with ICIs exhibited a 3% prevalence of CV events and a signi ﬁcantly higher\nhazard (HR = 1.78 (95% CI: 1.46, 2.17); p < 0.00001; I2 = 72%) compared to\npatients treated with other",
           "excerpt_sha256": "754ccdc6c50893ee6c3a9c24a0ffcb1bee152daa84f0878f0e417cd37c1d3dcb"
+        },
+        {
+          "id": "obs_hr_scope",
+          "article_id": "PMC11891047",
+          "filename": "onco-ici-cv-observational.pdf",
+          "pmc_version": 1,
+          "pdf_sha256": "c5b888eeddb09eb5f0eb9a87a0f80865f1b3c23b5c593d84f0e9b1e959a45052",
+          "text_sha256": "951e0f660ba1d43156b2b831ad9da1002294f302c31568684239f9a0336ea883",
+          "page": 14,
+          "pages": [
+            14
+          ],
+          "section": "Discussion; limitations: four studies contribute to HR",
+          "text_start": 37585,
+          "text_end": 37953,
+          "excerpt": "dverse cardiovascular events ( 45).\nOur study had the following limitations: (a) only observational\nstudies were included; (b) moderate heterogeneity was observed in\nHR while high heterogeneity was seen in prevalence analysis; (c) only\n4 studies were used in analyzing HR. Nonetheless, these studies were\npivotal in performing our analysis and conducting this research",
+          "excerpt_sha256": "2553427cffd335764529de53929828f275221eec58bfa2d79cfdb9c99b73a517"
         }
       ],
       "interpretation_limits": "Use the population, endpoint, time horizon and contradiction rules in the linked query facts; review articles attribute cited primary studies, rather than supplying new cohorts."
@@ -542,7 +629,7 @@
       "answer_cases": [
         "q108",
         "o007",
-        "q118"
+        "o024"
       ],
       "decoy_cases": [],
       "selection_locations": [
@@ -594,21 +681,22 @@
       ],
       "selection_locations": [
         {
-          "id": "polmol",
+          "id": "polmol_reflex",
           "article_id": "PMC11547071",
           "filename": "onco-polmol-testing.pdf",
           "pmc_version": 1,
           "pdf_sha256": "773f4d6d7babdfef218232a0cc2e4c825790f3420eeb1313954b481a14c49701",
           "text_sha256": "aecc3690ab9e2438bd9469beae209f850307e53aab032e4ede390b6b2593ab21",
-          "page": 1,
+          "page": 14,
           "pages": [
-            1
+            14,
+            15
           ],
-          "section": "Abstract; Polish systemic-treatment testing cohort",
-          "text_start": 2580,
-          "text_end": 3500,
-          "excerpt": "m of the POL-MOL study was to\ninvestigate the frequency of using molecular testing in Polish patients with NSCLC. The invited\nPolish oncologists completed two questionnaires, and data for 1001 patients undergoing systemic\ntreatment for NSCLC were collected. The use of molecular tests for the following genetic mutations\nwas recorded: EGFR (del19, sub21), EGFR (other than del19/sub21), EGFR T790M, ALK (expression\nand rearrangement), RET, NTRK, ROS1, BRAF, HER2, and MET, as well as for immunochemical\nassessment of programmed cell death ligand 1 (PD-L1). Thanks to the weighting procedure, the\nresults are representative of the population of Polish patients treated for NSCLC. Molecular tests\nwere applied in 78% of patients with NSCL, 70% of patients with NSCLC not otherwise specified, and\nin 12% of patients with squamous cell carcinoma of the lung. The frequency of application increased\nwith disease stage in all ",
-          "excerpt_sha256": "15d300bf29e213f784335a4767f7cfaf435bf1a8912dd683f33e4d61dc1524fc"
+          "section": "Discussion; reflex ordering definition and implementation benefits",
+          "text_start": 48414,
+          "text_end": 49350,
+          "excerpt": "Limited reimbursement favors on-demand testing, in which molecular testing is\nordered by the treating physician, over reflex testing, in which testing for specific, agreed-\nupon biomarkers is automatically ordered by the pathologist as soon as the NSCLC diag-\nnosis is made [30,39,48]. Reflex testing can facilitate optimal use of tissue, increase testing\nrates, reduce the time to optimal treatment initiation due to early availability of results,\nand improve the quality of biomarker testing [11,20,30,39,48]. With reflex testing, higher\nmutation detection rates were observed, which is explained by the lack of preselection of\npatients based on clinical characteristics and the more comprehensive panel screened [39].\nOther advantages include the ability to select patients for prospective clinical trials and\nretrospective patient outcome studies regarding both the prognostic value of different\nInt. J. Mol. Sci. 2024, 25, 11354 15",
+          "excerpt_sha256": "195841860a42815058725fcc90a562a2b819cdc3288cedb6a368c950677e904a"
         }
       ],
       "interpretation_limits": "Use the population, endpoint, time horizon and contradiction rules in the linked query facts; review articles attribute cited primary studies, rather than supplying new cohorts."
@@ -619,9 +707,9 @@
       "selection_rationale": "Testing workflow and implementation barriers, including early-stage disease",
       "abstract_summary": "Expert consensus on pathologist-initiated reflex testing. Covers early-stage and metastatic indications, tissue stewardship, turnaround, protocol ownership and reimbursement barriers. Recommendations and cited implementation studies must not be described as its own randomized trial.",
       "answer_cases": [
-        "q111",
+        "o023",
         "o008",
-        "q117",
+        "o030",
         "o019"
       ],
       "decoy_cases": [],
@@ -692,7 +780,7 @@
         "o016"
       ],
       "decoy_cases": [
-        "q119"
+        "o025"
       ],
       "selection_locations": [
         {
@@ -821,7 +909,7 @@
       "selection_rationale": "Older advanced NSCLC; competing-risk CVD mortality versus cancer mortality",
       "abstract_summary": "SEER-Medicare retrospective PD-1-treated advanced NSCLC cohort in adults aged at least 65. Uses competing-risk and cause-specific mortality analyses; treatment contrasts and CHF associations concern selected older patients and cannot establish an ICI-versus-no-ICI causal effect.",
       "answer_cases": [
-        "q112",
+        "o026",
         "o012",
         "o017"
       ],
@@ -847,5 +935,7 @@
       ],
       "interpretation_limits": "Use the population, endpoint, time horizon and contradiction rules in the linked query facts; review articles attribute cited primary studies, rather than supplying new cohorts."
     }
-  ]
+  ],
+  "query_sha256": "9966fbdc67ef26102b347d8855f9134f87b2c2d7018c8b1b3ec89b6debec1aff",
+  "selection_sha256": "cf106c82aa57aa197c1b60291bc6979b07b309257e7e18f0b2a98d4355042c1d"
 }

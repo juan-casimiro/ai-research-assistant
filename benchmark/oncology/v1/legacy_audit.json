@@ -5,7 +5,12 @@
   "baseline_commit": "2df83258b27368c50e3c4172f340636d34aad145",
   "baseline_hashes": {
     "corpus_manifest.json": "a82dbdcce605ad6d729be662db9c795100c503bd8abf9eed005c5d696c92a9d8",
-    "golden_qa.json": "9f53d45e7b71695763092ca3c6eb03ddfd8e65bc260f6d27fbfecbc28d744e6a"
+    "golden_qa.json": "9f53d45e7b71695763092ca3c6eb03ddfd8e65bc260f6d27fbfecbc28d744e6a",
+    "eval_results/context_sufficient_eval_results.json": "50d6e0a36522a6e9e6e7c9b52bb939ee00f1d1041983ec707ebd8942a723bde8",
+    "eval_results/eval_results_baseline.json": "872a551457d198257abfc79c6f2590d8b5cd46b08ecdb80a013e2d254d5a25a3",
+    "eval_results/eval_results_bm25.json": "94eaa2aa7512b29f13547ec3550ce712e4fba28d3a44bf03bced6cc906686ce2",
+    "eval_results/eval_results_rewrite.json": "31f8acf28b2b625b719a1c3fe4e928a143f43559f993a2a0c24e53726ea55aef",
+    "eval_results/eval_results_bm25_rewrite.json": "c77eeb4825fed53ab188bae3ea08548a722de489893f606b491a2a58530df5d0"
   },
   "articles": [
     {
@@ -212,13 +217,13 @@
       "source_dependencies": [
         "onco-lung-liquidbiopsy.pdf"
       ],
-      "action": "retire_legacy_case",
+      "action": "revise_in_v1",
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
-      "negative_scope_review": "Old null-source attribution retired or reclassified; new absent facts have explicit scope.",
+      "negative_scope_review": "absent_fact",
       "replacement_cases": [
-        "q081"
+        "q083"
       ],
-      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+      "reason": "Retained source independently reviewed; requested absent regulatory/geographic fact or positively corrected target attribution."
     },
     {
       "id": "q084",
@@ -340,7 +345,12 @@
       "replacement_cases": [
         "o013"
       ],
-      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold.",
+      "legacy_answerability_review": {
+        "status": "false_premise",
+        "decision": "Retired: the source supporting the named study is not eligible in this release; the original question is preserved rather than recast onto a different study.",
+        "replacement_equivalence": false
+      }
     },
     {
       "id": "q092",
@@ -369,7 +379,7 @@
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "not_applicable",
       "replacement_cases": [
-        "q119"
+        "o025"
       ],
       "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
     },
@@ -385,7 +395,7 @@
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "not_applicable",
       "replacement_cases": [
-        "q119"
+        "o025"
       ],
       "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
     },
@@ -472,14 +482,13 @@
       "source_dependencies": [
         "onco-colorectal-screening.pdf"
       ],
-      "action": "retire_legacy_case",
+      "action": "revise_in_v1",
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
-      "negative_scope_review": "Old null-source attribution retired or reclassified; new absent facts have explicit scope.",
+      "negative_scope_review": "absent_fact",
       "replacement_cases": [
-        "o020",
-        "o021"
+        "q100"
       ],
-      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+      "reason": "Retained source independently reviewed; requested absent regulatory/geographic fact or positively corrected target attribution."
     },
     {
       "id": "q101",
@@ -488,13 +497,13 @@
       "source_dependencies": [
         "onco-colorectal-screening.pdf"
       ],
-      "action": "retire_legacy_case",
+      "action": "revise_in_v1",
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
-      "negative_scope_review": "Old null-source attribution retired or reclassified; new absent facts have explicit scope.",
+      "negative_scope_review": "false_premise",
       "replacement_cases": [
-        "q095"
+        "q101"
       ],
-      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+      "reason": "Retained source independently reviewed; requested absent regulatory/geographic fact or positively corrected target attribution."
     },
     {
       "id": "q102",
@@ -518,13 +527,13 @@
       "source_dependencies": [
         "onco-breast-immunotherapy.pdf"
       ],
-      "action": "revise_in_v1",
+      "action": "retire_legacy_case",
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "not_applicable",
       "replacement_cases": [
-        "q103"
+        "o022"
       ],
-      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable."
+      "reason": "Different study-specific task receives a new oncology-local ID; this is coverage replacement, not equivalent gold."
     },
     {
       "id": "q104",
@@ -533,13 +542,13 @@
       "source_dependencies": [
         "onco-breast-immunotherapy.pdf"
       ],
-      "action": "revise_in_v1",
+      "action": "retire_legacy_case",
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "not_applicable",
       "replacement_cases": [
-        "q104"
+        "o029"
       ],
-      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable."
+      "reason": "Different study-specific task receives a new oncology-local ID; this is coverage replacement, not equivalent gold."
     },
     {
       "id": "q105",
@@ -548,13 +557,13 @@
       "source_dependencies": [
         "onco-breast-immunotherapy.pdf"
       ],
-      "action": "revise_in_v1",
+      "action": "retire_legacy_case",
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "not_applicable",
       "replacement_cases": [
-        "q105"
+        "o028"
       ],
-      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable."
+      "reason": "Different study-specific task receives a new oncology-local ID; this is coverage replacement, not equivalent gold."
     },
     {
       "id": "q106",
@@ -583,7 +592,7 @@
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "not_applicable",
       "replacement_cases": [
-        "q104"
+        "o029"
       ],
       "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
     },
@@ -616,7 +625,12 @@
         "o007",
         "o020"
       ],
-      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold.",
+      "legacy_answerability_review": {
+        "status": "absent_fact",
+        "decision": "Retired: the source supporting the named study is not eligible in this release; the original question is preserved rather than recast onto a different study.",
+        "replacement_equivalence": false
+      }
     },
     {
       "id": "q110",
@@ -629,7 +643,7 @@
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "not_applicable",
       "replacement_cases": [
-        "q111"
+        "o023"
       ],
       "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
     },
@@ -640,13 +654,13 @@
       "source_dependencies": [
         "onco-genomics-precision-medicine.pdf"
       ],
-      "action": "revise_in_v1",
+      "action": "retire_legacy_case",
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "not_applicable",
       "replacement_cases": [
-        "q111"
+        "o023"
       ],
-      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable."
+      "reason": "Different study-specific task receives a new oncology-local ID; this is coverage replacement, not equivalent gold."
     },
     {
       "id": "q112",
@@ -655,13 +669,13 @@
       "source_dependencies": [
         "onco-genomics-precision-medicine.pdf"
       ],
-      "action": "revise_in_v1",
+      "action": "retire_legacy_case",
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "not_applicable",
       "replacement_cases": [
-        "q112"
+        "o026"
       ],
-      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable."
+      "reason": "Different study-specific task receives a new oncology-local ID; this is coverage replacement, not equivalent gold."
     },
     {
       "id": "q113",
@@ -670,13 +684,13 @@
       "source_dependencies": [
         "onco-genomics-precision-medicine.pdf"
       ],
-      "action": "revise_in_v1",
+      "action": "retire_legacy_case",
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "not_applicable",
       "replacement_cases": [
-        "q113"
+        "o027"
       ],
-      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable."
+      "reason": "Different study-specific task receives a new oncology-local ID; this is coverage replacement, not equivalent gold."
     },
     {
       "id": "q114",
@@ -689,7 +703,7 @@
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "not_applicable",
       "replacement_cases": [
-        "q112",
+        "o026",
         "o017"
       ],
       "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
@@ -707,7 +721,12 @@
       "replacement_cases": [
         "o019"
       ],
-      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold."
+      "reason": "Legacy source/claim not carried into this release; replacements are coverage relationships, not equivalent gold.",
+      "legacy_answerability_review": {
+        "status": "absent_fact",
+        "decision": "Retired: the source supporting the named study is not eligible in this release; the original question is preserved rather than recast onto a different study.",
+        "replacement_equivalence": false
+      }
     },
     {
       "id": "q116",
@@ -733,13 +752,13 @@
         "onco-breast-immunotherapy.pdf",
         "onco-genomics-precision-medicine.pdf"
       ],
-      "action": "revise_in_v1",
+      "action": "retire_legacy_case",
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "not_applicable",
       "replacement_cases": [
-        "q117"
+        "o030"
       ],
-      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable."
+      "reason": "Different study-specific task receives a new oncology-local ID; this is coverage replacement, not equivalent gold."
     },
     {
       "id": "q118",
@@ -749,13 +768,13 @@
         "onco-breast-immunotherapy.pdf",
         "onco-genomics-precision-medicine.pdf"
       ],
-      "action": "revise_in_v1",
+      "action": "retire_legacy_case",
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "not_applicable",
       "replacement_cases": [
-        "q118"
+        "o024"
       ],
-      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable."
+      "reason": "Different study-specific task receives a new oncology-local ID; this is coverage replacement, not equivalent gold."
     },
     {
       "id": "q119",
@@ -765,13 +784,13 @@
         "onco-breast-immunotherapy.pdf",
         "onco-lung-liquidbiopsy.pdf"
       ],
-      "action": "revise_in_v1",
+      "action": "retire_legacy_case",
       "evidence_review": "See queries.json for reviewed replacement evidence, exact offsets and scoped gold.",
       "negative_scope_review": "not_applicable",
       "replacement_cases": [
-        "q119"
+        "o025"
       ],
-      "reason": "Revision changes source, scope, or rubric; legacy scores are not comparable."
+      "reason": "Different study-specific task receives a new oncology-local ID; this is coverage replacement, not equivalent gold."
     }
   ],
   "limits": [
