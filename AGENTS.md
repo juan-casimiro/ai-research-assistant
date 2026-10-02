@@ -5,8 +5,7 @@ Python 3.12 / FastAPI retrieval-augmented question-answering service.
 ## Shared guidance
 
 Follow the [development guidance index](https://github.com/juan-casimiro/development-config/blob/main/AGENTS.md)
-for shared process and environment instructions. If already loaded in this chat,
-reuse its completed startup and instructions.
+(private repository: read it through authenticated GitHub access).
 
 ## Sources
 
