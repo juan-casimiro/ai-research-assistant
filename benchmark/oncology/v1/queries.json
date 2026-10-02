@@ -3611,7 +3611,7 @@
     },
     {
       "id": "o009",
-      "revision": 4,
+      "revision": 5,
       "category": "multi_hop",
       "topics": [
         "oncology"
@@ -3620,12 +3620,12 @@
       "required_facts": [
         {
           "id": "f1",
-          "expected_text": "Twelve observational studies included 23,621 NSCLC patients; overall CV-event prevalence was 3%, not a comparative risk. Only four studies contributed to the pooled HR 1.78 (95% CI 1.46–2.17), I²=72%, comparing ICI with non-ICI treatment. Observational association is not proof of causation or CVD mortality.",
+          "expected_text": "Twelve observational studies included 23,621 NSCLC patients; overall CV-event prevalence was 3%, a separate measure from the HR. Only four studies contributed to the pooled HR 1.78 (95% CI 1.46–2.17), I²=72%, comparing ICI with non-ICI treatment. Observational association is not proof of causation or CVD mortality.",
           "units": "Percent and hazard ratio",
           "population": "Observational NSCLC cohorts",
           "endpoint": "CV-event prevalence and hazard",
           "timeframe": "Pinned article publication date 2025-02-24; no unreported follow-up horizon inferred.",
-          "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
+          "qualifiers": "Preserve source attribution, group order, study design and reported conflicts. The Results describe statistically higher CV-event occurrence with ICI versus non-ICI alongside the prevalence; accept that wording when source-attributed without interpreting 3% as the HR or relative risk.",
           "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
           "contradiction_rule": "Reject a different population, comparator or endpoint; preserve the stated numeric estimates, uncertainty and source qualifications."
         }
@@ -3663,12 +3663,12 @@
         }
       ],
       "related_distractors": [],
-      "reference_answer": "Twelve observational studies included 23,621 NSCLC patients; overall CV-event prevalence was 3%, not a comparative risk. Only four studies contributed to the pooled HR 1.78 (95% CI 1.46–2.17), I²=72%, comparing ICI with non-ICI treatment. Observational association is not proof of causation or CVD mortality.",
+      "reference_answer": "Twelve observational studies included 23,621 NSCLC patients; overall CV-event prevalence was 3%, a separate measure from the HR. Only four studies contributed to the pooled HR 1.78 (95% CI 1.46–2.17), I²=72%, comparing ICI with non-ICI treatment. Observational association is not proof of causation or CVD mortality.",
       "answer_rubric": {
         "required_claims": [
           "f1"
         ],
-        "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
+        "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict. Accept the Results statement of significantly higher CV-event occurrence when explicitly attributed to the source. Keep the 3% prevalence distinct from HR 1.78; do not present 3% as a hazard ratio or relative-risk estimate.",
         "forbidden_conflations": [
           "Do not substitute another population or endpoint for Observational NSCLC cohorts: CV-event prevalence and hazard."
         ],
@@ -3696,9 +3696,9 @@
         "independent_review": "Claude reviewed 8b1adbe, a226bba and b626fbb; Codex independently checked the latest findings and applied this correction. Changed gold and alternatives require independent re-review before freeze.",
         "duplicate_leakage_check": "Evidence is a subset of o017's. Retained because o017 tests cross-document endpoint separation, while o009 tests single-source scope of the HR.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring.",
-        "alternative_evidence_check": "Results 3.2 and 3.4 repeat population, prevalence and HR; together with the four-study HR-scope limitation they form a complete alternative. Prevalence is not a comparator-relative risk despite the Results wording."
+        "alternative_evidence_check": "Accept the Results statement of significantly higher CV-event occurrence when explicitly attributed to the source. Keep the 3% prevalence distinct from HR 1.78; do not present 3% as a hazard ratio or relative-risk estimate."
       },
-      "selection_rationale": "Tests separating overall CV-event prevalence (3%, noncomparative) from the pooled HR, which only four of twelve observational studies contribute. Association is not causation or CVD mortality. Multi-hop: abstract and Limitations anchors (recategorised from direct lookup).",
+      "selection_rationale": "Tests separating overall CV-event prevalence (3%, distinct from HR; attributed Results comparison accepted) from the pooled HR, which only four of twelve observational studies contribute. Association is not causation or CVD mortality. Multi-hop: abstract and Limitations anchors (recategorised from direct lookup).",
       "reasoning": "Join the abstract's prevalence and pooled HR to the Limitations statement that only four studies contribute to that HR."
     },
     {
@@ -4118,7 +4118,7 @@
     },
     {
       "id": "o013",
-      "revision": 2,
+      "revision": 3,
       "category": "false_premise",
       "topics": [
         "oncology"
@@ -4161,19 +4161,6 @@
             "f1": [
               "exclusion_limits",
               "exclusion_conclusion"
-            ]
-          }
-        },
-        {
-          "id": "alternative_2",
-          "anchors": [
-            "exclusion_limits_discussion",
-            "exclusion_solution"
-          ],
-          "fact_anchors": {
-            "f1": [
-              "exclusion_limits_discussion",
-              "exclusion_solution"
             ]
           }
         },
@@ -4230,7 +4217,7 @@
         "independent_review": "Claude reviewed 8b1adbe, a226bba and b626fbb; Codex independently checked the latest findings and applied this correction. Changed gold and alternatives require independent re-review before freeze.",
         "duplicate_leakage_check": "Shares no evidence anchor with another case; the question identifies the source without disclosing target values.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring.",
-        "alternative_evidence_check": "Complete restatements in Results/tables/conclusion are pinned as additional fact-bound evidence sets; partial or wrong-contrast matches were excluded."
+        "alternative_evidence_check": "Removed alternative_2: its solution span stops before the required reporting proposal. Primary retains that proposal in the abstract; other alternatives retain the conclusion."
       },
       "selection_rationale": "False premise: that the review establishes a universal clinically validated numeric cutoff. Correction: lack of consensus, arbitrary cutoffs and heterogeneity, with the review's proposed reporting approach."
     },
@@ -4612,7 +4599,7 @@
     },
     {
       "id": "o017",
-      "revision": 3,
+      "revision": 4,
       "category": "cross_doc_synthesis",
       "topics": [
         "oncology"
@@ -4621,12 +4608,12 @@
       "required_facts": [
         {
           "id": "f1",
-          "expected_text": "The observational synthesis included twelve NSCLC studies, but only four contributed to HR 1.78 versus non-ICI treatment; overall CV-event prevalence 3% is a separate, noncomparative measure.",
+          "expected_text": "The observational synthesis included twelve NSCLC studies, but only four contributed to HR 1.78 versus non-ICI treatment; overall CV-event prevalence 3% is a separate measure from the HR.",
           "units": "Percent and hazard ratio",
           "population": "Observational NSCLC cohorts",
           "endpoint": "CV events",
           "timeframe": "Pinned article publication date 2025-02-24; no unreported follow-up horizon inferred.",
-          "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
+          "qualifiers": "Preserve source attribution, group order, study design and reported conflicts. The Results describe statistically higher CV-event occurrence with ICI versus non-ICI alongside the prevalence; accept that wording when source-attributed without interpreting 3% as the HR or relative risk.",
           "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
           "contradiction_rule": "Reject a different population, comparator or endpoint; preserve the stated numeric estimates, uncertainty and source qualifications."
         },
@@ -4721,13 +4708,13 @@
         }
       ],
       "related_distractors": [],
-      "reference_answer": "The observational synthesis included twelve NSCLC studies, but only four contributed to HR 1.78 versus non-ICI treatment; overall CV-event prevalence 3% is a separate, noncomparative measure. The older cohort reports cause-specific deaths and compares pembrolizumab with nivolumab: CVD sHR 1.08 was nonsignificant. Different endpoints, populations and comparators prevent treating this as a contradiction or pooled causal estimate.",
+      "reference_answer": "The observational synthesis included twelve NSCLC studies, but only four contributed to HR 1.78 versus non-ICI treatment; overall CV-event prevalence 3% is a separate measure from the HR. The older cohort reports cause-specific deaths and compares pembrolizumab with nivolumab: CVD sHR 1.08 was nonsignificant. Different endpoints, populations and comparators prevent treating this as a contradiction or pooled causal estimate.",
       "answer_rubric": {
         "required_claims": [
           "f1",
           "f2"
         ],
-        "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
+        "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict. Accept the observational Results comparison when explicitly attributed. Preserve the distinction between 3% prevalence, HR 1.78 and the older cohort’s cause-specific mortality endpoint.",
         "forbidden_conflations": [
           "Do not substitute another population or endpoint for Observational NSCLC cohorts: CV events.",
           "Do not substitute another population or endpoint for Older PD-1-treated advanced NSCLC: CVD mortality."
@@ -4759,7 +4746,7 @@
         "independent_review": "Claude reviewed 8b1adbe, a226bba and b626fbb; Codex independently checked the latest findings and applied this correction. Changed gold and alternatives require independent re-review before freeze.",
         "duplicate_leakage_check": "Contains o009's evidence plus the mortality passage; distinct because the failure mode is cross-document endpoint conflation.",
         "tuning_exposure": "No retrieval or answer-generation results used in authoring.",
-        "alternative_evidence_check": "Observational Results plus the four-study scope caveat and the PD-1 cohort Results give complete same-endpoint alternatives. Each source still supplies its own population/comparator; no pooled causal interpretation is accepted."
+        "alternative_evidence_check": "Accept the observational Results comparison when explicitly attributed. Preserve the distinction between 3% prevalence, HR 1.78 and the older cohort’s cause-specific mortality endpoint."
       },
       "selection_rationale": "Synthesis: observational CV events (prevalence and four-study HR) and cause-specific mortality between two PD-1 drugs are different endpoints, populations and comparators, so they do not contradict each other. Cross-document synthesis."
     },

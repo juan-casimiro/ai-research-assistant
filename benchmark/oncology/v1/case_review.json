@@ -1,7 +1,7 @@
 {
   "status": "review_ready; independent review pending",
   "query_version": "oncology-queries-v1",
-  "query_sha256": "5cab6de39c5933421f7a096e1c79c650e698663a5b14db5021ed029313c42057",
+  "query_sha256": "3e5dff58af07ecd90c3571f3e8617d7129de42d66b16a45ba0df1bc73e3a49bf",
   "method": "Exact pinned PDF extraction offsets; relevant full-text/JATS context and competing endpoints; representative PDF visuals and separate table/flow bindings.",
   "source_conflicts": [
     {
@@ -39,6 +39,14 @@
         "q098"
       ],
       "finding": "Analysis cohort 40,511 versus Table 4 N=42,701; optional source-attributed counts accepted."
+    },
+    {
+      "article_id": "PMC11891047",
+      "cases": [
+        "o009",
+        "o017"
+      ],
+      "finding": "Results describe statistically higher CV-event occurrence with ICI versus non-ICI alongside 3% prevalence, whereas the abstract separates prevalence from comparative HR. Accept attributed Results wording; do not equate prevalence with HR or relative risk."
     }
   ],
   "negative_review": [
@@ -317,7 +325,7 @@
           "primary",
           "results_with_hr_scope"
         ],
-        "disposition": "Results 3.2 and 3.4 repeat population, prevalence and HR; together with the four-study HR-scope limitation they form a complete alternative. Prevalence is not a comparator-relative risk despite the Results wording."
+        "disposition": "Accept the Results statement of significantly higher CV-event occurrence when explicitly attributed to the source. Keep the 3% prevalence distinct from HR 1.78; do not present 3% as a hazard ratio or relative-risk estimate."
       },
       {
         "id": "o010",
@@ -363,10 +371,9 @@
         "evidence_sets": [
           "primary",
           "alternative_1",
-          "alternative_2",
           "alternative_3"
         ],
-        "disposition": "Complete restatements in Results/tables/conclusion are pinned as additional fact-bound evidence sets; partial or wrong-contrast matches were excluded."
+        "disposition": "Removed alternative_2: its solution span stops before the required reporting proposal. Primary retains that proposal in the abstract; other alternatives retain the conclusion."
       },
       {
         "id": "o014",
@@ -406,7 +413,7 @@
           "observational_results",
           "both_results"
         ],
-        "disposition": "Observational Results plus the four-study scope caveat and the PD-1 cohort Results give complete same-endpoint alternatives. Each source still supplies its own population/comparator; no pooled causal interpretation is accepted."
+        "disposition": "Accept the observational Results comparison when explicitly attributed. Preserve the distinction between 3% prevalence, HR 1.78 and the older cohort’s cause-specific mortality endpoint."
       },
       {
         "id": "o018",

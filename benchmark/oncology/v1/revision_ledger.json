@@ -1,6 +1,6 @@
 {
   "status": "pre-freeze corrections; no retrieval exposure",
-  "query_sha256": "5cab6de39c5933421f7a096e1c79c650e698663a5b14db5021ed029313c42057",
+  "query_sha256": "3e5dff58af07ecd90c3571f3e8617d7129de42d66b16a45ba0df1bc73e3a49bf",
   "renamed_coverage_cases": {
     "q103": "o022",
     "q111": "o023",
@@ -336,6 +336,17 @@
       ],
       "reason": "Review correction: q098 race contrast, distinct o001/o002 gold, complete alternative-evidence sweep, honest search provenance and migration traceability; strengthened offline verifier. No retrieval exposure.",
       "backfilled_metadata": "Recorded q099 category transition in its restoration revision; no historical query hash was changed."
+    },
+    {
+      "previous_commit": "5bdffd63558ec8ee50f6dd0a8ba676399764b04e",
+      "previous_query_sha256": "5cab6de39c5933421f7a096e1c79c650e698663a5b14db5021ed029313c42057",
+      "query_sha256": "3e5dff58af07ecd90c3571f3e8617d7129de42d66b16a45ba0df1bc73e3a49bf",
+      "changed_cases": [
+        "o013",
+        "o009",
+        "o017"
+      ],
+      "reason": "Targeted fourth-review correction: remove incomplete o013 alternative and accept attributed observational Results wording in o009/o017. No retrieval exposure."
     }
   ]
 }

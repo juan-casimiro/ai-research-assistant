@@ -117,7 +117,7 @@ None.
 
 *Cardiovascular toxicity induced by immunotherapy in non-small cell lung cancer: a systematic review and meta-analysis of observational studies*
 
-- **Why selected:** Observational meta-analysis of cardiovascular events with ICIs in NSCLC: noncomparative prevalence versus a pooled HR from only four studies. Needed for cardio-oncology endpoint distinctions.
+- **Why selected:** Observational meta-analysis of cardiovascular events with ICIs in NSCLC: prevalence distinct from a pooled HR from only four studies; attributed comparative Results wording is accepted. Needed for cardio-oncology endpoint distinctions.
 - **Answer source for:** o009, o017
 - **Named decoy for:** none
 - **Partial-support overlap for:** none
@@ -484,14 +484,14 @@ None.
 - **Near-duplicate review:** Absorbs withdrawn o019, a strict subset. Shares reflex_def and reflex_delay with o030, which needs them only for its synthesis.
 - **Replaces coverage of:** legacy q111
 
-#### o009 (revision 4)
+#### o009 (revision 5)
 
 > What CV-event estimates and study design did the observational NSCLC immunotherapy meta-analysis report?
 
-- **Why this case:** Tests separating overall CV-event prevalence (3%, noncomparative) from the pooled HR, which only four of twelve observational studies contribute. Association is not causation or CVD mortality. Multi-hop: abstract and Limitations anchors (recategorised from direct lookup).
+- **Why this case:** Tests separating overall CV-event prevalence (3%, distinct from HR; attributed Results comparison accepted) from the pooled HR, which only four of twelve observational studies contribute. Association is not causation or CVD mortality. Multi-hop: abstract and Limitations anchors (recategorised from direct lookup).
 - **Evidence:** primary: obs_cv + obs_hr_scope; OR results_with_hr_scope: obs_population_results + obs_prevalence_results + obs_hr_results + obs_hr_scope
 - **Multi-hop link:** Join the abstract's prevalence and pooled HR to the Limitations statement that only four studies contribute to that HR.
-- **Alternative-evidence review:** Results 3.2 and 3.4 repeat population, prevalence and HR; together with the four-study HR-scope limitation they form a complete alternative. Prevalence is not a comparator-relative risk despite the Results wording.
+- **Alternative-evidence review:** Accept the Results statement of significantly higher CV-event occurrence when explicitly attributed to the source. Keep the 3% prevalence distinct from HR 1.78; do not present 3% as a hazard ratio or relative-risk estimate.
 - **Near-duplicate review:** Evidence is a subset of o017's. Retained because o017 tests cross-document endpoint separation, while o009 tests single-source scope of the HR.
 
 #### o016 (revision 2)
@@ -517,13 +517,13 @@ None.
 - **Near-duplicate review:** Shares anchors with o028, o029, o023 and o008, each of which tests one component. Retained as the only case requiring the treatment/readiness synthesis.
 - **Replaces coverage of:** legacy q117
 
-#### o017 (revision 3)
+#### o017 (revision 4)
 
 > Why can the observational CV-event meta-analysis and older PD-1 cause-specific mortality cohort not be read as the same cardiovascular endpoint?
 
 - **Why this case:** Synthesis: observational CV events (prevalence and four-study HR) and cause-specific mortality between two PD-1 drugs are different endpoints, populations and comparators, so they do not contradict each other. Cross-document synthesis.
 - **Evidence:** primary: obs_cv + obs_hr_scope + mortality; OR alternative_1: obs_cv + obs_hr_scope + mortality_drug_results; OR observational_results: obs_population_results + obs_prevalence_results + obs_hr_results + obs_hr_scope + mortality; OR both_results: obs_population_results + obs_prevalence_results + obs_hr_results + obs_hr_scope + mortality_drug_results
-- **Alternative-evidence review:** Observational Results plus the four-study scope caveat and the PD-1 cohort Results give complete same-endpoint alternatives. Each source still supplies its own population/comparator; no pooled causal interpretation is accepted.
+- **Alternative-evidence review:** Accept the observational Results comparison when explicitly attributed. Preserve the distinction between 3% prevalence, HR 1.78 and the older cohort’s cause-specific mortality endpoint.
 - **Near-duplicate review:** Contains o009's evidence plus the mortality passage; distinct because the failure mode is cross-document endpoint conflation.
 
 #### o018 (revision 2)
@@ -595,13 +595,13 @@ None.
 - **Alternative-evidence review:** Complete restatements in Results/tables/conclusion are pinned as additional fact-bound evidence sets; partial or wrong-contrast matches were excluded.
 - **Near-duplicate review:** Shares rct_cv with o010 and o018; o011 alone uses the heart-failure subgroup.
 
-#### o013 (revision 2)
+#### o013 (revision 3)
 
 > Does the immune-exclusion review establish a universal clinically validated numeric cutoff for every tumor?
 
 - **Why this case:** False premise: that the review establishes a universal clinically validated numeric cutoff. Correction: lack of consensus, arbitrary cutoffs and heterogeneity, with the review's proposed reporting approach.
-- **Evidence:** primary: exclusion_limits + exclusion_solution; OR alternative_1: exclusion_limits + exclusion_conclusion; OR alternative_2: exclusion_limits_discussion + exclusion_solution; OR alternative_3: exclusion_limits_discussion + exclusion_conclusion
-- **Alternative-evidence review:** Complete restatements in Results/tables/conclusion are pinned as additional fact-bound evidence sets; partial or wrong-contrast matches were excluded.
+- **Evidence:** primary: exclusion_limits + exclusion_solution; OR alternative_1: exclusion_limits + exclusion_conclusion; OR alternative_3: exclusion_limits_discussion + exclusion_conclusion
+- **Alternative-evidence review:** Removed alternative_2: its solution span stops before the required reporting proposal. Primary retains that proposal in the abstract; other alternatives retain the conclusion.
 - **Near-duplicate review:** Shares no evidence anchor with another case; the question identifies the source without disclosing target values.
 
 #### o021 (revision 4)
@@ -722,3 +722,4 @@ None.
 3. From `fd4eadf`: Decision documentation: case-specific selection rationale and near-duplicate review, specific legacy reasons and replacement bases, lower-priority candidate coverage, and multi_hop categories for two cases needing separated passages.
 4. From `fa0245a`: Restored legacy q078, q097, q098 and q099 on retained sources: no retirement reason existed and their evidence is pinned.
 5. From `b626fbb`: Review correction: q098 race contrast, distinct o001/o002 gold, complete alternative-evidence sweep, honest search provenance and migration traceability; strengthened offline verifier. No retrieval exposure.
+6. From `5bdffd6`: Targeted fourth-review correction: remove incomplete o013 alternative and accept attributed observational Results wording in o009/o017. No retrieval exposure.

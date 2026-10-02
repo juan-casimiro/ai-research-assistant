@@ -14,7 +14,7 @@ are not comparable to this revised evidence benchmark.
   nested C1/C2 membership and unchanged original global files.
 - Fault checks on temporary copies reject changed metadata/linkage, edited DECISIONS
   prose, legacy-category drift, broken ledger history, zeroed chunker hashes and
-  false oracle rates. Each of 79 complete evidence sets separately passes a
+  false oracle rates. Each of 78 retained evidence sets separately passes a
   production-chunk witness through the scorer.
 - Required offline regressions: **206 tests passed**, including 55 release-verifier tests.
 - Third-review corrections: q098's missing Black-versus-White contrast, distinct
@@ -112,3 +112,5 @@ this pass. Each evidence case records accepted restatements or why other mention
 cannot supply a complete answer. Individual alternative witnesses were checked
 against the production chunker and scorer. This is author verification of the
 correction, not independent approval of the changed gold.
+
+Fourth-review targeted correction: removed incomplete o013 alternative_2; o009/o017 accept explicitly attributed comparative Results wording while keeping 3% prevalence distinct from HR 1.78. No verifier features or retrieval runs were added.
