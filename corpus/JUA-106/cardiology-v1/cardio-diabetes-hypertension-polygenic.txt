@@ -1,0 +1,1507 @@
+Article https://doi.org/10.1038/s41467-025-67449-2
+Partitioned polygenic scores show
+mechanistic heterogeneity in type 2 diabetes
+and hypertension comorbidity
+Vincent Pascat 1,2, Liudmila Zudina2,3, Lucas Maurin1, Anna Ulrich 2,
+Jared G. Maina1,A y s eD e m i r k a n2,3,4, Zhanna Balkhiyarova 2,3,4,I g o rP u p k o3,
+Yevheniya Sharhorodska 3,5, François Pattou 1,6,B a r tS t a e l s7,
+Marika Kaakinen 2,3,4,8, Amna Khamis1,2, Amélie Bonnefond 1,2,
+Patricia Munroe 9,10, Philippe Froguel 1,2,11 & Inga Prokopenko 1,3,4,11
+Type 2 diabetes and hypertension are common health conditions that often
+occur together, suggesting shared biological mechanisms. To explore this
+relationship, we analyse large-scale multiomic data to uncover genetic factors
+underlying type 2 diabetes and blood pressure comorbidity. We curate 1304
+independent single-nucleotide variants associated with type 2 diabetes and
+blood pressure, grouping them into ﬁve clusters related to metabolic syn-
+drome, inverse type 2 diabetes/blood pressure risk, impaired pancreatic beta-
+cell function, higher adiposity, and vascular dysfunction. Colocalization with
+tissue-speciﬁc gene expression highlights signiﬁcant enrichment in pathways
+related to thyroid function and fetal development. Partitioned polygenic
+scores derived from these clusters improve risk prediction for type 2 diabetes/
+hypertension comorbidity, identifying individuals with more than twice the
+usual susceptibility. These results reveal a mechanistically heterogeneous
+genetic architecture shared between type 2 diabetes and blood pressure,
+enhancing comorbidity risk prediction. Partitioned polygenic risk scores offer
+a promising approach for early risk stratiﬁcation, personalised prevention, and
+improved management of these interconnected conditions.
+Hypertension and type 2 diabetes (T2D) pose major public health
+challenges, affecting approximately 1.28 billion1 and 537 million adults
+worldwide2, respectively, with the prevalence of T2D expected to rise to
+1.3 billion by 2050. T2D and high blood pressure (BP) frequently co-
+occur in the same individual
+3–5. The T2D-BP comorbidity further
+increases the risk of major health outcomes, and individuals with both
+conditions often face challenges in achieving treatment objectives6.T 2 D
+and high BP are key components of the Metabolic Syndrome (MetS),
+also encompassing various cardiovascular risk factors, including central
+obesity, dyslipidaemia, microalbuminuria, and insulin resistance (IR)
+7,8.
+Received: 3 March 2025
+Accepted: 1 December 2025
+Check for updates
+1Université de Lille, Inserm UMR1283, CNRS UMR8199, European Genomic Institute for Diabetes (EGID), Institut Pasteur de Lille, Lille University Hospital,
+Lille, France.2Department of Metabolism, Digestion, and Reproduction, Imperial College London, London, UK.3Section of Statistical Multi-omics, Department
+of Clinical and Experimental Medicine, University of Surrey, Guildford, UK.4People-Centred Artiﬁcial Intelligence Institute, University of Surrey, Guildford, UK.
+5Department of Life Sciences and Biotechnology, University of Ferrara, Ferrara, Italy.6Department of General and Endocrine Surgery, CHU Lille, Lille, France.
+7Université de Lille, Inserm, CHU Lille, Institut Pasteur de Lille, U1011-EGID, Lille, France.8Institute for Molecular Medicine Finland, University of Helsinki,
+Helsinki, Finland.9William Harvey Research Institute, Barts and the London Faculty of Medicine and Dentistry, Queen Mary University of London, London, UK.
+10National Institute of Health and Care Research, Barts Cardiovascular Biomedical Research Centre, Queen Mary University of London, London, UK.11These
+authors jointly supervised this work: Philippe Froguel, Inga Prokopenko. e-mail: i.prokopenko@surrey.ac.uk
+Nature Communications|         (2026) 17:1446 1
+1234567890():,;
+1234567890():,;
+Extensive genetic research, notably through recent genome-wide
+association studies (GWAS), has dissected the underlying genetic
+architecture of both T2D and BP traits independently. Latest reports
+associated 1289 independent variants in DNA with T2D
+9, while 2103
+variants are implicated in BP control 10.T h e s eﬁndings highlight the
+complex genetic architecture of T2D and BP traits/hypertension,
+emphasising their diverse genetic drivers.
+Despite signiﬁcant advances in understanding the genetics of T2D
+and high BP as independent conditions, the shared genetic basis
+underlying their frequent comorbidity remains largely unexplored.
+This gap persists even though T2D –high BP comorbidity has been
+consistently observed, including within genetic datasets
+11–13.S e v e r a l
+Mendelian randomisation (MR) studies have yielded con ﬂicting evi-
+dence about the causal relationship between T2D and high BP. For
+instance, Sun et al. identiﬁed T2D as a driver of high BP, while Aikens
+et al. proposed the opposite
+14,15. Additionally, another study found that
+two of four types of hypertensive medications were protective against
+T2D risk, while the others increased its risk
+16.T h e s eﬁndings highlight
+the diverse and complex pathways underpinnings the T2D-BP
+relationship.
+In this study, we aimed to characterise the shared pathophysio-
+logical processes underlying the T2D-BP relationship by harnessing
+large-scale genomic datasets from recent research on both conditions.
+Using common genetic variation, we sought to enhance the mechan-
+istic understanding of these diseases comorbid status and suggest
+potential avenues for targeted interventions and precision health.
+We aggregated genomic data from 45 GWAS for related condi-
+tions and traits/endophenotypes, 50 tissue-speciﬁc expression quan-
+titative traitloci (eQTL)
+17–19, assay for transposase-accessible chromatin
+u s i n gs e q u e n c i n gp e a k sf r o ms i n g l e - c e l l( s c A T A C - s e q )a t l a s20,a n dt h e
+UK Biobank (UKB) cohort 21. By leveraging GWAS summary statistics,
+we assessed the genetic correlation between T2D 22 and systolic BP
+(SBP), diastolic BP (DBP), and pulse pressure (PP = SBP-DBP) 12.W e
+clustered the T2D-BP-associated independent single-nucleotide var-
+iant (SNV) effects into distinct groups based on their underlying
+pathogenetic processes. We observed the cluster-associated changes
+in gene expression through colocalization analysis with eQTL and
+enrichment in the scATAC-seq atlas. We ﬁnally evaluated the cluster-
+speciﬁc risks of complication using partitioned polygenic scores (PGS)
+in 459,247 individuals (Fig. 1).
+Results
+Genetic overlap between T2D and BP
+We explored the genetic relationships between T2D and BP by evalu-
+ating the overall genetic correlation and associated loci that overlap
+between the two conditions. We performed linkage disequilibrium
+(LD) score regression using ldsc
+23 and observed a direct genetic cor-
+relation between T2D and SBP ( rg[SE] = 0.25[0.028], p =1 . 5 6×1 0−19),
+DBP (rg[SE] = 0.18[0.027],p =1 . 3 8×1 0−11), and PP (rg[SE] = 0.23[0.029],
+p =2 . 2 5×1 0−15), consistent with previous research.
+To further validate the LD score regression results, we con-
+structed PGSs for T2D, SBP, DBP and PP in the UKB (Supplementary
+Table 1) using independent weights from GWASs ( “Methods”). We
+probed whether a genetic predisposition towards one condition could
+predict the risk of the other using comorbidPGS
+24.T 2 DP G Sw a sc o n -
+sistently associated with a modest increase in SBP, DBP, and PP
+(Beta
+PP[SE] ≥ 0.37[0.017] change in PP mmHg per one-unit increase in
+T2D PGS, p ≤ 1.83 × 10−106). SBP and PP PGSs were signi ﬁcantly asso-
+ciated with a higher risk of T2D (OR SBP[95% CI] = 1.07 [1.06 –1.09]
+change in T2D odds per one-unit increase in SBP PGS, p =9 . 3 6×1 0−35;
+ORPP[95% CI] = 1.07 [1.06–1.08], p =8 . 0 2×1 0−31). In contrast, DBP PGS
+had no impact on T2D risk (OR DBP[95% CI] = 1.01[0.999 –1.02],
+p = 0.062, Supplementary Table 2).
+We gathered a collection of 1401 SNVs associated with T2D, high
+SBP, DBP, and/or PP ( “Methods”). We revealed 24/19/26
+overlapping genetic loci between T2D and SBP/DBP/PP, respectively,
+determined by LD and/or genomic proximity (Supplementary Data 1).
+Of the 1401 SNVs, 9 were directly reported as lead signals for both T2D
+and BP traits. Additionally, we identiﬁed 97 SNV pairs that overlapped
+(within 500 kb or LD r² > 0.2) and were associated with T2D and BP
+traits. We observed several well-known loci, such as those at GRB14-
+COBLL1 (associated with reduced insulin level, pulse pressure, and
+mean arterial pressure)
+25,26, ADCY5 (beta cell function and
+lipodystrophy)27,a n d ACE (renin-angiotensin system,
+hypertension) genes28. Overlapping loci at JAZF1 (regulating glucose,
+lipid, and inﬂammation)29, ADRB1 (beta-adrenergic receptors regulat-
+ing cardiac contractility and heart rate) 30, TCF7L2 (controlling Lan-
+gerhans islet proliferation) 31,a n d SGIP1 (signalling in energy
+homoeostasis)32 contribute to the inverse relationship between T2D
+and BP. These results highlight the dense and complex genetic rela-
+tionships between high BP predisposition and T2D risk.
+Clusters of pathogenetic processes
+To dissect the complexity of shared biological pathways between T2D
+and BP, we curated and reﬁned the SNV list to 1304 independent var-
+iants (LDr² < 0.2), including 500 T2D-associated and 813 BP-associated
+SNVs, to cluster them based on their effects on 45 related (endo)
+phenotypes, including T2D/BP traits (Supplementary Data 2). Our
+investigation encompassed a wide array of related endpoints or risk
+factors, including biomarkers of in ﬂammation and hepatic function,
+circulating plasma lipids, cardiovascular health indicators, anthropo-
+metric measures, glycaemic traits, and sex hormones (Supplementary
+Data 2). All SNVs (originally associated with T2D, BP traits, or both)
+were aligned to the T2D risk allele. When information for a particular
+phenotype at an SNV was unavailable, we used LD proxies
+(“Methods”)
+33, and performed imputation of the remaining missing
+data by random forest algorithm implemented in the imputeSCOPA
+software tool 34. We used an unsupervised hierarchical clustering
+approach, given the anticipated heterogeneity within our SNV
+set induced by the inherent complexity in both T2D and BP signals
+35.
+To ensure robustness of our clustering, we ran extensive sensitivity
+analyses (“Methods”) with different sets of metabolic traits and other
+clustering methods, such as using Z-score adjusted for GWAS sample
+size, MRClust
+36 and Bayesian nonnegative matrix factorization (bNMF)
+(“Methods”, Supplementary Figs. 1–4). We identi ﬁed ﬁve clusters of
+distinct pathogenetic mechanisms (Fig. 2), highlighting mechanistic
+heterogeneity in T2D-BP comorbidity. We compared the SNV assign-
+ments of our T2D-BP clusters with recent T2D hierarchical clustering
+9
+Partitioned PGS
+Enrichment in cCRE
+regions
+222 cell types
+Colocalisation
+50 tissues
+Shared T2D-
+BP genetics:
+Clustering of T2D-BP
+genetic variants
+Characterisation 
+of clustering
+Predictive value
+of partitioned PGS 
+from clustering
+Inverse 
+T2D-BP
+risk
+Metabolic
+Syndrome
+Higher
+adiposity
+Vascular
+dysfunction
+Reduced
+beta-cell
+function
+CATLAS
+GTEx
+ABOS
+TIGER
+Pr eval ence(comor bi d
+T2D+ Hyp e rt e nsio n ) = 5.49%
+Pre vale nce(T2D ) = 7.28%
+Pre vale nce (Hype rt e nsion) = 47.38%
+Con tr ol s
+UK Biobank
+Fig. 1 | Study overview. The genetic landscape of T2D-BP is explored and subse-
+quently clustered into ﬁve groups of different pathogenetic processes. These
+clusters are then analysed using colocalization methods, eQTL and the scATAC-seq
+atlas to identify associated changes in gene expression. The clusters are evaluated
+for their predictive value and the underlying causal mechanisms contributing to the
+T2D-BP relationship. T2D type 2 diabetes, BP blood pressure, cCRE candidate cis-
+regulatory elements, PGS polygenic scores, DBP diastolic blood pressure, SBP
+systolic blood pressure.
+Article https://doi.org/10.1038/s41467-025-67449-2
+Nature Communications|         (2026) 17:1446 2
+and bNMF clustering37,38 (“Methods”, Supplementary Data 3, 4 , Sup-
+plementary Figs. 5, 6). The pathophysiological processes identi ﬁed
+across the ﬁve clusters were consistent with existing evidence and
+highlight mechanistic insights ( “Methods”, Supplementary
+Figs. 4–7)9,12,37.
+The Metabolic Syndrome cluster included 215 variants, and dis-
+played the most distinct pathogenetic signature. It highlights attri-
+butes consistent with the metabolic syndrome, including lower levels
+of sex hormones (sex-hormone binding globulin, insulin,
+testosterone)
+39,40, higher central adiposity (waist-to-hip ratio [WHR]
+adjusted for body-mass index [BMI])41 without higher overall adiposity,
+measured by BMI, systemic higher IR evaluated by the homoeostasis
+model assessment of insulin resistance, HOMA-IR, using both fasting
+plasma glucose and insulin (alongside higher HOMA-B, proinsulin
+level, and insulin fold change), lower high-density lipoprotein (HDL)
+cholesterol, higher triglycerides (TG), and altered cardiovascular
+functions (higher heart rate, increased cardiovascular event risk,
+higher renin-angiotensin-aldosterone system activity)
+8.S N V sw i t h i n
+this cluster also strongly associate with shorter stature (lower height)
+and lower birth weight.
+Previousﬁndings reported that shorter stature is associated with a
+higher risk of T2D
+42 and cardiovascular events38,43. Other studies linked
+greater height with insulin and insulin-like growth factor signalling
+pathways
+44. The impaired insulin sensitivity may be one of the under-
+lying factors in this association45,46.
+The T2D –high BP comorbidity is high in this cluster and was
+consistent with our bNMF clustering (Supplementary Fig. 3). The origin
+of the SNVs is an equal mix of T2D and BP (Supplementary Fig. 1). When
+comparing SNVs with previous T2D clustering, we observed an overlap
+between the SNVs in our Metabolic Syndrome cluster and the Type 2
+Diabetes Global Genetics Initiative (T2DGGI) Metabolic syndrome
+cluster, as well as the bNMF cluster Lipodystrophy 1 (Supplemen-
+tary Fig. 5).
+In the Inverse T2D-BP riskcluster, we noted an inverse relationship
+of associated SNVs effects on higher T2D risk related to lower SBP/
+DBP/PP. Predominantly originating from associations with BP traits
+(Supplementary Fig. 1), the 353 SNVs within this cluster, when aligned
+to the T2D risk allele, are associated with a lower risk of cardiovascular
+events, such as atrial ﬁbrillation (AF), coronary artery disease (CAD),
+stroke and heart failure. Additionally, these SNVs demonstrated asso-
+ciations with BMI and systemic higher IR (higher HOMA-IR). Compar-
+ison with previously reported BP-related clusters showed partial
+overlap with the Hypolipidaemiaand Short stature SNV groups (Sup-
+plementary Fig. 6)
+38.
+The Higher adiposity cluster contained 137 SNVs—predominantly
+T2D signals —which showcased effects on higher BMI, reduced sex
+hormones (testosterone and SHBG), higher TG along with lower HDL-
+and LDL-cholesterol, higher risk of cardiovascular events (CAD, heart
+rate, stroke), and insulin resistance (higher HOMA-IR/HOMA-B). This
+cluster, distinct from the Metabolic Syndrome one, showed a high
+number of obesity-related SNVs within previous T2D clustering (Sup-
+plementary Fig. 5). TheVascular Dysfunctioncluster included 287 SNVs
+mostly originating as BP signals. They are associated with cardiovas-
+cular traits (higher risk of AF, stroke, CAD, heart failure), lower birth
+w e i g h ta n ds h o ws t r o n ge f f e c t so nb o t hT 2 D–high BP. This cluster
+showed a number of hypolipidemia SNVs from previous BP clustering
+(Supplementary Fig. 6). Lastly, Reduced beta-cell function cluster
+exhibited characteristics of impaired beta-cell function including
+lower homoeostasis model assessment of beta cell function (HOMA-B),
+higher glucose/glycated haemoglobin levels (random glucose [RG],
+HbA1c), metabolic dysregulation (TG, sex hormones), higher in ﬂam-
+mation (C-reactive protein [CRP], IGF-1) and taller stature (height). The
+Reduced beta-cell functioncluster contained 312 SNVs, predominantly
+T2D signals, found in the Beta cell 1 and Beta cell 2 clusters from the
+latest published T2D bNMF clustering (Supplementary Fig. 5b).
+The ﬁve distinct mechanistic groups of genetic variants, revealed
+through clustering, contribute to the shared susceptibility to T2D and
+high BP. They provide a foundation for further exploration of the
+biological pathways.
+Multiomic characterisation of T2D-BP clusters
+To further characterise the T2D-BP comorbidity clusters, we evaluated
+the changes in gene expression and regulatory elements associated
+with the clustered SNVs. Weﬁrst conducted a colocalization analysis to
+elucidate the impact of studied SNVs on gene expression patterns. We
+explored the genomic landscape within a 200 kb window surrounding
+each clustered SNV to assess the likelihood of a shared causal variant
+between our clusters and gene expression changes across 50 tissues
+from various eQTLs datasets using a hypothesis-free approach and the
+coloc R package ( “Methods”)
+47.W ei d e n t iﬁed a total of 6321 colocali-
+zations across the 50 tissues, involving 1558 genes and 448 clustered
+variants (Fig. 3at o p, Supplementary Data 5, Supplementary Fig. 8).
+Inverse 
+T2D-BP risk 
+Metabolic
+Syndrome
+Higher
+adiposity
+Vascular
+dysfunction
+Reduced beta-
+cell function
+Fig. 2 | Clustering heat map of endophenotypes with ﬁve pathogenetic SNV
+clusters associated with high BP and/or risk of T2D.Each row corresponds to a
+GWAS of an endophenotype, while each column corresponds to a cluster (Sup-
+plementary Data 4). Colour represents the direction of the z-score (aligned to the
+T2D risk allele) from two-sided association tests between the GWAS and SNVs
+assigned to each cluster. Colour intensity represents the signiﬁcance, expressed as
+−log(p value) from two-sided t-tests on the regression coefﬁcients linking SNV
+cluster assignment with GWAS effect sizes. T2D type 2 diabetes, DBP diastolic blood
+pressure, UKB UK Biobank, PP pulse pressure, SBP systolic blood pressure, HbA1C
+glycated haemoglobin, RG random glucose, WHR waist-hip ratio, BMI body mass
+index, HDL high-density lipoprotein, PAI plasminogen activator inhibitor, ISI insulin
+sensitivity index, IGF insulin-like growth factor, LDL low-density cholesterol, adjBMI
+adjusted for BMI, HOMA homoeostatic model assessment, IR insulin resistance, B
+beta-cell function, WBC white blood cell count, CRP C-reactive protein, CAD cor-
+onary artery disease, TG triglycerides, SHBG sex-hormone-binding globulin, TRAIL-
+R2 TNF related apoptosis inducing ligand receptor 2, ALT alanine aminotransferase,
+AST aspartate aminotransferase, BMD bone mass density.
+Article https://doi.org/10.1038/s41467-025-67449-2
+Nature Communications|         (2026) 17:1446 3
+Our analysis revealed distinct gene expression signatures for each
+cluster, corroborating the diversity of the biological pathways
+involved. The Inverse T2D-BP risk cluster displays colocalization in the
+brain, particularly brain cerebellum ( MGRN1, HELLS, SLC39A13)a n d
+adrenal glands ( SLC7A1, RHOC, NUDT2). The Metabolic Syndrome
+cluster variants colocalized in adipose subcutaneous (JAZF1, ALKAL2,
+LCORL). The Higher adiposity cluster shows colocalization in skin
+(MYO19, EIF3C, SLC39A10) and whole blood ( WFS1, CCDC134, MED27).
+The Vascular dysfunction cluster colocalized with ﬁbroblasts ( ERI1,
+FOXD4, RSRC1)a n dt h y r o i d(CSTB, ZNF638, SNX31)a n dt h e Reduced
+beta-cell functioncluster with pancreatic islets (C2CD4B, ADCY5, PHB).
+We identiﬁed 99 tissue-speci ﬁc colocalizations (Fig. 3a bottom,
+“Methods”). While thyroid and adipose subcutaneous tissues showed a
+high number of total colocalizations, pancreatic islets showed the
+highest number (14) of single-tissue (i.e., speci ﬁc) colocalizations,
+particularly among the clusters strongly associated with risk of T2D
+such as the Reduced beta-cell function, Metabolic Syndromeand Higher
+adiposity clusters. Notably, the pancreatic islet tissue-speciﬁcc o l o c a -
+lized genes include TH (synthesis of catecholamines)
+48 in the Higher
+adiposity cluster, MTNR1B (circadian rhythms and glucose
+metabolism)49, FXYD2 (Na,K-ATPase pump regulator)50, G3BP2 (cellular
+stress)51 in the Reduced beta-cell function cluster, SYNDIG1L (synapse
+development), LTBP3 (cell growth, differentiation and repair) 52,
+CLEC18A (immune function) 53 in the Metabolic Syndrome cluster
+(Supplementary Data 6). This demonstrates the predominant role of
+pancreatic islets in T2D pathogenesis and its related complications.
+To explore the underlying mechanisms in the Inverse T2D-BP risk
+cluster, we conducted pathway analysis usingMetascape54 for the 202
+colocalized genes identiﬁed within this cluster (Supplementary Fig. 8).
+This analysis revealed an overwhelming enrichment in the retinol
+metabolic process (GO:0042572), which involves one of three com-
+pounds that make up vitamin A (retinol, retinal, and retinoic acid). All
+components of the retinol metabolism are associated with both T2D
+and CVD
+55.
+We then dissected the localisation of our SNVs in a cluster-speciﬁc
+manner using chromatin accessibility atlases from CATLAS, based on
+scATAC-seq peaks. The atlas encompasses 222 cell types from 30
+human adult tissues and 15 fetal tissues, allowing examination of the
+enrichment of candidate cis-regulatory elements (cCREs) in each
+cluster across different cell types (Fig.3b and Supplementary Data 7).
+The clusters were enriched in diverse regulatory mechanisms. Speci-
+ﬁcally, the Inverse T2D-BP cluster exhibited signiﬁcant (p ≤ 2 . 2 5×1 0
+−4)
+enrichment for regions of open chromatin in mesothelial cells, endo-
+cardial cells, endothelial in exocrine tissue cells as well as fetal endo-
+cardial and mesangial cells. The Reduced beta-cell function cluster
+demonstrated strong enrichment in several fetal cell types, such as
+islets, gastric goblet, alveolar epithelial, cardiomyocyte, as well as
+follicular cells and cells from the pancreas tissues, including delta,
+b
+Inverse T2D-
+BP risk 
+Metabolic
+Syndrome
+Higher
+adiposity
+Vascular
+dysfunction
+Reduced beta-
+cell function
+a
+Fig. 3 | Characterisation of pathogenetic clusters: genetic expression, and
+regulatory mechanisms. aHistogram depicting the distribution of colocalized loci
+across clusters in 50 human adult tissues (Supplementary Data 5, 6). Each bar
+represents the number of Bayesian colocalized signal (two-sided; PP.H4 > 0.8 and
+PP.H3 < 0.5) per tissue, with colours indicating contribution from theﬁve clusters.
+The upper histogram shows the overall number of colocalizations while the lower
+portion highlights tissue-speciﬁc colocalizations.b Heat map showing the enrich-
+ment of open chromatin region across theﬁve clusters and 222 cell types from 30
+human adult tissues and 15 human fetal tissues (Supplementary Data 7). Each col-
+umn corresponds to a cluster, and each row to a cell type. Colour intensity repre-
+sents the−log(p value) from two-sided Chi-squared tests comparing nested logistic
+regression models assessing enrichment. Asterisks denote signiﬁcant signals fol-
+lowing Bonferroni correction for multiple testing (p <2 . 2 5×1 0
+−⁴). No number,
+T2D type 2 diabetes, BP blood pressure, Sun+ sun-exposed, Vasc vascular,
+Sm smooth, Ms muscle, GI gastrointestinal, V ventricular, Fibroﬁbroblast, A atrial.
+Article https://doi.org/10.1038/s41467-025-67449-2
+Nature Communications|         (2026) 17:1446 4
+gamma, beta and alpha. This suggests that, beyond islet dysregulation
+and insulin impairment, pathways involved in fetal development also
+play an important role in adult metabolic health. Moreover, nominal
+enrichments were observed in fetal adrenal cortical cells for the
+Metabolic Syndrome and Higher adiposity clusters, suggesting hor-
+mone regulatory implications beginning as early as intrauterine
+development
+56.
+Given the large number of colocalized SNVs observed across
+clusters in tissues such as the thyroid, subcutaneous adipose tissue,
+tibial artery, tibial nerve, and lower leg skin (Fig. 3a), we further
+explored the colocalized genes by identifying their enrichment in the
+primary cell types corresponding to these tissues —namely, follicular
+cells, adipocytes, smooth muscle cells, Schwann cells, keratinocytes
+(Fig. 3b). Notably, we identi ﬁed 15 genes that both colocalized in
+thyroid and were enriched in follicular cell cCREs (Supplementary
+Table 3). While some of these genes were previously associated with
+T2D such as CAMK1D (energy homoeostasis and beta-cell receptor
+signalling pathway)
+57 or KCNH6 (insulin secretion and glucose
+homoeostasis)58, and with BP regulation such as ACE (renin-angio-
+tensin system)28, the remaining are potential candidate genes for the
+T2D-BP pathogenesis. Among them areSAE1 (known in cancer)59, GSAP
+(known in Alzheimer ’s disease) 60, DCAF7 (cellular differentiation)61,
+MAP3K3 (stress and inﬂammation)62. SubsequentMetascape54 pathway
+analysis highlighted fundamental cellular processes, including protein
+ubiquitination (GO:0016567) and positive regulation of protein mod-
+iﬁcation process (GO:0031401). The overlap of signals between colo-
+calized genes and cCREs in the other four tissues consistently
+highlighted the MAP3K3 gene. Subsequent pathway analyses did not
+yield conclusive results (Supplementary Table 4).
+Overall, changes in gene expression within clusters highlighted
+the importance of the thyroid tissue in T2D-BP shared pathophysiol-
+ogy and retinol metabolism within theInverse T2D-BP riskcluster, while
+the high number of fetal cell regulatory elements enrichment suggests
+a strong contribution of intrauterine growth pathways in both T2D and
+high BP.
+T2D-BP comorbidity using partitioned PGSs
+To evaluate the ability of the T2D-BP SNV clusters to predict comor-
+bidities and complications, we used the individual-level data from UKB
+and built unweighted partitioned PGSs for each cluster group. Using
+the R software environment tool,comorbidPGS, we aligned partitioned
+PGS to the T2D risk allele, i.e., each allele increasing the risk of T2D is
+counted as one in the PGS calculation (“Methods”)
+24.
+To illustrate the inﬂuence of genetic predisposition, we computed
+the relative risk of comorbidity among the UKB individuals ( “Meth-
+ods”), based on the top 10% percentiles of each unweighted parti-
+tioned PGS. Whereas the overall prevalence of T2D-high BP
+comorbidity in the UKB was 5.49% (Fig. 4a), individuals in top 10% of
+the unweighted risk score ofHigher adiposity, Metabolic Syndrome,a n d
+Reduced beta-cell function clusters had a relative risk RR[95% CI] of
+1.36[1.32–1.41], 1.44[1.39–1.48], 1.55[1.51–1.60], respectively. Moreover,
+the individuals in the top 10% distribution of Metabolic Syndromeand
+Reduced beta-cells function combined PGSs, derived from 536 SNVs,
+showed a 2.13[1.96 –2.31] fold increased risk of having comorbidity
+(Fig. 4b and Supplementary Table 5), reaching the same RR as a tra-
+ditional pruning-and-thresholding (P + T) weighted T2D PGS. Survival
+analysis, using cumulative hazard plots, indicated that this elevated
+comorbidity risk was consistent and linear over 15 years of follow-up
+(year 0 representing the date of ﬁrst diagnosis with either hyperten-
+sion or T2D, Fig. 4c and Supplementary Fig. 11). This suggests that
+individuals with high PGS distributions remain at increased risk of
+comorbidity throughout their life course. Consequently, partitioned
+PGSs enhance the predictive ability to identify high-risk individuals at
+an earlier age
+63,64.
+Using the partitioned PGSs, we evaluated the association between
+PGS and multiple sets of complications based on the UKB hospital
+records (Fig. 5 and Supplementary Data 8). We detected a reciprocal
+protective effect of the Inverse T2D-BP cluster PGS on essential
+hypertension (OR[95% CI] = 0.91[0.90 –0.92], p <1 . 0 0×1 0
+−40) along-
+side other circulatory system disorders such as coronary artery disease
+(CAD, OR[95% CI] = 0.94[0.93–0.95], p =5 . 0 8×1 0
+−22), angina pectoris
+(OR[95% CI] = 0.95[0.94 –0.97], p =1 . 2 9×1 0−12), AF (OR[95%
+CI] = 0.96[0.94–0.97], p =1 . 0 1×1 0−10), chronic ischaemic heart disease
+(OR[95% CI] = 0.96[0.95–0.97], p =9 . 0 8×1 0−10). The Inverse T2D-BP
+risk cluster PGS also associates with lower risk of gout (OR[95%
+CI] = 0.92[0.89–0.95], p =1 . 1 0×1 0−6) and hypercholesterolaemia
+(OR[95% CI] = 0.98[0.97–0.99], p =1 . 9 0×1 0−17). These results support
+previous research on the heterogeneous effects of hypertensive
+medications on the risk of T2D, indicating that some biological pro-
+cesses between T2D and high BP may reduce the risk of comorbidity
+16.
+We conﬁrmed the high contribution into T2D-BP comorbidity of
+the Metabolic Syndrome cluster, by showing tha t its relatively small
+number of SNVs could predict risk of multiple metabolic disorders,
+including T2D (OR[95% CI] = 1.24[1.23–1.26], p <1 . 0 0×1 0
+−40), hyperten-
+sion (OR[95% CI] = 1.13[1.12 –1.14], p ≤ 1.00 × 10−40), hypercholester-
+olaemia (OR[95% CI] = 1.10[1.09–1.10], p ≤ 1.00 × 10−40), hyperlipidaemia
+(OR[95% CI] = 1.10[1.08–1.13], p =6 . 5 2×1 0−20), fatty liver (OR[95%
+CI] = 1.13[1.09–1.18], p =6 . 0 8×1 0−10), and hypothyroidism (OR[95%
+CI] = 1.03[1.02–1.04], p =1 . 6 5×1 0−6). Additionally, the Metabolic Syn-
+drome cluster PGS showed signiﬁcant association with risk of cardio-
+vascular complications such as CAD, angina pectoris, ischaemic heart
+disease, heart failure, and myocardial infarction. We also detected
+association with higher risk of kidney failure and calculus of kidney.
+The Higher adiposityPGS showed the strongest risk prediction of
+obesity-related diseases, including T2D (OR[95% CI] = 1.22[1.20–1.23],
+p ≤ 1.00 × 10
+−40), hypertension (OR[95% CI] = 1.09[1.09 –1.10],
+p ≤ 1.00 × 10−40), sleep apnoea (OR[95% CI] = 1.17[1.14 –1.20],
+p =1 . 2 8×1 0−34), osteoarthritis (OR[95% CI] = 1.08[1.07 –1.10],
+p =1 . 5 1×1 0−31), carpal tunnel syndrome (OR[95% CI] = 1.09[1.07–1.11],
+p =6 . 6 1×1 0−20), and pneumonia (OR[95% CI] = 1.08[1.06 –1.10],
+p =3 . 9 2×1 0−12). This cluster PGS was associated with higher mental
+disorders, such as major depressive disorder, delirium or behavioural
+disorders due to use of tobacco, highlighting the intertwined relations
+between obesity and depressive conditions.
+Among other clusters, theVascular Dysfunctioncluster was more
+predictive for cardiovascular complications, including hypertension
+(OR[95% CI] = 1.12[1.11 –1.13], p <1 . 0 0×1 0
+−40), CAD (OR[95%
+CI] = 1.06[1.05–1.07], p =4 . 2 5×1 0−23), or ischaemic heart disease
+(OR[95% CI] = 1.06[1.04–1.07], p =1 . 0 5×1 0−15). The Reduced beta-cell
+functionunweighted PGS showed the strongest association with risk of
+T2D (OR[95% CI] = 1.33[1.32–1.35], p <1 . 0 0×1 0−40) and its related con-
+sequences, including obesity (OR[95% CI] = 1.03[1.02 –1.05],
+p =4 . 3 8×1 0−9), hyperlipidaemia (OR[95% CI] = 1.08[1.06 –1.10],
+p =5 . 1 7×1 0−13), fatty liver (OR[95% CI] = 1.09[1.05–1.14], p =1 . 6 2×1 0−5),
+chronic kidney disease (OR[95% CI] = 1.10[1.07–1.12], p =6 . 4 7×1 0−19),
+and hypothyroidism (OR[95% CI] = 1.03[1.01–1.04], p =2 . 4 3×1 0−5). The
+Reduced beta-cell function weighted PGS (“Methods”)s h o w e ds t r o n g
+association with high SBP and PP, albeit not with DBP (Supplemen-
+tary Data 9).
+The partitioned PGSs effectively delineated the differences in
+prediction among the T2D-BP cluster SNVs. Partitioned PGSs shows
+that grouping of SNVs can highlight related comorbidities through
+different pathophysiological processes.
+Discussion
+In this large-scale multiomic study, we explored the complex genetic
+underpinnings of the comorbid relationship between T2D and high BP.
+Our analysis conﬁrms and extends prior evidence of a direct genetic
+Article https://doi.org/10.1038/s41467-025-67449-2
+Nature Communications|         (2026) 17:1446 5
+correlation and a large overlap in genetic signals shared between T2D
+and high BP 65,66. This observation is not unexpected, given the well-
+established comorbidity between T2D and hypertension —largely
+attributable to shared environmental and biological risk factors such
+as adiposity. Our approach extends beyond this by leveraging clus-
+tering of genetic variants to partition the T2D-BP genetic architecture
+into biologically coherent groups.
+We curated a set of genome-wide signiﬁcant common SNVs asso-
+ciated with T2D and high BP, thereby enriching for variants with stron-
+ger and trait-speciﬁc effects, and reducing the inﬂuence of broader, less
+speciﬁc cross-trait associations
+67,68. Through hierarchical clustering
+using T2D-BP related endpoints and risk factors, we identi ﬁed ﬁve
+clusters of SNVs, each highlighting unique pathogenetic processes
+underlying the T2D-BP relationship. This clustering approach provided a
+clearer delineation of genetic relationships, reducing heterogeneity
+compared to other clustering methods. Four of these SNV clusters —
+Metabolic Syndrome, Higher adiposity, Vascular dysfunction,a n dReduced
+beta-cell function—align with establishedﬁndings in high BP or T2D
+27,69–71.
+We discovered an intriguing cluster of variants with anInverse T2D-BP
+risk proﬁle, implicating retinol metabolism. Although recent meta-
+analysis on the role of retinol in T2D and BP regulation have yielded
+inconsistent results, one retinol derivative, retinoic acid, has consistently
+been linked to higher IR and reduced cardiovascular events
+55.W h i l ew e
+propose a mechanistically plausible pathophysiological hypothesis for
+inverse T2D-BP risk effects, these patterns may also arise from incom-
+plete overlap in the genetic architectures underlying T2D and BP. The
+Metabolic Syndromecluster was associated with features such as shorter
+stature, higher WHR, and no detectable effect on BMI. These features are
+consistent with the International Diabetes Federation (IDF) deﬁnition of
+MetS
+72, which emphasises central obesity—better captured by WHR than
+a
+Prevalence(comorbid 
+T2D+Hypertension) = 5.49%
+Prevalence(T2D) = 7.28%
+Prevalence(Hypertension) = 47.38%
+Controls
+c 
+Partitioned PGS
+Cumulative Hazard
+Follow-up (years)
+Individuals in the top 10%
+of the partitioned PGS distribution
+based on…
+Prevalence 
+of T2D-BP
+comorbidity
+Relative risk
+of T2D-BP
+comorbidity [95%CI]
+Inverse T2D-BP risk cluster 5.73% 1.04 [1.00-1.08]
+Vascular dysfunction cluster 6.26% 1.14 [1.10-1.18]
+Higher adiposity cluster 7.48% 1.36 [1.32-1.41]
+Metabolic Syndrome cluster 7.88% 1.44 [1.39-1.48]
+Reduced beta-cell function cluster 8.51% 1.55 [1.51-1.60]
+Metabolic Syndrome & Reduced
+beta-cell function clusters 11.66% 2.13 [1.96-2.31]
+bUK Biobank
+Fig. 4 | The T2D-BP comorbidity risks stratiﬁed by partitioned PGSs in the UKB.
+a Overall prevalence of individuals with T2D, hypertension, and T2D-BP comorbidity
+(Supplementary Table 5). Prevalence (Prev =Ncases
+Ntotal
+) corresponds to the proportion of
+cases divided by the total number of individuals.b Summary table of the relative risk
+(RR = Prevcases, cluster
+Prevcases, overall
+) of T2D-BP comorbidity for individuals in the top 10% of cluster-
+speciﬁcP G S si nt h eU K B ,w i t h9 5 %c o nﬁdence intervals (CIs) derived using the Wald
+method on the log-transformed RR (Supplementary Table 5). Two-sided tests were
+applied throughout.c Cumulative hazard of T2D–BP comorbidity stratiﬁed by being in
+the top 33% of the unweighted partitioned PGS after clustering (Supplementary
+Data 10). Shaded areas represent the 95% CIof the two-sided estimated cumulative
+hazard from the Cox proportional hazards model. Prev prevalence, comorbid T2D-BP
+comorbidity, T2D type 2 diabetes, BP blood pressure, CI conﬁdence interval.
+Article https://doi.org/10.1038/s41467-025-67449-2
+Nature Communications|         (2026) 17:1446 6
+BMI—as the primary driver. No detectable effect on BMI in this cluster
+likely reﬂects the speciﬁc contribution of visceral adiposity to cardio-
+metabolic risk, rather than overall body adiposity, highlighting the
+relevance of WHR-linked pathways in MetS pathophysiology. Addition-
+ally, we observed an enrichment in colocalizations speciﬁct ot h et h y r o i d
+across allﬁve T2D-BP clusters, suggesting a mechanistic role for thyroid
+function in T2D-BP comorbidity. This feature further highlights a need
+for better thyroid health in the general population to reduce impact of
+dysthyroidism on BP and T2D management
+73.
+We bring forward a property of partitioned PGS to differentially
+predict related T2D–high BP conditions74. While PGS has shown pre-
+dictive value for an expanding array of common diseases, such as for
+instance CAD
+75,76, its clinical application remains limited due to a range
+of pitfalls77. In this study, we report how speci ﬁc clusters, particularly
+the Metabolic Syndromeand Reduced beta-cell function,c a ni d e n t i f ya
+sub-population of individuals bearing over twice the general popula-
+tion risk of T2D-BP comorbidity. Our study calls for partitioning of
+PGSs to predict complications in metabolic disorders like T2D and high
+Inverse T2D-BP risk
+Metabolic Syndrome
+Higher adiposity
+Vascular dysfunction
+Reduced beta-cell function
+Fig. 5 | Association between complications and partitioned PGSs after clus-
+tering in the UKB. The ﬁgure displays ﬁve Manhattan plots, each representing
+results from two-sided logistic regression analyses testing the association between
+cluster-derived partitioned PGSs and disease risk (Supplementary Data 8). The grey
+dotted line indicates the threshold for signiﬁcant associations applying Bonferroni
+multiple testing correction (p <7 . 7 5×1 0
+−5). Arrows illustrate the direction of
+association between PGS and disease risk: upward-pointing arrows indicate that a
+higher PGS is associated with an increased risk of the disease, while downward-
+pointing arrows indicates that a higher PGS is associated with a decreased risk of
+the disease. Colours differentiate the different disease categories. PGS polygenic
+score, UKB UK Biobank, T2D type 2 diabetes, BP blood pressure.
+Article https://doi.org/10.1038/s41467-025-67449-2
+Nature Communications|         (2026) 17:1446 7
+BP, suggesting that in comorbidity risks, fewer SNVs could be more
+impactful than an entire genome-wide PGS to stratify the individuals at
+high risk of complications. For the survival analysis, individuals were
+assigned to the cluster corresponding to their highest partitioned PGS,
+to emulate a potential clinical framework where patients could be
+stratiﬁed into their predominant mechanistic risk pathway for targeted
+prevention. While this approach simpliﬁes the genetic architecture, it
+illustrates how re ﬁned, cluster-speciﬁc PGSs could ultimately com-
+plement existing clinical tools such as QDiabetes
+78 and QRisk 79 to
+enable earlier, pathway-informed interventions. This work paves the
+way for improved risk stratiﬁcation and precision health approaches
+76.
+We acknowledge several caveats in this work. The pathophysio-
+logical mechanisms involved in both T2D and high BP are not fully
+explained by genetics alone, and are inﬂuenced by a variety of external
+and environmental factors, such as salt consumption or western diet.
+Moreover, the heterogeneity in sample origins, study designs, and
+sample sizes across the diverse included datasets could potentially
+reduce our ability to identify independent pathways. While the inclu-
+sion of individuals with potentially pre-existing comorbid conditions in
+GWAS studies of speci ﬁc phenotypes, here T2D and BP, is often
+inevitable to capture the genetic architecture, it could somewhat
+inﬂate the estimated shared genetics due to phenotypic correlation.
+To mitigate the possibility of sample contamination bias, we used
+different subsets of T2D-BP GWASs for analyses that are sensitive to
+linkage disequilibrium structure. We mitigated the sample origin bias
+by prioritising datasets with multiple ancestries including European
+80.
+Hierarchical clustering can force an SNV to ﬁt a cluster that may not
+fully capture its effect. To mitigate this, we compared and found
+consistent results with previous clustering studies and sensitivity
+analyses using other clustering methods, such as bNMF
+27.F i n a l l y ,w e
+chose to focus on clustered genome-wide signiﬁcant common variants
+to provide a clear and interpretable framework for dissecting the T2D-
+BP shared genetic relationships. While this strategy highlights robust
+mechanistic clusters, it may overlook a sizeable portion of the poly-
+genic signal. Future studies could apply complementary approaches
+such as expanding this study to whole-exome or whole-genome
+datasets, or using multivariate GWAS or genomicSEM
+40,81 to further
+reﬁne the understanding of T2D-BP relationship.
+In this study, we highlight the mechanistic heterogeneity under-
+lying T2D and high BP, demonstrating that their genetic relationship is
+not driven by a single shared pathophysiological process but instead
+arises fromﬁve distinct mechanistic pathways contributing to the T2D-
+BP comorbidity. The partitioned PGSs, derived through clustering,
+enable modelling of differential lifetime risk trajectories associated
+with T2D-BP comorbidity. These results provide a framework for
+future investigations into strati ﬁed risk prediction and
+pathophysiology-informed approaches to manage comorbid
+conditions.
+Methods
+Material description
+We collected 45 publicly available GWAS summary statistics (Supple-
+mentary Data 2), spanning from 2017 to 09 June 2023. GWAS were
+selected if they included a large number of participants ( N ≥ 10,000)
+and a preference for datasets with diverse ancestral backgrounds,
+involving the majority of individuals of European ancestry, to enhance
+genetic diversity in our study. European-only studies were included
+when multi-ancestry data were unavailable. Particularly for T2D, we
+used Mahajan et al.
+22 GWAS (2018b) as it allows us to alternate between
+a GWAS with UKB individuals or not, accessible on the DIAGRAM/
+DIAMANTE/T2DGGI webpage https://diagram-consortium.org/
+downloads.html. We alternated between using the Warren et al.
+GWAS71 based on the UKB and a subset version of the Evangelou et al.
+GWAS12 without UKB (only ICBP data). Both T2D/BP GWASs without
+UKB individuals were used only for two speci ﬁc analyses: LD score
+regression and PGS.
+To ensure robustness in uncovering shared aetiologies, we gath-
+ered from multiple sources a list of T2D 82–86 and BP SNVs 13,30,87–97
+reaching genome-wide signiﬁcance (i.e., p <5×1 0 -8) and characterised
+by minor allele frequency (MAF) > 0.01. SNV could have been reported
+for either one of the three BP metrics (SBP/DBP/PP) or it was reported
+for T2D. We identiﬁed a total of 1401 SNVs. This list was further curated
+for clustering to keep only independent SNVs (LDr² < 0.2). We did not
+apply additional pruning based on genetic distance. This decision was
+made to preserve the potential for capturing pleiotropic variants and
+regional architectures that could contribute to comorbidity between
+T2D and BP traits. The resulting list encompasses 1304 SNVs, including
+500 T2D and 283/272/270 SBP/DBP/PP signals, with 9 unique SNVs
+demonstrating associations with T2D-BP comorbidity.
+The UK Biobank (UKB, https://ukbiobank.ac.uk/) is a large pro-
+spective cohort study with genotypic and phenotypic data
+21.T h e
+dataset in this study derived from genome-wide imputed data,
+including 459,247 individuals of European ancestry. To identify indi-
+viduals with T2D, we leveraged hospital admission records, self-
+reports, and ICD10/9 codes, successfully de ﬁning 33,446 T2D indivi-
+duals. Hypertension was assessed using three blood pressure metrics:
+SBP, DBP, and PP, with both automated and manual records available
+in the UKB
+12. We used the mean value when more than one value was
+found for a given individual and adjusted for medication use by adding
+15 mmHg to SBP and 10 mmHg to DBP for individuals with reported
+data on blood pressure-lowering medication
+98.W ed e ﬁned the out-
+come “hypertension” used in the last section of the Results (unweigh-
+ted PGS evaluation) as either having SBP ≥ 150 mmHg, or
+DBP ≥ 90 mmHg, or taking blood pressure lowering medication. The
+complete criteria used to identify individuals with T2D and hyperten-
+sion are illustrated in Supplementary Fig. 10. We identi ﬁed 217,599
+hypertensive individuals in the UKB (Supplementary Table 1).
+The Genotype-Tissue Expression (GTEx, https://www.gtexportal.
+org/home/datasets/) is a project gathering samples from 49 non-
+diseased tissue across 1000 deceased individuals
+17.W eu s e dt h e
+expression quantitative trait loci (eQTLs) mapping genetic variants
+with changes in the expression of nearby genes.
+The ABOS cohort is an ongoing prospective study that aims to
+identify the determinants of bariatric surgery outcomes, initiated at
+Lille University Hospital (Lille, France) in 2006. The study protocol has
+been previously detailed elsewhere (clinicaltrials.gov, NCT01129297)
+19.
+A total of 372 individuals of European descent were included in the
+ABOS liver eQTL study.
+The translational human pancreatic islet genotype tissue-
+expression resource (TIGER, http://tiger.bsc.es/) is a large meta-
+analysis of cohorts aggregating more than 500 human islet genomic
+datasets from ﬁve cohorts in the Horizon 2020 consortium
+T2DSystems
+18.
+The cis-element ATLAS (CATLAS, http://catlas.org/
+humanenhancer/) is a comprehensive resource gathering the
+genome-wide cCREs in 222 human cell types. The dataset encompasses
+chromatin accessibility data derived from single-cell Assay for
+Transposase-Accessible Chromatin (ATAC-seq) peaks spanning 30
+human adult and 15 human fetal tissues.
+We systematically applied multiple correction testing and adjus-
+ted the appropriate individual-level associations for age, sex, geno-
+typing array and the ﬁrst six principal components derived from
+genetic data.
+Genetic correlation
+We conducted genetic correlation analysis by using the whole T2D 22
+and BP12 GWAS datasets of European ancestry only without UKB indi-
+viduals. We estimated the liability-scale heritability ( h2)o fe a c h
+Article https://doi.org/10.1038/s41467-025-67449-2
+Nature Communications|         (2026) 17:1446 8
+phenotype and their genetic correlation ( rg ) by employing linkage
+disequilibrium score regression via ldsc v1.0.123.W eu s e dp r e -
+computed LD scores from 1000 Genome Phase 3 SNVs in individuals
+of European ancestry. We manually aligned the GWAS datasets and
+excluded outlier SNVs, that are multi-allelic, poorly-imputed (by ﬁl-
+tering to HapMap3 SNVs), have a MAF > 0.01 and 0 < p ≤ 1.
+Reciprocal risk prediction using PGS
+We constructed PGS before and after clustering withplink v1.999,u s i n g
+speciﬁc SNV sets, weights from T2D22, SBP, DBP, and PP12 summary sta-
+tistics (GWAS without UKB individuals) and individual-level data from the
+UKB. We carefully selected weights without UKB (Supplementary Data 2
+in italic) to avoid sample overlap between the base data (composed of
+GWAS signiﬁcant SNVs plus their weights) and the target data (indivi-
+d u a l - l e v e ld a t af r o mt h eU K B ) .T h eP r u n i n ga n dT h r e s h o l d i n g( P + T )
+method was used before making PGS by selecting the only GWAS sig-
+niﬁcant SNVs for each desired outcome
+100,101. We subsequently used
+comorbidPGSv1 to conduct linear or logistic regression to evaluate the
+shared predisposition between PGS for thei-th trait and the j-th target
+phenotypeY, correcting for covariates including age, genetically-inferred
+sex, genetic array, and theﬁrst six principal components as following24:
+EY kj
+/C16/C17
+= αiPGSki + αageagek + αsexsexk + αarrayarrayk
++
+X6
+x =1
+αx PC kx + α0
+Where Y kj is the value of thej-th phenotype of thek-th individual (1 or 0
+for T2D, continuous value in mmHg for BP traits), PGSki is the PGS for
+the i-th trait and the k-th individual, agek ,s e xk , arrayk and PC kx being
+the respective covariates for the k-th individual. The α are the regres-
+sion coefﬁcients, α0 is the intercept.
+Genetic overlap
+We estimated the genetic overlap among the pre-curated non-inde-
+pendent 1401 SNVs by identifying variants within 500 kb of each other,
+or in LD r² > 0.2 for individuals of European ancestry. The reportedloci
+are the proximal ones, identi ﬁed by biomaRt
+102.W ei d e n t iﬁed and
+coloured the signals per clusters in Supplementary Data 1.
+Clusters of pathogenetic processes
+We aggregated the 1304 independent T2D-BP SNVs and investigated
+45 endophenotypes GWAS summary statistics including T2D/BP
+(Supplementary Data 2) to cluster them into distinct groups based on
+pathogenetic processes. To reduce/avoid missingness across datasets,
+we identiﬁed high-LD proxies (LD r² > 0.6) using European ancestry
+reference panel from the 1000 Genomes Project Phase 3. Although
+some of the GWAS datasets were of multiple ancestries, we prioritised
+datasets comprising European-only studies or those with a high pro-
+portion of European ancestry participants. This approach mitigated
+potential discrepancies in LD patterns between the GWAS datasets and
+the reference panel. For the i-th SNV of the j-th trait, we extracted the
+beta coefﬁcient, β
+ij , along with its standard error, sij ,t ob u i l dz-scores
+using the following formula Z ij =
+βij
+sij
+. Any signal exhibiting more than
+20% missingness across the GWAS was excluded. We conducted
+imputation of the remaining missing z-scores using a random forest
+algorithm from imputeSCOPA34. For each GWAS, we truncated SNVs if
+their absolute z-score exceeded two standard deviations.
+We performed hierarchical clustering with the Ward method from
+the R function hclust, using Euclidean distance and the R package
+pheatmap for plotting (Supplementary Fig. 1). We determined the
+number of clusters by taking half of the maximum Euclidean tree-row
+distance. Our methodology, termed‘hard clustering’,e n s u r e sp r e c i s e
+assignment of each SNV to a single cluster. Each variant is treated as a
+unit, in opposition with approaches that treat positive and negative
+associations independently. Using a‘hard clustering’ method offers a
+clearer delineation of clustering patterns. However, it may force a SNV
+into a group where is does not truly belong
+9,37.
+To validate our clusters, we compared them with those identiﬁed
+in the latest T2DGGI study9 and both latest ‘soft’ clustering for T2D37
+and BP 38. First, we looked at SNV assignment between our T2D-BP
+clusters, T2DGGI clusters (Supplementary Fig. 5a), latest T2D ‘soft’
+clusters (Supplementary Fig. 5b), and latest BP ‘soft’ clusters (Supple-
+mentary Fig. 6 and Supplementary Data 3). To do so, we systematically
+looked for LD proxies (LD r² > 0.6) in the three clusters. We assign a
+SNV into ‘soft’ clusters based on weight >0.75 (Supplementary Data 3
+and Supplementary Figs. 5, 6). Second, we performed GWAS weight
+comparison speci ﬁcally between our T2D-BP hierarchical clusters
+(k =5 )a n d t h e T 2 D G G Ih i e r a r c h i c a lc l u s t e r s (k = 8) by extracting each
+cluster weights for the common GWAS endophenotypes. We then
+calculated the Pearson correlation coefﬁcient between the sets of trait
+cluster weights. Notably, our T2D-speciﬁcc l u s t e r ss h o w e ds i g n iﬁcant
+correlations: theHigher adipositycluster aligned with T2DGGI‘Obesity’
+cluster, the Metabolic Syndrome cluster was correlated with ‘Lipody-
+strophy’, ‘Metabolic syndrome’,a n d‘Residual glycaemic’.T h eReduced
+beta-cell cluster exhibited correlation across all T2DGGI clusters, par-
+ticularly with‘Residual glycaemic’ and ‘Obesity’ (Supplementary Fig. 7).
+Additional sensitivity analyses include the use of three alternative
+clustering methods: adjusting Z-score for GWAS sample size prior to
+clustering (using the following formula Z
+ij =
+βij
+sij ×
+ﬃﬃﬃ ﬃ
+Nj
+p , Supplementary
+Fig. 2),MRClust36 (Supplementary Fig. 3) and a‘soft clustering’ method,
+bNMF27 (Supplementary Fig. 4). In Supplementary Fig. 2a, b, we
+showed a comparative hierarchical clustering using our approach
+without GWAS sample size adjustment, and another approach by
+adjusting for sample size (dividingZ by
+ﬃﬃﬃﬃ
+N
+p
+, N being the sample size for
+a given GWAS), as it has been done in other studies
+9. We decided to use
+unadjustedZ-scores as main analysis as we wanted to prioritise robust,
+high-conﬁdence associations. We showed in Supplementary Fig. 2c
+that the cluster assignment has followed the same patterns with or
+without adjustment (Chi-squared test of independence p <2×1 0
+−16).
+We compared our bNMF results (k = 8) with our hierarchical clustering
+(k = 5) by merging the variant weights for each cluster of both meth-
+ods. Logistic regression models were then employed to assess the
+association between the ‘hard’ cluster memberships and the ‘soft’
+clustering weights. Speci ﬁcally, for each hierarchical cluster, we
+modelled the binary cluster membership (0/1) as a function of the
+corresponding bNMF-derived weights. The models ’ deviances were
+compared through ANOVA to evaluate the enrichment and sig-
+niﬁcance of the clustering concordance (Supplementary Fig. 4c).
+To improve interpretability of the clustering, we performed linear
+regression with the lm R function, across the SNVs within the k-th
+cluster on thei-th phenotype, deﬁned by EZ
+ij
+/C16/C17
+= P
+k αik Ckj ,w h e r eCkj
+is a variable taking the value 1 if the j-th SNV was assigned to the k-th
+cluster, 0 otherwise. The resulting regression (Supplementary Data 4)
+is represented in Fig. 2 heatmap, with the p value denoting the colour
+intensity, and the colour indicating the sign of the regression coef ﬁ-
+cient. PAI 1, oestradiol (f and m), and age at menopause are not shown
+in Fig. 2 to improve readability.
+Colocalization analysis
+To identify the signals that share the same causal variants in T2D-BP
+GWASs and eQTLs, we systematically conducted Bayesian colocaliza-
+tion with coloc.abf
+47, between the clustered SNVs and eQTLs derived
+from 50 tissues from GTEx (48 tissues), ABOS (liver) and TIGER (pan-
+creatic islet) datasets. We used an hypothesis-free approach. We
+assessed colocalization with the‘lead’ GWAS per cluster (i.e., the main
+origin of the clustered SNVs, SBP GWAS for Inverse T2D-BP and Vas-
+cular dysfunction,T 2 DG W A Sf o rMetabolic syndrome, Higher adiposity
+Article https://doi.org/10.1038/s41467-025-67449-2
+Nature Communications|         (2026) 17:1446 9
+and Beta cellclusters). For each SNV within the 1304 clustered SNVs, we
+considered a genomic region of 100 kb up and downstream, and
+evaluated whether the variant colocalized with genetic expression in
+that region. Colocalization was asserted if the region was well-
+characterised (containing between 100 and 1000 SNV within eQTL),
+the posterior probability of the model sharing a single causal variant
+(H4) exceeded 80%, and the posterior probability of distinct causal
+variants with both traits (H3) was below 50%. We excluded variants
+within the MHC region (chr6: 25,000,000–35,000,000).
+We present in Fig.3a the count of colocalized genes across tissues
+(bar) and clusters (colours). We represented in this ﬁgure the top tis-
+sues based on their overall number of colocalization (N
+coloc ≥ 100). The
+lower portion depicts the number of tissue-speci ﬁc colocalizations,
+i.e., when the index SNV is associated to only one tissue-speciﬁce Q T L .
+The complete number of colocalization per cluster and tissue is
+represented in Supplementary Fig. 8. The colour intensity indicates the
+percentage of colocalized genes per cluster. Caution is warranted in
+interpreting the results as there is currently no robust method to rule
+out horizontal pleiotropy
+103.
+Subsequent pathway analysis of the thyroid eQTL andInverse T2D-
+BP riskcluster colocalized genes was performed usingmetascape54.F o r
+thyroid eQTL, we identiﬁed 244 colocalized genes and 75 SNVs in cCRE
+regions in follicular cells (used as major cell type within the thyroid).
+Among them, 15 signals were both associated with a colocalized gene
+in thyroid and a cCRE region in follicular cells. We used these
+remaining 15 colocalized genes withmetascapedefault parameters. We
+performed the pathway analysis using 926 background genes expres-
+sed in the GTEx Thyroid RNA-seq v8 (TPM > 120). Similar analyses were
+conducted for the four other top colocalized tissues: adipose sub-
+cutaneous (adipocytes as major cell type), artery tibial (smooth muscle
+cells), nerve tibial (Schwann general cells), and skin (sun-exposed)
+lower leg (keratinocytes as major cell type). These analyses were also
+performed using metascape, with background genes expressed in
+GTEx RNA-seq v8 for each respective tissue: 1053 genes for adipose
+subcutaneous, 1053 for artery tibial, 1029 for nerve tibial, and 791
+genes for skin (TPM > 120).
+scATAC-seq enrichment analysis
+To gain insights in the associated regulatory processes, we took the
+1304 clustered SNVs to look for enrichment of regions of open chro-
+matin within clusters. Speciﬁcally, we aggregated independent SNVs
+(LD r² < 0.2) within 50 kb of each clustered SNV from the 1000 Genome
+Project Phase 3. We followed a similar protocol by the T2DGGI paper
+9,
+and conducted a Firth bias-reduced logistic regression, usinglogistf R
+package and the following equation:
+EY i
+/C0/C1
+= α0 + αEXONEXONi + α3UTR 3UTRi + α5UTR5UTRi +
+X
+j αij X ji
+With Y i taking the value 1 if thei-th SNV is within one of the clusters,X ji
+taking the value 1 if thei-th SNV mapped to an ATAC-seq peak for thej-
+th cell type, 0 otherwise. We de ﬁned EXONj ,3 U T Rj ,5 U T Rj indicators
+taking the value 1 if thei-th SNV is located to the respective annotation
+(from the Ensembl Project), 0 otherwise. Theα are the coefﬁcients of
+log fold enrichments, and α0 is the intercept.
+We performed the logistic regression twice, one with αij =0 a n d
+one without constraint. We reported on the heatmap of Fig. 3bt h e p
+value associated to Chi-squared tests between the two logistic
+regression models to observe the enrichment of the j-th cell type
+across clusters. We used multiple correction testing for Chi-squared
+tests across cell types and clusters, p
+threshold=2 . 2 5×1 0−4. More infor-
+mation on the 222 cell types gathered in CATLAS can be found in
+CATLAS website.
+Prevalence and relative risk of T2D-BP comorbidity using
+partitioned PGS
+The prevalence of T2D-BP comorbidity was deﬁned by the proportion
+of cases divided by the total number of individuals in the UKB,
+Prev = Ncases
+Ntotal
+. The summary table in Fig. 4b provides the prevalence
+of individuals with T2D-BP comorbidity (of having both T2D and
+hypertension) based on being in the top decile (top 10%) of the par-
+titioned unweighted PGS distribution. Additional results are available
+in Supplementary Table 5, showing both the top 10% and 33% of those
+partitioned PGS and comparing them with weighted T2D and SBP PGS.
+For individuals associated with multiple clusters, assignment was
+based on the cluster where they ranked the highest. The relative risk
+(RR) is calculated as the ratio of the proportion of cases within a cluster
+subgroup to the proportion of cases in the overall population
+RR =
+Prevcases, cluster
+Prevcases, overall
+. The 95% con ﬁdence interval of the RR was estimated
+using the following equation:
+CI95% =e x p l nðRRÞ ±1 :96
+ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ ﬃ
+1
+Ncases, cluster
+/C0 1
+Ncases, overall
+s"#
+Survival analysis using partitioned PGS
+Survival analysis was conducted using the survival Rp a c k a g ev 3 . 6 - 4
+with a Cox proportional hazards model. In this model, time zero was
+deﬁned as the date of theﬁrst diagnosis of either hypertension or type
+2 diabetes (T2D). The primary event of interest was the subsequent
+development of a T2D-BP comorbidity, marked by the diagnosis of the
+second disease. To ensure adequate sample sizes within groups, indi-
+viduals were assigned to a cluster group if their maximum partitioned
+unweighted PGSs was in the top 33% of distribution. For individuals
+associated with multiple clusters, assignment was based on the cluster
+where they ranked the highest. Figure 4c displays the cumulative
+hazard with two-sided 95% con ﬁdence intervals. Sensitivity analysis
+includes comparing this survival analysis using T2D weighted PGS and
+SBP weighted PGS respectively, and is included in Supplementary
+Fig. 11 and Supplementary Data 10.
+Partitioned PGS and risk of complications
+Following the same pipeline developed in Reciprocal risk prediction
+using PGS, partitioned PGSs were calculated using clustered SNVs in
+the risk-increasing direction of T2D, assuming an additive model
+(Supplementary Data 8). We do not associate a weight with partitioned
+PGSs, meaning each allele increasing the risk of T2D is counting as one.
+Sensitivity analysis included using weights derived from T2D and BP
+GWAS to predict the risk of the other disorders (Supplementary
+Data 9). Association with complications were performed using the UKB
+ICD-10 codes, updated with hospital data up to December 2023.
+Associations were corrected for covariates including age, genetically-
+inferred sex, genetic array, and the ﬁrst six principal components.
+Brieﬂy, we extracted all the UKB ICD-10 available codes and re ﬁned
+them to subcategories of interest, namely: Endocrine, nutritional, or
+metabolic; Mental and behavioural disorders; Nervous system, Eyes,
+ears, nose and throat; Circulatory system; Respiratory system; Diges-
+tive system; Skin; Musculoskeletal system; Genitourinary system. All
+reported associations in Fig. 5 were derived using unweighted parti-
+tioned PGS, comorbidPGS using binary logistic regression, and a
+P - v a l u ec o r r e c t e df o rm u l t i p l et e s t i n g ,p
+threshold=7 . 7 5×1 0−5.
+Inclusion and ethics
+This study is based exclusively on previously published and publicly
+available datasets; no new data involving human participants or ani-
+mals were collected. Hence, no additional ethical approval was
+required for this research. We made use of multi-ancestry datasets to
+Article https://doi.org/10.1038/s41467-025-67449-2
+Nature Communications|         (2026) 17:1446 10
+the fullest extent possible. When robust data across multiple ancestry
+groups were available, all were included in the analysis. In cases where
+no suitable alternative was available, analyses were restricted to indi-
+viduals of genetically inferred European ancestry. All references to
+ancestry are based on genetically inferred population structure and
+not on self-reported race or ethnicity. Similarly, the reported sex in this
+work was determined using genetic data.
+Reporting summary
+Further information on research design is available in the Nature
+Portfolio Reporting Summary linked to this article.
+Data availability
+The GWAS used in this study are all publicly available and listed in
+Supplementary Data 2. The UK Biobank Resource [https://ukbiobank.
+ac.uk/] was accessed using the Application Number 236. GTEx [https://
+www.gtexportal.org/home/downloads/adult-gtex/qtl]a n d TIGER
+eQTL data used in this study are publicly available via these links,
+respectively. Data from the ABOS cohort are not publicly available,
+since they are subject to national French data protection laws and
+restrictions imposed by the ethics committee to ensure data privacy of
+the study participants. Data can be accessed through an individual
+project agreement with the principal investigator of the University
+Hospital of Lille (Lille, France), F.P., using the email address: fran-
+cois.pattou@univ-lille.fr. The ATAC-seq data from CATLAS are publicly
+available and can be accessed via the following link:https://catlas.org/
+humanenhancer/data/.
+Code availability
+The software used for this analysis can be found on Zenodo [ https://
+doi.org/10.5281/zenodo.17448298].
+References
+1. The World Health Organization. Hypertension. https://www.who.
+int/news-room/fact-sheets/detail/hypertension(2023).
+2. International Diabetes Federation. IDF Diabetes Atlas. https://
+diabetesatlas.org/(2021).
+3. Iglay, K. et al. Prevalence and co-prevalence of comorbidities
+among patients with type 2 diabetes mellitus. Curr. Med. Res.
+Opin. 32,1 2 4 3–1252 (2016).
+4. Colussi, G. L., Da Porto, A. & Cavarape, A. Hypertension and type 2
+diabetes: lights and shadows about causality.J. Hum. Hypertens.
+34,9 1–93 (2020).
+5. Lastra, G., Syed, S., Kurukulasuriya, L. R., Manrique, C. & Sowers, J.
+R. Type 2 diabetes mellitus and hypertension.Endocrinol. Metab.
+Clin. North Am. 43,1 0 3–122 (2014).
+6. Schmieder, R. E. et al. Achievement of individualized treatment
+targets in patients with comorbid type-2 diabetes and hyperten-
+sion: 6 months results of the DIALOGUE registry.BMC Endocr.
+Disord. 15,2 3( 2 0 1 5 ) .
+7. Alberti, K. G. M. M., Zimmet, P. & Shaw, J. Metabolic syndrome — a
+new world-wide deﬁnition. A consensus statement from the
+International Diabetes Federation.Diabet. Med. 23,
+469–480 (2006).
+8. Huang, P. L. A comprehensive de ﬁnition for metabolic syndrome.
+Dis. Model Mech. 2,2 3 1–237 (2009).
+9. Suzuki, K. et al. Genetic drivers of heterogeneity in type 2 diabetes
+pathophysiology.Nature 627,3 4 7–357 (2024).
+10. Keaton, J. M. et al. Genome-wide analysis in over 1 million indivi-
+duals of European ancestry yields improved polygenic risk scores
+for blood pressure traits. Nat. Genet. 56,7 7 8–791 (2024).
+11. Qi, Q. et al. Genetic predisposition to high blood pressure
+associates with cardiovascular complications among patients with
+type 2 diabetes. Diabetes 61,3 0 2 6–3032 (2012).
+12. Evangelou, E. et al. Genetic analysis of over 1 million people
+identiﬁes 535 new loci associated with blood pressure traits.Nat.
+Genet. 50,1 4 1 2–1425 (2018).
+13. Ehret, G. B. et al. Genetic variants in novel pathways in ﬂuence
+blood pressure and cardiovascular disease risk.Nature 478,
+103
+–109 (2011).
+14. Sun, D. et al. Type 2 diabetes and hypertension: a study on bidir-
+ectional causality.Circ. Res. 124,9 3 0–937 (2019).
+15. Aikens, R. C. et al. Systolic blood pressure and risk of type 2 dia-
+betes: a Mendelian randomization study.Diabetes 66,
+543–550 (2017).
+16. Nazarzadeh, M. et al. Blood pr essure lowering and risk of new-
+onset type 2 diabetes: an individual participant data meta-analysis.
+Lancet 398, 1803–1810 (2021).
+17. Aguet, F. et al. The GTEx Consortium atlas of genetic regulatory
+effects across human tissues.Science 369,1 3 1 8–1330 (2020).
+18. Alonso, L. et al. TIGER: the gene expression regulatory variation
+landscape of human pancreatic islets.Cell Rep.37, 109807 (2021).
+19. Margerie, D. et al. Hepatic transcriptomic signatures of statin
+treatment are associated with impaired glucose homeostasis in
+severely obese patients.BMC Med. Genomics 12,8 0( 2 0 1 9 ) .
+20. Zhang, K. et al. A single-cell atla s of chromatin accessibility in the
+human genome. Cell 184,5 9 8 5–6001.e19 (2021).
+21. Sudlow, C. et al. UK Biobank: an open access resource for iden-
+tifying the causes of a wide range of complex diseases of middle
+and old age. PLoS Med. 12,e 1 0 0 1 7 7 9( 2 0 1 5 ) .
+22. Mahajan, A. et al. Fine-mapping type 2 diabetes loci to single-
+variant resolution using high-density imputation and islet-speciﬁc
+epigenome maps. Nat. Genet. 50,1 5 0 5–1513 (2018).
+23. Bulik-Sullivan, B. et al. LD score regression distinguishes con-
+founding from polygenicity in genome-wide association studies.
+Nat. Genet. 47,2 9 1–295 (2015).
+24. Pascat, V. et al. comorbidPGS: an R package assessing shared
+predisposition between phenotypes using polygenic scores.
+Hum. Hered. https://doi.org/10.1159/000539325(2024).
+25. Wain, L. V. et al. Genome-wide association study identi ﬁes six new
+loci inﬂuencing pulse pressure and mean arterial pressure.Nat.
+Genet. 43,1 0 0 5–1011 (2011).
+26. Mancina, R. M. et al. The COBLL1 C allele is associated with lower
+serum insulin levels and lower insul i nr e s i s t a n c ei no v e r w e i g h ta n d
+obese children. Diab. Metab. Res. Rev. 29,4 1 3–416 (2013).
+2 7 . U d l e r ,M .S .e ta l .T y p e2d i a b e t e sg e n e t i cl o c ii n f o r m e db ym u l t i -
+trait associations point to disease mechanisms and subtypes: a
+soft clustering analysis.PLoS Med. 15
+, e1002654 (2018).
+28. Tsai, C.-T. et al. Angiotensinogen gene haplotype and hyperten-
+sion. Hypertension41,9 –15 (2003).
+29. Liao, Z., Wang, Y., Qi, X. & Xiao, X. JAZF1, a relevant metabolic
+regulator in type 2 diabetes.Diab. Metab. Res Rev.35,e 3 1 4 8( 2 0 1 9 ) .
+30. Johnson, A. D. et al. Association of hypertension drug target genes
+with blood pressure and hypertension in 86 588 individuals.
+Hypertension57,9 0 3–910 (2011).
+31. Lyssenko, V. et al. Mechanisms by which common variants in the
+TCF7L2 gene increase risk of type 2 diabetes.J. Clin. Investig.117,
+2155–2163 (2007).
+32. Trevaskis, J. et al. Src homology 3-domain growth factor receptor-
+bound 2-like (endophilin) interacting protein 1, a novel neuronal
+protein that regulates energy balance.Endocrinology146,
+3757–3764 (2005).
+3 3 . M y e r s ,T .A . ,C h a n o c k ,S .J .&M a c h i e l a ,M .J .L D l i n k R :a nRp a c k a g e
+for rapidly calculating linkage disequilibrium statistics in diverse
+populations.Front. Genet. 11,1 –5( 2 0 2 0 ) .
+34. Mägi, R. et al. SCOPA and META- SCOPA: software for the analysis
+and aggregation of genome-wide association studies of multiple
+correlated phenotypes.BMC Bioinforma. 18,4 –11 (2017).
+Article https://doi.org/10.1038/s41467-025-67449-2
+Nature Communications|         (2026) 17:1446 11
+35. Ward, J. H. Hierarchical groupin g to optimize an objective func-
+tion. J. Am. Stat. Assoc. 58,2 3 6–244 (1963).
+36. Foley, C. N., Mason, A. M., Kirk, P. D. W. & Burgess, S. MR-Clust:
+clustering of genetic variants in Mendelian randomization with
+similar causal estimates.Bioinformatics37,5 3 1–541 (2021).
+37. Smith, K. et al. Multi-ancestry polygenic mechanisms of type 2
+diabetes. Nat. Med. 30,1 0 6 5–1074 (2024).
+3 8 . V a u r a ,F .e ta l .M u l t i - t r a i tg e n e t i canalysis reveals clinically inter-
+pretable hypertension subtypes.Circ. Genom. Precis. Med. 15,
+e003583 (2022).
+39. Laaksonen, D. et al. Sex hormones, in ﬂammation and the meta-
+bolic syndrome: a population-based study.Eur. J. Endocrinol.
+601–608 https://doi.org/10.1530/eje.0.1490601(2003).
+40. Park, S. et al. Multivariate genomic analysis of 5 million people
+elucidates the genetic architecture of shared components of the
+metabolic syndrome.Nat. Genet. 56,2 3 8 0–2391 (2024).
+41. Després, J.-P. & Lemieux, I. Abdominal obesity and metabolic
+syndrome. Nature 444, 881–887 (2006).
+42. Asao, K. et al. Short stature and the risk of adiposity, insulin
+resistance, and type 2 diabetes in middle age. Diab. Care 29,
+1632–1637 (2006).
+4 3 . S t e f a n ,N . ,H ä r i n g ,H . - U . ,H u ,F .B .&S c h u l z e ,M .B .D i v e r g e n t
+associations of height with cardiometabolic disease and cancer:
+epidemiology, pathophysiology, and global implications.Lancet
+Diab. Endocrinol.4,4 5 7–467 (2016).
+44. Ben-Shlomo, Y. et al. An investigation of fetal, postnatal and
+childhood growth with insulin-like growth factor I and binding
+protein 3 in adulthood. Clin. Endocrinol.59,3 6 6–373 (2003).
+45. Wittenbecher, C., Kuxhaus, O., Boeing, H., Stefan, N. & Schulze, M.
+B. Associations of short stature and components of height with
+incidence of type 2 diabetes: mediating effects of cardiometabolic
+risk factors. Diabetologia62, 2211–2221 (2019).
+46. Johnston, L. W. et al. Short leg length, a marker of early childhood
+deprivation, is associated with metabolic disorders underlying
+type 2 diabetes. Diab. Care 36,3 5 9 9–3606 (2013).
+47. Giambartolomei, C. et al. Bayesian test for colocalisation between
+pairs of genetic association studies using summary statistics.PLoS
+Genet.
+10, e1004383 (2014).
+48. Bueno-Carrasco, M. T. et al. Structural mechanism for tyrosine
+hydroxylase inhibition by dopamine and reactivation by Ser40
+phosphorylation.Nat. Commun. 13, 74 (2022).
+49. Hu, C. & Jia, W. Linking MTNR1B variants to diabetes: the role of
+circadian rhythms.Diabetes 65,1 4 9 0–1492 (2016).
+50. Zhou, K. et al. FXYD2 mRNA expression represents a new inde-
+pendent factor that affects survival of glioma patients and pre-
+dicts chemosensitivity of patients to temozolomide.BMC Neurol.
+21, 438 (2021).
+51. Kang, W. et al. Research progress on the structure and function of
+G3BP. Front. Immunol. 12, 718548 (2021).
+52. Zhu, G. et al. Novel LTBP3 mutations associated with thoracic
+aortic aneurysms and dissections.Orphanet. J. Rare Dis. 16,
+513 (2021).
+5 3 . C h a n g ,C . - M . ,C h a n g ,W . - C .&H s i e h ,S .C h a r a c t e r i z a t i o no ft h e
+genetic variation and evolutionary divergence of the CLEC18
+family. J. Biomed. Sci. 31, 53 (2024).
+54. Zhou, Y. et al. Metascape provides a biologist-oriented resource
+for the analysis of systems-level datasets.Nat. Commun. 10,
+1523 (2019).
+55. Olsen, T. & Blomhoff, R. Retinol, r etinoic acid, and retinol-binding
+protein 4 are differentially associated with cardiovascular disease,
+type 2 diabetes, and obesity: an overview of human studies.Adv.
+Nutr. 11, 644–666 (2020).
+56. Horikoshi, M. et al. New loci associated with birth weight identify
+genetic links between intrauterine growth and adult height and
+metabolism.Nat. Genet. 45,7 6–82 (2013).
+57. Vivot, K. et al. CaMK1D signalling in AgRP neurons promotes
+ghrelin-mediated food intake.Nat. Metab. 5,1 0 4 5–1058 (2023).
+58. Wang, H. et al. KCNH6 channel promotes insulin exocytosis via
+interaction with Munc18-1 independent of electrophysiological
+processes.Cell. Mol. Life Sci. 81, 86 (2024).
+59. Yang, Y. et al. SAE1 promotes human glioma progression through
+activating AKT SUMOylation-mediated signaling pathways.Cell
+Commun. Signal.17,8 2( 2 0 1 9 ) .
+60. He, G. et al. Gamma-secretase ac tivating protein is a therapeutic
+target for Alzheimer’sd i s e a s e .Nature 467,9 5–98 (2010).
+61. Melo-Cardenas, J., Bezavada, L., Cotton, A. & Crispino, J. D. DDB1
+and CUL4 associated factor 7 (DCAF7) is essential for hemato-
+poiesis. Blood 140,8 5 8 6–8587 (2022).
+62. Guan, J., Fan, Y., Wang, S. & Zhou, F. Functions of MAP3Ks in
+antiviral immunity.Immunol. Res. 71,8 1 4
+–832 (2023).
+6 3 . J i a n g ,X . ,H o l m e s ,C .&M c V e a n ,G .T h ei m p a c to fa g eo ng e n e t i c
+risk for common diseases. PLoS Genet. 17, e1009723 (2021).
+64. Thompson, D. J. et al. A systematic evaluation of the performance
+and properties of the UK Biobank Polygenic Risk Score (PRS)
+Release. PLoS ONE 19, e0307270 (2024).
+65. Wielscher, M. et al. Genetic co rrelation and causal relationships
+between cardio-metabolic traits and lung function impairment.
+Genome Med. 13, 104 (2021).
+66. Vattikuti, S., Guo, J. & Chow, C. C. Heritability and genetic corre-
+lations explained by common SNPs for metabolic syndrome traits.
+PLoS Genet. 8, e1002637 (2012).
+67. Watanabe, K. et al. A global overview of pleiotropy and genetic
+architecture in complex traits.Nat. Genet. 51, 1339–1348 (2019).
+68. Spence, J. P. et al. Speci ﬁcity, length and luck drive gene rankings
+in association studies.Nature https://doi.org/10.1038/s41586-
+025-09703-7(2025).
+69. Scott, R. A. et al. An expanded genome-wide association study of
+type 2 diabetes in Europeans. Diabetes 66,2 8 8 8–2902 (2017).
+70. Dimas, A. S. et al. Impact of type 2 diabetes susceptibility variants
+on quantitative glycemic traits reveals mechanistic heterogeneity.
+Diabetes 63,2 1 5 8–2171 (2014).
+71. Warren, H. R. et al. Genome-wide association analysis identi ﬁes
+novel blood pressure loci and offers biological insights into car-
+diovascular risk.Nat. Genet. 49,4 0 3–415 (2017).
+72. The IDF Consensus. Worldwide Deﬁnition of the METABOLIC
+SYNDROME. https://idf.org/media/uploads/2023/05/
+attachments-30.pdf(2023).
+73. Gavrila, A. & Hollenberg, A. N. The Hypothalamic-Pituitary-Thyroid
+Axis: Physiological Regulation and Clinical Implications. In: Luster,
+M., Duntas, L., Wartofsky, L. (eds) The Thyroid and Its Diseases.
+Springer, Cham. (2019).https://doi.org/10.1007/978-3-319-72102-
+6_2.
+74. Lambert, S. A., Abraham, G. & Inouye, M. Towards clinical utility of
+polygenic risk scores.Hum. Mol. Genet. 28,R 1 3 3–R142 (2019).
+7 5 . S u r a k k a ,I .e ta l .S e x - s p e c iﬁc survival bias and interaction model-
+ing in coronary artery disease risk prediction.Circ. Genom. Precis.
+Med. 16,e 0 0 3 5 4 2( 2 0 2 3 ) .
+76. Ma, Y. & Zhou, X. Genetic prediction of complex traits with poly-
+genic scores: a statistical review.Trends Genet.37,9 9 5–1011 (2021).
+77. Novembre, J. et al. Addressing the challenges of polygenic scores
+in human genetic research.
+Am. J. Hum. Genet. 109,
+2095–2100 (2022).
+78. Hippisley-Cox, J. & Coupland, C. Development and validation of
+QDiabetes-2018 risk prediction algorithm to estimate future risk of
+type 2 diabetes: cohort study. BMJ j5019 https://doi.org/10.1136/
+bmj.j5019 (2017).
+79. Fuat, A. et al. A polygenic risk score added to a QRISK ®2c a r d i o -
+vascular disease risk calculator demonstrated robust clinical
+acceptance and clinical utility in the primary care setting. Eur. J.
+Prev. Cardiol. 31,7 1 6–722 (2024).
+Article https://doi.org/10.1038/s41467-025-67449-2
+Nature Communications|         (2026) 17:1446 12
+80. Graham, S. E. et al. The power of genetic diversity in genome-wide
+association studies of lipids.Nature 600,6 7 5–679 (2021).
+81. Grotzinger, A. D. et al. Genomic structural equation modelling
+provides insights into the multivariate genetic architecture of
+complex traits. Nat. Hum. Behav. 3,5 1 3–525 (2019).
+82. Morris, A. P. et al. Large-scale association analysis provides
+insights into the genetic architecture and pathophysiology of type
+2d i a b e t e s .Nat. Genet. 44,9 8 1–990 (2012).
+83. Mahajan, A. et al. Re ﬁning the accuracy of validated target iden-
+tiﬁcation through coding variantﬁne-mapping in type 2 diabetes.
+Nat. Genet. 50,5 5 9–571 (2018).
+84. Saxena, R. et al. Genome-wide association study identi ﬁes a novel
+locus contributing to type 2 diabetes susceptibility in Sikhs of
+Punjabi origin from India. Diabetes 62,1 7 4 6–1755 (2013).
+85. Gaulton, K. J. et al. Genetic ﬁne mapping and genomic annotation
+deﬁnes causal mechanisms at type 2 diabetes susceptibility loci.
+Nat. Genet. 47,1 4 1 5–1425 (2015).
+86. Cho, Y. S. et al. Meta-analysis of genome-wide association studies
+identiﬁes eight new loci for type 2 diabetes in east Asians. Nat.
+Genet. 44,6 7–72 (2012).
+87. Tragante, V. et al. Gene-centric meta-analysis in 87,736 individuals
+of European ancestry identiﬁes multiple blood-pressure-related
+loci. A m .J .H u m .G e n e t .94,3 4 9–360 (2014).
+88. Liang, J. et al. Single-trait and multi-trait genome-wide association
+analyses identify novel loci for blood pressure in African-ancestry
+populations.PLoS Genet. 13, e1006728 (2017).
+89. Levy, D. et al. Genome-wide association study of blood pressure
+and hypertension.Nat. Genet. 41,6 7 7–687 (2009).
+90. Takeuchi, F. et al. Interethnic analyses of blood pressure loci in
+populations of East Asian and European descent.Nat. Commun.9,
+5052 (2018).
+91. Franceschini, N. et al. Genome-wide association analysis of blood-
+pressure traits in African-ancestry individuals reveals common
+associated genes in African and non-African populations. Am. J.
+Hum. Genet. 93,5 4 5–554 (2013).
+92. Giri, A. et al. Trans-ethnic association study of blood pressure
+determinants in over 750,000 individuals.Nat. Genet. 51,
+51–62 (2019).
+93. Kato, N. et al. Trans-ancestry genome-wide association study
+identiﬁes 12 genetic loci inﬂuencing blood pressure and impli-
+cates a role for DNA methylation.Nat. Genet.47,1 2 8 2–1293 (2015).
+94. Wang, Y. et al. Whole-genome association study identi ﬁes STK39
+as a hypertension susceptibility gene.Proc. Natl. Acad. Sci. USA
+106, 226–231 (2009).
+95. Hoffmann, T. J. et al. Genome-wide association analyses using
+electronic health records identify new loci inﬂuencing blood
+pressure variation.Nat. Genet. 49,5 4–64 (2017).
+9 6 . L i u ,C .e ta l .M e t a - a n a l y s i si d e n t iﬁes common and rare variants
+inﬂuencing blood pressure and overlapping with metabolic trait
+loci. Nat. Genet. 48, 1162–1170 (2016).
+97. Wain, L. V. et al. Novel blood pressure locus and gene discovery
+using genome-wide association study and expression data sets
+from blood and the kidney. Hypertension70,e 4–e19 (2017).
+98. Tobin, M. D., Sheehan, N. A., Scurrah, K. J. & Burton, P. R. Adjusting
+for treatment effects in studies of quantitative traits: anti-
+hypertensive therapy and systolic blood pressure.Stat. Med. 24,
+2911–2935 (2005).
+99. Purcell, S. et al. PLINK: a tool set for whole-genome association
+and population-based linkage analyses.A m .J .H u m .G e n e t .81,
+559–575 (2007).
+1 0 0 . C h o i ,S .W .&O’Reilly, P. F. PRSice-2: Polygenic Risk Score soft-
+ware for biobank-scale data.Gigascience8,1 –6( 2 0 1 9 ) .
+101. Choi, S. W., Mak, T. S. H. & O ’R e i l l y ,P .F .T u t o r i a l :ag u i d et o
+performing polygenic risk score analyses.Nat. Protoc. 15,
+2759–2772 (2020).
+102. Durinck, S., Spellman, P. T., Birney, E. & Huber, W. Mapping
+identiﬁers for the integration of genomic datasets with the R/
+Bioconductor package biomaRt.Nat. Protoc. 4
+, 1184–1191
+(2009).
+103. Richardson, T. G. et al. Systematic Mendelian randomization fra-
+mework elucidates hundreds of CpG sites which may mediate the
+inﬂuence of genetic variants on disease. Hum. Mol. Genet. 27,
+3293–3304 (2018).
+Acknowledgements
+This research has been conducted using the UK Biobank Resource under
+application number 236. This project was in part funded by the Agence
+Nationale de la Recherche under the Programme d’Investissement
+d’Avenir (PreciDIAB, ANR-18-IBHU-0001 and RHU PreciNASH ANR-16-
+RHUS-0006), by the European Union through the“Fonds Européen de
+Développement Regional” (FEDER), by the“Conseil Régional des Hauts-
+de-France” (Hauts-de-France Regional Council), by the“Métropole Eur-
+opéenne de Lille” (MEL, European Metropolis of Lille), and by the Eur-
+opean Research Council (ERC OpiO– 101043671, to A.B.). I.Pr. and Z.B.
+were in part funded by the Diabetes UK (BDA number: 20/0006307),
+UKRI (EP/Z535072/1), European Foundation for the Study of Diabetes
+(EFSD), and Novo Nordisk A/S Programme for Diabetes Research in
+Europe— 2025. P.M. acknowledges the support of the National Institute
+for Health and Care Research Barts Biomedical Research Centre
+(NIHR203330); a delivery partnership of Barts Health NHS Trust, Queen
+Mary University of London, St George’s University Hospitals NHS Foun-
+dation Trust and St George’s University of London. The research of Y.S.
+was funded by The British Academy (RaR\100084). The authors would
+like to thank all the investigators from different consortia that built and
+shared the GWAS meta-analysis, eQTLs, and scATAC-seq atlases used in
+this study, as well as the UK Biobank participants and dedicated staff.
+Author contributions
+V.P. and I.Pr. designed the experiments and led the manuscript writing.
+L.Z. contributed to the study design for clustering and partitioned PGS.
+L.M. contributed to the analysis for colocalization, pathway analysis,
+interpretation, and revision. A.U., J.G.M., A.D., Z.B., I.Pu., and Y.S. deﬁned
+the phenotypes of interest in the UK Biobank and provided handmade
+GWAS summary statistics. F.P. and B.S. provided the ABOS cohort. M.K.
+contributed to the overall statistics evaluation. A.K. contributed to the
+colocalization evaluation. V.P., A.B., P.M., P.F., and I.Pr. contributed to
+the evaluation of the results. P.F. and I.Pr. jointly supervised the study. All
+authors read and approved the ﬁnal paper.
+Competing interests
+V.P. is employed by Genomics Ltd., L.Z. is employed by Lifebit Biotech
+Inc. The authors declare that they have no other ﬁnancial or non-
+ﬁnancial competing interests. The views expressed in this study are the
+personal views of V.P. and L.Z., and do not represent the views of their
+current employers.
+Additional information
+Supplementary informationThe online version contains
+supplementary material available at
+https://doi.org/10.1038/s41467-025-67449-2.
+Correspondenceand requests for materials should be addressed to
+Inga Prokopenko.
+Peer review informationNature Communicationsthanks Ozan Dikilitas,
+Viktor H. Ahlqvist and the other, anonymous, reviewer(s) for their con-
+tribution to the peer review of this work. [A peer reviewﬁle is available].
+Reprints and permissions informationis available at
+http://www.nature.com/reprints
+Article https://doi.org/10.1038/s41467-025-67449-2
+Nature Communications|         (2026) 17:1446 13
+Publisher’s note Springer Nature remains neutral with regard to jur-
+isdictional claims in published maps and institutional afﬁliations.
+Open Access This article is licensed under a Creative Commons
+Attribution 4.0 International License, which permits use, sharing,
+adaptation, distribution and reproduction in any medium or format, as
+long as you give appropriate credit to the original author(s) and the
+source, provide a link to the Creative Commons licence, and indicate if
+changes were made. The images or other third party material in this
+article are included in the article's Creative Commons licence, unless
+indicated otherwise in a credit line to the material. If material is not
+included in the article's CreativeCommons licence and your intended
+use is not permitted by statutory regulation or exceeds the permitted
+use, you will need to obtain permission directly from the copyright
+holder. To view a copy of this licence, visithttp://creativecommons.org/
+licenses/by/4.0/.
+© The Author(s) 2026, modiﬁed publication 2026
+Article https://doi.org/10.1038/s41467-025-67449-2
+Nature Communications|         (2026) 17:1446 14

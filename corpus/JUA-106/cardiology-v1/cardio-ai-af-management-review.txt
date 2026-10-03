@@ -1,0 +1,1480 @@
+J Innov Cardiac Rhythm Manage. 2026;17(1):6578–6590
+INNOVATIVE TECHNIQUES AND TECHNOLOGIES
+DOI: 10.19102/icrm.2026.17011
+ARTIFICIAL INTELLIGENCE
+REVIEW
+Artificial Intelligence–driven Detection, 
+Mapping, and Personalized Therapy for Atrial 
+Fibrillation
+DANIEL JOSEPH GONZALEZ, bs,1 SAMHITH KAMBAMPATI, bs,1 ERICK GODINEZ, bs,2  
+ISHAN PARANJPE, md,1 KUSHAL CHATTERJEE, bs,1 RAHUL DEVATHU, ba,1 AARYAMAAN VERMA, bs,3 
+EMMA SUN,1 CONNIE MA, bs,1 MUHAMMAD FAZAL, md,1 and TINA BAYKANER, md, mph1
+1Department of Medicine, Stanford University School of Medicine, Stanford, CA, USA
+2Department of Medicine, University of Nevada-Reno School of Medicine, Reno, NV, USA
+3Department of Medicine, The University of British Columbia, Vancouver, Canada
+ABSTRACT. Atrial fibrillation (AF), the most common arrhythmia worldwide, affects approxi-
+mately 59 million people globally. It poses a significant health burden by increasing morbidity and 
+mortality. Artificial intelligence (AI) is emerging as a potentially transformative technology across 
+the AF care continuum. This review synthesizes current evidence and critically evaluates AI 
+applications in AF management, including innovations in detection and screening using electro-
+cardiography and wearables; advanced mapping techniques using signal processing and com-
+putational modeling to guide catheter ablation; machine learning-based prediction of treatment 
+outcomes; and personalization of long-term therapy, such as anticoagulation. Key studies and 
+trials illustrating AI’s capabilities in improving diagnostic yield, refining ablation targets, and 
+enhancing prognostic accuracy are analyzed. The potential for AI to facilitate integrated care path-
+ways, such as the “AF Better Care” approach, is considered, balancing innovation against clinical 
+practicality, rigorous validation, and workflow integration. While AI shows considerable potential 
+to augment precision in AF management, significant challenges concerning data generalizability, 
+model interpretability, clinical utility validation, and equitable implementation remain. Opti-
+mal integration requires careful alignment with clinical expertise and a focus on patient-centric 
+outcomes. Addressing these challenges through collaborative efforts among clinicians, researchers, 
+and technology developers will be essential to fully realize AI’s promise in improving AF care. 
+Future research should prioritize robust validation, transparent methodologies, and practical 
+implementation strategies to ensure that AI effectively enhances patient outcomes.
+KEYWORDS. Artificial intelligence, atrial fibrillation, and catheter ablation.
+ISSN 2156-3977 (print)
+ISSN 2156-3993 (online)
+CC BY 4.0 license
+© 2026 Innovations in Cardiac 
+Rhythm Management
+Dr. Fazal reports research funds from the American Heart 
+Association. Dr. Baykaner reports consulting fees from Medtronic, 
+Biotronik, Boston Scientific, Abbott, PaceMate, Volta, iRhythm, 
+and Johnson & Johnson and research funds from the US National 
+Institutes of Health and Jannssen. The remaining authors report no 
+conflicts of interest for the published content. No funding informa -
+tion was provided.
+Manuscript received June 23, 2025. Final version accepted October 
+15, 2025.
+Address correspondence to: Tina Baykaner, MD, MPH, Stanford 
+University School of Medicine, 300 Pasteur Drive, H2146, Stanford, 
+CA 94305, USA. Email: tina4@stanford.edu.
+Introduction
+Atrial fibrillation (AF) is the most prevalent sustained 
+cardiac arrhythmia, affecting an estimated 59 million 
+individuals worldwide in 2019, a figure projected to 
+rise substantially with population aging and improved 
+detection.1 AF significantly increases the risk of ischemic 
+stroke, heart failure, cognitive impairment, and all-
+cause mortality, while diminishing the quality of life. 2 
+Effective management thus requires a comprehensive, 
+6578 The Journal of Innovations in Cardiac Rhythm Management, January 2026
+patient-centered strategy addressing disease screening, 
+thromboembolism prevention, and symptom manage -
+ment, along with the optimization of cardiovascular risk 
+factors and comorbidities. Guidelines advocate for struc-
+tured, integrated care models such as the AF Better Care 
+(ABC) pathway. 2 However, translating guidelines into 
+optimal real-world outcomes is challenged by AF’s com -
+plexity, including its often paroxysmal and asymptomatic 
+nature, the heterogeneity in underlying mechanisms and 
+treatment responses, and challenges in integrating risk 
+factor modification.3
+Timely diagnosis and early intervention are critical in 
+the management of AF. The Early Treatment of Atrial 
+Fibrillation for Stroke Prevention Trial (EAST-AFNET 
+4) demonstrated that initiating rhythm-control therapy 
+within 1 year of AF diagnosis significantly improves car-
+diovascular outcomes compared to delayed intervention 
+or minimal rate-control strategies. 4 Ongoing research 
+continues to investigate the optimal initial management 
+strategy for AF. Recent trials, such as the Early Aggres -
+sive Invasive Intervention for Atrial Fibrillation (EAR -
+LY-AF) trial, have shown that first-line catheter ablation 
+in treatment-naive patients may be safer and more effec -
+tive compared to initial anti-arrhythmic drug (AAD) 
+therapy.5 Similarly, the Cryoballoon Catheter Ablation in 
+an Anti-arrhythmic Drug Naive Paroxysmal Atrial Fibril-
+lation (STOP AF First) trial found that cryoballoon abla -
+tion as an initial therapy was superior to AAD therapy for 
+preventing atrial arrhythmia recurrence in patients with 
+paroxysmal AF.6 Despite these advancements, optimizing 
+care remains challenging due to diagnostic difficulties 
+and incomplete understanding of AF pathophysiology, 
+particularly in persistent AF, where complex interactions 
+among triggers, drivers, and atrial substrates occur. 7,8 
+These complexities contribute to the variable responses 
+observed with AADs and catheter ablation therapies 
+across the entire AF spectrum.3
+Artificial intelligence (AI), including machine learning 
+(ML) and deep learning, offers powerful computational 
+tools to address these clinical challenges. 9–11 By analyz -
+ing complex patterns within high-dimensional data from 
+sources such as electrocardiograms (ECGs), wearable 
+devices, medical imaging, and electronic health records 
+(EHRs), AI algorithms can enhance diagnostic accuracy, 
+tailor individualized treatment strategies, predict clinical 
+outcomes, and optimize patient monitoring.9,12 However, 
+the clinical integration of these advanced computational 
+tools is not without its challenges. A critical, long-stand -
+ing argument centers on the need for AI to be explainable; 
+the so-called “black box” problem, where the reasoning 
+behind a model’s output is unclear, can be a significant 
+barrier to clinical trust and adoption. 13 This review crit -
+ically appraises current and emerging AI applications 
+across the AF management spectrum, from initial detec -
+tion and risk stratification to treatment guidance and 
+long-term monitoring. We evaluate the supporting evi -
+dence, focusing on innovations poised to enhance diag -
+nostic capabilities, personalize therapeutic strategies, 
+and ultimately improve patient outcomes within the 
+electrophysiology community. The foundational step in 
+managing AF effectively is accurate and timely detection, 
+a domain where AI is demonstrating significant poten -
+tial to overcome the limitations of traditional screening 
+methods.
+Enhancing atrial fibrillation detection and 
+screening with artificial intelligence
+Early and accurate detection of AF is crucial for the 
+timely initiation of guideline-directed therapies and 
+stroke prevention.2 Traditional detection methods, such 
+as opportunistic ECG screening, have limited sensitivity 
+for intermittent AF episodes, while prolonged monitor -
+ing approaches are constrained by cost and scalability 
+challenges.3 AI is enabling novel detection strategies by 
+enhancing clinical ECG interpretation and automating 
+analysis of data from wearables.
+Artificial intelligence–based electrocardiogram 
+analysis: detecting undiagnosed or future atrial 
+fibrillation from sinus rhythm electrocardiograms
+A notable advancement leverages deep learning, specif -
+ically convolutional neural networks (CNNs), to iden -
+tify predisposition to AF from standard 12-lead ECGs 
+recorded during sinus rhythm. CNNs are particularly 
+well suited for this task due to their ability to automat -
+ically learn hierarchical patterns and subtle morpho -
+logical features within the ECG signal that may escape 
+human interpretation and traditional signal processing 
+tools. The underlying premise is that early or estab -
+lished atrial cardiomyopathy, a common substrate for 
+AF, imparts subtle but consistent electrocardiographic 
+signatures during sinus rhythm that these complex algo -
+rithms can detect.14 Foundational research by Attia et al. 
+(2019) demonstrated the feasibility and effectiveness of 
+this AI-enhanced ECG analysis, achieving high discrim -
+inative performance (area under the curve [AUC] of 0.87 
+from a single ECG, rising to 0.90 with multiple ECGs) in 
+identifying patients with a documented history of par -
+oxysmal AF based solely on sinus rhythm ECG data. 14 
+This pivotal study established the standard 12-lead 
+ECG as a viable tool for opportunistic AF screening. In 
+the near-term, this could translate into automated flags 
+within EHR systems, alerting clinicians to patients who 
+may warrant extended cardiac monitoring based on 
+routine ECGs. In the medium term, we anticipate that 
+this AI-guided approach could be integrated into formal 
+screening guidelines for at-risk populations, fundamen -
+tally changing how we proactively identify individuals 
+with undiagnosed AF.
+The prospective clinical utility was investigated in a 
+targeted screening trial. 15 In this study, an AI-based 
+ECG algorithm stratified older adults (aged ≥65 years) 
+with stroke risk factors, after which subsequent contin -
+uous monitoring identified AF significantly more fre -
+quently in individuals classified as high risk by AI (7.6%)  
+compared to those classified as low risk (1.6%; P < .001). 
+AI-driven Detection, Mapping, and Personalized Therapy for AF
+The Journal of Innovations in Cardiac Rhythm Management, January 2026 6579
+
+This AI-guided strategy screening approach improved 
+AF detection rates compared to usual care, demonstrating 
+its potential to optimize resource allocation for rhythm 
+monitoring. Moreover, the use of AI-driven  analysis 
+has recently expanded to single-lead ECG recordings. 
+Hygrell et  al. (2023) reported a reasonable predictive 
+accuracy (AUC, 0.80) for identifying paroxysmal AF from 
+single-lead sinus rhythm ECGs in an age-diverse popula-
+tion.16 However, performance varied considerably among 
+more homogenous age subgroups (AUC, 0.62), highlight-
+ing how population characteristics can influence the gen-
+eralizability of predictive models.
+Wearable sensors and artificial intelligence algo-
+rithms: scaling atrial fibrillation monitoring
+Consumer smartwatches and fitness trackers, equipped 
+with photoplethysmography (PPG) sensors, are enabling 
+large-scale, long-term, passive rhythm monitoring and 
+significantly expanding AF screening capabilities. 2 Early 
+landmark decentralized studies, such as the Apple Heart 
+Study and the Huawei Heart Study, used proprietary 
+irregular pulse–detection algorithms integrated within 
+smartwatches.17,18 These studies demonstrated the feasi -
+bility of mass screening via wearables, identifying many 
+individuals with previously unknown AF, often with 
+high positive predictive values (PPVs) for algorithm-trig-
+gered notifications (PPV , 84% in the Apple Heart Study 
+for ECG patch confirmation following alert; PPV , 92% in 
+the Huawei Heart Study).17,18
+The evolution of this technology has rapidly moved 
+toward incorporating sophisticated AI and ML directly 
+into the analysis of these PPG signals. For instance, sub -
+sequent research from the Huawei Heart Study detailed 
+the development and validation of a specific ML-based 
+model (using eXtreme Gradient Boosting) for the real-
+time prediction of AF onset from PPG data. This ML 
+model showed good predictive ability, achieving an AUC 
+of 0.94 for AF onset within 4 h when prospectively vali -
+dated against 72-h Holter ECG monitoring in a high-risk 
+population.19 This work illustrates a direct application of 
+ML to PPG signals for proactive AF risk assessment, mov-
+ing beyond simple irregular pulse detection.
+Robust algorithms are emerging to address the inherent 
+challenges of real-world PPG signal quality, which can 
+be degraded by motion artifacts and noise. Ballinger 
+et  al. (2018) introduced DeepHeart, a semi-supervised 
+deep learning model (long short-term memory), which 
+analyzed PPG and activity data from wearables to pre -
+dict a range of cardiovascular risk factors and related 
+conditions.20 Their AI model showed a high accuracy 
+in detecting various medical conditions and achieved 
+AUCs of 0.85 (diabetes), 0.74 (high cholesterol), 0.81 
+(high blood pressure), and 0.83 (sleep apnea). 20 Follow-
+ing this, Tison et  al. (2018) demonstrated a deep neu -
+ral network for passive AF detection using smartwatch 
+PPG data, achieving a high AUC of 0.97 against phy -
+sician-interpreted 12-lead ECGs in a controlled cohort 
+of patients undergoing cardioversion. 21 Crucially, the 
+authors also reported that the AUC was substantially 
+lower at 0.72 in ambulatory patients, highlighting 
+how real-world conditions can impact performance 
+and underscoring the potential for model overfitting. 21 
+These studies highlighted the early potential of AI in 
+leveraging consumer wearable data for AF detection 
+and broader health insights. More recently, Vo et  al. 
+(2024) proposed an attention-based deep state space 
+model specifically designed to translate noisy PPG sig -
+nals into corresponding ECG waveforms. 22 Their AI 
+model, engineered for noise robustness and data effi -
+ciency, achieved a high area under the precision–recall 
+curve of 0.99 for AF detection when the translated ECGs 
+were processed by an existing AF detector. Though 
+this remains experimental and requires further clinical 
+validation, it showcases AI’s advancing capabilities in 
+enhancing signal quality and the diagnostic utility of 
+PPG data. 22 A near-term implication is the potential for 
+backend integration of such technology to reduce the 
+high rate of “inconclusive readings” from current con -
+sumer devices, thereby improving their reliability. In 
+the medium term, this could enable certain wearables 
+to function as near-diagnostic tools, providing high-  
+fidelity rhythm analysis that could streamline the path 
+to definitive diagnosis and treatment.
+The regulatory landscape for these technologies is also 
+maturing. As of early 2023, several direct-to-consumer 
+wearable smart devices have received clearance for 
+AF detection, including the Apple Watch (Series 6 and 
+later; Apple, Inc., Cupertino, CA, USA), Samsung Gal -
+axy Watch (3 and later; Samsung Group, Seoul, Korea), 
+Withings ScanWatch (Withings, Issy-les-Moulineaux, 
+France), and Fitbit Sense (Fitbit, Inc., San Francisco, CA, 
+USA), alongside ECG-specific devices such as the Kardi -
+aMobile (AliveCor, Mountain View, CA, USA). A clinical 
+validation study by Mannhart et al. (2023) assessed five 
+such smart devices. While sensitivities and specificities 
+for automated AF detection were generally comparable 
+when conclusive readings were obtained, the study high-
+lighted that a significant proportion of tracings, ranging 
+from 17%–26% depending on the device, were deemed 
+inconclusive by the devices’ embedded algorithms.23 This 
+finding underscores the ongoing need for algorithmic 
+improvements, potentially through more advanced AI, to 
+reduce inconclusive readings and enhance reliability in 
+real-world scenarios, even as a manual review of these 
+inconclusive tracings by cardiologists proved highly 
+accurate.23
+Implications for screening strategies
+AI-enhanced ECG analysis may enable opportunistic risk 
+stratification within existing clinical workflows, facil -
+itating targeted deployment of diagnostic resources. 15 
+Concurrently, AI-driven analysis of wearable PPG sen -
+sor data offers unprecedented scalability for long-term 
+population surveillance and even prediction of AF 
+onset.19,22 Optimal screening strategies in the future will 
+D. J. Gonzalez, S. Kambampati, E. Godinez, et al.
+6580 The Journal of Innovations in Cardiac Rhythm Management, January 2026
+likely involve synergistic application of these technolo -
+gies: AI ECG analysis could identify high-risk individ -
+uals during routine clinical encounters, who could then 
+be directed toward targeted long-term monitoring using 
+wearables or clinical-grade devices. The Prediction 
+of Undiagnosed Atrial Fibrillation Using a Machine 
+Learning Algorithm (PULsE-AI) trial, for example, used 
+an ML risk-prediction algorithm based on primary care 
+EHRs (not directly on PPG) to identify individuals at 
+high risk of undiagnosed AF. These individuals were 
+then offered diagnostic testing, which included ECG-
+based KardiaMobile monitoring. 24 Although the pri -
+mary ML algorithm in PULsE-AI was not PPG-based, 
+its study design points toward pathways where AI iden -
+tifies at-risk cohorts for whom wearable monitoring, 
+potentially including AI-enhanced PPG devices, could 
+be beneficial.
+Realizing this potential requires overcoming significant 
+implementation hurdles, including rigorous validation 
+of algorithms across diverse populations, development 
+of efficient clinical pathways for diagnostic confirma -
+tion and management initiation, careful consideration of 
+potential harms such as overdiagnosis and patient anx -
+iety, and robust demonstration of cost-effectiveness. 2,3 
+Key studies employing advanced AI for AF detection and 
+screening are summarized in Table 1.
+Artificial intelligence–enhanced risk  
+stratification for stroke and atrial fibrillation 
+progression
+Beyond initial detection, accurate patient risk stratifica -
+tion is paramount for guiding preventative therapies, 
+particularly for thromboembolic complications such as 
+stroke. While established clinical scores such as CHA2DS2-
+VASc provide essential population-level guidance, their 
+poor predictive accuracy at the individual patient level 
+limits personalized decision-making. 25 AI and ML mod -
+els offer a pathway to more granular risk assessment by 
+integrating high-dimensional data encompassing clinical 
+variables, genomic data, biomarkers, and quantitative 
+metrics derived from imaging modalities. 26 ML analy -
+ses applied to large-scale EHR data have demonstrated 
+potential to outperform standard risk scores in predict -
+ing thromboembolic events, although performance var -
+iability and the need for external validation remain key 
+considerations.10,11
+AI is also poised to play a vital role in navigating the 
+complexities of subclinical AF, often manifesting as 
+atrial high-rate episodes (AHREs) detected by cardiac 
+implantable electronic devices. Device-detected AF cre -
+ates significant clinical uncertainty regarding the initia -
+tion of anticoagulation therapy, as the balance of benefit 
+and harm differs from that in clinically apparent AF. 27 
+A meta-analysis of two recent randomized trials (Non-  
+Vitamin K Antagonist Oral Anticoagulants in Patients 
+With Atrial High Rate Episodes [NOAH-AFNET 6] and 
+Apixaban for the Reduction of Thrombo-embolism in 
+Patients with Device-Detected Subclinical Atrial Fibril -
+lation [ARTESIA]) demonstrated that, while direct oral 
+anticoagulants led to a 32% relative reduction in ischemic 
+stroke, this occurred in the context of a low absolute 
+stroke risk (~1.0% per year in the control arms) and at the 
+cost of a 62% relative increase in major bleeding, high -
+lighting persistent clinical equipoise. 27
+Therefore, AI analysis integrating detailed device data 
+with comprehensive clinical factors may enable identi -
+fication of the specific AHRE patient subset most likely 
+to derive net clinical benefit from oral anticoagulation 
+(OAC).27 Moreover, AI-driven patient phenotyping 
+through unsupervised ML methods, such as clustering 
+algorithms applied to detailed clinical and imaging data-
+sets, can uncover distinct subgroups within the broader 
+AF population. This approach has the potential to refine 
+stroke risk stratification for both clinically evident and 
+subclinical AF by elucidating previously unrecognized 
+patient heterogeneity relevant to clinical outcomes. 28 
+Near-term, these AI-defined phenotypes may help clini -
+cians identify candidates for more aggressive risk factor 
+modification or earlier intervention. Looking forward 
+3–5 years, this could evolve into validated, dynamic risk- 
+stratification tools that supersede current static scores, 
+allowing for more precise, personalized anticoagulation 
+and treatment decisions.
+Optimizing OAC requires a careful balance between 
+thromboembolic prevention and mitigating bleeding 
+risk.2 As previously noted, established clinical risk scores 
+possess limited predictive capacity at the individual 
+level.25 ML algorithms integrating broader, longitudinal 
+data from EHRs, potentially including genomic or bio -
+marker data, may offer more precise and dynamic pre -
+dictions of both ischemic and bleeding events. This could 
+refine OAC decision-making, particularly for patients 
+with intermediate risk scores; inform choices between 
+OAC and left atrial (LA) appendage closure; or guide 
+management in challenging scenarios such as subclinical 
+AF.25–27
+Artificial intelligence in atrial fibrillation 
+ablation: enhancing mapping, guidance, and 
+outcome prediction
+Catheter ablation, primarily centered on pulmonary 
+vein isolation (PVI), is an established effective therapy 
+for paroxysmal AF. However, its success rates are con -
+siderably lower for persistent and long-standing persis -
+tent AF, likely attributable to complex extra-pulmonary 
+vein arrhythmogenic mechanisms and progressive atrial 
+substrate remodeling. 2,7,8 Conventional electroanatomic 
+mapping techniques often struggle to reliably character -
+ize these patient-specific mechanisms or the underlying 
+substrate alterations.29 AI can interpret and integrate the 
+complex electrical and structural patterns underlying 
+fibrillatory conduction, enabling mechanism-targeted, 
+AI-driven Detection, Mapping, and Personalized Therapy for AF
+The Journal of Innovations in Cardiac Rhythm Management, January 2026 6581
+
+Table 1: Selected Studies Employing Advanced AI for AF Detection and Screening
+Study Population/n AI Input/Method Key AI Contribution/
+Insight
+Performance/Outcome 
+Metric(s)
+Clinical Implication(s)/Limitation(s)
+AI-enhanced detection using ECGs
+  Attia et al. 
+(2019)14
+180,922 patients 12-lead ECG (sinus 
+rhythm)/CNN
+Identifies a latent electro-
+cardiographic signature 
+of AF in patients during 
+normal sinus rhythm
+• Single ECG: AUC, 0.87
+• Multiple ECGs: AUC, 0.90
+•  Implication: Enables opportunistic AF risk 
+screening using routine, existing 12-lead ECGs
+•  Limitation: Retrospective, single-center 
+design requires prospective validation for 
+screening utility
+  Hygrell et al. 
+(2023)16
+14,831 patients 
+(≥65 years old) from 
+three screening 
+studies
+Single-lead ECG 
+(sinus rhythm)/CNN
+Extends the AI ECG concept 
+of identifying latent AF 
+signatures from a 12-lead to 
+a single-lead ECG format
+•  For predicting paroxysmal AF 
+in age-diverse cohorts: AUC, 
+0.80
+•  For predicting paroxysmal AF 
+in age-homogenous cohorts: 
+AUC, 0.62
+•  Implication: Shows potential for simpler, 
+more accessible single-lead ECG-based AF 
+risk screening
+•  Limitation: Performance is significantly 
+influenced by the age diversity of the pop-
+ulation
+AI-powered detection and prediction using wearable sensors
+  Guo et al. 
+(2021)19 (Huawei 
+Heart Study)
+554 individuals with 
+AF (development) + 
+50 high-risk patients 
+(validation)
+PPG signals/XGBoost 
+ML model
+Predicts the onset of AF in 
+real time (0–4 h prior) using 
+continuously monitored 
+PPG signals
+For AF onset prediction within 4 
+h: AUC, 0.94
+•  Implication: Offers a proactive, predictive 
+AF risk assessment that moves beyond sim-
+ple detection
+•  Limitations: Validated in a high-risk popula-
+tion; requires continuous PPG monitoring
+  Ballinger 
+et al. (2018)20 
+(DeepHeart)
+14,011 patients 
+(57,675 per-
+son-weeks of data 
+from wearable 
+sensor users)
+Wearable PPG 
+and activity data/
+semi-supervised 
+LSTM network
+Predicts multiple cardiovas-
+cular risk factors and related 
+conditions using passive 
+wearable sensor data
+AUCs for predicting various 
+conditions:
+• Diabetes: 0.85
+• High cholesterol: 0.74
+• Sleep apnea: 0.83
+• Hypertension: 0.81
+•  Implication: Demonstrates the potential for 
+wearables in comprehensive cardiovascular 
+risk stratification beyond AF
+•  Limitations: Retrospective analysis; condition 
+labels were based on user self-reporting
+  Tison et al. 
+(2018)21
+51 patients (cardi-
+oversion cohort) + 
+9750 participants 
+(validation cohort)
+Smartwatch PPG 
+and step count/DNN
+Validates passive AF 
+detection accuracy of a 
+smartwatch PPG-based DNN 
+against 12-lead ECGs
+•  Cardioversion cohort: AUC, 
+0.97
+•  Ambulatory patients: AUC, 
+0.72
+• I mplication: Establishes high technical accu-
+racy of PPG-based AI in controlled settings
+•  Limitations: Real-world performance is 
+reduced by noise and motion artifacts; ECG 
+confirmation is often required
+ Vo et al. (2024)22 55 patients from 
+the MIMIC-III data-
+base
+PPG signals/ADSSM Translates noisy PPG signals 
+into ECG waveforms to 
+leverage more advanced 
+ECG-based AF detectors
+For AF detection when using 
+the translated ECG signals: 
+PR-AUC, 0.99
+•  Implication: May improve the diagnostic 
+utility of PPG data, especially when signals 
+are noisy
+•  Limitations: Small sample size; translation 
+accuracy requires broader validation
+AI-guided population screening strategies
+  Noseworthy et al. 
+(2022)15
+1003 patients 12-lead ECG (sinus 
+rhythm)/CNN algo-
+rithm
+Tests the clinical utility of an 
+AI ECG algorithm to guide a 
+targeted AF screening  
+strategy in a prospective 
+trial
+AF detection yield: 7.6% in 
+AI-high-risk group vs. 1.6% in 
+AI-low-risk group after continu-
+ous monitoring
+•  Implication: Demonstrates that AI-guided 
+screening can enrich the target population 
+and optimize monitoring resources
+•  Limitations: Non-randomized design; the 
+primary outcome was AF detection, not 
+clinical events
+D. J. Gonzalez, S. Kambampati, E. Godinez, et al.
+6582 The Journal of Innovations in Cardiac Rhythm Management, January 2026
+personalized approaches to strategies that extend beyond 
+PVI.
+Artificial intelligence–enhanced  
+electrophysiological mapping
+AI algorithms are being developed to analyze complex 
+intracardiac electrograms (EGMs) automatically, aiming 
+to identify regions critical for AF initiation or perpetua -
+tion. ML techniques, particularly deep learning architec -
+tures such as CNNs, can automate the classification of 
+complex EGM features and standardize the interpretation 
+of AF-activation patterns in persistent AF. 30 However, 
+because these sophisticated models can function as “black 
+boxes,” their clinical acceptance hinges on transparency. 
+To address this directly, explainable AI (XAI) methods are 
+now being used to provide clinicians with clear insights 
+into the features and rationale underlying these classifi -
+cations, moving beyond a simple prediction to offer a jus-
+tification for the algorithm’s conclusions. 30 Additionally, 
+ML approaches analyzing frequency-domain character -
+istics of EGMs, such as dominant frequency and organi -
+zation indices derived from Fourier spectra, have shown 
+promising results when validated against high-resolution 
+optical mapping of ex vivo human hearts, potentially sur-
+passing traditional spectral analysis methods in detecting 
+AF drivers.31
+Emerging AI-driven mapping systems aim to transform 
+EGM pattern recognition directly into actionable ablation 
+targets. For example, AI analyses that measure spatio -
+temporal dispersion within EGMs can identify areas of 
+highly disorganized conduction, hypothesized to reflect 
+proximity to critical AF drivers. 32 This approach was 
+prospectively evaluated in the randomized Tailored vs. 
+Anatomical Ablation Strategy for Persistent Atrial Fibril-
+lation (TAILORED-AF) trial, demonstrating that ablation 
+of AI-identified dispersion zones, in addition to standard 
+PVI, significantly improved 12-month freedom from AF 
+compared to PVI alone (89% vs. 67%, P < .001) in patients 
+with persistent AF.33 The near-term implication for prac -
+tice is the potential for wider adoption of this specific 
+AI-guided strategy in electrophysiology laboratories for 
+ablation of persistent AF cases, acquiring broader intrap-
+rocedural and follow-up data for AI model training, and 
+improving the algorithm’s accuracy for achieving proce -
+dural efficiency and acute endpoints. Over the medium 
+term, this success could establish a new standard of care 
+for substrate modification in persistent AF, contingent on 
+long-term data and broader availability of the technology.
+Computational modeling for personalized ablation 
+planning
+An alternative, in silico approach involves creating 
+patient-specific computational models of the atria, typ -
+ically based on high-resolution imaging such as late 
+gadolinium enhancement magnetic resonance imaging 
+(LGE-MRI), which delineates both atrial anatomy and 
+fibrosis distribution. By incorporating detailed math -
+ematical representations of atrial electrophysiology, 
+Study Population/n AI Input/Method Key AI Contribution/
+Insight
+Performance/Outcome 
+Metric(s)
+Clinical Implication(s)/Limitation(s)
+  Hill et al. (2022)24 
+(PULsE-AI)
+23,745 primary care 
+participants (≥30 
+years)
+EHR data/ML 
+risk-prediction 
+algorithm
+Identifies individuals at 
+high risk of undiagnosed AF 
+using an EHR-based algo-
+rithm for targeted diagnos-
+tic testing
+Among high-risk participants 
+who underwent testing: 9.41% 
+received an AF diagnosis vs. 
+4.93% in the high-risk control 
+arm
+•  Implication: EHR-based ML can effectively 
+identify high-risk cohorts for targeted AF 
+screening
+•  Limitation: Low uptake of diagnostic testing 
+(28.1% of those invited) limited the overall 
+impact
+Abbreviations: ADSSM, attention-based deep state space model; AF, atrial fibrillation; AI, artificial intelligence; AUC, area under the receiver operating characteristic 
+curve; CNN, convolutional neural network; DNN, deep neural network; ECG, electrocardiogram; EHR, electronic health record; LSTM, long short-term memory; ML, 
+machine learning; PPG, photoplethysmography; PR-AUC, precision–recall area under curve; XGBoost, eXtreme Gradient Boosting.
+Table 1: (continued)
+AI-driven Detection, Mapping, and Personalized Therapy for AF
+The Journal of Innovations in Cardiac Rhythm Management, January 2026 6583
+
+including conduction velocity, refractoriness, and 
+fibrosis-driven tissue heterogeneity, these models can 
+non-invasively simulate AF dynamics. 34 The princi -
+pal objective is to identify patient-specific mechanisms 
+responsible for AF maintenance, particularly re-entrant 
+driver locations linked to fibrotic substrates, thereby 
+facilitating precise, individualized ablation target selec -
+tion before the clinical procedure. The Optimal Target 
+Identification via Modelling of Arrhythmogenesis 
+(OPTIMA) strategy demonstrated the practical feasibil -
+ity of using such computational simulations to detect 
+existing as well as emergent AF drivers associated with 
+fibrosis distribution, enabling formulation of a com -
+prehensive, patient-tailored ablation plan in advance. 34 
+Although computationally demanding, this strategy 
+holds considerable promise for non-invasive, mecha -
+nistically guided ablation planning. Furthermore, inte -
+grating simulation-derived functional parameters into 
+ML frameworks has shown potential for predicting AF 
+recurrence post-ablation, underscoring that computa -
+tional modeling effectively captures clinically relevant 
+aspects of the atrial substrate. 7
+Artificial intelligence for predicting ablation  
+outcomes
+Accurate prediction of catheter ablation success is 
+essential for effective patient selection, expectation 
+management, and tailoring individualized therapeutic 
+strategies.9,35 ML models are demonstrating significant 
+potential to improve prognostication by integrating 
+diverse, high-dimensional data sources beyond tradi -
+tional clinical risk factors. Multimodal AI models, which 
+incorporate various data sources, including intracardiac 
+EGMs collected during ablation, pre-procedural sur -
+face ECGs, clinical variables, raw imaging studies, and 
+imaging-derived metrics, consistently outperform sim -
+pler clinical scoring systems in predicting AF recurrence 
+post-ablation.35,36 For example, Tang et al. (2022) demon -
+strated that a deep learning fusion model combining int -
+racardiac EGMs, ECGs, and clinical parameters yielded 
+superior accuracy (AUC, 0.86) for predicting 1-year AF 
+recurrence compared to single-modality models or clini -
+cal scores alone.35 Similarly, Razeghi et al. (2023) reported 
+robust predictive performance (AUC, 0.82) by integrating 
+clinical data with morphological and deep learning–de -
+rived features extracted from pre-ablation cardiac com -
+puted tomography (CT) images.36 Further demonstrating 
+the power of data fusion, Roney et al. (2022) showed that 
+combining patient history and imaging data with met -
+rics from biophysical in silico simulations significantly 
+improved the prediction of long-term AF recurrence 
+(AUC, 0.85) compared to models using clinical and imag-
+ing data alone (AUC, 0.66). 37 Novel imaging biomark -
+ers further contribute to predictive accuracy; Firouznia 
+et  al. (2021) illustrated that CT-derived fractal features 
+assessing LA shape and texture complexity substan -
+tially improved recurrence prediction (AUC, 0.87 when 
+combined with clinical data) compared to LA volume 
+alone (AUC, 0.59). 38 Collectively, the near-term implica -
+tion of these advanced multimodal models is their use 
+as powerful adjunctive tools in shared decision-making, 
+enabling more personalized discussions about the likeli -
+hood of ablation success. In the medium term (3–5 years), 
+as these analytics undergo prospective validation and 
+integration into clinical platforms, they could directly 
+guide patient selection for ablation and help tailor pro -
+cedural strategies to individual substrate characteristics.
+Quantitative fibrosis assessment derived from LGE-
+MRI has proven especially valuable as input data for 
+predictive models. By incorporating fibrosis informa -
+tion into personalized computational models, research -
+ers can functionally assess atrial substrates. Shade et al. 
+(2020) demonstrated that features derived from in silico 
+simulations of AF inducibility based on pre-ablation 
+LGE-MRI were highly predictive of recurrence after 
+PVI for paroxysmal AF (validation AUC, 0.82). 7 Fur -
+thermore, unsupervised ML techniques such as clus -
+tering, when applied to clinical and LGE-MRI fibrosis 
+data from the Efficacy of Delayed Enhancement MRI-
+Guided Ablation vs. Conventional Catheter Ablation of 
+Atrial Fibrillation (DECAAF II) trial, identified distinct 
+phenotypes within persistent AF patients. Specifically, 
+a high-risk phenotype, characterized by older age, 
+higher body mass index, increased LA volume, and 
+greater fibrosis burden, showed significantly elevated 
+recurrence rates post-ablation (51.7% vs. 35.0%), high -
+lighting ML’s capability to reveal clinically relevant 
+patient heterogeneity. 28 Atrial structural characteristics 
+also influence other outcomes, such as the likelihood 
+of functional mitral regurgitation resolution following 
+successful AF ablation. 39
+Collectively, ML models represent a significant advance 
+in predicting AF ablation outcomes. By integrating com -
+plex multimodal data, they offer more accurate, person -
+alized risk stratification, facilitating improved patient 
+selection, enhancing shared decision-making, managing 
+expectations, and potentially paving the way for per -
+sonalized ablation strategies. 28,35,36 Widespread clini -
+cal adoption requires further validation, particularly in 
+ prospective settings, and demonstration of clinical utility 
+beyond predictive accuracy. Selected studies highlighting 
+these AI applications in AF treatment guidance and out -
+come prediction are presented in Table 2.
+Artificial intelligence in therapy monitoring 
+and personalization
+Effective long-term AF management necessitates contin -
+uous surveillance, dynamic risk factor modification, and 
+therapy adjustments, ideally within an integrated care 
+framework.2,3 AI presents opportunities to enhance the 
+efficiency, personalization, and proactivity of this chronic 
+care phase.9,11
+D. J. Gonzalez, S. Kambampati, E. Godinez, et al.
+6584 The Journal of Innovations in Cardiac Rhythm Management, January 2026
+Table 2: Selected Studies on AI for AF Ablation Guidance and Outcome Prediction
+Study Population/n AI Input/Method Key AI Contribution/
+Insight
+Performance/Outcome 
+Metric(s)
+Clinical Implication(s)/Limitation(s)
+Imaging-based and predictive AI applications
+  Shade et al. 
+(2020)7
+32 patients (parox-
+ysmal AF)
+LGE-MRI + computa-
+tional modeling (AF 
+inducibility simulation)/
+ML classifier
+Predicts recurrence risk by 
+integrating mechanistic 
+simulation results with an 
+ML model
+In silico simulation 
+features were highly 
+predictive of post-PVI 
+recurrence (validation 
+AUC, 0.82)
+•  Implication: Proof of concept for using func-
+tional substrate assessment via simulation for 
+prognosis
+•  Limitation: Small, retrospective study focused 
+on paroxysmal AF
+  Noujaim et al. 
+(2025)28 (DECAAF 
+II)
+815 patients 
+(persistent AF from 
+DECAAF II trial)
+Clinical + LGE-MRI 
+fibrosis data/unsuper-
+vised ML clustering 
+(GBM)
+Identifies distinct patient 
+phenotypes within persis-
+tent AF based on clinical 
+and imaging data
+High-risk phenotypes 
+(older, high BMI/LA vol/
+fibrosis) had significantly 
+higher recurrence rates 
+post-ablation of 51.7% 
+vs. 35.0% (AUC, 0.87)
+•  Implication: Unsupervised ML can reveal clin-
+ically relevant patient heterogeneity that is 
+linked to prognosis
+• Limitation: Post-hoc analysis of RCT data
+  Boyle et al. 
+(2019)34 (OPTIMA)
+10 patients (persis-
+tent AF)
+LGE-MRI + computa-
+tional modeling
+Predicts personalized abla-
+tion targets in silico based 
+on patient-specific fibrosis 
+substrate
+Feasibility of pre-pro-
+cedural computational 
+target identification was 
+demonstrated
+•  Implication: Potential for non-invasive, mecha-
+nism-based ablation planning
+•  Limitations: Small feasibility study; computa-
+tionally intensive; clinical outcome impact not 
+yet proven in an RCT
+  Razeghi et al. 
+(2023)36
+321 patients (mixed 
+AF)
+Cardiac CT (morpholog-
+ical + deep features) + 
+clinical data/ML fusion 
+framework
+Predicts recurrence using 
+a multimodal ML model 
+that fuses imaging and 
+clinical features
+Fusion model (AUC, 0.82) 
+was superior to a model 
+using clinical data alone 
+(AUC, 0.63)
+•  Implication: Demonstrates the value of deep 
+learning features from standard CT scans for 
+prognostication
+•  Limitations: Retrospective design; requires 
+external validation
+  Roney et al. 
+(2022)37
+100 patients (mixed 
+AF)
+MRI, clinical data + 
+biophysical simulation 
+metrics/ML classifier 
+(SVM)
+Fuses clinical data with 
+patient-specific simulation 
+“stress tests” to improve 
+prediction of long-term 
+recurrence
+Combined model (AUC, 
+0.85) significantly outper-
+formed clinical/imaging 
+model alone (AUC, 0.66)
+•  Implication: Demonstrates that integrating  
+functional data from simulations can substantially 
+boost predictive accuracy
+•  Limitations: Requires significant computational 
+resources; prospective validation needed
+  Firouznia et al. 
+(2021)38
+203 patients (mixed 
+AF)
+Cardiac CT (fractal 
+features) + clinical data/
+random forest classifier
+Predicts recurrence using 
+novel CT-derived fractal 
+features of LA shape and 
+texture
+Combination model 
+achieved superior predic-
+tion (AUC, 0.87) com-
+pared to LA volume alone 
+(AUC, 0.59)
+•  Implication: Highlights predictive value of  
+quantitative LA morphology beyond simple 
+volumetric measurement
+•  Limitations: Retrospective analysis; fractal feature 
+extraction can be complex
+  Bautista et al. 
+(2023)39
+50 patients (AF with 
+moderate-severe 
+functional MR)
+Post-ablation 3D  
+voltage mapping/ 
+analysis of low-voltage 
+zones (scars)
+Predicts a non-arrhythmic 
+outcome (MR resolution) 
+based on atrial substrate 
+characteristics
+Presence of a posterior 
+bottom LA scar was an 
+independent predictor 
+of refractory MR after AF 
+ablation
+•  Implication: Suggests that atrial substrate 
+remodeling impacts mechanical function recov-
+ery, not just rhythm outcome
+• Limitation: Small, retrospective study
+Intraprocedural signal analysis AI applications
+  Reddy et al. 
+(2024)8 (FLOW-AF)
+85 patients (redo 
+non-paroxysmal AF)
+Intracardiac EGM  
+(electrographic flow)/
+EGF mapping algorithm
+Guides source ablation by 
+targeting AI-reconstructed 
+activation sources (EGF) in 
+a prospective RCT
+EGF-guided ablation 
++ PVI was superior to 
+PVI alone for 12-month 
+AF-free survival (68% vs. 
+17%)
+•  Implication: RCT evidence supports AI-guided 
+source ablation benefit in a challenging redo 
+persistent AF population
+•  Limitations: Smaller sample size; specific  
+algorithm; focus on redo procedures
+AI-driven Detection, Mapping, and Personalized Therapy for AF
+The Journal of Innovations in Cardiac Rhythm Management, January 2026 6585
+
+Study Population/n AI Input/Method Key AI Contribution/
+Insight
+Performance/Outcome 
+Metric(s)
+Clinical Implication(s)/Limitation(s)
+  Alhusseini et al. 
+(2020)30
+35 patients  
+(persistent AF)
+Intracardiac EGM/CNN 
+with explainable AI 
+(XAI)
+Classifies EGM patterns 
+objectively using deep 
+learning and provides 
+explanations for the AI’s 
+logic
+High accuracy (95%) for 
+classifying rotational vs. 
+non-rotational activity
+•  Implication: Potential for automated, objective 
+EGM analysis with increased clinical trust via XAI
+•  Limitations: Proof-of-concept design; small sam-
+ple size; clinical utility not yet established
+  Zolotarev et al. 
+(2020)31
+11 explanted 
+human atria
+Intracardiac EGM 
+(Fourier spectra)/ML 
+(various classifiers)
+Identifies AF driver 
+regions by analyzing 
+EGM frequency features, 
+validated against optical 
+mapping
+Higher-density catheter 
+datasets had higher 
+F1-score (0.81) vs. 
+lower-density catheter 
+dataset (F1-score, 0.66)
+•  Implication: Supports using ML for objective 
+driver identification from EGM frequency 
+content
+•  Limitations: Ex vivo study; performance is 
+dependent on mapping density
+  Bars et al. 
+(2023)32
+71 patients  
+(persistent AF)
+Intracardiac EGM/AI 
+software for spatio-
+temporal dispersion 
+mapping
+Characterizes spatiotem-
+poral dispersion patterns 
+and compares them 
+between induced and 
+spontaneous AF
+Dispersion distribution 
+was similar, but global 
+dispersion was higher in 
+spontaneous LA-AF (15% 
+vs. 10%)
+•  Implication: Foundational study for 
+TAILORED-AF, showing that dispersion patterns 
+differ by AF induction method
+•  Limitations: Observational; characterizes pat-
+terns; does not directly assess ablation outcome
+  Deisenhofer 
+et al. (2024)33 
+(TAILORED-AF)
+374 randomized 
+patients (persistent 
+AF)
+Intracardiac EGM (spati-
+otemporal dispersion)/
+AI software (Volta VX1)
+Guides substrate ablation 
+by targeting AI-identified 
+EGM dispersion markers in 
+a prospective RCT
+AI-guided ablation + PVI 
+was superior to PVI alone 
+for 12-month AF-free 
+survival (89% vs. 67%)
+•  Implication: RCT evidence supports AI-guided 
+substrate ablation benefit in persistent AF
+•  Limitations: Interim analysis of a trial using spe-
+cific AI software; long-term outcomes awaited
+  Tang et al. 
+(2022)35
+156 patients (mixed 
+AF)
+Intracardiac EGM + 
+12-lead ECG + clinical 
+data/CNN + fusion ML
+Predicts 1-year ablation 
+recurrence using a multi-
+modal fusion of electro-
+physiologic and clinical 
+data
+Superior prediction (AUC, 
+0.86) vs. single-modality 
+models or clinical scores 
+alone:
+• EGM signals (AUC, 0.73)
+•  APPLE scores (AUC, 
+0.64)
+•  CHA2DS2-VASc scores 
+(AUC, 0.65)
+•  Implication: Demonstrates the value of ML 
+fusion integrating diverse data sources for 
+prognostication
+•  Limitations: Retrospective design; requires 
+external validation
+Abbreviations: AF, atrial fibrillation; AI, artificial intelligence; AUC, area under the receiver operating characteristic curve; BMI, body mass index; CNN, convolutional 
+neural network; CT, computed tomography; ECG, electrocardiogram; EGF, electrographic flow; EGM, electrogram; GBM, gradient boosting method; LA, left atrium; 
+LGE, late gadolinium enhancement; ML, machine learning; MR, mitral regurgitation; MRI, magnetic resonance imaging; PVI, pulmonary vein isolation; RCT, randomized 
+controlled trial; XAI, explainable artificial intelligence.
+Table 2: (continued)
+D. J. Gonzalez, S. Kambampati, E. Godinez, et al.
+6586 The Journal of Innovations in Cardiac Rhythm Management, January 2026
+Intelligent monitoring and management  
+adjustment
+The substantial volume of data generated by long-term 
+monitoring devices, such as implantable loop record -
+ers (ILRs), pacemakers, and wearables, is well suited 
+for AI-driven analysis. 9 AI algorithms can automate AF 
+detection and burden quantification more accurately 
+from these continuous data streams, aiding in the objec -
+tive assessment of treatment efficacy (eg, response to 
+AAD or ablation).12
+ILRs often generate false-positive AF detections, fre -
+quently triggered by events such as premature atrial 
+contractions. AI-based filters, however, can significantly 
+improve the diagnostic accuracy of ILRs. Mittal et  al. 
+(2021) demonstrated that one such AI filter improved the 
+PPV of ILR-detected AF episodes from 53.9% to 74.5%, 
+while only minimally affecting the detection of true AF.40 
+Building on this, AI algorithms integrated into ILR sys -
+tems can substantially decrease the transmission of these 
+false-positive alerts and episodes. Middeldorp et  al. 
+(2025) showed that these AI algorithms reduced the alert 
+burden by approximately 20% and the episode burden by 
+around 40%, which can help alleviate clinic workload.41
+Beyond improving current detection accuracy, pre -
+dictive analytics applied to longitudinal rhythm and 
+activity data might forecast clinically relevant events, 
+such as progression from paroxysmal to persistent AF 
+or impending heart failure decompensation, poten -
+tially enabling preemptive interventions. 11 While still 
+largely developmental, AI could potentially identify 
+patient-specific AF triggers from wearable sensor data 
+(combining rhythm, activity, sleep, etc.) or assist in per -
+sonalizing AAD selection and dosing based on predicted 
+efficacy and side effect profiles derived from patient 
+phenotypes.3,9 Given the documented discrepancies 
+between guideline recommendations and real-world 
+AAD prescribing practices, AI-based clinical decision 
+support tools could offer valuable assistance, although 
+robust validation is required. 3
+Enhancing patient engagement and integrated 
+care
+AI technologies can also bolster patient engagement 
+and facilitate integrated care models. Natural language 
+processing techniques can analyze patient communi -
+cations (eg, portal messages) to identify concerns or 
+unreported symptoms. 9 Beyond direct patient com -
+munications, natural language processing can also 
+extract crucial information from narrative EHR text, 
+such as clinical notes and reports, to more accurately 
+define risk factors and improve the prediction of future 
+AF incidence. 42 Furthermore, conversational AI, in the 
+form of large language models, is being explored for 
+its potential to deliver personalized education on AF. 
+Studies evaluating these large language models have 
+found that they can provide accurate responses to 
+many patient-centered questions regarding AF. 43,44 For 
+instance, ChatGPT-4 demonstrated high accuracy for 
+patient-level queries 44 and showed improvement in its 
+responses over time. 43 However, the reliability of these 
+models for more complex, provider-level questions is 
+currently lower, and they may not always reflect the 
+most recent guidelines or nuances in clinical manage -
+ment. The readability of large language model (LLM)-
+generated content also varies, sometimes requiring a 
+college-level understanding, which is an important 
+consideration for patient education. 43,44 AI-enhanced 
+digital dashboards integrated with EHRs can provide 
+clinicians with real-time, synthesized views of patient 
+status, incorporating data from multiple sources (EHRs 
+devices, patient-reported outcomes) to support timely 
+and informed interventions. LLMs may also streamline 
+clinician interaction with complex EHR data, facilitat -
+ing efficient information retrieval and summarization. 9 
+Collectively, these applications aim to render chronic 
+AF management more proactive, data-informed, per -
+sonalized, and collaborative, aligning strongly with 
+the principles of integrated care pathways like the ABC 
+framework. 2
+Limitations and future directions
+Despite rapid advancements and considerable promise, 
+significant limitations must be addressed for the effec -
+tive and equitable clinical translation of AI in AF man -
+agement.9–12 The performance of AI models is heavily 
+dependent on the quality, size, and representativeness of 
+the training data. Algorithms validated on data from spe-
+cific populations or health care systems may lack gener -
+alizability when applied to new, diverse settings. Robust 
+external validation across multicenter, heterogeneous 
+datasets is therefore critical but remains frequently lack -
+ing in the published literature. 28,35 Data fragmentation 
+across institutions and incompatible data formats further 
+hinder the development and validation of broadly appli-
+cable AI tools.9
+A fundamental barrier to widespread clinical integra -
+tion is the inherent complexity of many advanced AI 
+models, particularly deep learning algorithms, which 
+often results in a “black box” phenomenon where the 
+reasoning behind a prediction is not transparent. This 
+lack of interpretability, as highlighted in recent clini -
+cal commentary, can erode clinical trust, hinder adop -
+tion, and make it challenging to identify and mitigate 
+potential biases encoded within the algorithm. 13,30 The 
+development and application of XAI techniques are 
+therefore vital to foster understanding and confidence 
+among clinicians. Practical integration into existing 
+clinical workflows represents another substantial hur -
+dle; AI tools require intuitive user interfaces and seam -
+less integration with EHR systems to avoid disrupting 
+established care processes and adding to the clinician 
+burden.9 The resource implications and workflow 
+adjustments required for complex AI applications, such 
+as advanced intraprocedural mapping systems or com -
+putationally intensive pre-procedural planning, must 
+be carefully balanced against their demonstrated clin -
+ical benefits. 8,29,33,34
+AI-driven Detection, Mapping, and Personalized Therapy for AF
+The Journal of Innovations in Cardiac Rhythm Management, January 2026 6587
+
+Crucially, the ultimate measure of success for any AI 
+application in medicine is the demonstration of improved 
+patient-important clinical outcomes, not merely technical 
+accuracy or predictive performance. Rigorous prospective 
+studies, ideally randomized controlled trials (RCTs), are 
+paramount to establish the clinical utility and real-world 
+effectiveness of AI-driven strategies.3,4,8,15,33 Furthermore, 
+comprehensive cost-effectiveness analyses are necessary, 
+particularly for resource-intensive AI solutions, to justify 
+their adoption within health care systems. 7,36 Ensuring 
+equitable access to AI-enabled care and actively mitigat -
+ing algorithmic bias, which could potentially exacerbate 
+existing health disparities, are critical ethical consider -
+ations that must be proactively addressed. 11 Agile and 
+appropriate regulatory frameworks are also required to 
+oversee the development, validation, and implementa -
+tion of clinical AI tools.9
+Beyond technical hurdles, the deployment of AI in clin -
+ical practice is governed by profound ethical consider -
+ations that are paramount for responsible innovation. 45 
+A primary concern is algorithmic bias, where models 
+trained on non-representative data can perpetuate or 
+even worsen health disparities for underrepresented 
+racial, ethnic, or socioeconomic groups. Equally impor -
+tant are the principles of data privacy and security, which 
+mandate robust governance to protect sensitive patient 
+information from unauthorized access or misuse, in line 
+with regulations such as the General Data Protection 
+Regulation (GDPR). Furthermore, the opacity of many AI 
+models raises complex questions of accountability and 
+liability; determining responsibility when an AI-driven 
+recommendation contributes to an adverse outcome is 
+a critical challenge for clinicians, institutions, and devel -
+opers alike. Achieving true digital inclusion also requires 
+moving beyond simple access to address a range of inter-
+woven factors. This involves creating a comprehensive 
+ethical framework that systematically addresses not only 
+social but also the crucial digital and commercial deter -
+minants of health (such as digital literacy and the mar -
+ket-driven nature of consumer wearables) to ensure that 
+the benefits of AI in AF care do not create a new digital 
+divide.46 Proactively establishing ethical frameworks to 
+address these issues of bias, privacy, accountability, and 
+equity is a non-negotiable prerequisite for building AI 
+systems that are not only effective but fundamentally 
+trustworthy.45
+Future priorities should focus on large-scale, prospec -
+tive validation studies emphasizing clinical utility and 
+patient outcomes across diverse, representative popu -
+lations. Standardization of methodologies for AI devel -
+opment, validation, and reporting (akin to Consolidated 
+Standards of Reporting Trials [CONSORT] guidelines 
+for RCTs) would enhance transparency and comparabil -
+ity across studies. Continued advancements in XAI are 
+needed to improve model transparency and trustworthi-
+ness. Ultimately, successful and responsible integration 
+of AI into AF care requires sustained collaboration among 
+clinicians, data scientists, engineers, regulators, health 
+care administrators, and patients. The synergy between 
+data-driven ML approaches and mechanistic compu -
+tational modeling represents a particularly promising 
+frontier for developing more robust and interpretable AI 
+solutions.7,26,34
+Conclusions
+AI is rapidly evolving from a conceptual promise into a 
+suite of tangible tools poised to significantly influence 
+the diagnosis and management of AF across its entire 
+spectrum. AI-augmented analysis of ECG and wearable 
+sensor data is enhancing the efficiency and reach of AF 
+detection and screening initiatives. Within the electro -
+physiology laboratory, AI-driven mapping techniques 
+provide patient-specific insights to guide more targeted 
+and potentially more effective catheter ablation strate -
+gies, with emerging RCT evidence supporting improved 
+rhythm outcomes for specific patient subgroups. ML 
+models demonstrate superior accuracy over traditional 
+risk scores in predicting treatment outcomes, particularly 
+for ablation, by adeptly integrating complex, multimodal 
+patient data. Furthermore, AI presents compelling oppor-
+tunities to optimize long-term AF care through more per-
+sonalized anticoagulation strategies, intelligent remote 
+monitoring, and potentially tailored pharmacotherapy 
+selection and adjustment.
+However, translating this considerable potential into 
+widespread, effective clinical practice requires navigat -
+ing significant challenges. Rigorous prospective valida -
+tion demonstrating improved, patient-centric outcomes 
+in diverse real-world populations is essential. Addressing 
+critical issues of model interpretability and bias, ensuring 
+seamless and efficient workflow integration, demonstrat-
+ing cost-effectiveness, and establishing robust regulatory 
+and ethical frameworks are non-negotiable prerequisites 
+for responsible adoption. The role of AI must be carefully 
+cultivated as a powerful adjunct to, rather than a replace-
+ment for, clinical judgment, shared decision-making, and 
+established principles of integrated care. Continued inter-
+disciplinary collaboration and focused research address -
+ing these key challenges are paramount to fully harness 
+AI’s transformative potential for improving the lives of 
+patients with AF worldwide.
+References
+1. Linz D, Gawalko M, Betz K, et al. Atrial fibrillation: epide -
+miology, screening and digital health. Lancet Reg Health Eur. 
+2024;37:100786.
+2. Hindricks G, Potpara T, Dagres N, et al. 2020 ESC Guidelines 
+for the diagnosis and management of atrial fibrillation 
+developed in collaboration with the European Association 
+for Cardio-Thoracic Surgery (EACTS): the Task Force for 
+the diagnosis and management of atrial fibrillation of the 
+European Society of Cardiology (ESC) Developed with 
+the special contribution of the European Heart Rhythm 
+Association (EHRA) of the ESC. Eur Heart J . 2021;42(5):  
+373–498.
+3. Reiffel JA. Selected advancements in the management of 
+atrial fibrillation from the year 2021. J Innov Card Rhythm 
+Manag. 2022;13(1):4840–4846.
+D. J. Gonzalez, S. Kambampati, E. Godinez, et al.
+6588 The Journal of Innovations in Cardiac Rhythm Management, January 2026
+4. Kirchhof P , Camm AJ, Goette A, et al. Early rhythm-control 
+therapy in patients with atrial fibrillation. N Engl J Med . 
+2020;383(14):1305–1316.
+5. Andrade JG, Champagne J, Deyell MW, et al. A randomized 
+clinical trial of early invasive intervention for atrial fibril -
+lation (EARLY-AF) – methods and rationale. Am Heart J . 
+2018;206:94–104.
+6. Wazni OM, Dandamudi G, Sood N, et al. Cryoballoon abla-
+tion as initial therapy for atrial fibrillation. N Engl J Med . 
+2021;384(4):316–324.
+7. Shade JK, Ali RL, Basile D, et al. Preprocedure application of 
+machine learning and mechanistic simulations predicts like-
+lihood of paroxysmal atrial fibrillation recurrence follow -
+ing pulmonary vein isolation. Circ Arrhythm Electrophysiol . 
+2020;13(7):e008213.
+8. Reddy VY, Langbein A, Petru J, et al. A randomized trial of 
+electrographic flow-guided redo ablation for nonparoxys -
+mal atrial fibrillation (FLOW-AF). JACC Clin Electrophysiol . 
+2024;10(8):1856–1869.
+9. Baykaner T, Noseworthy PA, Wan EY. Implementing AI 
+in clinical practice: practical insights on integrating AI 
+through digital dashboards and beyond. Heart Rhythm . 
+2024;21(10):e259–e261.
+10. Siontis KC, Yao X, Pirruccello JP , Philippakis AA, Nose-  
+worthy PA. How will machine learning inform the clinical 
+care of atrial fibrillation? Circ Res. 2020;127(1):155–169.
+11. Harmon DM, Sehrawat O, Maanja M, Wight J, Noseworthy 
+PA. Artificial intelligence for the detection and treatment of 
+atrial fibrillation. Arrhythm Electrophysiol Rev. 2023;12:e12.
+12. Ng B, Nayyar S, Chauhan VS. The role of artificial intelli -
+gence and machine learning in clinical cardiac electrophysi-
+ology. Can J Cardiol. 2022;38(2):246–258.
+13. Abgrall G, Holder AL, Chelly Dagdia Z, Zeitouni K, Monnet 
+X. Should AI models be explainable to clinicians? Crit Care. 
+2024;28(1):301.
+14. Attia ZI, Noseworthy PA, Lopez-Jimenez F, et al. An artifi -
+cial intelligence-enabled ECG algorithm for the identifica -
+tion of patients with atrial fibrillation during sinus rhythm: 
+a retrospective analysis of outcome prediction. Lancet. 
+2019;394(10201):861–867.
+15. Noseworthy PA, Attia ZI, Behnken EM, et  al. Artificial 
+intelligence-guided screening for atrial fibrillation using  
+electrocardiogram during sinus rhythm: a prospec -
+tive non-randomised interventional trial. Lancet. 2022;  
+400(10359):1206–1212.
+16. Hygrell T, Viberg F, Dahlberg E, et  al. An artificial intelli -
+gence-based model for prediction of atrial fibrillation from 
+single-lead sinus rhythm electrocardiograms facilitating 
+screening. Europace. 2023;25(4):1332–1338.
+17. Perez MV , Mahaffey KW, Hedlin H, et al. Large-scale assess-
+ment of a smartwatch to identify atrial fibrillation. N Engl J 
+Med. 2019;381(20):1909–1917.
+18. Guo Y, Wang H, Zhang H, Chen Y, Lip GYH. Population-
+based screening or targeted screening based on initial clin -
+ical risk assessment for atrial fibrillation: a report from the 
+Huawei Heart Study. J Clin Med. 2020;9(5):1493.
+19. Guo Y, Wang H, Zhang H, et  al. Photoplethysmography-
+based machine learning approaches for atrial fibrillation 
+prediction: a report from the Huawei Heart Study. JACC 
+Asia. 2021;1(3):399–408.
+20. Ballinger B, Hsieh J, Singh A, et al. DeepHeart: semi-super -
+vised sequence learning for cardiovascular risk prediction. 
+Proc AAAI Conf Artif Intell. 2018;32(1).
+21. Tison GH, Sanchez JM, Ballinger B, et al. Passive detection 
+of atrial fibrillation using a commercially available smart -
+watch. JAMA Cardiol. 2018;3(5):409–416.
+22. Vo K, El-Khamy M, Choi Y. PPG-to-ECG signal transla -
+tion for continuous atrial fibrillation detection via atten -
+tion-based deep state-space modeling. In: 2024 46th Annual 
+International Conference of the IEEE Engineering in Medicine 
+and Biology Society (EMBC). Orlando: IEEE; 2024:1–7.
+23. Mannhart D, Lischer M, Knecht S, et al. Clinical validation of 
+5 direct-to-consumer wearable smart devices to detect atrial 
+fibrillation: BASEL wearable study. JACC Clin Electrophysiol. 
+2023;9(2):232–242.
+24. Hill NR, Groves L, Dickerson C, et  al. Identification of 
+undiagnosed atrial fibrillation using a machine learn -
+ing risk-prediction algorithm and diagnostic testing 
+(PULsE-AI) in primary care: a multi-centre randomized con-
+trolled trial in England. Eur Heart J Digit Health . 2022;3(2):  
+195–204.
+25. Roychoudhury R, Ma S, Qian C. Stroke prevention and 
+intracranial hemorrhage risk in atrial fibrillation manage -
+ment: a mini review. Brain Circ. 2023;9(3):148–153.
+26. Chahine Y, Magoon MJ, Maidu B, Del Álamo JC, Boyle PM, 
+Akoum N. Machine learning and the conundrum of stroke 
+risk prediction. Arrhythm Electrophysiol Rev. 2023;12:e07.
+27. McIntyre WF, Benz AP , Tojaga N, Brandes A, Lopes RD, 
+Healey JS. Direct oral anticoagulants for stroke prevention 
+in patients with device-detected atrial fibrillation: assess -
+ing net clinical benefit. Eur Heart J Suppl . 2024;26(Suppl 
+4):iv4–iv11.
+28. Noujaim C, Feng H, Bidaoui G, et  al. Machine learn -
+ing-driven identification of distinct persistent atrial fibril -
+lation phenotypes: a cluster analysis of DECAAF II. J 
+Cardiovasc Electrophysiol. 2025;36(2):457–466.
+29. Haines DE, Kong MH, Ruppersberg P , et al. Electrographic 
+flow mapping for atrial fibrillation: theoretical basis and 
+preliminary observations. J Interv Card Electrophysiol . 
+2023;66(4):1015–1028.
+30. Alhusseini MI, Abuzaid F, Rogers AJ, et al. Machine learning 
+to classify intracardiac electrical patterns during atrial fibril-
+lation: machine learning of atrial fibrillation. Circ Arrhythm 
+Electrophysiol. 2020;13(8):e008160.
+31. Zolotarev AM, Hansen BJ, Ivanova EA, et al. Optical map -
+ping-validated machine learning improves atrial fibrillation 
+driver detection by multi-electrode mapping. Circ Arrhythm 
+Electrophysiol. 2020;13(10):e008249.
+32. Bars C, Gitenay E, Monteau J, et  al. Artificial intelligence-  
+enabled spatio-temporal dispersion mapping for persistent 
+AF: similarities and differences between pacing-induced or 
+spontaneous AF. Europace. 2023;25:euad122.163.
+33. Deisenhofer I, Albenque J-P , Busch S, et  al. Lb-469805-01  
+tailored cardiac ablation procedure for persistent atrial 
+fibrillation guided by artificial intelligence: the tailored-  
+AF randomized clinical trial. Heart Rhythm . 2024;21(7):  
+1199.
+34. Boyle PM, Zghaib T, Zahid S, et al. Computationally guided 
+personalized targeted ablation of persistent atrial fibrilla -
+tion. Nat Biomed Eng. 2019;3(11):870–879.
+35. Tang S, Razeghi O, Kapoor R, et  al. Machine learning-en -
+abled multimodal fusion of intra-atrial and body surface 
+signals in prediction of atrial fibrillation ablation outcomes. 
+Circ Arrhythm Electrophysiol. 2022;15(8):e010850.
+36. Razeghi O, Kapoor R, Alhusseini MI, et al. Atrial fibrillation 
+ablation outcome prediction with a machine learning fusion 
+framework incorporating cardiac computed tomography. J 
+Cardiovasc Electrophysiol. 2023;34(5):1164–1174.
+37. Roney CH, Sim I, Yu J, et  al. Predicting atrial fibrillation 
+recurrence by combining population data and virtual 
+cohorts of patient-specific left atrial models. Circ Arrhythm 
+Electrophysiol. 2022;15(2):e010253.
+AI-driven Detection, Mapping, and Personalized Therapy for AF
+The Journal of Innovations in Cardiac Rhythm Management, January 2026 6589
+
+38. Firouznia M, Feeny AK, LaBarbera MA, et  al. Machine 
+learning-derived fractal features of shape and texture of the 
+left atrium and pulmonary veins from cardiac computed 
+tomography scans are associated with risk of recurrence of 
+atrial fibrillation postablation. Circ Arrhythm Electrophysiol . 
+2021;14(3):e009265.
+39. Bautista JAL, Lin C-Y, Lu C-T, et  al. Clinical signifi -
+cance of substrate characteristics and ablation outcomes 
+in patients with atrial fibrillation and significant func -
+tional mitral regurgitation. Front Cardiovasc Med . 2023;10:  
+1265890.
+40. Mittal S, Oliveros S, Li J, Barroyer T, Henry C, Gardella C. 
+AI filter improves positive predictive value of atrial fibrilla-
+tion detection by an implantable loop recorder. JACC Clin 
+Electrophysiol. 2021;7(8):965–975.
+41. Middeldorp ME, Thomas G, Kamsani SH, et  al. Use 
+of artificial intelligence algorithms to reduce trans -
+missions in implantable loop recorders. Heart Rhythm . 
+2025;22(7):E241–E243.
+42. Ashburner JM, Chang Y, Wang X, et  al. Natural language 
+processing to improve prediction of incident atrial fibril -
+lation using electronic health records. J Am Heart Assoc . 
+2022;11(15):e026014.
+43. El Hajjar AH, Kassab J, Ammoury C, et  al. Accuracy and 
+evolution of large language models in atrial fibrillation-re -
+lated queries: a patient- and provider-centered approach. 
+Circ Arrhythm Electrophysiol. 2024;17(9):e012919.
+44. Kassar A, Macheret F, Kondamudi N, et  al. Performance 
+of large language models as a resource for patients and 
+healthcare professionals on atrial fibrillation. Heart Rhythm. 
+2024;21(10):2048–2050.
+45. Harishbhai Tilala M, Kumar Chenchala P , Choppadandi A, 
+et  al. Ethical considerations in the use of artificial intelli -
+gence and machine learning in health care: a comprehensive 
+review. Cureus. 2024;16(6):e62443.
+46. Narayan SM, Chung MK, Adedinsewo D, et  al. Access to 
+digital health technologies: personalized framework and 
+global perspectives. Nat Rev Cardiol. 2026;23:9–22.
+D. J. Gonzalez, S. Kambampati, E. Godinez, et al.
+6590 The Journal of Innovations in Cardiac Rhythm Management, January 2026

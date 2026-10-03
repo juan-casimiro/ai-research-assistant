@@ -1,0 +1,816 @@
+RESEARCH Open Access
+© The Author(s) 2024. Open Access  This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, 
+sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and 
+the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this 
+article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included 
+in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will 
+need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/. The 
+Creative Commons Public Domain Dedication waiver (http://creativecommons.org/publicdomain/zero/1.0/) applies to the data made available 
+in this article, unless otherwise stated in a credit line to the data.
+Pham et al. BMC Cancer          (2024) 24:176 
+https://doi.org/10.1186/s12885-024-11891-w
+BMC Cancer
+*Correspondence:
+Thi Thai Hoa Nguyen
+bshoabvk@gmail.com
+Anh Tu Do
+doanhtu.bvk@gmail.com
+Full list of author information is available at the end of the article
+Abstract
+Background This study aimed to evaluate the efficacy and side effects of first-line afatinib treatment in a real-world 
+setting in Vietnam.
+Methods This retrospective study was conducted across nine hospitals in Vietnam. Advanced epidermal growth 
+factor receptor (EGFR)-mutant non-small cell lung cancer (NSCLC) patients who received afatinib as first-line therapy 
+between April 2018 and June 2022 were included, and patient medical records were reviewed. Key outcomes were 
+overall response rate (ORR), time-to-treatment failure (TTF), and tolerability.
+Results A total of 343 patients on first-line afatinib were eligible for the study. EGFR exon 19 deletion (Del19) alone 
+was detected in 46.9% of patients, L858R mutation alone in 26.3%, and other uncommon EGFR mutations, including 
+compound mutations, in 26.8%. Patients with brain metastases at baseline were 25.4%. Patients who received 40 mg, 
+30 mg, and 20 mg as starting doses of afatinib were 58.6%, 39.9%, and 1.5%, respectively. The ORR was 78.1% in the 
+overall population, 82.6% in the Del19 mutation subgroup, 73.3% in the L858R mutation subgroup, and 75.0% in the 
+uncommon mutation subgroup (p > 0.05). The univariate and multivariate analyses indicate that the ORR increased 
+when the starting dose was 40 mg compared to starting doses below 40 mg (83.9% vs. 74.3%, p = 0.034). The median 
+TTF (mTTF) was 16.7 months (CI 95%: 14.8–18.5) in all patients, with a median follow-up time of 26.2 months. The 
+mTTF was longer in patients in the common EGFR mutation subgroup (Del19/L858R) than in those in the uncommon 
+mutation subgroup (17.5 vs. 13.8 months, p = 0.045) and in those without versus with brain metastases at baseline 
+(17.5 vs. 15.1 months, p = 0.049). There were no significant differences in the mTTF between subgroups based on the 
+starting dose of 40 mg and < 40 mg (16.7 vs. 16.9 months, p > 0.05). The most common treatment-related adverse 
+A real-world cohort study of first-line afatinib 
+in patients with EGFR-mutant advanced non-
+small cell lung cancer in Vietnam
+Cam Phuong Pham1, Thi Thai Hoa Nguyen2*, Anh Tu Do2*, Tuan Khoi Nguyen3, Thi Anh Thu Hoang3, Tuan Anh Le4, 
+Dinh Thy Hao Vuong4, Dac Nhan Tam Nguyen5, Van Khiem Dang6, Thi Oanh Nguyen6, Van Luan Pham7,  
+Minh Hai Nguyen7, Thi Huyen Trang Vo1, Hung Kien Do2, Ha Thanh Vu8,2, Thi Thuy Hang Nguyen2, Van Thai Pham8,1, 
+Le Huy Trinh8, Khac Dung Nguyen2, Hoang Gia Nguyen9, Cong Minh Truong2, Tran Minh Chau Pham3 and  
+Thi Bich Phuong Nguyen2
+Page 2 of 10
+Pham et al. BMC Cancer          (2024) 24:176 
+Backgrounds
+Lung cancer remains a significant public health concern 
+worldwide, with its burden increasing in many countries, 
+including Vietnam. In 2019, Vietnam was ranked 37th 
+in terms of the lung cancer mortality rate globally [ 1]. 
+According to Globocan 2020 statistics, there are approxi-
+mately 26,262 new cases of lung cancer in Vietnam each 
+year, accounting for 14.4% of all cancer cases and ranking 
+second after liver cancer (14.5%) among different cancer 
+types [2]. Lung cancer-related deaths comprised approxi-
+mately 19% of total deaths in Vietnam, with lung cancer 
+being the second leading cause of cancer-related deaths, 
+accounting for 19.4% [2].
+The number of new lung cancer cases is projected to 
+continue rising in Vietnam, particularly in the two major 
+cities of Hanoi and Ho Chi Minh City, due to population 
+growth, aging, and the impact of smoking and second -
+hand smoke exposure [3]. The overall 5-year survival rate 
+for lung cancer in Vietnam is 14.8% [1].
+The prevalence of epidermal growth factor receptor 
+(EGFR) mutations in Asian populations, including Viet -
+nam, ranges from 39.6 to 51.4%, while specifically in 
+Vietnam, the reported rate of EGFR gene mutations in 
+patients with adenocarcinoma of the lung ranges from 
+40.7–64.2% [ 4, 5]. A recent study conducted in over 
+350 Vietnamese patients with non-small cell lung can -
+cer (NSCLC) from four hospitals revealed the presence 
+of EGFR mutations in 35% of cases, KRAS mutations in 
+23%, ALK rearrangements in 7%, ROS1 rearrangements 
+in 3%, BRAF mutations in 2%, and NRAS mutations in 
+0.6% [6].
+The current guidelines for the diagnosis and treatment 
+of lung cancer in Vietnam recommend the use of first-
+generation (erlotinib, gefitinib), second-generation (afa -
+tinib), or third-generation (osimertinib) tyrosine kinase 
+inhibitors (TKIs) as first-line treatment for advanced 
+or metastatic NSCLC patients [ 7]. Afatinib, a second-
+generation TKI, has been approved for the treatment of 
+EGFR-mutated NSCLC in Vietnam since 2018, with 50% 
+coverage by health insurance [1, 7].
+However, real-world data on the effectiveness and tol -
+erability of afatinib in Vietnam are limited, as they have 
+mostly been derived from single-center studies with 
+small sample sizes [8].
+Therefore, it is important to obtain representative 
+real-world evidence on the effectiveness and tolerabil -
+ity of afatinib in NSCLC patients from different hospi -
+tals and cancer centers across Vietnam. This study aims 
+to evaluate the response rate, time-to-treatment failure, 
+and safety profile of first-line afatinib in EGFR-mutated 
+NSCLC in a real-world multicenter setting in Vietnam.
+Patients and methods
+Study design
+This multicenter retrospective observational study was 
+conducted in nine hospitals across Vietnam. The nine 
+hospitals are Bach Mai Hospital, Vietnam National Can -
+cer Hospital, Ho Chi Minh City Oncology Hospital, Cho 
+Ray Hospital, Thong Nhat Hospital, National Lung Hos -
+pital, 108 Military Central Hospital, Hanoi Medical Uni -
+versity Hospital, and Hanoi Oncology Hospital.
+EGFR mutation NSCLC patients who received afa -
+tinib as first-line treatment between April 2018 and June 
+2022 were enrolled, and patient medical records were 
+reviewed. The study and protocol were approved by 
+each Institutional Review Board. Key clinical outcomes 
+included overall response rate (ORR), time-to-treatment 
+failure (TTF), and tolerability. Key subgroup analyses 
+included EGFR mutation categories, brain metastases at 
+baseline, and starting dose/dose adjustment of afatinib.
+Study population
+Patients were required to have histologically confirmed 
+advanced NSCLC (inoperable IIIB-IIIC stage, recur -
+rences, stage IV), first-line treatment, and EGFR muta -
+tions (including common mutations (Exon 19 deletion, 
+L858R mutation) and other uncommon EGFR muta -
+tions). Patients with severe hepatic dysfunction (Child 
+Pugh C) or renal impairment (estimated glomerular fil -
+tration rate < 15 mL/min/1.73 m2) or serious comorbidi -
+ties, other malignant tumors, and the de novo T790M 
+mutation were excluded.
+Procedures
+EGFR mutations were detected in the pre-treatment 
+biopsy specimens, mostly by PCR methods or next-
+generation sequencing. The initial afatinib dose, ranging 
+from 20  mg to 40  mg, was selected by physicians’ deci -
+sions and the two most significant factors we considered 
+events (any grade/grade ≥ 3) were diarrhea (55.4%/3.5%), rash (51.9%/3.2%), paronychia (35.3%/5.0%), and stomatitis 
+(22.2%/1.2%).
+Conclusions Afatinib demonstrated clinical effectiveness and good tolerability in Vietnamese EGFR-mutant NSCLC 
+patients. In our real-world setting, administering a starting dose below 40 mg might result in a reduction in ORR; 
+however, it might not have a significant impact on TTF.
+Keywords Advanced non-small cell lung cancer, EGFR mutations, Afatinib, First-line, Vietnam
+Page 3 of 10
+Pham et al. BMC Cancer          (2024) 24:176 
+in choosing the starting dose were age and Eastern Coop-
+erative Oncology Group performance status (PS). Afa -
+tinib was given until symptomatic disease progression 
+or the occurrence of intolerable side effects. In cases of 
+limited progression, the decision to pursue definitive 
+local therapy and to continue treatment with afatinib is 
+made by a multidisciplinary team in the respective cen -
+ters. The Response Evaluation Criteria in Solid Tumors 
+1.1 (RECIST 1.1) criteria were used to evaluate the best 
+tumor response. The best clinical tumor response was 
+recorded as complete response, partial response, stable 
+disease, or progressive disease. The TTF is defined as the 
+time from the first dose of afatinib to the date of treat -
+ment discontinuation due to progression, intolerance, 
+or death. Patients who stopped treatment or switched 
+to another EGFR TKI for other reasons were consid -
+ered censored observations. Side effects documented in 
+medical records were collected and graded according to 
+the Common Terminology Criteria for Adverse Events 
+(CTCAE 5.0) [9].
+Statistical analysis
+Data were analyzed using IBM SPSS Statistics for Win -
+dows version 26.0 (IBM Corp., Armonk, NY). The pre -
+sentation of continuous data as the mean ± standard 
+deviation or median (interquartile range) and categori -
+cal data as the number (percentage) was dependent on 
+their distribution. Differences between categorical vari -
+ables were tested using the chi-square test or Fisher’s 
+exact test. For continuous variables, the differences were 
+compared using independent t tests or Mann‒Whitney 
+U tests. Multivariable logistic binary regression with a 
+forward selection approach was employed for the analy -
+sis of factors related to ORR. The TTF was estimated by 
+the Kaplan–Meier method and compared by the log-rank 
+test. A stepwise forward selection strategy was used to 
+identify parameters for multivariate Cox proportional 
+hazard regression models to evaluate factors associated 
+with TTF. A p value of < 0.05 was considered statistically 
+significant.
+Results
+Patient characteristics
+There were initially 358 patients screened for first-line 
+afatinib treatment and positive EGFR mutation. Fol -
+lowing the exclusion of 15 patients based on the exclu -
+sion criteria, a total of 343 patients were included in the 
+analysis. The patient characteristics grouped by starting 
+dose of afatinib are described in detail in Table  1. A total 
+of 137 patients received an initial dose of 40 mg afatinib, 
+while 206 patients were in the group with an initial dose 
+below 40  mg afatinib, predominantly at 30  mg, with 
+only 5 patients starting at 20 mg. The average age of the 
+patients in the study was 63.2 ± 9.7 years. Overall, 56.6% 
+of patients were male, 93.1% had good performance sta -
+tus (PS 0–1), 72.6% were nonsmokers or former smokers, 
+and 91.0% were in stage IV. Most patients had adeno -
+carcinoma histology (98.0%), while a small percentage 
+had squamous cell carcinoma (1.7%) or adenosquamous 
+carcinoma (0.3%). The number of patients with brain 
+metastases and liver metastases was 87 (25.4%) and 
+33 (9.6%), respectively. Common mutations, including 
+exon 19 deletion (Del19) and L858R mutation (L858R), 
+were observed in 251 patients (73.2%), with Del19 muta -
+tion in 161 patients (46.9%) and L858R mutation in 90 
+patients (26.2%). Details of uncommon mutation group 
+were presented in Additional file 1. The patients who 
+received < 40  mg daily as the initial dose tended to be 
+older than those who received 40 mg daily (64.0 ± 9.6 vs. 
+61.9 ± 9.8 years); however, this difference was not statis -
+tically significant ( p = 0.056). There were no significant 
+differences in sex, smoking history, performance status, 
+stage, brain metastasis, liver metastasis, or EGFR muta -
+tions (Del19/L858R/uncommon mutations) between the 
+two groups of starting doses.
+Table 1 Demographic and clinical characteristics of patients
+Characteristic All 
+patients 
+(n = 343)
+Starting 
+dose < 40 mg 
+(*)
+(n = 206)
+Starting 
+dose 40 mg 
+(**)
+(n = 137)
+p 
+value
+Age (years)
+Mean ± SD 63.2 ± 9.7 64.0 ± 9.6 61.9 ± 9.8 0.056a
+≥ 65 years old 152 (44.3) 98 (47.6) 54 (39.4) 0.136b
+< 65 years old 191 (55.7) 108 (52.4) 83 (60.6)
+Sex
+Male 194 (56.6) 113 (54.9) 81 (59.1) 0.435b
+Female 149 (43.4) 93 (45.1) 56 (40.9)
+ECOG performance status at diagnosis
+PS 0–1 319 (93.0) 193 (93.7) 126 (92.0) 0.541b
+PS 2–3 24 (7.0) 13 (6.3) 11 (8.0)
+Smoking history
+Nonsmoker/former 
+smoker
+249 (72.6) 148 (71.8) 101 (73.7) 0.713b
+Current smoker 94 (27.4) 58 (28.2) 36 (26.3)
+Stage
+IIIB/IIIC 19 (5.5) 7 (3.4) 5 (3.6) 0.955b
+Recurrence 12 (3.5) 12 (5.8) 7 (5.1)
+IV 312 (91.0) 187 (90.8) 125 (91.2)
+Sites of Metastasis
+Brain 87 (25.4) 55 (26.7) 32 (23.4) 0.486b
+Liver 33 (9.6) 18 (8.7) 15 (10.9) 0.496b
+EGFR mutations
+Del 19 161 (46.9) 93 (45.1) 68 (49.6) 0.716b
+L858R 90 (26.2) 56 (27.2) 34 (24.8)
+Uncommon 
+mutations
+92 (26.8) 57 (27.7) 25 (25.5)
+(*): 5 Patients starting dose 20 mg (**): no patients starting dose > 40 mg
+a: T test b: Chi-square test
+Page 4 of 10
+Pham et al. BMC Cancer          (2024) 24:176 
+As shown in Table  2, most of the patients started with 
+afatinib 30  mg once daily (58.6%), followed by 40  mg 
+once daily (39.9%) and 20 mg once daily (1.5%). After one 
+month of treatment, most of them could be maintained 
+with the starting dose (81.9%). The number of patients 
+requiring dose increases and dose reductions after one 
+month was 25 (7.3%) and 37 (10.8%), respectively. Dose 
+reductions due to tolerance were needed by 23.6% during 
+the treatment. The optimal afatinib dosage, determined 
+as the dose that could effectively manage the patient’s 
+disease while maintaining tolerable side effects, was most 
+prescribed at 30 mg once daily (62.1%), followed by 40 mg 
+once daily (33.2%) and 20 mg once daily (4.7%). Among 
+the patients with baseline brain metastases, 27.6% had 
+concurrent whole brain radiation, and 16.1% had gamma 
+knife radiosurgery.
+Objective response
+The overall objective response rate (ORR) was 78.1% in 
+all patients, with 12.2% achieving a complete response 
+and 65.9% achieving a partial response (Table 3).
+Among the common mutation group, the ORR for the 
+Del 19 group was numerically higher than that for the 
+L858R group; however, it is important to note that this 
+difference did not reach statistical significance (82.6% 
+vs. 73.3%, p = 0.082). The ORR for the uncommon muta -
+tion group (including compound mutations) was 75.0%, 
+which tended to be lower than that of the common 
+mutation group; however, this difference was not statisti -
+cally significant (p = 0.419).
+The ORR for the 87 patients with brain metastases was 
+71.3%, with 24 patients receiving whole-brain radiation 
+therapy and 14 patients undergoing gamma knife radio -
+surgery (Table 2). This response rate was lower than that 
+of the group without brain metastases (80.5%), but the 
+difference was not statistically significant (p = 0.073).
+Univariate analysis was performed for factors influenc -
+ing the objective response rate, such as age ( ≥ 65 years, 
+< 65 years old), sex, performance status (PS), smoking 
+status, mutation type, disease stage, and brain metasta -
+ses. However, no statistically significant differences were 
+found in these factors (Table 3).
+We utilized multivariable logistic binary regression 
+with a forward selection approach to examine factors 
+associated with ORR. Two factors were identified as 
+related to ORR: performance status (PS 0–1 vs. PS 2–3) 
+and starting dose (40 mg vs. <40 mg). (Table 3)
+Time to treatment failure
+The median follow-up time was 26.2 months ( interquar -
+tile range24.1 to 28.3 months) from the start of afatinib 
+treatment. At the time of analysis in January 2023,OS 
+data were immature, with 32.9% of events observed, 
+while the median TTF was 16.7 months in all patients 
+(Fig. 1a), with 59.8% of TTF events observed. Among the 
+censored patients, 103 patients were still receiving afa -
+tinib, while 34 patients had to switch to another TKI due 
+to financial problems or drug supply issues.
+The mTTF was 17.5 months in the common muta -
+tion group and 13.8 months in the uncommon mutation 
+group (p = 0.045) (Fig. 1b). In the group of patients with 
+brain metastases, the mTTF was 15.1 months, which was 
+significantly lower than that (17.5 months) in patients 
+without brain metastases at baseline (p = 0.049) (Fig. 1c).
+When analyzing the factors influencing TTF using Cox 
+regression multivariate analysis, we observed that the 
+mTTF was significantly lower in the uncommon muta -
+tion group (HR = 1.53, 95%CI: 1.13–2.07, p = 0.007) and 
+the brain metastasis group (HR = 1.42, 95%CI: 1.04–1.92, 
+p = 0.026)(Table 4).
+Dose adjustment
+The response rates in patients receiving an initial dose 
+of 40  mg and < 40  mg were 83.9% and 74.3%, respec -
+tively, with a statistically significant difference ( p = 0.034) 
+(Table 3). On univariate analysis, the only factor found to 
+have an influence on ORR was the starting dose, and it 
+remained a prognostic factor in the multivariate analysis. 
+However, there was no significant difference in mTTF 
+between the two initial doses (16.7 months vs. 16.9 
+months, p = 0.755) (Fig. 2a).
+Table 2 Afatinib dosage and treatment features
+Characteristics N = 343 (%)
+Starting dose
+ • 20 mg 5 (1.5)
+ • 30 mg 201 (58.6)
+ • 40 mg 137 (39.9)
+Dose adjustment after 1 month
+ • Dose increase 25 (7.3)
+ • Dose reduction 37 (10.8)
+ • Dose maintain 281 (81.9)
+Dose reductions during treatment
+ • Yes 81 (23.6)
+ • No 262 (76.4)
+Optimal dose
+ • 20 mg 16 (4.7)
+ • 30 mg 213 (62.1)
+ • 40 mg 114 (33.2)
+Treatment in the local of brain metastases (at the time of initiation 
+of treatment)
+ • Whole Brain Radiation 24 (27.6)
+ • Gamma Knife 14 (16.1)
+Other palliative treatment
+ • Radiation relieves bone pain 10 (2.9)
+ • Radiation therapy to the chest 1 (0.3)
+ • Other 9 (2.6)
+Page 5 of 10
+Pham et al. BMC Cancer          (2024) 24:176 
+The mTTF was significantly longer in patients with 
+dose reduction than in those without dose reduc -
+tion (22.0 months vs. 15.7 months, p < 0.001) (Fig.  2b). 
+However, there was no significant difference in mTTF 
+between the patients who needed dose adjustment, 
+either through escalation or reduction, after one month 
+of treatment and those who maintained their initial dose 
+after one month (19.4 months vs. 16.1 months, p = 0.192) 
+(Fig.  2c). Analyzing patients maintaining different opti -
+mal doses revealed that those with a tolerable dose of 
+< 40 mg had a significantly longer mTTF than those with 
+a tolerable dose of 40 mg (18.5 months vs. 15.2 months, 
+p = 0.003) (Fig.  2d). Multivariate analysis indicated that 
+dose reduction and optimal dose below 40  mg could 
+result in bettermTTFs with HR = 0.58 (0.41–0.83) and 
+HR = 0.72 (0.53–0.99), respectively (Table 4).
+Side effects
+The most commonly observed adverse events included 
+diarrhea (55.4%), rash (51.9%), paronychia (35.3%), sto -
+matitis (22.2%), and dry skin (14.9%). Most of them were 
+grades 1 and 2, and grade 3 was reported only with diar -
+rhea (3.5%), rash (3.2%), paronychia (5.0%), and stoma -
+titis (1.2%) (Table  5). No patients had grade 4 adverse 
+events. The incidence of liver enzyme elevation was also 
+low (9.9%), and no patients experienced interstitial lung 
+disease. Diarrhea (any grade and grade 3) was more com -
+mon in the group with a starting dose of 40 mg than in 
+the group with a starting dose < 40  mg ( p = 0.027 and 
+p = 0.016, respectively). Stomatitis of any grade was more 
+prevalent in the group with a starting dose of 40  mg 
+(p = 0.047); however, there was no significant difference 
+between the two groups in terms of grade 3 stomatitis.
+Table 3 Overall Response Rate and Related Factors
+Factors ORR
+n (%)
+Univariate analysis (*) Multivariate analysis (**)
+p OR (95% CI) p OR (95% CI)
+Best tumor response (n, %)
+Complete response 42 (12.2) - - - -
+Partial response 226 (65.9)
+Stable disease 50 (14.6)
+Progressive disease 25 (7.3)
+Age
+•       < 65 years old 117 (77.0) 0.643 1.00 (reference) - -
+•       ≥ 65 years old 151 (79.1) 0.89 (0.53–1.48)
+Gender
+•       Male 153 (78.9) 0.596 1.00 (reference) - -
+•       Female 116 (77.8) 0.91 (0.54–1.52)
+ECOG
+•       PS 0–1 253 (79.3) 0.055 1.00 (reference) 0.049 1.00 (reference)
+•       PS 2–3 15 (62.5) 0.44 (0.18–1.04) 0.41 (0.17–0.99)
+Smoking status
+•       Current smoker 73 (77.7) 0.896 1.00 (reference) - -
+•       Non/former smoker 195 (78.3) 1.04 (0.59–1.84)
+EGFR mutations
+•       Del 19 133 (82.6) 0.082a 1.00 (reference) - -
+•       L858R 66 (73.3) 0.58 (0.31–1.08)
+•       Del 19 + L858R 199 (79.3) 0.419b -
+•       Uncommon mutations 69 (75.0) 0.63 (0.34–1.18)
+Stage
+•       IV 23 (74.2) 0.578 1.00 (reference) - -
+•       IIIB, IIIC, recurrence 245 (78.5) 0.79 (0.34–1.84)
+Brain metastasis
+•       Yes 62 (71.3) 0.073 1.00 (reference) - -
+•       No 206 (80.5) 1.66 (0.95–2.90)
+Starting dose
+•       40 mg 115 (83.9) 0.034 1.00 (reference) 0.029 1.00 (reference)
+•       < 40 mg 153 (74.3) 0.55 (0.32–0.96) 0.54 (0.31–0.94)
+(*): Chi square test
+(**) Multivariable logistic binary regression (forward selection approach)
+pa: L858R vs. Del 19
+pb: Uncommon mutations vs. common mutations (Del19/L858R)
+Page 6 of 10
+Pham et al. BMC Cancer          (2024) 24:176 
+Discussion
+To the best of our knowledge, this is the largest real-world 
+study to comprehensively evaluate the effectiveness of 
+afatinib on the first-line treatment of NSCLC in Vietnam, 
+which may provide valuable insights into patient charac -
+teristics and clinical outcomes. With the median follow-
+up duration of 26.2 months, the median TTF (mTTF) in 
+overall population was 16.7 months. Compared to real-
+world data worldwide of mTTF ranging from 13.1 to 18.7 
+months [ 10–15], the Vietnamese population showed 
+similar effectiveness of first-line afatinib. Additionally, in 
+the study, patients with common mutation demonstrated 
+significantly superior result relative to those harboring 
+uncommon mutation subgroup, which generally consis -
+tent with reported data in the literature (Fig. 1b).
+FLAURA study proved the superiority of osimer -
+tinib over first-generation EGFR TKI on progression 
+free survival (PFS) and OS in NSCLC harboring com -
+mon EGFR mutation with median PFS of 18.9 months. 
+However, osimertinib failed to show benefit of OS in 
+Asian patients. In our study, common mutation patients 
+treated with afatinib showed promising outcome with 
+mTTF of 17.5 months. These data support the advantage 
+of sequential afatinib therapy followed by osimertinib in 
+the Asian population, as echoed by results of some other 
+real-word studies [10, 12, 16].
+Patients with brain metastases baseline revealed sig -
+nificantly inferior treatment outcome relative to those 
+without brain involvement, as predicted for this poor 
+prognosis subgroup (Fig.  1c). Nevertheless, with the 
+mTTF of 15.1 months, the effectiveness of afatinib in 
+these patients was highly encouraging.Similar results 
+were reported in studies from Korea (14.8 months) 
+[10] and China (15.6 months) [ 17]. These findings sup -
+port the clinical activity of afatinib in EGFR mutation-
+positive patients with NSCLC and asymptomatic brain 
+metastases.
+In a previous study in Vietnam, we observed that 
+most patients were prescribed a starting dose of 30  mg 
+of afatinib [ 8]. In this retrospective study, a significant 
+Fig. 1 Kaplan–Meier curve of the TTF of the study population ( A), the TTF stratified by EGFR mutations ( B) and the TTF stratified by brain metastasis at 
+baseline. Abbreviations: TTF: time-to-failure treatment, EGFR: Epidermal Growth Factor Receptor
+ 
+Page 7 of 10
+Pham et al. BMC Cancer          (2024) 24:176 
+proportion of patients began treatment with afatinib 
+at 30  mg once daily (58.6%), followed by 40  mg once 
+daily (39.9%) and 20  mg once daily (1.5%). This is dif -
+ferent from other real-world studies in first-line afatinib 
+in the region. The response rate for the 40  mg start -
+ing dose is significantly higher than that for the group 
+below 40 mg (Table 3). In multivariate analysis regarding 
+factors related to ORR, the starting dose 40  mg versus 
+below 40  mg remained a prognostic factor for a bet -
+ter ORR. Studies with Taiwanese patients with EGFR 
+Del 19 or L858R mutations showed no difference in the 
+overall response rate between the 30 mg and 40 mg start -
+ing doses [ 18, 19]. The difference observed in our study 
+may be attributed to the fact that more than 1/4 of the 
+study population had uncommon mutations (26.8%). 
+However, the difference between the initial doses did not 
+affect the mTTF (16.7 months vs. 16.9 months, p = 0.755) 
+(Fig. 2a). This is consistent with the findings of other real-
+world studies [18, 20–23].
+As demonstrated in LUX-Lung program and Real -
+GiDo study [ 14, 24, 25], tolerability guided dose adjust -
+ment improved the safety profile but not compromised 
+Table 4 Time to Treatment Failure and Related Factors
+Factors mTTF (months) Univariate analysis (*) Multivariate analysis (**)
+p HR (95% CI) p HR (95% CI)
+Age
+•       < 65 years old 15.7 0.712 1.00 (reference) - -
+•       ≥ 65 years old 17.5 0.95 (0.72–1.25)
+Gender
+•       Male 15.7 0.056 1.00 (reference) - -
+•       Female 19 0.76 (0.58–1.01)
+ECOG
+•       PS 0–1 16.9 0.878 1.00 (reference)
+•       PS 2–3 15.7 0.96 (0.57–1.63)
+Smoking status
+•       Current smoker 17.5 0.243 1.00 (reference) - -
+•       Non/former smoker 15.4 0.83 (0.61–1.13)
+EGFR mutations
+•       Del 19 17 0.225a - - -
+•       L858R 19.6 - - -
+•       Common mutation 17.5 0.045b 1.00 (reference) 0.007b 1.00 (reference)
+•       Uncommon mutations 13.8 1.36 (1.01–1.83)b 1.53 (1.13–2.07)b
+Stage
+•       IV 16.7 0.666 1.00 (reference) - -
+•       IIIB, IIIC, recurrence 17.5 0.90 (0.55–1.47)
+Brain metastasis
+•       No 17.5 0.042 1.00 (reference) 0.026 1.00 (reference)
+•       Yes 15.1 1.37 (1.01–1.85) 1.42 (1.04–1.92)
+Liver metastasis
+•       No 17 0.2 1.00 (reference) - -
+•       Yes 12.5 1.32 (0.86–2.03)
+Starting dose
+•       40 mg 16.7 0.755 1.00 (reference) - -
+•       < 40 mg 16.9 1.05 (0.79–1.38)
+Optimal dose
+•       40 mg 15.2 0.003 1.00 (reference) 0.041 1.00 (reference)
+•       < 40 mg 18.5 0.65 (0.48–0.87) 0.72 (0.53–0.99)
+Dose reduction
+•       No 15.7 < 0.001 1.00 (reference) 0.003 1.00 (reference)
+•       Yes 22 0.54 (0.39–0.76) 0.58 (0.41–0.83)
+mTTF: median Time to Treatment Failure
+(*): Log-rank test
+(**) Cox regression multivariate analysis (forward selection approach)
+pa: L858R vs. Del 19
+pb: Ucommon mutations vs. common mutations (Del 19 + L858R)
+Page 8 of 10
+Pham et al. BMC Cancer          (2024) 24:176 
+the efficacy of afatinib. To investigate the generalization 
+of the finding in Vietnamese population, the impact of 
+dose adjustment was thoroughly evaluated in our study. 
+The mTTF was significantly longer in patients who expe -
+rienced tolerability guided dose adjustment than those 
+who did not. Similarly, patients with the optimal dose 
+of < 40 mg showed superior treatment outcome to those 
+having 40  mg as the optimal dose. Our data echoes the 
+finding that dose adjustment of afatinib help alleviate 
+the frequency and severity of treatment-related adverse 
+events (TRAEs) without negatively impacting clinical 
+benefits [18, 22, 26].
+Regarding adverse effects, we did not encounter any 
+additional adverse effects other than those already doc -
+umented and reported for afatinib (Table  5). Diarrhea 
+(any grade and grade 3) was more common in the group 
+with a starting dose of 40  mg than in the group with a 
+starting dose < 40 mg. Conversely, stomatitis of any grade 
+but not grade 3 or above was more prevalent in the sub -
+group with starting dose of 40 mg. The lower frequency 
+observed in our study compared to previous prospec -
+tive studies [24, 25] but comparable to real-world data in 
+China [17] and South Korea [27] may be attributed to the 
+nature of retrospective study designs.
+The important limitation of the study was retrospective 
+nature. Additionally, the multivariate analysis with a for -
+ward selection approach can be susceptible to selection 
+bias. Furthermore, the decision of selecting the starting 
+dose of afatinib varied by physicians according to perfor -
+mance status, co-morbidity, and clinical experience, chal-
+lenging the interpretation of findings. Last, OS remained 
+immature at the point of data cut-off for this analysis due 
+Fig. 2 Kaplan–Meier curve of TTF among patients stratified by dosage factors: starting dose (A), dose reduction (B), dose adjustment after one month (C) 
+and optimal dose (D). Abbreviations: TTF: time-to-failure treatment
+ 
+Page 9 of 10
+Pham et al. BMC Cancer          (2024) 24:176 
+to short follow-up. Despite these limitations, the study 
+is the first multi-center study in Vietnam, representing 
+real-world clinical practice and providing useful insights 
+regarding the use of first-line afatinib for the treatment 
+of advanced EGFR mutation-positive NSCLC. Our direc -
+tion for future research is to conduct a prospective study 
+to assess the efficacy of an initial 30 mg dose of afatinib in 
+treating Vietnamese patients.
+Conclusion
+This first multicenter real-world data from Vietnam 
+demonstrate consistent effectiveness and tolerability of 
+first-line afatinib in Vietnamese patients, aligning with 
+randomized controlled trials (RCTs) and real-world evi -
+dence (RWE).
+In summary, the multicenter real-world data from 
+Vietnam confirm the effectiveness and tolerability of 
+first-line afatinib in Vietnamese patients, consistent with 
+RCTs and RWE. The study provides valuable insights 
+into response rates, mTTF, and safety profiles, highlight -
+ing the importance of individualized dosing and proac -
+tive management of adverse events to optimize treatment 
+outcomes. Further research and studies are warranted to 
+enhance our understanding of afatinib in the Vietnamese 
+population and improve patient care.
+Abbreviations
+CI  Confidence interval
+CTCAE v5.0  Common Terminology Criteria for Adverse Events version 5
+ECOG  Eastern Cooperative Oncology Group
+EGFR  Epidermal growth factor receptor
+HR  Hazard ratio
+mTTF  Median time-to-treatment failure
+NSCLC  Non-small cell lung cancer
+OR  Odds ratio
+ORR  Objective response rate
+PS  Performance status
+RCT  Randomized controlled trial
+RWE  Real-World Evidence
+SD  Standard deviation
+TKI  Tyrosine kinase inhibitor
+Supplementary Information
+The online version contains supplementary material available at https://doi.
+org/10.1186/s12885-024-11891-w.
+Supplementary Material 1
+Acknowledgements
+We would like to extend our sincere appreciation to the Human Research 
+Ethics Committee of Bach Mai Hospital in Hanoi, Vietnam, for their support 
+and cooperation, including the waiver of informed consent. Their dedication 
+to ethical standards greatly contributed to the success of this retrospective 
+study.
+Author contributions
+Conception and design: Cam Phuong Pham (1), Thi Thai Hoa Nguyen (2), 
+Anh Tu Do (3)Collection and assembly of data: All authorsData analysis and 
+interpretation: Cam Phuong Pham (1), Thi Thai Hoa Nguyen (2), Anh Tu Do (3) 
+and Cong Minh Truong (18) Writing the main manuscript text: Cam Phuong 
+Pham (1), Thi Thai Hoa Nguyen (2), Anh Tu Do (3) Final approval of manuscript: 
+All authors.
+Funding
+This research received no specific grant from any funding agency in the 
+public, commercial, or not-for-profit sectors.
+Data availability
+The de-linked and anonymized datasets used and/or analyzed during the 
+current study are available from the corresponding author on reasonable 
+request.
+Declarations
+Ethics approval and consent to participate
+The Human Research Ethics Committee of the Bach Mai Hospital in Hanoi, 
+Vietnam approved this study (Approval Number: 916/BM-HĐĐĐ). The Human 
+Research Ethics Committee of the Bach Mai Hospital has waived the informed 
+consent for the study due to its retrospective nature and the absence of 
+patient safety concerns. In addition, patient records were anonymized and 
+de-identified before undergoing analysis.
+Consent for publication
+Not applicable.
+Competing interests
+The authors declare that they have no competing interests.
+Author details
+1Bach Mai Hospital, Hanoi, Vietnam
+2Vietnam National Cancer Hospital, Hanoi, Vietnam
+Table 5 Most common treatment-related adverse events
+All pa-
+tients a
+≤ 40 mg 
+OD b, c
+40 mg 
+OD c
+p 
+value
+(CTCAE grade) n = 343
+n (%)
+n = 206
+n (%)
+n = 137
+n(%)
+Rash
+ • Any grade 178 (51.9) 110 (53.4) 68 (49.6) 0.495d
+ • ≥ G 3 11 (3.2) 5 (2.4) 6 (4.4) 0.315d
+Dry skin
+ • Any grade 51 (14.9) 27 (13.1) 24 (17.5) 0.261d
+ • ≥ G 3 0 0 0 -
+Paronychia
+ • Any grade 121 (35.3) 66 (32) 55 (40.1) 0.124d
+ • ≥ G 3 17 (5.0) 7 (3.4) 10 (7.3) 0.103d
+Diarrhea
+ • Any grade 190 (55.4) 104 (50.5) 86 (62.8) 0.027d
+ • ≥ G 3 12 (3.5) 3 (1.5) 9 (6.6) 0.016e
+Stomatitis
+ • Any grade 88 (22.2) 45 (21.8) 43 (31.4) 0.047d
+ • ≥ G 3 4 (1.2) 1 (0.5) 3 (2.2) 0.306e
+GOT/GPT increase
+ • Any grade 28 (8.2) 16 (7.8) 12 (8.8) 0.742d
+ • ≥ G 3 0 0 0 -
+OD: once daily
+CTCAE: Common Terminology Criteria for Adverse Events
+a: There was no grade 4 adverse event (%)
+b: only 5 patients with a starting dose of 20 mg
+c: Starting dose
+d: Chi-square test
+e: Fisher’s exact test
+Page 10 of 10
+Pham et al. BMC Cancer          (2024) 24:176 
+3Ho Chi Minh City Oncology Hospital, Ho Chi Minh, Vietnam
+4Cho Ray Hospital, Ho Chi Minh, Vietnam
+5Thong Nhat Hospital, Ho Chi Minh, Ghana
+6National Lung Hospital, Hanoi, Vietnam
+7108 Military Central Hospital, Hanoi, Vietnam
+8Hanoi Medical University, Hanoi, Vietnam
+9Hanoi Oncology Hospital, Hanoi, Vietnam
+Received: 29 September 2023 / Accepted: 17 January 2024
+References
+1. Tran HTT, Nguyen S, Nguyen KK, Pham DX, Nguyen UH, Le AT, et al. Lung 
+Cancer in Vietnam. J Thorac Oncol. 2021;16(9):1443–8.
+2. International Agency for Research on Cancer (IARC). Viet Nam [Internet]. 2020 
+[cited 2023 Jan 10]. Available from: https://gco.iarc.fr/today/data/factsheets/
+populations/704-viet-nam-fact-sheets.pdf.
+3. Nguyen SM, Deppen S, Nguyen GH, Pham DX, Bui TD, Tran TV. Projecting Can-
+cer incidence for 2025 in the 2 Largest Populated cities in Vietnam. Cancer 
+Control: Journal of the Moffitt Cancer Center. 2019;26(1):1073274819865274.
+4. Shi Y, Au JS, Thongprasert S, Srinivasan S, Tsai CM, Khoa MT, et al. A prospec-
+tive, molecular epidemiology study of EGFR mutations in Asian patients 
+with advanced non-small-cell lung cancer of adenocarcinoma histology 
+(PIONEER). J Thorac Oncology: Official Publication Int Association Study Lung 
+Cancer. 2014;9(2):154–62.
+5. Mai KT, Pham CP , Nguyen LT, Vo QTT, Anh NT, Binh NHUY, et al. Prevalence 
+and clinicopathological factors of the EGFR mutation status of Vietnamese 
+non-small cell lung cancer patients. J Clin Oncol. 2019;37(15suppl):e13120–e.
+6. Dang A-TH, Tran V-U, Tran T-T, Thi Pham H-A, Le D-T, Nguyen L, et al. Action-
+able mutation profiles of Non-small Cell Lung Cancer patients from Vietnam-
+ese population. Sci Rep. 2020;10(1):2707.
+7. Ministry of Health of Vietnam. Decision No. 4825/QD-BYT guidelines for 
+diagnosis and treatment of non-small cell lung cancer 2018.
+8. Vu TH, Nguyen HTT, Dao LK, Duong CK, Nguyen CV, Doan TT, et al. 
+Effectiveness and tolerability of First-Line Afatinib for Advanced EGFR-
+Mutant Non-small Cell Lung Cancer in Vietnam. Asian Pac J Cancer Prev. 
+2021;22(5):1581–90.
+9. Common terminology criteria for adverse events v5.0 (CTCAE). Cancer 
+Therapy Evaluation Program, Common Terminology Criteria for Adverse 
+Events, Version 5.0, DCTD, NCI, NIH, DHHS, Publish Date: Nov 27, 2017.
+10. Jung HA, Hong MH, Lee HW, Lee KH, Kim IH, Min YJ, et al. Totality outcome of 
+afatinib sequential treatment in patients with EGFR mutation-positive non-
+small cell lung cancer in South Korea (TOAST): Korean Cancer Study Group 
+(KCSG) LU-19-22. Translational lung cancer Research. 2022;11(7):1369–79.
+11. Su VY, Yang KY, Huang TY, Hsu CC, Chen YM, Yen JC, et al. The efficacy 
+of first-line tyrosine kinase inhibitors combined with co-medications in 
+Asian patients with EGFR mutation non-small cell lung cancer. Sci Rep. 
+2020;10(1):14965.
+12. Kim T, Jang TW, Choi CM, Kim MH, Lee SY, Chang YS et al. Final report on real-
+world effectiveness of Sequential Afatinib and Osimertinib in EGFR positive 
+Advanced Non-small Cell Lung Cancer: updated analysis of the RESET Study. 
+Cancer Res Treat. 2023.
+13. Ito K, Morise M, Wakuda K, Hataji O, Shimokawaji T, Takahashi K, et al. A 
+multicenter cohort study of osimertinib compared with afatinib as first-line 
+treatment for EGFR-mutated non-small-cell lung cancer from practical data-
+set: CJLSG1903. ESMO open. 2021;6(3):100115.
+14. Halmos B, Tan EH, Soo RA, Cadranel J, Lee MK, Foucher P et al. Impact of 
+afatinib dose modification on safety and effectiveness in patients with EGFR 
+mutation-positive advanced NSCLC: Results from a global real-world study 
+(RealGiDo). Lung cancer (Amsterdam, Netherlands). 2019;127:103– 11.
+15. Fujiwara A, Yoshida M, Fujimoto H, Nakahara H, Ito K, Nishihama K, et al. A 
+retrospective comparison of the clinical efficacy of Gefitinib, Erlotinib, and 
+Afatinib in Japanese patients with Non-small Cell Lung Cancer. Oncol Res. 
+2018;26(7):1031–6.
+16. Miura S, Jung HA, Lee SY, Lee SH. Sequential Afatinib and Osimertinib in 
+Asian patients with EGFR mutation-positive Non-small Cell Lung Cancer and 
+Acquired T790M: combined analysis of two global non-interventional studies. 
+2022;15:873–82.
+17. Wang S, Xing P , Yang K, Hao X, Ma D. Efficacy and safety of afatinib in a Chi-
+nese population with advanced lung adenocarcinoma with sensitive EGFR 
+mutations. 2019;10(6):1461–8.
+18. Yang CJ, Tsai MJ, Hung JY, Lee MH, Tsai YM, Tsai YC, et al. The clinical efficacy 
+of Afatinib 30 mg daily as starting dose may not be inferior to Afatinib 40 mg 
+daily in patients with stage IV lung adenocarcinoma harboring exon 19 or 
+exon 21 mutations. BMC Pharmacol Toxicol. 2017;18(1):82.
+19. Chen YC, Tsai MJ, Lee MH, Kuo CY, Shen MC, Tsai YM et al. Lower starting dose 
+of afatinib for the treatment of metastatic lung adenocarcinoma harboring 
+exon 21 and exon 19 mutations. 2021;21(1):495.
+20. Tu CY, Chen CM, Liao WC, Wu BR, Chen CY, Chen WC, et al. Comparison of 
+the effects of the three major tyrosine kinase inhibitors as first-line therapy 
+for non-small-cell lung cancer harboring epidermal growth factor receptor 
+mutations. Oncotarget. 2018;9(36):24237–47.
+21. Lim CK, Wei YF, Tsai MS, Chen KY, Shih JY, Yu CJ. Treatment effectiveness and 
+tolerability of afatinib at different doses in patients with EGFR-mutated lung 
+adenocarcinoma: How low can we go? European journal of cancer (Oxford, 
+England: 1990). 2018;103:32–40.
+22. Liu CY, Wang CL, Li SH, Hsu PC, Chen CH, Lin TY, et al. The efficacy of 40 mg 
+versus dose de-escalation to less than 40 mg of afatinib (Giotrif ) as the first-
+line therapy for patients with primary lung adenocarcinoma harboring favor-
+able epidermal growth factor mutations. Oncotarget. 2017;8(57):97602–12.
+23. Liang SK, Hsieh MS, Lee MR, Keng LT, Ko JC, Shih JY. Real-world experience 
+of afatinib as a first-line therapy for advanced EGFR mutation-positive lung 
+adenocarcinoma. Oncotarget. 2017;8(52):90430–43.
+24. Sequist LV, Yang JC, Yamamoto N, O’Byrne K, Hirsh V, Mok T, et al. Phase III 
+study of afatinib or cisplatin plus pemetrexed in patients with metastatic 
+lung adenocarcinoma with EGFR mutations. J Clin Oncology: Official J Am 
+Soc Clin Oncol. 2013;31(27):3327–34.
+25. Park K, Tan EH, O’Byrne K, Zhang L, Boyer M, Mok T, et al. Afatinib versus 
+Gefitinib as first-line treatment of patients with EGFR mutation-positive 
+non-small-cell lung cancer (LUX-Lung 7): a phase 2B, open-label, randomised 
+controlled trial. Lancet Oncol. 2016;17(5):577–89.
+26. Lee SY, Choi CM, Chang YS, Lee KY, Kim SJ, Yang SH, et al. Real-world experi-
+ence of afatinib as first-line therapy for advanced EGFR mutation-positive 
+non-small cell lung cancer in Korea. Translational lung cancer Research. 
+2021;10(12):4353–67.
+27. Kim Y, Lee SH, Ahn JS, Ahn MJ, Park K, Sun JM. Efficacy and safety of Afatinib 
+for EGFR-mutant non-small cell Lung Cancer, compared with Gefitinib or 
+Erlotinib. Cancer Res Treat. 2019;51(2):502–9.
+Publisher’s Note
+Springer Nature remains neutral with regard to jurisdictional claims in 
+published maps and institutional affiliations.

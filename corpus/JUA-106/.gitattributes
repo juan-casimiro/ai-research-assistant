@@ -1,0 +1,4 @@
+# Preserve audited bytes; publisher PDFs are binary even when their header is text.
+*.pdf binary
+# Extracted text retains publisher whitespace and manifest checksums.
+*.txt -text -whitespace

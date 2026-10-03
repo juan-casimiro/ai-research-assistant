@@ -1,0 +1,686 @@
+Vol.:(0123456789)
+Medical & Biological Engineering & Computing (2025) 63:3113–3122 
+https://doi.org/10.1007/s11517-025-03385-z
+ORIGINAL ARTICLE
+Subclinical atrial fibrillation prediction based on deep learning 
+and strain analysis using echocardiography
+Sung‑Hao Huang1 · Ying‑Chi Lin2 · Ling Chen2  · Sayan Unankard3 · Vincent S. Tseng4 · Hsuan‑Ming Tsao1,5 · 
+Gau‑Jun Tang2
+Received: 16 January 2025 / Accepted: 18 May 2025 / Published online: 31 May 2025 
+© The Author(s) 2025
+Abstract
+Subclinical atrial fibrillation (SCAF), also known as atrial high-rate episodes (AHREs), refers to asymptomatic heart rate 
+elevations associated with increased risks of atrial fibrillation and cardiovascular events. Although deep learning (DL) 
+models leveraging echocardiographic images from ultrasound are widely used for cardiac function analysis, their applica-
+tion to AHRE prediction remains unexplored. This study introduces a novel DL-based framework for automatic AHRE 
+detection using echocardiograms. The approach encompasses left atrium (LA) segmentation, LA strain feature extraction, 
+and AHRE classification. Data from 117 patients with cardiac implantable electronic devices undergoing echocardiography 
+were analyzed, with 80% allocated to the development set and 20% to the test set. LA segmentation accuracy was quantified 
+using the Dice coefficient, yielding scores of 0.923 for the LA cavity and 0.741 for the LA wall. For AHRE classification, 
+metrics such as area under the curve (AUC), accuracy, sensitivity, and specificity were employed. A transformer-based model 
+integrating patient characteristics demonstrated robust performance, achieving mean AUC of 0.815, accuracy of 0.809, 
+sensitivity of 0.800, and specificity of 0.783 for a 24-h AHRE duration threshold. This framework represents a reliable tool 
+for AHRE assessment and holds significant potential for early SCAF detection, enhancing clinical decision-making and 
+patient outcomes.
+Keywords Deep learning · Left atrial segmentation · Left atrial strain · Atrial high-rate episodes
+1 Introduction
+Atrial fibrillation (AF) is among the most common cardiac 
+arrhythmias, associated with serious complications such as 
+ischemic stroke, myocardial infarction, heart failure, and 
+other cardiovascular conditions [ 1]. Atrial high-rate epi -
+sodes (AHREs), also referred to as subclinical AF (SCAF), 
+are defined as atrial rates ≥ 170 beats per minute lasting at 
+least 5 min, detected through cardiac implantable electri-
+cal devices (CIEDs) or long-term rhythm monitoring [2 ]. 
+AHREs, often identified incidentally, are linked to atrial car-
+diomyopathy and an elevated risk of progression to clinical 
+AF and adverse cardiovascular outcomes [3]. Early detection 
+of AHREs is, therefore, critical for timely intervention [4 ].
+Cardiac imaging, particularly strain echocardiography 
+via ultrasound, plays a pivotal role in assessing heart func-
+tion, predicting risks, and guiding treatment for AHRE 
+patients [5]. For example, initiating oral anticoagulants can 
+reduce stroke risk or systemic embolism [ 6, 7], and early 
+rhythm control may delay atrial arrhythmia progression, 
+improving cardiovascular outcomes [8 ]. Among standard 
+strain measurements—longitudinal, circumferential, and 
+radial—longitudinal strain of the left atrium (LA) provides 
+critical insights into heart function and early LA dysfunc-
+tion [9]. This method is particularly valuable for detecting 
+ * Ling Chen 
+ ling.chen@nycu.edu.tw
+1 Division of Cardiology, Department of Internal Medicine, 
+National Yang Ming Chiao Tung University Hospital, Yilan, 
+Taiwan
+2 Institute of Hospital and Health Care Administration, 
+National Yang Ming Chiao Tung University, No. 155, Sec. 2, 
+Linong St., Beitou Dist, Taipei, Taiwan
+3 Information Technology Division, Faculty of Science, Maejo 
+University, Chiang Mai, Thailand
+4 Department of Computer Science, National Yang Ming 
+Chiao Tung University, Hsinchu, Taiwan
+5 School of Medicine, National Yang Ming Chiao Tung 
+University, Taipei, Taiwan
+3114 Medical & Biological Engineering & Computing (2025) 63:3113–3122
+subtle changes, such as AF, as it helps identify early LA dys-
+function [10]. Studies, such as those from the LOOP trial, 
+have highlighted LA strain as an independent predictor of 
+SCAF in at-risk individuals [11]. Despite the clinical signifi-
+cance of strain measurements in echocardiography, current 
+approaches rely heavily on manual or semi-automated meas-
+urements using semi-automated software like EchoPAC™ 
+[12], which are time-consuming, operator-dependent, and 
+prone to variability.
+Deep learning (DL)–based segmentation has advanced 
+echocardiographic analysis by automatically identifying key 
+regions of interest [13–15], including the left ventricle (LV) 
+[16–19] and LA [20, 21], as well as the calculation of LV 
+longitudinal strain [18, 19] and LA volume [21]. Most stud-
+ies used UNet-based models [13, 21], while others explored 
+optical flow–based networks [13, 18, 19], diffusion-based 
+models [17], transformer-based models such as vision trans-
+former [15], generative adversarial network (GAN)–based 
+models [22], and hybrid models [16]. Although a range of 
+approaches have been introduced to improve cardiac cham-
+ber segmentation with a few calculating cardiac functions 
+such as LA volume and LV strain, the application of DL 
+to predict AHREs using automatically extracted LA strain 
+features remains unexplored. This represents a critical gap 
+in leveraging DL for early detection and risk stratification 
+of atrial arrhythmias.
+This study introduces a novel DL framework that inte-
+grates LA segmentation, strain analysis, and patient clinical 
+profiles to predict AHREs. By combining advanced imaging 
+techniques with patient-specific data, this approach seeks to 
+improve clinical decision-making and facilitate early iden-
+tification of patients at risk, ultimately contributing to better 
+prevention strategies and enhanced patient outcomes.
+The rest of the paper is organized as follows: Sect.  2 
+presents the methodology, including the data and proposed 
+framework. In Sect. 3, we demonstrate the effectiveness of 
+our framework through experimental results and analyses, 
+followed by a discussion in Sect. 4. Finally, Sect. 5 summa-
+rizes the key findings and implications of this work.
+2  Methods
+2.1  Data acquisition and preparation
+2.1.1  Study participants
+This retrospective study enrolled 117 patients (average age: 
+75.7 ± 10.0 years, 40% male) with CIEDs, treated between 
+2016 and 2020 at the National Yang Ming Chiao Tung 
+University Hospital (NYCUH) in Yilan, Taiwan. Medical 
+records and CIED interview data (conducted every 3–6 
+months) were reviewed, including patient comorbidities, 
+ CHA2DS2-VASc scores, and medication histories. This 
+study adheres to the principles outlined in the Declaration 
+of Helsinki. The study protocol was approved by the local 
+Institutional Review Board (IRB), and the need for informed 
+consent was waived. The details of the patient characteristics 
+are summarized in Table 1. A total of ten patient character-
+istic features were extracted for developing AHRE classifi-
+cation models, as detailed later: age, sex, body mass index 
+(BMI), body surface area (BSA),  CHA2DS2-VASc score, 
+myocardial infarction (MI), coronary artery disease (CAD), 
+and comorbidities including thyroid disease, diabetes mel-
+litus (DM), and hypertension (HTN).
+2.1.2  Echocardiography dataset
+Echocardiography was performed using the GE Vivid 
+E95 system (GE Vingmed Ultrasound, Norway) with a 
+1.4–4.6 MHz transducer (M5Sc-D). All images were stored 
+in the Digital Imaging and Communications in Medicine 
+(DICOM) format and analyzed offline using the semi-auto-
+matic EchoPAC™ software (version 202, GE). The software 
+delineated a ROI comprising six segments in each LA apical 
+four-chamber (4 CH) view. The LA endocardial border was 
+manually traced to measure LA peak strain.
+Specialists from the Cardiology Department at NYCUH 
+utilized the semi-automatic EchoPAC™ to mark the LA 
+cavity and wall boundaries, which served as ground-truth 
+annotations for segmentation models. The software initially 
+attempts automatic contour detection of the LA, followed by 
+manual adjustment of the endocardial border by our experi-
+enced specialists to ensure comprehensive coverage of the 
+LA cavity while avoiding overlap with the pulmonary veins. 
+The representative cases are shown in Fig.  1. The ground-
+truth LA strains were derived from calculations based on 
+expert-annotated ground-truth annotations. For the classifi-
+cation tasks, patients were categorized based on the duration 
+of AHREs with thresholds set at 6 min and 24 h [11].
+The dataset was randomly stratified at the patient level 
+into a development set (80%) and a test set (20%). The devel-
+opment set was further split into a training set (80%) and a 
+validation set (20%) (Fig. 2A).
+2.1.3  Clean subsets for segmentation
+For LA segmentation, the original datasets were carefully 
+reviewed to exclude images that could potentially mislead 
+the segmentation model. As depicted in Fig.  2B, the exclu-
+sion criteria for creating clean subsets are as follows: (a) 
+image with only one single chamber; (b) ground-truth mask 
+truncated by the image boundary, as indicated by the arrow 
+where a flat green line is present; (c) ground-truth mask 
+extending beyond the echocardiographic area, as indicated 
+by the arrow, where a small black region within the lower 
+3115Medical & Biological Engineering & Computing (2025) 63:3113–3122 
+Table 1  Baseline characteristics 
+of the study population
+DM, diabetes mellitus; HF, heart failure; TIA, transient ischemic attack; BMI, body mass index; AHRE, 
+atrial high-rate episode; ACEi, angiotensin-converting enzyme inhibitor; ARB, angiotensin receptor antag-
+onist; LVEF, left ventricular ejection fraction; LA Diam, left atrial diameter measured by echocardiography 
+in the parasternal short axis view; E/E′, E: early diastolic transmitral inflow velocities/E′: motion velocity 
+of the septal mitral annulus in the early phase of diastole; LA, left atrium
+Overall
+(n = 117)
+AHRE < 6 min
+(n = 64)
+6 min 
+≤ AHRE 
+< 24 h
+(n = 40)
+AHRE ≥ 24 h
+(n = 13)
+p value
+Age, years 75.7 ± 10.0 74.8 ± 11.2 77.4 ± 7.9 76.2 ± 10.0 0.353
+Male, n (%) 47 (40) 30 (47) 11 (28) 6 (46) 0.313
+Hypertension, n (%) 89 (76) 46 (72) 32 (80) 11 (85) 0.693
+DM, n (%) 43 (37) 20 (31) 17 (43) 6 (46) 0.558
+HF, n (%) 19 (16) 8 (13) 6 (15) 5 (38)  < 0.005
+TIA/prior stroke, n (%) 6 (5) 5 (8) 1 (3) 0 (0) 0.610
+Vascular disease, n (%) 27 (23) 17 (27) 8 (20) 2 (15) 0.280
+Thyroid disease, n (%) 18 (15) 6 (9) 6 (15) 6 (46)  < 0.01
+BMI (range) 24.6 ± 4.0 24.6 ± 4.1 23.9 ± 3.6 24.3 ± 4.2 0.435
+CHA2DS2-VASc (range) 3.7 ± 1.4 3.6 ± 1.4 3.9 ± 1.2 4.2 ± 1.6 0.449
+AHRE burden (%) 4.0 ± 12.8 0.06 ± 0.05 2.4 ± 6.1 26.7 ± 26.6  < 0.001
+Medication, n (%)
+Oral anticoagulant, n (%) 49 (42) 13 (20) 25 (63) 11 (85)  < 0.001
+Anti-arrhythmic drugs, n (%) 42 (36) 13 (20) 17 (43) 12 (92)  < 0.001
+Beta-blocker, n (%) 56 (48) 33 (52) 14 (35) 9 (69) 0.505
+ACEi/ARB, n (%) 59 (50) 34 (53) 19 (48) 6 (46) 0.800
+Echocardiography
+LVEF (%) 54.6 ± 11.5 53.2 ± 12.9 56.2 ± 9.3 56.8 ± 9.0 0.307
+LA Diam (mm) 41.6 ± 6.8 41.7 ± 7.3 39.9 ± 5.8 45.2 ± 5.5  < 0.05
+E/E′ (ratio) 14.2 ± 5.2 14.7 ± 5.2 13.0 ± 5.5 14.6 ± 3.8 0.307
+LA peak strain (%) 28.4 ± 10.6 31.1 ± 11.0 27.2 ± 8.3 19.9 ± 9.0 0.001
+Fig. 1  Representative cases demonstrating the process of strain meas-
+urement across varying durations and burdens of AHRE, using the 
+semi-automatic EchoPAC™ software (upper panel) and the output 
+from our deep learning (DL)-based framework (lower panel). The 
+upper panels illustrate the apical four-chamber view in 2D echocar -
+diography, showing six segmental strains derived from this view 
+using the software. The peak strain (dashed line) is defined as the 
+peak positive longitudinal strain relative to the zero reference at LV 
+end-diastole. The lower panels present the corresponding strain val-
+ues extracted by the proposed DL framework. A notable reduction in 
+atrial peak strain is observed with increasing AHRE burden, particu-
+larly in panel (C), where AHRE durations exceed 24 h
+3116 Medical & Biological Engineering & Computing (2025) 63:3113–3122
+part of the green boundary; (d) blurred LA boundary that lies 
+outside the ground-truth mask; (e) significant black region 
+present within the ground-truth mask, likely caused by heart 
+motion. A total of 1687 images from the training set and 449 
+images from the validation set were selected for training and 
+validating the model. Notably, these subsets were used exclu-
+sively for the development of the segmentation models. The 
+remaining components of the framework, including LA strain 
+computation and AHRE classification, were developed using 
+the entire training and validation datasets and tested on the full 
+test dataset. This approach was adopted because the continuity 
+of LA frames is essential for subsequently utilizing the cal-
+culated strains as input for the classification model, making it 
+impractical to rely solely on the clean subset for these tasks.
+2.2  Framework
+The overall framework of this study is presented in Fig.  3, 
+which consists of LA segmentation, strain extraction, and 
+AHRE duration classification.
+2.2.1  LA segmentation
+For the LA segmentation component, we compared four 
+segmentation models, including DeepLabv3 [23], UNet 
+with a VGG 16 encoder (UNet16) [14], ResUNet++ [24, 
+25], and UNet with group normalization (UNetGN). Input 
+images were resized to 224 × 224 pixels, and the models 
+were trained to segment cavity and wall regions on echo-
+cardiographic images, as illustrated in Fig.  3A. Training 
+utilized a combination of soft Dice loss [26] and stand-
+ard cross-entropy loss. Data augmentation techniques, 
+including random rotation and random cropping with 
+the scale—the range of random crop sizes relative to the 
+input size—set to (0.6, 1), were applied to improve model 
+robustness. A few randomly selected examples of data 
+augmentation generated by TensorBoard during training 
+are presented in Fig.  4. Training was conducted on an 
+NVIDIA RTX Titan 24GB GPU for 400 epochs, with a 
+learning rate of 0.001, adjusted using a cosine annealing 
+scheduler.
+2.2.2  Strain extraction
+LA peak strain represents the deformation of the atrial myo-
+cardium during early diastolic atrial relaxation and is defined 
+as the percentage change in myocardial length over time 
+relative to its initial length [27]. The strain at timestamp t is 
+computed using the following formula:
+strain = L t − L 0
+L 0
+Fig. 2  A Data subset sizes and B image exclusion criteria used to 
+create a clean subset for developing the segmentation models. The 
+exclusion criteria include the following: (a) images containing only 
+a single chamber, introducing noise into the segmentation model; (b) 
+cases where the bottom boundary of the ground-truth mask is trun-
+cated by the image boundary, indicated by an arrow pointing to a flat 
+green line; (c) instances where the bottom boundary of the ground-
+truth mask extends beyond the echocardiographic area, highlighted 
+by an arrow pointing to a small black region within the lower part 
+of the green boundary; (d) images where the LA boundary appears 
+blurred and lies outside the ground-truth mask, as indicated by an 
+arrow; and (e) the presence of a significant black region within the 
+ground-truth mask, likely caused by heart motion
+3117Medical & Biological Engineering & Computing (2025) 63:3113–3122 
+where L t denotes the contour length of the LA at each times-
+tamp [ 13] and L0 refers to the contour length measured at 
+the base timestamp (the R peak of the ECG R-R interval). 
+The peak strain is the maximum strain across all timestamps.
+The endocardial length, defined as the contour length 
+of the cavity, was used to represent the LA contour length 
+(Fig.  3B). Given the thin LA wall and the higher seg-
+mentation accuracy achieved for the endocardium, the 
+endocardial strain serves as a reliable surrogate for myo-
+cardial strain calculations. This approach is consistent 
+with standardized practices in 2D speckle-tracking echo-
+cardiography, where the LA endocardial border is traced 
+Fig. 3  Overview of the proposed deep learning (DL) framework. A 
+LA segmentation: a ResUNet + + model identifies and extracts the 
+LA contour from echocardiographic images; B strain extraction: LA 
+strain is derived using the contour lengths obtained from the segmen-
+tation results; and C AHRE classification: a transformer-based DL 
+model utilizes the extracted strain features to classify patients into 
+groups above or below the AHRE threshold
+Fig. 4  Randomly selected examples of data augmentation techniques, such as random cropping and rotation, applied during model training (a–l). 
+The ground-truth left atrial (LA) cavity and wall are highlighted in green and red, respectively
+3118 Medical & Biological Engineering & Computing (2025) 63:3113–3122
+to assess myocardial deformation [28]. Additionally, since 
+echocardiography uses ultrasound to generate real-time 
+images of the heart, the number of frames in a recorded 
+sequence can vary between patients. To maintain a uni-
+form input size for our AHRE classifier, we standardized 
+the selection to 30 frames using equidistant sampling. 
+This number was determined based on the median frame 
+count across all training samples.
+2.2.3  AHRE classification
+The extracted LA strain values, combined with patient 
+characteristics, were used as input feature vectors for 
+the AHRE classification model. A transformer model, 
+illustrated in Fig.  3C, was trained for this purpose. The 
+multi-head attention mechanism within the model effec-
+tively captures longitudinal relationships between strain 
+measurements across different timestamps, enhancing 
+prediction accuracy. To address the class imbalance in 
+the data, a weighted binary cross-entropy (BCE) loss [29] 
+was employed instead of the standard BCE loss [30], with 
+weights adjusted according to the class imbalance ratios. 
+The models were trained for 400 epochs with a learning 
+rate of 0.001, utilizing a cosine annealing scheduler.
+2.2.4  Evaluation metrics
+The performance of the LA segmentation models was 
+assessed using the Dice similarity coefficient (DSC), 
+which quantifies the spatial overlap between predicted 
+and ground-truth masks. The automatically extracted LA 
+strains were validated against ground-truth strains, calcu-
+lated from the ground-truth regions, using Bland–Altman 
+(B-A) plots, which included bias and limits of agreement 
+(LOA). For AHRE classification, evaluation metrics 
+included the area under the receiver operating charac-
+teristic curve (AUC), accuracy, sensitivity, and specific-
+ity. Sensitivity and specificity were reported based on 
+Youden’s J statistic.
+3  Results
+3.1  LA segmentation results
+The models were initially compared using the clean valida-
+tion subset, followed by an evaluation of the best-perform-
+ing model on the test set. As summarized in Table  2, LA 
+cavity segmentation demonstrated superior performance 
+compared to LA wall segmentation. Among the evaluated 
+models, ResUNet + + demonstrated superior performance 
+on both test sets, achieving a DSC of 0.923 for LA cavity 
+segmentation and 0.741 for wall segmentation on the clean 
+test subset and a DSC of 0.902 for LA cavity segmenta -
+tion and 0.693 for wall segmentation on the entire test set, 
+outperforming DeepLabv3, UNet16, and UNetGN. Notably, 
+the performance differences in cavity segmentation between 
+ResUNet + + and other models were all statistically sig -
+nificant. Consequently, ResUNet + + was identified as the 
+optimal model. Figure  5 presents example segmentation 
+results for all models, with the DSC scores listed beneath 
+each predicted mask. Figure  5a, b illustrates cases where 
+ResUNet + + outperformed other models in both cavity and 
+wall segmentation. In contrast, Fig.  5c, d depicts instances 
+where ResUNet + + failed to accurately capture the LA con-
+tour, allowing other models to achieve better performance.
+3.2  LA peak strain extraction results
+The results of the B-A analysis show mean biases of −0.003 
+± 0.05 for the peak strain. The 95% LOA ranges were 
+−0.103 to 0.096 (Fig. 6). These results suggest that the auto-
+matically extracted peak strains from echocardiography are 
+comparable to the ground truth.
+3.3  AHRE classification results
+In the AHRE classification stage, LA strains derived from 
+the automatically detected LA contour lengths were used as 
+features, alongside patient characteristics, to enhance model 
+performance. As shown in Table  3, the model achieved an 
+Table 2  Performance of LA cavity and LA wall segmentation on the clean validation subset and the entire test set
+An independent t-test was employed to assess whether the performance differences between ResUNet + + and other models are statistically sig-
+nificant, with a p value threshold of < 0.05 indicating significance
+Values in bold indicate the best performance
+ResUNet + + DeepLabv3 p value UNetGN p value UNet16 p value
+Clean test subset Cavity 0.9230 0.9144  < 0.001* 0.9205  < 0.05* 0.6076  < 0.001*
+Wall 0.7414 0.6427  < 0.001* 0.7365 0.0728 0.4869  < 0.001*
+Entire test set Cavity 0.9016 0.8710  < 0.001* 0.8809  < 0.001* 0.5850  < 0.001*
+Wall 0.6931 0.6344 0.6037 0.6808 0.7357 0.4646 0.3640
+3119Medical & Biological Engineering & Computing (2025) 63:3113–3122 
+AUC of 0.853, an accuracy of 0.875, a sensitivity of 0.909, and 
+a specificity of 0.846 at the 6-min AHRE duration threshold. 
+At the 24-h threshold, the model exhibited promising perfor-
+mance on the test set, achieving an AUC of 0.950, an accuracy 
+of 0.750, a sensitivity of 1.0, and a specificity of 0.700. Given 
+the limited number of positive cases, we conducted a strati-
+fied fivefold cross-validation to further validate the promising 
+results. As summarized in Table 3, the model achieved a mean 
+AUC of 0.815 ± 0.14, an accuracy of 0.809 ± 0.09, a sensitiv-
+ity of 0.800 ± 0.40, and a specificity of 0.783 ± 0.14. The ROC 
+curves for AHRE classification are illustrated in Fig. 7.
+4  Discussion
+This study introduces a novel DL-based framework for 
+classifying AHREs using echocardiographic imaging and 
+patient profiles. The framework demonstrates its overall 
+efficacy by automating LA segmentation and strain extrac -
+tion, achieving high precision in LA segmentation with the 
+ResUNet + + model. Additionally, the transformer-based 
+model demonstrated robust performance in classifying 
+AHREs at both 6-min and 24-h thresholds, underscor -
+ing the framework’s potential for fully automated AHRE 
+detection.
+Model segmentation of the LA cavity was notably supe-
+rior to that of the LA wall. This discrepancy can be attrib-
+uted to the LA’s thin walls, posterior and superior position-
+ing, and potential image quality limitations. Artifacts, noise, 
+and the similar echogenicity of adjacent tissues, such as the 
+liver, contribute to challenges in delineating the epicardial 
+boundary [31]. Given these challenges, cavity segmentation 
+results, which focus on endocardial boundary length, were 
+utilized for strain analysis. Although computed tomography 
+might serve as an alternative [32], it involves radiation and 
+contrast exposure.
+Fig. 5  Examples of cavity and 
+wall segmentation results from 
+different models, compared 
+with Dice scores calculated 
+against the ground-truth masks. 
+a, b Cases where ResUNet + 
++ performs better, c, d cases 
+where ResUNet + + performs 
+the opposite
+
+3120 Medical & Biological Engineering & Computing (2025) 63:3113–3122
+Imbalanced data is a common challenge in medical data-
+sets, which can hinder accurate classification of minority 
+class samples [ 30]. To address this, a weighted BCE loss 
+was employed. As shown in Table 3, the framework achieved 
+higher AUC and sensitivity for AHRE classification at the 
+24-h threshold, likely reflecting more pronounced LA dis-
+ease in patients with extended AHRE durations. Moreover, 
+its robust performance at the 6-min threshold (> 0.846 
+across metrics) underscores its reliability and versatility.
+The ASSERT study reported a 2.5-fold increased stroke 
+risk for device-detected subclinical AF (SCAF) lasting > 6 
+min, distinguishing true low-risk patients with episodes < 6 
+min [33]. Similarly, AHRE episodes > 24 h indicate high 
+stroke risk [34], warranting anticoagulant therapy [1 ]. This 
+DL framework effectively classifies patients by AHRE 
+duration, aiding in precise risk stratification and early 
+intervention.
+Fully automated LA segmentation and strain analy -
+sis offer potential beyond AHRE classification, such as in 
+evaluating diastolic function in heart failure (HF) patients. 
+Studies have shown that DL models integrating LA strain 
+with additional variables improve HF assessments [35]. 
+In their study, LA function was still assessed using semi-
+automated software like EchoPAC. While our research 
+focuses on SCAF, the fully automated LA imaging and strain 
+Fig. 6  Comparisons between 
+framework-extracted and 
+expert-extracted peak LA strain 
+using a B-A plot
+Table 3  Performance of the transformer model combined with patient 
+characteristics: AUC, accuracy, sensitivity, and specificity
+The classification results of the 24-h AHRE threshold are pre-
+sented mean ± standard deviation using fivefold cross-validation as 
+requested by the reviewer, due to the limited positive cases in the test 
+set
+AHREs AUC Accuracy Sensitivity Specificity
+6-min 0.8532 0.8750 0.9091 0.8462
+24-h 0.815 ± 0.14 0.809 ± 0.09 0.800 ± 0.40 0.783 ± 0.14
+Fig. 7  ROC curve of the transformer classification model using 
+model-extracted strains and patient profiles as input features
+3121Medical & Biological Engineering & Computing (2025) 63:3113–3122 
+analysis offer broader applicability in cardiovascular care 
+across diverse patient populations.
+Our study has several limitations. First, while strain imag-
+ing provides valuable insights, its accuracy can be affected 
+by factors such as image quality, operator variability, and the 
+specific strain parameters employed. Furthermore, the opti-
+mal strain thresholds for predicting AF risk may differ across 
+populations and clinical settings [36]. Second, the moderate 
+sample size presents a potential risk of overfitting in the deep 
+learning model. However, this risk can be mitigated through 
+strategies used in this study, such as data augmentation dur-
+ing training. Third, the analysis relied on a fixed number of 
+30 strain measurements to ensure consistency in the sub-
+sequent classification model training. While this approach 
+ensures uniformity during the training process, it may not 
+accommodate patients with fewer images. Future research 
+should focus on developing methods to include patients with 
+fewer images, enabling a more comprehensive analysis.
+5  Conclusions
+Echocardiography is a non-invasive and well-established 
+method for evaluating cardiac functions. In this study, we 
+developed and evaluated a DL-based framework on echocar-
+diograms to segment the LA for strain measurement and 
+predict AHRE occurrence. The results showed that a trans-
+former model trained on 4 CH view images and patient 
+characteristics could accurately predict AHREs at a 24-h 
+threshold with a mean AUC of 0.815, an accuracy of 0.805, 
+a sensitivity of 0.800, and a specificity of 0.783. This finding 
+demonstrates the potential of AI models for automatic LA 
+assessment and AHRE prediction. This tool has the poten-
+tial to substantially enhance the early detection of SCAF in 
+clinical practice.
+Funding Open Access funding enabled and organized by National 
+Yang Ming Chiao Tung University. This research was sponsored by 
+the National Science and Technology Council, Taiwan, R.O.C., under 
+grant numbers NSTC 110–2222-E-A49 A501-MY3.
+Declarations 
+Competing interests The authors declare no competing interests.
+Open Access This article is licensed under a Creative Commons Attri-
+bution 4.0 International License, which permits use, sharing, adapta-
+tion, distribution and reproduction in any medium or format, as long 
+as you give appropriate credit to the original author(s) and the source, 
+provide a link to the Creative Commons licence, and indicate if changes 
+were made. The images or other third party material in this article are 
+included in the article’s Creative Commons licence, unless indicated 
+otherwise in a credit line to the material. If material is not included in 
+the article’s Creative Commons licence and your intended use is not 
+permitted by statutory regulation or exceeds the permitted use, you will 
+need to obtain permission directly from the copyright holder. To view a 
+copy of this licence, visit http://creativecommons.org/licenses/by/4.0/.
+References
+ 1. Joglar JA et al (2024) 2023 ACC/AHA/ACCP/HRS guideline for 
+the diagnosis and management of atrial fibrillation: a report of 
+the American College of Cardiology/American Heart Associa-
+tion joint committee on clinical practice guidelines. Circulation 
+149(1):e1–e156. https:// doi. org/ 10. 1161/ CIR. 00000 00000 001193
+ 2. Hindricks G et al (2021) 2020 ESC guidelines for the diagnosis 
+and management of atrial fibrillation developed in collabora -
+tion with the European Association for Cardio-Thoracic Surgery 
+(EACTS): the task force for the diagnosis and management of 
+atrial fibrillation of the European Society of Cardiology (ESC) 
+developed with the special contribution of the European Heart 
+Rhythm Association (EHRA) of the ESC. Eur Heart J 42(5):373–
+498. https:// doi. org/ 10. 1093/ eurhe artj/ ehaa6 12
+ 3. Mahajan R et al (2018) Subclinical device-detected atrial fibril-
+lation and stroke risk: a systematic review and meta-analysis. Eur 
+Heart J 39(16):1407–1415. https:// doi. org/ 10. 1093/ eurhe artj/  
+ehx731
+ 4. Kashou AH, Adedinsewo DA, Noseworthy PA (2022) Subclini-
+cal atrial fibrillation: a silent threat with uncertain implications. 
+Annu Rev Med 73:355–362. https:// doi. org/ 10. 1146/ annur  
+ev- med- 042420- 105906
+ 5. Huang S-H, Tsao H-M, Liao C-F, Chen Z-Y, Chao T-F, Chen S-A 
+(2023) Multimodality imaging assessment of the biatrial remod-
+eling of the burden of atrial high-rate episodes in patients with 
+cardiac implanted electronic devices. Int J Cardiol 371:175–183. 
+https:// doi. org/ 10. 1016/j. ijcard. 2022. 10. 007
+ 6. Kirchhof P et al (2023) Anticoagulation with edoxaban in patients 
+with atrial high-rate episodes. N Engl J Med 389(13):1167–1179. 
+https:// doi. org/ 10. 1056/ NEJMo a2303 062
+ 7. Healey JS et al (2024) Apixaban for stroke prevention in subclini-
+cal atrial fibrillation. N Engl J Med 390(2):107–117. https:// doi.  
+org/ 10. 1056/ NEJMo a2310 234
+ 8. Kirchhof P et al (2020) Early rhythm-control therapy in patients 
+with atrial fibrillation. N Engl J Med 383(14):1305–1316. https:// 
+doi. org/ 10. 1056/ NEJMo a2019 422
+ 9. Benson MJ, Silverton N, Morrissey C, Zimmerman J (2020) Strain 
+imaging: an everyday tool for the perioperative echocardiogra-
+pher. J Cardiothorac Vasc Anesth 34(10):2707–2717. https:// doi. 
+org/ 10. 1053/j. jvca. 2019. 11. 035
+ 10. Gan GCH, Ferkh A, Boyd A, Thomas L (2018) Left atrial 
+function: evaluation by strain analysis. Cardiovasc Diagn Ther 
+8(1):29–46. https:// doi. org/ 10. 21037/ cdt. 2017. 06. 08
+ 11. Olsen FJ et al (2024) Left atrial strain predicts subclinical atrial 
+fibrillation detected by long-term continuous monitoring in elderly 
+high-risk individuals. Circ Cardiovasc Imaging 17(3):e016197. 
+https:// doi. org/ 10. 1161/ CIRCI MAGING. 123. 016197
+ 12. Kahraman E, Keles N, Parsova KE, Bastopcu M, Karatas M 
+(2023) Echocardiographic assessment of pulmonary capillary 
+wedge pressure in patients with frequent premature ventricular 
+complexes. Echocardiography 40(6):531–536. https:// doi. org/ 10. 
+1111/ echo. 15590
+ 13. Ostvik A et al (2021) Myocardial function imaging in echo-
+cardiography using deep learning. IEEE Trans Med Imaging 
+40(5):1340–1351. https:// doi. org/ 10. 1109/ TMI. 2021. 30545 66
+ 14. Siddique N, Paheding S, Elkin CP, Devabhaktuni V (2021) U-Net 
+and its variants for medical image segmentation: a review of the-
+ory and applications. IEEE Access 9:82031–82057. https:// doi.  
+org/ 10. 1109/ access. 2021. 30860 20
+3122 Medical & Biological Engineering & Computing (2025) 63:3113–3122
+ 15. Bosco E, Magenes G, Matrone G (2024) Echocardiographic image 
+segmentation with vision transformers: a comparative analysis of 
+different loss functions. In: 2024 IEEE International Symposium 
+on Medical Measurements and Applications (MeMeA). IEEE, pp 
+1–6
+ 16. Yu C et al (2023) Multi-level multi-type self-generated knowledge 
+fusion for cardiac ultrasound segmentation. Information Fusion 
+92:1–12. https:// doi. org/ 10. 1016/j. inffus. 2022. 11. 004
+ 17. Tian H et al (2024) EchoSegDiff: a diffusion-based model for 
+left ventricular segmentation in echocardiography. Med Biol Eng 
+Comput. https:// doi. org/ 10. 1007/ s11517- 024- 03255-0.
+ 18. Salte IM et al (2021) Artificial intelligence for automatic measure-
+ment of left ventricular strain in echocardiography. JACC Cardio-
+vasc Imaging 14(10):1918–1928. https:// doi. org/ 10. 1016/j. jcmg. 
+2021. 04. 018
+ 19. Romero-Pacheco A, Perez-Gonzalez J, Hevia-Montiel N (2022) 
+Estimating echocardiographic myocardial strain of left ventri-
+cle with deep learning. Annu Int Conf IEEE Eng Med Biol Soc 
+2022:3891–3894. https:// doi. org/ 10. 1109/ EMBC4 8229. 2022. 
+98720 08
+ 20. Cui X et al (2022) MCAL: an anatomical knowledge learning 
+model for myocardial segmentation in 2-D echocardiography. 
+IEEE Trans Ultrason Ferroelectr Freq Control 69(4):1277–1287. 
+https:// doi. org/ 10. 1109/ TUFFC. 2022. 31516 47
+ 21. Hu J, Olaisen SH, Smistad E, Dalen H, Lovstakken L (2024) 
+Automated 2-D and 3-D left atrial volume measurements using 
+deep learning. Ultrasound Med Biol 50(1):47–56. https:// doi. org/ 
+10. 1016/j. ultra smedb io. 2023. 08. 024
+ 22. Fatima N, Afrakhteh S, Iacca G, Demi L (2024) Automatic seg-
+mentation of 2-D echocardiography ultrasound images by means 
+of generative adversarial network. IEEE Trans Ultrason Ferro-
+electr Freq Control 71(11):1552–1564. https:// doi. org/ 10. 1109/ 
+TUFFC. 2024. 33930 26
+ 23. Jha D et al (2019) ResUNet++: an advanced architecture for medi-
+cal image segmentation. In: 2019 IEEE International Symposium 
+on Multimedia (ISM). IEEE, pp 225–255
+ 24. Ali Y, Janabi-Sharifi F, Beheshti S (2021) Echocardiographic 
+image segmentation using deep Res-U network. Biomed Signal 
+Process Control 64:102248
+ 25. Quan B, Liu B, Fu D, Chen H, Liu X (2021) Improved DeepLabv3 
+for better road segmentation in remote sensing images. In: 2021 
+International Conference on Computer Engineering and Artificial 
+Intelligence (ICCEAI). IEEE, pp 331–334
+ 26. Gao L, Zhang L, Liu C, Wu S (2020) Handling imbalanced medi-
+cal image data: a deep-learning-based one-class classification 
+approach. Artif Intell Med 108:101935. https:// doi. org/ 10. 1016/j. 
+artmed. 2020. 101935
+ 27. Kwan AC et al (2022) Deep learning-derived myocardial strain. 
+https:// doi. org/ 10. 1101/ 2022. 03. 16. 22272 374.
+ 28. Badano LP et al (2018) Standardization of left atrial, right ventric-
+ular, and right atrial deformation imaging using two-dimensional 
+speckle tracking echocardiography: a consensus document of the 
+EACVI/ASE/Industry Task Force to standardize deformation 
+imaging. Eur Heart J Cardiovasc Imaging 19(6):591–600. https:// 
+doi. org/ 10. 1093/ ehjci/ jey042
+ 29. Chen L, Chen CH, Wang W, Lu DW, Tseng VS (2025) Predict-
+ing longitudinal visual field progression with class imbalanced 
+data. IEEE J Biomed Health Inform. https:// doi. org/ 10. 1109/ JBHI. 
+2025. 35473 46.
+ 30. Kelly P, Zou H et al (2004) Statistical validation of image seg-
+mentation quality based on a spatial overlap index. Acad Radiol. 
+11(2):178–189. https:// doi. org/ 10. 1016/ s1076- 6332(03) 00671-8
+ 31. Zhu Y, Papademetris X, Sinusas AJ, Duncan JS (2010) A coupled 
+deformable model for tracking myocardial borders from real-time 
+echocardiography using an incompressibility constraint. Med 
+Image Anal 14(3):429–448. https:// doi. org/ 10. 1016/j. media. 2010. 
+02. 005
+ 32. Chen L, Huang SH, Wang TH, Tseng VS, Tsao HM, Tang GJ 
+(2024) Automatic 3D left atrial strain extraction framework 
+on cardiac computed tomography. Comput Methods Programs 
+Biomed 252:108236. https:// doi. org/ 10. 1016/j. cmpb. 2024. 108236
+ 33. Healey JS et al (2012) Subclinical atrial fibrillation and the risk 
+of stroke. N Engl J Med 366(2):120–129. https:// doi. org/ 10. 1056/ 
+NEJMo a1105 575
+ 34. Van Gelder IC et al (2017) “Duration of device-detected sub-
+clinical atrial fibrillation and occurrence of stroke in ASSERT”, 
+(in eng). Eur Heart J 38(17):1339–1344. https:// doi. org/ 10. 1093/ 
+eurhe artj/ ehx042
+ 35. Sannino A, Delgado V (2023) Left atrial reservoir strain and 
+machine learning: augmenting clinical care in heart failure 
+patients. Circ Cardiovasc Imaging 16(2):e015154. https:// doi.  
+org/ 10. 1161/ CIRCI MAGING. 123. 015154
+ 36. Um KJ, Healey JS, Lopes RD (M 2024) Straining the limits: atrial 
+imaging to predict subclinical atrial fibrillation. Circ Cardiovasc 
+Imaging 17(3):e016412. https:// doi. org/ 10. 1161/ CIRCI MAGING. 
+123. 016412
+Publisher's Note Springer Nature remains neutral with regard to 
+jurisdictional claims in published maps and institutional affiliations.
+Sung‑Hao Huang Sung-Hao Huang is the Director of the Department 
+of Internal Medicine and a cardiologist at National Yang Ming Chiao 
+Tung University Hospital. He also serves as an Assistant Professor 
+in the Department of Medicine at National Yang Ming Chiao Tung 
+University.
+Ying‑Chi Lin  Ying-Chi Lin obtained her M.Sc. degree in Hospital and 
+Health Care Administration from National Yang Ming Chiao Tung 
+University, Taiwan, in 2024. Her research focuses on machine learning 
+and its applications in medicine.
+Ling Chen Ling Chen is an Assistant Professor at the Institute of 
+Hospital and Health Care Administration, National Yang Ming Chiao 
+Tung University, Taiwan. Her research focuses on machine learning 
+and medical informatics.
+Sayan Unankard  Sayan Unankard is an Assistant Professor in the 
+Information Technology Department at the Faculty of Science, Maejo 
+University, Thailand. His research areas include social network analy-
+sis, data mining, and database systems.
+Vincent S. Tseng  Vincent S. Tseng is a Chair Professor in the Depart-
+ment of Computer Science at National Yang Ming Chiao Tung Uni -
+versity, Taiwan. His research focuses on areas such as big data mining, 
+machine learning, and biomedical informatics.
+Hsuan‑Ming Tsao  Hsuan-Ming Tsao serves as the Deputy Superin-
+tendent and a cardiologist at National Yang Ming University Hospital. 
+He is also a professor at the School of Medicine, National Yang Ming 
+Chiao Tung University in Taiwan.
+Gau‑Jun Tang  Gau-Jun Tang serves as the Superintendent of National 
+Yang Ming Chiao Tung University Chuming Hospital and is a Profes-
+sor at the Institute of Hospital and Health Care Administration, School 
+of Medicine, National Yang Ming Chiao Tung University.

@@ -1,0 +1,988 @@
+RESEA RCH ARTICL E
+Comparison of qPCR and metagenomic
+sequencing methods for quantifying antibiotic
+resistance genes in wastewater
+Gihan Daw Elbait
+1
+, Mariane Daou
+ID
+1
+, Miral Abuoudah
+1
+, Ahmed Elmekawy
+ID
+2
+, Shadi
+W. Hasan
+2,3
+, Dean B. Everett
+4,5,6
+, Habiba Alsafar
+5,7,8
+, Andreas Henschel
+ID
+9
+, Ahmed
+F. Yousef
+ID
+1,2,5
+*
+1 Department of Biological Sciences, Khalifa University of Science and Technolog y, Abu Dhabi, United Arab
+Emirate s, 2 Center for Membrane s and Advanced Water Technolo gy (CMAT), Khalifa University of Science
+and Technolo gy, Abu Dhabi, United Arab Emirates, 3 Department of Chemic al Engineeri ng, Khalifa
+University of Science and Technolo gy, Abu Dhabi, United Arab Emirate s, 4 Department of Pathology, Khalifa
+University of Science and Technolo gy, Abu Dhabi, United Arab Emirate s, 5 Center for Biotechnology (BTC),
+Khalifa Universit y of Science and Technolo gy, Abu Dhabi, United Arab Emirate s, 6 Infection Research Unit,
+Khalifa Universit y of Science and Technolo gy, Abu Dhabi, United Arab Emirate s, 7 Emirate s Bio-resear ch
+Center, Ministry of Interior, Abu Dhabi, United Arab Emirates, 8 Departm ent of Biomed ical Engineeri ng,
+Khalifa Universit y of Science and Technolo gy, Abu Dhabi, United Arab Emirate s, 9 Departmen t of Electrical
+Engineeri ng and Comput er Science, Khalifa Universit y of Science and Technolo gy, Abu Dhabi, United Arab
+Emirate s
+* ahmed.y ousef@ku.ac .ae
+Abstract
+Surveillance methods of circulating antibiotic resistance genes (ARGs) are of utmost impor-
+tance in order to tackle what has been described as one of the greatest threats to humanity
+in the 21
+st
+century. In order to be effective, these methods have to be accurate, quickly
+deployable, and scalable. In this study, we compare metagenomic shotgun sequencing
+(TruSeq DNA sequencin g) of wastewater samples with a state-of-the-art PCR-based
+method (Resistomap HT-qPCR) on four wastewater samples that were taken from hospital,
+industrial, urban and rural areas. ARGs that confer resistance to 11 antibiotic classes have
+been identified in these wastewater samples using both methods, with the most abundant
+observed classes of ARGs conferring resistance to aminoglycoside, multidrug-r esistance
+(MDR), macrolide-lincosa mide-streptogramin B (MLSB), tetracycline and beta-lactams. In
+comparing the methods, we observed a strong correlation of relative abundance of ARGs
+obtained by the two tested methods for the majority of antibiotic classes. Finally, we investi-
+gated the source of discrepancies in the results obtained by the two methods. This analysis
+revealed that false negatives were more likely to occur in qPCR due to mutated primer target
+sites, whereas ARGs with incomplete or low coverage were not detected by the sequencing
+method due to the parameters set in the bioinformatics pipeline. Indeed, despite the good
+correlation between the methods, each has its advantages and disadvantages which are
+also discussed here. By using both methods together, a more robust ARG surveillance pro-
+gram can be established. Overall, the work described here can aid wastewater treatment
+plants that plan on implementing an ARG surveillance program.
+PLOS ONE
+PLOS ONE | https://doi.or g/10.137 1/journal.po ne.02983 25 April 5, 2024 1 / 22
+a1111111111
+a1111111111
+a1111111111
+a1111111111
+a1111111111
+OPEN ACCESS
+Citation: Daw Elbait G, Daou M, Abuouda h M,
+Elmekawy A, Hasan SW, Everett DB, et al. (2024)
+Compariso n of qPCR and metagenomi c
+sequencin g methods for quantifying antibioti c
+resistance genes in wastewater. PLoS ONE 19(4):
+e0298325. https://d oi.org/10.1371/j ournal.
+pone.029832 5
+Editor: Clinton Moodley, Univers ity of Cape Town,
+SOUTH AFRICA
+Received: May 29, 2023
+Accepted: January 18, 2024
+Published: April 5, 2024
+Copyright: © 2024 Daw Elbait et al. This is an open
+access article distributed under the terms of the
+Creative Commons Attribution License, which
+permits unrestricte d use, distribu tion, and
+reproduction in any medium, provided the original
+author and source are credited.
+Data Availabilit y Statement: All relevant data are
+within the manuscript and its Support ing
+Information files.
+Funding: The authors would like to acknowledge
+the UK Centre for Environme nt, Fisheries and
+Aquaculture Science (Cefas), who funded the
+Resistoma p analysis of our wastewat er samples.
+This work was also partiall y funded by the Center
+for Membrane s and Advanced Water Technology
+(CMAT) at Khalifa University (Award No. RC2-
+Introduction
+Since their first use almost 100 years ago, antibiotics have been broadly employed in various
+fields such as agriculture, aquaculture, animal husbandry and medicine [1,2]. Unfortunately,
+this has led to a global increase in antibiotic resistance genes (ARGs), collectively known as the
+“resistome” [3,4]. Due to the misuse of antimicrobial drugs and compounds, ARGs and antibi-
+otic resistant bacteria (ARB) have spread extensively in different environments [5]. The World
+Health Organization (WHO) has classified ARB and ARGs as one of the top issues threatening
+the public health in the 21
+st
+century [6]. Alarmingly, it is predicted that by 2050, annual deaths
+as a result of infections with antibiotic resistant pathogens will surpass 10 million [7]. In the
+most positive scenario where antimicrobial resistance is limited, it is projected that the global
+economy will experience losses of more than $1 trillion per year after 2030, and this number
+will increase to $2 trillion per year by 2050 [8].
+ARGs could be circulated among bacterial cells either by horizontal gene transfer through
+mobile genetic elements (MGEs), such as plasmids, transposons and integrons [9,10] or verti-
+cal transmission via bacterial propagation [11,12]. The selective spread of resistance genes
+occurs when bacterial cells are exposed to antibiotics [13]. A lot of this exposure results from
+antibiotics that are discharged to the environment from animal and human wastes, industrial
+plants and antibiotics residuals in wastewater treatment plants [14–16].
+Significant amounts of antibiotics have been discovered in water supplies, and numerous
+studies have shown the prevalence of ARGs in wastewater treatment plants (WWTPs) [17–20].
+Since the human body cannot metabolize around 60–85% of antibiotics, they are excreted into
+sewage wastewater [21]. However, traditional biological treatment approaches in WWTPs are
+insufficient in fully removing ARGs and antibiotics as they are mainly designed for the elimi-
+nation of solids and other organic matter [22–24]. Importantly, since wastewater from differ-
+ent parts of a city all end up at large WWTPs, these WWTPs represent an opportunity to set
+up an effective ARG surveillance system. However, the success of this system is dependent on
+the ability to accurately characterize the resistome in these waters.
+Recent advances in next-generation sequencing technologies and accompanying computa-
+tional methods have become increasingly important for identifying ARGs. In read-based
+methods, ARGs can be detected by aligning whole-metagenome sequencing (WMS) reads to a
+reference database using assembly algorithms. A number of those tools have been made avail-
+able in recent years [25]. These technologies have provided additional benefits to the tradi-
+tional PCR methods that are restricted by the number of primer pairs used, in comparison to
+the more extensive number of ARG genes available through resources such as the Comprehen-
+sive Antibiotic Resistance Database (CARD) [26], which we use in this study. In addition,
+sequencing-based methods enable downstream analyses that can help identify new mutations,
+phylogenetic diversity, genetic epidemiology, and potential loss/gain of function in ARGs can
+be inferred.
+Sequencing-based methods have recently been recognized for their significant potential in
+studying the resistome [27]. However, few efforts have been made to critically evaluate the
+advantages and disadvantages of PCR and sequencing methods for ARG identification in
+wastewater samples. To address this, we analyzed the ARGs in four wastewater samples from
+different locations in the Emirate of Abu Dhabi, UAE. We then compared the resulting com-
+position of the ARGs detected by the Resistomap (WaferGen HT-qPCR) array to TruSeq
+DNA PCR-free sequences analyzed using the Resistance Gene Identifier (RGI) method offered
+by CARD. The RGI method uses protein data based on homology to predict resistomes. A
+qualitative and quantitative evaluation of the resulting genomic data was carried out, and a
+comparison between both methods’ validity and sensitivity is discussed here. The comparison
+PLOS ONE
+Comparing qPCR and metageno mic sequencin g methods for quantifyin g antibiotic resistance genes in wastewate r
+PLOS ONE | https://doi.or g/10.137 1/journal.po ne.02983 25 April 5, 2024 2 / 22
+2018-009) , and Center for Biotechn ology at Khalifa
+University . There was no additional external
+funding received for this study.
+Competing interests : The authors have declared
+that no competing interests exist.
+highlights the advantages of sequencing-based methods, which are able to cover the entire
+sequence of the gene by the assembly of reads and report mutations inside the genes. In con-
+trast, the Resistomap qPCR array reports only the presence or absence of the limited genes
+they have designed primers for.
+This study aims at providing recommendations on which genes to test for and what quality
+control filtering thresholds to use when combining both methods in order to achieve a balance
+between sensitivity and affordability. These recommendations will guide the implementation
+of ARG surveillance programs.
+Materials and methods
+1. Sample collection
+Four wastewater samples were collected from different location types in Abu Dhabi City,
+United Arab Emirates. Sample 1 (S1) was collected from an urban residential site, Sample 2
+(S2) from an industrial site, Sample 3 (S3) from a healthcare facility, and Sample 4 (S4) was col-
+lected from a rural sewage treatment plant influent. No permits were required for sampling
+municipal wastewater in the Emirate of Abu Dhabi, as all the sampling was performed by
+employees of the Abu Dhabi Department of Energy and the Emirates Bio-research Center at
+the Ministry of Interior.
+Composite wastewater samples were collected using an auto-sampler over a 24-hour period.
+250 ml of wastewater was transferred from the auto-sampler to sterile polypropylene bottles
+(ISOLAB, GmbH) on ice to the laboratory. Once received at the laboratory, samples were
+stored at 4˚C and gDNA was extracted within 24 hours. Municipal wastewater samples have
+been collected from all over the United Arab Emirates by our laboratory since April 2020 [28].
+Wastewater characteristics have been pretty consistent throughout this period with similar
+readings observed from wastewaters sampled from manholes or wastewater treatment plants.
+Municipal wastewater samples reported average values for NH
+3
+-N of 29.3 mg/L, PO
+4
+3—
+P of 14
+mg/L, COD of 418 mg/L, conductivity of 3160 mS/cm and pH of 7.5 [29].
+2. Wastewater gDNA extraction
+Wastewater gDNA extraction was performed using the PowerSoil
+1
+DNA Isolation kit (MoBio
+Laboratories Inc., Carlsbad, CA, USA) following the instructions supplied with the kit with
+some minor modifications as described previously [29]. Briefly, conical tubes, each containing
+50 mL of wastewater sample, were mixed vigorously and then centrifuged (5,000 xg) for 15
+min to obtain bacterial cell pellets. The pellet was suspended in the PowerBead buffer tubes
+(one of the DNA extraction kit components). At this point, the manufacturer protocol was fol-
+lowed. The concentration and purity of extracted gDNA was determined using a Nano-
+Drop™2000 spectrophotometer (Thermo Fisher Scientific™) and gDNA was stored at -20˚C
+until it was further processed.
+3. SmartChip HT-qPCR assay
+Wastewater gDNA samples were sent to Resistomap laboratory (Helsinki, Finland) to perform
+the HT-qPCR-based ARG assay. All runs were carried out using all 384 primer sets that are uti-
+lized by Resistomap [30]. Of these 384 primer sets, 268 are used to detect ARGs that confer
+resistance to nine classes of antibiotics including aminoglycoside, beta-lactam, phenicol,
+macrolide-lincosamide-streptogr amin B (MLSB), quinolone, sulfonamide, tetracycline, tri-
+methoprim, and vancomycin. In addition, 38 primer sets are used to detect ARGs that confer
+multidrug-resistance (MDR), 17 primer sets to detect genes that confer resistance to
+PLOS ONE
+Comparing qPCR and metageno mic sequencin g methods for quantifyin g antibiotic resistance genes in wastewate r
+PLOS ONE | https://doi.or g/10.137 1/journal.po ne.02983 25 April 5, 2024 3 / 22
+antibacterial agents, and 52 primer sets for genes linked to mobile genetic elements (MGEs)
+such as transposons, plasmids integrons and insertion sequences (IS). Finally, to gain insight
+into the bacterial community size and structure, 1 primer set was used to detect total 16S
+rRNA genes and 8 primer sets for determining bacterial taxonomy (Firmicutes, Bacteroidetes,
+Acinetobacter baumannii, Pseudomonas aeruginosa, Campylobacter, Enterococci, Klebsiella
+pneumoniae and Staphylococci). A list of the primers used in this study was extracted from
+Resistomap’s publication [30] and are provided here as supplementary data (S1 Table).
+The HT-qPCR reactions were carried out in the SmartChip Real-time PCR system (Wafer-
+Gen Biosystem, Freemont, CA, USA). This system uses 5184 well chips (100 nL each), which
+are auto-filled by the SmartChip Multisample Nanodispenser using amplification and detection
+parameters previously described [31]. The results were analysed by SmartChip qPCR Software
+(v 2.7.0.1). The detection limit was set at a threshold cycle (CT) of 27 [32–34]. The specificity of
+the primer sets was monitored through the melting curve of each PCR product. PCR efficiency
+values ranged between 1.60 and 2.35, with 95.5% of the values falling between 1.8 and 2.1. The
+mean, median and standard deviation of these values were 1.92, 1,94, and 0.12 respectively. The
+abundance of the discovered genes normalized to the total 16S rRNA genes per gDNA sample
+was calculated via relative quantification using the 2
+-ΔCT
+method (Eq 1) [35].
+DCT ¼ CT de t ec te d ge ne   C T 16S r RN A g en e ð1Þ
+4. TruSeq DNA sequencing
+Wastewater gDNA samples were shipped to Macrogen Inc. (Seoul, South Korea) for library
+preparation and sequencing. The quantification of different samples was performed by the
+picogreen approach via Victor 3 fluorometry, and their quality was evaluated using gel electro-
+phoresis. The PCR-free Illumina TruSeq DNA libraries were prepared according to the manu-
+facturer’s instructions (Illumina, San Diego, CA, USA). The libraries were adjusted to 4 nM
+and sequenced using the Illumina HiSeq sequencing system.
+5. Bioinformatics
+5.1. Shotgun sequencing and bioinformatics approach
+FastQ files were analysed using the standard quality control tools FastQC and Qualimap [36].
+Subsequently, RGI–Resistance Gene Identifier (version 5.2.1), was used to map reads from all
+four samples against the Comprehensive CARD, version 3.2.2 using the command rgi bwt. An
+example of the code as used for sample S1 is provided below:
+rgi bwt—read_one S1_1.fastq.gz—read_two S1_2.fastq.gz—aligne r bowtie2—output_file
+AFY01—threads 30—local
+It invokes ‘bowtie2‘version 2.4.5 to perform reference-based assembly, using CARD as a
+reference which includes a total of 4891 known ARGs. The exact command issued by rgi is:
+bowtie2-align-s—wr apper basic-0—quiet—very-sensitive- local–x bowtie2 –S S1.temp.sam
+-1 S1_1.fastq.gz -2 S1_2.fastq.gz
+This process performs conventional Burrow-Wheeler Transform mapping and alignment
+of reads, which yields an output in bam-file format. Subsequently, resulting tabular gene
+match reports are combined and visualized using Python/Jupyter (see GitHub repository rgi-
+visual.ipynb). The gene map reports include for each gene the number of matched reads, the
+percentage to what extent the gene is covered by at least one read, the mechanism of resistance,
+potentially known hosts, the drug class, the resistance categorization and an ontology identifier
+for the Antibiotic Resistance Ontology (ARO).
+PLOS ONE
+Comparing qPCR and metageno mic sequencin g methods for quantifyin g antibiotic resistance genes in wastewate r
+PLOS ONE | https://doi.or g/10.137 1/journal.po ne.02983 25 April 5, 2024 4 / 22
+5.2. Quality control and rarefaction
+To determine whether a gene is detected or not, the percentage coverage of the gene length by
+reads is used. The rationale is to be able to filter by what fraction a gene has been detected. We
+also calculate fold-coverage, in order to get a sense of abundance as shown in Eq 2:
+Fold   Cove rag e ¼
+＃of rea ds per gen e
+tar get len gth as per CARD
+� Read len gth: ð2Þ
+We adapted the concept of rarefaction as commonly applied in microbial ecology, but
+instead of assessing the completeness of samples species, we quantified how comprehensive
+the sampling of ARGs and drug classes are. Rarefaction was conducted by randomly subsam-
+pling reads from the complete sample S1. This procedure yielded forward and reverse fastq
+files for subsets of 10%, 20%. . . 90% of reads, with 3 replicas respectively, while ensuring that
+forward and reverse reads are subsampled as pairs (rarify.py in the specified GitGub reposi-
+tory). Subsequently, the shell script rgibwt2_rarify.sh details the RGI runs for each individual
+dataset using parallelization with the same settings as the complete dataset. Lastly, the Jupyter
+Notebook rarefactionViz.ipynb visualizes rarefaction curves by combining all RGI gene map-
+ping reports.
+5.3. Taxonomic classification
+The Kraken2 tool [37] is a software program used in the metagenomic analysis for taxonomic
+classification of DNA sequences obtained from mixed microbial communities. Kraken2 is
+used for assigning taxonomic labels to the sequenced reads for the four samples using the fol-
+lowing command:
+kraken2—thread s 28—db $DB—output output.txt—report report.txt—paired $1.fastq.gz
+$2.fastq.gz
+where DB refers to the Standard-16 collection containing archaea, bacteria, viral, plasmid,
+human and UniVec Core capped at 16 GB, and $1 and $2 refer to forward and reverse reads
+for a given sample.
+5.4. Post-processing of results for comparability
+The comparison of reported drug classes between the PCR Amplification method and the
+CARD/RGI approach is hampered by the different naming conventions and drug class defini-
+tions used. In addition, drug classes are reported on very different levels of classification, how-
+ever, due to CARD’s ARO annotation, it is possible to infer high level classifications. We
+developed an Ontology-term based mapping algorithm, which establishes a link between 11
+high-level Resistomap drug classes and the equivalent terms in the ARO annotation. For each
+Resistomap drug class, the algorithm then aggregates reported CARD genes that are subsumed
+under the corresponding ARO class (direct matches or direct ontology children). This was
+done with the help of the OBO parser from the python library GOATOOLS [38], operating on
+the aro.obo file as retrieved from OBO-Foundry (see GitHub repository linkResistome2Card-
+DrugClasses.py). For example: The Resistomap drug class "MLSB" is mapped to the three ARO
+classes Macrolide antibiotic (ARO:0000000), Lincosamide antibiotic (ARO:0000017) and
+Streptogramin (ARO:0000026).
+Likewise, gene naming conventions in the two datasets differed, necessitating establishing
+equivalent genes reported. This was accomplished by matching Resistomap’s PCR primer
+pairs against the CARD database (script scanPrimers.py). In addition, when primer pairs
+matched multiple targets, we analysed, how related these targets are with the help of the ARO
+PLOS ONE
+Comparing qPCR and metageno mic sequencin g methods for quantifyin g antibiotic resistance genes in wastewate r
+PLOS ONE | https://doi.or g/10.137 1/journal.po ne.02983 25 April 5, 2024 5 / 22
+graph: we extract the percentage of hits that have the same (grand-)parent node as well as the
+maximal distance between the hits. For the most different hit pair, we report the most recent
+common ancestor (using Python/networkx method all_pairs_lowest_common_ances tor, see
+summarizeLinksARO.py in GitHub repository).
+Pearson Correlation was used to determine the degree of correlation between the AMR
+genes identified by both methods. Pearson correlation coefficient was calculated for both the
+unique primer and multi-target primer matches. Furthermore, the breakdown of the correla-
+tion by antibiotic class was calculated for the Resistomap versus CARD/RGI at percentages of
+25%, 50%, and 95%.
+Results
+1. Taxonomic classification
+Taxonomic classification of the reads of the four samples was labelled using the kraken tool
+(Fig 1), the distribution of taxa shows that the most abundant bacterial groups in all four
+samples are Gammaproteobacteria, Actinomycetes, Betaproteobacteria, and Alphaproteo-
+bacteria, in that order. However, their relative abundances differ between samples
+(S1 Table). For example, Sample 1 (S1) and Sample 2 (S2) have similar proportions of Gam-
+maproteobacteria, while Sample 3 (S3) and Sample 4 (S4) have lower proportions. Com-
+pared to the other three samples, S4 shows a relatively lower proportion of
+Gammaproteobacteria, Betaproteobacteria, and Epsilonproteobacter ia, while it has a higher
+proportion of Alphaproteobacteria, Actinomycetes, and Flavobacteriia. S4 also has a higher
+proportion of Acidimicrobiia, Thermoleophilia, Deinococci, and Planctomycetia compared
+to the other three samples. Overall, the microbial community in S4 appears to differ signifi-
+cantly from the other three samples and seems to constitute a more diverse microbial com-
+munity. A table that provides data on the abundance of each of these bacterial groups for
+each sample is provided as supplementary data (S2 Table).
+2. Metagenomic shotgun sequencing
+Metagenomic shotgun sequencing produced 85,893,508, 78,593,058, 82,806,922, and
+79,518,594 paired end reads for samples S1, S2, S3 and S4, respectively. Quality control showed
+that all reads have a PHRED quality of 34 or above for each individual base (see FastQC reports
+in the Github repository). Qualimap results showed that 554,308 (0.65%); 424,175 (0.54%);
+462,066 (0.56%) and 129,986 (0.16%) reads were successfully mapped against the CARD data-
+base for samples S1, S2, S3 and S4, respectively.
+In order to ensure the comprehensive coverage of low abundance species/genes, we inte-
+grated rarefaction into the CARD/RGI workflow (Fig 2). Leveling off of rarefaction curves was
+observed, in particular for drug classes (Fig 2), indicating that the shotgun sequencing effort is
+likely nearly comprehensive. However, the rarefaction curves also showed strong sensitivity to
+percentage-coverage thresholding. For example, far more AMR genes are detected for 10%
+percentage coverage than for 100% percentage coverage. For this reason, we determined that
+the percentage coverage parameter was critical in determining if an ARG was present or absent
+in a sample.
+3. Gene ambiguity as reported by Resistomap and curated in the
+CARD database
+In order to compare the shotgun sequencing method with the qPCR method, we needed to
+determine what genes in the CARD databases matched with the primer pairs used by
+PLOS ONE
+Comparing qPCR and metageno mic sequencin g methods for quantifyin g antibiotic resistance genes in wastewate r
+PLOS ONE | https://doi.or g/10.137 1/journal.po ne.02983 25 April 5, 2024 6 / 22
+Resistomap. This is also necessary as genes tend to have multiple names (synonyms) when
+described by different research groups. When we blasted the Resistomap primers pairs against
+the CARD database, we found that 93 primer pairs matched a unique gene, while 45 primer
+pairs matched multiple genes in the database. In the latter case, these multiple targets are of the
+same or similar function, mostly paralogs (S2 Table, see all_multiTargets.c sv in GitHub reposi-
+tory). In 37 of these 45 multiple-match primer pairs, all the identified genes had a common
+ARO term as a parent. For the other seven primers, a common grandparent was identified.
+For example, Resistomap’s primer ’16S new 2’ targets both Mycobacterium tuberculosis 16S
+rRNA mutation conferring resistance to capreomycin (ARO:3003411) and Escherichia coli 16S
+rRNA (rrnB) mutation conferring resistance to tetracycline’ (ARO:3003211). In one case, two
+matched genes (CMY-8b and MOX14) had only a common great-grandparent in ARO, but
+both confer resistance to beta-lactam antimicrobials. We limited our comparison to those
+cases, where primers matched one or more CARD gene targets, henceforth referred to as sin-
+gle-target and multi-target, respectively. Tables that detail all the genes that were identified by
+CARD/RGI but not Resistomap, as well as genes identified by Resistomap but not CARD/RGI,
+are provided in the supplementary data (S3 and S4 Tables).
+Fig 1. The distribution of reads assigned to “Class” taxon using the Kraken tool for the four wastewater samples. S1 was collected from an urban
+residential site, S2 from an industrial site, S3 from a healthcare facility, and S4 was collected from a rural sewage treatment plant influent.
+https://do i.org/10.1371/j ournal.pone .0298325.g00 1
+PLOS ONE
+Comparing qPCR and metageno mic sequencin g methods for quantifyin g antibiotic resistance genes in wastewate r
+PLOS ONE | https://doi.or g/10.137 1/journal.po ne.02983 25 April 5, 2024 7 / 22
+4. Comparing the Resistomap qPCR and shotgun sequencing
+CARD/RGI approaches
+The comparison of the two methods in terms of identified genes per class of antibiotics is pre-
+sented by the bar graph shown in Fig 3. The figure shows 11 antibiotic classes excluding the
+MGE class, which is not represented in the CARD database. The Resistomap assay provides
+results for 384 genes detected by the primer pairs (Fig 3A), while the CARD/RGI provides the
+results for genes detected out of the 4891 CARD genes (Fig 3B). Supplementary data that indi-
+cates the top genes identified in each class using CARD/RGI analysis is provided (S5 Table).
+Fig 2. Rarefact ion landscap e using different gene coverag e thresholds for number of antibiotic resistance ontology (ARO) terms,
+drug classes and AMR gene families for sample S1. Each line graph contains lines representi ng the differe nt gene cover threshold s used
+in the rarefaction analysis (indicated in the legend).
+https://doi.o rg/10.1371/j ournal.pone .0298325.g002
+Fig 3. The distribution of identified genes represented as number of genes per class of antibiotics in each of the tested samples (S1-S4). (A) by the
+Resistomap qPCR method and (B) and by sequencing and CARD/RGI method.
+https://do i.org/10.1371/j ournal.pone .0298325.g00 3
+PLOS ONE
+Comparing qPCR and metageno mic sequencin g methods for quantifyin g antibiotic resistance genes in wastewate r
+PLOS ONE | https://doi.or g/10.137 1/journal.po ne.02983 25 April 5, 2024 8 / 22
+ARGs that confer resistance to all 11 antibiotic classes were detected in the 4 samples using
+both methods. The Resistomap qPCR method identified an average of 115 genes for samples
+S1, S2, and S3, with a visibly lower number of ARGs (94) observed in sample S4. The low num-
+ber of ARGs detected in sample S4 was particularly pronounced when the CARD/RGI method
+was used as only 120 ARGs were detected in sample S4 compared to an average of 342 genes
+for S1, S2, and S3. The most abundant ARG classes conferred resistance to aminoglycoside,
+MDR, MLSB, tetracycline and beta-lactams. The difference in the abundance of detected
+ARGs across the different tested locations was more apparent using the CARD/RGI method.
+For example, a similar number of ARGs against Beta-lactam were detected in all 4 samples
+using Resistomap’s qPCR-based method, while the number of beta-lactam ARGs detected
+with the CARD/RGI method varied significantly (S1 = 53, S2 = 35, S3 = 95 and S4 = 9). Nota-
+bly, when considering the genes that were identified by CARD/RGI but not by Resistomap 46
+of those genes belonged to the beta-lactamase family, some of which (e,g. NPS-1 and LCR-1),
+were identified with high abundance values of up to 247.89 and 132.76, respectively, in S1, as
+well as OXA-732, which reached up to 201.87 in S3. Vancomycin resistance ARGs represented
+the least abundant class of ARGs. Indeed, the Resistomap qPCR method identified only one
+ARG in sample S1, two ARGs in sample S2, and none in samples S3 and S4. Very similarly, the
+CARD/RGI method identified one ARG in sample S1, one ARG in sample S2, two ARGs in
+sample S3, and none observed in sample S4. Considering how important vancomycin is as one
+of the last resort antibiotics, it would be very important to monitor trends in vancomycin
+ARGs in wastewater, even if they are not very abundant.
+The abundance of ARGs that were identified by both methods was used to plot a heatmap
+(Fig 4) in order to further compare these methods. The Resistomap PCR primer pairs were
+matched to the CARD genes (see Methods and Section 3.3 above) in order to allow for this
+comparison. The heatmap shows and compares the relative abundances of 93 genes in each of
+the tested samples obtained using Resistomap qPCR or sequencing and CARD/RGI, repre-
+sented as normalized gene coverage, where detection coverage thresholds for each ARG are set
+at either 95% or 50%.
+A method-dependent difference in the number of detected genes was observed for all tested
+samples. In the case of S1, 23 out of 93 genes were detected by Resistomap while 24 and 33
+genes were detected by CARD/RGI >95% and CARD/RGI >50%, respectively. A higher num-
+ber of genes was also detected by Resistomap (28 genes) and CARD/RGI >50% (30 genes)
+compared to CARD/RGI >95% (19 genes) in S2. In contrast, more genes were detected by
+Resistomap in S3 and S4 samples. The CARD/RGI results for gene read percentage coverages
+of 95% and 50% showed a very similar profile with differences in the cases of genes showing
+low abundance and only being detected at a percentage coverage of 50%. One exception was
+mexE gene (MDR resistance) which was detected only with a gene read percentage coverage of
+50% and whose relative abundance ranged between 2.5 and 41 in the tested samples. Nine
+genes displayed similar abundance patterns and fold coverage values using both methods
+across all samples (tetM, mefA, strB, aadB in CARD/RGI 95% and tetM, mefA, InuC, strB,
+aadB, aac(6’)_II, acrF, oqxA, and mdtA in CARD/RGI 50%), and 49 genes were not detected
+by any of the methods including all ARGs conferring resistance to vancomycin (Table 1).
+Among the 93 genes, 8 genes were exclusively detected by Resistomap (aadD, apmA, catP,
+adeI, dfrA27, dfrA10, tetE and blaTLA) and showed low relative abundance, while 6 genes
+were only identified by CARD/RGI (tetS, ermA/ermTR, aacA/aphD, addA7, catB3 and dfrG)
+with a fold coverage between 3–74. Genes showing high abundance (�0.02 and �100 in Resis-
+tomap and CARD/RGI methods, respectively) included tetM (in S2) which confers resistance
+to tetracycline, mefA (in S1 and S2) which confers resistance to MLSB, aadB (in S3) which con-
+fers resistance to aminoglycoside, and catQ (in S2) which confers resistance to phenicol.
+PLOS ONE
+Comparing qPCR and metageno mic sequencin g methods for quantifyin g antibiotic resistance genes in wastewate r
+PLOS ONE | https://doi.or g/10.137 1/journal.po ne.02983 25 April 5, 2024 9 / 22
+Interestingly, mexB was identified by qPCR only in S1 with very low relative abundance
+(1.1e-05), while sequencing showed high relative abundance in S1 (74), S2 (57), and S3 (110).
+The most abundant gene based on sequencing results was strB in sample S3 (resistance to
+aminoglycoside).
+To understand why the mexB gene was only identified by sequencing but not qPCR, a map-
+ping of the gene reads against the CARD gene reference was performed (Fig 5).
+The mapping results showed uneven fold coverage of the mexB gene. By further investigat-
+ing the gene sequence targeted by Resistomap primers, a large number of mutations (non-
+grey) is observed with three mutations occurring at the first three positions targeted by the
+reverse primer (Fig 6).
+Fig 4. Heatmap displayin g the relative abundance data of 93 genes with matching primers (equiva lent genes) in both Resistoma p qPCR and CARD/RGI
+methods .
+https://do i.org/10.1371/j ournal.pone .0298325.g00 4
+PLOS ONE
+Comparing qPCR and metageno mic sequencin g methods for quantifyin g antibiotic resistance genes in wastewate r
+PLOS ONE | https://doi.or g/10.137 1/journal.po ne.02983 25 April 5, 2024 10 / 22
+Table 1. Compariso n of the detected genes between Resistoma p and CARD/R GI approaches where there is one to one and one to many primers matches.
+RM* all
+samples
+RM + CARD/RGI all
+samples (>95%)
+RM + CARD/RGI all
+samples (>50%)
+RM + CARD some
+samples
+Only in RM Only in CARD/RGI Not detected both
+methods
+One to one primer
+match
+tetM tetM, tetM tet39 (S2, S3, S4) tetE (S1, S3) tetS (S1, S2) mecA (Staphylococci
+taxanomic)
+tet44 mefA mefA tetQ (S2, S3, S4) apmA (S2, S3) ermA/ermTR (S1,
+S2, S3, S4)
+fosB
+mefA strB inuC tetPA (S1, S3) aadD (S1, S2) aacA/aphD (S1, S2,
+S3)
+fosX
+inuC aadB strB aaAd10 (S3) catP (S3) aadA7 (S1, S2, S3) tetH
+strB aadB ant6-ib (S1) adel (S3) catB3 (S1, S2, S3,
+S4)
+tetJ
+aadB aac(6’)_II catQ (S2, S3) dfrA27 (S2) drfG (S1, S2) mphB
+aac(6’)_II mdtA mdtA (S1, S2) dfrA10 (S1) mexB
+#
+(S1, S2, S3,
+S4)
+ermY
+ant6-ib acrF acrF (S1, S3) blaTLA (S1, S2) carB
+mdtA oqxA oqxA (S1, S2, S3) pikR2
+acrF mexB (S1) aac(6’)l1
+oqxA qnrD (S1) spcN
+aac(3)id-ie
+aac(6)-ig
+aac(6)-ii
+aac(6)-ir
+aac(6)-iw
+aacA43
+ant4-ib
+aph-viii
+aph3-viia
+aph4-ia
+catA2
+catA3
+catB9
+cmIV
+fexA
+optrA
+adeA
+mtrF
+cfr
+pmrA
+norA
+dfrA8
+dfrAB4
+dfrC
+blaZ
+blaSFO
+mecA
+bl1acc
+vanTE
+vanHB
+vanSA
+vanWB
+vanXB
+vanRB
+vanTG
+vanYB
+vanA
+vanSB
+(Continued )
+PLOS ONE
+Comparing qPCR and metageno mic sequencin g methods for quantifyin g antibiotic resistance genes in wastewate r
+PLOS ONE | https://doi.or g/10.137 1/journal.po ne.02983 25 April 5, 2024 11 / 22
+In addition, we identified 45 primer pairs that matched with multiple CARD targets (multi-
+target), however, these targets are homologous (or are closely related in terms of the ARO graph
+distance, see methods) (Fig 7). The number of detected genes in each sample was comparable
+between Resistomap and CARD/RGI (50%) methods while CARD/RGI (95%) showed lower
+numbers. Four genes were exclusively detected using the CARD/RGI method with a fold cover-
+age between 0.52–87, and 7 genes were only detected by Resistomap (<0.01 relative abundance)
+(Table 1). Genes tetW (tetracycline), aadA16 and aadA6 (aminoglycoside) were abundant in
+samples S1, S2 and S3. Gene blaGES (beta-lactam) was also abundant in sample S3.
+The results showed a reasonable correlation in the identification of genes by both methods.
+The unique primer matches scored a Pearson correlation coefficient of 0.63 while the multi-
+target primers scored 0.8. The breakdown of the correlation by antibiotic class (Fig 8) showed
+a strong correlation (> 0.7) between the results of the two methods for tetracycline, MLSB,
+aminoglycoside, phenicol, quinolone, and beta-lactam. In addition, both methods agree on
+vancomycin not being detected. In contrast, the MDR class showed a negative correlation
+while trimethoprim and others showed negative correlations only in the Resistomap vs CARD
+95% comparison.
+Discussion
+Quantitative techniques such as qPCR and sequencing (next-generation and nanopore) are
+being increasingly used to monitor the presence of ARGs in environmental samples and iden-
+tify new resistance markers [39–42]. While qPCR represent a fast, cost-effective and sensitive
+approach to detect and quantify ARGs, the use of this technique is dependent upon known tar-
+get sequences that contain conserved primer target sites. However, the mentioned precondi-
+tions are not always satisfied and shotgun metagenomic sequencing is sometimes required for
+Table 1. (Continu ed )
+RM* all
+samples
+RM + CARD/RGI all
+samples (>95%)
+RM + CARD/RGI all
+samples (>50%)
+RM + CARD some
+samples
+Only in RM Only in CARD/RGI Not detected both
+methods
+Multi-target primer
+matches
+tetW tetW tetW tetX (S2, S3) ampC/ blaDHA (S1,
+S2, S3)
+aadE (S1, S2, S3,
+S4)
+aac(6)-is_iu_ix
+aadA16 aadA16 aadA16 inuB (S1) blaCTX-M (S1, S3,
+S4)
+blaVEB (S1, S2, S3,
+S4)
+aac(6’)_ly
+aadA6 aadA6 aadA6 qnrS2 (S1, S2, S3) bla1 (S4) blaPSE (S1, S2, S3) aac(6)-iv_ih
+floR floR dfr22 (S3) cepA (S1, S2) cfxA (S1, S2, S3, S4) aac(6)_iz
+dfrA15 dfrA15 blaGES (S1, S3) blaVIM (S2) catA1
+blaTEM blaCARB (S1, S2) beta_ccra (S1) qacA/B
+blaMOX blaMOX (S3) blaLEN (S3) qnrA
+blaMIR dfrA25
+blaOCH
+blaROB
+penA
+blaPER
+blaGOB
+blaHERA
+blaIMI
+blaIND
+cfiA
+vanXA
+*RM: Resistom ap.
+#
+mexB was only detected by CARD/RG I in certain samples with a high relative abundance value. It was therefor e included under only CARD/RG I. Only CARD/RGI
+column includes genes with percentage-c overage s of 95% and 50%.
+https://do i.org/10.1371/j ournal.pone .0298325.t001
+PLOS ONE
+Comparing qPCR and metageno mic sequencin g methods for quantifyin g antibiotic resistance genes in wastewate r
+PLOS ONE | https://doi.or g/10.137 1/journal.po ne.02983 25 April 5, 2024 12 / 22
+Fig 5. CARD/RGI alignment results showing reads coverage of gene mexB. Note that more than 95% of the gene is covered with at least one read in all
+samples.
+https://do i.org/10.1371/j ournal.pone .0298325.g00 5
+Fig 6. The region of the mexB gene targete d by Resistoma p primers. The regions are shown as blue and red lines below the CARD sequence for mexB. In
+grey are conserve d amino acids and mutations are represente d by colors.
+https://do i.org/10.1371/j ournal.pone .0298325.g00 6
+PLOS ONE
+Comparing qPCR and metageno mic sequencin g methods for quantifyin g antibiotic resistance genes in wastewate r
+PLOS ONE | https://doi.or g/10.137 1/journal.po ne.02983 25 April 5, 2024 13 / 22
+a broader and more accurate evaluation of the resistome. In this study we compared two ARG
+methodological detection strategies, Resistomap HT-qPCR and TruSeq DNA sequencing to
+evaluate the composition of ARGs in four wastewater samples.
+Both methods successfully detected ARGs conferring resistance to 11 different classes of
+antibiotics in the tested samples, indicating that ARGs are widely distributed in wastewater.
+Identified ARGs by both methods conferred resistance mainly to aminoglycoside, MDR,
+MLSB, tetracycline and beta-lactams, which are often detected in wastewater and are used
+extensively in human or veterinary medicine, including in-feed [43,44]. Among the detected
+ARGs, some pose a serious threat to public health. The detection of mefA ARG in all of the
+tested samples at relatively high abundance is clinically alarming. The gene confers resistance
+Fig 7. Heatmap displayin g the relative abundance data of 45 genes with Resistoma p primers matching multiple genes in CARD.
+https://do i.org/10.1371/j ournal.pone .0298325.g00 7
+PLOS ONE
+Comparing qPCR and metageno mic sequencin g methods for quantifyin g antibiotic resistance genes in wastewate r
+PLOS ONE | https://doi.or g/10.137 1/journal.po ne.02983 25 April 5, 2024 14 / 22
+to macrolides, a critically important antimicrobial for human medicine used in the treatment
+of infections caused by Gram-positive bacteria (Streptococcus pneumoniae, methicillin-sensi-
+tive Staphylococcus aureus, and group A, B, C, and G Streptococcus) [45,46]. Antibiotics are
+more frequently used in healthcare facilities making the ARGs profile in the wastewater of hos-
+pitals richer compared to other locations [47]. This was reflected by more genes showing a
+higher abundance in sample S3 (healthcare facility) compared to the other samples regardless
+of the used analysis method.
+More variation in the distribution of genes among samples was observed by non-targeted
+sequencing highlighting the differences in the local environments of the tested samples and
+demonstrating that sequencing can provide more information on the ARGs composition in
+wastewater compared to HT-qPCR. ARGs conferring resistance to beta-lactams for example
+were more prevalent in the wastewater sample collected nearby a healthcare facility by
+sequencing this sample. Beta-lactam antibiotics have a broad spectrum of activity and are
+Fig 8. Pearso n correlatio n breakdown by antibiotic class for single-matc h genes across all location s.
+https://doi. org/10.1371/j ournal.pone .0298325.g00 8
+PLOS ONE
+Comparing qPCR and metageno mic sequencin g methods for quantifyin g antibiotic resistance genes in wastewate r
+PLOS ONE | https://doi.or g/10.137 1/journal.po ne.02983 25 April 5, 2024 15 / 22
+frequently prescribed in clinical settings [48]. Their extensive use raises the likelihood of the
+emergence of resistant strains as observed by the increasing trend of percentage resistant iso-
+lates in the UAE during the period 2010–2020 [49]. It has been previously found that up to
+37% of hospital wastewater samples contained ARGs conferring resistance to beta-lactams
+compared to 18% in municipal wastewater [50].
+Another ARG class showing significant method-dependent variation is vancomycin. Over-
+all, genes conferring resistance to this antibiotic were the least detected across all samples. Van-
+comycin inhibits cell-wall synthesis in Gram-positive bacteria and is commonly used against
+streptococci and enterococci resistant to beta-lactams and penicillin [51]. The development of
+vancomycin-resistant strains is rare with very few known examples including vancomycin-
+resistant enterococci (Enterococcus faecalis and Enterococcus faecium) and vancomycin-resis-
+tant Staphylococcus aureus, explaining the low number of detected ARGs [52,53]. This was fur-
+ther supported by the report showing that Enterococcus spp. and S. aureus isolates from
+different sources in the UAE showed 98 and 100% susceptibility to vancomycin, respectively
+[49]. These organisms are considered a leading cause of nosocomial infections, which possibly
+explains the detection of vancomycin ARGs in sample S3 by sequencing [54]. However, vanco-
+mycin ARGs were also detected in samples S1 and S2 by Resistomap HT-qPCR and further
+analysis is required to evaluate the significance of this result from a public health perspective.
+A possible explanation for the observed discrepancies in the results obtained by the two dif-
+ferent methods is that by sequencing, the reads obtained are aligned to all ARGs-like sequences
+in CARD database. In contrast, HT-qPCR detection is limited by the used primers which are
+designed to target sections of ARG sequences. In addition, HT-qPCR is more vulnerable to the
+presence of inhibitors in the samples and therefore the used condition might not be optimal to
+all ARGs primers resulting in lower abundances than the actual values in wastewater. By ana-
+lyzing a large number of wastewater [32], and fecal samples [55,56] by qPCR, potential issues
+regarding the specificity of used primer sets have been raised.
+A strong positive correlation was obtained between the relative abundance (obtained by
+Resistomap HT-qPCR) and the fold-coverage (obtained by TruSeq DNA sequencing with 50%
+percentage coverage) of all detected ARG classes except for MDR. Three ARGs are responsible
+for the observed negative correlation for this class of antibiotics. The ARG oprD was detected
+by Resitomap in samples S1-S3 while only in S3 by sequencing. HT-qPCR also exclusively
+detected the gene adeI at low abundance in sample S3. On the other hand, the abundance of
+gene mexE in samples S1-S3 was significantly higher by sequencing and gene mexB was almost
+exclusively detected at high abundance by CARD/RGI. P. aeruginosa with mutations in mexE
+and mexB overexpress transport-proteins involved in the excretion of molecules from the bac-
+terial cell and result in reducing antibiotic susceptibility [57–59]. Antibiotic-resistant P. aerugi-
+nosa is another leading causative agent for nosocomial infection including wound and urinary
+infections, and ventilator-associated pneumonia [60], and it was found at high abundance in
+sample S3, collected nearby a healthcare facility. However, this organism is highly adaptive
+and can colonize a broad range of environments [61]. Mapping the obtained gene reads of
+mexB against the CARD gene reference revealed uneven fold coverage that can be explained
+by the regions with higher coverage being common among different species. Fold-coverage is
+therefore an overestimate and an ideal algorithm should differentiate fold-coverage for specific
+and unspecific regions. In addition, the used primers can be ineffective by selectively targeting
+taxa-specific ARG and therefore under detecting the resistance marker in the sample. The
+mexB gene also contained a large number of mutations that could have affected the specificity
+of the used Resistomap primer, especially the three mutations in the region targeted by the
+reverse primer (Fig 6).
+PLOS ONE
+Comparing qPCR and metageno mic sequencin g methods for quantifyin g antibiotic resistance genes in wastewate r
+PLOS ONE | https://doi.or g/10.137 1/journal.po ne.02983 25 April 5, 2024 16 / 22
+It was notable that Staphylococci were not detected in any of the four water samples using
+either method (Table 1). In one previous study that examined 62 wastewater samples, Staphy-
+lococcus was recovered from only 12 (19%) of the samples [62]. Another study utilizing qPCR
+based methods similarly found that S. aureus is not very prevalent in wastewater [63]. In our
+own study where 88 wastewater samples were analyzed, Staphylococcus was only detected in 2
+out of the 88 samples (2.3%) [29]. Furthermore, the abundance of Staphylococcus in those two
+samples was very low (0.03% and 0.06%) of the bacterial community. Taking these data
+together, the lack of detection could indicate that low abundance microbes in wastewater
+require either more sequencing depth or enrichment prior to DNA extraction if they are an
+important component of the AMR surveillance program.
+Upon comparison of the Resistomap and CARD/RGI methods, it can be concluded that
+qPCR has the advantage of having perfect matches in a large number of CARD genes (2787)
+despite using only 384 targets. In addition, PCR-based methods like Resistomap are highly
+sensitive to low abundance genes, but are vulnerable to mutations in primer target region
+(introducing false negatives). Another disadvantage of Resistomap is that it identifies genes by
+only matching the primers’ sequences, often only covering a short target region, thus not
+detecting partial genes and potential loss of function. On the other hand, CARD/RGI contains
+4891 genes but is more likely to miss genes due to only partial coverage resulting from large
+microbial complexity. For this reason, it is important to set a lower threshold at first and ana-
+lyze genes of interest to determine if they are functional or not depending on coverage, a func-
+tion that is possible using bioinformatics pipelines. Therefore, each method has its advantages
+and disadvantages, and the choice of the appropriate method depends on the specific research
+objectives and available resources.
+The challenges presented by this study include the issue of conflicting matches between dif-
+ferent platforms when using different antimicrobial gene naming schemes. This highlights the
+need for standardization in naming conventions across different databases and platforms.
+Additionally, the limitation of CARD/RGI in ignoring important antimicrobial resistance
+mechanisms such as MGE is a significant challenge for researchers and clinicians. This high-
+lights the importance of continued development and improvement of these databases to
+encompass a broader range of resistance mechanisms. The complexity of the relationship
+between primers and genes in databases like CARD is another challenge that requires careful
+consideration to ensure accurate identification and interpretation of resistance genes. Overall,
+these challenges highlight the need for ongoing research and development to enhance the
+accuracy and utility of antimicrobial resistance databases for clinical and research applications.
+In addition, these challenges also indicate the utilization of both methods may be deemed
+inappropriate in environments lacking essential bioinformatics proficiency. Even if samples
+analysis are outsourced, it would be advisable to hire individuals with expertise within munici-
+pal services or entities that can understand these reports. This last point reinforces the need to
+train future microbiologists in bioinformatics/statis tics and for municipalities to ensure they
+budget for the infrastructure and workforce needed to monitor wastewater for AMR
+successfully.
+In conclusion, our study highlights the importance of using both PCR and NGS methods
+for gene detection and identification. While both methods identify some genes with similar
+abundance, they also complement each other by identifying genes that are missed by the other
+method. The combination of both methods can provide more accurate and comprehensive
+results, and careful analysis and optimization of the threshold settings can help improve the
+reliability of the results. Overall, considering the strengths and limitations of each method and
+using those in a complementary manner is essential for optimal results.
+PLOS ONE
+Comparing qPCR and metageno mic sequencin g methods for quantifyin g antibiotic resistance genes in wastewate r
+PLOS ONE | https://doi.or g/10.137 1/journal.po ne.02983 25 April 5, 2024 17 / 22
+Supporting information
+S1 Table. List of genes and primers used by Resistomap.
+(XLSX)
+S2 Table. Taxa of bacterial groups in all four samples.
+(XLSX)
+S3 Table. Genes identified by CARD/RGI but not by Resistomap.
+(XLSX)
+S4 Table. Genes identified by Resistomap but not CARD/RGI.
+(XLSX)
+S5 Table. CARD/RGI most abundant per antibiotic class.
+(XLSX)
+Acknowledgmen ts
+The authors would like to acknowledge the UK Centre for Environment, Fisheries and Aqua-
+culture Science (Cefas) for the Resistomap analysis of our wastewater samples and providing
+valuable insight and discussion. The authors would like to acknowledge the assistance pro-
+vided by the Emirates Bio-research Center at Ministry of Interior and the Department of
+Energy in providing our laboratory with wastewater samples.
+Author Contributions
+Conceptualization: Dean B. Everett, Andreas Henschel, Ahmed F. Yousef.
+Data curation: Gihan Daw Elbait, Miral Abuoudah.
+Formal analysis: Gihan Daw Elbait, Mariane Daou, Ahmed Elmekawy, Andreas Henschel,
+Ahmed F. Yousef.
+Funding acquisition: Shadi W. Hasan, Habiba Alsafar, Ahmed F. Yousef.
+Investigation: Gihan Daw Elbait, Miral Abuoudah.
+Methodology: Gihan Daw Elbait, Ahmed F. Yousef.
+Project administration: Ahmed F. Yousef.
+Resources: Shadi W. Hasan, Habiba Alsafar, Andreas Henschel.
+Software: Gihan Daw Elbait, Andreas Henschel.
+Supervision: Shadi W. Hasan, Habiba Alsafar, Andreas Henschel, Ahmed F. Yousef.
+Writing – original draft: Gihan Daw Elbait, Mariane Daou, Miral Abuoudah, Ahmed Elme-
+kawy, Andreas Henschel, Ahmed F. Yousef.
+Writing – review & editing: Shadi W. Hasan, Dean B. Everett, Habiba Alsafar, Ahmed F.
+Yousef.
+References
+1. Hassoun -Kheir N, Stabholz Y, Kreft J-U, De La Cruz R, Roma lde JL, Nesme J, et al. Compa rison of
+antibiotic -resistant bacteria and antibiotic resistanc e genes abundanc e in hospital and commu nity
+wastewate r: A systematic review. Sci Total Environ. 2020; 743:140 804. https://doi.or g/10.101 6/j.
+scitotenv. 2020.140804 PMID: 327588 46
+PLOS ONE
+Comparing qPCR and metageno mic sequencin g methods for quantifyin g antibiotic resistance genes in wastewate r
+PLOS ONE | https://doi.or g/10.137 1/journal.po ne.02983 25 April 5, 2024 18 / 22
+2. Zhou Z-C, Lin Z-J, Shuai X-Y, Zheng J, Meng L-X, Zhu L, et al. Tempora l variation and sharing of antibi-
+otic resistanc e genes between water and wild fish gut in a peri-urban river. J Envi Sci. 2021; 103:12–9.
+3. Lin Z, Yuan T, Zhou L, Cheng S, Qu X, Lu P, et al. Impact factors of the accumulation , migratio n and
+spread of antibio tic resistance in the environ ment. Enviro n Geochem Health. 2021; 43:1741–58. https://
+doi.org/10.10 07/s10653-020 -00759-0 PMID: 331239 28
+4. Lin Z-J, Zhou Z-C, Zhu L, Meng L-X, Shuai X-Y, Sun Y-J, et al. Behavior of antibiotic resistance genes
+in a wastewate r treatment plant with differe nt upgrading processes. Sci Total Environ. 2021;
+771:144814 . https://doi.or g/10.1016/ j.scitotenv.202 0.14481 4 PMID: 33540158
+5. Khan FA, So ¨ derquis t B, Jass J. Prevalen ce and diversity of antibiotic resistance genes in Swedish
+aquatic environment s impacted by househo ld and hospital wastewate r. Front Microbiol. 2019; 10:688.
+https://doi.or g/10.338 9/fmicb.2019 .00688 PMID: 31019498
+6. Zhou Z-C, Feng W-Q, Han Y, Zheng J, Chen T, Wei Y-Y, et al. Prevalence and transmiss ion of antibiotic
+resistance and microbiota between humans and water environme nts. Environ Int. 2018; 121:1155 –61.
+https://doi.or g/10.101 6/j.envint.2 018.10.032 PMID: 30420129
+7. Robinson TP, Bu D, Carrique-M as J, Fèvre EM, Gilbert M, Grace D, et al. Antibiotic resistanc e is the
+quintessen tial One Health issue. Trans R Soc Trop Med Hyg. 2016; 110(7):377 –80. https:// doi.org/10.
+1093/trstmh /trw048 PMID: 274759 87
+8. Jonas OB, Irwin A, Berthe FCJ, Le Gall FG, Marque z PV. Drug-res istant infections: a threat to our eco-
+nomic future (Vol. 2): final report (English). HNP/Agricul ture Global Antimicro bial Resistance Initiative
+Washingto n, D.C.: World Bank Group. Available from: http://docum ents.worldb ank.org/cur ated/en/
+32331149339 699375 8/final-repo rt.
+9. Gogarten JP, Townsend JP. Horizontal gene transfer , genome innovatio n and evolution. Nat Rev Micro-
+biol. 2005; 3(9):679–8 7. https://doi.or g/10.1038/ nrmicro1204 PMID: 161380 96
+10. Schlu ¨ ter A, Szczepan owski R, Pu ¨ hler A, Top EM. Genom ics of IncP-1 antibiotic resistance plasmids
+isolated from wastewate r treatment plants provides evidence for a widely accessible drug resistance
+gene pool. FEMS Microbiol Rev. 2007; 31(4):449– 77. https://doi.o rg/10.1111/j.1 574-6976.2 007.00074.
+x PMID: 17553065
+11. Martinez JL. Environ mental pollution by antibiotics and by antibiotic resistance determina nts. Environ
+Pollut. 2009; 157(11):28 93–902. https://doi.or g/10.101 6/j.envpol. 2009.05.051 PMID: 195608 47
+12. Su Z, Li A, Chen J, Huang B, Mu Q, Chen L, et al. Wastewater discharge drives ARGs spread in the
+coastal area: a case study in Hangzhou Bay, China. Mar Pollut Bull. 2020; 151:110856. https://do i.org/
+10.1016/ j.marpolbul.20 19.1108 56 PMID: 32056638
+13. Hutinel M, Larsson DJ, Flach C-F. Antibio tic resistance genes of emerging concern in municipal and
+hospital wastewate r from a major Swedish city. Sci Total Environ. 2022; 812:1514 33. https://doi.or g/10.
+1016/j.scitote nv.2021.1 51433 PMID: 34748849
+14. Polianciuc SI, Gurzău AE, Kiss B, Ştefan MG, Loghin F. Antibiotics in the environm ent: causes and con-
+sequences. Med Pharm Rep. 2020; 93(3):231– 40. Epub 20200722. https://doi.o rg/10.15386/m pr-1742
+PMID: 328328 87; PubMed Central PMCID: PMC741883 7.
+15. He L-Y, Ying G-G, Liu Y-S, Su H-C, Chen J, Liu S-S, et al. Discharge of swine wastes risks water quality
+and food safety: antibiotics and antibiotic resistance genes from swine sources to the receiving environ -
+ments. Environ Int. 2016; 92:210–9 . https://doi.or g/10.1016/ j.envint.201 6.03.023 PMID: 271072 26
+16. Aydin S, Aydin ME, Ulvi A, Kilic H. Antibiotics in hospital effluents: occurren ce, contribu tion to urban
+wastewate r, removal in a wastewate r treatment plant, and environme ntal risk assessmen t. Environ-
+mental Science and Pollution Resea rch. 2019; 26(1):544– 58. https:/ /doi.org/10.10 07/s1135 6-018-
+3563-0 PMID: 304065 96
+17. Ping Q, Zhang Z, Ma L, Yan T, Wang L, Li Y. The prevale nce and removal of antibiotic resistance genes
+in full-scale wastewate r treatment plants: Bacteria l host, influencing factors and correlation with nitrogen
+metabolic pathway. Sci Total Environ. 2022; 827:154154. https://doi. org/10.1016/j .scitotenv .2022.
+154154 PMID: 352455 55
+18. Gupta SK, Shin H, Han D, Hur H-G, Unno T. Metageno mic analysis reveals the prevale nce and persis-
+tence of antibiotic- and heavy metal-res istance genes in wastewate r treatment plant. J Microbiol. 2018;
+56(6):408– 15. https://d oi.org/10.100 7/s12275 -018-8195 -z PMID: 2985882 9
+19. Manohar an RK, Srinivas an S, Shanmugam G, Ahn Y-H. Shotgun metageno mic analysis reveals the
+prevalenc e of antibiotic resistanc e genes and mobile genetic elements in full scale hospital wastewate r
+treatment plants. J Environ Manage. 2021; 296:113 270. https://doi.or g/10.101 6/j.jenvman .2021.
+113270 PMID: 342713 48
+20. Pa ¨ rna ¨ nen KM, Narcis o-da-Rocha C, Kneis D, Berendonk TU, Cacace D, Do TT, et al. Antibiotic resis-
+tance in European wastewate r treatment plants mirrors the pattern of clinical antibiotic resistanc e preva-
+lence. Sci Adv. 2019; 5(3):eaau 9124. https://doi.or g/10.112 6/sciadv.aau9 124 PMID: 30944853
+PLOS ONE
+Comparing qPCR and metageno mic sequencin g methods for quantifyin g antibiotic resistance genes in wastewate r
+PLOS ONE | https://doi.or g/10.137 1/journal.po ne.02983 25 April 5, 2024 19 / 22
+21. Qin K, Wei L, Li J, Lai B, Zhu F, Yu H, et al. A review of ARGs in WWTPs: Sources, stressors and elimi-
+nation. Chin Chem Lett. 2020; 31(10):260 3–13.
+22. Pruden A. Balancing water sustainabi lity and public health goals in the face of growing concerns about
+antibiotic resistance. Environ Sci Technol. 2014; 48(1):5–14 . https://doi.or g/10.1021/ es403883p PMID:
+24279909
+23. Rizzo L, Manaia C, Merlin C, Schwartz T, Dagot C, Ploy M, et al. Urban wastewate r treatment plants as
+hotspots for antibiotic resistant bacteria and genes spread into the environ ment: a review. Sci Total
+Environ. 2013; 447:345–60. https://doi. org/10.1016/j .scitotenv .2013.01.03 2 PMID: 23396083
+24. Yang Y, Li B, Ju F, Zhang T. Exploring variation of antibiotic resistance genes in activated sludge over a
+four-year period through a metageno mic approach. Environ Sci Technol. 2013; 47(18):101 97–205.
+https://doi.or g/10.102 1/es4017 365 PMID: 23919449
+25. Boolchanda ni M D’Souza AW, Dantas G. Sequen cing-based methods and resour ces to study antimi-
+crobial resistance. Nat Rev Genet. 2019; 20(6):356– 70.
+26. Alcock BP, Raphenya AR, Lau TT, Tsang KK, Boucha rd M, Edalatma nd A, et al. CARD 2020: antibiotic
+resistome surveilla nce with the comprehe nsive antibiotic resistance database . Nucleic Acids Res.
+2020; 48(D1):D51 7–D25. https:// doi.org/10.10 93/nar/gk z935 PMID: 31665441
+27. Brown CL, Keenum IM, Dai D, Zhang L, Vikesland PJ, Pruden A. Critical evaluatio n of short, long, and
+hybrid assemb ly for contextual analysis of antibiot ic resistance genes in complex environment al meta-
+genomes. Sci Rep. 2021; 11(1):3753 . https://doi.or g/10.1038/ s41598-021- 83081-8 PMID: 335801 46
+28. Wadi VS, Daou M, Zayed N, AlJabri M, Alsheraifi HH, Aldhaheri SS, Abuoudah M, Alhammad i M, Ald-
+huhoori M, Lopes A, Alalawi A. Long-t erm study on wastewate r SARS-Co V-2 surveilla nce across
+United Arab Emirates. Sci Total Environ. 2023; 20(887):16 3785. https://doi.or g/10.101 6/j.scitotenv.
+2023.16378 5 PMID: 37149161
+29. Al Ali AA, Naddeo V, Hasan SW, Yousef AF. Correlation between bacterial commu nity structure and
+performanc e efficiency of a full-scale wastewate r treatment plant. J Water Process Eng. 2020;
+37:101472.
+30. Stedtfeld RD, Guo X, Stedtfeld TM, Sheng H, Williams MR, Hauschild K, et al. Primer set 2.0 for highly
+parallel qPCR array targeting antibiotic resistance genes and mobile genetic elements. FEMS Microbiol
+Ecol. 2018;94 (9):fiy130. https://d oi.org/10.109 3/femsec /fiy130 PMID: 30052926
+31. Wang F-H, Qiao M, Su J-Q, Chen Z, Zhou X, Zhu Y-G. High throughput profiling of antibiotic resistance
+genes in urban park soils with reclaimed water irrigation. Environ Sci Technol. 2014; 48(16):907 9–85.
+https://doi.or g/10.102 1/es5026 15e PMID: 25057898
+32. Karkman A, Johnson TA, Lyra C, Stedtfeld RD, Tamminen M, Tiedje JM, et al. High-throug hput quantifi-
+cation of antibiotic resistance genes from an urban wastewate r treatment plant. FEMS Microbiol Ecol.
+2016; 92(3):fiw 014. https://doi.o rg/10.1093/fem sec/fiw014 PMID: 26832203
+33. Muziasari WI, Pa ¨ rna ¨ nen K, Johnson TA, Lyra C, Karkman A, Stedtfeld RD, et al. Aquacu lture changes
+the profile of antibiot ic resistance and mobile genetic element associated genes in Baltic Sea sedi-
+ments. FEMS Microbiol Ecol. 2016; 92(4):fiw 052. https://doi.or g/10.109 3/femsec/f iw052 PMID:
+26976842
+34. Zhu Y-G, Johnson TA, Su J-Q, Qiao M, Guo G-X, Stedtfel d RD, et al. Diverse and abunda nt antibiotic
+resistance genes in Chinese swine farms. PNAS. 2013; 110(9):343 5–40. https://doi.or g/10.1073 /pnas.
+1222743110 PMID: 23401528
+35. Schmittgen TD, Livak KJ. Analyzing real-time PCR data by the comparati ve CT method. Nat Protoc.
+2008; 3(6):1101– 8. https://doi.or g/10.1038/n prot.2008.73 PMID: 185466 01
+36. Garcı ´ a-Alcalde F, Okonechnik ov K, Carbone ll J, Cruz LM, Go ¨ tz S, Tarazona S, et al. Qualimap: evalu-
+ating next-gen eration sequencin g alignment data. Bioinformatic s. 2012; 28(20):267 8–9. https://doi.or g/
+10.1093/ bioinformatic s/bts503 PMID: 22914218
+37. Wood DE, Lu J, Langmead B. Improved metageno mic analysis with Kraken 2. Genom e Biol. 2019; 20
+(1):257. https://doi.or g/10.118 6/s13059 -019-1891 -0 PMID: 31779668
+38. Klopfens tein DV, Zhang L, Pedersen BS, Ramı ´ rez F, Warwick Vesztrocy A, Naldi A, et al. GOATOOLS :
+A Python library for Gene Ontology analyses. Sci Rep. 2018; 8(1):10872 . https:// doi.org/10.10 38/
+s41598-018 -28948-z PMID: 30022098
+39. Chen C, Pankow CA, Oh M, Heath LS, Zhang L, Du P, et al. Effect of antibiotic use and composting on
+antibiotic resistance gene abundanc e and resistome risks of soils receiving manure -derived amend-
+ments. Environ Int. 2019; 128:233– 43. https://doi.or g/10.1016 /j.envint.20 19.04.043 PMID: 310599 18
+40. Yang Y, Che Y, Liu L, Wang C, Yin X, Deng Y, et al. Rapid absolute quantifi cation of pathoge ns and
+ARGs by nanopore sequencin g. Sci Total Environ. 2022; 809:152 190. https://doi.or g/10.101 6/j.
+scitotenv. 2021.152190 PMID: 348906 55
+PLOS ONE
+Comparing qPCR and metageno mic sequencin g methods for quantifyin g antibiotic resistance genes in wastewate r
+PLOS ONE | https://doi.or g/10.137 1/journal.po ne.02983 25 April 5, 2024 20 / 22
+41. Liang J, Mao G, Yin X, Ma L, Liu L, Bai Y, et al. Identificati on and quantifica tion of bacterial genomes
+carrying antibio tic resistance genes and virulence factor genes for aquatic microbiol ogical risk assess-
+ment. Water Res. 2020; 168:115160. https://do i.org/10.1016 /j.watres.2 019.115160 PMID: 316142 33
+42. Yin X, Yang Y, Deng Y, Huang Y, Li L, Chan LY, et al. An assessm ent of resistome and mobilome in
+wastewate r treatment plants through temporal and spatial metageno mic analysis. Water Res. 2022;
+209:117885 . https://doi.or g/10.1016/ j.watres.202 1.117885 PMID: 34847392
+43. Szczepanow ski R, Linke B, Krahn I, Gartemann K-H, Gutzkow T, Eichler W, et al. Detection of 140 clini-
+cally relevant antibiotic -resistance genes in the plasmid metageno me of wastewate r treatment plant
+bacteria showing reduced susceptibility to selected antibiotics. Microbiology . 2009; 155(7):230 6–19.
+https://doi.or g/10.109 9/mic.0.0282 33-0 PMID: 193897 56
+44. Keenum I, Liguori K, Calarco J, Davis BC, Milligan E, Harwood VJ, et al. A framework for standard ized
+qPCR-targ ets and protocols for quantifyin g antibiotic resistance in surface water, recycled water and
+wastewate r. Crit Rev Enviro n Sci Technol. 2022; 52(24):439 5–419.
+45. World Health Organizatio n; WHO Advisory Group on Integrated Surveillanc e of Antimicrob ial Resis-
+tance. Critically important antimicrob ials for human medicine: 6th revision. Geneva; 2018.
+46. Sutcliffe J, Tait-Kam radt A, Wondrac k L. Streptoc occus pneumoniae and Streptococ cus pyogene s
+resistant to macrolide s but sensitive to clindamycin: a commo n resistance pattern mediated by an efflux
+system. Antimicro b Agents Chemoth er. 1996; 40(8):1817 –24.
+47. Ku ¨ mmerer K, Henninger A. Promoti ng resistance by the emissi on of antibiotics from hospitals and
+househo lds into effluent. Clin Microbiol Infect. 2003; 9(12):1203 –14.
+48. KONG KF, Schnep er L, Mathee K. Beta-lactam antibiotics: from antibiosi s to resistance and bacterio l-
+ogy. APMIS. 2010; 118(1):1–3 6.
+49. Ministry of Health and Prevention (UAE) ; National Sub-Co mmittee for AMR Surveillanc e. United Arab
+Emirates Surveillance of Antimicro bial Resistan ce Annual Report 2022. United Arab Emirate s; 2022.
+50. Korzeniew ska E, Korzeniews ka A, Harnisz M. Antibiotic resistant Escherich ia coli in hospital and munic-
+ipal sewage and their emission to the environment . Ecotoxicol Environ Saf. 2013; 91:96–102.
+51. Nagaraj an R. Antibacte rial activities and modes of action of vancomy cin and related glycopepti des.
+Antimicro b Agents Chemot her. 1991; 35(4):605– 9. https://doi.o rg/10.1128/A AC.35.4.60 5 PMID:
+2069366
+52. Cetinkay a Y, Falk P, Mayhall CG. Vancomycin- resistant enterococ ci. Clin Microbiol Rev. 2000; 13
+(4):686–70 7. https://do i.org/10.1128 /CMR.13.4.6 86 PMID: 11023964
+53. Gardete S, Tomasz A. Mechan isms of vancomy cin resistance in Staphyloc occus aureus. The Journal
+of clinical investigatio n. 2014; 124(7):283 6–40. https://doi.or g/10.1172/ JCI68834 PMID: 24983424
+54. Centers for Disease Control and Prevention [Interne t]. USA: Diseases and Organisms in Healthc are
+Settings [cited 2023 May 3]. Available from: https:// www.cdc.go v/hai/organis ms/organisms .html.
+55. Do TT, Tamam es J, Stedtfel d RD, Guo X, Murphy S, Tiedje JM, et al. Antibiotic resistance gene detec-
+tion in the microbiome context . Microb Drug Resist. 2018; 24(5):542– 6. https://doi.or g/10.108 9/mdr.
+2017.0199 PMID: 29185915
+56. Qian X, Gu J, Sun W, Wang X-J, Su J-Q, Stedfel d R. Diversity, abunda nce, and persistenc e of antibiotic
+resistance genes in various types of animal manure following industrial compost ing. J Hazard Mater.
+2018; 344:716 –22. https://doi.or g/10.101 6/j.jhazmat.20 17.11.02 0 PMID: 29154097
+57. Piddock LJ. Clinically relevan t chromosomall y encoded multidru g resistance efflux pumps in bacteria .
+Clin Microbiol Rev. 2006; 19(2):382– 402. https://doi.or g/10.112 8/CMR.19.2 .382-402.200 6 PMID:
+16614254
+58. Fujiwara M, Yamasak i S, Morita Y, Nishino K. Evaluation of efflux pump inhibitors of MexAB- or MexXY-
+OprM in Pseudo monas aeruginos a using nucleic acid dyes. J Infect Chem other. 2022; 28(5):595– 601.
+https://doi.or g/10.101 6/j.jiac.20 22.01.003 PMID: 351688 78
+59. Morita Y, Tomida J, Kawamura Y. MexXY multidru g efflux system of Pseudo monas aeruginosa. Front
+Microbiol . 2012; 3:408. https:// doi.org/10.33 89/fmicb. 2012.00408 PMID: 232338 51
+60. Labovska ´ S. Pseudo monas aeruginosa as a Cause of Nosocomi al Infections [Internet] . Pseudomo nas
+aeruginosa— Biofilm Formation , Infections and Treatmen ts. IntechOpen; 2021. Available from: http://
+dx.doi.or g/10.5772/intec hopen.95908
+61. Silby MW, Winstanle y C, Godfrey SA, Levy SB, Jackson RW. Pseudomo nas genomes: diverse and
+adaptable. FEMS Microbiol Rev. 2011; 35(4):652– 80. https://d oi.org/10.111 1/j.1574 -6976.2011.0 0269.
+x PMID: 21361996
+62. Said MB, Abbassi MS, Go ´ mez P, Ruiz-Ri pa L, Sghaier S, Ibrahim C, Torres C, Hassen A. Staphylo coc-
+cus aureus isolated from wastewate r treatment plants in Tunisia: occurrenc e of human and animal
+associated lineages . J Water Health. 2017; 15 (4): 638–643. https://doi.or g/10.216 6/wh.2017.2 58
+PMID: 287711 60
+PLOS ONE
+Comparing qPCR and metageno mic sequencin g methods for quantifyin g antibiotic resistance genes in wastewate r
+PLOS ONE | https://doi.or g/10.137 1/journal.po ne.02983 25 April 5, 2024 21 / 22
+63. Shannon KE, Lee DY, Trevors JT, Beaudet te LA. Application of real-tim e quantitative PCR for the
+detection of selected bacterial pathoge ns during municipal wastewate r treatment. Sci. Total Environ.
+2007; 382 (1): 121–129. https://doi.or g/10.1016/j. scitotenv.2007 .02.039 PMID: 17462712
+PLOS ONE
+Comparing qPCR and metageno mic sequencin g methods for quantifyin g antibiotic resistance genes in wastewate r
+PLOS ONE | https://doi.or g/10.137 1/journal.po ne.02983 25 April 5, 2024 22 / 22

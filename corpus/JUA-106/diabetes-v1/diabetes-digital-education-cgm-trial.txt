@@ -1,0 +1,939 @@
+Original Paper
+A Digital Diabetes Self-Management Education and Support
+Program Integrated With Continuous Glucose Monitoring for
+Type 2 Diabetes: Randomized Controlled Trial
+Ashley Berthoumieux1*, RD, MS; Jeanean B Naqvi1*, PhD; Sean Zion1, PhD; Jenna Napoleone1, MPH, PhD;
+Amanda McGuill1, MSN, CDCES, FNP-C; Christian J Cerrada2, PhD; Hyun Jung Lee3, PhD; Timothy C Dunn3,
+PhD; David Kerr4, MBChB; Carolyn Bradner Jasik1, MD; Sarah Linke1, MPH, PhD
+1Omada Health, San Francisco, CA, United States
+2Evidation Health, Inc., San Mateo, CA, United States
+3Abbott Diabetes Care, Inc., Alameda, CA, United States
+4Sutter Health Center for Health Systems Research, Santa Barbara, CA, United States
+*these authors contributed equally
+Corresponding Author:
+Jenna Napoleone, MPH, PhD
+Omada Health
+500 Sansome St, #200
+San Francisco, CA 94111
+United States
+Phone: 1 4128746505
+Email: jenna.napoleone@omadahealth.com
+Abstract
+Background: Previous research has demonstrated that the use of continuous glucose monitoring (CGM) can improve
+glycemic control in people with type 2 diabetes when used regularly alongside a digital diabetes self-management education
+and support (DSMES) program. However, to date, there is limited evidence showing the benefits of a digitally delivered
+DSMES program combined with real-time CGM for adults with type 2 diabetes.
+Objective: The objective of this study is to evaluate the impact of a DSMES program coupled with CGM on hemoglobin A 1c
+(HbA1c) and CGM-derived glycemic measures compared to usual care for adults with type 2 diabetes over 6 months.
+Methods: Participants with type 2 diabetes and HbA 1c of 8% or higher (64 mmol/mol) who were not using mealtime bolus
+insulin (aged 26 ‐83 y; mean HbA 1c 9.6%, SD 1.4% [mean 81.2 mmol/mol, SD 15.8 mmol/mol]) were randomly assigned to
+a digital DSMES+CGM integrated solution (n=51) or usual care (n=49) for 6 months. The primary outcome was HbA 1c. The
+secondary outcomes were CGM-derived glycemic measures, including glucose management indicator, percent time in range
+70 to 180 mg/dL, percent time above range (>180 mg/dL), percent time below range (<70 mg/dL), and mean glucose. Linear
+mixed effects models were used for intention-to-treat analyses.
+Results: HbA1c was lower among the intervention group versus the usual care group at 3 months (difference= −0.7%, 95% CI
+−1.4% to −0.1% or difference=−8.1 mmol/mol, 95% CI −15.5 to −0.7 mmol/mol; P=.03) and at 6 months (difference= −0.6%,
+95% CI −1.4% to 0.2% or difference= −6.9 mmol/mol, 95% CI −15.7 to 1.9 mmol/mol; P=.12) but only reached statistical
+significance at 3 months. CGM-derived glycemic measures, including glucose management indicator (difference= −0.9%,
+95% CI −1.7% to −0.1%; P=.03), time in range (difference=14.6%, 95% CI 1.0% to 28.2%; P=.04), time above range
+(difference=−14.9%, 95% CI −29.0% to −0.9%; P=.04), and mean glucose (difference= −36.4 mg/dL, 95% CI −70.0 to −2.9
+mg/dL; P=.03), also significantly improved for the intervention group versus the usual care group at 6 months.
+Conclusions: The combination of digital DSMES+CGM is effective for supporting adults with type 2 diabetes in managing
+their condition and has the potential to reduce the risk of long-term health complications.
+Trial Registration: ClinicalTrials.gov NCT05368454; https://clinicaltrials.gov/ct2/show/NCT05368454
+J Med Internet Res 2026;28:e78321; doi: 10.2196/78321
+JOURNAL OF MEDICAL INTERNET RESEARCH Berthoumieux et al
+https://www.jmir.org/2026/1/e78321 J Med Internet Res 2026 | vol. 28 | e78321 | p. 1
+(page number not for citation purposes)
+Keywords: diabetes self-management education and support; diabetes education; digital health; continuous glucose monitor-
+ing; time in range; chronic disease management
+Introduction
+Type 2 diabetes is a chronic disease that affects the body’s
+ability to regulate and use insulin effectively, leading to high
+blood glucose levels. Persistent hyperglycemia, as estimated
+by hemoglobin A 1c (HbA1c) [1], increases the risk of severe
+diabetes complications, including but not limited to vision
+loss, renal failure, and cardiovascular disease [ 2]. As the
+incidence and prevalence of type 2 diabetes continue to rise
+nationwide, impacting more than 34 million adults in 2021
+[3], there is a pressing need to develop and scale accessible,
+evidence-based diabetes management programs to alleviate
+the significant societal and individual burden of the chronic
+condition.
+Diabetes self-management education and support
+(DSMES) is an effective approach for helping individuals
+practice diabetes self-care with intensive counseling and
+support [ 4,5]. DSMES programs are scalable using technol-
+ogy-enabled platforms [ 6], allowing people with chronic
+diseases to access DSMES programs from their personal
+mobile devices (eg, smartphones, tablets, laptops) and
+eliminate the need to travel to physical facilities for diabe-
+tes education sessions. This convenience potentially increases
+access and availability, thereby reaching more participants
+than traditional in-person programs [7].
+The introduction of continuous glucose monitoring (CGM)
+devices has revolutionized diabetes management by provid-
+ing real-time glucose readings without painful fingersticks.
+For those taking insulin or at high risk for complications,
+CGMs help monitor fluctuations in blood glucose, informing
+potential changes to their diet or medication regimens [ 8].
+Studies have demonstrated that CGM can be a cost-effective
+option compared to conventional self-monitoring of blood
+glucose [ 9-11] and can improve glycemic control in people
+with type 2 diabetes when used regularly alongside DSMES
+programs [12].
+However, previous research studies evaluating DSMES
+programs integrated with CGM have predominantly focused
+on in-person programs and short-term intermittent use of
+CGM for less than 8 weeks [ 13-16]. A few observational
+studies have explored the effects of a telemedicine lifestyle
+program for diabetes that included a CGM offering [ 17,18],
+but CGM use among participants was short term and the
+findings could not be extrapolated to show a cause-effect
+relationship between the virtually integrated approach and
+improved glycemic control.
+Nevertheless, a meta-analysis of randomized control-
+led trials (RCTs) evaluating the clinical effectiveness of
+telemedicine for diabetes revealed that virtual health care
+services are generally more effective for diabetes care
+management than in-person care alone [ 19]. People partici-
+pating in digital diabetes care programs have seen improved
+clinical outcomes (eg, HbA 1c reduction) and reduced medical
+expenditures [ 20-22], but clinical trials evaluating many of
+these digital programs have not reported CGM data related to
+their interventions for type 2 diabetes [23-25].
+Despite growing observational research demonstrating the
+effectiveness of digital DSMES and CGM, to date, no
+RCTs have shown the benefits of a well-integrated solu-
+tion that combines a digitally delivered DSMES program
+with longer-term, real-time CGM for adults with type 2
+diabetes. Therefore, the aim of this RCT was to evaluate
+the impact of the integrated solution—defined as a digital
+DSMES program+CGM—on HbA1c, CGM-derived glycemic
+measures, and other relevant diabetes management outcomes
+compared to usual care over 6 months.
+Methods
+Study Design
+This single-blind, parallel, decentralized RCT was designed
+to assess the efficacy of a digital DSMES+CGM integra-
+ted solution on glycemic management among adults with
+type 2 diabetes not on mealtime bolus insulin therapy, in
+accordance with the intended labeling of the FreeStyle Libre
+(FSL) 14-Day CGM system (Abbott Diabetes Care, Inc). The
+primary objective of this study was to evaluate the relative
+improvement in HbA 1c from baseline to 3 and 6 months of
+the digital DSMES+CGM intervention condition compared
+with a usual care control condition.
+Ethical Considerations
+The protocol was approved by the WCG Institutional Review
+Board (IRB Tracking ID: 20220021) and registered on
+ClinicalTrials.gov (NCT05368454). All participants provided
+electronic informed consent. All research data were deidenti-
+fied and coded with unique identifiers, and the data were
+transmitted using secure encrypted protocols and stored on
+encrypted disks on secure servers. Participants received up to
+a total of US $250 for completing all study activities.
+Participants
+To meet the inclusion criteria, participants had to be at least
+18 years old, living in the United States, have English as
+their primary language, have a compatible smartphone for
+access to the digital DSMES program, and have a self-repor-
+ted type 2 diabetes diagnosis for at least 6 months prior to
+enrollment. Additionally, they needed a laboratory-confirmed
+HbA1c level of 8% or higher (64 mmol/mol) at baseline,
+a treatment regimen that included a combination of basal
+insulin, oral medications, and diet and exercise, and a report
+being compliant with their diabetes management plan. If on
+a medication regimen, they must have been on their current
+medication regimen for at least 3 months prior to enrollment
+and have been willing to adhere to their regimen throughout
+the study. During the initial recruitment period (June-October
+2022), participants were also required to have a percent time
+in range (TIR; 70 ‐180 mg/dL) of <60% prior to enrollment,
+which was eventually removed from the eligibility criteria
+JOURNAL OF MEDICAL INTERNET RESEARCH Berthoumieux et al
+https://www.jmir.org/2026/1/e78321 J Med Internet Res 2026 | vol. 28 | e78321 | p. 2
+(page number not for citation purposes)
+to reduce participant burden and improve study activity
+workflow during the remainder of the recruitment period
+(October 2022-May 2023).
+Exclusion criteria included type 1 diabetes or a his-
+tory of diabetic ketoacidosis, cardiovascular issues within
+3 months before enrollment (ie, transient ischemic attack
+or stroke, heart attack, hospitalization for congestive heart
+failure), recent (within 6 mo before enrollment) or plan-
+ned cancer treatment, a self-reported condition leading to
+a life expectancy <12 months, renal impairment, alcohol
+or substance abuse issue or dependency, bariatric surgery
+or organ transplant within 6 months before enrollment,
+and pregnancy or intentions of conceiving during the study
+period (female participants). Other exclusion criteria included
+mealtime bolus insulin therapy, premixed insulin formula-
+tions or a continuous subcutaneous infusion of insulin, routine
+regimen of glucocorticoids or psychotropic medications, skin
+conditions that could interfere with CGM device placement,
+diagnostic imaging (ie, X-ray, magnetic resonance imaging,
+computed tomography) scheduled while wearing a CGM for
+measurement purposes, and visual impairment that could
+interfere with viewing of CGM data or use of the digital
+DSMES program.
+Recruitment
+We recruited individuals to join this decentralized trial
+through Evidation (Evidation Health, Inc.), an online health
+platform through which users connect their digital health
+tools, such as fitness apps and wearable activity trackers,
+in exchange for monetary incentives. Targeted emails and
+platform posts were sent to existing Evidation members
+who had agreed to receive communications about studies
+that may be relevant to them based on the health and
+lifestyle information they had provided to the platform. We
+also recruited non-Evidation members, targeting individuals
+in geographic areas with the highest prevalence of type 2
+diabetes through paid advertisements on Google Search and
+Facebook and forum posts on Reddit between February and
+May 2023.
+Eligibility Screening
+Those who passed an initial screening proceeded to sign an
+electronic informed consent form for the study and completed
+an online baseline survey, which collected their demographic
+information, health and diabetes history, and patient-repor-
+ted outcomes. A secondary screening visit was performed
+to confirm that potential participants met the additional
+eligibility criteria of an HbA 1c level of 8% or higher (64
+mmol/mol) and, prior to October 2022, a TIR (70‐180 mg/dL)
+of <60%. Contracted vendors (PCM Trials/Act for Health,
+Inc, and Hawthorne Effect, Inc) deployed certified and trained
+clinicians to conduct home visits in cities and rural areas
+across the United States, eliminating the need for participants
+to travel to a physical site or clinic for clinical assessments.
+During the home visits, they collected up to 4 mL of blood
+using venipuncture, anthropometric measurements, resting
+blood pressure, and a list of participants’ cardiometabolic
+medications. They also applied and activated 2 FSL Pro
+CGM sensors on the participants for measurement purposes,
+and participants were instructed to wear the FSL Pro CGM
+sensors for up to 14 days while blinded to the data. After-
+wards, participants mailed the devices to the study team for
+data download and TIR analysis. The contracted clinicians
+mailed the blood specimens to Quest Diagnostics laboratory
+for HbA 1c analysis. Participants who had a laboratory-con-
+firmed HbA 1c of 8% or higher (64 mmol/mol) and a TIR
+(70‐180 mg/dL) of <60% if recruited prior to mid-October
+2022 were randomized and considered enrolled in the study.
+Randomization and Masking
+Each eligible participant was randomized to 1 of the 2
+conditions (digital DSMES+CGM or usual care) according
+to an Evidation-controlled algorithm that used randomly
+permuted blocks of fixed size. Randomization was stratified
+by gender to ensure nearly equal sample sizes for the 2
+treatment arms for each gender.
+The assessment staff members (ie, clinicians conducting
+home visits, Quest Diagnostics) and the Evidation-designa-
+ted statistician that developed the statistical analysis plan
+were blinded to the intervention assignment during the
+study period. Adverse-event adjudicators, designated research
+personnel at Evidation and Omada, and Omada coaching
+staff were not blinded. Participants were not blinded to their
+assignment but were blinded to their HbA 1c levels and CGM
+blood glucose values collected by FSL Pro sensors.
+Digital DSMES+CGM Integrated Solution
+Participants randomized to the digital DSMES+CGM
+intervention arm completed an application for the Omada
+for Diabetes program, a digitally delivered DSMES program
+that has achieved accreditation from the National Commit-
+tee for Quality Assurance’s Population Health Program and
+Accreditation and the Association of Diabetes Care and
+Education Specialists. The program pairs asynchronous health
+coaching from a care team comprising certified Diabetes
+Prevention Program Lifestyle Coaches and Certified Diabetes
+Care and Education Specialists (CDCESs) with a virtual
+platform accessed through a website or mobile app available
+on web-enabled devices. Upon enrollment, members receive
+cellularly connected Food and Drug Administration–approved
+devices, such as body weight scales and CGMs, along with
+tailored diabetes self-management and lifestyle modification
+support under the guidance of their care team. The care team
+interacts with members asynchronously through messaging
+on the virtual platform, regularly monitoring participants’
+engagement and biometric data collected during the program
+and using it to provide tailored feedback on diabetes self-
+management through proactive outreach and responding to
+member questions. CGM data are continuously collected in
+real time, and when scanned, glucose data are sent to the
+program app, where they are available for members to see
+patterns, track progress, and get personalized recommenda-
+tions from their assigned coach. Additional program features
+include weekly lessons with nutrition and lifestyle content,
+support around personalized goal setting, and online peer
+communities. The weekly curriculum lessons and all program
+features are accessible on both computers and mobile
+devices, enabling members to engage at their preferred times,
+JOURNAL OF MEDICAL INTERNET RESEARCH Berthoumieux et al
+https://www.jmir.org/2026/1/e78321 J Med Internet Res 2026 | vol. 28 | e78321 | p. 3
+(page number not for citation purposes)
+frequency, and with the tools and resources they find most
+useful [26].
+After submitting an application to join the digital DSMES
+program as research members, digital DSMES+CGM
+participants completed their account setup through a one-time
+consultation with a board-certified physician from CirrusMD,
+a contracted third-party telehealth provider that independ-
+ently determined whether a CGM prescription was clinically
+appropriate for an individual. CirrusMD physicians evalu-
+ated members and prescribed 14 Abbott FSL 14-Day CGM
+sensors as part of the integrated solution, which were sent
+directly to members’ homes to cover 6 months of continu-
+ous wear while participating in the digital DSMES program.
+During the follow-up assessment periods (3-mo and 6-mo
+timepoints), participants in the intervention condition were
+instructed to wear their FSL Pro sensors and FSL 14-Day
+sensor at the same time. Unlike the FSL Pro sensors used for
+measurement of CGM-derived glycemic outcomes, members
+and their care team at Omada had full access to the CGM data
+collected through the FSL 14-Day sensors for 6 months.
+Usual Care Control Condition
+Participants randomized to usual care were advised during the
+informed consent process to continue the diabetes treatment
+plan as recommended by their health care provider from
+screening to the end of the study period. Usual care inclu-
+ded oral medications, basal insulin, or nonpharmacologic
+therapies such as diet and exercise, in addition to ongoing
+medical monitoring by their health care provider. During the
+follow-up assessment periods (3-mo and 6-mo timepoints),
+participants in the usual care control condition only needed to
+wear their FSL Pro sensors and did not receive FSL 14-Day
+sensors.
+Follow-Up Visits
+Interim and poststudy follow-up visits occurred 3 and 6
+months (±14 d) after randomization for all study partici-
+pants, respectively. During these follow-up visits at partici-
+pants’ homes, contracted clinicians performed blood draws,
+took anthropometric measurements, assessed resting blood
+pressure, and reviewed cardiometabolic medication regimens.
+At each follow-up visit, clinicians applied and activated 2
+FSL Pro sensors on participants for measurement and data
+quality purposes. Study participants were then instructed to
+wear the sensors for up to 14 consecutive days while blinded
+to the data and to mail them back to the study team using a
+prepaid shipping envelope.
+Return follow-up visits occurred outside of the ±14-day
+range if a repeat blood draw was needed. This transpired
+if there was no usable data from the sample or FSL Pro
+sensors through no fault of the participant (eg, mail delays
+causing the blood sample to be outside the testing window,
+sensor malfunction). Participants received compensation for
+all completed study visits.
+Measures
+Study outcomes were compared between the digital DSMES
+program+CGM versus usual care at 3 and 6 months. The
+primary outcome was HbA 1c level. The secondary outcomes
+measured by the FSL Pro sensors included CGM 14-day %
+TIR, time above range (TAR; >180 mg/dL and >250 mg/
+dL), and time below range (TBR; <70 mg/dL). Furthermore,
+differences in mean blood glucose, SD of blood glucose,
+coefficient of variation, and glucose management indicator
+(GMI) were examined. Lastly, body weight, resting systolic
+and diastolic blood pressure, and diabetes distress [ 27]
+were examined. Engagement in the digital DSMES+CGM
+integrated solution was measured using 5 metrics: average
+number of meals tracked per week using the digital DSMES
+app, average number of physical activity bouts tracked per
+week (manually self-reported in the digital DSMES app or
+synced from a wearable device), average number of weigh-ins
+per week using the provided cellularly connected body weight
+scale, average number of messages sent to their care team
+per week, and median number of days in which participants
+had at least 1 CGM reading from the FSL 14-Day device
+(connected through the digital DSMES app).
+Statistical Analysis
+Power was calculated assuming a −0.5% (5 mmol/mol)
+mean difference in HbA1c between the digital DSMES+CGM
+condition and usual care from baseline to 6 months. Using
+an estimated SD of 1.0, a 2-tailed type I error rate of 0.05,
+and 80% power, the sample size required for the primary
+analysis was 126 participants in total (63 per group) [ 28].
+Assuming an attrition rate of 20%, the adjusted sample size
+was 160 participants (80 per group). Therefore, since we
+reduced our recruitment goal during the active study period
+due to challenges with recruitment, we were underpowered to
+detect a statistically significant difference with our estimated
+effect size of 0.5%.
+All analyses were conducted with R (version 4.2.3) [ 29].
+Demographics and baseline clinical indicators (ie, age, BMI,
+sex, cardiovascular medication use, and type 2 diabetes
+medication use) were examined as potential covariates
+by exploring condition differences in each covariate and
+examining associations between each covariate and outcome.
+Given that there were no condition differences on any of
+the potential covariates, no covariates were included in the
+analyses.
+Linear mixed effects models were used to analyze both
+the primary and secondary outcomes using intention-to-treat
+(ITT) methodology, given that these models utilize all
+available data [ 30]. The Little missing completely at random
+(MCAR) test [ 31] was nonsignificant for all primary and
+secondary outcomes, supporting the MCAR assumption for
+this analysis and indicating that imputation was not neces-
+sary. For the primary outcome model, fixed effects included
+timepoint, condition, and a timepoint-by-condition interac-
+tion. A random slope for time and a random intercept for
+participant were included. For the secondary outcome models,
+fixed effects included timepoint, condition, and a timepoint-
+by-condition interaction. Given that several of the models
+would not converge when a random slope for time was
+included, only a random intercept for participant was included
+in the models [ 32]. All models utilized restricted maximum
+JOURNAL OF MEDICAL INTERNET RESEARCH Berthoumieux et al
+https://www.jmir.org/2026/1/e78321 J Med Internet Res 2026 | vol. 28 | e78321 | p. 4
+(page number not for citation purposes)
+likelihood estimation with an unstructured covariance matrix.
+Estimated marginal means were obtained from the models,
+and planned contrasts were conducted to examine differences
+by condition at 3 and 6 months.
+In addition to the main analysis, we conducted sensitiv-
+ity analyses for all primary and secondary outcomes where
+we excluded participants (n=9) who were randomized to
+the intervention condition but never enrolled in the digital
+DSMES+CGM integrated solution (sample size n=42). These
+models utilized the same fixed and random effects for both
+the primary and secondary outcomes. Finally, engagement
+descriptives (mean and SD) were assessed among this group
+of intervention participants that enrolled in the digital solution
+(n=42).
+Results
+Baseline Characteristics
+A total of 39,506 individuals were initially screened for
+eligibility ( Figure 1  and Checklist 1 ). Of these, 594 were
+screened as eligible, and 292 individuals completed an
+informed consent form and the baseline survey. After
+participating in a secondary screening (n=227), 112 individ-
+uals were disqualified due to HbA1c or TIR eligibility criteria,
+and 15 individuals were withdrawn or lost to follow-up.
+Thus, the final sample included 100 participants randomized
+to the digital DSMES+CGM intervention condition (n=51)
+or usual care (n=49). At 3 months, 90.2% (46/51) digital
+DSMES+CGM participants and 87.8% (43/49) usual care
+participants completed their follow-up. At 6 months, 84.3%
+(43/51) digital DSMES+CGM participants and 91.8% (45/49)
+usual care participants completed their follow-up. The level
+of missingness for the primary outcome (HbA 1c) was 24% at
+3 months and 15% at 6 months, and the level of missingness
+for the secondary outcomes ranged from 12% to 14% at 3
+months and from 13% to 23% at 6 months.
+Figure 1. CONSORT (Consolidated Standards of Reporting Trials) flow diagram. aParticipants were recruited from Evidation Health’s online
+platform if they had previously agreed to receive communications about research studies when they signed up to become an Evidation member;
+the number reflected in this box is the number of participants who started filling out the screener survey to assess their potential eligibility for this
+decentralized RCT. bHome visit was not done, but the research staff was able to maintain contact with participants who missed a 3-month assessment.
+cParticipants were either withdrawn due to ineligibility criteria or were marked lost to follow-up if the research staff was unable to reach participants
+after multiple attempts. CGM: continuous glucose monitoring; DSMES: diabetes self-management education and support; HbA 1c: hemoglobin A 1c;
+RCT: randomized controlled trial.
+Baseline demographic and clinical characteristics of the study
+population are presented in Table 1 . Across conditions,
+participants were 50.7 (SD 10.8) years of age on average,
+and the average weight was 215.9 (SD 45.1) pounds. Most
+participants were White (55/100, 55%) and female (70/100,
+70%), and half had less than a 4-year college degree (50/100,
+50%). The median household income was between US
+$50,000 and $74,999. Mean baseline HbA 1c was 9.6% (SD
+JOURNAL OF MEDICAL INTERNET RESEARCH Berthoumieux et al
+https://www.jmir.org/2026/1/e78321 J Med Internet Res 2026 | vol. 28 | e78321 | p. 5
+(page number not for citation purposes)
+1.4%) or 81.2 (SD 15.8) mmol/mol, and % TIR (70 ‐180
+mg/dL) was 33.6 (SD 28.0). Of members who reported taking
+diabetes medication at one or more of the 3 study visits
+(n=95), 86 (91%) reported a change in their medication over
+time. Specifically, a total of 53% (50/95) of members started
+a new medication and 58% (55/95) of members stopped a
+medication during the study period, with 35% (33/95) of
+members increasing the total number of medications reported
+and 42% (40/95) decreasing the total number of medications
+reported during the study period. There were no significant
+differences in baseline characteristics (including baseline
+diabetes medications) or in the number of members who
+started or stopped a medication, used insulin, increased or
+decreased the number of medications reported, or had any
+medication change during the study period between the 2
+conditions. When looking only at members who took oral
+medication only at baseline (n=67), there were no differences
+in baseline characteristics between the 2 conditions.
+Table 1. Baseline characteristics of study participants by condition.
+Characteristic Digital DSMESa+CGMb (n=51) Usual care (n=49) Overall (N=100)
+Age (y), mean (SD) 51.7 (10.2) 49.5 (11.5) 50.7 (10.8)
+Sex (female), n (%) 35 (68.6) 35 (71.4) 70 (70)
+Race or ethnicity, n (%)
+  White 29 (56.9) 26 (53.1) 55 (55)
+  Black/African American 11 (21.6) 9 (18.4) 20 (20)
+  Hispanic/Latino/Spanish 4 (7.8) 8 (16.3) 12 (12)
+  Another race 7 (13.7) 6 (12.2) 13 (13)
+Education (<4-y college degree), n (%) 28 (54.9) 22 (44.9) 50 (50)
+Household income, median US $50,000-$74,999 US $50,000-$74,999 US $50,000-
+$74,999
+Duration of type 2 diabetes (y), mean (SD) 10.4 (7.5) 10.5 (7.6) 10.5 (7.5)
+Diabetes medication, n (%)
+  GLP-1 injection 13 (25.5) 8 (16.3) 21 (21)
+  Oral medication only 31 (60.8) 36 (73.5) 67 (67)
+  Diet and exercise only 6 (11.8) 2 (4.1) 8 (8)
+  Basal insulin and oral medication 1 (2) 3 (6.1) 4 (4)
+Weight (lb), mean (SD) 213.1 (40.5) 218.6 (49.6) 215.9 (45.1)
+BMI (kg/m2), mean (SD) 34.2 (5.8) 35.9 (7.9) 35.0 (6.9)
+HbA1cc (%), mean (SD) 9.5 (1.4) 9.7 (1.5) 9.6 (1.4)
+HbA1c (mmol/mol), mean (SD) 80.1 (15.5) 82.2 (16.2) 81.2 (15.8)
+% TIRd (70‐180 mg/dL), mean (SD) 36.0 (28.5) 31.0 (27.5) 33.6 (28.0)
+% TARe (>180 mg/dL), mean (SD) 63.0 (30.1) 68.3 (28.4) 65.5 (29.3)
+% TBRf (<70 mg/dL), mean (SD) 1.0 (3.4) 0.8 (2.5) 0.9 (3.0)
+Mean glucose (mg/dL), mean (SD) 219.1 (68.9) 236.1 (75.8) 227.3 (72.4)
+GMIg (%), mean (SD) 8.6 (1.6) 9.0 (1.8) 8.8 (1.7)
+aDSMES: diabetes self-management education and support.
+bCGM: continuous glucose monitoring.
+cHbA1c: hemoglobin A1c.
+dTIR: time in range.
+eTAR: time above range.
+fTBR: time below range.
+gGMI: glucose management indicator.
+Engagement Metrics (Digital
+DSMES+CGM Group Only)
+Of those who enrolled in the digital DSMES+CGM integra-
+ted solution (n=42), the mean number of meals tracked was
+4.6 (SD 6.7) per week, and the mean number of physical
+activity bouts recorded was 4.3 (SD 3.1) per week within the
+digital DSMES app. Participants also weighed themselves an
+average of 3.3 (SD 2.5) times per week using the cellu-
+larly connected body weight scale as part of the digital
+DSMES program. Participants sent an average of 1.2 (SD 1.1)
+messages to their care team per week. The median number
+of days per week in which participants had at least 1 CGM
+reading from the FSL 14-Day sensor was 4.8.
+Primary Outcome: HbA1c
+The results for HbA 1c are presented in Figure 2 . Partici-
+pants in the digital DSMES+CGM condition had significantly
+lower HbA 1c than those in usual care at 3 months ( −0.7%,
+95% CI −1.4% to −0.1% or −8.1 mmol/mol, 95% CI −15.5 to
+−0.7 mmol/mol; P=.03) and lower, nonsignificant reductions
+in HbA1c at 6 months (−0.6%, 95% CI −1.4% to 0.2% or −6.9
+mmol/mol, 95% CI −15.7 to 1.9 mmol/mol; P=.12).
+JOURNAL OF MEDICAL INTERNET RESEARCH Berthoumieux et al
+https://www.jmir.org/2026/1/e78321 J Med Internet Res 2026 | vol. 28 | e78321 | p. 6
+(page number not for citation purposes)
+A sensitivity analysis excluding participants who never
+participated in the intervention showed that participants in
+the digital DSMES+CGM condition had significantly lower
+HbA1c than those in usual care at both 3 months ( −1%, 95%
+CI −1.6% to −0.3% or −10.5 mmol/mol, 95% CI −17.9 to
+−3.1 mmol/mol; P=.01) and 6 months (−0.8%, 95% CI −1.6%
+to −0.02% or −9.1 mmol/mol, 95% CI −18.0 to −0.2 mmol/
+mol; P=.046).
+Figure 2. Change in mean hemoglobin A 1c over time by condition. P values <.05 are italicized. CGM: continuous glucose monitoring; DSMES:
+diabetes self-management education and support; HbA1c: hemoglobin A1c; M: mean.
+Secondary Outcomes
+The results for the secondary outcomes are presented in Table
+2 (3-month outcomes), Table 3  (6-month outcomes), and
+Figure 3 . CGM-derived glycemic measures were collected
+using the blinded FSL Pro sensors. At 3 months, participants
+in the digital DSMES+CGM condition had a 13.5% (95%
+CI 0.3% to 26.6%; P=.045) higher TIR and a 16.9% (95%
+CI −30.4% to −3.3%; P=.02) lower TAR >250 mg/dL than
+those in usual care. In addition, at 3 months, participants in
+the digital DSMES+CGM condition had 39.8 mg/dL (95% CI
+−72.2 to −7.4 mg/dL; P=.02) lower mean glucose and 0.9%
+(95% CI −1.7% to −0.2%; P=.02) lower GMI than those in
+usual care.
+JOURNAL OF MEDICAL INTERNET RESEARCH Berthoumieux et al
+https://www.jmir.org/2026/1/e78321 J Med Internet Res 2026 | vol. 28 | e78321 | p. 7
+(page number not for citation purposes)
+Table 2. Secondary clinical outcomes by condition at 3 months.
+Variable
+Digital DSMESa+CGMb
+(n=51), mean (SE) Usual care (n=49), mean (SE) Adjusted mean difference (95% CI) P valuec
+% TIRd (70‐180 mg/dL) 47.5 (4.6) 34.0 (4.8) 13.5 (0.3 to 26.6) .045
+% TARe (>180 mg/dL) 51.7 (4.8) 65.1 (5.0) −13.3 (−26.9 to 0.2) .05
+% TAR (>250 mg/dL) 23.7 (4.8) 40.6 (5.0) −16.9 (−30.4 to −3.3) .02
+% TBRf (<70 mg/dL) 0.7 (0.4) 0.8 (0.4) −0.1 (−1.2 to 0.9) .78
+Mean glucose (mg/dL) 199.5 (11.4) 239.4 (11.8) −39.8 (−72.2 to −7.4) .02
+Mean SD of glucose (mg/dL) 40.0 (1.7) 44.4 (1.8) −4.5 (−9.4 to 0.5) .08
+Mean % CVg 21.0 (0.9) 20.1 (0.9) 0.9 (−1.54 to 3.3) .47
+GMIh (%) 8.1 (0.3) 9.0 (0.3) −0.9 (−1.7 to −0.2) .02
+Weight (lb) 212.4 (6.6) 214.7 (6.7) −2.3 (−21.0 to 16.4) .81
+Systolic BPi (mm Hg) 129.5 (2.3) 130.6 (2.4) −1.1 (−7.6 to 5.5) .75
+Diastolic BP (mm Hg) 83.7 (1.5) 83.5 (1.5) 0.2 (−3.9 to 4.3) .92
+Diabetes distress 0.8 (0.1) 0.9 (0.1) −0.1 (−0.3 to 0.1) .19
+aDSMES: diabetes self-management education and support.
+bCGM: continuous glucose monitoring.
+cP values <.05 are italicized.
+dTIR: time in range.
+eTAR: time above range.
+fTBR: time below range.
+gCV: coefficient of variation.
+hGMI: glucose management indicator.
+iBP: blood pressure.
+Table 3. Secondary clinical outcomes by condition at 6 months.
+Variable
+Digital DSMESa+CGMb
+(n=51), mean (SE)
+Usual care (n=49), mean
+(SE) Adjusted mean difference (95% CI) P valuec
+% TIRd (70‐180 mg/dL) 51.3 (4.8) 36.7 (5.0) 14.6 (1.0 to 28.2) .04
+% TARe (>180 mg/dL) 47.7 (4.9) 62.6 (5.1) −14.9 (−29.0 to −0.9) .04
+% TAR (>250 mg/dL) 19.7 (5.0) 37.6 (5.1) −17.9 (−32.0 to −3.8) .01
+% TBRf (<70 mg/dL) 0.9 (0.4) 0.6 (0.4) 0.3 (−0.8 to 1.4) .60
+Mean glucose (mg/dL) 196.7 (11.8) 233.1 (12.2) −36.4 (−70.0 to −2.9) .03
+Mean SD of glucose (mg/dL) 38.9 (1.8) 44.1 (1.9) −5.2 (−10.3 to −0.1) .047
+Mean % CVg 21.3 (0.9) 20.6 (0.9) 0.7 (−1.8 to 3.2) .59
+GMIh (%) 8.0 (0.3) 8.9 (0.3) −0.9 (−1.7 to −0.1) .03
+Weight (lb) 212.1 (6.6) 210.6 (6.7) 1.5 (−17.2 to 20.2) .87
+Systolic BPi (mm Hg) 123.7 (2.4) 125.6 (2.3) −1.9 (−8.5 to 4.6) .56
+Diastolic BP (mm Hg) 82.3 (1.5) 85.1 (1.5) −2.8 (−6.9 to 1.3) .18
+Diabetes distress 0.7 (0.1) 0.8 (0.1) −0.1 (−0.3 to 0.0) .14
+aDSMES: diabetes self-management education and support.
+bCGM: continuous glucose monitoring.
+cP values <.05 are italicized.
+dTIR: time in range.
+eTAR: time above range.
+fTBR: time below range.
+gCV: coefficient of variation.
+hGMI: glucose management indicator.
+iBP: blood pressure.
+JOURNAL OF MEDICAL INTERNET RESEARCH Berthoumieux et al
+https://www.jmir.org/2026/1/e78321 J Med Internet Res 2026 | vol. 28 | e78321 | p. 8
+(page number not for citation purposes)
+Figure 3. Mean change in (A) GMI (%); (B) % TIR; 70 ‐180 mg/dL, (C) % TAR; >180 mg/dL, and (D) mean glucose (mg/dL) over time by
+condition. CGM: continuous glucose monitoring; DSMES: diabetes self-management education and support; GMI: glucose management indicator;
+TAR: time above range; TIR: time in range.
+At 6 months, participants in the digital DSMES+CGM
+condition had a 14.6% (95% CI 1.0% to 28.2%; P=.04)
+higher TIR, a −14.9% (95% CI −29.0% to −0.9%; P=.04)
+lower TAR >180 mg/dL, and a 17.9% (95% CI −32.0% to
+−3.8%; P=.01) lower TAR >250 mg/dL than those in usual
+care. In addition, at 6 months, participants in the digital
+DSMES+CGM condition had 36.4 mg/dL (95% CI −70.0 to
+−2.9 mg/dL; P=.03) lower mean glucose, 5.2 mg/dL (95%
+CI −10.3 to −0.01 mg/dL; P=.047) lower SD of glucose, and
+0.9% (95% CI −1.7% to −0.1%; P=.03) lower GMI than those
+in usual care.
+Finally, no statistically significant differences between the
+intervention and control groups were seen for weight, systolic
+or diastolic blood pressure, or diabetes distress at either 3 or 6
+months.
+When conducting sensitivity analyses excluding partici-
+pants who never enrolled or participated in the interven-
+tion, results remained largely the same as the ITT analyses
+with 2 exceptions: participants in the digital DSMES+CGM
+condition had significantly lower TAR >180 mg/dL ( −16.3%,
+95% CI −30.3% to −2.3%; P=.02) and SD of glucose ( −5.8
+mg/dL, 95% CI −11.0 to −0.7 mg/dL; P=.03) than those in
+usual care at 3 months.
+There were no reported serious adverse events related to
+the study devices or program, and the number of adverse
+events did not differ significantly across conditions.
+Discussion
+Results from this RCT evaluating an integrated dig-
+ital DSMES program+CGM revealed that participants
+JOURNAL OF MEDICAL INTERNET RESEARCH Berthoumieux et al
+https://www.jmir.org/2026/1/e78321 J Med Internet Res 2026 | vol. 28 | e78321 | p. 9
+(page number not for citation purposes)
+randomized to the integrated solution experienced improve-
+ments in HbA 1c and CGM-derived measures of glycemic
+control compared to usual care over 6 months. Though the
+difference between conditions in HbA 1c at 6 months was
+not significant within an ITT analysis, sensitivity analy-
+ses showed that participants who enrolled in the digital
+DSMES+CGM condition had significantly lower HbA 1c than
+those in usual care. These findings are clinically meaningful
+given that, on average, the intervention group saw an almost
+1-point reduction in HbA 1c levels over the study period—a
+degree of change that is twice as large as the benchmark for
+a clinically significant change in HbA 1c of 0.5% [ 33] and
+is associated with a reduced risk of diabetes-related complica-
+tions, including microvascular disease, myocardial infarction,
+heart failure, stroke, and death [34].
+Given the focus of this trial on the integration of CGM
+with DSMES [ 35], CGM-derived glycemic measures also
+improved in the digital DSMES+CGM condition compared
+to usual care. From baseline to 6 months, participants in the
+digital DSMES+CGM condition experienced a 15% increase
+in percent TIR and a 15% decrease in percent TAR >180
+mg/dL, which were more favorable improvements compared
+to usual care and at a magnitude of change 3-fold greater
+than what previous research has demonstrated to be clinically
+meaningful [ 36]. Additionally, participants in our integra-
+ted solution had a 0.89% lower GMI than those in usual
+care at 6 months, indicating that those receiving the digital
+DSMES program+CGM had better glycemic control and a
+lower risk for diabetes-related complications [ 37]. Together,
+our findings demonstrate improvement in TIR and reduced
+variability of blood glucose among participants who received
+the digital DSMES+CGM integrated solution compared to
+usual care.
+The design of our integrated solution leveraged a
+combination of the benefits of CGM and DSMES programs
+for type 2 diabetes management. Previous research revealed
+that using CGM for 8 weeks helped people with diabe-
+tes significantly reduce their HbA 1c by an average 1-point
+reduction, which is consistent with our present study and
+demonstrates the importance of self-monitoring for diabe-
+tes management [ 38]. Additional research also showed that
+coupling CGMs with DSMES over 16 weeks led to signifi-
+cantly greater mean TIR, significantly less TAR, and a greater
+reduction in mean HbA 1c compared to DSMES alone [ 15].
+However, a unique feature of our clinical trial is the integra-
+tion of both real-time CGM and digital DSMES over a longer
+6-month period to evaluate the consistent and sustainable
+aspects of the intervention.
+As part of the intervention, research participants in
+the digital DSMES program received 1:1 support from
+a CDCES, which included systematic outreach at fixed
+program weeks in addition to continuous health coaching and
+tailored feedback in response to members’ biometric data
+collected throughout the program (eg, CGM glucose values
+and body weight). Their strategic outreach and continuous
+monitoring highlights the proactive feature of the integra-
+ted solution, aligning well with past research revealing that
+proactive case management significantly improved glycemic
+control in patients with diabetes [ 39]. Furthermore, digital
+DSMES+CGM participants in our study were also highly
+engaged, as exhibited by frequent weighing, tracking meals,
+exercising, and CGM-wearing for several days per week.
+These behaviors are impactful, given their association with
+improved glycemic control in the digital DSMES program
+[26,40].
+Our study has several strengths, with a notable advantage
+being the rigor of its single-blind RCT design. The sensi-
+tivity analysis also allowed us to more accurately estimate
+the impact of the integrated solution on clinical outcomes
+among participants who had the opportunity to engage
+with it. The convergence between the ITT and sensitivity
+results demonstrates the beneficial impact of the digital
+DSMES program+CGM on clinical outcomes. Furthermore,
+by leveraging a decentralized recruitment process, we were
+able to include a racially, socioeconomically, and geograph-
+ically diverse group of participants. This inclusive, patient-
+centered approach enhanced convenience and minimized
+dropout by bringing clinicians to participants’ homes for
+assessments [ 41]. Moreover, our trial’s postrandomization
+attrition rate was 12%, despite having a longitudinal study
+design that required several follow-up assessments and
+biospecimen collection. Notably, this attrition rate is lower
+than the approximate 30% dropout rate typically seen across
+site-based clinical trials [ 42], underscoring the benefits of
+decentralized operations.
+We also acknowledge several limitations with the current
+study. First, the complexities of remote study operations, such
+as costs, shipping delays, scheduling conflicts, and recruit-
+ment difficulties, caused us to fall short of our intended
+sample size and highlighted the challenges of implementing
+a decentralized RCT. However, the clinically and statisti-
+cally significant results observed with a smaller sample size
+underscore the effectiveness of the digital DSMES+CGM
+integrated solution. Second, 9 participants randomized to the
+intervention did not participate in the digital DSMES program
+and, therefore, did not experience the integrated solution.
+Reasons contributing to treatment nonadherence included
+screen failure due to disqualifying TIR or previous exposure
+to the DSMES program, failure to apply to the DSMES
+program, and eventual loss to follow-up. That said, all 9
+participants had at least 1 follow-up assessment, so we were
+still able to evaluate their clinical outcomes. Finally, as part
+of the integrated solution, participants were expected to wear
+an FSL 14-Day sensor continuously for the duration of the
+study (along with 2 FSL Pro sensors at baseline, 3 mo, and
+6 mo for measurement purposes), which may have increased
+participant burden and impacted adherence over the 6-month
+study period. However, these results likely reflect real-world
+compliance with CGM usage on a long-term, continuous
+basis.
+In conclusion, the statistically significant and clinically
+meaningful improvement in HbA 1c and CGM outcomes
+among participants in the digital DSMES+CGM group
+demonstrates that combining CGMs with a digital DSMES
+program can have a beneficial impact on glucose manage-
+ment among adults with type 2 diabetes. Nevertheless,
+JOURNAL OF MEDICAL INTERNET RESEARCH Berthoumieux et al
+https://www.jmir.org/2026/1/e78321 J Med Internet Res 2026 | vol. 28 | e78321 | p. 10
+(page number not for citation purposes)
+longer and larger-scale trials are warranted to assess the
+reliability of our findings and the benefit of our integra-
+ted solution on potentially reducing the risk of long-term
+health complications. Ultimately, increasing access to digital
+DSMES programs with integrated CGM capabilities may
+be a promising approach to help adults with type 2 diabe-
+tes manage their condition, improve health outcomes, and
+support broader efforts to enhance the quality and effective-
+ness of diabetes care.
+Acknowledgments
+The authors thank Melinda Merry, Bailey Peterka, and Carolyn Salter at Omada Health, Inc, for providing research members in
+the digital diabetes self-management education and support program with one-on-one health coaching and care team support as
+Certified Diabetes Care and Education Specialists. They also thank Stephanie Salwen at Evidation Health, Inc, and Hyein Cho,
+who provided extensive project management and data monitoring throughout the full study operational period, as well as Hope
+Chang and Lisa Stanton for assistance with additional medication analyses.
+Funding
+This study was funded by Omada Health, Inc, and Abbott Diabetes Care, Inc—the sponsors of this study. The authors receive
+no commissions or other compensation that are tied to the results of this research or its publication. The sponsors had no role in
+determining how the data were analyzed or how the results were interpreted beyond what is described in the manuscript.
+Data Availability
+The datasets generated during and/or analyzed during the current study are proprietary and cannot be made publicly available
+but may be available from the corresponding author upon reasonable request.
+Authors’ Contributions
+TCD, SL, CBJ, DK, CJC, and AB were involved in the conception, design, and conduct of the study. JBN, SZ, and JN
+conducted the analysis, and all authors were involved in the interpretation of the results. AB and JBN wrote the first draft of
+the manuscript, and all authors edited, reviewed, and approved the final version of the manuscript.
+Conflicts of Interest
+AB, JBN, SZ, JN, AM, CBJ, and SL are or were salaried employees of Omada Health, Inc, at the time this manuscript
+was written, with AB, JBN, JN, AM, CBJ, and SL receiving stock options and/or equity compensation. HJL and TCD are
+employees of Abbott Diabetes Care, Inc, and receive salary and stock. CJC is a salaried employee of Evidation Health, Inc, and
+receives stock options. DK has received research support from Abbott Diabetes Care, Inc, and received payment as a contractor
+for Evidation Health, Inc, to perform clinical oversight of adverse event reporting throughout this study.
+Checklist 1
+CONSORT-EHEALTH (V 1.6.1) checklist.
+[PDF File (Adobe File), 1192 KB-Checklist 1]
+References
+1. American Diabetes Association Professional Practice Committee. 2. Diagnosis and classification of diabetes: standards
+of care in diabetes-2024. Diabetes Care. Jan 1, 2024;47(Suppl 1):S20-S42. [doi: 10.2337/dc24-S002] [Medline:
+38078589]
+2. Farmaki P, Damaskos C, Garmpis N, Garmpi A, Savvanis S, Diamantis E. Complications of the type 2 diabetes mellitus.
+Curr Cardiol Rev. 2020;16(4):249-251. [doi: 10.2174/1573403X1604201229115531] [Medline: 33407062]
+3. Type 2 diabetes. Centers for Disease Control and Prevention (CDC). 2023. URL: https://www.cdc.gov/diabetes/about/
+about-type-2-diabetes.html [Accessed 2024-04-24]
+4. Chrvala CA, Sherr D, Lipman RD. Diabetes self-management education for adults with type 2 diabetes mellitus: a
+systematic review of the effect on glycemic control. Patient Educ Couns. Jun 2016;99(6):926-943. [doi: 10.1016/j.pec.
+2015.11.003] [Medline: 26658704]
+5. Davis J, Fischl AH, Beck J, et al. 2022 National standards for diabetes self-management education and support. Diabetes
+Care. Feb 1, 2022;45(2):484-494. [doi: 10.2337/dc21-2396] [Medline: 35050365]
+6. Veazie S, Winchell K, Gilbert J, et al. Mobile health applications for self-management of diabetes. Agency for
+Healthcare Research and Quality (US); 2018. URL: https://effectivehealthcare.ahrq.gov/sites/default/files/pdf/technical-
+brief-31_mobile-health-applications-for-self-management-of-diabetes.pdf [Accessed 2026-04-24]
+7. Improving access to diabetes education. Centers for Disease Control and Prevention (CDC). 2022. URL: https://www.
+cdc.gov/diabetes/health-equity/improving-access-education.html [Accessed 2024-04-19]
+8. Miller EM. Using continuous glucose monitoring in clinical practice. Clin Diabetes. Dec 2020;38(5):429-438. [doi: 10.
+2337/cd20-0043] [Medline: 33384468]
+JOURNAL OF MEDICAL INTERNET RESEARCH Berthoumieux et al
+https://www.jmir.org/2026/1/e78321 J Med Internet Res 2026 | vol. 28 | e78321 | p. 11
+(page number not for citation purposes)
+9. Fonda SJ, Graham C, Munakata J, Powers JM, Price D, Vigersky RA. The cost-effectiveness of real-time continuous
+glucose monitoring (RT-CGM) in type 2 diabetes. J Diabetes Sci Technol. Jul 2016;10(4):898-904. [doi: 10.1177/
+1932296816628547] [Medline: 26843480]
+10. Bahia L, Mello KF, Lemos LLP, Costa NL, Mulinari E, Malerbi DA. Cost-effectiveness of continuous glucose
+monitoring with FreeStyle Libre® in Brazilian insulin-treated patients with types 1 and 2 diabetes mellitus. Diabetol
+Metab Syndr. Nov 25, 2023;15(1):242. [doi: 10.1186/s13098-023-01208-5] [Medline: 38001509]
+11. Jiao Y, Lin R, Hua X, et al. A systematic review: cost-effectiveness of continuous glucose monitoring compared to self-
+monitoring of blood glucose in type 1 diabetes. Endocrinol Diabetes Metab. Nov 2022;5(6):e369. [doi: 10.1002/edm2.
+369] [Medline: 36112608]
+12. American Diabetes Association Professional Practice Committee. 7. Diabetes technology: standards of medical care in
+diabetes-2022. Diabetes Care. Jan 1, 2022;45(Supplement_1):S97-S112. [doi: 10.2337/dc22-S007] [Medline: 34964871]
+13. Allen NA, Fain JA, Braun B, Chipkin SR. Continuous glucose monitoring counseling improves physical activity
+behaviors of individuals with type 2 diabetes: a randomized clinical trial. Diabetes Res Clin Pract. Jun
+2008;80(3):371-379. [doi: 10.1016/j.diabres.2008.01.006] [Medline: 18304674]
+14. Allen NA, Jacelon CS, Chipkin SR. Feasibility and acceptability of continuous glucose monitoring and accelerometer
+technology in exercising individuals with type 2 diabetes. J Clin Nurs. Feb 2009;18(3):373-383. [doi: 10.1111/j.1365-
+2702.2008.02533.x] [Medline: 19191984]
+15. Aronson R, Brown RE, Chu L, et al. IMpact of flash glucose Monitoring in pEople with type 2 diabetes inadequately
+controlled with non-insulin antihyperglycaemic thErapy (IMMEDIATE): a randomized controlled trial. Diabetes Obes
+Metab. Apr 2023;25(4):1024-1031. [doi: 10.1111/dom.14949] [Medline: 36546594]
+16. Polonsky WH, Fortmann AL, Soriano EC, Guzman SJ, Funnell MM. The AH-HA! Project: transforming group diabetes
+self-management education through the addition of flash glucose monitoring. Diabetes Technol Ther. Mar
+2023;25(3):194-200. [doi: 10.1089/dia.2022.0419] [Medline: 36409486]
+17. Dixon RF, Zisser H, Layne JE, et al. A virtual type 2 diabetes clinic using continuous glucose monitoring and
+endocrinology visits. J Diabetes Sci Technol. Sep 2020;14(5):908-911. [doi: 10.1177/1932296819888662] [Medline:
+31762302]
+18. Bergenstal RM, Layne JE, Zisser H, et al. Remote application and use of real-time continuous glucose monitoring by
+adults with type 2 diabetes in a virtual diabetes clinic. Diabetes Technol Ther. Feb 2021;23(2):128-132. [doi: 10.1089/
+dia.2020.0396] [Medline: 33026839]
+19. Tchero H, Kangambega P, Briatte C, Brunet-Houdard S, Retali GR, Rusch E. Clinical effectiveness of telemedicine in
+diabetes mellitus: a meta-analysis of 42 randomized controlled trials. Telemed J E Health. Jul 2019;25(7):569-583. [doi:
+10.1089/tmj.2018.0128] [Medline: 30124394]
+20. Whaley CM, Bollyky JB, Lu W, et al. Reduced medical spending associated with increased use of a remote diabetes
+management program and lower mean blood glucose values. J Med Econ. Sep 2019;22(9):869-877. [doi: 10.1080/
+13696998.2019.1609483] [Medline: 31012392]
+21. Turner RM, Ma Q, Lorig K, Greenberg J, DeVries AR. Evaluation of a diabetes self-management program: claims
+analysis on comorbid illnesses, health care utilization, and cost. J Med Internet Res. Jun 22, 2018;20(6):e207. [doi: 10.
+2196/jmir.9225] [Medline: 29934284]
+22. Phillip M, Bergenstal RM, Close KL, et al. The digital/virtual diabetes clinic: the future is now-recommendations from
+an international panel on diabetes digital technologies introduction. Diabetes Technol Ther. Feb 2021;23(2):146-154.
+[doi: 10.1089/dia.2020.0375] [Medline: 32905711]
+23. Ku EJ, Park JI, Jeon HJ, Oh T, Choi HJ. Clinical efficacy and plausibility of a smartphone-based integrated online real-
+time diabetes care system via glucose and diet data management: a pilot study. Intern Med J. Dec
+2020;50(12):1524-1532. [doi: 10.1111/imj.14738] [Medline: 31904890]
+24. Hallberg SJ, McKenzie AL, Williams PT, et al. Effectiveness and safety of a novel care model for the management of
+type 2 diabetes at 1 year: an open-label, non-randomized, controlled study. Diabetes Ther. Apr 2018;9(2):583-612. [doi:
+10.1007/s13300-018-0373-9] [Medline: 29417495]
+25. Athinarayanan SJ, Adams RN, Hallberg SJ, et al. Long-term effects of a novel continuous remote care intervention
+including nutritional ketosis for the management of type 2 diabetes: a 2-year non-randomized clinical trial. Front
+Endocrinol (Lausanne). 2019;10:348. [doi: 10.3389/fendo.2019.00348] [Medline: 31231311]
+26. Berthoumieux A, Linke S, Merry M, Megliola A, Juusola J, Napoleone J. Long-term results of a digital diabetes self-
+management and education support program among adults with type 2 diabetes: a retrospective cohort study. Sci
+Diabetes Self Manag Care. Feb 2024;50(1):19-31. [doi: 10.1177/26350106231221456] [Medline: 38240247]
+27. Polonsky WH, Fisher L, Earles J, et al. Assessing psychosocial distress in diabetes: development of the diabetes distress
+scale. Diabetes Care. Mar 2005;28(3):626-631. [doi: 10.2337/diacare.28.3.626] [Medline: 15735199]
+JOURNAL OF MEDICAL INTERNET RESEARCH Berthoumieux et al
+https://www.jmir.org/2026/1/e78321 J Med Internet Res 2026 | vol. 28 | e78321 | p. 12
+(page number not for citation purposes)
+28. Leelarathna L, Evans ML, Neupane S, et al. Intermittently scanned continuous glucose monitoring for type 1 diabetes. N
+Engl J Med. Oct 20, 2022;387(16):1477-1487. [doi: 10.1056/NEJMoa2205650] [Medline: 36198143]
+29. R: a language and environment for statistical computing. R Foundation for Statistical Computing. 2023. URL: https://
+www.R-project.org/ [Accessed 2026-04-24]
+30. Chakraborty H, Gu H. A mixed model approach for intent-to-treat analysis in longitudinal clinical trials with missing
+values. RTI Press; 2009. URL: https://www.rti.org/rti-press-publication/mixed-model-approach-intent-treat-analysis-
+longitudinal-clinical-trials-missing-values/fulltext.pdf [Accessed 2026-04-24]
+31. Little RJA. A test of missing completely at random for multivariate data with missing values. J Am Stat Assoc. Dec
+1988;83(404):1198-1202. [doi: 10.1080/01621459.1988.10478722]
+32. Barr DJ, Levy R, Scheepers C, Tily HJ. Random effects structure for confirmatory hypothesis testing: keep it maximal. J
+Mem Lang. Apr 2013;68(3):255-278. [doi: 10.1016/j.jml.2012.11.001] [Medline: 24403724]
+33. Little RR, Rohlfing CL, Sacks DB, National Glycohemoglobin Standardization Program (NGSP) Steering Committee.
+Status of hemoglobin A1c measurement and goals for improvement: from chaos to order for improving diabetes care.
+Clin Chem. Feb 2011;57(2):205-214. [doi: 10.1373/clinchem.2010.148841] [Medline: 21148304]
+34. Stratton IM, Adler AI, Neil HA, et al. Association of glycaemia with macrovascular and microvascular complications of
+type 2 diabetes (UKPDS 35): prospective observational study. BMJ. Aug 12, 2000;321(7258):405-412. [doi: 10.1136/
+bmj.321.7258.405] [Medline: 10938048]
+35. Beck RW, Bergenstal RM, Riddlesworth TD, et al. Validation of time in range as an outcome measure for diabetes
+clinical trials. Diabetes Care. Mar 2019;42(3):400-405. [doi: 10.2337/dc18-1444] [Medline: 30352896]
+36. Dovc K, Battelino T. Time in range centered diabetes care. Clin Pediatr Endocrinol. 2021;30(1):1-10. [doi: 10.1297/cpe.
+30.1] [Medline: 33446946]
+37. Yapanis M, James S, Craig ME, O’Neal D, Ekinci EI. Complications of diabetes and metrics of glycemic management
+derived from continuous glucose monitoring. J Clin Endocrinol Metab. May 17, 2022;107(6):e2221-e2236. [doi: 10.
+1210/clinem/dgac034] [Medline: 35094087]
+38. Ehrhardt NM, Chellappa M, Walker MS, Fonda SJ, Vigersky RA. The effect of real-time continuous glucose monitoring
+on glycemic control in patients with type 2 diabetes mellitus. J Diabetes Sci Technol. May 1, 2011;5(3):668-675. [doi:
+10.1177/193229681100500320] [Medline: 21722581]
+39. Choe HM, Mitrovich S, Dubay D, Hayward RA, Krein SL, Vijan S. Proactive case management of high-risk patients
+with type 2 diabetes mellitus by a clinical pharmacist: a randomized controlled trial. Am J Manag Care. Apr
+2005;11(4):253-260. [Medline: 15839185]
+40. Wilson-Anumudu F, Quan R, Castro Sweet C, et al. Early insights from a digitally enhanced diabetes self-management
+education and support program: single-arm nonrandomized trial. JMIR Diabetes. Feb 22, 2021;6(1):e25295. [doi: 10.
+2196/25295] [Medline: 33616533]
+41. Sinha SD, Chary Sriramadasu S, Raphael R, Roy S. Decentralisation in clinical trials and patient centricity: benefits and
+challenges. Pharmaceut Med. Mar 2024;38(2):109-120. [doi: 10.1007/s40290-024-00518-x] [Medline: 38453755]
+42. Alexander W. The uphill path to successful clinical trials: keeping patients enrolled. P T. Apr 2013;38(4):225-227.
+[Medline: 23785228]
+Abbreviations
+CDCES: Certified Diabetes Care and Education Specialist
+CGM: continuous glucose monitoring
+DSMES: diabetes self-management education and support
+FSL: FreeStyle Libre
+GMI: glucose management indicator
+HbA1c: hemoglobin A1c
+ITT: intention-to-treat
+MCAR: missing completely at random
+RCT: randomized controlled trial
+TAR: time above range
+TBR: time below range
+TIR: time in range
+Edited by Gunther Eysenbach, Tiffany Leung; peer-reviewed by Abdul Nazer Ali, Mengyun Lei; submitted 16.Jun.2025; final
+revised version received 09.Apr.2026; accepted 12.Apr.2026; published 14.May.2026
+JOURNAL OF MEDICAL INTERNET RESEARCH Berthoumieux et al
+https://www.jmir.org/2026/1/e78321 J Med Internet Res 2026 | vol. 28 | e78321 | p. 13
+(page number not for citation purposes)
+Please cite as:
+Berthoumieux A, Naqvi JB, Zion S, Napoleone J, McGuill A, Cerrada CJ, Lee HJ, Dunn TC, Kerr D, Jasik CB, Linke S
+A Digital Diabetes Self-Management Education and Support Program Integrated With Continuous Glucose Monitoring for
+Type 2 Diabetes: Randomized Controlled Trial
+J Med Internet Res 2026;28:e78321
+URL: https://www.jmir.org/2026/1/e78321
+doi: 10.2196/78321
+© Ashley Berthoumieux, Jeanean B Naqvi, Sean Zion, Jenna Napoleone, Amanda McGuill, Christian J Cerrada, Hyun Jung
+Lee, Timothy C Dunn, David Kerr, Carolyn Bradner Jasik, Sarah Linke. Originally published in the Journal of Medical Internet
+Research ( https://www.jmir.org), 14.May.2026. This is an open-access article distributed under the terms of the Creative
+Commons Attribution License ( https://creativecommons.org/licenses/by/4.0/), which permits unrestricted use, distribution,
+and reproduction in any medium, provided the original work, first published in the Journal of Medical Internet Research
+(ISSN 1438-8871), is properly cited. The complete bibliographic information, a link to the original publication on https://
+www.jmir.org/, as well as this copyright and license information must be included.
+JOURNAL OF MEDICAL INTERNET RESEARCH Berthoumieux et al
+https://www.jmir.org/2026/1/e78321 J Med Internet Res 2026 | vol. 28 | e78321 | p. 14
+(page number not for citation purposes)

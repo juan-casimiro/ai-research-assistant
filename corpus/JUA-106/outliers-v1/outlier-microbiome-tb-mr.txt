@@ -1,0 +1,938 @@
+Yuan et al. Respiratory Research           (2024) 25:16  
+https://doi.org/10.1186/s12931-023-02652-7
+RESEARCH Open Access
+© The Author(s) 2024. Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which 
+permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the 
+original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or 
+other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line 
+to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory 
+regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this 
+licence, visit http://creativecommons.org/licenses/by/4.0/. The Creative Commons Public Domain Dedication waiver (http://creativecom-
+mons.org/publicdomain/zero/1.0/) applies to the data made available in this article, unless otherwise stated in a credit line to the data.
+Respiratory Research
+Causal relationship between gut microbiota 
+and tuberculosis: a bidirectional two-sample 
+Mendelian randomization analysis
+Zongxiang Yuan1†, Yiwen Kang1†, Chuye Mo1†, Shihui Huang1, Fang Qin1, Junhan Zhang1, Fengyi Wang1, 
+Junjun Jiang1,2*, Xiaoxiang Yang3*, Hao Liang1,2* and Li Ye1,2* 
+Abstract 
+Background Growing evidence from observational studies and clinical trials suggests that the gut microbiota 
+is associated with tuberculosis (TB). However, it is unclear whether any causal relationship exists between them 
+and whether causality is bidirectional.
+Methods A bidirectional two-sample Mendelian randomization (MR) analysis was performed. The genome-wide 
+association study (GWAS) summary statistics of gut microbiota were obtained from the MiBioGen consortium, 
+while the GWAS summary statistics of TB and its specific phenotypes [respiratory tuberculosis (RTB) and extrapulmo-
+nary tuberculosis (EPTB)] were retrieved from the UK Biobank and the FinnGen consortium. And 195 bacterial taxa 
+from phylum to genus were analyzed. Inverse variance weighted (IVW), MR-Egger regression, maximum likelihood 
+(ML), weighted median, and weighted mode methods were applied to the MR analysis. The robustness of causal esti-
+mation was tested using the heterogeneity test, horizontal pleiotropy test, and leave-one-out method.
+Results In the UK Biobank database, we found that 11 bacterial taxa had potential causal effects on TB. Three 
+bacterial taxa genus.Akkermansia, family.Verrucomicrobiacea, order.Verrucomicrobiales were validated in the FinnGen 
+database. Based on the results in the FinnGen database, the present study found significant differences in the char-
+acteristics of gut microbial distribution between RTB and EPTB. Four bacterial taxa genus.LachnospiraceaeUCG010, 
+genus.Parabacteroides, genus.RuminococcaceaeUCG011, and order.Bacillales were common traits in relation to both RTB 
+and TB, among which order.Bacillales showed a protective effect. Additionally, family.Bacteroidacea and genus.Bac-
+teroides were identified as common traits in relation to both EPTB and TB, positively associating with a higher risk 
+of EPTB. In reverse MR analysis, no causal association was identified. No significant heterogeneity of instrumental vari-
+ables (IVs) or horizontal pleiotropy was found.
+†Zongxiang Yuan, Yiwen Kang and Chuye Mo contributed equally to this 
+study.
+*Correspondence:
+Junjun Jiang
+jiangjunjun@gxmu.edu.cn
+Xiaoxiang Yang
+892269362@qq.com
+Hao Liang
+lianghao@gxmu.edu.cn
+Li Ye
+yeli@gxmu.edu.cn
+Full list of author information is available at the end of the article
+Page 2 of 14Yuan et al. Respiratory Research           (2024) 25:16 
+Conclusion Our study supports a one-way causal relationship between gut microbiota and TB, with gut micro-
+biota having a causal effect on TB. The identification of characteristic gut microbiota provides scientific insights 
+for the potential application of the gut microbiota as a preventive, diagnostic, and therapeutic tool for TB.
+Keywords Gut microbiota, Tuberculosis, Respiratory tuberculosis, Extrapulmonary tuberculosis, Mendelian 
+randomization, Causal relationship
+Introduction
+Tuberculosis (TB), caused by airborne Mycobacterium 
+tuberculosis (M.tuberculosis), is one of the most common 
+infectious diseases in the world [1]. Despite the fact that 
+lung is the primary site of M.tuberculosis infection, more 
+than 15% of TB cases worldwide arise as extrapulmonary 
+infections that can invade any organ system [2]. Nowa -
+days, TB continues to contribute significantly to global 
+morbidity and mortality [3], resulting in over 1 million 
+deaths annually [4, 5]. Numerous epidemiological stud -
+ies have identified some potential immune, environmen -
+tal, and host genetic predisposing variables related to the 
+onset and progression of TB, such as poverty [5], age [6], 
+malnutrition [7], diabetes [8], and immunodeficiency [4, 
+7]. However, the interactions between TB and gut micro -
+biota have received limited attention.
+The gut microbiota is considered the “forgotten organ” 
+of the human body [9] and is involved in various physi -
+ological processes [10]. Previous studies have shown 
+that gut microbiota significantly affects the host immune 
+system [11, 12] and dysbiosis in microbiome composi -
+tion may contribute to resistance or susceptibility to TB 
+[13]. To elucidate this issue, many epidemiologic studies 
+have been conducted, but the results are inconsistent. 
+Some studies [14–17] have indicated patients with active 
+TB, new TB, or recurrent TB exhibit reduced micro -
+bial diversity compared to healthy individuals. However, 
+Luo et  al. [18] found that higher gut microbial diver -
+sity in patients with new or recurrent TB. Furthermore, 
+with regard to changes in specific genera of bacteria, the 
+reported results are also inconsistent. For instance, Wang 
+[14] and Ye et  al. [15] reported an increase in Bacteroi -
+detes and a decrease in Actinobacteria, Bifidobacteriales, 
+and Bifidobacteriaceae in untreated patients with active 
+TB, while Ding et al. [16] found the opposite results. In 
+summary, the relationship between the gut microbiota 
+and TB remains elusive, and whether there is a causal 
+relationship as well as the direction of the causal relation-
+ship are unclear. The above results are based on obser -
+vational studies, with the limitations in the susceptibility 
+to confounding factors such as environment, age, dietary 
+habits, co-morbid infections, and malnutrition. In addi -
+tion, there are inherent difficulties in confirming the 
+temporal relationship between exposure and outcome. 
+Therefore, there is an urgent need to explore the causal 
+relationship between the TB and gut microbiota with the 
+more refined research approaches.
+With the rapid increase in microbiota and genetic data 
+of complex diseases, Mendelian randomization (MR) [19] 
+has been widely used in recent years. The MR approach 
+employs the genome-wide association studies (GWAS) 
+to identify single nucleotide polymorphisms (SNPs) that 
+act as instrumental variables (IVs), allowing for causal 
+inferences between exposure variables and outcomes 
+[20]. The MR process is based on the random allocation 
+of alleles in Mendelian laws of inheritance, while avoid -
+ing the influence of confounding factors [19, 21]. Hence, 
+we conducted a bidirectional two-sample MR analy -
+sis adopting summary statistics of large GWAS from 
+the MiBioGen consortium, the UK Biobank, and the 
+FinnGen consortium for the first time to assess the causal 
+relationship between gut microbiota and TB phenotypes 
+comprehensively.
+Methods
+Data sources
+Gut microbiota data used for exposure variables were 
+obtained from the MiBioGen consortium. The consor -
+tium had curated and analyzed genome-wide geno -
+type and 16S fecal microbiome information for 18,340 
+individuals from 24 cohorts, the majority of whom had 
+European ancestry (18 cohorts, n = 14,306) [22]. In addi-
+tion, covariates such as sex and age were adjusted for all 
+cohorts. We excluded 15 bacterial taxa without specific 
+species names (3 unknown families and 12 unknown 
+genera) and 1 duplicate bacterial taxon [23] (class. Ver -
+rucomicrobia and order. Verrucomicrobiales). As a result, 
+195 bacterial taxa (119 genera, 32 families, 20 orders, 15 
+classes, and 9 phyla) were finally included as exposures 
+for subsequent MR analyses.
+The GWAS summary data of TB was from two data -
+bases. TB cases in the UK Biobank database were identi -
+fied as “self-reported diseases” and were classified in the 
+GWAS catalog (GWAS ID: GCST90038710). The study 
+[24] covered 484,598 participants, including 2473  TB 
+infected individuals and 482,125 controls. Age, sex, BMI, 
+assessment center, ethnicity, batch, and the first 20 princi-
+pal components were corrected during analysis. Moreover, 
+Page 3 of 14
+Yuan et al. Respiratory Research           (2024) 25:16 
+ 
+we obtained the TB risk-related dataset from the FinnGen 
+consortium R9 release for validation, which included 2432 
+cases and 374,845 controls ( https:// www. finng en. fi/ en). 
+This data included two types of TB infection: respiratory 
+tuberculosis (RTB) (1793 cases and 374,922 controls) and 
+TB in other organs named extrapulmonary tuberculosis 
+(EPTB) (676 cases and 374,845 controls). The individuals’ 
+sex, age, the first 10 principal components, and genotyping 
+batch were also underwent correction.
+Instrumental variables (IVs)
+The validity of MR analysis depends on three key assump-
+tions [19, 25]: (1) IVs are closely related to exposure; (2) IVs 
+are not associated with any confounding variables; (3) IVs 
+affect outcome only through exposure.
+We determined necessary IVs according to the above 
+core principles and followed the STROBE-MR statement 
+[26] (Additional file 1: Table S1). First, we fixed the signif-
+icance level at P < 1.0 ×  10–5 and selected a group of SNPs 
+strongly associated to gut microbiota as IVs for identify -
+ing sufficient candidate instruments. In the reverse MR 
+analysis, the significance level was set to P < 1.0 ×  10–5 since 
+no tuberculosis-associated SNPs reached the threshold 
+of P < 5.0 ×  10–8. Second, we used samples from the 1000 
+Genomes European Project as a reference, and applied 
+clumping to restrict SNPs with low linkage disequilib -
+rium  (r2 < 0.001; genetic distance = 10,000 kb). Third, SNPs 
+with minor allele frequency (MAF)  ≤ 0.01 were removed. 
+Subsequently, we harmonized the exposure and outcome 
+data. When palindromic SNPs existed, the forward strand 
+alleles were inferred based on allele frequency informa -
+tion. Finally, the PhenoScanner website [27] was searched 
+to investigate whether the selected SNPs are associated 
+with confounding traits (BMI, weight, smoking or tobacco, 
+alcohol, and pulmonary function) at a significance level of 
+5.0 ×  10–8 (http:// www. pheno scann er. medsc hl. cam. ac. uk/).
+Statistical analysis
+The F-statistic was used to assess the strength of IVs. If 
+the corresponding F-statistic was much greater than 10, it 
+was considered that there was small possibility of weak IVs 
+bias. The detailed calculation formula [28] was as follows: 
+F = R2 × (N − 2)/(1 − R2) , where N represented the sam-
+ple size of the exposure data,  R2 represented the proportion 
+of variance in exposure explained by genetic variation. The 
+ R2 value was estimated using the formula [29]:
+Where EAF referred to the effect allele frequency (EAF) 
+of the SNP , beta represented the estimated effect size of 
+the SNP , and se denoted the standard error.
+R 2 = 2×EAF ×(1 − EAF )× beta2
+2 × EAF × (1 − EAF ) × beta2 + 2 × EAF × (1 − EAF ) × se× N × beta2 ,
+In this study, we performed a bidirectional MR Analy -
+sis, using a variety of methods to examine whether there 
+was a causal relationship between the gut microbiota and 
+TB. IVW was employed as the main method to assess 
+causal effects. This method utilized information from all 
+IVs and aggregated the effect sizes of multiple IVs into 
+a single estimate, making the results precise and robust 
+[30]. We also performed secondary analyses using MR-
+Egger regression [ 31], ML [ 32], weighted median [ 33], 
+and weighted mode, to provide evidence of effectiveness 
+under different conditions. If the forward MR analy -
+sis result was positive, the reverse MR analysis would 
+be performed. To ensure the exposure was directionally 
+causal for the outcome, we conducted the additional MR 
+Steiger directionality test [34].
+To assess the robustness of the significant results, sev -
+eral sensitivity analyses were performed. The potential 
+influence of horizontal pleiotropy was evaluated by MR-
+Egger regression detection [ 35] and MR-PRESSO global 
+test analysis [ 36]. MR-PRESSO outlier tests eliminated 
+the effect of pleiotropy by removing outliers. Cochran’s 
+IVW Q statistics were used to quantify the heterogene -
+ity of IVs [ 37]. Meanwhile, leave-one-out analysis was 
+performed to determine whether the causal association 
+signal was driven by a single SNP . Furthermore, based on 
+the Bonferroni correction method, we established statis -
+tical thresholds for multiple comparisons at each feature 
+level (phylum: 0.05/9, class: 0.05/15, order: 0.05/20, fam -
+ily: 0.05/32, and genus: 0.05/119). A significant causal 
+relationship existed when the IVW method produced a 
+P value lower than the adjusted P value. Otherwise, it was 
+considered suggestive evidence of a potential association.
+All MR analyzes in this study were performed based 
+on TwoSampleMR [34] (version 0.5.4) and MR-PRESSO 
+[36] (version 1.0) packages in R software (version 4.2.2). 
+Forestploter package was used to create forest plots (ver -
+sion 1.1.0), and circlize package [ 38] was utilized for 
+drawing circular heat maps (version 0.4.15).
+Results
+IVs selection of gut microbiota
+The flow chart of this study was shown in Fig.  1. To avoid 
+potential pleiotropic effects caused by confounders, we 
+removed potential confounding SNPs associated with 
+these confounders of gut microbiota and TB by searching 
+the PhenoScanner website (Additional file  1: Table  S2). 
+As a result, a total of 2,544 SNPs were identified as IVs for 
+Page 4 of 14Yuan et al. Respiratory Research           (2024) 25:16 
+195 bacterial taxa according to the above selection crite -
+ria. The F-statistic for IVs ranged from 10.781–95.389, 
+indicating no evidence of weak instrumental bias. The 
+details of these IVs in different databases were shown in 
+Additional file 1: Table S3, S4.
+Causal inference between the gut microbiota and TB 
+by in the UK Biobank database
+Then we performed MR analysis of TB dataset from the 
+UK Biobank database. Figure  2 and Additional file  1: 
+Table  S5 presented the impact of changes in the abun -
+dance of 195 bacterial taxa on the risk of TB. According 
+to the IVW analysis, 11 bacterial taxa of genetically pre -
+dicted gut microbiota were found to be related to the risk 
+of TB. As shown in Fig.  3, family.FamilyXIII (OR = 1.002, 
+95% CI 1.000–1.004, P = 0.037), family. Verrucomicro-
+biaceae (OR = 1.002, 95% CI 1.000–1.003, P = 0.028), 
+genus..Eubacteriumoxidoreducensgroup (OR = 1.001, 
+95% CI 1.000–1.003, P = 0.033), genus.Akkermansia 
+(OR = 1.002, 95% CI 1.000–1.003, P = 0.028), genus.Des-
+ulfovibrio (OR = 1.001, 95% CI 1.000–1.003, P = 0.045), 
+genus.LachnospiraceaeND3007group (OR = 1.003, 95% 
+CI 1.000–1.006, P = 0.049), genus. Veillonella (OR = 1.002, 
+95% CI 1.000–1.003, P = 0.038), and order. Verrucomi-
+crobiales (OR = 1.002, 95% CI 1.000–1.003, P = 0.028) 
+were suggestive associated with the increased risks of 
+TB. Conversely, genus.Ruminococcusgauvreauiigroup 
+(OR = 0.998, 95% CI 0.997–1.000, P = 0.036), genus.
+FamilyXIIIUCG001 (OR = 0.998, 95% CI 0.996–1.000, 
+P = 0.023), and genus.Gordonibacter (OR = 0.999, 95% CI 
+0.998–1.000, P = 0.027) exhibited suggestive protective 
+effects against TB. Similar results were also obtained in 
+ML analyses. Nevertheless, these associations were no 
+longer significant after the Bonferroni correction.
+Causal inference between the gut microbiota and TB 
+by in the FinnGen database
+To further explore the causal association between the gut 
+microbiota and TB, we simultaneously performed MR 
+analysis in another large-scale population-based biobank 
+from Europe (the FinnGen database). The FinnGen data -
+base contains a large amount of shared DNA in linkage 
+disequilibrium and is rich in alleles that are uncommon 
+in other populations, and thus it is highly valuable in 
+identifying rare single-gene disorders and the genetic 
+variants responsible for them [39]. Figure  2 and Addi -
+tional file  1: Table  S6 presented the impact of changes 
+in the abundance of 195 bacterial taxa on the risk of TB. 
+The IVW analysis results were presented in Fig.  4, and 
+we identified 11 bacterial taxa. Specifically, the risk of TB 
+Fig. 1 Research design and flow chart of this study. TB, tuberculosis; RTB, respiratory tuberculosis; EPTB, extrapulmonary tuberculosis; SNP , single 
+nucleotide polymorphism; MAF, minor allele frequency; LD, linkage disequilibrium; IVW, inverse variance weighted; MR-PRESSO, Mendelian 
+randomization pleiotropy residual sum and outlier
+Page 5 of 14
+Yuan et al. Respiratory Research           (2024) 25:16 
+ 
+was increased by family.Bacteroidaceae (OR = 1.511, 95% 
+CI 1.032–2.214, P = 0.034), family. Verrucomicrobiaceae 
+(OR = 1.422, 95% CI 1.067–1.893, P = 0.016), genus.Akker-
+mansia (OR = 1.421, 95% CI 1.067–1.893, P = 0.016), 
+genus.Bacteroides (OR = 1.511, 95% CI 1.032–2.214, 
+P = 0.034), genus.LachnospiraceaeUCG010 (OR = 1.728, 
+95% CI 1.227–2.435, P = 0.002), genus.Parabacteroides 
+(OR = 1.726, 95% CI 1.077–2.764, P = 0.023), genus.Rumi-
+nococcaceaeUCG011 (OR = 1.240, 95% CI 1.028–1.496, 
+P = 0.024), genus.Subdoligranulum (OR = 1.482, 95% 
+CI 1.076–2.041, P = 0.016), order. Verrucomicrobiales 
+(OR = 1.422, 95% CI 1.067–1.893, P = 0.016), phylum.Pro-
+teobacteria (OR = 1.426, 95% CI 1.043–1.949, P = 0.026). 
+Conversely, the relative abundance of order.Bacillales 
+(OR = 0.821, 95% CI 0.687–0.981, P = 0.030) showed a 
+negative association with the risk of TB. Similar trends 
+were observed in ML, MR-Egger, weighted median, 
+and weighted mode methods. Nevertheless, these asso -
+ciations were no longer significant after the Bonferroni 
+correction.
+Causal inference between the gut microbiota and RTB, 
+EPTB in the FinnGen database
+In this study, we also separately conducted MR analyses 
+for the gut microbiota and two types of TB (RTB and 
+EPTB) to establish a more compelling causal association 
+between them. For RTB, the causal effects of 195 bac -
+terial taxa on the risk of RTB were shown in the Addi -
+tional file  2: Fig. S1 and Additional file  1: Table  S7. As 
+illustrated in Additional file  3: Fig. S2, the results of the 
+IVW analysis showed that genus..Eubacteriumbrachy -
+group (OR = 1.329, 95% CI 1.084–1.630, P = 0.006), 
+genus.Eisenbergiella (OR = 1.258, 95% CI 1.004–1.575, 
+P = 0.046), genus.LachnospiraceaeUCG010 (OR = 1.799, 
+95% CI 1.243–2.604, P = 0.002), genus.Marvinbryantia 
+(OR = 1.437, 95% CI 1.009–2.048, P = 0.045), genus.Para-
+bacteroides (OR = 1.765, 95% CI 1.020–3.053, P = 0.042), 
+genus.RuminococcaceaeUCG011 (OR = 1.245, 95% CI 
+1.002–1.549, P = 0.048) significantly increased the risk 
+of RTB. In contrast, the decrease in RTB risk could 
+attribute to the increase of genetically predicted family.
+BacteroidalesS24.7group (OR = 0.745, 95% CI 0.555–
+1.000, P = 0.050), family.Peptococcaceae (OR = 0.703, 
+95% CI 0.512–0.963, P = 0.028), genus.Holdemania 
+(OR = 0.758, 95% CI 0.584–0.982, P = 0.036), genus.Rumi-
+nococcaceaeUCG005 (OR = 0.729, 95% CI 0.535–0.992, 
+P = 0.045), genus.Ruminococcus1 (OR = 0.673, 95% CI 
+0.454–1.000, P = 0.050), order.Bacillales (OR = 0.753, 
+95% CI 0.617–0.920, P = 0.005), phylum.Actinobacte-
+ria (OR = 0.614, 95% CI 0.419–0.900, P = 0.012). Similar 
+results were obtained in ML analyses. Nevertheless, these 
+associations were no longer significant after the Bonfer -
+roni correction.
+For EPTB, 195 bacterial taxa on the risk of EPTB were 
+shown in the Additional file  2: Fig. S1 and Additional 
+file  1: Table  S8. As illustrated in Additional file  4: Fig. 
+S3, the results of the IVW analysis showed that class.
+Mollicutes (OR = 1.669, 95% CI 1.026–2.716, P = 0.039), 
+family.Bacteroidaceae (OR = 2.161, 95% CI 1.051–4.447, 
+P = 0.036), genus..Eubacteriumrectalegroup (OR = 2.523, 
+Fig. 2 Causal effect of the gut microbiota on TB by MR analyses. A In the UK Biobank database; B In the FinnGen ddatabase. From outside to inside, 
+the P values of IVW_p, ML_p, MR Egger_p, WMe_p, and WMo_p were represented, respectively. TB, tuberculosis; IVW, inverse variance weighted; ML, 
+maximum likelihood; WMe, weighted median; WMo, weighted mode
+Page 6 of 14Yuan et al. Respiratory Research           (2024) 25:16 
+Fig. 3 A forest plot of causal effect of gut microbiota on TB in the UK Biobank database (P-IVW < 0.05). TB, tuberculosis; OR, odds ratio; CI, confidence 
+interval
+Page 7 of 14
+Yuan et al. Respiratory Research           (2024) 25:16 
+ 
+Fig. 4 A forest plot of causal effect of gut microbiota on TB in the FinnGen database (P-IVW < 0.05). TB, tuberculosis; OR, odds ratio; CI, confidence 
+interval
+Page 8 of 14Yuan et al. Respiratory Research           (2024) 25:16 
+95% CI 1.221–5.214, P = 0.012), genus..Eubacterium-
+ventriosumgroup (OR = 1.765, 95% CI 1.058–2.943, 
+P = 0.030), genus.Bacteroides (OR = 2.161, 95% CI 1.051–
+4.447, P = 0.036), phylum.Tenericutes (OR = 1.669, 95% CI 
+1.026–2.716, P = 0.039) significantly increased the risk of 
+EPTB. In contrast, several bacterial taxa showed negative 
+associations with EPTB risk, including genus..Eubacteri -
+umxylanophilumgroup (OR = 0.567, 95% CI 0.323–0.995, 
+P = 0.048), genus.Barnesiella (OR = 0.526, 95% CI 0.302–
+0.919, P = 0.024), genus.Intestinimonas (OR = 0.600, 
+95% CI 0.390–0.923, P = 0.020), genus.Lachnospirace-
+aeUCG001 (OR = 0.617, 95% CI 0.403–0.944, P = 0.026), 
+genus.Lactococcus (OR = 0.669, 95% CI 0.448–0.999, 
+P = 0.049), genus.Marvinbryantia (OR = 0.538, 95% CI 
+0.302–0.959, P = 0.035), genus.Streptococcus (OR = 0.485, 
+95% CI 0.265–0.886, P = 0.019). ML and weighted median 
+methods yielded the similar direction for the casual 
+effects of these bacterial taxa on the risk of EPTB. Never -
+theless, these associations were no longer significant after 
+the Bonferroni correction.
+Common bacterial taxa between UK Biobank database 
+and FinnGen database
+Three bacterial taxa, including genus.Akkermansia, fam-
+ily. Verrucomicrobiacea, and order. Verrucomicrobiales, 
+had a significant causal association with TB commonly in 
+both databases. Notably, according to the results of MR 
+analyses in the UK Biobank database, no bacterial taxa 
+were identified to overlap with RTB or EPTB (Fig.  5). 
+Compared with the analysis results of TB in the FinnGen 
+database, genus.LachnospiraceaeUCG010, genus.Para-
+bacteroides, genus.RuminococcaceaeUCG011, and order.
+Bacillales were common bacterial taxa of RTB, while 
+family.Bacteroidacea and genus.Bacteroides were com -
+mon bacterial taxa of EPTB (Fig. 6).
+Bi‑directional causal inference between the gut microbiota 
+and TB
+To assess possible reverse causal associations, we 
+applied reverse MR analysis with TB, RTB, or EPTB 
+as exposure and gut microbiota as outcome. We iden -
+tified 113 IVs for TB in the UK Biobank database, 83 
+IVs for TB in the FinnGen database, 77 IVs for RTB in 
+the FinnGen database, 78 IVs for EPTB in the FinnGen 
+database (Additional file  1: Table  S9) and did not 
+find any reverse causal correlation (Additional file  1: 
+Table  S10). We subsequently applied the MR Steiger 
+directionality test to further confirm the true direction 
+of causal association, and the result supported that gut 
+microbiome was the influencing factor of TB (Addi -
+tional file 1 : Table S11).
+Sensitivity analysis
+Finally, sensitivity analyses were performed for all the 
+results (Additional file  1: Table  S12, Additional file  1: 
+Table  S13). We found that no evidence of horizontal 
+pleiotropic of exposure factors was detected when using 
+the MR-Egger regression detection and the MR-PRESSO 
+global test (P > 0.05). The results of Cochran’s IVW Q test 
+showed no significant heterogeneity of IVs. Similarly, the 
+leave-one-out sensitivity analyses indicated that no single 
+SNP significantly affected the causal association (Addi -
+tional file  5: Fig. S4, Additional file  6: Fig. S5, Additional 
+file 7: Fig. S6, Additional file 8: Fig. S7).
+Discussion
+Despite the success of chemotherapy over the past few 
+decades, TB remains one of the leading infectious dis -
+ease killers worldwide [1, 3]. In addition to some known 
+influencing factors, including persistent global poverty, 
+high HIV prevalence, drug resistance and etc. [40], the 
+gut microbiota is an emerging host factor associated with 
+TB. However, the causal association between gut micro -
+biota and TB, as well as the direction of the causal associ-
+ation, remains poorly understood. In the present study, to 
+the best of our knowledge, we first applied a two-sample 
+MR analysis to assess the causal relationship between gut 
+microbiota and TB by using multiple genetic databases. 
+Concerning the UK Biobank database, our results indi -
+cated that 11 bacterial taxa had suggestive risk factors 
+with TB and 3 of them were validated in the FinnGen 
+database. We also identified 4 bacterial taxa associated 
+with RTB and 2 bacterial taxa associated with EPTB in 
+the FinnGen database. In reverse MR analysis, no causal 
+association were identified. In short, these results empha-
+sized the potential role of specific gut microbiota in the 
+development and progression of different types of TB.
+The taxonomic composition of the human gut micro -
+biota is dominated by Firmicutes, Bacteroidetes, Act-
+inobacteria, Proteobacteria, and other important phyla, 
+including Verrucomicrobia, Fusobacteria, and Euryar -
+chaeota [41]. Genus.Akkermansia, family. Verrucomi -
+crobiacea,  and order. Verrucomicrobiales, which were 
+identified as risk factors for TB in our study, belong to 
+the Verrucomicrobia phylum and are predominantly 
+found within the epithelial layer of the human intestinal 
+mucosa. Akkermansia muciniphila (A.muciniphila ) is 
+the sole representative species of Verrucomicrobia in the 
+gut [42] and thus the relative abundance of the two may 
+serve as an indicator for each other. Contrary to our find-
+ings, a cohort study conducted in China reported a sig -
+nificant decrease in the abundance of gut A.muciniphila  
+of individuals with active TB compared to that of healthy 
+Page 9 of 14
+Yuan et al. Respiratory Research           (2024) 25:16 
+ 
+Fig. 5 The common bacterial traits in two databases for TB, RTB, and EPTB. A The common bacterial traits in two databases for TB. B The common 
+bacterial traits in relation to both TB and RTB in two databases. C The common bacterial traits in relation to both TB and EPTB in two databases. TB, 
+tuberculosis; RTB, respiratory tuberculosis; EPTB, extrapulmonary tuberculosis; UKBB, the UK Biobank database; FinnGen, the FinnGen database
+Page 10 of 14Yuan et al. Respiratory Research           (2024) 25:16 
+subjects [43]. Although as a beneficial bacterium, Verru -
+comicrobia has been postulated that it may have a direct 
+association with inflammation within the colon [44, 
+45]. For example, A.muciniphila is capable of degrading 
+mucin and promoting gut inflammation [46]. In murine 
+colonic tissues, the abundance of Verrucomicrobia also 
+exhibited a discernible positive correlation with the 
+expression of pro-inflammatory genes, such as TNF-α, 
+NOS2, and IL-1β [47]. Elevated levels of gut inflamma -
+tion are poised to disrupt the immune resistance against 
+microorganisms. Considering the relatively limited 
+research conducted on the Verrucomicrobia phylum in 
+the context of TB, our results have important implica -
+tions for enhancing understanding in this field.
+In this study, we found that genus.Lachnospirace -
+aeUCG010, genus.Parabacteroides, genus.Ruminococ-
+caceaeUCG011, and order.Bacillales were common 
+traits in relation to both RTB and TB. Lachnospiraceae 
+and Ruminococcaceae are crucial for development of 
+the gut [48] and our results align with an earlier find -
+ing that the monkeys with enriched Lachnospiraceae 
+Fig. 6 The common bacterial traits in the FinnGen database for RTB and EPTB. A The common bacterial traits in relation to both TB and RTB 
+in the FinnGen database. B The common bacterial traits in relation to both TB and EPTB in the FinnGen database. TB, tuberculosis; RTB, respiratory 
+tuberculosis; EPTB, extrapulmonary tuberculosis; FinnGen, the FinnGen database
+Page 11 of 14
+Yuan et al. Respiratory Research           (2024) 25:16 
+ 
+were more susceptible to TB infection and the severe 
+TB group exhibited an elevated abundance of Rumino -
+coccaceae [49]. However, in prior population-observed 
+investigations, the features of the two microbes were not 
+consistent [14, 16]. Nevertheless, the bacteria from the 
+two families were able to employ 7α-dehydroxylation to 
+generate deoxycholic acid (DCA) and lithocholic acid 
+(LCA) from cholic acid (CA) and chenodeoxycholic 
+acid (CDCA), respectively. DCA and LCA, the common 
+secondary bile acids, act as mediators of inflammation, 
+influencing the body’s immune balance [50] and height -
+ening its vulnerability to pathogens. In a cross-sectional 
+study, the higher abundance of genus.Parabacteroides in 
+patients with untreated active TB [15] lends support to 
+our finding. Parabacteroides is a gram-negative bacte -
+rium containing lipopolysaccharide, a potent endotoxin 
+recognized for its capacity to induce a robust pro-inflam -
+matory reaction within the host [51]. Order.Bacillales 
+is a member of the Firmicutes, which is quite resistant 
+to adverse external factors [52]. Our results supported 
+Order.Bacillales as a probiotic with a potential beneficial 
+role in TB treatment and immunization strategies.
+Furthermore, the present study uncovered significant 
+differences in the characteristics of gut microbial distri -
+bution between EPTB and RTB. Family.Bacteroidacea 
+and genus.Bacteroides were identified as common traits 
+in relation to both EPTB and TB. However, decreased 
+Bacteroidetes has been observed in intestinal tubercu -
+losis (ITB) and tuberculosis meningitis (TBM) [53-55]. 
+Huang et al. [56] have indicated that dysbiosis caused by 
+a reduced Firmicutes to Bacteroidetes ratio in TB infec -
+tion was associated with systemic pro-inflammation. It 
+is speculated that short-chain fatty acids (SCFAs) in the 
+gastrointestinal tract may play a potential immunomod -
+ulatory role [17]. SCFAs are essential for maintaining a 
+homeostatic environment, which are mainly produced 
+by the phyla Bacteroidetes and Firmicutes. While the 
+anti-inflammatory properties [57], it is noteworthy that 
+evidences have also demonstrated their potential pro-
+inflammatory attributes [57, 58]. For instance, SCFAs 
+have been found to facilitate the generation of reactive 
+oxygen species (ROS) [57, 59], thus enhancing inflam -
+matory response, potentially implicating the activation of 
+intracellular inflammatory mechanisms (the inflamma -
+some) [58]. EPTB may be more challenging to diagnose 
+and treat [60], and our result would provide valuable 
+insights for targeted therapeutic approaches.
+This study made full use of publicly available com -
+prehensive GWAS data for MR analysis, reducing the 
+interference of confounding factors and false causal 
+relationships, and ensuring the reliability of causal infer -
+ences. However, several limitations still exist in this 
+study. First, across the spectrum from genes to pheno -
+types, a multitude of sources of variation exist, and we 
+have striven to meticulously mitigate the confounding 
+biases linked to these sources. Nonetheless, confounding 
+factors endure, especially those that remain uncharacter -
+ized. Second, insufficiently stringent control thresholds 
+were applied in the selection of IVs. Elevating the thresh -
+old helps to identify more potentially valuable IVs, and 
+bidirectional MR analysis and sensitivity analysis further 
+ensure the stability of the results. Finally, in this study, the 
+gut microbiota data were sourced from MiBioGen con -
+sortium, and TB data were obtained from UK Biobank 
+database and FinnGen database. Although these datasets 
+are of high quality, it is important to note that there may 
+be differences in the frequency distribution of these three 
+databases that may introduce some potential biases. In 
+the future, we hope our findings will be supported by 
+larger data and evidence from in vitro experiments.
+Conclusion
+In conclusion, through a bidirectional two-sample MR 
+analysis, we comprehensively evaluated the causal-effect 
+relationships between the gut microbiota and TB, RTB, 
+and EPTB. Our current study is one that corroborates 
+and enriches existing knowledge by providing evidence 
+of genetic causation. The findings will provide crucial 
+scientific evidence for the potential application of the gut 
+microbiota as a preventive, diagnostic and therapeutic 
+tool for TB.
+Abbreviations
+TB  Tuberculosis
+RTB  Respiratory tuberculosis
+EPTB  Extrapulmonary tuberculosis
+MR  Mendelian randomization
+GWAS  Genome-wide association study
+IVW  Inverse variance weighted
+ML  Maximum likelihood
+IVs  Instrumental variables
+M.tuberculosis  Mycobacterium tuberculosis
+SNPs  Single nucleotide polymorphisms
+MAF  Minor allele frequency
+EAF  Effect allele frequency
+MR-PRESSO  Mendelian randomization pleiotropy residual sum and outlier
+OR  Odds ratio
+CI  Confidence interval
+BMI  Body mass index
+DNA  Deoxyribonucleic acid
+A.muciniphila  Akkermansia muciniphila
+DCA  Deoxycholic acid
+LCA  Lithocholic acid
+CA  Cholic acid
+CDCA  Chenodeoxycholic acid
+ITB  Intestinal tuberculosis
+TBM  Tuberculosis meningitis
+SCFAs  Short-chain fatty acids
+ROS  Oxygen species
+Page 12 of 14Yuan et al. Respiratory Research           (2024) 25:16 
+Supplementary Information
+The online version contains supplementary material available at https:// doi. 
+org/ 10. 1186/ s12931- 023- 02652-7.
+Additional file 1: Table S1. STROBE-MR Checklist. Table S2. Excluded 
+single-nucleotide polymorphisms of potential confounders. Table S3. 
+Single-nucleotide polymorphisms used as instrumental variables for TB in 
+the UK Biobank database in MR analysis. Table S4. Single-nucleotide poly-
+morphisms used as instrumental variables for TB in the FinnGen database 
+in MR analysis. Table S5. Full results of MR estimates for the association 
+between gut microbiota and TB in the UK Biobank database. Table S6. Full 
+results of MR estimates for the association between gut microbiota and 
+TB in the FinnGen database. Table S7. Full results of MR estimates for the 
+association between gut microbiota and RTB in the FinnGen database. 
+Table S8. Full results of MR estimates for the association between gut 
+microbiota and EPTB in the FinnGen database. Table S9. Single-nucleo-
+tide polymorphisms used as instrumental variables for gut microbiota at 
+the threshold of P < 1e−5 in reverse MR analysis. Table S10. MR results of 
+causal links between TB on gut microbiota at the threshold of P < 1e−5 
+in the reverse MR analysis. Table S11. Results of MR Steiger direction test. 
+Table S12. Results of sensitivity analyses between gut microbiota and TB 
+with IVW P < 0.05. Table S13. Results of sensitivity analysEs between TB 
+and gut microbiota in the reverse MR analysis.
+Additional file 2: Fig. S1. Causal effect of the gut microbiota on RTB or 
+EPTB by MR analyses in the FinnGen database. A Causal effect of the gut 
+microbiota on RTB by MR analyses in the FinnGen database. B Causal 
+effect of the gut microbiota on EPTB by MR analyses in the FinnGen data-
+base. From outside to inside, the P values of IVW_p, ML_p, MR Egger_p, 
+WMe_p, and WMo_p were represented, respectively. RTB, respiratory 
+tuberculosis; EPTB, extrapulmonary tuberculosis; IVW, inverse variance 
+weighted; ML, maximum likelihood; WMe, weighted median; WMo, 
+weighted mode.
+Additional file 3: Fig. S2. A forest plot of causal effect of gut microbiota 
+on RTB in the FinnGen database (P-IVW < 0.05). RTB, respiratory tuberculosis; 
+OR, odds ratio; CI, confidence interval.
+Additional file 4: Fig. S3. A forest plot of causal effect of gut microbiota 
+on EPTB in the FinnGen database (P-IVW < 0.05). EPTB, extrapulmonary 
+tuberculosis; OR, odds ratio; CI, confidence interval.
+Additional file 5: Fig. S4. Leave-one-out plots for the causal effect of gut 
+microbiota on TB in the UK Biobank database. TB, tuberculosis. A Family.
+FamilyXIII. B Family.Verrucomicrobiaceae. C Genus..Eubacteriumoxidoredu-
+censgroup. D Genus..Ruminococcusgauvreauiigroup. E Genus.Akkermansia. 
+F Genus.Desulfovibrio. G Genus.FamilyXIIIUCG001. H Genus.Gordonibac-
+ter. I Genus.LachnospiraceaeND3007group. J Genus.Veillonella. K Order.
+Verrucomicrobiales.
+Additional file 6: Fig. S5. Leave-one-out plots for the causal effect of gut 
+microbiota on TB in the FinnGen database. TB, tuberculosis. A Family.Bac-
+teroidaceae. B Family.Verrucomicrobiaceae. C Genus.Akkermansia. D Genus.
+Bacteroides. E Genus.LachnospiraceaeUCG010. F Genus.Parabacteroides. G 
+Genus.RuminococcaceaeUCG011. H Genus.Subdoligranulum. I Order.Bacil-
+lales. J Order.Verrucomicrobiales. K Phylum.Proteobacteria.
+Additional file 7: Fig. S6. Leave-one-out plots for the causal effect of gut 
+microbiota on RTB in the FinnGen database. RTB, respiratory tuberculosis. 
+A Family.BacteroidalesS24.7group. B Family.Peptococcaceae. C Genus..Eubac-
+teriumbrachygroup. D Genus.Eisenbergiella. E Genus.Holdemania. F Genus.
+LachnospiraceaeUCG010. G Genus.Marvinbryantia. H Genus.Parabacteroides. 
+I Genus.RuminococcaceaeUCG005. J Genus.RuminococcaceaeUCG011. K 
+Genus.Ruminococcus1. L Order.Bacillales. M Phylum.Actinobacteria.
+Additional file 8: Fig. S7. Leave-one-out plots for the causal effect of 
+gut microbiota on EPTB in the FinnGen database. EPTB, extrapulmo-
+nary tuberculosis. A Class.Mollicutes. B Family.Bacteroidaceae. C Genus..
+Eubacteriumrectalegroup. D Genus..Eubacteriumventriosumgroup. E Genus..
+Eubacteriumxylanophilumgroup. F Genus.Bacteroides. G Genus.Barnesiella. H 
+Genus.Intestinimonas. I Genus.LachnospiraceaeUCG001. J Genus.Lactococ-
+cus. K Genus.Marvinbryantia. L Genus.Streptococcus. M Phylum.Tenericutes.
+Acknowledgements
+We appreciate all the volunteers and patients who participated in this study. 
+We thank the MiBioGen consortium for releasing the gut microbiota GWAS 
+summary statistics, and the FinnGen consortium for releasing the TB, RTB, and 
+EPTB GWAS summary statistics. We are also grateful to Donertas et al. for con-
+ducting a large study of common genetic associations between age-related 
+diseases based on the UK Biobank database and for sharing the TB GWAS sum-
+mary statistics on the GWAS catalog website.
+Author contributions
+Study concept and design: LY, HL, XXY and JJJ. Methodology: ZXY, YWK, SHH, 
+and FQ. Data collection: YWK, CYM, FYW, and JHZ. Formal analysis and data 
+curation: ZXY, YWK, and CYM. Writing—original draft: ZXY and YWK. Writ-
+ing—review and editing: LY, HL, JJJ and ZXY. All the authors listed have made 
+substantial contributions to the work and approved it for publication.
+Funding
+This work was supported by the Sub-topic of National Key Research and 
+Development Program (2022YFC2305001, to HL); Specific Research Project of 
+Guangxi for Research Bases and Talents (GuikeAD23026283, to LY); Guangxi 
+Youth Science Foundation Project (2022GXNSFBA035660, to ZXY), and 
+Guangxi Medical University Training Program for Distinguished Young Scholars 
+(DC2300001767, to JJJ).
+Availability of data and materials
+The datasets analyzed in the current study are available in the MiBioGen, 
+https:// mibio gen. gcc. rug. nl/ menu/ main/ home, the GWAS catalog, https:// 
+www. ebi. ac. uk/ gwas/ studi es/ GCST9 00387 10, and the FinnGen consortium, 
+https:// www. finng en. fi/ en.
+Declarations
+Ethics approval and consent to participate
+The study was conducted entirely using published research and consortia pro-
+viding publicly available summary statistics, which have been approved by the 
+corresponding ethical review board and informed consent of the participants. 
+Therefore, no new ethical approval was required.
+Consent for publication
+Not applicable.
+Competing interests
+The authors declare that they have no competing interests.
+Author details
+1 Guangxi Key Laboratory of AIDS Prevention and Treatment, School of Public 
+Health, Guangxi Medical University, Nanning 530021, China. 2 Collabora-
+tive Innovation Centre of Regenerative Medicine and Medical BioResource 
+Development and Application Co-Constructed by the Province and Ministry, 
+Life Science Institute, Guangxi Medical University, Nanning 530021, Guangxi, 
+China. 3 Department of Infectious Diseases in Children, Maternity and Child 
+Health Care of Guangxi Zhuang Autonomous Region, Nanning 530003, 
+Guangxi, China. 
+Received: 1 December 2023   Accepted: 22 December 2023
+References
+ 1. Furin J, et al. Tuberculosis. Lancet. 2019;393(10181):1642–56. https:// doi. 
+org/ 10. 1016/ S0140- 6736(19) 30308-3.
+ 2. Behr MA, et al. Revisiting the timetable of tuberculosis. BMJ. 2018;362: 
+k2738. https:// doi. org/ 10. 1136/ bmj. k2738.
+ 3. Diseases GBD, et al. Global burden of 369 diseases and injuries in 204 
+countries and territories, 1990–2019: a systematic analysis for the Global 
+Burden of Disease Study 2019. Lancet. 2020;396(10258):1204–22. https:// 
+doi. org/ 10. 1016/ S0140- 6736(20) 30925-9.
+Page 13 of 14
+Yuan et al. Respiratory Research           (2024) 25:16 
+ 
+ 4. Collaborators GBDT. Global, regional, and national sex differences in the 
+global burden of tuberculosis by HIV status, 1990–2019: results from the 
+Global Burden of Disease Study 2019. Lancet Infect Dis. 2022;22(2):222–
+41. https:// doi. org/ 10. 1016/ S1473- 3099(21) 00449-7.
+ 5. Collaborators GBDT. Global, regional, and national burden of tuberculosis, 
+1990–2016: results from the Global Burden of diseases, injuries, and risk 
+factors 2016 study. Lancet Infect Dis. 2018;18(12):1329–49. https:// doi. 
+org/ 10. 1016/ S1473- 3099(18) 30625-X.
+ 6. Martinez L, et al. The risk of tuberculosis in children after close expo -
+sure: a systematic review and individual-participant meta-analysis. Lan-
+cet. 2020;395(10228):973–84. https:// doi. org/ 10. 1016/ S0140- 6736(20) 
+30166-5.
+ 7. Harausz EP , et al. Treatment and outcomes in children with multidrug-
+resistant tuberculosis: a systematic review and individual patient data 
+meta-analysis. PLoS Med. 2018;15(7): e1002591. https:// doi. org/ 10.  
+1371/ journ al. pmed. 10025 91.
+ 8. Noubiap JJ, et al. Global prevalence of diabetes in active tuberculosis: 
+a systematic review and meta-analysis of data from 2.3 million patients 
+with tuberculosis. Lancet Glob Health. 2019;7(4):e448–60. https:// doi.  
+org/ 10. 1016/ S2214- 109X(18) 30487-X.
+ 9. O’Hara AM, et al. The gut flora as a forgotten organ. EMBO Rep. 
+2006;7(7):688–93. https:// doi. org/ 10. 1038/ sj. embor. 74007 31.
+ 10. Clemente JC, et al. The impact of the gut microbiota on human health: 
+an integrative view. Cell. 2012;148(6):1258–70. https:// doi. org/ 10.  
+1016/j. cell. 2012. 01. 035.
+ 11. Hooper LV, et al. Interactions between the microbiota and the immune 
+system. Science. 2012;336(6086):1268–73. https:// doi. org/ 10. 1126/ 
+scien ce. 12234 90.
+ 12. Lazar V, et al. Aspects of gut microbiota and immune system interac-
+tions in infectious diseases, immunopathology, and cancer. Front 
+Immunol. 2018;9:1830. https:// doi. org/ 10. 3389/ fimmu. 2018. 01830.
+ 13. Naidoo CC, et al. The microbiome and tuberculosis: state of the art, 
+potential applications, and defining the clinical research agenda. 
+Lancet Respir Med. 2019;7(10):892–906. https:// doi. org/ 10. 1016/ S2213- 
+2600(18) 30501-0.
+ 14. Wang S, et al. Characteristic gut microbiota and metabolic changes 
+in patients with pulmonary tuberculosis. Microb Biotechnol. 
+2022;15(1):262–75. https:// doi. org/ 10. 1111/ 1751- 7915. 13761.
+ 15. Ye S, et al. The correlation between dysfunctional intestinal flora and 
+pathology feature of patients with pulmonary tuberculosis. Front Cell 
+Infect Microbiol. 2022;12:1090889. https:// doi. org/ 10. 3389/ fcimb. 2022. 
+10908 89.
+ 16. Ding X, et al. A metagenomic study of the gut microbiome in PTB’S 
+disease. Microbes Infect. 2022;24(2): 104893. https:// doi. org/ 10. 1016/j. 
+micinf. 2021. 104893.
+ 17. Maji A, et al. Gut microbiome contributes to impairment of immunity 
+in pulmonary tuberculosis patients by alteration of butyrate and propi-
+onate producers. Environ Microbiol. 2018;20(1):402–19. https:// doi. org/  
+10. 1111/ 1462- 2920. 14015.
+ 18. Luo M, et al. Alternation of gut microbiota in patients with pulmonary 
+tuberculosis. Front Physiol. 2017;8:822. https:// doi. org/ 10. 3389/ fphys. 
+2017. 00822.
+ 19. Emdin CA, et al. Mendelian randomization. JAMA. 2017;318(19):1925–6. 
+https:// doi. org/ 10. 1001/ jama. 2017. 17219.
+ 20. Xu J, et al. Using Mendelian randomization as the cornerstone 
+for causal inference in epidemiology. Environ Sci Pollut Res Int. 
+2022;29(4):5827–39. https:// doi. org/ 10. 1007/ s11356- 021- 15939-3.
+ 21. Benn M, et al. From genome-wide association studies to Mendelian 
+randomization: novel opportunities for understanding cardiovascular 
+disease causality, pathogenesis, prevention, and treatment. Cardiovasc 
+Res. 2018;114(9):1192–208. https:// doi. org/ 10. 1093/ cvr/ cvy045.
+ 22. Kurilshikov A, et al. Large-scale association analyses identify host 
+factors influencing human gut microbiome composition. Nat Genet. 
+2021;53(2):156–65. https:// doi. org/ 10. 1038/ s41588- 020- 00763-1.
+ 23. Zhang W, et al. Causal relationship between gut microbes and 
+cardiovascular protein expression. Front Cell Infect Microbiol. 
+2022;12:1048519. https:// doi. org/ 10. 3389/ fcimb. 2022. 10485 19.
+ 24. Donertas HM, et al. Common genetic associations between age-
+related diseases. Nat Aging. 2021;1(4):400–12. https:// doi. org/ 10. 1038/ 
+s43587- 021- 00051-5.
+ 25. Sanderson E, et al. Mendelian randomization. Nat Rev Methods Primers. 
+2022. https:// doi. org/ 10. 1038/ s43586- 021- 00092-5.
+ 26. Skrivankova VW, et al. Strengthening the reporting of observational 
+studies in epidemiology using mendelian randomisation (STROBE-MR): 
+explanation and elaboration. BMJ. 2021;375: n2233. https:// doi. org/ 10.  
+1136/ bmj. n2233.
+ 27. Kamat MA, et al. PhenoScanner V2: an expanded tool for search-
+ing human genotype-phenotype associations. Bioinformatics. 
+2019;35(22):4851–3. https:// doi. org/ 10. 1093/ bioin forma tics/ btz469.
+ 28. Burgess S, et al. Avoiding bias from weak instruments in Mendelian rand-
+omization studies. Int J Epidemiol. 2011;40(3):755–64. https:// doi. org/ 10. 
+1093/ ije/ dyr036.
+ 29. Papadimitriou N, et al. Physical activity and risks of breast and colo-
+rectal cancer: a Mendelian randomisation analysis. Nat Commun. 
+2020;11(1):597. https:// doi. org/ 10. 1038/ s41467- 020- 14389-8.
+ 30. Burgess S, et al. Combining information on multiple instrumental vari-
+ables in Mendelian randomization: comparison of allele score and sum-
+marized data methods. Stat Med. 2016;35(11):1880–906. https:// doi. org/ 
+10. 1002/ sim. 6835.
+ 31. Bowden J, et al. Mendelian randomization with invalid instruments: effect 
+estimation and bias detection through Egger regression. Int J Epidemiol. 
+2015;44(2):512–25. https:// doi. org/ 10. 1093/ ije/ dyv080.
+ 32. Pierce BL, et al. Efficient design for Mendelian randomization studies: sub-
+sample and 2-sample instrumental variable estimators. Am J Epidemiol. 
+2013;178(7):1177–84. https:// doi. org/ 10. 1093/ aje/ kwt084.
+ 33. Bowden J, et al. Consistent estimation in mendelian randomization with 
+some invalid instruments using a weighted median estimator. Genet 
+Epidemiol. 2016;40(4):304–14. https:// doi. org/ 10. 1002/ gepi. 21965.
+ 34. Hemani G, et al. Orienting the causal relationship between imprecisely 
+measured traits using GWAS summary data. PLoS Genet. 2017;13(11): 
+e1007081. https:// doi. org/ 10. 1371/ journ al. pgen. 10070 81.
+ 35. Burgess S, et al. Interpreting findings from Mendelian randomization 
+using the MR-Egger method. Eur J Epidemiol. 2017;32(5):377–89. https:// 
+doi. org/ 10. 1007/ s10654- 017- 0255-x.
+ 36. Verbanck M, et al. Detection of widespread horizontal pleiotropy in causal 
+relationships inferred from Mendelian randomization between complex 
+traits and diseases. Nat Genet. 2018;50(5):693–8. https:// doi. org/ 10. 1038/ 
+s41588- 018- 0099-7.
+ 37. Kulinskaya E, et al. An accurate test for homogeneity of odds ratios based 
+on Cochran’s Q-statistic. BMC Med Res Methodol. 2015;15:49. https:// doi. 
+org/ 10. 1186/ s12874- 015- 0034-x.
+ 38. Gu Z, et al. circlize Implements and enhances circular visualization in R. 
+Bioinformatics. 2014;30(19):2811–2. https:// doi. org/ 10. 1093/ bioin forma 
+tics/ btu393.
+ 39. Peltonen L. Molecular background of the Finnish disease heritage. Ann 
+Med. 1997;29(6):553–6. https:// doi. org/ 10. 3109/ 07853 89970 90074 81.
+ 40. Dumas A, et al. The host microbiota contributes to early protection 
+against lung colonization by Mycobacterium tuberculosis. Front Immunol. 
+2018;9:2656. https:// doi. org/ 10. 3389/ fimmu. 2018. 02656.
+ 41. Rajilic-Stojanovic M, et al. The first 1000 cultured species of the human 
+gastrointestinal microbiota. FEMS Microbiol Rev. 2014;38(5):996–1047. 
+https:// doi. org/ 10. 1111/ 1574- 6976. 12075.
+ 42. Wang K, et al. The negative effect of Akkermansia muciniphila-mediated 
+post-antibiotic reconstitution of the gut microbiota on the development 
+of colitis-associated colorectal cancer in mice. Front Microbiol. 2022;13: 
+932047. https:// doi. org/ 10. 3389/ fmicb. 2022. 932047.
+ 43. Chen L, et al. Ifnar gene variants influence gut microbial production of 
+palmitoleic acid and host immune responses to tuberculosis. Nat Metab. 
+2022;4(3):359–73. https:// doi. org/ 10. 1038/ s42255- 022- 00547-3.
+ 44. Kubinak JL, et al. MyD88 signaling in T cells directs IgA-mediated control 
+of the microbiota to promote health. Cell Host Microbe. 2015;17(2):153–
+63. https:// doi. org/ 10. 1016/j. chom. 2014. 12. 009.
+ 45. Swidsinski A, et al. Reduced mass and diversity of the colonic microbiome 
+in patients with multiple sclerosis and their improvement with ketogenic 
+diet. Front Microbiol. 2017;8:1141. https:// doi. org/ 10. 3389/ fmicb. 2017. 
+01141.
+ 46. Ganesh BP , et al. Commensal Akkermansia muciniphila exacerbates gut 
+inflammation in Salmonella Typhimurium-infected gnotobiotic mice. 
+PLoS ONE. 2013;8(9): e74963. https:// doi. org/ 10. 1371/ journ al. pone. 00749 
+63.
+Page 14 of 14Yuan et al. Respiratory Research           (2024) 25:16 
+•
+ 
+fast, convenient online submission
+ •
+  
+thorough peer review by experienced researchers in your ﬁeld
+• 
+ 
+rapid publication on acceptance
+• 
+ 
+support for research data, including large and complex data types
+•
+  
+gold Open Access which fosters wider collaboration and increased citations 
+ 
+maximum visibility for your research: over 100M website views per year •
+  At BMC, research is always in progress.
+Learn more biomedcentral.com/submissions
+Ready to submit y our researc hReady to submit y our researc h  ?  Choose BMC and benefit fr om: ?  Choose BMC and benefit fr om: 
+ 47. Sougiannis AT, et al. Impact of 5 fluorouracil chemotherapy on gut 
+inflammation, functional parameters, and gut microbiota. Brain Behav 
+Immun. 2019;80:44–55. https:// doi. org/ 10. 1016/j. bbi. 2019. 02. 020.
+ 48. Wong JM, et al. Colonic health: fermentation and short chain fatty acids. J 
+Clin Gastroenterol. 2006;40(3):235–43. https:// doi. org/ 10. 1097/ 00004 836- 
+20060 3000- 00015.
+ 49. Namasivayam S, et al. Correlation between disease severity and the 
+intestinal microbiome in Mycobacterium tuberculosis-infected rhesus 
+macaques. MBio. 2019. https:// doi. org/ 10. 1128/ mBio. 01018- 19.
+ 50. Kakiyama G, et al. Modulation of the fecal bile acid profile by gut micro-
+biota in cirrhosis. J Hepatol. 2013;58(5):949–55. https:// doi. org/ 10. 1016/j. 
+jhep. 2013. 01. 003.
+ 51. Hiippala K, et al. Isolation of anti-inflammatory and epithelium reinforcing 
+Bacteroides and Parabacteroides Spp. from a healthy fecal donor. Nutri-
+ents. 2020. https:// doi. org/ 10. 3390/ nu120 40935.
+ 52. Setlow P , et al. Germination of spores of the orders Bacillales and Clostrid-
+iales. Annu Rev Microbiol. 2017;71:459–77. https:// doi. org/ 10. 1146/ annur 
+ev- micro- 090816- 093558.
+ 53. Yoon H, et al. Gut microbiome in probable intestinal tuberculosis 
+and changes following anti-tuberculosis treatment. Yonsei Med J. 
+2022;63(1):34–41. https:// doi. org/ 10. 3349/ ymj. 2022. 63.1. 34.
+ 54. He C, et al. Alterations of gut microbiota in patients with intestinal 
+tuberculosis that different from Crohn’s disease. Front Bioeng Biotechnol. 
+2021;9: 673691. https:// doi. org/ 10. 3389/ fbioe. 2021. 673691.
+ 55. Li S, et al. Predominance of Escherichia-Shigella in gut microbiome and 
+its potential correlation with elevated level of plasma tumor necrosis 
+factor alpha in patients with tuberculous meningitis. Microbiol Spectr. 
+2022;10(6): e0192622. https:// doi. org/ 10. 1128/ spect rum. 01926- 22.
+ 56. Huang SF, et al. Systemic proinflammation after Mycobacterium tubercu-
+losis infection was correlated to the gut microbiome in HIV-uninfected 
+humans. Eur J Clin Invest. 2019;49(5): e13068. https:// doi. org/ 10. 1111/ eci. 
+13068.
+ 57. Duewell P , et al. NLRP3 inflammasomes are required for atherogenesis 
+and activated by cholesterol crystals. Nature. 2010;464(7293):1357–61. 
+https:// doi. org/ 10. 1038/ natur e08938.
+ 58. Yuan X, et al. Differential effects of short chain fatty acids on endothelial 
+Nlrp3 inflammasome activation and neointima formation: antioxidant 
+action of butyrate. Redox Biol. 2018;16:21–31. https:// doi. org/ 10. 1016/j. 
+redox. 2018. 02. 007.
+ 59. Stringer RE, et al. Sodium butyrate delays neutrophil apoptosis: role of 
+protein biosynthesis in neutrophil survival. Br J Haematol. 1996;92(1):169–
+75. https:// doi. org/ 10. 1046/j. 1365- 2141. 1996. 00307.x.
+ 60. Moule MG, et al. Mycobacterium tuberculosis dissemination plays a critical 
+role in pathogenesis. Front Cell Infect Microbiol. 2020;10:65. https:// doi. 
+org/ 10. 3389/ fcimb. 2020. 00065.
+Publisher’s Note
+Springer Nature remains neutral with regard to jurisdictional claims in pub-
+lished maps and institutional affiliations.

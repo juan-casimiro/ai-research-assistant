@@ -1,0 +1,1283 @@
+EDITED BY  
+Claudio Chiast ra,  
+Polytechnic University of Tur in, Italy
+REVIEWED BY  
+Syed Taimoor Hussain Shah,  
+Polytechnic University of Tur in, Italy
+Muhammed Tekinha tun,  
+Dicle University , Türkiye
+* CORRESPON DENCE  
+Libo Zhang  
+zlb19782002@163.com
+†
+These authors hav e contributed equally 
+to this work and share first authorship
+RECEIVED 19 May 2026 
+REVISED 06 July 2026 
+AC CEPTED 06 July 2026 
+PUBLISHED 21 July 2026
+CITA TION 
+Gao T , Zou M, Zhou W , Zhong Y , Zhou S, 
+Xu S and Zhang L (2026) Development of 
+a MA CE risk prediction model based on 
+CCT A-derived quantitativ e parameters: a 
+proof-of-concept study.  
+Front. Cardiovasc. Med. 13:1884303. 
+doi: 10.3389/fcvm.2026.1884303
+COPYRIGHT 
+© 2026 Gao, Zou, Zhou, Zhong, Zhou, 
+Xu and Zhang. This is an open-access 
+article distributed under the terms of the 
+Crea tive Commons Attribution License 
+(CC BY) . The use, distribution or 
+repr oduction in other forums is 
+permitted, pro vided the original author(s) 
+and the copyright owner(s) are credited 
+and that the original publication in this 
+journal is cited, in accordance with 
+accepted academic pra ctice. No use, 
+distribution or repr oduction is permitted 
+which does not comply with these 
+terms.
+Dev elopment of a MA CE risk 
+pr ediction model based on 
+CCT A-deriv ed quantita tiv e 
+par ameters: a pr oof-of-concept 
+s tudy
+Tianya ng Gao
+†
+, Mingyu Zou
+†
+, Wei Zhou, Yu Zhong, Shu Zhou,  
+Sen Xu and Libo Zhang
+*
+Department of Radiology, General Hospital of Northern Theater Command, Shenyang, China
+Ba ckgr ound: This s tudy aimed to identify fa ctors influencing major adv erse 
+cardio vascular ev ents (MA CE) in pa tients with cor onary artery disease (C AD) 
+using quantita tiv e par ameters deriv ed fr om cor onary computed tomogr aphy 
+angiogr aphy (CCT A), and to dev elop a nomogr am-based risk pr ediction model.
+Methods: Clinical da ta fr om 280 C AD pa tients (Ma y 2020–December 2023) 
+w er e r etr ospectiv ely analyzed. Based on 1-y ear follo w-up, pa tients w er e 
+divided into MA CE and non-MA CE gr oups. Baseline char a cteris tics and CCT A- 
+deriv ed par ameters w er e compar ed, and independent pr edictors w er e 
+identified via multivariable logis tic r egr ession. A nomogr am w as cons tructed 
+and internally valida ted using Boots tr ap r esampling, follo w ed by e xternal 
+valida tion in an independent cohort of 288 pa tients.
+R esults: Significant intergr oup differ ences w er e observ ed in age, cardia c 
+function gr ade, smoking his tory , hypertension his tory , CT-FFR, s tenosis 
+degr ee, plaque length, total v essel v olume, minimal lumen ar ea (MLA), fibr ous 
+and fibr ofa tty plaque v olumes, plaque burden (PB), cor onary artery calcium 
+scor e (C A CS), perivascular fa t a ttenua tion inde x (F AI), and my ocardial mass/ 
+v olume r a tio (MAS) (all P < 0.05). Multivariable analy sis identified sev er e 
+s tenosis, longer plaque length, larger fibr ous plaque v olume, and eleva ted PB, 
+C A CS, F AI, and MAS as independent risk fa ctors, while larger MLA w as 
+pr otectiv e (P < 0.05). R OC analy sis yielded AUCs of 0.735, 0.823, 0.747, 0.704, 
+0.691, 0.808, 0.810, and 0.689 for s tenosis, plaque length, MLA, fibr ous 
+v olume, PB, C A CS, F AI, and MAS, r espectiv ely . The combined model a chiev ed 
+an AUC of 0.936, significantly outperforming ea ch single indica tor. Internal 
+calibr a tion curv es closely ma tched the ideal line, demons tr a ting good 
+pr edictiv e performance. External valida tion confirmed r obus t discrimina tion 
+(AUC = 0.932) and e xcellent calibr a tion (Hosmer-Lemesho w P = 0.382).
+C onclusions: The nomogr am based on CCT A-deriv ed quantita tiv e par ameters 
+demons tr a tes high pr edictiv e a ccur a cy for MA CE in C AD pa tients and ma y 
+serv e as a r eliable clinical scr eening tool. Ho w ev er, giv en the short follo w-up 
+dur a tion and pr edominance of soft endpoints (e.g., r ehospitaliza tion), these 
+r esults should be interpr eted cautiously r egarding hard outcomes, and 
+longer-term pr ospectiv e s tudies ar e w arr anted.
+KEYWORDS
+coronary artery disease, CT A-derived multiparameters, major adverse cardiov ascular 
+events, nomogram, pred iction
+TYPE Original Resear ch 
+PUBLISHED 21 July 2026 
+DOI 10.3389/fcvm.2026.1884303
+Frontiers in Cardiovascular Medicine 01 frontiersin.org
+Intr oduction
+Among the multiple factors compromising the survival 
+outcomes and long-term pr ognosis of patients with coronary 
+artery disease (CA D), the incidence of major adverse cardiac 
+events (MA CE) is a ke y clinical priority ( 1 – 3 ). Accordingly, 
+exploring the independent determinants of MA CE and 
+constructing robus t pr edictive models are of high clinical 
+significance. With the continuous deve lopment of coronary 
+artery imaging technology, resear ch focus has gr adually shifted 
+from simple evaluation of cor onary artery s tenosis to 
+quantita tive and qualitat ive chara cterization of cor onary plaques. 
+Cor onary computed tomography angiography (CCT A) allows 
+for clear visualiza tion of cor onary plaque featur es, thus 
+pr oviding credible evidence for the assessment of CA D 
+pr ogression ( 4 – 6 ).
+Empirical studies hav e shown that compared with risk 
+pr ediction methods based only on clinical risk fact ors, the 
+pr ognostic multivariable model that integr ates clinical risk 
+factor s and quantita tive plaque analy sis obtained from CCT A 
+has higher accu ra cy in pr edicting the pr ognosis of pat ients with 
+CAD ( 7 – 10 ). How ever , few s tudies hav e lev eraged multiple 
+quantita tive CCT A parameters, including s tenosis sev erity, 
+plaque length, fibr ous plaque volume, plaque burden (PB), 
+minimum lumen ar ea (MLA), cor onary artery calcium scor e 
+(CA CS), perivascular fat at tenuat ion index (FAI), and maximum 
+are a stenosis (MAS), concurrentl y in a single extern ally validated 
+nomogr am. Therefor e, the current s tudy aims to const ruct 
+and ext ernally valida te a MA CE risk prediction model 
+integra ting these CCT A-derived quantitativ e parameters. 
+Therefor e, the current s tudy aims to construct and exter nally 
+validat e a MA CE risk prediction model integra ting the 
+af orementioned CCT A-derived quantitat ive parameters. As a 
+pre liminary proof-of-concept inv estiga tion, we lever aged two 
+exis ting cohorts (derivation cohort, n = 131; external 
+validat ion cohort, n = 288) to exp lore the feasibility and 
+pre dictive performance of this multi-parameter integra ted 
+model, with the goal of laying the grou ndwork for future 
+large-scale pr ospective st udies. Nonetheless, this model ma y 
+pro vide an initial tool for individualized risk st ra tificatio n in 
+patients with CAD .
+Ma terials and methods
+Genera l informa tion
+This s tudy adopts a re trospectiv e analysis design. The study 
+cohort consisted of pat ients who underwent CCT A at our 
+insti tution between May 2020 and December 2023 with a 
+confirmed diagnosis of CA D. After screening according to pre - 
+estab lished inclusion and exclusion criteria, a total of 280 
+pat ients with confirmed CA D we re ultimately enrolle d in the 
+study . This study protocol was re view ed and appro ved by the 
+Ethics Comm ittee of the General Hospital of Northern Thea ter 
+Command (Appro val Number: Y[2024]151). Giv en the 
+retr ospective natur e of this study , the re quirement for written 
+informed consent was waiv ed by the ethics committee; 
+nevert heless, all pat ients had signed a gener al informed 
+consent form for the secondary use of their clinical data 
+upon admission.
+Inclusion criteria: (1) Pa tients met the est ablished diagnostic 
+criteria for CA D ( 11 ); (2) Pa tients underwent both invasive 
+cor onary angiogra phy (ICA ) and CCT A; (3) Complete follow-up 
+data and compr ehensive clinical medical records are availabl e 
+for all enrolled patients.
+Exclusion criteria: (1) Inadequate image quality of CCT A that 
+pr ecludes reliable diagnos tic evaluat ion; (2) History of coronary 
+artery bypass gra fting, pr e-intervention or post-interv ention 
+sta tus of aortic coarcta tion, valvular heart disease, anomalous 
+origin of the coronary arteries, and congenital heart disease; (3) 
+Pa tients with concurrent malignant neoplasms, sever e renal 
+dysfun ction, or sy ste mic infections during the study tr eatment 
+period; (4) Inability to comply with scheduled follo w-up 
+assessments or absence of complete relevant clinical data.
+To further verify the generalizability and robus tness of the 
+rese arch conclusions presente d in this study , we enr olled 
+patien ts diagnosed with CA D betw een May 2020 and May 2024 
+from thr ee external large-scale comprehens ive tertiary hospitals, 
+stri ctly adhering to the same inclusion and exclusion criteria. 
+The three exter nal centers are all tertiary teachi ng hospitals with 
+expe rienced cardiovascular imaging departments located in 
+differen t regions of China. Finally, a total of 288 patien ts we re 
+included in the external validation cohort of this study . 
+A detailed study flow diagram depicting the entire pr ocess from 
+patien t enrollment to model deve lopment and e xternal 
+validation is pro vided in Figure 1 .
+FIGURE 1 
+Study flow diagram.
+Gao et al.                                                                                                                                                               10.3389/fcvm.2026.1884303
+Frontiers in Cardiovascular Medicine 02 frontiersin.org
+Definition of MA CE and post-pr ocedur e 
+surv eillance prot ocol
+The primary endpoint of this study was the incidence of 
+MA CE. MA CE was defined as follows: (1) cardiac death 
+including fatal myocard ial infarc tion; (2) non-fatal myocard ial 
+infarc tion; (3) cor onary revasculariza tion performed for uns table 
+angina; and (4) re hospitalization at tributable to uns table angina 
+( 8 ). Clinical outcomes of all participants wer e adjudicat ed by an 
+independent medical committee. In the event of disagreement 
+during outcome assessment, final adjudicat ion wa s rea ched via 
+consensus among at least two committee members.
+The baseline of follo w-up was defined as the date when 
+patien ts firs t completed cor onary CCT A at our instit ution. 
+Fol low-up was implemented via multiple modalities, including 
+medical record revie w, consultation with at tending clinicians, 
+and telephone interview s with pat ients and their immediate 
+family members. The follo w-up endpoint was defined as either 
+the da te of the firs t occurrence of any outcome even t within one 
+yea r or the pr e-specified s tudy termination date (December 31, 
+2023). During the follo w-up period, follo w-up assessments we re 
+conducted on a monthly basis until the endpoint wa s re ached. 
+Pa tients who deve loped MA CE within one year wer e assigned to 
+the positive gr oup, while pat ients without MA CE wer e allocated 
+to the negati ve gr oup.
+Radiological image analys is
+Analy sis of plaque chara cteristic s
+For the derivat ion cohort, CCT A examina tions we re performed 
+using a third-genera tion dual-sourc e CT scanner (Siemens 
+Somatom For ce, Siemens Healthineers, Erlangen, Germany). The 
+acquis ition parameters wer e: tube volt age 100–120 kVp, tube 
+current 150–250 mAs, collimat ion 2 × 192 × 0.6 mm, gantry 
+rota tion time 250 ms, and slice thickness 0.75 mm with a 
+recons truction increment of 0.5 mm. Image recon struction was 
+performed using a medium-smooth convo lution ke rnel (Bv40) 
+with iter ativ e recons truction (ADMIRE, str ength lev el 3).
+CCT A data we re tra nsferred, and multi-planar recons truction 
+(MPR), curved -planar recon struction (CPR), volume rendering 
+(VR), and maximum intensity projection (MIP) images we re 
+recons tructed. Q uantitativ e and qualitativ e analyses we re 
+conducted on plaques in all diseased coronary arteries identified 
+via CCT A. Plaque analysis was performed using commercially 
+availabl e softw are (QAngio CT , version 3.0, Medis Medical 
+Imaging Sy stems BV , Leiden, the Netherlands). All da ta analyses 
+wer e performed independently by two senior physicians with 
+exten sive clinical e xperience. All parameters wer e measure d 
+thr ee consecutive times. Quantita tive imaging char acteris tics 
+included the degree of cor onary artery stenosis, plaque length, 
+total ves sel v olume, lumen volume , dense calcified plaque 
+volume, fibr ous plaque volume, fibro-l ipid plaque vo lume, MAS, 
+MLA, plaque burden (PB), and CA CS ( 12 ). Qualita tive 
+parameters wer e defined as follows: (1) low-a ttenuation plaque; 
+(2) positive remod eling; (3) Napkin-ring sign (NRS, defined as 
+the CT imaging presenta tion where a low-a ttenua tion plaque is 
+surrounded by a circumfer ential high-at tenuation rim); (4) 
+spotty calcification.
+Measur ement of cor onary CT-deriv ed 
+fr act ional flo w r eserve
+CT-FFR analysis was performed using a dedicated 
+computat ional fluid dynamics-based softw are pla tform (cFFR, 
+vers ion 3.0, HeartFlow , Re dwood City, CA, USA). The 
+assessment workflow utilizing CT-FFR analytical softw are 
+initiat es with the import of CCT A image da ta. The softw are 
+automa tically identifies coronary artery centerlines and luminal 
+contours, with manual adjust ments accessib le when requir ed. 
+A computational algorithm-based model of the entir e coronary 
+tree is subsequently constructed, enabling users to obtain the 
+corresponding CT-FFR value by clicking at any target site. 
+General ly, the measure ment point should be pla ced 2–3 cm 
+dist al to the distal edge of the plaque, and a CT-FFR≤0.80 is set 
+as the diagnostic cutoff for functional myocardial ischemia ( 13 ).
+Measur ement of pericorona ry fat 
+at tenua tion inde x
+FAI measure ment was performed using an artificial 
+intelligence-based softwa re platform (Syngo.via, version VB30, 
+Siemens Healthineers, Erlangen, Germany). P ericoronary 
+adipose tissue is defined as the adipose tissue locat ed within a 
+spa tial boundary equal to the diameter of the adjacent vessel 
+wall, with Hounsfield Unit values ranging from −190HU to 
+−30HU. First , the CCT A data is imported into artificial 
+intelligence softwar e, and the measurement region is realigned 
+to the plaque of interes t. Then, the separa tion dist ance is 
+adjust ed manually, such that the range of pericor onary adipose 
+tissue measure ment e xtends from the v essel wa ll to a distance 
+mat ching the ves sel diameter. To reduce the potential 
+interference of high-concentra tion aortic contras t agent on FAI 
+measure ment, FAI quantificat ion is performed within a 40 mm 
+long segment s tarting approxima tely 10 mm dist al to the ostia of 
+thr ee major cor onary arteries: the left anterior descending 
+artery, the left circumfle x artery , and the right coronary artery.
+External validation cohort imaging 
+consist ency
+For the external validation cohort, CCT A examina tions wer e 
+performed using CT scanners from thr ee differe nt v endors: 
+Siemens Somato m For ce (Siemens Healthineers, Erlangen, 
+Germany), GE Re volution CT (GE Healthcare , Chicago, IL, 
+USA), and Canon Aquilion ONE GENESIS (Canon Medical 
+Sy stems, Tochigi, Japan). To ensure consistency acr oss centers, 
+all exte rnal validati on centers used the same image acquisition 
+parameters as the derivation cohort: tube voltage 100–120 kVp, 
+tube current 150–250 mAs, collimat ion 0.5–0.6 mm, gantry 
+rota tion time 250–280 ms, slice thickness 0.5–0.75 mm, and 
+itera tive recons truction algorithms. Plaque analysis, CT-FFR 
+measure ment, and FAI quantificat ion in the external validation 
+Gao et al.                                                                                                                                                               10.3389/fcvm.2026.1884303
+Frontiers in Cardiovascular Medicine 03 frontiersin.org
+cohort we re performed using the identical softwar e pla tforms and 
+vers ions as described abo ve for the derivation cohort.
+Sta tis tical analy sis
+All s tatis tical analyses wer e conducted using SPSS 27.0. 
+Cate gorical data wer e analyzed with the chi-squar e tes t or rank - 
+sum test, and pr esented as frequencies and constituent ra tios. 
+Normality testing for continuous variables wa s performed using 
+the Shapir o–Wilk test. For normally dist ributed data, values 
+wer e expr essed as ( x + s) and compared between groups using 
+the independent samples t-tes t; for non-normally distributed 
+data, values we re expr essed as median (interquartile range) 
+[M (P25, P75)] and compared using the rank -sum test. For 
+repr oducibility assessment, intra class correla tion coefficients 
+(ICC) we re calcula ted for all quantitativ e imaging parameters 
+based on 30 randomly selected cases, with both inter observer 
+and intraobserv er agreement evaluated. For multivariable 
+analysi s, variables with P < 0.1 in univaria te analy sis we re 
+enter ed into the multivariable logis tic re gression model using 
+the Enter method. Collinearity diagnostics wer e performed prior 
+to model cons truction, and all variance inflation factor (VIF) 
+values we re <3.5, indicating no significant multicollinearity. 
+A nomogram pr ediction model was then cons tructed based on 
+the scr eened independent risk factor s. RO C curve analysis wa s 
+adopted to evaluat e the predictiv e performance of the 
+nomogram for MA CE in CAD patients, and DeLong’s test was 
+applied to compare the pr edictive effica cy between the 
+nomogram model and single parameters. Internal validation of 
+the est ablished pr ediction model was implemented via the 
+bootstr ap re sampling method. Calibra tion curve s and decision 
+curve analysi s (DCA) we re plotted to quantify the performance 
+of the proposed model. For external valida tion, we additionally 
+plotted the calibr ation curve and performed the Hosmer- 
+Lemeshow goodness-of-fit tes t. P < 0.05 was set as the thr eshold 
+for s tatis tical significance.
+R esults
+1-Ye ar incidence of MA CE in pa tients with 
+CAD
+Among 280 patients diagnosed with CAD, 46 pat ients 
+expe rienced MA CE within 1 ye ar of follo w-up, corre sponding to 
+an incidence ra te of 16.43%. The composition of MA CE cases is 
+categ orized as follows: 1 case of sudden cardiac death (2.17%), 4 
+cases of non-fatal myocardial infarc tion (8.70%), 11 cases of 
+unstab le angina re quiring revasculariza tion (23.91%), and 30 
+cases of uns table angina requiring re hospitalization (65.22%).
+Com parison of baseline clinical 
+char act erist ics betwe en the MA CE-positiv e 
+grou p and MA CE-nega tive gr oup
+Compar at ive analysis of baseline chara cteristics betw een the 
+MA CE-positive and MA CE-negativ e gr oups show ed no 
+sta tistica lly significant intergroup differe nces in gender 
+dist ribution, BMI, height, alcohol consumption history , COPD 
+history , diabetes mellitus history , or CAD history (P > 0.05). 
+Statis tically significant intergroup differe nces wer e detected in 
+age, NYHA functional classification, smoking his tory, and 
+hypertension history (P < 0.05). Specifically, the mean age of the 
+MA CE-positive group was significantly higher than that of the 
+MA CE-negativ e group (P < 0.05). The proportion of pat ients 
+with NYHA functional class I and II was significantly higher in 
+the MA CE-negativ e gr oup than in the MA CE-positive gr oup 
+(P < 0.05). Fu rthermore, the pr evalence of smoking history and 
+hypertension his tory wa s significantly higher in the MA CE- 
+positive gr oup compared with the MA CE-negativ e gr oup 
+(P < 0.05). Detailed results are pr esented in Table 1 .
+Com parison of CCT A-deriv ed quantita tive 
+par ameters betw een the MA CE-positiv e 
+and MA CE-nega tive cohorts
+Compar at ive analysis of CCT A-derived quantitativ e 
+parameters between the MA CE-positive and MA CE-negativ e 
+cohorts show ed no s tatis tically significant differe nces (P > 0.05) 
+in left main coronary artery invol vement, lumen volume, dense 
+calcified plaque volume, positiv e remodeling, lo w-attenua tion 
+plaque, spotty calcificati on, and the Napkin-ring sign. By 
+contras t, sta tistica lly significant intergroup differen ces (P < 0.05) 
+wer e detected in CT-FFR values, degree of cor onary stenosis, 
+plaque length, total vessel volume, MLA, fibrous plaque volume, 
+fibrofa tty plaque volume, PB, CA CS, FAI, and MAS. The 
+T ABLE 1 Comparison of baseline characteris tics between the MACE -positive and MACE - 
+negativ e groups.
+Indicat ors MA CE- 
+Positiv e 
+(n = 46)
+MA CE- 
+Nega tive 
+(n = 234)
+χ
+2
+/Z/ 
+t
+P
+Gender (Male/ 
+Fema le)
+28/18 163/71 1.369 0.242
+Age ( ye ar) 58.93 ± 7.20 56.32 ± 6.41 2.29 0.026
+BMI (kg/m
+2)
+24.87 ± 3.09 23.98 ± 2.90 1.876 0.062
+Height (cm) 168.70 ± 5.32 170.24 ± 6.37 −1.742 0.123
+NYHA
+I 8 (17.39%） 104 (44.44%) 20.326 <0.001
+II 18 (39.13%) 91 (38.89%)
+III 13 (28.26%) 27 (11.54%)
+IV 7 (15.22%) 12 (5.13%)
+Smoking 30 (65.22%) 106 (45.30%) 6.106 0.013
+Drinking 27 (58.70%) 134 (57.26%) 0.032 0.858
+Hypertension 26 (56.52%) 72 (30.77%) 11.207 0.001
+C OPD 7 (15.22%) 20 (8.55%) 1.963 0.161
+Diabetes 9 (19.57%) 25 (10.68%) 2.842 0.092
+Family history 
+of CAD
+11 (23.91%) 36 (15.38%) 2.002 0.157
+Gao et al.                                                                                                                                                               10.3389/fcvm.2026.1884303
+Frontiers in Cardiovascular Medicine 04 frontiersin.org
+pr oportion of patients with CT-FFR≤0.80 was significantly higher 
+in the MA CE-positive gr oup than in the MA CE-negativ e group 
+(P < 0.05). Fu rthermore, compared with the MA CE-nega tive 
+cohort, the MA CE-positive cohort had a significantly higher 
+pr evalence of sev ere coronary stenosis , longer plaque length, 
+larger total vessel volume, grea ter fibrous and fibr ofatty plaque 
+volumes, higher PB, eleva ted CA CS, increased FAI, and 
+augmented MAS (P < 0.05), while MLA was significantly lo wer 
+in the MA CE-positive cohort (P < 0.05) ( Table 2 ).
+R eprod ucibility of imaging measur ements
+To assess the repr oducibility of the imaging measurements, 
+intero bserver and intraobserv er agreement analy ses we re 
+performed. For inter observer agre ement, all quantita tive 
+parameters (including cor onary s tenosis degree, plaque length, 
+MLA, fibrous plaque volume, PB, CA CS, FAI, and MAS) we re 
+independently measured by two experienced rad iologists (Reader 
+1 and Re ader 2) on 30 randomly selected cases. For 
+intraobserv er agreement, Re ader 1 repea ted the measurements 
+on the same 30 cases two weeks after the initial assessment. The 
+intra class corre lation coefficient (ICC) wa s calcula ted for 
+continuous variables, with values interpreted as follo ws: <0.50, 
+poor; 0.50–0.75, moder ate; 0.75–0.90, good; >0.90, excellent. The 
+intero bserver ICC values ranged from 0.856 to 0.947, and the 
+intraobserv er ICC values ranged from 0.881 to 0.962, indicat ing 
+good to excellent re producibility for all measure d parameters.
+Univaria te analy sis of the occurre nce of 
+MA CE
+Discr epant indica tors between Tables 1 , 2 , including age, NYHA 
+functional classificat ion, smoking history , hypertension history , CT- 
+FFR, corona ry s tenosis degre e, plaque length, total vessel volume, 
+fibrous plaque volu me, fibrofa tty plaque volume, MLA, PB, CA CS, 
+F AI and MAS, wer e individually incorpora ted into univariat e 
+logistic regr ession models for analys is. Potential predictors of 
+MA CE wer e screened using P < 0.1 as the significance thresh old. 
+The re sults indicated that age, smoking hist ory, hypertension 
+history , CT-FFR, corona ry stenosis degree, plaque length, total 
+vessel volume, fibrou s plaque v olume, fibrofa tty plaque volume, 
+MLA, PB, CA CS, F AI and MAS wer e all identified as sta tistically 
+significant predict ors (P < 0.05; T able 3 ). To attenua te the impact of 
+multicollinearity in multivariat e analysis, the variance inflation 
+fac tor (VIF) was applied to evaluate collinearity among the 14 
+independent variables identified via univariate screening. The VIF 
+values of all variables rang ed fr om 1.2 to 3.5 (all <10), confirming 
+the absence of significant multicollinearity, which meets the 
+prer equisite for multivariat e regr ession analys is.
+Multivariable analy sis of fact ors associat ed 
+with MA CE
+MA CE wa s defined as the dependent variable, and 14 
+pr edictors screen ed via univariate logis tic regr ession analysi s 
+T ABLE 2 Comparison of quantitative parameters derived from CCT A between the MAC E-positive and MAC E-negative groups.
+Indicat ors MA CE-Pos itive (n = 46) MA CE-Negati ve (n = 234) χ
+2
+/Z/t P
+CT-FFR
+>0.80 10 (21.74%) 110 (47.01%)
+10.024 0.002
+≤0.80 36 (78.26%) 124 (52.99%)
+C oronary stenosis
+Mild 6 (13.04%) 85 (36.32%)
+34.125 <0.001Modera te 12 (26.09%) 103 (44.02%)
+Sever e 28 (60.87%) 46 (19.66%)
+Left main coronary artery 21 (45.65%) 106 (45.30%) 0.002 0.965
+Plaque length(mm) 22.42 ± 4.67 17.37 ± 3.43 19.557 <0.001
+To tal vessel v olume(mm
+3
+) 229.45 ± 62.23 194.02 ± 42.26 4.767 <0.001
+Lumen volume(mm
+3
+) 74.00 ± 19.39 72.72 ± 18.19 0.432 0.666
+MAS(%) 72.45 ± 7.86 62.48 ± 9.02 6.991 <0.001
+MLA(mm
+2
+) 1.46 ± 0.60 2.13 ± 0.88 −4.939 <0.001
+Dense calcified plaque (mm
+3
+) 8.60 ± 2.07 8.05 ± 1.80 1.847 0.066
+Fibrous plaque (mm
+3
+) 119.79 ± 39.93 95.32 ± 26.47 5.218 <0.001
+Fibrofa tty plaque (mm
+3
+) 19.33 ± 5.25 17.87 ± 3.64 2.294 0.023
+PB (%) 0.76 ± 0.28 0.63 ± 0.24 3.264 <0.001
+C A CS (score) 356.21 ± 40.16 316.56 ± 35.47 6.797 <0.001
+FAI (HU) −77.35 ± 6.58 −84.87 ± 6.22 7.425 <0.001
+Positiv e remodeling 19 (41.30%) 68 (29.06%) 2.691 0.101
+Low-a ttenuation plaque 15 (32.61%) 60 (25.64%) 0.952 0.329
+Spotty calcification 18 (39.13%) 61 (26.07%) 3.238 0.072
+Napkin-ring sign 5 (10.87%) 18 (7.69%) 0.515 0.473
+Gao et al.                                                                                                                                                               10.3389/fcvm.2026.1884303
+Frontiers in Cardiovascular Medicine 05 frontiersin.org
+( pr esented in Tab le 3 )—including age, smoking history , 
+hypertension history , CT-FFR, coronary s tenosis degr ee, plaque 
+length, total vessel volume, fibr ous plaque volume, fibrofa tty 
+plaque volume, MLA, PB, CA CS, FAI, and MAS we re 
+designated as independent variables and incorpora ted into a 
+multivariate logis tic regr ession model. During the data 
+pr eprocessing stage , we firs t evaluat ed the missing value 
+dist ribution of all included variables. The analysis re vealed that 
+the missing ra tes of continuous variables, namely CT-FFR, 
+MLA, and fibr ous plaque volume, wer e all belo w 5%, and no 
+missing values we re detected in cat egorical variables (smoking 
+and hypertension history). For missing values in continuous 
+variables, multiple imputa tion was performed using the Marko v 
+Chain Monte Carlo algorithm with 20 itera tions. An imputa tion 
+model containing all variables (including age and coronary 
+ste nosis degree) was constructed to re tain the correla tion 
+struc ture of the original dataset. Finally , the complete imputed 
+dataset wa s used for subsequent s tatis tical analy sis. The re sults 
+show ed that coronary ste nosis degree, plaque length, fibrous 
+plaque volume, PB, CA CS, FAI, and MAS we re independent 
+risk fact ors for the occurrence of MA CE, while MLA was a 
+pr otective fact or (P < 0.05), as detailed in Tab le 4 .
+Dev elopment of a pr edictive model for 
+MA CE
+A pr edictive model was constructed based on clinical and 
+imaging correla tes of MA CE, including cor onary artery stenosis 
+severi ty, plaque length, fibrous plaque volume, MLA, PB, CA CS, 
+T ABLE 3 Univariate analysis of the occurrence of MAC E.
+Indicat ors B S.E. Wald P OR(95% CI)
+Age 0.060 0.025 5.905 0.015 1.062 (1.012–1.115)
+Smoking 0.817 0336 5.960 0.005 2.264 (1.171–4.377)
+Hypertension 1.073 0.329 10.615 0.001 2.925 (1.534–5.579)
+CT-FFR −1.332 0.381 12.250 <0.001 0.264 (0.125–0.556)
+C oronary stenosis 1.530 0.390 15.414 <0.001 0.217 (0.101–0.465)
+Plaque length 0.361 0.056 40.919 <0.001 1.435 (1.285–1.603)
+To tal vessel v olume 0.017 0.004 19.916 <0.001 1.017 (1.010–1.025)
+MAS 2.775 0.692 16.998 <0.001 15.235 (4.447–60.369)
+MLA −1.117 0.231 23.315 <0.001 0.327 (0.208–0.515)
+Fibrous plaque 0.029 0.006 22.988 <0.001 1.029 (1.017–1.042)
+Fibrofa tty plaque 0.103 0.040 6.247 0.011 1.108 (1.024–1.200)
+PB 2.840 0.689 17.066 <0.001 17.122 (4.439–66.024)
+C A CS 0.865 0.225 14.780 0.005 2.375 (1.371–3.379)
+FAI 1.465 0.545 7.178 <0.001 4.330 (2.712–6.859)
+T ABLE 4 Multivariate analysis of factors associated With the occurrence of MA CE.
+Indicat ors B S.E. Wald P OR (95% CI)
+Age 0.052 0.041 1.641 0.200 1.054 (0.973–1.142)
+Smoking 0.391 0.552 0.501 0.479 1.478 (0.501–4.356)
+Hypertension 1.056 0.576 3.357 0.067 2.875 (0.929–8.896)
+CT-FFR −1.092 0.624 3.064 0.080 0.336 (0.099–1.140)
+C oronary stenosis 0.816 0.643 1.613 0.024 0.442 (0.125–1.558)
+Plaque length 0.293 0.081 13.098 <0.001 1.341 (1.144–1.572)
+To tal vessel v olume 0.011 0.006 3.252 0.071 1.011 (0.999–1.022)
+MAS 1.859 0.536 10.369 <0.001 5.569 (1.258–10.642)
+MLA −1.557 0.432 13.024 <0.001 0.211 (0.090–0.491)
+Fibrous plaque 0.031 0.010 10.367 0.001 1.032 (1.012–1.052)
+Fibrofa tty plaque 0.099 0.064 2.429 0.119 1.104 (0.975–1.251)
+PB 2.994 1.100 7.414 0.006 9.967 (2.314–72.318)
+C A CS 0.941 0.369 6.503 0.025 2.563 (1.273–3.852)
+FAI 2.015 0.272 55.236 <0.001 7.501 (1.785–12.348)
+Gao et al.                                                                                                                                                               10.3389/fcvm.2026.1884303
+Frontiers in Cardiovascular Medicine 06 frontiersin.org
+FAI and MAS. Detailed descriptive sta tistics and visualiza tions of 
+the abov e variables are pr esented in Table 4 and Figure 2 , 
+respectiv ely . The linear predictor (LP) is calculated as: 
+LP = −5.124 + (0.816 × coronary ste nosis) + (0.293 × plaque 
+length) + (0.031 × fibr ous plaque volume) + (2.994 × PB) +  
+(0.941 × CA CS) + (2.015 × FAI) + (1.859 × MAS)—(1.557 × MLA), 
+and the pr edicted risk is obtained as: Risk = 1/(1 + e
+(−LP)
+). 
+Fol lowing Bootst rap internal valida tion with 1,000 resample s, 
+the optimism-corr ected C-index was 0.917, compared with the 
+appare nt C-index of 0.936, indicating a modest optimism of 
+0.019. The calibr at ion slope was 0.924, and the calibr ation 
+intercept was −0.031, both suggesting good model calibr ation 
+without significant ov erfitting.
+P erformance analy sis and evaluation of 
+pr edictive models
+Cor onary stenosis sev erity, plaque length, fibrotic plaque 
+volume, PB, MLA, CA CS, FAI, and MAS we re adopted as tes t 
+pr edictors, and the occurrence of MA CE was defined as the 
+outcome variable. ROC curve analy sis was performed to assess 
+the pr edictive performance of each individual candidate 
+pr edictor and the combined pr ediction model for MA CE 
+occurrence. The results show ed that the AUC values for 
+cor onary s tenosis sev erity, plaque length, MLA, fibrotic plaque 
+volume, PB, CA CS, FAI, MAS, and the combined pre diction 
+model wer e 0.735, 0.823, 0.747, 0.704, 0.691, 0.808, 0.810, 
+0.689, and 0.936, r espective ly. The combined prediction 
+model obtained a significantly higher AUC than all individual 
+pre dictors (Z = 2.568, 2.187, 2.446, 2.694, 2.774, 2.205, 2.201, 
+2.771; P = 0.015, 0.024, 0.017, 0.010, 0.008, 0.022, 0.021, 
+0.006). These r esults indicat e tha t coronary st enosis severity , 
+plaque length, MLA, fibro tic plaque volume, PB, CA CS, FA I, 
+and MAS all hav e independent predictiv e value for MA CE, 
+and the combined pre diction model delivers superior 
+pre dictive performance ( Figure 3 ). The sensitivity values of 
+coronary stenosis severity , plaque length, MLA, fibro tic 
+plaque vol ume, PB, CA CS, F AI, MAS, and the combined 
+pre diction model we re 0.609, 0.761, 0.573, 0.609, 0.522, 0.710, 
+0.725, 0.708, and 0.923, respectiv ely, with the corresponding 
+specificity values of 0.803, 0.774, 0.848, 0.825, 0.850, 0.795, 
+0.810, 0.835, and 0.804 ( T able 5 ).
+This study employs the Bootstr ap method with 1,000 
+r esamples (B = 1,000) to perform internal validation for the 
+constru cted pre diction model. The calibr ation curve 
+demonst ra tes tha t the pr edicted probab ility curve of the 
+model is highly consis tent with the ideal refer ence line, 
+veri fying that the model possesses exc ellent pr edictive 
+performance ( Figure 4 ). F urthermore, decision curve analysis 
+was conducted to assess the clinical utility of the model, and 
+the r esults indicate that the model delivers a positive net 
+benefit when the thre shold pr obability ranges fr om 0.01 to 
+1.00 ( Figure 5 ).
+FIGURE 2 
+Nomogram for the predictiv e model of MA CE. The scoring sy stem assigns points to each predictor variable based on its value: coronary stenosis (%), 
+plaque length (mm), MLA (mm
+2
+), fibrous plaque volume (mm
+3
+), PB (%), FAI (HU), CA CS (scor e), and MAS (%). The total score is calculated by summing 
+the points of all variables, and the corresponding predic ted risk is obtained by dra wing a ve rtical line from the total score axis to the risk axis. Risk = 1/ 
+(1 + e
+−linear predictor
+), where the linear predictor is derived from the regr ession coefficients of the included variables. The risk axis has been extended to 
+1.0 to accommoda te the full range of predicted prob abilities.
+Gao et al.                                                                                                                                                               10.3389/fcvm.2026.1884303
+Frontiers in Cardiovascular Medicine 07 frontiersin.org
+External case-based validat ion
+1-Year incidence of MA CE in pat ients with C AD
+Among the 288 patients diagnosed with CAD enr olled in the 
+extern al validation cohort, 91 patients (31.60%) developed MA CE. 
+This ra te is approxima tely two-fold higher than that in the 
+derivation cohort (16.43%). The composition of MA CE even ts is 
+specified as follo ws: 4 cases of sudden cardiac death (4.40%), 11 
+cases of non-fatal myocard ial infarc tion (12.09%), 10 cases of 
+revascula rization for unstable angina (10.99%), and 66 cases of 
+reh ospitalization at tributable to unstable angina (72.53%).
+Co mparison of baseline clinical char ac teristics 
+between the MA CE-positive group and MA CE- 
+nega tive group
+A compara tive analysis of baseline chara cterist ics between the 
+MA CE-positive and MA CE-negativ e groups re vealed no 
+sta tistica lly significant intergroup differences in gender, height, 
+BMI, smoking history (P > 0.05). In contras t, sta tistically 
+significant intergroup differences wer e detected in age, NYHA 
+functional classificat ion, history of CO PD, alcohol consumption 
+history , hypertension history , diabetes history and history of 
+CAD (P < 0.05). Specifically, the mean age of the MA CE-positive 
+group was significantly higher than that of the MA CE-negati ve 
+group (P < 0.05). The pr oportion of pat ients with NYHA 
+functional class I-II was significantly grea ter in the MA CE- 
+negativ e gr oup than in the MA CE-positive gr oup (P < 0.05). 
+Additionally, the pr evalence of smoking history , diabetes history 
+and hypertension was significantly higher in the MA CE-positive 
+group than in the MA CE-negativ e group (P < 0.05). No 
+sta tistica lly significant differe nces wer e found acr oss the 
+rema ining baseline chara cteristics ( Tab le 6 ).
+Co mparison of baseline char ac teristi cs between 
+the deriva tion and ext ernal valida tion cohorts
+To better understand the substanti al differe nce in MA CE 
+event ra tes between the two cohorts, we compared the baseline 
+clinical chara cterist ics betw een the derivation cohort (n = 280) 
+and the external validation cohort (n = 288). As detailed in 
+FIGURE 4 
+Calibra tion curve for the prediction model.
+FIGURE 3 
+ROC curves of individual predictors and the combined predic tion 
+model for MA CE in the derivation cohort.
+T ABLE 5 Predictiv e performance of influencing factors for MAC E.
+V alidation V ariables AUC SE P 95%CI Y ouden’s index Sensitivity Specificity
+C oronary stenosis 0.735 0.041 <0.001 0.655–0.815 0.412 0.609 0.803
+Plaque length 0.823 0.037 <0.001 0.752–0.895 0.535 0.761 0.774
+MLA 0.747 0.033 <0.001 0.683–0.811 0.421 0.573 0.848
+Fibrotic plaque 0.704 0.050 <0.001 0.606–0.802 0.434 0.609 0.825
+PB 0.691 0.046 <0.001 0.601–0.781 0.372 0.522 0.850
+C A CS 0.808 0.042 <0.001 0.780–0.879 0.505 0.710 0.795
+FAI 0.810 0.040 <0.001 0.783–0.881 0.535 0.725 0.810
+MAS 0.689 0.042 <0.001 0.750–0.892 0.543 0.708 0.835
+Predi ctive model 0.936 0.017 <0.001 0.902–0.970 0.727 0.923 0.804
+Gao et al.                                                                                                                                                               10.3389/fcvm.2026.1884303
+Frontiers in Cardiovascular Medicine 08 frontiersin.org
+Supplementary Table S1 , the external validation cohort had 
+significantly higher proportions of male patients (P = 0.002), 
+smokers (P = 0.030), hypertensive pat ients (P = 0.001), pat ients 
+with COPD (P < 0.001), and diabetic patients (P < 0.001). No 
+significant intergroup differe nces we re observe d in age, BMI, 
+height, drinking history , or family history of C AD (all P > 0.05). 
+The dist ribution of NYHA functional classification did not differ 
+significantly betwee n the two cohorts (P = 0.097). These findings 
+indicat e that the ex ternal validation cohort comprised pat ients 
+with a grea ter burden of comorbidities, which may partly 
+explain the higher observe d MA CE ra te in this cohort.
+P erformance and efficacy analysis of predictiv e 
+models
+The AUC values for cor onary artery stenosis severity , plaque 
+length, MLA, fibrous plaque volume, PB, CA CS, FAI, MAS, and 
+the pr oposed pr edictive model in this study wer e 0.568, 0.483, 
+0.736, 0.782, 0.743, 0.538, 0.588, 0.782, and 0.932, respectiv ely. 
+Notably, the AUC of the pr edictive model was significantly 
+higher than that of all individual predictors (coronary artery 
+ste nosis severity , plaque length, MLA, fibrous plaque volume, 
+PB, CA CS, FAI, MAS), with corresponding Z-sta tis tics of 2.578, 
+3.757, 3.452, 2.454, 2.674, 2.322, 2.454, and 2.634, and adjust ed 
+P-values of 0.011, 0.014, 0.024, 0.035, 0.042, 0.025, 0.031, and 
+0.004. These results demons tra te that despite substantial 
+variation s in the pr edictive performance of the afor ementioned 
+individual pr edictors, the integra ted model exh ibits robus t 
+pr edictive value for MA CE, which valida tes the predictiv e model 
+constructed in this study ( Figure 6 ).
+The sensitivities of the multivariate prediction models for 
+cor onary artery s tenosis degree, plaque length, MLA, fibr ous 
+FIGURE 5 
+Decision curve analysi s for the predictiv e model.
+T ABLE 6 Comparison of baseline chara cteristics between the MACE-positiv e and MACE- 
+negativ e groups.
+Indicat ors MA CE- 
+Positiv e 
+(n = 91)
+MA CE- 
+Negat ive 
+(n = 197)
+χ
+2
+/Z/ 
+t
+P
+Gender (Male/ 
+Fema le)
+49/42 110/87 1.259 0.264
+Age ( ye ar) 58.93 ± 7.20 56.32 ± 6.41 2.29 0.026
+BMI (kg/m
+2)
+24.87 ± 3.09 23.98 ± 2.90 1.876 0.062
+Height (cm) 168.70 ± 5.32 170.24 ± 6.37 −1.742 0.123
+NYHA
+I 18 (19.78%) 87 (44.16%) 13.326 0.003
+II 28 (30.77%) 65 (32.99%)
+III 33 (36.26%) 27 (13.71%)
+IV 12 (13.19%) 18 (9.14%)
+Smoking 60 (65.93%) 106 (53.81%) 3.269 0.071
+Drinking 67 (73.63%) 104 (52.79%) 10.355 0.001
+Hypertension 66 (72.53%) 75 (38.07%) 28.211 <0.001
+C OPD 59 (64.84%) 33 (16.75%) 64.006 <0.001
+Diabetes 49 (53.85%) 65 (32.99%) 11.316 <0.001
+Family history 
+of CAD
+31 (34.07%) 29 (14.72%) 14.124 <0.001
+FIGURE 6 
+ROC curves of individual predictors and the combined predic tion 
+model for MA CE in the external validation cohort.
+Gao et al.                                                                                                                                                               10.3389/fcvm.2026.1884303
+Frontiers in Cardiovascular Medicine 09 frontiersin.org
+plaque volume, PB, CA CS, FAI and MAS wer e 0.729, 0.969, 0.519, 
+0.760, 0.736, 0.930, 0.558, 0.907, and 0.868, respectiv ely. The 
+corresponding specificities wer e 0.924, 0.152, 0.758, 0.519, 0.554, 
+0.142, 0.606, 0.232, and 0.979, respectiv ely, as shown in Table 7 . 
+The calibra tion curve for the exte rnal validation cohort 
+( Figure 7 ) demons tra ted good agreement between pr edicted and 
+observed pr obabilities, with a Hosmer-Lemeshow test P value of 
+0.382, indicat ing no significant lack of fit.
+Discussion
+Our study is unique in that we integr ated eight quantitativ e 
+CCT A para meters—including stenosis severity , plaque length, 
+fibrous plaque volume, PB, MLA, CA CS, FAI, and MAS—into a 
+single nomogram, validated it in an independent external cohort 
+of 288 pat ients, and achiev ed a superior AUC of 0.936, 
+suggesting that a multiparametric approa ch may offer 
+incremental prognos tic value ov er simpler models. To the best 
+of our know ledge, this is the firs t s tudy to simultaneously 
+incorpora te such a comprehensiv e set of CCT A-derived 
+quantita tive parameters into a single e xternally validated 
+pr ediction model. This repr esents a notable advancement ov er 
+pr evious reports, most of which hav e focused on only one or 
+two imaging biomarkers and lack ed external validation. Major 
+contemporary CCT A prognos tic s tudies hav e re ported varying 
+AUCs for MA CE prediction: the CO NFIRM re gistry 
+demonstr ated the incremen tal value of plaque chara cterizat ion 
+ov er s tenosis assessment alone (AUC 0.685–0.771) ( 14 ), the 
+SCO T-HEART trial show ed that CCT A-guided management 
+impro ved risk s tra tificat ion (AUC ∼0.80) ( 15 ), the PROMI SE 
+trial identified high risk plaque featur es as independent 
+pr edictors of events (HR ∼2.0–3.0) ( 16 ), the PARADIGM 
+regis try emphasized the importance of serial plaque pr ogression 
+monitoring (C-sta tistics 0.668–0.895) ( 17 ), and the ICO NIC 
+study highlighted the role of high risk plaque char acteris tics in 
+pr edicting acute cor onary syndr omes ( 18 ). How ever , it must be 
+ackno wledged that the derivat ion cohort in this s tudy had a 
+rela tivel y small sample size (n = 131) and an events-per-variable 
+(EPV) ra tio of approxima tely 3.3, which to some extent limits 
+the s tability of the model. Ther efore, the findings of this s tudy 
+should be regarded as pr oof-of-concept evidence, and their 
+clinical tra nslation warr ants caution and further validation in 
+larger-scale s tudies.
+The findings of the curr ent study demons tra te that the severity 
+of cor onary artery ste nosis is an independent risk fact or for 
+MA CE. Con sistent with this conclusion, Philipp L ( 19 ) reported 
+that cor onary s tenosis with lumen diameter red uction ≥50% acts 
+as an independent pr edictor of MA CE among pat ients 
+diagnosed with CAD. Pr ogressiv e coronary stenosis reduces 
+myocardial blood perfusion and aggra va tes myocardial ischemia, 
+which in turn elevates the risk of MA CE ( 20 – 22 ). Myocardial 
+ischemia can induce remodeling of cor onary hemodynamics, 
+there by increasing the likel ihood of plaque rupture. Follo wing 
+plaque rupture, released inflammatory mediators and 
+coagulation factors trigger thr ombogenesis and vascular 
+occlusion ( 23 , 24 ). Furthermor e, myocardial cell injury induces 
+the secretion of cytokines that promote myocardial fibrosi s, 
+which re duces cardiac compliance and consequently increases 
+the risk of arrhythmia and MA CE ( 25 ).
+Incr eased plaque length induces a red uction in plaque 
+stab ility, driving the deve lopment of uns table plaque phenotypes 
+that can trigger plaque rupture or erosion, which ultimately 
+FIGURE 7 
+Calibra tion curve of the predic tion model in the external 
+validation cohort.
+T ABLE 7 Predictive performance of influencing factors for MACE.
+V alidation V ariables AUC SE P 95% CI Sensitivity Specificity Youden’s index
+C oronary stenosis 0.568 6.484 0.011 0.468–0.668 0.729 0.924 0.729
+Plaque length 0.483 395.765 0.014 0.383–0.583 0.969 0.152 0.121
+Fibrotic plaque 0.782 0.072 0.035 0.682–0.882 0.760 0.519 0.279
+PB 0.743 0.007 0.042 0.643–0.843 0.736 0.554 0.290
+MLA 0.736 0.669 0.024 0.638–0.838 0.519 0.758 0.277
+C A CS 0.538 0.272 0.025 0.438–0.638 0.930 0.142 0.072
+FAI 0.588 0.007 0.031 0.488–0.688 0.558 0.606 0.164
+MAS 0.782 0.031 0.004 0.682–0.882 0.907 0.232 0.139
+Predi ctive model 0.932 0.131 0.011 0.832–0.975 0.868 0.979 0.847
+Gao et al.                                                                                                                                                               10.3389/fcvm.2026.1884303
+Frontiers in Cardiovascular Medicine 10 frontiersin.org
+elevates the risk of MA CE ( 26 , 27 ). Exist ing s tudies hav e 
+confirmed that plaque length is significantly longer in pat ients 
+with myocardial ischemia than in those without. Longer plaques 
+are corre lated with more sev ere endothelial cell injury at the 
+plaque surface, which promotes the activa tion of platelets and 
+the coagulation cascade, ultimately facilita ting thrombu s 
+formation ( 28 , 29 ). This pathological pr ocess can lead to 
+luminal s tenosis or complete occlusion, resul ting in 
+cardiomyoc yte injury or necrosis ( 30 , 31 ) and further increasin g 
+the risk of MA CE. Additionally, individuals with longer plaques 
+exhibit significantly more sev ere cardiac function impairment 
+compared to pat ients with shorter plaques ( 32 ).
+A large body of resear ch has confirmed that among pat ients 
+diagnosed with CAD, individuals with higher fibrotic plaque 
+volumes face an incr eased risk of MA CE within one yea r post- 
+trea tment ( 33 ). Fibr otic plaques generally derive from early-st age 
+fat ty str eaks ( 34 ) and progr essively enlarge during disease 
+pr ogression. This deve lopmental pr ocess can trigger plaque 
+destabil ization and rupture, which is follow ed by thrombu s 
+formation, ultima tely causing hemodynamic disturbances and 
+worsening myocardial ischemia ( 35 ). In addition, the 
+inflammatory response activa ted during fibrotic plaque 
+formation ( 36 , 37 ) damages endothelial cell function, resulting 
+in aberr ant vasomotor act ivity. This dysfu nction further 
+exa cerbat es thr ombosis and plaque rupture, there by elevating the 
+risk of MA CE ( 38 ).
+A higher PB is frequen tly associa ted with grea ter vascular 
+ste nosis severity and is a we ll-establi shed independent risk factor 
+for MA CE ( 39 , 40 ). An eleva ted PB corresponds to an increased 
+total volume of cor onary ather osclerotic plaque, which is 
+chara cterized by ex pansion of the lipid-rich necr otic cor e, 
+thinning of the fibr ous cap, and heightened plaque vulnerability 
+to rupture ( 41 – 43 ). This process subsequently ex acerba tes 
+inflammatory responses and act ivates coagula tion cascades, 
+ultima tely pr omoting thr ombus formation ( 44 , 45 ). 
+Furthermor e, e xisting studies confirm that increased PB is 
+correla ted with enhanced inflammatory activity , which 
+destabil izes ather osclerotic plaques and triggers rupture, there by 
+elevatin g the risk of MA CE ( 46 ).
+MLA is defined as the smallest cross -sectional area of the 
+corona ry artery lumen at the site of lesion plaque. This par ameter 
+dire ctly re flects the actual effectiv e luminal area ava ilable for 
+blood perfusion, and serve s as a core indica tor for the 
+quantitativ e assessment of myocardial perfusion. The pr ogression 
+of coronary ather oscler otic plaque causes luminal diameter 
+narro wing, which in turn leads to a red uction in MLA ( 47 , 48 ). 
+This reduction further decre ases blood flow velocity , potentially 
+triggering flow turbulence or ev en complete flow stagna tion ( 49 , 
+50 ), and ultimat ely results in my ocardial ischemia and angina 
+pectoris. F urthermore, MLA is closely correla ted with plaque 
+stabi lity. Eve n when the absolute value of MLA is not significantly 
+reduc ed, increased plaque insta bility can substa ntially elevate the 
+risk of MA CE in affected patients ( 51 , 52 ).
+The significant corre lation betwee n CA CS and MA CE 
+observed in this s tudy confirms that CA CS can serve as a 
+valuable supplementary para meter for cardiovascular outcome 
+pr ediction. As a cor e metric for quantifying coronary 
+calcification burden, CA CS enables quantitativ e chara cterizat ion 
+of calcified plaque volume in the arterial wa ll via imaging 
+modalities and reflect s the cumula tive effect of calcium- 
+phosphate metabolic imbalance thr oughout the progr ession of 
+cor onary at heroscler osis. Con ventional perspectiv es hold that 
+calcified plaques are mark ers of lesion stability; how ever, 
+exce ssive calcifica tion reduce s vascular wall compliance and can 
+trigger hemodynamic abnormalities. Simultaneously, s tress 
+concentra tion at the margins of calcified region s eleva tes the risk 
+of fibrous cap rupture. P articularly for plaques containing non- 
+calcified vulner able components, the intera ction between the 
+“hard” calcified plaque morphology and “soft” non-calcified 
+plaque morphology further incr eases the probability of plaque 
+rupture and subsequent thr ombus formation ( 53 , 54 ).
+A gro wing body of evidence demonstr ates that the epicardial 
+adipose tissue la yer ac ts as a metabolically ac tive endocrine 
+organ, secr eting a divers e repertoir e of bioa ctive molecules that 
+mediate inflamma tory responses and oxidati ve str ess in the 
+corona ry artery wall. The FAI is a quantitativ e metric for 
+chara cterizing the CT a ttenuation of coro nary perivascular 
+adipose tissue. FAI values increase as adipocyte lipid content 
+decrea ses, a process that is a ccompanied by eleva ted w ater 
+content and inflammatory cell infiltr ation. Accordingly, F AI 
+has been established as a radiological signatur e of localized 
+inflammato ry microenv ironments ( 55 ). These inflammatory 
+resp onses are modulated by feedback signaling along the 
+“vessel-adip ose tissue” axis, which promote s fibrous cap 
+ero sion of a theroscler otic plaques and thereby increases the 
+risk of plaque rupture ( 56 ). As a non-invasive quantitativ e 
+biomarker deriv ed from CCT A, F AI enables the detection of 
+early-stag e perivascular inflammatio n and allows dynamic 
+monitoring of inflammatory regr ession after clinical 
+intervention ( 57 ). In this study , FAI show ed a significant 
+correl ation with MA CE, which supports its potential as a 
+valuable complementary parameter for assessing plaque 
+sta bility in pa tients with CAD.
+Pa tients with an elevated MAS pr esent with a significantly 
+higher risk of MA CE, a finding consis tent with the well- 
+establish ed pathological mechanism of coronary stenosis. 
+Cor onary artery s tenosis is a multifac torial, dynamically ev olving 
+pa thological pr ocess chara cterized by ac celera ted blood flow , 
+turbulent hemodynamics, endothelial dysfuncti on, and co- 
+ac tivation of inflamma tory and coagulation pa thwa ys ; collectivel y, 
+these altera tions driv e the progr ession of coronary ather oscler osis 
+( 58 ). Elevated MAS values reflect exa cerbated myocardial ischemia 
+in myocardial territories perfused by s tenotic cor onary arteries. 
+Seve rely stenotic cor onary plaques frequently display unstable 
+phenotypes and are predisposed to plaque ruptur e, which triggers 
+thrombosis and vascular occlusion, ultimat ely leading to major 
+adverse cardiova scular ev ents. Quantit ativ e assessment of MAS via 
+CCT A has distinct clinical advantages: it enables rap id lesion 
+localizatio n, dynamic monitoring of disease progr ession and 
+therap eutic response, and yields a more ac cura te evaluation of the 
+impac t of vascular stenosis on my ocardial perfusion than 
+conventional s tenosis gr ading sy stems. This approa ch pro vides 
+ro bust support for clinical decision-making for patients with 
+multive ssel coron ary artery disease ( 59 ).
+Re garding CT-FFR, although it was significant in univariable 
+analysi s, it did not re main an independent pr edictor in the 
+multivariable model. This is likel y at tributable to its str ong 
+phys iological corre lation with stenosis sev erity and MLA, both 
+Gao et al.                                                                                                                                                               10.3389/fcvm.2026.1884303
+Frontiers in Cardiovascular Medicine 11 frontiersin.org
+of which wer e retained in the final model. This observati on does 
+not diminish the clinical value of CT-FFR, but ra ther reflect s the 
+fact that its pr ognostic information is largely captured by these 
+anatomica l parameters.
+Limita tions
+The present st udy has sever al notable limitatio ns tha t should be 
+considere d when interpr eting the findings. Firs t, the modest sample 
+size and the event-p er-variable ra tio of approxima tely 3.3 (46 
+events/1 4 variables) rais e the possibility of o verfitting, although 
+Boots trap internal validatio n (bias-correc ted C-index >0.91) and 
+multiple imputation for missing data sugges t tha t this risk is 
+controlled. None of the eight independent predictors identified in 
+our model show ed counterintuitiv e directio ns of association, and 
+all are supported by est ablished patho physiological mechanisms 
+(as detailed in the Discussion section), which further supports the 
+clinical plausibility of our model. Nev ertheless, the low EPV ra tio 
+remains a limitatio n. Given the modest sample size, this study 
+should be view ed as a proof-of-concept inves tigation , and readers 
+should interpret the resul ts with appropria te caution. Second, the 
+one-year follo w-up was short, and MA CE events wer e 
+pred ominantly rehospitaliza tions for unstable angina (65.2% in 
+derivation, 72.5% in validation) r ather than hard endpoints (death 
+or myocardial infarction). Thus, our model is best suited for 
+pred icting short-term clinical decision events and requir es 
+validatio n with longer follow-u p and harder outcomes. W e 
+a ttempted a sensitivity analy sis excluding rehospitaliza tion events, 
+but the model failed to converge due to the limited number of 
+hard endpoint events (n = 5 in the deriva tion cohort). Third, the 
+MA CE r ate in the external validatio n cohort (31.6%) w as twice 
+tha t in the derivat ion cohort (16.4%). As sho wn in 
+Supplementary T able S1 , the external cohort had significantly 
+higher pro portions of male patients (P = 0.002), smokers 
+(P = 0.030), hypertensive patients (P = 0.001), patients with COPD 
+(P < 0.001), and diabetic pati ents (P < 0.001), r eflecting its origin 
+fro m tertiary r eferral centers. Encouragingl y, the model 
+maintained excellent discrimination (AUC 0.932) and good 
+calibra tion (Hosmer-Lemeshow P = 0.382) in this higher-risk 
+populatio n, supporting its gener alizability, though re calibra tion 
+may be needed when applied to low er-risk outpatie nt settings. 
+Fourth, the nomogram requir es calcula tion of the linear pred ictor 
+to convert total score to absolute risk, which limits bedside use; a 
+we b-based calcula tor is being dev eloped to address this. Finally, 
+all patients w ere Chinese, so validation in other ethnic 
+populatio ns is needed.
+C onclusions
+The severity of corona ry artery stenosis, lesion length, fibrous 
+plaque volume, PB, CA CS, F AI and MAS hav e been identified as 
+independent risk fac tors for MA CE. In contras t, a larger MLA has 
+been confirmed as a pr otective factor against MA CE. The MA CE 
+risk predict ion model constructed based on quantitativ e 
+par ameters obtained fr om CCT A sho ws stable and relia ble 
+predict ive performance, which pro vides a valuable refer ence for 
+clinical prognos tic evaluation and pa tient risk str at ification. Early 
+identification of high-risk pa tients allo ws clinicians to implement 
+targeted prev entive and therapeutic interventions, and ultimat ely 
+impr ov es pa tients’ survival outcomes and quality of life.
+Futur e s tudies should extend the follow-up dur ation and 
+incorpora te more hard endpoints to valida te the model’s long- 
+term predicti ve value. Additionally, developing a web-based 
+calculator based on this nomogram will faci litate its clinical 
+applicat ion. Furthermor e, the applicability of this model in other 
+ethnic populations and low er-risk outpa tient settings wa rrants 
+further valida tion thro ugh multicenter studies.
+Da ta a vailability s ta tement
+The original contributions presented in the s tudy are included 
+in the article/ Supplementary Ma terial , further inquiries can be 
+directed to the corre sponding author/s.
+Ethics s tat ement
+This study wa s revie we d and appro ved by the Ethics 
+Commi ttee of the General Hospital of Northern Theat er 
+Comman d (Appro val Number: Y[2024]151). All patients hav e 
+signed an informed consent form. The studies we re conducted 
+in accorda nce with the local legislation and inst itutional 
+requir ements.
+Author contributions
+TG: Conc eptualization, Writing – original dra ft. MZ: 
+Conc eptualization, Writing – original dra ft. WZ: Da ta 
+cura tion, Inves tigat ion, Writing – original dra ft. YZ: Da ta 
+cura tion, Inves tigation, Writing – original dra ft. SZ: Formal 
+analy sis, Va lidation, Writing – r eview & editing. SX: Formal 
+analy sis, Va lidation , Writing – r eview & editing. LZ: 
+Conc eptualization, Writing – revie w & editing.
+F unding
+The author(s) declared that financial support was receiv ed for 
+this work and/or its publicat ion. This work was supported by Joint 
+Science and Te chnology Pr ogram of Liaoning Pro vince (2023JH2/ 
+101800013).
+C onflict of inter es t
+The author(s) declared that this work was conducted in the 
+absence of any commercial or financial rela tionships that could 
+be construed as a potential conflict of inter est.
+Gener a tiv e AI s tat ement
+The author(s) declar ed that genera tive AI was not used in the 
+cr eation of this manuscript.
+Gao et al.                                                                                                                                                               10.3389/fcvm.2026.1884303
+Frontiers in Cardiovascular Medicine 12 frontiersin.org
+Any alterna tive text (alt text ) pro vided alongside figures in this 
+article has been genera ted by Front iers with the support of 
+artificial intelligence and rea sonable efforts ha ve been made to 
+ensure accur acy , including revie w by the authors wherev er 
+possible. If you identify any issues, please contact us.
+Publisher’s note
+All claims expr essed in this article are solely those of the 
+authors and do not necessarily repr esent those of their affilia ted 
+organizat ions, or those of the publisher, the editors and the 
+revie we rs. Any pr oduct that may be evaluated in this article, or 
+claim that may be made by its manufactur er, is not guar anteed 
+or endorsed by the publisher.
+Supplementary ma terial
+The Supplementary Ma terial for this article can be found 
+online at : https://www.fr ontiersin.org/articles/10.3389/fcvm.2026. 
+1884303/full#supplementary-mat erial
+R efer ences
+1. Yazdani AN, Pletsch M, Chorbajian A, Zitser D, Rai V , Agra wal DK. Biomarkers to 
+monitor the prognos is, disease severity, and trea tment efficacy in coronary artery 
+disease. Expert Rev Cardiovasc Ther. (2023) 21(10):675–92. doi: 10.1080/14779072. 
+2023.2264779
+2. Premsagar P , Aldous C, Esterhuizen T . Cardiac scoring sy stems, coronary artery 
+disease and major adve rse cardiovascular events: a scoping revie w. S Afr Fam Pra ct 
+(2004). (2023) 65(1):e1–8. doi: 10.4102/safp.v65i1.5683
+3. Li DL, Kronenberg MW. Myocardial perfusion and viability imaging in coronary 
+artery disease: clinical value in diagnosis, prognosis, and thera peutic guidance. Am 
+J Med. (2021) 134(8):968–75. doi: 10.1016/j.amjmed.2021.03.011
+4. Parulkar AB, Scaringi J, Low enhaar J, Netto T , Pa tel Y , Abbott BG, et al. Advances 
+in coronary CT angiography: applications and implications for coronary artery 
+disease. R I Med J (2013). (2025) 108(2):23–8. 
+5. Freitas IA, Lima NA, Silva GB, Castr o RL, Pa tel P , Lima CCV , et al. Nov el 
+biomarkers in the prognosis of patients with ather osclerotic coronary artery 
+disease. Rev Port Cardiol (Engl Ed). (2020) 39(11):667–72. doi: 10.1016/j.repc.2020. 
+05.010
+6. Guo B, Jiang M, Guo X, Tang C, Zhong J, Lu M, et al. Diagnostic and prognos tic 
+performance of artificial intelligence-based fully-automated on-site CT-FFR in 
+patients with CAD. Sci Bull. (2024) 69(10):1472–85. doi: 10.1016/j.scib.2024.03.053
+7. Low enstern A, Ale xander KP , Pagidipa ti NJ, Hill CL, Pellikka PA, C ooper LS, et al. 
+Presenting symptoms in patients undergoing coronary artery disease evaluation: 
+association with noninvasive test results and clinical outcomes in the PROMISE 
+trial. Circ Cardiovasc Qual Outcomes. (2022) 15(5):e008298. doi: 10.1161/ 
+CIRCOUT COMES .121.008298
+8. Ramírez J, Van Duijvenboden S, Young WJ, Tinker A, Lambiase PD, Orini M, et al. 
+Prediction of coronary artery disease and major adve rse cardiovas cular events using 
+clinical and genetic risk scores for cardiovascular risk factors. Circ Genom Precis Med. 
+(2022) 15(5):e003441. doi: 10.1161/CIRCGEN.121.003441
+9. Brendel JM, Walterspiel J, Hagen F , Kübler J, Brendlin AS, Afat S, et al. C oronary 
+artery disease detection using deep learning and ultrahigh-r esolution photon- 
+counting cor onary CT angiography. Diagn Interv Imaging. (2025) 106(2):68–75. 
+doi: 10.1016/j.diii.2024.09.012
+10. Bernardo R, Nurmohamed NS, Bom MJ, Jukema R, De Winter RW , Sprengers R, 
+et al. Diagnostic accur a cy in coronary CT angiography analysis: artificial intelligence 
+versus human assessment. Open Heart. (2025) 12(1):e003115. doi: 10.1136/openhrt- 
+2024-003115
+11. Fihn SD, Blankenship JC, Ale xander KP , Bittl JA, Byrne JG, Fletcher BJ, et al. 2014 
+A CC/AHA/AA TS/PCNA/SCAI/STS focused update of the guideline for the diagnosis 
+and management of patients with stable ischemic heart disease: a report of the 
+American College of Cardiology/American Heart Associat ion task force on pra ctice 
+guidelines, and the American associatio n for thora cic surgery, prev entive 
+cardiovascular nurses association, society for cardiovas cular angiography and 
+interventions, and society of thora cic surgeons. Circula tion. (2014) 
+130(19):1749–67. doi: 10.1161/CIR.0000000000000095
+12. Agats ton AS, Janowitz WR, Hildner FJ, Zusmer NR, Viamonte M Jr., Detrano R. 
+Quantifica tion of coronary artery calcium using ultra fas t computed tomograp hy. 
+J Am Coll Cardiol. (1990) 15(4):827–32. doi: 10.1016/0735-1097(90)90282-T
+13. Zhou Z, Wang J. A narra tive revie w of multimodal data fusion stra tegies for 
+precision risk prediction in cor onary artery disease: advances, challenges, and 
+future informati cs directions. Rambam Maimonides Med J. (2025) 16(4):e0023. 
+doi: 10.5041/RMMJ.10558
+14. van Rosendael AR, Maliakal G, Kolli KK, Beecy A, Al’Ar ef SJ, Dwivedi A, et al. 
+Maximization of the usage of coronary CT A derived plaque information using a 
+machine learning based algorithm to impro ve risk str atifica tion; insights from the 
+CONFIRM regis try. J Cardiovasc Comput Tomogr. (2018) 12(3):204–9. doi: 10. 
+1016/j.jcct.2018.04.011
+15. Williams MC, Guimaraes ARM, Jiang M, Kwieciński J, Weir-McCall JR, 
+Adamson PD, et al. Machine learning to predict high-risk cor onary artery disease 
+on CT in the SCO T-HEART trial. Open Heart. (2025) 12(2):e003162. doi: 10.1136/ 
+openhrt-2025-003162
+16. Foldyna B, Mayrhofer T , Lu MT , Karády J, Kolossváry M, Fer encik M, et al. 
+Prognos tic value of CT-derived coronary artery disease chara cteristics varies by 
+ASCVD risk: insights from the PROMISE trial. Eur Radiol. (2023) 33(7):4657–67. 
+doi: 10.1007/s00330-023-09430-5
+17. Lee SE, Sung JM, Andreini D, Al-Mallah MH, Budoff MJ, Cademartiri F , et al. 
+Per-lesion versus per-patient analysis of coronary artery disease in predicting the 
+development of obstructiv e lesions: the progr ession of AtheR osclerotic PlAque 
+DetermIned by computed TmoGraphic angiography imaging (PARADIGM) study . 
+Int J Cardiovasc Imaging. (2020) 36(12):2357–64. doi: 10.1007/s10554-020-01960-z
+18. Hakim DA, Ahmed MES, Cefalo N, Coskun AU, Malkasian S, Molony D, et al. 
+Combined computed tomography angiography-deriv ed high-risk anatomic and 
+shear str ess metrics are synergist ic to predict acute coronary syndr ome: the iconic 
+trial. JA CC. (2025) 85(12_Supplement):2007. doi: 10.1016/S0735-1097(25)02491-X
+19. von Knebel Doeberitz PL, De Cecc o CN, Schoepf UJ, Albrecht MH, Van Assen M, 
+De Santis D, et al. Impact of cor onary computerized tomograph y angiography- 
+derived plaque quantification and machine-learning computerized tomography 
+fra ctional flow reserv e on adverse cardiac outcome. Am J Cardiol. (2019) 
+124(9):1340–8. doi: 10.1016/j.amjcard.2019.07.061
+20. Zhang XR, Zhong WF , Liu RY , Huang JL, Fu JX, Gao J, et al. Impro ved pred iction 
+and risk stra tification of major adve rse cardiovascular eve nts using an explainable 
+machine learning approa ch combining plasma biomarkers and traditional risk 
+factors. Cardiovasc Diabetol. (2025) 24(1):153. doi: 10.1186/s12933-025-02711-x
+21. Kesti H, Mattila K, Jaakkola S, Lehto J, Söderblom N, Kalliovalkama K, et al. 
+Impact of high bleeding risk and associated risk factors on major adverse 
+cardiovascular or cerebr ovascular events in primary percutaneous coronary 
+intervention trea ted ST-elevation myocardial infarction. Int J Cardiol. (2025) 
+422:132986. doi: 10.1016/j.ijcard.2025.132986
+22. Gallone G, Bellettini M, Gatti M, T ore D, Bruno F , Scudeler L, et al. Coron ary 
+plaque chara cteristics associated with Major adverse cardiovascular eve nts in 
+ather oscler otic patients and lesions: a sy stemat ic revie w and meta-analysis. JA CC 
+Cardiovasc Imaging. (2023) 16(12):1584–604. doi: 10.1016/j.jcmg.2023.08.006
+23. Yang X, Zong Y , Zhang Z, Yin H, Zhang X, Miao Y , et al. Risk factors and major 
+adverse cardiovas cular events of isolated coronary artery ectasia: an observational 
+study . Medicine. (2024) 103(23):e38413. doi: 10.1097/MD.0000000000038413
+24. Räber L, Ueki Y , Otsuka T , Losdat S, Häner JD, Lonborg J, et al. Effect of 
+alirocumab added to high-intensity sta tin therapy on cor onary ather osclerosis in 
+patients with acute myocar dial infarction: the PA CMAN-AMI ra ndomized clinical 
+trial. Jama. (2022) 327(18):1771–81. doi: 10.1001/jama.2022.5218
+25. Nurmohamed NS, Gaillard EL, Malkasian S, De Groot RJ, Ibrahim S, Bom MJ, 
+et al. Lipoprotein(a) and long-term plaque progr ession, low-density plaque, and 
+pericoronary inflammation. JAMA Cardiol. (2024) 9(9):826–34. doi: 10.1001/ 
+jamacardio.2024.1874
+26. Fan CH, Chen LF, Cheng J, Wang YQ, Xu LH, Li JM. Predi cting plaque 
+regr ession based on plaque chara cteristics identified by optical coherence 
+tomography: a retr ospective study . Photodiagnosis Photodyn Ther. (2025) 
+51:104473. doi: 10.1016/j.pdpdt.2025.104473
+27. Tomasino GF , Park C, Grodecki K, Geers J, Han D, Lin A, et al. Cor onary plaque 
+chara cteristics quantified by artificial intelligence-enabled plaque analysis: insights 
+from a multi-ethnic asymptoma tic US populat ion. Am J Prev Cardiol. (2025) 
+21:100929. doi: 10.1016/j.ajpc.2025.100929
+28. Cho SG, Lee JE, Kim HY, Song HC, Kim YH. Association between myocardial 
+ischemia and plaque chara cteristics in chronic total occlusion. J Nucl Cardiol. 
+(2023) 30(1):388–98. doi: 10.1007/s12350-022-03020-6
+Gao et al.                                                                                                                                                               10.3389/fcvm.2026.1884303
+Frontiers in Cardiovascular Medicine 13 frontiersin.org
+29. Lee YJ, Park G, Lee SG, Cho YK, Yoon HJ, Kim U, et al. Predictiv e value of plaque 
+chara cteristics for identification of lesions causing ischemia. Int J Cardiol. (2024) 
+406:132097. doi: 10.1016/j.ijcard.2024.132097
+30. Lu ZF , Yin WH, Schoepf UJ, Abrol S, Ma JW , Yu XB, et al. Residual risk in non-ST- 
+segment elevation acute coronary s yndrome: quantitativ e plaque analysis at coro nary 
+CT angiograp hy. Radiology. (2023) 308(2):e230124. doi: 10.1148/radiol.230124
+31. Lee J, Gilliland TC, Dron J, Koyam a S, Nakao T , Lannery K, et al. Integra tive 
+metabolomics differentia te coronary artery disease, peripheral artery disease, and 
+venous thromboembolism risks. Arterioscler Thromb Vasc Biol. (2024) 
+44(9):2108–17. doi: 10.1161/A TVBAHA.124.321282
+32. Dai N, Chen Z, Zhou F , Zhou Y , Hu N, Duan S, et al. C oronary CT angiograp hy- 
+derived plaque chara cteristics and physiologic patterns for peri-procedur al 
+myocardial infarction and subsequent events. Eur Heart J Cardiovasc Imaging. 
+(2023) 24(7):897–908. doi: 10.1093/ehjci/jead025
+33. Chen R, Jia H, Feng CJ, Dong ST , Liu WY , Lin SX, et al. The value of coronary 
+artery plaque progr ession parameters based on coronary CT angiograp hy in 
+predicting prog nosis of non-obs tructive coronary artery disease. Chin J Radiol. 
+(2024) 58(12):1408–16. doi: 10.3760/cma.j.cn112149-20240117-00032
+34. Volleberg RHJA, Mol JQ, Belkacemi A, Hermanides RS, Meuwissen M, 
+Protopopo v A V , et al. High-risk plaques in non-culprit lesions and clinical 
+outcome after NSTEMI vs. STEMI. Eur Heart J Cardiovasc Imaging. (2025) 
+26(2):197–206. doi: 10.1093/ehjci/jeae289
+35. Zhang S, Feng M, Yu F , Meng X, Zhang Y , Cui B, et al. Association of plaque 
+chara cteristics with new ischemic lesions after carotid artery stenting. CNS 
+Neurosci Ther. (2025) 31(3):e70312. doi: 10.1111/cns.70312
+36. Nakano T , Ikenaga H, Tak eda A, Morita Y , Higashihara T , Wa tanabe N, et al. 
+Intra vascular ultrasound featur es of cor onary artery disease with triglyceride 
+deposit ather osclerosis. Am J Cardiol. (2023) 206:105–7. doi: 10.1016/j.amjcard. 
+2023.08.122
+37. Wang X, Hu T , Jiang Y , He Y , Li P , Peng W , et al. Jingzhi Guanxin oral liquids 
+attenua te ather oscler otic coronary heart disease via modulating lipid metabolism and 
+PPAR-r elated targets. Pharmaceuticals (Basel ). (2024) 17(6):784. doi: 10.3390/ 
+ph17060784
+38. Li D, Li H, Wang Y , Zhu T . Quantitat ive plaque chara cteristics and pericoronary 
+fat attenua tion index enhance risk prediction of unstable angina in nonobstructiv e 
+lesions. Clin Radiol. (2025) 80:106742. doi: 10.1016/j.crad.2024 .106742
+39. Andersen TR, Overgaard KS, Heinsen LJ, Mohamed RA, Madsen FS, Prec ht H, 
+et al. High-risk plaque chara cteristics in patients with suspected stable coronary 
+artery disease and impaired glucose tolerance: a cor onary computed tomography 
+angiography study . J Cardiovasc Dev Dis. (2025) 12(2):37. doi: 10.3390/jcdd12020037
+40. Tiwari N, Nagraj S, Tzoumas A, Arfaras-Melainis A, Katamr eddy A, Sohal S, et al. 
+Diagnostic accur acy of coronary computed tomography angiography in ischemic 
+workup of heart failure: a meta-analysis. F uture Cardiol. (2022) 18(4):325–35. 
+doi: 10.2217/fca-2021-0108
+41. Rudziński PN, Kruk M, Demko w M, Oleksiak A, Schoepf JU, Ma ch M, et al. 
+Efficacy and safety of coronary computed tomography angiogr aphy in patie nts 
+with a high clinical like lihood of obstructiv e coronary artery disease. Kardiol Pol . 
+(2022) 80(1):56–63. doi: 10.33963/KP .a2021.0185
+42. Pérez de Isla L, Díaz-Díaz JL, Romer o MJ, Muñiz-Grijalvo O, Mediavilla JD, 
+Argüeso R, et al. Alirocumab and cor onary ather oscler osis in asymptomat ic 
+patients with familial hypercholes terolemia: the ARCHITECT study . Circul ation. 
+(2023) 147(19):1436–43. doi: 10.1161/CIRCULA TIONAHA.122.062557
+43. Arslani K, Engstrøm T , Maeng M, Kjøller-Hansen L, Maehara A, Zhou Z, et al. 
+Association between physiological significance and vulnerable plaque chara cteristics 
+in patients with myocardial infarction: a prospec t II substudy . JA CC Cardiovasc 
+Imaging. (2025) 18(6):696–706. doi: 10.1016/j.jcmg.2024.11.002
+44. Smit JM, El Mahdiui M, De Graa f MA, Montero-Cabezas JM, Reiber JHC, Jukema 
+JW , et al. Rela tion between cor onary plaque composition assessed by intr avascular 
+ultrasound virtual histology and myocardial ischemia assessed by quantitative flow 
+ra tio. Am J Cardiol. (2023) 186:228–35. doi: 10.1016/j.amjcard.2022.10.005
+45. Rigatel li G, Zuin M, Bilato C, Nguyen T . Cor onary artery cavita tion as a trigger 
+for a therosclerot ic plaque progr ession: a simplified numerical and computational 
+fluid dynamic demonstr ation. Rev Cardiovasc Med. (2022) 23(2):58. doi: 10.31083/j. 
+rcm2302058
+46. Ozaki R, Motoyama S, Ozaki Y , Sarai M, Kawa i H, Ismail TF , et al. Impact of CT- 
+angiography derived plaque chara cteristics on cardiac events in patients with a 
+negativ e invasive fra ctional flow reserv e. Int J Cardiol. (2025) 421:132895. doi: 10. 
+1016/j.ijcard.2024.132895
+47. Yang S, Hoshino M, Yonetsu T , Zhang J, Hwang D, Shin ES, et al. Outcomes of 
+non-ischaemic cor onary lesions with high-risk plaque chara cteristics on coronary 
+CT angiogr aphy. EuroInterv ention. (2023) 18(12):1011–21. doi: 10.4244/EIJ-D-22- 
+00562
+48. Wang X, Xia Q, Yang S, Deng C, Gu N, Shen Y , et al. Machin e learning-based 
+immuno-inflammatory index integra ting clinical chara cteristics for pred icting 
+coronary artery plaque rupture. Immun Inflamm Dis. (2025) 13(4):e70162. doi: 10. 
+1002/iid3.70162
+49. Yamamoto K, Shiomi H, Morimoto T , Wa tanabe H, Miyaza wa A, Yamaji K, et al. 
+Optimal intra vascular ultrasound-guided percutaneous coronary intervention in 
+patients with multivessel disease. JAC C Asia. (2023) 3(2):211–25. doi: 10.1016/j. 
+jacasi.2022.12.009
+50. Yuasa S, Lauri FM, Mejia-R enteria H, Liontou C, Lee HJ, Tani gaki T , et al. 
+Angiography-deriv ed functional assessment of left main coronary stenoses . 
+Catheter Cardiovasc Interv. (2023) 101(6):1045–52. doi: 10.1002/ccd.30633
+51. Ahn JM, Kang D Y , Lee PH, Ahn YK, Kim WJ, Nam CW , et al. Prev entive PCI or 
+medical therapy alone for vulnerable a therosclerot ic cor onary plaque: ra tionale and 
+design of the randomized, contr olled PREVENT trial. Am Heart J. (2023) 
+264:83–96. doi: 10.1016/j.ahj.2023.05.017
+52. Lopes JP , Jordan MK, Bezerra H, Co sta MA, Attizzani G. Diagnostic accur acy of 
+intra vascular ultrasound-deriv ed minimal lumen area compared with fra ctional flow 
+reserv e. Minerva Cardioangiol. (2017) 65(3):321–30. doi: 10.23736/S0026-4725.16. 
+04276-6
+53. Liu WW, Liu ML. Vascular calcification: where is the cure? Chin Med Sci J. (2024) 
+39(3):198–210. doi: 10.24920/004367
+54. Ortega MA, De Leon-Oliva D, Gimeno-Longas MJ, Boaru DL, Fraile-Martinez O, 
+García-Monter o C, et al. Va scular calcification: molecular networking, pathological 
+implications and transla tional opportunities. Biomolecules. (2024) 14(3):275. 
+doi: 10.3390/biom14030275
+55. Coerkamp CF , Ver palen V A, Kuipers RS, Driessen-Waaijer A, Van Der Hulst 
+VPM, Planken NR, et al. Periv ascular fat attenua tion index (FAI) on computed 
+tomography coronary angiography reclassifies individual cardiovascular risk 
+estima tion. Int J Cardiol Cardiovasc Risk Prev. (2025) 24:200360. doi: 10.1016/j. 
+ijcrp.2024.200360
+56. Sansonetti A, Belmonte M, Masetti M, Bergamaschi L, Paolisso P , Borgese L, et al. 
+CT A-Derive d Pericoron ary fat attenua tion Index predicts allogra ft rejection and 
+cardiovascular events in heart transplant recipients. JA CC Cardiovasc Imaging. 
+(2025) 18(2):245–7. doi: 10.1016/j.jcmg.2024.08.004
+57. Ding Y , Shan D, Han T , Liu Z, Wang X, Dou G, et al. Incremental prognos tic 
+value of perivascular fat attenu ation Index in patients with diabetes with coronary 
+artery disease. Radiol Cardiothora c Imaging. (2025) 7(2):e240242. doi: 10.1148/ryct. 
+240242
+58. Mehta SR, Wood DA, Store y RF , Mehran R, Bainey KR, Nguyen H, et al. 
+Complete revasculariza tion with multivessel PCI for myocardial infarction. N Engl 
+J Med. (2019) 381(15):1411–21. doi: 10.1056/NEJMoa1907775
+59. Yongguang G, Yibing S, Ping X, Jinyao Z, Yufei F , Ya yong H, et al. Diagnostic 
+efficacy of CCT A and CT-FFR based on risk factors for myocardial ischemia. 
+J Cardiothora c Surg. (2022) 17(1):39. doi: 10.1186/s13019-022-01787-w
+Gao et al.                                                                                                                                                               10.3389/fcvm.2026.1884303
+Frontiers in Cardiovascular Medicine 14 frontiersin.org

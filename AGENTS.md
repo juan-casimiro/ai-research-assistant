@@ -25,7 +25,9 @@ unavailable, report that and stop before task work.
 - Set `SEED_ON_EMPTY=false` for host full-corpus ingestion; overlapping seed articles use different filenames and can be duplicated. When changing seeding, verify chunk count and queryability, beyond CI health status.
 - Full-corpus retrieval figures do not describe the Docker demo; see README before making quality claims.
 - Keep evaluation on production `retrieve()`; preserve reranker inference and score consumption inside `asyncio.to_thread()`, and reranked source order during deduplication.
-- Do not commit downloaded corpus PDFs; redistribution restrictions are documented in README.
+- Commit only the verified permissive PDF/text bundle under `corpus/JUA-106/`;
+  keep other downloaded corpus PDFs untracked. Preserve article attribution and
+  notices; see `corpus/JUA-106/README.md` and the benchmark manifests.
 
 ## Verification
 

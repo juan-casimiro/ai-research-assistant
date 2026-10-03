@@ -12,6 +12,11 @@ CI runs unit tests, builds the Docker image, and smoke-tests `/health` on every 
 
 ## Corpus rebuild standards
 
+The selected corpus PDFs and extracted text are bundled in
+[`corpus/JUA-106/`](corpus/JUA-106/README.md), preserving the existing topic
+folders. Its 55 unique articles have per-topic attribution inventories and an
+[inventory with file checksums](corpus/JUA-106/inventory.json).
+
 The planned permissive-corpus rebuild follows the [shared corpus and benchmark
 standards](benchmark/STANDARDS.md): verified CC BY 4.0/CC0, validated PMCID and
 automated readable-PDF retrieval, query-specific evidence roles, and versioned
@@ -130,8 +135,10 @@ Start the server:
 uvicorn main:app --reload
 ```
 
-In a separate terminal, populate the full corpus. PDFs remain untracked
-(see `.gitignore`); per-article license terms are recorded in `corpus_manifest.json`.
+In a separate terminal, populate the historical full corpus. These downloads
+remain untracked (see `.gitignore`); per-article license terms are recorded in
+`corpus_manifest.json`. The separately selected permissive bundle is tracked
+under `corpus/JUA-106/`.
 
 ```bash
 python download_corpus.py
