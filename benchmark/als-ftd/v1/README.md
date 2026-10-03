@@ -1,0 +1,139 @@
+# ALS/FTD selection and prepared evidence cases
+
+This focused C9ORF72 strand adds four primary articles (2023–2024), 58 physical
+PDF pages and ten prepared cases. It covers a human clinical case, human
+postmortem tissue, patient-derived isogenic neurons, engineered cells, zebrafish
+and BAC mice. It is an author-verified selection and a **prepared benchmark**:
+independent full-text/scientific review and query freeze remain pending. It is
+not a comprehensive ALS/FTD review or a clinical treatment recommendation.
+
+## Selection decisions
+
+| Article | Evidence and corpus role | Reason to include |
+| --- | --- | --- |
+| [Liu et al.](https://pmc.ncbi.nlm.nih.gov/articles/PMC11527445.1/) | RNA-targeting intervention in cells and BAC mice | DPR reduction with variable transcript response; molecular target engagement differs from motor/survival benefit. |
+| [Sachdev et al.](https://pmc.ncbi.nlm.nih.gov/articles/PMC11047104.1/) | DNA editing in patient-derived isogenic motor neurons | Exon 1A silencing, repeat excision and mutant-allele excision differ across DPR and functional endpoints. Most insight comes from one donor line. |
+| [Parameswaran et al.](https://pmc.ncbi.nlm.nih.gov/articles/PMC10188109.1/) | Mechanistic/cell and zebrafish experiments plus human postmortem observations | Strand, model and time distinctions; postmortem phosphorylation increase differs from 38-day motor-neuron findings. |
+| [LeBlanc et al.](https://pmc.ncbi.nlm.nih.gov/articles/PMC10802081.1/) | Single human clinical case | Imaging/genetic/pathological discordance; diagnostic evidence must remain distinct from laboratory intervention findings. |
+
+No count target drove the selection. These papers give closely related terminology
+with different evidence scopes. Each is an answer source for some cases and can
+compete with others. Human-derived cells are not a treated human cohort. The
+postmortem series is not a randomized clinical intervention. No clinical efficacy
+estimate is inferred from the clinical case or from DPR lowering.
+
+The summit review (PMC10630271) was excluded for CC BY-NC. The genetic ALS review
+(PMC12010636) has only a text-mining/fair-use notice in the inspected deposit and
+an unresolved PMC/PubMed title difference, so it was excluded too. See
+[manifest.json](manifest.json) and [candidate_log.json](candidate_log.json).
+No eligible standalone review was added; review statements and cited studies
+within selected papers remain explicitly secondary evidence.
+
+All selected articles have a current sole PMC deposit version 1, publisher-article
+Cloud identity, matching PMCID/PMID/DOI/title, CC BY 4.0 notices, and verified
+supported PMC Cloud downloads. Provider MD5, PDF/text SHA-256, readable pages and
+metadata-source hashes are recorded. First pages and case evidence pages were
+rendered and inspected; all main-PDF captions/notices and pinned JATS credit
+inventories were checked for separately restrictive material. No such credit was
+located. Standalone supplements and cited articles are not selected.
+
+[ATTRIBUTION.md](ATTRIBUTION.md) preserves ordered citations, notices and licence
+links. [metadata/](metadata/) contains unchanged Cloud JSON, PubMed XML and
+converter responses. PDFs, complete JATS, extracted text, restricted candidates
+and rendered pages remain ignored under `corpus/als-ftd-v1/`. No PDFs are committed
+or publicly uploaded. Full PubMed abstracts remain separate from authored summaries.
+The actual discovery queries are retained; later PMCID lookups are not discoveries.
+
+## Prepared cases and review
+
+[queries.json](queries.json) contains a001–a010: four same-article multi-hop cases,
+two direct lookups, two cross-document synthesis cases, one false-premise case,
+and one named-distractor case. Fourteen physical-page anchors bind exact extraction
+spans and hashes to facts and evidence sets. [case_dependencies.json](case_dependencies.json)
+records source/overlap/decoy dependencies. There are no absent-fact cases, so this
+release makes no whole-corpus negative claim. No legacy IDs or gold are replaced.
+
+The central evidence contrasts are:
+
+- a001: postmortem tissue versus 38-day motor neurons; later activation is a hypothesis.
+- a002: BAC mouse DPR lowering versus unsupported survival/motor rescue.
+- a003: same-donor iPSCs versus differentiated neurons; cell state matters.
+- a004: residual poly-GP versus network bursting after different DNA edits.
+- a005: RNA-targeting molecular endpoints versus DNA-editing functional endpoints.
+- a006: antisense versus sense RNA axonopathy rescue in zebrafish.
+- a007: SPECT interpretation versus genetic diagnosis and autopsy in one patient.
+- a008: human tissue molecular association versus clinical diagnostic evidence.
+- a009: patient diagnosis versus patient-derived laboratory cells as a named decoy.
+- a010: cited Drosophila model differences versus the performed vertebrate PKR experiment.
+
+Related cases intentionally test different tasks: a006 is strand-specific lookup,
+a010 connects that result to a model explanation; a007 reconstructs diagnostic
+discordance, while a009 tests exclusion of laboratory evidence from the patient's
+clinical diagnosis. a005 and a008 require distinct contributions from two papers.
+The Drosophila and PKR-distribution claims in a010 are attributed to the selected
+paper's Discussion and cited work, not independently verified primary findings.
+
+The reference answers preserve models, populations, endpoints and timeframes.
+No retrieval output, paid rewriting or judge result was used to choose them.
+Before freeze, an independent reviewer should read the four full texts, verify
+fact/anchor sufficiency and alternatives, check overlap/duplicates and assess
+whether the clinical case is suitable for the intended expert review. Review must
+not silently turn hypotheses into causal claims. Correct defects through a traced
+revision before evaluation; do not tune gold to preferred retrieval results.
+
+## Conditions and verification
+
+[conditions.json](conditions.json) pins article/version/PDF/text tuples and query
+hashes. C1 is the union of all accepted sources; C2 equals C1 because all selected
+papers answer a case. The named decoy is already an answer source for other cases.
+C3 equals C2 as an **ALS/FTD-only placeholder**, not the combined corpus. Combined
+integration needs alternative-evidence and formerly absent-fact review across
+cardiology, diabetes, oncology and outliers. Metformin references do not establish
+diabetes clinical efficacy; cognitive/diagnostic themes warrant overlap review.
+
+[verification.json](verification.json) records mechanical provenance checks and
+[reachability.json](reachability.json) records the offline production chunker oracle.
+All 14 anchors and all 10 cases are reachable with unlimited chunks; 10/10 are
+structurally feasible at n=8. At n=3, 8/10 are feasible: a005 and a008 need more
+chunks for their complete pinned evidence. Five anchors require adjacent chunks.
+The oracle generated 288 chunks and loaded no retrieval models or collection.
+These are feasibility ceilings, not retrieval scores or answer correctness.
+
+No collection ingestion or retrieval evaluation runs for this preparation task.
+Existing cardiology and other topic queries, collections and results remain
+unchanged. After independent review/freeze and isolated combined ingestion, run
+cardiology regression and ALS/FTD retrieval on declared membership with
+`SEED_ON_EMPTY=false`; record collection identity, extraction and per-source chunks.
+Paid rewrite/generation/judge runs need explicit approval. Later combined evaluation
+must not treat C3 here as a complete cross-topic condition.
+
+## Reproduce
+
+Use Python 3.12 and the repository environment (pypdf 6.16.1), from the repo root.
+In a worktree without `.venv`, use the main checkout's environment by absolute path.
+
+```sh
+.venv/bin/python download_corpus.py --manifest benchmark/als-ftd/v1/manifest.json --corpus-dir corpus/als-ftd-v1
+.venv/bin/python - <<'PY'
+import json
+from pathlib import Path
+from pypdf import PdfReader
+from fetch_article_metadata import read_pmc_xml
+release = Path('benchmark/als-ftd/v1')
+corpus = Path('corpus/als-ftd-v1')
+for article in json.loads((release / 'manifest.json').read_text())['articles']:
+    pdf = corpus / article['filename']
+    pdf.with_suffix('.txt').write_text('\n'.join(p.extract_text() or '' for p in PdfReader(pdf, strict=True).pages))
+    cloud = json.loads((release / article['metadata_sources']['cloud.json']['archive']).read_text())
+    (corpus / f"{article['article_id']}.{article['pmc_version']}.article.xml").write_bytes(read_pmc_xml(cloud['xml_url']))
+PY
+.venv/bin/python verify_als_ftd_release.py
+.venv/bin/python verify_benchmark_reachability.py --benchmark benchmark/als-ftd/v1 --corpus-dir corpus/als-ftd-v1 --condition C2
+.venv/bin/python -m unittest discover -v
+```
+
+The release verifier rejects changed source bytes, metadata joins, PDF provider
+receipts, extraction/page boundaries, parser version and incorrect anchor/fact
+bindings. Two corruption checks also reject a re-signed incorrect article title and an
+incorrect evidence offset. All 206 offline regression tests passed. Mechanical
+success does not certify independent scientific review.

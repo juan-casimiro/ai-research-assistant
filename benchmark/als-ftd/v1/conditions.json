@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "corpus_version": "als-ftd-selection-v1",
+  "status": "prepared; review and freeze pending",
+  "selection_sha256": "1b0441db62689997eb31b6a978642f7866fcefced3e61a465910e46e4ffeaa2a",
+  "query_sha256": "c36ff84461948db238919d2eae33b088528fbdb300abb4cd9ba39e3b2b56887c",
+  "article_tuples": [
+    {
+      "article_id": "PMC10188109",
+      "pmc_version": 1,
+      "pdf_sha256": "9ac7d0a9c34b9eaac89db21fe1d0cc1963590de8c883bf7b0fbd41cb778dec43",
+      "text_sha256": "a82b8591a24b1bc20275e46e62189af34291a128d0b77f627b4c9a098c65d2ac"
+    },
+    {
+      "article_id": "PMC10802081",
+      "pmc_version": 1,
+      "pdf_sha256": "bbc9043b3787c90d5b2d4764ffcf455949abace5c9681234cf76f89d0cabe9a6",
+      "text_sha256": "83e181ac9dec8bd02f035bb526a4987965df39aece8cf3237902c88516168d55"
+    },
+    {
+      "article_id": "PMC11047104",
+      "pmc_version": 1,
+      "pdf_sha256": "f5208717e1e8b2e8a7443975665c0ddd1803a266b4a7af085ad7b08a887eea85",
+      "text_sha256": "0ba06505e30830ab48fe6191271c93b4eb9032678b3a09b823d7649816eed6ea"
+    },
+    {
+      "article_id": "PMC11527445",
+      "pmc_version": 1,
+      "pdf_sha256": "727d7a7b5b0e970861c4c67ffb549b9e6c1edae9e6437652a8892cbf986af415",
+      "text_sha256": "ce07184439306ce6f7f756e3a2500b5df10d7df389286faa249efa2af859adc7"
+    }
+  ],
+  "conditions": {
+    "C1": {
+      "article_ids": [
+        "PMC10188109",
+        "PMC10802081",
+        "PMC11047104",
+        "PMC11527445"
+      ],
+      "membership_sha256": "e536578827a71c14268a8ca1d89990b2d3b23d396444849086ab2b0310132f64",
+      "description": "Union of prepared answer sources"
+    },
+    "C2": {
+      "article_ids": [
+        "PMC10188109",
+        "PMC10802081",
+        "PMC11047104",
+        "PMC11527445"
+      ],
+      "membership_sha256": "e536578827a71c14268a8ca1d89990b2d3b23d396444849086ab2b0310132f64",
+      "description": "Equals C1: every selected paper answers a prepared case; decoy roles remain query-specific"
+    },
+    "C3": {
+      "article_ids": [
+        "PMC10188109",
+        "PMC10802081",
+        "PMC11047104",
+        "PMC11527445"
+      ],
+      "membership_sha256": "e536578827a71c14268a8ca1d89990b2d3b23d396444849086ab2b0310132f64",
+      "description": "ALS/FTD-only placeholder equal to C2; not a combined-corpus claim"
+    }
+  }
+}
