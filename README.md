@@ -43,6 +43,14 @@ C9ORF72 articles and ten evidence cases spanning human observations, cells and
 animal models. Independent review and freeze are pending; offline reachability
 checks do not measure retrieval or clinical efficacy.
 
+The [combined four-topic report](benchmark/combined/v1/REPORT.md) evaluates all
+148 finalized cases on 51 unique articles / 3,350 chunks. At n=8, complete
+answerable document sets are retrieved for 108/120 cases, while complete pinned
+evidence is retrieved for 32/120. Source and passage regressions are reported
+per case; exact-span failures can still retain useful semantic evidence.
+ALS/FTD remains a pending extension. No generated answers or refusals were
+judged, and the historical headline metrics remain separate.
+
 ## Two ways to run this
 
 | | Docker | Host |
