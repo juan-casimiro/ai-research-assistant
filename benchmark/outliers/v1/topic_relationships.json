@@ -24,7 +24,49 @@
         "d026"
       ],
       "relationship": "The Alzheimer clinical feature analysis includes systolic blood pressure, diabetes and cardiovascular disease. These are contextual/model-feature overlaps with AF prediction, hypertension, cardiometabolic and diabetes cases; they do not establish the same population, endpoint or causal effect.",
-      "review_status": "selected for the broader topic relationship map; related sampled cases are identified in regression/queries.json, while complete cross-topic review belongs to JUA-114"
+      "review_status": "selected for the broader topic relationship map; related sampled cases are identified in regression/queries.json, while complete cross-topic review belongs to JUA-114",
+      "als_ftd_relationships": [
+        {
+          "article_id": "PMC11527445",
+          "relationship": "method-context",
+          "related_benchmark_cases": [
+            "a002",
+            "a003",
+            "a005"
+          ],
+          "audit_pair": "PMC12823827/PMC11527445"
+        },
+        {
+          "article_id": "PMC11047104",
+          "relationship": "incidental-plus-method",
+          "related_benchmark_cases": [
+            "a004",
+            "a005"
+          ],
+          "audit_pair": "PMC12823827/PMC11047104"
+        },
+        {
+          "article_id": "PMC10188109",
+          "relationship": "method-context",
+          "related_benchmark_cases": [
+            "a001",
+            "a006",
+            "a008",
+            "a010"
+          ],
+          "audit_pair": "PMC12823827/PMC10188109"
+        },
+        {
+          "article_id": "PMC10802081",
+          "relationship": "substantive-adjacent",
+          "related_benchmark_cases": [
+            "a007",
+            "a008",
+            "a009"
+          ],
+          "audit_pair": "PMC12823827/PMC10802081"
+        }
+      ]
     },
     {
       "article_id": "PMC10765819",
@@ -40,7 +82,49 @@
         "d015"
       ],
       "relationship": "The MR/GWAS design shares statistical-method vocabulary with cardiometabolic and diabetes genetic cases; the microbiome exposures and TB outcomes are different.",
-      "review_status": "selected for the broader topic relationship map; related sampled cases are identified in regression/queries.json, while complete cross-topic review belongs to JUA-114"
+      "review_status": "selected for the broader topic relationship map; related sampled cases are identified in regression/queries.json, while complete cross-topic review belongs to JUA-114",
+      "als_ftd_relationships": [
+        {
+          "article_id": "PMC11527445",
+          "relationship": "method-context",
+          "related_benchmark_cases": [
+            "a002",
+            "a003",
+            "a005"
+          ],
+          "audit_pair": "PMC10765819/PMC11527445"
+        },
+        {
+          "article_id": "PMC11047104",
+          "relationship": "method-context",
+          "related_benchmark_cases": [
+            "a004",
+            "a005"
+          ],
+          "audit_pair": "PMC10765819/PMC11047104"
+        },
+        {
+          "article_id": "PMC10188109",
+          "relationship": "method-context",
+          "related_benchmark_cases": [
+            "a001",
+            "a006",
+            "a008",
+            "a010"
+          ],
+          "audit_pair": "PMC10765819/PMC10188109"
+        },
+        {
+          "article_id": "PMC10802081",
+          "relationship": "method-context",
+          "related_benchmark_cases": [
+            "a007",
+            "a008",
+            "a009"
+          ],
+          "audit_pair": "PMC10765819/PMC10802081"
+        }
+      ]
     },
     {
       "article_id": "PMC10997137",
@@ -57,7 +141,49 @@
         "o023"
       ],
       "relationship": "PCR, sequencing and assay sensitivity terms overlap oncology biomarker/testing cases; the samples and ARG targets are environmental, not cancer diagnostics.",
-      "review_status": "selected for the broader topic relationship map; related sampled cases are identified in regression/queries.json, while complete cross-topic review belongs to JUA-114"
+      "review_status": "selected for the broader topic relationship map; related sampled cases are identified in regression/queries.json, while complete cross-topic review belongs to JUA-114",
+      "als_ftd_relationships": [
+        {
+          "article_id": "PMC11527445",
+          "relationship": "distant-with-assay-vocabulary",
+          "related_benchmark_cases": [
+            "a002",
+            "a003",
+            "a005"
+          ],
+          "audit_pair": "PMC10997137/PMC11527445"
+        },
+        {
+          "article_id": "PMC11047104",
+          "relationship": "distant-with-assay-vocabulary",
+          "related_benchmark_cases": [
+            "a004",
+            "a005"
+          ],
+          "audit_pair": "PMC10997137/PMC11047104"
+        },
+        {
+          "article_id": "PMC10188109",
+          "relationship": "distant-with-assay-vocabulary",
+          "related_benchmark_cases": [
+            "a001",
+            "a006",
+            "a008",
+            "a010"
+          ],
+          "audit_pair": "PMC10997137/PMC10188109"
+        },
+        {
+          "article_id": "PMC10802081",
+          "relationship": "distant-with-assay-vocabulary",
+          "related_benchmark_cases": [
+            "a007",
+            "a008",
+            "a009"
+          ],
+          "audit_pair": "PMC10997137/PMC10802081"
+        }
+      ]
     },
     {
       "article_id": "PMC11411718",
@@ -72,7 +198,49 @@
         "o023"
       ],
       "relationship": "Metagenomic measurement and resistance-gene vocabulary overlap biomarker/sequencing language; the paper measures wastewater treatment, not oncology outcomes.",
-      "review_status": "selected for the broader topic relationship map; related sampled cases are identified in regression/queries.json, while complete cross-topic review belongs to JUA-114"
+      "review_status": "selected for the broader topic relationship map; related sampled cases are identified in regression/queries.json, while complete cross-topic review belongs to JUA-114",
+      "als_ftd_relationships": [
+        {
+          "article_id": "PMC11527445",
+          "relationship": "distant-with-assay-vocabulary",
+          "related_benchmark_cases": [
+            "a002",
+            "a003",
+            "a005"
+          ],
+          "audit_pair": "PMC11411718/PMC11527445"
+        },
+        {
+          "article_id": "PMC11047104",
+          "relationship": "distant-with-assay-vocabulary",
+          "related_benchmark_cases": [
+            "a004",
+            "a005"
+          ],
+          "audit_pair": "PMC11411718/PMC11047104"
+        },
+        {
+          "article_id": "PMC10188109",
+          "relationship": "distant-with-assay-vocabulary",
+          "related_benchmark_cases": [
+            "a001",
+            "a006",
+            "a008",
+            "a010"
+          ],
+          "audit_pair": "PMC11411718/PMC10188109"
+        },
+        {
+          "article_id": "PMC10802081",
+          "relationship": "distant-with-assay-vocabulary",
+          "related_benchmark_cases": [
+            "a007",
+            "a008",
+            "a009"
+          ],
+          "audit_pair": "PMC11411718/PMC10802081"
+        }
+      ]
     },
     {
       "article_id": "PMC13328407",
@@ -90,7 +258,104 @@
         "o014"
       ],
       "relationship": "The review discusses AI, microbiome interventions and TB translational evidence; shared method terms can retrieve it for AI/biomarker questions, but its disease and endpoints differ.",
-      "review_status": "selected for the broader topic relationship map; related sampled cases are identified in regression/queries.json, while complete cross-topic review belongs to JUA-114"
+      "review_status": "selected for the broader topic relationship map; related sampled cases are identified in regression/queries.json, while complete cross-topic review belongs to JUA-114",
+      "als_ftd_relationships": [
+        {
+          "article_id": "PMC11527445",
+          "relationship": "method-context",
+          "related_benchmark_cases": [
+            "a002",
+            "a003",
+            "a005"
+          ],
+          "audit_pair": "PMC13328407/PMC11527445"
+        },
+        {
+          "article_id": "PMC11047104",
+          "relationship": "method-context",
+          "related_benchmark_cases": [
+            "a004",
+            "a005"
+          ],
+          "audit_pair": "PMC13328407/PMC11047104"
+        },
+        {
+          "article_id": "PMC10188109",
+          "relationship": "method-context",
+          "related_benchmark_cases": [
+            "a001",
+            "a006",
+            "a008",
+            "a010"
+          ],
+          "audit_pair": "PMC13328407/PMC10188109"
+        },
+        {
+          "article_id": "PMC10802081",
+          "relationship": "method-context",
+          "related_benchmark_cases": [
+            "a007",
+            "a008",
+            "a009"
+          ],
+          "audit_pair": "PMC13328407/PMC10802081"
+        }
+      ]
+    }
+  ],
+  "als_ftd_audit": {
+    "version": "outlier-als-ftd-audit-v1",
+    "record": "als-ftd-audit-v1/audit.json",
+    "scope": "Five outliers against four ALS/FTD articles; advisory review, frozen experiment membership unchanged"
+  },
+  "external_article_roles": [
+    {
+      "article_id": "PMC10188109",
+      "benchmark": "benchmark/als-ftd/v1",
+      "evidence_scope": "engineered cells, zebrafish and human postmortem tissue",
+      "answer_source_for": [
+        "a001",
+        "a006",
+        "a008",
+        "a010"
+      ],
+      "role_for_outlier_cases": "potential related competition; no accepted alternative or named decoy added",
+      "rationale": "See per-pair source-grounded audit; ALS/FTD membership remains owned by its existing manifest."
+    },
+    {
+      "article_id": "PMC10802081",
+      "benchmark": "benchmark/als-ftd/v1",
+      "evidence_scope": "single clinical case with genetic testing and autopsy",
+      "answer_source_for": [
+        "a007",
+        "a008",
+        "a009"
+      ],
+      "role_for_outlier_cases": "potential related competition; no accepted alternative or named decoy added",
+      "rationale": "See per-pair source-grounded audit; ALS/FTD membership remains owned by its existing manifest."
+    },
+    {
+      "article_id": "PMC11047104",
+      "benchmark": "benchmark/als-ftd/v1",
+      "evidence_scope": "patient-derived isogenic motor neurons",
+      "answer_source_for": [
+        "a004",
+        "a005"
+      ],
+      "role_for_outlier_cases": "potential related competition; no accepted alternative or named decoy added",
+      "rationale": "See per-pair source-grounded audit; ALS/FTD membership remains owned by its existing manifest."
+    },
+    {
+      "article_id": "PMC11527445",
+      "benchmark": "benchmark/als-ftd/v1",
+      "evidence_scope": "patient-derived cells and BAC mice",
+      "answer_source_for": [
+        "a002",
+        "a003",
+        "a005"
+      ],
+      "role_for_outlier_cases": "potential related competition; no accepted alternative or named decoy added",
+      "rationale": "See per-pair source-grounded audit; ALS/FTD membership remains owned by its existing manifest."
     }
   ]
 }

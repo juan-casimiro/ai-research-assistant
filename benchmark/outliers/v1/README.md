@@ -28,6 +28,12 @@ claiming score equivalence. `case_review.json` describes focused full-text and
 cross-topic checks. Search strings in the old candidate record were not
 independently preserved as exact database syntax and are labelled accordingly.
 
+[The supplementary ALS/FTD audit](als-ftd-audit-v1/README.md) reviews all five
+outliers and ten cases against the four later ALS/FTD sources. The relationship,
+dependency and review records link its evidence-grounded decisions. Queries,
+evidence and frozen experiment membership remain unchanged; integrated review
+and retrieval verification are handed off explicitly to JUA-114.
+
 The outlier-only condition has five articles. C1, C2, and C3 therefore share
 membership here and should be evaluated once; the broader cross-topic C3
 condition is deferred to JUA-114. This release's absent-fact check covers all

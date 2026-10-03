@@ -1,0 +1,36 @@
+{
+  "audit_sha256": "a587955b7cad173daf3f0ea2f09041507bf6192379c46b0687f3106f980264ad",
+  "frozen_inputs_verified": 6,
+  "source_pdf_text_pairs_verified": 9,
+  "evidence_spans_verified": 12,
+  "article_pairs_verified": 20,
+  "case_reviews_verified": 10,
+  "retrieval_run": false,
+  "integrated_absence_certified": false,
+  "scientific_review_certified": false,
+  "verifier_sha256": "ffa6245e45253ebd38fe12fd909403c184e1b386e1bc522b9c97c5ee3d246a64",
+  "corruption_checks": [
+    {
+      "mutation": "span_offset",
+      "rejected": true,
+      "reason": "Invalid evidence span: clinical-imaging"
+    },
+    {
+      "mutation": "missing_pair",
+      "rejected": true,
+      "reason": "Missing or duplicate article-pair review"
+    },
+    {
+      "mutation": "case_revision",
+      "rejected": true,
+      "reason": "Case review scope changed: x001"
+    }
+  ],
+  "offline_regressions": {
+    "command": ".venv/bin/python -m unittest discover -v",
+    "tests": 206,
+    "result": "passed"
+  },
+  "review_date": "2026-10-03",
+  "limitations": "Mechanical integrity and coverage only; scientific interpretation and integrated retrieval remain separate."
+}
