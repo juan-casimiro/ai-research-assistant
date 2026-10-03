@@ -1,0 +1,49 @@
+{
+  "articles": 4,
+  "cases": 10,
+  "anchors": 19,
+  "physical_pdf_pages": 58,
+  "pdf_bytes": 24135270,
+  "selection_sha256": "c8a1c6ec743b665503fb75ee428d07873c924537a61263802b7d8efcbe1467e9",
+  "query_sha256": "2325d611943896f7eebf04caae2169fea18210ed0361a8f2c167823bdc51cef8",
+  "membership_sha256": "e536578827a71c14268a8ca1d89990b2d3b23d396444849086ab2b0310132f64",
+  "independent_review_complete": false,
+  "retrieval_quality_measured": false,
+  "verified_at": "2026-10-03T15:42:41.819744+00:00",
+  "method": "offline local source-byte and review-record checks",
+  "command": "python verify_als_ftd_release.py",
+  "corruption_checks": [
+    {
+      "mutation": "metadata title",
+      "rejected": true,
+      "reason": "PMC11527445: title differs from authoritative metadata"
+    },
+    {
+      "mutation": "evidence offsets",
+      "rejected": true,
+      "reason": "isr-tissue: anchor offset/hash changed"
+    },
+    {
+      "mutation": "missing correction review",
+      "rejected": true,
+      "reason": "PMC11527445: incomplete correction impact review"
+    },
+    {
+      "mutation": "missing false-premise record",
+      "rejected": true,
+      "reason": "a002: incomplete false-premise correction record"
+    }
+  ],
+  "offline_regressions": {
+    "command": "python -m unittest discover -v",
+    "tests": 206,
+    "result": "pass"
+  },
+  "complete_evidence_alternatives": {
+    "sets": 17,
+    "all_reachable_and_minimum_witnesses_pass": true,
+    "query_sha256": "2325d611943896f7eebf04caae2169fea18210ed0361a8f2c167823bdc51cef8",
+    "method": "Each accepted OR alternative checked separately with production chunker and scorer",
+    "command": "python verify_als_ftd_alternatives.py"
+  }
+}

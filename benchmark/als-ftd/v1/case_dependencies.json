@@ -1,0 +1,138 @@
+{
+  "query_version": "als-ftd-prepared-queries-v1",
+  "cases": {
+    "a001": {
+      "required_articles": [
+        "PMC10188109"
+      ],
+      "alternative_articles": [],
+      "decoy_articles": [],
+      "overlap_articles": [
+        "PMC10802081",
+        "PMC11047104",
+        "PMC11527445"
+      ],
+      "negative_evidence_scope": null
+    },
+    "a002": {
+      "required_articles": [
+        "PMC11527445"
+      ],
+      "alternative_articles": [],
+      "decoy_articles": [],
+      "overlap_articles": [
+        "PMC10188109",
+        "PMC10802081",
+        "PMC11047104"
+      ],
+      "negative_evidence_scope": null
+    },
+    "a003": {
+      "required_articles": [
+        "PMC11527445"
+      ],
+      "alternative_articles": [],
+      "decoy_articles": [],
+      "overlap_articles": [
+        "PMC10188109",
+        "PMC10802081",
+        "PMC11047104"
+      ],
+      "negative_evidence_scope": null
+    },
+    "a004": {
+      "required_articles": [
+        "PMC11047104"
+      ],
+      "alternative_articles": [],
+      "decoy_articles": [],
+      "overlap_articles": [
+        "PMC10188109",
+        "PMC10802081",
+        "PMC11527445"
+      ],
+      "negative_evidence_scope": null
+    },
+    "a005": {
+      "required_articles": [
+        "PMC11047104",
+        "PMC11527445"
+      ],
+      "alternative_articles": [],
+      "decoy_articles": [],
+      "overlap_articles": [
+        "PMC10188109",
+        "PMC10802081"
+      ],
+      "negative_evidence_scope": null
+    },
+    "a006": {
+      "required_articles": [
+        "PMC10188109"
+      ],
+      "alternative_articles": [],
+      "decoy_articles": [],
+      "overlap_articles": [
+        "PMC10802081",
+        "PMC11047104",
+        "PMC11527445"
+      ],
+      "negative_evidence_scope": null
+    },
+    "a007": {
+      "required_articles": [
+        "PMC10802081"
+      ],
+      "alternative_articles": [],
+      "decoy_articles": [],
+      "overlap_articles": [
+        "PMC10188109",
+        "PMC11047104",
+        "PMC11527445"
+      ],
+      "negative_evidence_scope": null
+    },
+    "a008": {
+      "required_articles": [
+        "PMC10188109",
+        "PMC10802081"
+      ],
+      "alternative_articles": [],
+      "decoy_articles": [],
+      "overlap_articles": [
+        "PMC11047104",
+        "PMC11527445"
+      ],
+      "negative_evidence_scope": null
+    },
+    "a009": {
+      "required_articles": [
+        "PMC10802081"
+      ],
+      "alternative_articles": [],
+      "decoy_articles": [
+        "PMC11527445"
+      ],
+      "overlap_articles": [
+        "PMC10188109",
+        "PMC11047104",
+        "PMC11527445"
+      ],
+      "negative_evidence_scope": null
+    },
+    "a010": {
+      "required_articles": [
+        "PMC10188109"
+      ],
+      "alternative_articles": [],
+      "decoy_articles": [],
+      "overlap_articles": [
+        "PMC10802081",
+        "PMC11047104",
+        "PMC11527445"
+      ],
+      "negative_evidence_scope": null
+    }
+  },
+  "cross_topic_review": "Before combined ingestion, recheck cardiology/diabetes/oncology/outlier alternatives and absent-fact cases. Mechanism paper mentions metformin but is not evidence of diabetes clinical efficacy. Clinical cognition themes can overlap outlier/vascular cases; JUA-114 owns combined freeze."
+}

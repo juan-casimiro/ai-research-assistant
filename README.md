@@ -38,6 +38,11 @@ adds 11 verified articles, 49 diabetes cases and a paired regression of all 45
 frozen cardiology cases. Its separate 32-article selection and local retrieval
 results preserve the historical corpus and query files.
 
+The [prepared ALS/FTD strand](benchmark/als-ftd/v1/README.md) adds four verified
+C9ORF72 articles and ten evidence cases spanning human observations, cells and
+animal models. Independent review and freeze are pending; offline reachability
+checks do not measure retrieval or clinical efficacy.
+
 ## Two ways to run this
 
 | | Docker | Host |
