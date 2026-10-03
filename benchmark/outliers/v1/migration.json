@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0",
+  "legacy_source_file": "golden_qa.json",
+  "legacy_source_sha256": "9f53d45e7b71695763092ca3c6eb03ddfd8e65bc260f6d27fbfecbc28d744e6a",
+  "policy": "Preserve the historical golden set and its results. New IDs x001-x010 form outliers-v1; retire source-specific legacy cases where the selected source/data changed, and do not imply score equivalence.",
+  "legacy_cases": [
+    {
+      "id": "q130",
+      "old_source": "outlier-gpt5-tau217-diagnosis.pdf",
+      "action": "retired_by_owner",
+      "owner_issue": "JUA-108",
+      "new_case": null,
+      "rationale": "No-PMCID/restricted source removed by the cardiology task; keep its dependent cases under that task's migration decision."
+    },
+    {
+      "id": "q131",
+      "old_source": "outlier-gpt5-tau217-diagnosis.pdf",
+      "action": "retired_by_owner",
+      "owner_issue": "JUA-108",
+      "new_case": null,
+      "rationale": "The replacement Alzheimer models do not contain the old memory-clinic p-tau217 cohort facts."
+    },
+    {
+      "id": "q132",
+      "old_source": "outlier-gpt5-tau217-diagnosis.pdf",
+      "action": "retired_by_owner",
+      "owner_issue": "JUA-108",
+      "new_case": null,
+      "rationale": "GPT-5/physician diagnostic comparisons are not reproduced by the replacement Alzheimer imaging/clinical model."
+    },
+    {
+      "id": "q133",
+      "old_source": "outlier-gpt5-tau217-diagnosis.pdf",
+      "action": "retired_by_owner",
+      "owner_issue": "JUA-108",
+      "new_case": null,
+      "rationale": "The old FDA/donanemab unanswerable case is source- and time-specific; no new case reuses its label."
+    },
+    {
+      "id": "q135",
+      "old_source": "outlier-microbiome-tuberculosis.pdf",
+      "action": "retired_related_case_not_equivalent",
+      "owner_issue": "JUA-113",
+      "new_case": "x007",
+      "rationale": "The new PTB probiotic cohort case uses different evidence and is not an equivalent replacement for a general gut-lung-axis explanation."
+    },
+    {
+      "id": "q136",
+      "old_source": "outlier-microbiome-tuberculosis.pdf",
+      "action": "retired_related_case_not_equivalent",
+      "owner_issue": "JUA-113",
+      "new_case": "x007",
+      "rationale": "The new case checks a specific cited human diversity observation, not the former list of three intervention types."
+    },
+    {
+      "id": "q137",
+      "old_source": "outlier-microbiome-tuberculosis.pdf",
+      "action": "retired_related_case_not_equivalent",
+      "owner_issue": "JUA-113",
+      "new_case": "x008",
+      "rationale": "The new false-premise case tests evidence for comparative AI-care outcomes, not the former broad limitations synthesis."
+    },
+    {
+      "id": "q138",
+      "old_source": "outlier-microbiome-tuberculosis.pdf",
+      "action": "retired_related_case_not_equivalent",
+      "owner_issue": "JUA-113",
+      "new_case": "x009",
+      "rationale": "The old absent FMT-duration fact and new absent wastewater-linked patient outcomes have different scopes and are not interchangeable."
+    },
+    {
+      "id": "q139",
+      "old_source": "outlier-amr-surveillance.pdf",
+      "action": "retired_source_excluded",
+      "owner_issue": "JUA-113",
+      "new_case": null,
+      "rationale": "The Galápagos paper fails the new licence policy; its specific isolate prevalence is not reproduced by the replacement studies."
+    },
+    {
+      "id": "q140",
+      "old_source": "outlier-amr-surveillance.pdf",
+      "action": "retired_related_case_not_equivalent",
+      "owner_issue": "JUA-113",
+      "new_case": "x004",
+      "rationale": "The new international WWTP result is a different study and endpoint, not an equivalent effluent-compliance result."
+    },
+    {
+      "id": "q141",
+      "old_source": "outlier-amr-surveillance.pdf",
+      "action": "retired_related_case_not_equivalent",
+      "owner_issue": "JUA-113",
+      "new_case": "x009",
+      "rationale": "The old absent cholera case is not equivalent to the new absence of downstream patient infections linked to WWTP ARG measurements."
+    }
+  ]
+}

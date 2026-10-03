@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0",
+  "query_sha256": "90765ab5a2840e5e21b48ea66409eca64cdfb583549d32d8d2a744b839c95212",
+  "status": "author focused full-text review complete; final Claude review pending; Juan review pending",
+  "reviewer": "Codex",
+  "review_method": "Focused review of methods, results, limitations and topic overlap; searched complete extracted article text for exact values, alternatives and cross-topic terms; checked identity/licence and relevant passages against pinned JATS/PDF.",
+  "retrieval_exposure": "No retrieval output was used during question selection, evidence binding or gold authoring.",
+  "cases": [
+    {
+      "id": "x001",
+      "revision": 1,
+      "status": "author_reviewed",
+      "independent_review": "Final Claude review pending; Juan PR review pending",
+      "source_identity_check": "Pinned article/version/PDF/text hashes are referenced by every evidence anchor.",
+      "alternative_evidence_check": "The TB review cites the MR study but does not reproduce the complete abstract/body conflict. No other selected article reports this set of taxa counts and correction language.",
+      "duplicate_leakage_check": "Four evidence anchors cover one abstract statement and three separate Results statements; the question supplies the abstract counts but not the correction result or the later significance claim."
+    },
+    {
+      "id": "x002",
+      "revision": 1,
+      "status": "author_reviewed",
+      "independent_review": "Final Claude review pending; Juan PR review pending",
+      "source_identity_check": "Pinned article/version/PDF/text hashes are referenced by every evidence anchor.",
+      "alternative_evidence_check": "The review discusses probiotic studies separately, but none changes the design of this named MR study.",
+      "duplicate_leakage_check": "The method description identifies a two-sample genetic analysis; the requested administered dose is not in the question."
+    },
+    {
+      "id": "x003",
+      "revision": 1,
+      "status": "author_reviewed",
+      "independent_review": "Final Claude review pending; Juan PR review pending",
+      "source_identity_check": "Pinned article/version/PDF/text hashes are referenced by every evidence anchor.",
+      "alternative_evidence_check": "The international WWTP study uses metagenomics and qPCR normalization but does not report this four-site primer-mismatch comparison.",
+      "duplicate_leakage_check": "The values and paired failure mechanisms occur together in the article abstract."
+    },
+    {
+      "id": "x004",
+      "revision": 1,
+      "status": "author_reviewed",
+      "independent_review": "Final Claude review pending; Juan PR review pending",
+      "source_identity_check": "Pinned article/version/PDF/text hashes are referenced by every evidence anchor.",
+      "alternative_evidence_check": "The 11/12 and 12/12 totals are specific to Garner et al.; Daw Elbait et al. studies four different wastewater samples and method agreement.",
+      "duplicate_leakage_check": "The target values and denominators are not present in the question; the qPCR article is a plausible study-level competitor."
+    },
+    {
+      "id": "x005",
+      "revision": 1,
+      "status": "author_reviewed",
+      "independent_review": "Final Claude review pending; Juan PR review pending",
+      "source_identity_check": "Pinned article/version/PDF/text hashes are referenced by every evidence anchor.",
+      "alternative_evidence_check": "No other selected article reports these two Alzheimer-model results.",
+      "duplicate_leakage_check": "The abstract states both accuracies with their separate model tasks; the question does not give target values."
+    },
+    {
+      "id": "x006",
+      "revision": 1,
+      "status": "author_reviewed",
+      "independent_review": "Final Claude review pending; Juan PR review pending",
+      "source_identity_check": "Pinned article/version/PDF/text hashes are referenced by every evidence anchor.",
+      "alternative_evidence_check": "No other selected article validates these Alzheimer models or supplies an ADNI/OASIS-3 result for them.",
+      "duplicate_leakage_check": "The question asks for an external validation result not claimed in the source."
+    },
+    {
+      "id": "x007",
+      "revision": 1,
+      "status": "author_reviewed",
+      "independent_review": "Final Claude review pending; Juan PR review pending",
+      "source_identity_check": "Pinned article/version/PDF/text hashes are referenced by every evidence anchor.",
+      "alternative_evidence_check": "The MR paper reports genetic associations rather than this probiotic cohort; no other selected article reports its alpha/beta diversity comparison.",
+      "duplicate_leakage_check": "The cited group size and both diversity outcomes occur in one passage."
+    },
+    {
+      "id": "x008",
+      "revision": 1,
+      "status": "author_reviewed",
+      "independent_review": "Final Claude review pending; Juan PR review pending",
+      "source_identity_check": "Pinned article/version/PDF/text hashes are referenced by every evidence anchor.",
+      "alternative_evidence_check": "The Alzheimer article evaluates public datasets and does not test AI-assisted TB care or standard-care outcomes.",
+      "duplicate_leakage_check": "The source explicitly presents the comparative trial as needed; it does not provide a result."
+    },
+    {
+      "id": "x009",
+      "revision": 1,
+      "status": "author_reviewed",
+      "independent_review": "Final Claude review pending; Juan PR review pending",
+      "source_identity_check": "Pinned article/version/PDF/text hashes are referenced by every evidence anchor.",
+      "alternative_evidence_check": "The two environmental articles report wastewater samples and ARG measurements; the other three concern microbiome/TB associations, a TB review and Alzheimer models. No downstream WWTP-exposed patient cohort or linked infection count appears.",
+      "duplicate_leakage_check": "The five-outlier-article absence review was completed before evaluation; this asks for patient outcomes, not environmental ARG detection."
+    },
+    {
+      "id": "x010",
+      "revision": 1,
+      "status": "author_reviewed",
+      "independent_review": "Final Claude review pending; Juan PR review pending",
+      "source_identity_check": "Pinned article/version/PDF/text hashes are referenced by every evidence anchor.",
+      "alternative_evidence_check": "Cardiology and diabetes papers discuss related factors but do not reproduce the Alzheimer model’s five-run feature-importance result.",
+      "duplicate_leakage_check": "The requested features occur together in one Discussion passage; no feature names appear in the question."
+    }
+  ]
+}

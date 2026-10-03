@@ -1,0 +1,2509 @@
+{
+  "schema_version": "1.0",
+  "query_version": "outlier-expansion-regression-v1",
+  "status": "frozen existing-topic sample; original per-case questions and anchors copied byte-for-byte",
+  "authored_for": "JUA-113 focused outlier interference check",
+  "selection_sha256": "2418566c6c5648f78a03da20e2efff62348fe1f2226c44322dd1dd35a13487d6",
+  "anchors": [
+    {
+      "id": "ahre_auc",
+      "article_id": "PMC12436478",
+      "filename": "cardio-ahre-echo-transformer.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "c4233f82070beead4ccd734da37ca8debdd5ea932a6ac1b6da943534dd407bb8",
+      "text_sha256": "537c270971b992263815e4f0c1238c2a12df2ce0a03ef897223104fb314c54c1",
+      "page": 6,
+      "pages": [
+        6,
+        7
+      ],
+      "section": "Results; AHRE thresholds and test-set performance",
+      "text_start": 21328,
+      "text_end": 22036,
+      "excerpt": "Cavity 0.9016 0.8710  < 0.001* 0.8809  < 0.001* 0.5850  < 0.001*\nWall 0.6931 0.6344 0.6037 0.6808 0.7357 0.4646 0.3640\n3119Medical & Biological Engineering & Computing (2025) 63:3113–3122 \nAUC of 0.853, an accuracy of 0.875, a sensitivity of 0.909, and \na specificity of 0.846 at the 6-min AHRE duration threshold. \nAt the 24-h threshold, the model exhibited promising perfor-\nmance on the test set, achieving an AUC of 0.950, an accuracy \nof 0.750, a sensitivity of 1.0, and a specificity of 0.700. Given \nthe limited number of positive cases, we conducted a strati-\nfied fivefold cross-validation to further validate the promising \nresults. As summarized in Table 3, the model achieved a mean \nAUC of 0.815",
+      "excerpt_sha256": "d7c92fce5038f86aa013f6d3ea49b4e1d4f54c72a4f211fd1aab43ea523c1e2c",
+      "fact_ids": [],
+      "role": "competitor"
+    },
+    {
+      "id": "ckd_infection",
+      "article_id": "PMC11373557",
+      "filename": "cardio-ckd-sglt2-acei-arb.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "0c9c6285ea1c2ca4ab5988ee086381b216024bd83fc30fdb87b312f14e7573e2",
+      "text_sha256": "7f7028f9cb1faf7340e0a1332173ba45b6c49f2b5de9fd8cd0ce21228f39fcbc",
+      "page": 1,
+      "pages": [
+        1
+      ],
+      "section": "Results; genitourinary infection incidence and adjusted HR",
+      "text_start": 4217,
+      "text_end": 4593,
+      "excerpt": "congestive heart failure, arrhythmia, acute \npulmonary oedema , and acute myocardial infarction, although the differences were not statistically \nsignificant. Notably, SGLT2 inhibitor usage was associated with a greater GUTI incidence (aHR = 1.78, \n95% CI = 1.122.84) shortly after initiation, irrespective of prior GUTI history status. \n \nIvyspring  \nInternational Publisher ",
+      "excerpt_sha256": "2cf319067ea9a1e5067bc232576258fc864bf05ee87ceeac012b27fcd9787f91",
+      "fact_ids": [
+        "c012:f1",
+        "c016:f2"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "ckd_renal",
+      "article_id": "PMC11373557",
+      "filename": "cardio-ckd-sglt2-acei-arb.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "0c9c6285ea1c2ca4ab5988ee086381b216024bd83fc30fdb87b312f14e7573e2",
+      "text_sha256": "7f7028f9cb1faf7340e0a1332173ba45b6c49f2b5de9fd8cd0ce21228f39fcbc",
+      "page": 1,
+      "pages": [
+        1
+      ],
+      "section": "Results; ESRD/dialysis incidence and adjusted HR",
+      "text_start": 3680,
+      "text_end": 4050,
+      "excerpt": "nonusers on the basis of sex, \nCKD, and program entry duration. \nResults: The final cohort included 205 SGLT2 inhibitor users and 820 nonusers. SGLT2 inhibitor users \nexperienced a significant reduction in ESRD/dialysis risk (aHR = 0.35, 95% CI = 0.190.67), and SGLT2 \ninhibitor use was not significantly associated with acute kidney injury or acute kidney disease risk.",
+      "excerpt_sha256": "e685da19a381b5cf3ab52d4201d485f10a18b7d1e7150df424d2d38ad45056b3",
+      "fact_ids": [
+        "c012:f1",
+        "c016:f2"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "csf",
+      "article_id": "PMC13429855",
+      "filename": "onco-lung-liquidbiopsy.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "7c9c6384315c78c2d87b85a626a77df3f062cb844d938d63555a43cbc485f5fe",
+      "text_sha256": "58575a81d8a421f828c2df5ee858c9cc6042affcd304fa806ba272ecc77fbdd5",
+      "page": 10,
+      "pages": [
+        10
+      ],
+      "section": "CNS/CSF liquid biopsy; cited pooled diagnostic evidence",
+      "text_start": 52701,
+      "text_end": 53157,
+      "excerpt": "often miss brain metastases \nor leptomeningeal disease (LMD). Sampling CSF directly bypasses \nthis barrier. A systematic review and meta-analysis of 26 studies \nreported a pooled CSF ctDNA detection rate of 86% (95% CI 79%– \n91%), significantly higher than CSF cytology at 60% (95% CI 36%– \n81%). Pooled sensitivity was 91.8% and specificity 93.5% for \ndetecting CNS metastases in NSCLC, although individual study \ndetection rates ranged from 82% to 100% (",
+      "excerpt_sha256": "23cbb73fb2bd658b4287d116f8ab93cc9c3758158f6c560394705b6787a6f3f7",
+      "fact_ids": [
+        "q079:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "ecg_auc",
+      "article_id": "PMC10363301",
+      "filename": "cardio-af-incident-ecg-calibration.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "97cb98ece2c75b991827fcd1b7899adf16112b30b4f99bf43de3c7708b6ddb1d",
+      "text_sha256": "e7c60503d9e39d2a97c9c8d20977584c0c0bf9815a815dcc9bc16e4f0338dc90",
+      "page": 5,
+      "pages": [
+        5
+      ],
+      "section": "Results; largest unbalanced training sample",
+      "text_start": 22316,
+      "text_end": 22747,
+      "excerpt": "models trained with the biggest sample size considered \n(150.000 ECGs) and with the original event ratio (no \nimbalance corrections). We can see that from a discrimi -\nnation point of view, the CNN model is the best-perform-\ning model, with an AUC of 0.799. XGB model is the one \nwith intermediate performance (AUC of 0.74), while LR \nshows the worst performance (AUC of 0.68). As for the \ncalibration, it can be noticed that there",
+      "excerpt_sha256": "258b8f73d9df6eec000aa4ed8caa076b1e560ff65853c6ea7b03545b568e0b22",
+      "fact_ids": [
+        "c001:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "ecg_task",
+      "article_id": "PMC10363301",
+      "filename": "cardio-af-incident-ecg-calibration.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "97cb98ece2c75b991827fcd1b7899adf16112b30b4f99bf43de3c7708b6ddb1d",
+      "text_sha256": "e7c60503d9e39d2a97c9c8d20977584c0c0bf9815a815dcc9bc16e4f0338dc90",
+      "page": 3,
+      "pages": [
+        3
+      ],
+      "section": "Methods; five-year future-AF label",
+      "text_start": 13352,
+      "text_end": 13600,
+      "excerpt": "The unit of observation was the ECG signal. Each ECG \nwas labelled 1 if the corresponding patient will develop \nAF within 5 years, and 0 otherwise.\nModels’ development\nThe two approaches under study were a deep convolu -\ntional neural network (CNN)",
+      "excerpt_sha256": "db16d1e2714c6125d34d51542108947210e0d99a8cb5769c34fe764c4d6395d4",
+      "fact_ids": [
+        "c001:f2"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "epi_prevalence",
+      "article_id": "PMC13311226",
+      "filename": "diabetes-metabolic-syndrome-cameroon.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "270a950107f45871e2c9155847cc4e315ffd98c6b9538ae7f233389d894ccab8",
+      "text_sha256": "eee25ef331e38928ef027fbd0d85ce3e12895e5c6cd3d976d8e3737d0f79dbac",
+      "page": 5,
+      "pages": [
+        5
+      ],
+      "section": "Results; criteria-specific prevalence",
+      "text_start": 17042,
+      "text_end": 17228,
+      "excerpt": "the prevalence of \nmetabolic syndrome using the IDF criteria of \n64.0% was significantly higher than the prevalence \nbased on the NCEP -ATP III criteria of 56.80%  \n(χ2= 102.8, p < 0.001",
+      "excerpt_sha256": "54bfe3568b6f855d565ba8e406b31ac72cb650b17af9e11ccc318c23cb3c7cd0",
+      "fact_ids": [
+        "d001:f2",
+        "d013:f2"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "fusion_yield",
+      "article_id": "PMC13429855",
+      "filename": "onco-lung-liquidbiopsy.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "7c9c6384315c78c2d87b85a626a77df3f062cb844d938d63555a43cbc485f5fe",
+      "text_sha256": "58575a81d8a421f828c2df5ee858c9cc6042affcd304fa806ba272ecc77fbdd5",
+      "page": 2,
+      "pages": [
+        2
+      ],
+      "section": "Introduction; ctRNA and combined ctDNA/ctRNA fusion detection",
+      "text_start": 5470,
+      "text_end": 5962,
+      "excerpt": "ctRNA enhances detection of actionable gene fusions and splice \nvariants that may be missed by DNA-based assays, with combined \nctDNA/ctRNA approaches increasing fusion detection yield by \napproximately 28%–37% compared with ctDNA alone ( Giménez- \nCapitán et al., 2023 ; Hasegawa et al., 2021 ; Heeke et al., 2025 ; Samol \net al., 2025 ; Poh et al., 2025 ); accordingly, current NCCN NSCLC \nGuidelines recommend RNA-based testing when DNA-based \nprofiling does not identify a driver oncogene",
+      "excerpt_sha256": "4746bc57024fa402d7ca43f1a06cfd22b344a9d2f4383f8a84dd7961f8cc4db1",
+      "fact_ids": [
+        "q078:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "hf_subgroups",
+      "article_id": "PMC13433862",
+      "filename": "cardio-heartfailure-biomarkers.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "98440a13560fb770655aab38680bbb8d8f21a700eed8db59ee6ab14f1713cad0",
+      "text_sha256": "a7392cc279bda7889978699cb469095c6ea2d0fdfc4a21909562e8ffcbeffa75",
+      "page": 5,
+      "pages": [
+        5
+      ],
+      "section": "Results; diabetes status interaction / Table 6",
+      "text_start": 24929,
+      "text_end": 25571,
+      "excerpt": "tness of the primary findings.\n3.8 Subgr oup analy sis by diabetes st atu s\nThe beneficial effects of SGL T2i on ΔGLS, ΔE/e‘, ΔLA VI, \nΔNT-proBNP , and ΔPIIINP we re consis tently observe d in both \ndiabetic and non-diabetic subgroups (all P < 0.001 for within- \nsubgroup comparisons). No significant intera ction was found \nbetween SGL T2i trea tment and diabetes s tatus for any outcome \n(all P for intera ction >0.05; Table 6 ), indicat ing that the \ncardiopr otective effects of SGL T2i are independent of \nglycemic contr ol.\n3.9 Multivaria te analy sis\nAfter adjusting for age, sex, BMI, diabetes, hypertension, \neGFR, baseline NT-proBNP",
+      "excerpt_sha256": "f0eb03d715721681dedb1bc890e04051afb01d16c630ba4b32738060cd57fe43",
+      "fact_ids": [
+        "q058:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "icd_damp",
+      "article_id": "PMC13190586",
+      "filename": "onco-icd-cold-tumor-review.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "b6827e067f65071cf839298155d88d4b4a7bd21dfc76774d757640915d5f3166",
+      "text_sha256": "a98f88c8d05330ae30625d0b3a0d2bfafad82d4b1596d69423a281e9a067aa32",
+      "page": 3,
+      "pages": [
+        3
+      ],
+      "section": "ICD mechanisms; CALR, ATP, HMGB1 and dendritic-cell pathways",
+      "text_start": 12850,
+      "text_end": 13610,
+      "excerpt": "and heat \nshock proteins (HSP70 and HSP90) ( Fucikova et al., 2020 ; Fucikova \net al., 2014 ). Specifically, CALR translocates from the endoplasmic \nreticulum (ER) to the plasma membrane surface during ICD, serving \nas a crucial “eat-me” signal for DCs, thus facilitating the \nphagocytosis of dying tumor cells. Extracellular ATP further \namplifies this process by stimulating the purinergic receptor \nP2RX7 on DCs, triggering inflammasome activation and \nsubsequent secretion of proinflammatory cytokines, notably IL-1β \nand IL-18. HMGB1 released from the nucleus binds Toll-like \nreceptor 4 (TLR4) on DCs, promoting their maturation and \nantigen-presenting capabilities ( Jiang et al., 2025 ; Chang et al., 2023 ).\nBeyond DAMP release, several cellular stres",
+      "excerpt_sha256": "e2dcd70ed4eec654a2c7d2e767d9ae42bce09565d5ff8b6da8d17fe014e1f341",
+      "fact_ids": [
+        "o014:f1",
+        "o016:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "korean_prevalence",
+      "article_id": "PMC10619268",
+      "filename": "cardio-resistant-hypertension-korean-consensus.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "eee1cec10b138c2f30bd8dc8baf9e8a8a37be7fd9e630f9259b4165a82598f15",
+      "text_sha256": "8384138ffaf40155d96b7a86b7860c1368f564cb551461bb4b57fdd537f7d47f",
+      "page": 3,
+      "pages": [
+        3
+      ],
+      "section": "Epidemiology; Korean studies",
+      "text_start": 8472,
+      "text_end": 9002,
+      "excerpt": "reported previously. In \na Korean study that recruited 3088 patients with essen -\ntial hypertension from 247 primary care physicians, \nthe prevalence of RH was 7.9% [15]. In another study \ninvolving 16,284 Korean patients with hypertension who \nunderwent ABPM at a single tertiary referral hospital, the \noverall prevalence of RH was 10.1%. Within this group, \nthe prevalence of RH (excluding refractory hyperten -\nsion) was 9.2%, and refractory hypertension accounted \nfor 0.9% of the cases [16]. The prevalence of RH defined \nby",
+      "excerpt_sha256": "6704cd615033936302907de4b1d4381f9a788336e469775bc23041d2dd8b9c15",
+      "fact_ids": [],
+      "role": "competitor"
+    },
+    {
+      "id": "lorenz_limit",
+      "article_id": "PMC11265054",
+      "filename": "cardio-af-lorenz-detection.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "2e0ede0a64a478e6a71597953a3a129f1b0ec2e517c141031626716902617988",
+      "text_sha256": "8eca20550e7b3985ea416f673e8e7215ae5c1d3b4324f43fd6fa7025cd8da9b9",
+      "page": 7,
+      "pages": [
+        7
+      ],
+      "section": "Limitations; external paroxysmal sample",
+      "text_start": 31748,
+      "text_end": 32111,
+      "excerpt": "in the \nMS-AF dataset was as high as 40.65%. Third, the num -\nber of patients with paroxysmal AF was only five patients \nin the MS-AF dataset, which is a low number and a low \nproportion of AF patients in the current study. This may \naffect the test results of the model. Fourth, limited by \nthe types and number of arrhythmias in the database, \nthe current model",
+      "excerpt_sha256": "3494d6ad052e3720a63ea21ecf1c3cfab07b024c34c223f47a494f70973664de",
+      "fact_ids": [
+        "c003:f2"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "lorenz_metrics",
+      "article_id": "PMC11265054",
+      "filename": "cardio-af-lorenz-detection.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "2e0ede0a64a478e6a71597953a3a129f1b0ec2e517c141031626716902617988",
+      "text_sha256": "8eca20550e7b3985ea416f673e8e7215ae5c1d3b4324f43fd6fa7025cd8da9b9",
+      "page": 1,
+      "pages": [
+        1
+      ],
+      "section": "Results; internal/external episode detection",
+      "text_start": 3101,
+      "text_end": 3525,
+      "excerpt": "sensitivity, specificity and accuracy of \nthe model in diagnosing AF were 0.992, 0.973, and 0.983 in the internal validation set respectively. In the external \nvalidation set, these metrics were 0.989, 0.956, and 0.967, respectively. Furthermore, when evaluating the model’s \nperformance based on ECG records in the MS-AF dataset, the sensitivity, specificity and accuracy of model diagnosis \nparoxysmal AF were 1.000, 0.870",
+      "excerpt_sha256": "cf52db2699326900609eac72cb9bb4d92a497915b8978ea0463578fa9b0eb594",
+      "fact_ids": [
+        "c003:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "mortality",
+      "article_id": "PMC12495207",
+      "filename": "onco-pd1-cause-specific-mortality.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "bc2ae72df423b20b71363eb813f283d6300add43104bac1a9b2f12874b10adef",
+      "text_sha256": "097a58141efdda58c9212125e2f434912bfcac3a538c014a960a136a0c9e79c2",
+      "page": 1,
+      "pages": [
+        1
+      ],
+      "section": "Abstract; causes of death and Fine–Gray estimates",
+      "text_start": 1530,
+      "text_end": 2210,
+      "excerpt": " analyses.\nResults: Among 5076 patients, 68.36% received nivolumab and 31.64% received pembrolizumab. Of 3746 deaths, most were\nfrom NSCLC (85.34%), while 2.80% were from CVD. No signiﬁcant difference in CVD mortality risk was observed between the\ntwo PD-1i (sub-distribution HR [sHR] = 1.08; 95% CI: 0.63-1.84), but NSCLC mortality was associated with a lower risk in the\npembrolizumab group (sHR = 0.67; 95% CI: 0.60-0.74) compared to the nivolumab group. A history of CHF (sHR = 2.10; 95%\nCI: 1.37-3.21) and Medicaid dual eligibility (sHR = 2.70 vs private insurance; 95% CI: 1.28-5.56) were associated with increased\nCVD mortality. NSCLC mortality was higher in Stage IV/dista",
+      "excerpt_sha256": "33b5f120058cd102480318150b58cec95215682c093d57e74822d466d91eff5d",
+      "fact_ids": [
+        "o012:f1",
+        "o017:f2",
+        "o026:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "mortality_chf_results",
+      "article_id": "PMC12495207",
+      "filename": "onco-pd1-cause-specific-mortality.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "bc2ae72df423b20b71363eb813f283d6300add43104bac1a9b2f12874b10adef",
+      "text_sha256": "097a58141efdda58c9212125e2f434912bfcac3a538c014a960a136a0c9e79c2",
+      "page": 6,
+      "pages": [
+        6
+      ],
+      "section": "Results; CHF-associated CVD and other-cause mortality",
+      "text_start": 20170,
+      "text_end": 20427,
+      "excerpt": "A history of CHF was associated with increased mortality\nfrom all causes except NSCLC, including a two-fold higher\nrisk of CVD mortality (sHR = 2.10; 95% CI: 1.37-3.21; P <\n0.01) and mortality due to other diseases (sHR = 1.97; 95% CI:\n1.40-2.78; P < 0.01).",
+      "excerpt_sha256": "b7388a96d35e5aee1836c91ac29d4bb3c5489cb921d9b2349fa76f9b00b192eb",
+      "fact_ids": [
+        "o026:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "mortality_deaths_results",
+      "article_id": "PMC12495207",
+      "filename": "onco-pd1-cause-specific-mortality.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "bc2ae72df423b20b71363eb813f283d6300add43104bac1a9b2f12874b10adef",
+      "text_sha256": "097a58141efdda58c9212125e2f434912bfcac3a538c014a960a136a0c9e79c2",
+      "page": 6,
+      "pages": [
+        6
+      ],
+      "section": "Results; cohort and death counts, NSCLC death share and two CVD categories",
+      "text_start": 17407,
+      "text_end": 18056,
+      "excerpt": "Results\nWe identiﬁed 5076 older patients with advanced NSCLC who\nmet the study ’s inclusion criteria. Among them, 68.36% (n =\n3470) were treated with nivolumab, and 31.64% (n = 1606) were\ntreated with pembrolizumab (Figure 2). More than 70% of the\nparticipants (n = 3746) died during the study period. Among all\nthe patients, the majority die d from NSCLC (85.34%), while\n1.17% of deaths were attributed to ischemic heart diseases\n(0.93% of total deaths in the pembrolizumab group and 0.84% in\nthe nivolumab group) and 1.63% of deaths were attributed to\nother CVDs (1.25% of total deaths in the pembrolizumab group\nand 1.18% in the nivolumab group).",
+      "excerpt_sha256": "6bd91cb59a6e2abb4e35b15c29425cf809f4828aacf3bbb20f52d106bd693ea6",
+      "fact_ids": [
+        "o026:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "mortality_medicaid_results",
+      "article_id": "PMC12495207",
+      "filename": "onco-pd1-cause-specific-mortality.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "bc2ae72df423b20b71363eb813f283d6300add43104bac1a9b2f12874b10adef",
+      "text_sha256": "097a58141efdda58c9212125e2f434912bfcac3a538c014a960a136a0c9e79c2",
+      "page": 6,
+      "pages": [
+        6
+      ],
+      "section": "Results; Medicaid versus private insurance CVD mortality",
+      "text_start": 19522,
+      "text_end": 19757,
+      "excerpt": "Medicaid bene ﬁciaries had a signi ﬁcantly higher risk of\nCVD mortality compared to those with private insurance after\ncontrolling for other variables (sHR = 2.70 compared to private\ninsurance; 95% CI: 1.28-5.56; P =0 . 0 1 ,Table 2 ).",
+      "excerpt_sha256": "ac4a626ea2486f32dd6a9bbb9ee5425b009617d3bc63bb9f68e4de2960162a0d",
+      "fact_ids": [
+        "o026:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "nrp_hypertension",
+      "article_id": "PMC13439631",
+      "filename": "cardio-mi-risk-stratification.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "f53e37eee5fffda71935451944718520aab7cf16ad5dc7724db098b129d757f0",
+      "text_sha256": "24d5f324a1c5a6bd8f7481b08e216ecf32bda77af3932c09636a5bb854520d54",
+      "page": 6,
+      "pages": [
+        6
+      ],
+      "section": "Table 3; hypertension by flow group",
+      "text_start": 22420,
+      "text_end": 22566,
+      "excerpt": "0.001 *\nDM, n (%) 165 (25.8) 24 (28.2) 0.628\nHypertension, n (%) 337 (52.7) 48 (56.5) 0.508\nCAD, n (%) 7 (11.1) 11 (12.9) 0.613\nSmoking, n (%) 356",
+      "excerpt_sha256": "5a63e5cae9a88c5ba8f6f00c85a7f8ba17c86eebc6cdf2fffcb40ca64d8d58b4",
+      "fact_ids": [
+        "q129:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "nrp_table3_header",
+      "article_id": "PMC13439631",
+      "filename": "cardio-mi-risk-stratification.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "f53e37eee5fffda71935451944718520aab7cf16ad5dc7724db098b129d757f0",
+      "text_sha256": "24d5f324a1c5a6bd8f7481b08e216ecf32bda77af3932c09636a5bb854520d54",
+      "page": 6,
+      "pages": [
+        6
+      ],
+      "section": "Table 3; flow-group column bindings",
+      "text_start": 22266,
+      "text_end": 22458,
+      "excerpt": "TABLE 3 | Basic characteristics of patients with TIMI difference.\nVariable\nNormal‐ flow No‐reflow\np valueN = 640 N = 85\nAge (year) 61 (17) 65.20 ± 9.83 < 0.001 *\nDM, n (%) 165 (25.8) 24 (28.2)",
+      "excerpt_sha256": "699fcefe25be922be8d527547a4a7810b4bd00b2b04cbfbb1c20203623ea25f7",
+      "fact_ids": [
+        "q129:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "obs_cv",
+      "article_id": "PMC11891047",
+      "filename": "onco-ici-cv-observational.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "c5b888eeddb09eb5f0eb9a87a0f80865f1b3c23b5c593d84f0e9b1e959a45052",
+      "text_sha256": "951e0f660ba1d43156b2b831ad9da1002294f302c31568684239f9a0336ea883",
+      "page": 1,
+      "pages": [
+        1
+      ],
+      "section": "Abstract; observational studies, CV prevalence and pooled hazard",
+      "text_start": 1932,
+      "text_end": 2277,
+      "excerpt": "Results: Twelve observational studies using Real world Data were included,\nencompassing 23,621 patients with NSCLC. Our ﬁndings indicated that patients\ntreated with ICIs exhibited a 3% prevalence of CV events and a signi ﬁcantly higher\nhazard (HR = 1.78 (95% CI: 1.46, 2.17); p < 0.00001; I2 = 72%) compared to\npatients treated with other drugs.",
+      "excerpt_sha256": "e7a12ff9d37cc3a070599e323a74c92f2ed62424a46fd2c3c2b58b533fc8c3a1",
+      "fact_ids": [
+        "o009:f1",
+        "o017:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "obs_hr_results",
+      "article_id": "PMC11891047",
+      "filename": "onco-ici-cv-observational.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "c5b888eeddb09eb5f0eb9a87a0f80865f1b3c23b5c593d84f0e9b1e959a45052",
+      "text_sha256": "951e0f660ba1d43156b2b831ad9da1002294f302c31568684239f9a0336ea883",
+      "page": 4,
+      "pages": [
+        4
+      ],
+      "section": "Results 3.4.2; ICI versus non-ICI overall HR",
+      "text_start": 16542,
+      "text_end": 16758,
+      "excerpt": "The overall HR of CV events in lung cancer patients was\nstatistically higher among patients treated with ICIs compared to\nthose who did not receive ICI treatment HR: 1.78 (95% CI: 1.46,\n2.17); p < 0.00001; I2 = 72%).",
+      "excerpt_sha256": "006a8a1fb852a589cf03afbdc7a8f2508dc19f99e9f3bf94221ecee306379eab",
+      "fact_ids": [
+        "o009:f1",
+        "o017:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "obs_hr_scope",
+      "article_id": "PMC11891047",
+      "filename": "onco-ici-cv-observational.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "c5b888eeddb09eb5f0eb9a87a0f80865f1b3c23b5c593d84f0e9b1e959a45052",
+      "text_sha256": "951e0f660ba1d43156b2b831ad9da1002294f302c31568684239f9a0336ea883",
+      "page": 14,
+      "pages": [
+        14
+      ],
+      "section": "Discussion; limitations: four studies contribute to HR",
+      "text_start": 37621,
+      "text_end": 37857,
+      "excerpt": "Our study had the following limitations: (a) only observational\nstudies were included; (b) moderate heterogeneity was observed in\nHR while high heterogeneity was seen in prevalence analysis; (c) only\n4 studies were used in analyzing HR.",
+      "excerpt_sha256": "631d2eb19615905263df1399011f43e22f80687a5e55de2cb89021c0b787062c",
+      "fact_ids": [
+        "o009:f1",
+        "o017:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "obs_population_results",
+      "article_id": "PMC11891047",
+      "filename": "onco-ici-cv-observational.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "c5b888eeddb09eb5f0eb9a87a0f80865f1b3c23b5c593d84f0e9b1e959a45052",
+      "text_sha256": "951e0f660ba1d43156b2b831ad9da1002294f302c31568684239f9a0336ea883",
+      "page": 4,
+      "pages": [
+        4
+      ],
+      "section": "Results 3.2; twelve observational studies and 23,621 patients",
+      "text_start": 12506,
+      "text_end": 12949,
+      "excerpt": "3.2 Study characteristics\nThe twelve observational studies consisted of three prospective\nstudies and nine retrospective studies. Five studies were conducted in\nEurope, four studies in America, and three studies in Asia. The patient\npopulation of these twelve studies was 23,621 and their mean age of\npatients was 66.06 years. The clinical and demographic details of the\nstudied included in this meta-analysis are provided inTable 1(9, 17–27).",
+      "excerpt_sha256": "0f059689f95c2c1d3e065509bd9bb73e2c41d7a19f68a1e058d8fb2a36f4d135",
+      "fact_ids": [
+        "o009:f1",
+        "o017:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "obs_prevalence_results",
+      "article_id": "PMC11891047",
+      "filename": "onco-ici-cv-observational.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "c5b888eeddb09eb5f0eb9a87a0f80865f1b3c23b5c593d84f0e9b1e959a45052",
+      "text_sha256": "951e0f660ba1d43156b2b831ad9da1002294f302c31568684239f9a0336ea883",
+      "page": 4,
+      "pages": [
+        4
+      ],
+      "section": "Results 3.4.1; 3% prevalence (noncomparative measure despite source wording)",
+      "text_start": 15414,
+      "text_end": 15623,
+      "excerpt": "The overall appearance of CV events was statistically higher in\npatients who received ICI treatment compared to those who did not\nundergo ICI treatment (prevalence = 3% (95% CI: 3%-4%); p <\n0.00001; I2 = 96%).",
+      "excerpt_sha256": "64e55ed51f501877c04addf4236b30be5846149691875a141ab0572ac2503198",
+      "fact_ids": [
+        "o009:f1",
+        "o017:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "pgs_caveat",
+      "article_id": "PMC12886974",
+      "filename": "cardio-diabetes-hypertension-polygenic.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "224b75380b1f544fff0e70a11497feb5831ed510081ddd62d7507e7c54addd64",
+      "text_sha256": "59b924df2bfc187cb9b46d7e364de4c886b988e4ac533c275e23047540f5e978",
+      "page": 8,
+      "pages": [
+        8
+      ],
+      "section": "Discussion; environmental and external factors",
+      "text_start": 38687,
+      "text_end": 39059,
+      "excerpt": "acknowledge several caveats in this work. The pathophysio-\nlogical mechanisms involved in both T2D and high BP are not fully\nexplained by genetics alone, and are inﬂuenced by a variety of external\nand environmental factors, such as salt consumption or western diet.\nMoreover, the heterogeneity in sample origins, study designs, and\nsample sizes across the diverse included",
+      "excerpt_sha256": "6fd3f8a838c13a13b3ed0bffda547e9a0d3a649c41db67f56c4954cf539b8756",
+      "fact_ids": [
+        "c016:f2"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "pgs_inverse",
+      "article_id": "PMC12886974",
+      "filename": "cardio-diabetes-hypertension-polygenic.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "224b75380b1f544fff0e70a11497feb5831ed510081ddd62d7507e7c54addd64",
+      "text_sha256": "59b924df2bfc187cb9b46d7e364de4c886b988e4ac533c275e23047540f5e978",
+      "page": 3,
+      "pages": [
+        3
+      ],
+      "section": "Results; inverse T2D-BP cluster",
+      "text_start": 14042,
+      "text_end": 14557,
+      "excerpt": "inverse relationship\nof associated SNVs effects on higher T2D risk related to lower SBP/\nDBP/PP. Predominantly originating from associations with BP traits\n(Supplementary Fig. 1), the 353 SNVs within this cluster, when aligned\nto the T2D risk allele, are associated with a lower risk of cardiovascular\nevents, such as atrial ﬁbrillation (AF), coronary artery disease (CAD),\nstroke and heart failure. Additionally, these SNVs demonstrated asso-\nciations with BMI and systemic higher IR (higher HOMA-IR). Compar-\nison",
+      "excerpt_sha256": "b6fccfb1579799a219b5b564bf7b4b4c4b988438901d7b25a176ced038e75a60",
+      "fact_ids": [
+        "c016:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "shared_pgs_caveat",
+      "article_id": "PMC12886974",
+      "filename": "cardio-diabetes-hypertension-polygenic.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "224b75380b1f544fff0e70a11497feb5831ed510081ddd62d7507e7c54addd64",
+      "text_sha256": "59b924df2bfc187cb9b46d7e364de4c886b988e4ac533c275e23047540f5e978",
+      "page": 8,
+      "pages": [
+        8
+      ],
+      "section": "Discussion; environmental and external factors",
+      "text_start": 38687,
+      "text_end": 39059,
+      "excerpt": "acknowledge several caveats in this work. The pathophysio-\nlogical mechanisms involved in both T2D and high BP are not fully\nexplained by genetics alone, and are inﬂuenced by a variety of external\nand environmental factors, such as salt consumption or western diet.\nMoreover, the heterogeneity in sample origins, study designs, and\nsample sizes across the diverse included",
+      "excerpt_sha256": "6fd3f8a838c13a13b3ed0bffda547e9a0d3a649c41db67f56c4954cf539b8756",
+      "fact_ids": [
+        "d015:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "shared_pgs_inverse",
+      "article_id": "PMC12886974",
+      "filename": "cardio-diabetes-hypertension-polygenic.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "224b75380b1f544fff0e70a11497feb5831ed510081ddd62d7507e7c54addd64",
+      "text_sha256": "59b924df2bfc187cb9b46d7e364de4c886b988e4ac533c275e23047540f5e978",
+      "page": 3,
+      "pages": [
+        3
+      ],
+      "section": "Results; inverse T2D-BP cluster",
+      "text_start": 14042,
+      "text_end": 14557,
+      "excerpt": "inverse relationship\nof associated SNVs effects on higher T2D risk related to lower SBP/\nDBP/PP. Predominantly originating from associations with BP traits\n(Supplementary Fig. 1), the 353 SNVs within this cluster, when aligned\nto the T2D risk allele, are associated with a lower risk of cardiovascular\nevents, such as atrial ﬁbrillation (AF), coronary artery disease (CAD),\nstroke and heart failure. Additionally, these SNVs demonstrated asso-\nciations with BMI and systemic higher IR (higher HOMA-IR). Compar-\nison",
+      "excerpt_sha256": "b6fccfb1579799a219b5b564bf7b4b4c4b988438901d7b25a176ced038e75a60",
+      "fact_ids": [
+        "d015:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "shared_spirono_design",
+      "article_id": "PMC4804513",
+      "filename": "cardio-spironolactone-diabetes-trial.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "7a9d0736403d43d29074d4ae86e207287148a915c60c436d2e796669bedd2f66",
+      "text_sha256": "1fa7ea1e51386b8bec2c48538ae64bf304763b96e9d8e62495a8dfef40ba498c",
+      "page": 2,
+      "pages": [
+        2,
+        3
+      ],
+      "section": "Methods; trial dose and four-week follow-up",
+      "text_start": 9218,
+      "text_end": 9852,
+      "excerpt": "subject. As from the randomization day, \nsubjects allocated to the spironolactone group received \na daily 25  mg tablet of spironolactone, whereas those \nfrom the control group received either a daily 100 mg of \nPage 3 of 9\nDjoumessi et al. BMC Res Notes  (2016) 9:187 \natenolol, a daily 8 mg of candesartan, or a daily 750 mg of \nalpha methyldopa, all of these drugs added to their pre -\nvious regimen, with unchanged diet. They were followed \nup during visits scheduled at the second and fourth \nweeks of treatment.\nOutcomes measures\nA clinical examination was done and laboratory meas -\nurements carried out before the intervention",
+      "excerpt_sha256": "3b55f9f59cf30f479bad3c542b4e56f122dbdccd265a88d4e1dee364eba3750f",
+      "fact_ids": [
+        "d014:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "shared_spirono_results",
+      "article_id": "PMC4804513",
+      "filename": "cardio-spironolactone-diabetes-trial.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "7a9d0736403d43d29074d4ae86e207287148a915c60c436d2e796669bedd2f66",
+      "text_sha256": "1fa7ea1e51386b8bec2c48538ae64bf304763b96e9d8e62495a8dfef40ba498c",
+      "page": 4,
+      "pages": [
+        4
+      ],
+      "section": "Results; four-week office BP reductions",
+      "text_start": 15746,
+      "text_end": 16223,
+      "excerpt": "and self-measured, decreased \nmore in the spironolactone group than in the control \ngroup, with the systolic and diastolic office BP respec\n-\ntively decreasing by 33 vs. 14 mmHg (p  = 0.024) and by \n14 vs. 5 mmHg (p = 0.006). In the control group, the tar-\nget BP was achieved neither for office BP [end-of-trial \nmean BP (mmHg)  = 144  ± 17/89  ± 12], nor for SBPM \n[end-of-trial mean BP (mmHg)  =  142 ±  14/86 ±  14]. \nOnly two out of eight participants in the control group",
+      "excerpt_sha256": "c2d4703193f5b7e29bb9efe6dc5ae122c0cc75577c1f89eda6ba2cf8368099d4",
+      "fact_ids": [
+        "d014:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "sleep_cappuccio",
+      "article_id": "PMC13433680",
+      "filename": "diabetes-cardiovascular-outcomes.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "318eb20f7938dfcc713cb0132f03506cfb1eadc7d349b50547b844c40a8ad6a7",
+      "text_sha256": "4f85a4ba5a9d7c6eff49c0b52e98d863879864fb8f29272141e1f2ece181c34c",
+      "page": 3,
+      "pages": [
+        3
+      ],
+      "section": "Results; review-attributed short-sleep heart/stroke evidence",
+      "text_start": 8910,
+      "text_end": 9200,
+      "excerpt": "compiled evidence from over 474,000 par‑\nticipants across 8 countries. They found that habitual sleep \nduration of < 6 h per night was associated with a 48% higher \nrisk of developing and/or dying from heart disease and a \n15% increased chance of developing and/or dying from a \nstroke [9].",
+      "excerpt_sha256": "88ead69e858298b5638fe656848d0fa163298aaaf05211c41f70d541c2fbfff7",
+      "fact_ids": [
+        "q030:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "sleep_caution",
+      "article_id": "PMC13472562",
+      "filename": "diabetes-sleep-multimorbidity-cohorts.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "bb7c82cd722d116881f4a770f6f599407d86d425801d098bc6332d3176fdaa51",
+      "text_sha256": "77aa0fdd8e2fbc61b5ab6b3f0c029e2ddee577ab9a3c2f7bbc2babe7e7938abe",
+      "page": 1,
+      "pages": [
+        1
+      ],
+      "section": "Abstract Methods; harmonization limit",
+      "text_start": 3006,
+      "text_end": 3202,
+      "excerpt": "Because sleep measures\ndiffered across cohorts, harmonization was conducted at the construct rather\nthan raw-score level, and cross-cohort effect-size comparisons should be\ninterpreted cautiously.",
+      "excerpt_sha256": "9b2f74afb534f6eec794f60d53652abcc701d18644610f2cf209aa4d14d900bd",
+      "fact_ids": [
+        "d026:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "sleep_macrovascular",
+      "article_id": "PMC13433680",
+      "filename": "diabetes-cardiovascular-outcomes.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "318eb20f7938dfcc713cb0132f03506cfb1eadc7d349b50547b844c40a8ad6a7",
+      "text_sha256": "4f85a4ba5a9d7c6eff49c0b52e98d863879864fb8f29272141e1f2ece181c34c",
+      "page": 9,
+      "pages": [
+        9
+      ],
+      "section": "Results; Isomaa review-attributed macrovascular risks",
+      "text_start": 44442,
+      "text_end": 44659,
+      "excerpt": "In a landmark study of 4483 subjects of \n35–70 years of age, Isomaa et al. demonstrated that meta‑\nbolic disease significantly increased the risk of CAD, MI, \nand stroke. The RRs were 2.96, 2.63, and 2.27 respectively",
+      "excerpt_sha256": "aedbbda8aba692cef3da7d3203c1cfdfd54749f031cb86444d5e80f80a8be7f4",
+      "fact_ids": [
+        "q034:f1",
+        "d013:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "sleep_mediation",
+      "article_id": "PMC13472562",
+      "filename": "diabetes-sleep-multimorbidity-cohorts.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "bb7c82cd722d116881f4a770f6f599407d86d425801d098bc6332d3176fdaa51",
+      "text_sha256": "77aa0fdd8e2fbc61b5ab6b3f0c029e2ddee577ab9a3c2f7bbc2babe7e7938abe",
+      "page": 1,
+      "pages": [
+        1
+      ],
+      "section": "Abstract Results; adjusted versus unadjusted mediation",
+      "text_start": 3848,
+      "text_end": 4000,
+      "excerpt": "In exploratory mediation analyses, some\nsmall indirect effects were observed in unadjusted models, but none remained\nevident after covariate adjustment.",
+      "excerpt_sha256": "6890f13e0ba7da28bb571ba9043362047c595ada856cf619006f0b38fe51cf87",
+      "fact_ids": [
+        "d008:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "thai_prevalence",
+      "article_id": "PMC11374717",
+      "filename": "cardio-resistant-hypertension-thai-consensus.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "ad7d0765df4acc821140a90163616d16eac041d3189c62a84816393f6fb3d7a2",
+      "text_sha256": "81bea566735ce5a3dd900c3d5c799f2be52d1aa98e269271051f86c42faeba23",
+      "page": 3,
+      "pages": [
+        3
+      ],
+      "section": "Epidemiology; estimated apparent/true RH",
+      "text_start": 7042,
+      "text_end": 7778,
+      "excerpt": "medications [ 3]. Among this population,\n69% achieved the BP target (systolic BP < 140 mmHg and\ndiastolic BP < 90 mmHg), and 31% were not at\ntarget. Therefore, the estimated apparent treatment-RH\namong the Thai hypertensive population should be 5.3%\nof the treated population. There were reports estimating\nthat the prevalence of pseudo-RH is between 33 and 37%\namong patients with apparent treatment-RH. Suppose the\nsame is true in the Thai population. In that case, the\nestimated true RH in the Thai hypertensive population\nshould be around 3.4%, lower than the estimation from\na meta-analysis of observational studies in other populations\n[14]. Data from Malaysia, 24% of adults referred\nfrom primary care clinics due to uncontrolled",
+      "excerpt_sha256": "071a6cab18e3511fb61474e0c36b78bc8e8de26da741a6428e936314dba5dbf1",
+      "fact_ids": [
+        "c006:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "vasc_hypertension",
+      "article_id": "PMC8866621",
+      "filename": "cardio-stemi-vasc-fmd-no-reflow.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "5fac4e90fefa67859c05eb5740926afdab413a980ae6a4876b2ed691f7742928",
+      "text_sha256": "aa9921406485752eefe722a0c02d5104d49ad3c252110a7299b64a4b9459934c",
+      "page": 1,
+      "pages": [
+        1
+      ],
+      "section": "Results; unadjusted hypertension comparison",
+      "text_start": 1506,
+      "text_end": 1833,
+      "excerpt": "body mass index (BMI), higher frequency of diabetes \nmellitus, hypertension, history of heart failure, dyslipidemia, Killip class IV on admission, thrombus grade V, multiple \naffected vessels, conventional stenting, and multiple stents placement, longer ischemic times, higher CHA2DS VASc \nscore, and lower brachial artery FMD%",
+      "excerpt_sha256": "6e77e40667a8bd5fa439bbb0b1699687af7fd83aa39b305f97ac43b77a27b15b",
+      "fact_ids": [],
+      "role": "competitor"
+    }
+  ],
+  "queries": [
+    {
+      "id": "q058",
+      "revision": 2,
+      "category": "direct_lookup",
+      "topics": [
+        "cardiology"
+      ],
+      "question": "What did the HFpEF SGLT2 biomarker study report about interaction by diabetes status, and does that establish independence from glycemic changes?",
+      "required_facts": [
+        {
+          "id": "f1",
+          "expected_text": "Reported diabetes-status interaction P values exceeded 0.05 for GLS, the three biomarkers and HF rehospitalization. Lack of detected diabetes-status interaction does not establish independence from glycemic change or causal mediation.",
+          "units": null,
+          "population": "HFpEF patients with versus without diabetes",
+          "endpoint": "Diabetes-status effect modification",
+          "timeframe": "Six-month markers and follow-up HF rehospitalization",
+          "qualifiers": "Use the attributed source section and analysis population; preserve adjusted/unadjusted and association/causation distinctions.",
+          "tolerance": "Accept rounding stated in the reference; no cross-cohort substitution.",
+          "contradiction_rule": "Reject claims contradicting the scoped source or silently reconciling source conflicts."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "primary",
+          "anchors": [
+            "hf_subgroups"
+          ],
+          "fact_anchors": {
+            "f1": [
+              "hf_subgroups"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [],
+      "reference_answer": "Reported diabetes-status interaction P values exceeded 0.05 for GLS, the three biomarkers and HF rehospitalization. Lack of detected diabetes-status interaction does not establish independence from glycemic change or causal mediation.",
+      "answer_rubric": {
+        "required_claims": [
+          "f1"
+        ],
+        "acceptable_alternatives": "Any complete evidence set; accurately attributed source conflicts must remain explicit.",
+        "forbidden_conflations": [
+          "Do not equate absence of diabetes-status interaction with proof of glycemic independence."
+        ],
+        "judging_status": "No automated answer judge; review these claims manually or in separately approved answer judging."
+      },
+      "answerability": {
+        "status": "answerable"
+      },
+      "dependencies": {
+        "required": [
+          "PMC13433862"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "review": {
+        "author": "Codex",
+        "method": "Full-text methods/results/limitations and relevant competing evidence; pinned PDF extraction and JATS cross-check.",
+        "independent_review": "Pending PR review by Juan; author verification is not independent clinical review.",
+        "duplicate_leakage_check": "Question contains no requested target values; shared anchors retained only for distinct tasks.",
+        "tuning_exposure": "No retrieval runs used to author or choose gold labels."
+      },
+      "selection_rationale": "Scoped evidence attribution and retrieval coverage; selected before evaluation."
+    },
+    {
+      "id": "q129",
+      "revision": 2,
+      "category": "cross_doc_distractor",
+      "topics": [
+        "cardiology"
+      ],
+      "question": "In Sun’s 725-patient STEMI cohort, was pre-existing hypertension significantly more common in patients with no-reflow, and what comparison supports the answer?",
+      "required_facts": [
+        {
+          "id": "f1",
+          "expected_text": "Hypertension was present in 52.7% (337/640) with normal reflow and 56.5% (48/85) with no-reflow, P=0.508; this unadjusted difference was not significant.",
+          "units": "percent; patients; P value",
+          "population": "Sun STEMI primary PCI",
+          "endpoint": "Unadjusted hypertension prevalence by flow group",
+          "timeframe": "Post-PCI",
+          "qualifiers": "Use the attributed source section and analysis population; preserve adjusted/unadjusted and association/causation distinctions.",
+          "tolerance": "Accept rounding stated in the reference; no cross-cohort substitution.",
+          "contradiction_rule": "Reject claims contradicting the scoped source or silently reconciling source conflicts."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "primary",
+          "anchors": [
+            "nrp_table3_header",
+            "nrp_hypertension"
+          ],
+          "fact_anchors": {
+            "f1": [
+              "nrp_table3_header",
+              "nrp_hypertension"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [
+        {
+          "article_id": "PMC8866621",
+          "filename": "cardio-stemi-vasc-fmd-no-reflow.pdf",
+          "anchor_id": "vasc_hypertension",
+          "plausible_confusion": "Another STEMI/no-reflow cohort reports significant hypertension association.",
+          "reason_inapplicable": "Rashed’s 150-patient cohort is not Sun’s 725-patient cohort; its result cannot supply this comparison."
+        }
+      ],
+      "reference_answer": "Hypertension was present in 52.7% (337/640) with normal reflow and 56.5% (48/85) with no-reflow, P=0.508; this unadjusted difference was not significant.",
+      "answer_rubric": {
+        "required_claims": [
+          "f1"
+        ],
+        "acceptable_alternatives": "Any complete evidence set; accurately attributed source conflicts must remain explicit.",
+        "forbidden_conflations": [
+          "Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes."
+        ],
+        "judging_status": "No automated answer judge; review these claims manually or in separately approved answer judging."
+      },
+      "answerability": {
+        "status": "answerable"
+      },
+      "dependencies": {
+        "required": [
+          "PMC13439631"
+        ],
+        "alternatives": [],
+        "decoys": [
+          "PMC8866621"
+        ],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "review": {
+        "author": "Codex",
+        "method": "Full-text methods/results/limitations and relevant competing evidence; pinned PDF extraction and JATS cross-check.",
+        "independent_review": "Pending PR review by Juan; author verification is not independent clinical review.",
+        "duplicate_leakage_check": "Question contains no requested target values; shared anchors retained only for distinct tasks.",
+        "tuning_exposure": "No retrieval runs used to author or choose gold labels."
+      },
+      "selection_rationale": "Scoped evidence attribution and retrieval coverage; selected before evaluation."
+    },
+    {
+      "id": "c001",
+      "revision": 1,
+      "category": "cross_doc_distractor",
+      "topics": [
+        "cardiology"
+      ],
+      "question": "In the 2023 ECG study of sample size and class balancing for new-onset AF prediction, what was the CNN AUC at the largest original-ratio training sample, and what event horizon was labelled?",
+      "required_facts": [
+        {
+          "id": "f1",
+          "expected_text": "The CNN AUC was 0.799 at the largest 150,000-ECG training sample with original event ratio.",
+          "units": "AUC; ECGs",
+          "population": "2023 new-onset AF ECG prediction study",
+          "endpoint": "New-onset AF discrimination",
+          "timeframe": "Five years",
+          "qualifiers": "Use the attributed source section and analysis population; preserve adjusted/unadjusted and association/causation distinctions.",
+          "tolerance": "Accept rounding stated in the reference; no cross-cohort substitution.",
+          "contradiction_rule": "Reject claims contradicting the scoped source or silently reconciling source conflicts."
+        },
+        {
+          "id": "f2",
+          "expected_text": "Each ECG label represented development of AF within five years.",
+          "units": "years",
+          "population": "2023 new-onset AF ECG prediction study",
+          "endpoint": "New-onset AF discrimination",
+          "timeframe": "Five years",
+          "qualifiers": "Use the attributed source section and analysis population; preserve adjusted/unadjusted and association/causation distinctions.",
+          "tolerance": "Accept rounding stated in the reference; no cross-cohort substitution.",
+          "contradiction_rule": "Reject claims contradicting the scoped source or silently reconciling source conflicts."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "primary",
+          "anchors": [
+            "ecg_auc",
+            "ecg_task"
+          ],
+          "fact_anchors": {
+            "f1": [
+              "ecg_auc"
+            ],
+            "f2": [
+              "ecg_task"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [
+        {
+          "article_id": "PMC11265054",
+          "filename": "cardio-af-lorenz-detection.pdf",
+          "anchor_id": "lorenz_metrics",
+          "plausible_confusion": "High AF detection performance also uses deep learning and ECG.",
+          "reason_inapplicable": "Lorenz results detect AF in records, not new AF over five years."
+        },
+        {
+          "article_id": "PMC12436478",
+          "filename": "cardio-ahre-echo-transformer.pdf",
+          "anchor_id": "ahre_auc",
+          "plausible_confusion": "AF-related AI model with high AUCs.",
+          "reason_inapplicable": "AHRE duration thresholds from echocardiographic inputs are neither this ECG population nor its five-year outcome."
+        }
+      ],
+      "reference_answer": "The CNN AUC was 0.799 at the largest 150,000-ECG training sample with original event ratio. Each ECG label represented development of AF within five years.",
+      "answer_rubric": {
+        "required_claims": [
+          "f1",
+          "f2"
+        ],
+        "acceptable_alternatives": "Any complete evidence set; accurately attributed source conflicts must remain explicit.",
+        "forbidden_conflations": [
+          "Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes."
+        ],
+        "judging_status": "No automated answer judge; review these claims manually or in separately approved answer judging."
+      },
+      "answerability": {
+        "status": "answerable"
+      },
+      "dependencies": {
+        "required": [
+          "PMC10363301"
+        ],
+        "alternatives": [],
+        "decoys": [
+          "PMC11265054",
+          "PMC12436478"
+        ],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "review": {
+        "author": "Codex",
+        "method": "Full-text methods/results/limitations and relevant competing evidence; pinned PDF extraction and JATS cross-check.",
+        "independent_review": "Pending PR review by Juan; author verification is not independent clinical review.",
+        "duplicate_leakage_check": "Question contains no requested target values; shared anchors retained only for distinct tasks.",
+        "tuning_exposure": "No retrieval runs used to author or choose gold labels."
+      },
+      "selection_rationale": "Scoped evidence attribution and retrieval coverage; selected before evaluation."
+    },
+    {
+      "id": "c003",
+      "revision": 1,
+      "category": "multi_hop",
+      "topics": [
+        "cardiology"
+      ],
+      "question": "What external AF-detection performance did the Lorenz-plot CNN report, and what limitation applies to its external paroxysmal-AF sample?",
+      "required_facts": [
+        {
+          "id": "f1",
+          "expected_text": "External sensitivity, specificity and accuracy were 0.989, 0.956 and 0.967, respectively.",
+          "units": "proportion",
+          "population": "Lorenz CNN external MS-AF validation",
+          "endpoint": "Record-level AF detection and subgroup representativeness",
+          "timeframe": "External validation",
+          "qualifiers": "Use the attributed source section and analysis population; preserve adjusted/unadjusted and association/causation distinctions.",
+          "tolerance": "Accept rounding stated in the reference; no cross-cohort substitution.",
+          "contradiction_rule": "Reject claims contradicting the scoped source or silently reconciling source conflicts."
+        },
+        {
+          "id": "f2",
+          "expected_text": "The external MS-AF dataset contained only five paroxysmal-AF patients; the authors warn that this small number and proportion may affect test results.",
+          "units": "patients",
+          "population": "Lorenz CNN external MS-AF validation",
+          "endpoint": "Record-level AF detection and subgroup representativeness",
+          "timeframe": "External validation",
+          "qualifiers": "Use the attributed source section and analysis population; preserve adjusted/unadjusted and association/causation distinctions.",
+          "tolerance": "Accept rounding stated in the reference; no cross-cohort substitution.",
+          "contradiction_rule": "Reject claims contradicting the scoped source or silently reconciling source conflicts."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "primary",
+          "anchors": [
+            "lorenz_metrics",
+            "lorenz_limit"
+          ],
+          "fact_anchors": {
+            "f1": [
+              "lorenz_metrics"
+            ],
+            "f2": [
+              "lorenz_limit"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [],
+      "reference_answer": "External sensitivity, specificity and accuracy were 0.989, 0.956 and 0.967, respectively. The external MS-AF dataset contained only five paroxysmal-AF patients; the authors warn that this small number and proportion may affect test results.",
+      "answer_rubric": {
+        "required_claims": [
+          "f1",
+          "f2"
+        ],
+        "acceptable_alternatives": "Any complete evidence set; accurately attributed source conflicts must remain explicit.",
+        "forbidden_conflations": [
+          "Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes."
+        ],
+        "judging_status": "No automated answer judge; review these claims manually or in separately approved answer judging."
+      },
+      "answerability": {
+        "status": "answerable"
+      },
+      "dependencies": {
+        "required": [
+          "PMC11265054"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "review": {
+        "author": "Codex",
+        "method": "Full-text methods/results/limitations and relevant competing evidence; pinned PDF extraction and JATS cross-check.",
+        "independent_review": "Pending PR review by Juan; author verification is not independent clinical review.",
+        "duplicate_leakage_check": "Question contains no requested target values; shared anchors retained only for distinct tasks.",
+        "tuning_exposure": "No retrieval runs used to author or choose gold labels."
+      },
+      "selection_rationale": "Scoped evidence attribution and retrieval coverage; selected before evaluation.",
+      "reasoning": "Join performance estimates with the separately located subgroup limitation; high overall sensitivity is not precise paroxysmal validation."
+    },
+    {
+      "id": "c006",
+      "revision": 1,
+      "category": "cross_doc_distractor",
+      "topics": [
+        "cardiology"
+      ],
+      "question": "What apparent and true resistant-hypertension prevalence estimates does the Thai consensus give, and what assumption underlies the latter?",
+      "required_facts": [
+        {
+          "id": "f1",
+          "expected_text": "Estimated apparent treatment-RH was 5.3% of the treated Thai hypertensive population; estimated true RH was about 3.4%, assuming the reported 33–37% pseudoresistance fraction also applies in Thailand. These are estimates, not a directly measured confirmed-RH survey proportion.",
+          "units": "percent",
+          "population": "Thai treated hypertensive population",
+          "endpoint": "Estimated apparent versus true RH prevalence",
+          "timeframe": "Consensus epidemiology",
+          "qualifiers": "Use the attributed source section and analysis population; preserve adjusted/unadjusted and association/causation distinctions.",
+          "tolerance": "Accept rounding stated in the reference; no cross-cohort substitution.",
+          "contradiction_rule": "Reject claims contradicting the scoped source or silently reconciling source conflicts."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "primary",
+          "anchors": [
+            "thai_prevalence"
+          ],
+          "fact_anchors": {
+            "f1": [
+              "thai_prevalence"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [
+        {
+          "article_id": "PMC10619268",
+          "filename": "cardio-resistant-hypertension-korean-consensus.pdf",
+          "anchor_id": "korean_prevalence",
+          "plausible_confusion": "RH consensus with nearby prevalence estimates.",
+          "reason_inapplicable": "Korean primary-care and tertiary-referral estimates apply to different populations and must not replace Thai estimates."
+        }
+      ],
+      "reference_answer": "Estimated apparent treatment-RH was 5.3% of the treated Thai hypertensive population; estimated true RH was about 3.4%, assuming the reported 33–37% pseudoresistance fraction also applies in Thailand. These are estimates, not a directly measured confirmed-RH survey proportion.",
+      "answer_rubric": {
+        "required_claims": [
+          "f1"
+        ],
+        "acceptable_alternatives": "Any complete evidence set; accurately attributed source conflicts must remain explicit.",
+        "forbidden_conflations": [
+          "Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes."
+        ],
+        "judging_status": "No automated answer judge; review these claims manually or in separately approved answer judging."
+      },
+      "answerability": {
+        "status": "answerable"
+      },
+      "dependencies": {
+        "required": [
+          "PMC11374717"
+        ],
+        "alternatives": [],
+        "decoys": [
+          "PMC10619268"
+        ],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "review": {
+        "author": "Codex",
+        "method": "Full-text methods/results/limitations and relevant competing evidence; pinned PDF extraction and JATS cross-check.",
+        "independent_review": "Pending PR review by Juan; author verification is not independent clinical review.",
+        "duplicate_leakage_check": "Question contains no requested target values; shared anchors retained only for distinct tasks.",
+        "tuning_exposure": "No retrieval runs used to author or choose gold labels."
+      },
+      "selection_rationale": "Scoped evidence attribution and retrieval coverage; selected before evaluation."
+    },
+    {
+      "id": "c016",
+      "revision": 1,
+      "category": "cross_doc_synthesis",
+      "topics": [
+        "cardiology"
+      ],
+      "question": "How does the genetic inverse T2D–BP cluster relate to cardiometabolic risk, and why should it not be read as a drug-response result?",
+      "required_facts": [
+        {
+          "id": "f1",
+          "expected_text": "The inverse cluster has 353 SNVs whose T2D-risk alleles associate with lower BP and lower AF, CAD, stroke and HF risk; it represents genetic associations.",
+          "units": "SNVs",
+          "population": "Partitioned genetic analysis versus advanced-CKD exposure cohort",
+          "endpoint": "Genetic trait clustering versus treatment-associated outcomes",
+          "timeframe": "Genetic association versus clinical follow-up",
+          "qualifiers": "Use the attributed source section and analysis population; preserve adjusted/unadjusted and association/causation distinctions.",
+          "tolerance": "Accept rounding stated in the reference; no cross-cohort substitution.",
+          "contradiction_rule": "Reject claims contradicting the scoped source or silently reconciling source conflicts."
+        },
+        {
+          "id": "f2",
+          "expected_text": "The authors emphasize that T2D/high-BP mechanisms also depend on environmental factors. The SGLT2 advanced-CKD cohort instead reports treatment-exposure associations with renal and infection outcomes; it supplies no validation that the genetic cluster predicts SGLT2 or sulfonylurea response.",
+          "units": null,
+          "population": "Partitioned genetic analysis versus advanced-CKD exposure cohort",
+          "endpoint": "Genetic trait clustering versus treatment-associated outcomes",
+          "timeframe": "Genetic association versus clinical follow-up",
+          "qualifiers": "Use the attributed source section and analysis population; preserve adjusted/unadjusted and association/causation distinctions.",
+          "tolerance": "Accept rounding stated in the reference; no cross-cohort substitution.",
+          "contradiction_rule": "Reject claims contradicting the scoped source or silently reconciling source conflicts."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "primary",
+          "anchors": [
+            "pgs_inverse",
+            "pgs_caveat",
+            "ckd_renal",
+            "ckd_infection"
+          ],
+          "fact_anchors": {
+            "f1": [
+              "pgs_inverse"
+            ],
+            "f2": [
+              "pgs_caveat",
+              "ckd_renal",
+              "ckd_infection"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [],
+      "reference_answer": "The inverse cluster has 353 SNVs whose T2D-risk alleles associate with lower BP and lower AF, CAD, stroke and HF risk; it represents genetic associations. The authors emphasize that T2D/high-BP mechanisms also depend on environmental factors. The SGLT2 advanced-CKD cohort instead reports treatment-exposure associations with renal and infection outcomes; it supplies no validation that the genetic cluster predicts SGLT2 or sulfonylurea response.",
+      "answer_rubric": {
+        "required_claims": [
+          "f1",
+          "f2"
+        ],
+        "acceptable_alternatives": "Any complete evidence set; accurately attributed source conflicts must remain explicit.",
+        "forbidden_conflations": [
+          "Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes."
+        ],
+        "judging_status": "No automated answer judge; review these claims manually or in separately approved answer judging."
+      },
+      "answerability": {
+        "status": "answerable"
+      },
+      "dependencies": {
+        "required": [
+          "PMC11373557",
+          "PMC12886974"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13433181",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "review": {
+        "author": "Codex",
+        "method": "Full-text methods/results/limitations and relevant competing evidence; pinned PDF extraction and JATS cross-check.",
+        "independent_review": "Pending PR review by Juan; author verification is not independent clinical review.",
+        "duplicate_leakage_check": "Question contains no requested target values; shared anchors retained only for distinct tasks.",
+        "tuning_exposure": "No retrieval runs used to author or choose gold labels."
+      },
+      "selection_rationale": "Scoped evidence attribution and retrieval coverage; selected before evaluation."
+    },
+    {
+      "id": "q030",
+      "revision": 2,
+      "category": "direct_lookup",
+      "topics": [
+        "diabetes"
+      ],
+      "question": "What heart-disease and stroke risks does Ghanem et al.’s sleep-loss review attribute to Cappuccio’s short-sleep synthesis?",
+      "required_facts": [
+        {
+          "id": "f1",
+          "expected_text": "The review reports 48% higher developing/dying heart-disease risk and 15% higher stroke risk, from over 474,000 participants in eight countries; this is pooled reviewed evidence, not a single MI trial.",
+          "units": "relative risk increase, percent",
+          "population": "What heart-disease and stroke risks does Ghanem et al.’s sleep-loss review attribute to Cappuccio’s short-sleep synthesis?",
+          "endpoint": "Named source-specific endpoint; no cross-population substitution",
+          "timeframe": "As specified in question and evidence",
+          "qualifiers": "Preserve experimental design, adjusted/unadjusted estimates, reported source conflicts and association/causation distinctions.",
+          "tolerance": "Source-stated rounding only",
+          "contradiction_rule": "No invented reconciliation, causal treatment inference, or unsupported subgroup claim."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "primary",
+          "anchors": [
+            "sleep_cappuccio"
+          ],
+          "fact_anchors": {
+            "f1": [
+              "sleep_cappuccio"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [],
+      "answerability": {
+        "status": "answerable"
+      },
+      "review": {
+        "author": "Codex GPT-6",
+        "method": "Main-PDF full-text methods/results/limitations; pinned extraction and relevant JATS/table cross-check",
+        "independent_review": "Pending Juan PR review; author review is not independent clinical review",
+        "duplicate_leakage_check": "No requested gold values in question; shared anchors serve different scope/comparison tasks",
+        "tuning_exposure": "Authored and frozen before retrieval scores"
+      },
+      "selection_rationale": "Coverage and evidence distinction identified in legacy audit, before retrieval evaluation",
+      "reference_answer": "The review reports 48% higher developing/dying heart-disease risk and 15% higher stroke risk, from over 474,000 participants in eight countries; this is pooled reviewed evidence, not a single MI trial.",
+      "dependencies": {
+        "required": [
+          "PMC13433680"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10452755",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11847805",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12419643",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13107781",
+          "PMC13175446",
+          "PMC13311226",
+          "PMC13423648",
+          "PMC13430954",
+          "PMC13433181",
+          "PMC13433218",
+          "PMC13433680",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC13472562",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "answer_rubric": {
+        "required_claims": [
+          "f1"
+        ],
+        "acceptable_alternatives": "Complete listed evidence sets; source conflicts explicitly attributed. Unlisted semantically valid paraphrases require manual review.",
+        "forbidden_conflations": [
+          "Do not substitute another study/cohort/endpoint/timepoint",
+          "Do not imply source consistency or clinical superiority from reported observational/vignette findings"
+        ],
+        "judging_status": "No generated answer or paid judge run; rubric is for manual or separately approved future evaluation."
+      }
+    },
+    {
+      "id": "q034",
+      "revision": 2,
+      "category": "cross_doc_distractor",
+      "topics": [
+        "diabetes"
+      ],
+      "question": "What CAD, MI and stroke risk ratios does Ghanem et al.’s sleep-loss review attribute to the Isomaa metabolic-syndrome cohort?",
+      "required_facts": [
+        {
+          "id": "f1",
+          "expected_text": "The review attributes CAD RR 2.96, MI RR 2.63 and stroke RR 2.27 to the cited 4,483-person Isomaa cohort; these are macrovascular risk ratios.",
+          "units": "relative risks",
+          "population": "What CAD, MI and stroke risk ratios does Ghanem et al.’s sleep-loss review attribute to the Isomaa metabolic-syndrome cohort?",
+          "endpoint": "Named source-specific endpoint; no cross-population substitution",
+          "timeframe": "As specified in question and evidence",
+          "qualifiers": "Preserve experimental design, adjusted/unadjusted estimates, reported source conflicts and association/causation distinctions.",
+          "tolerance": "Source-stated rounding only",
+          "contradiction_rule": "No invented reconciliation, causal treatment inference, or unsupported subgroup claim."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "primary",
+          "anchors": [
+            "sleep_macrovascular"
+          ],
+          "fact_anchors": {
+            "f1": [
+              "sleep_macrovascular"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [
+        {
+          "article_id": "PMC13311226",
+          "filename": "diabetes-metabolic-syndrome-cameroon.pdf",
+          "anchor_id": "epi_prevalence",
+          "plausible_confusion": "Metabolic syndrome, hypertension and cardiometabolic risk vocabulary",
+          "reason_inapplicable": "Cameroon hospital T2DM syndrome prevalence under diagnostic criteria is not Isomaa macrovascular risk ratios."
+        }
+      ],
+      "answerability": {
+        "status": "answerable"
+      },
+      "review": {
+        "author": "Codex GPT-6",
+        "method": "Main-PDF full-text methods/results/limitations; pinned extraction and relevant JATS/table cross-check",
+        "independent_review": "Pending Juan PR review; author review is not independent clinical review",
+        "duplicate_leakage_check": "No requested gold values in question; shared anchors serve different scope/comparison tasks",
+        "tuning_exposure": "Authored and frozen before retrieval scores"
+      },
+      "selection_rationale": "Coverage and evidence distinction identified in legacy audit, before retrieval evaluation",
+      "reference_answer": "The review attributes CAD RR 2.96, MI RR 2.63 and stroke RR 2.27 to the cited 4,483-person Isomaa cohort; these are macrovascular risk ratios.",
+      "dependencies": {
+        "required": [
+          "PMC13433680"
+        ],
+        "alternatives": [],
+        "decoys": [
+          "PMC13311226"
+        ],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10452755",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11847805",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12419643",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13107781",
+          "PMC13175446",
+          "PMC13311226",
+          "PMC13423648",
+          "PMC13430954",
+          "PMC13433181",
+          "PMC13433218",
+          "PMC13433680",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC13472562",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "answer_rubric": {
+        "required_claims": [
+          "f1"
+        ],
+        "acceptable_alternatives": "Complete listed evidence sets; source conflicts explicitly attributed. Unlisted semantically valid paraphrases require manual review.",
+        "forbidden_conflations": [
+          "Do not substitute another study/cohort/endpoint/timepoint",
+          "Do not imply source consistency or clinical superiority from reported observational/vignette findings"
+        ],
+        "judging_status": "No generated answer or paid judge run; rubric is for manual or separately approved future evaluation."
+      }
+    },
+    {
+      "id": "d008",
+      "revision": 1,
+      "category": "direct_lookup",
+      "topics": [
+        "diabetes"
+      ],
+      "question": "What happened to the exploratory sleep-duration mediation findings after adjustment in Wang et al.’s three-cohort cardiometabolic study?",
+      "required_facts": [
+        {
+          "id": "f1",
+          "expected_text": "Small indirect effects were seen in unadjusted models; none remained evident after covariate adjustment. This is not proof of no biological mediation.",
+          "units": "source-specific values/qualifiers",
+          "population": "What happened to the exploratory sleep-duration mediation findings after adjustment in Wang et al.’s three-cohort cardiometabolic study?",
+          "endpoint": "Named source-specific endpoint; no cross-population substitution",
+          "timeframe": "As specified in question and evidence",
+          "qualifiers": "Preserve experimental design, adjusted/unadjusted estimates, reported source conflicts and association/causation distinctions.",
+          "tolerance": "Source-stated rounding only",
+          "contradiction_rule": "No invented reconciliation, causal treatment inference, or unsupported subgroup claim."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "primary",
+          "anchors": [
+            "sleep_mediation"
+          ],
+          "fact_anchors": {
+            "f1": [
+              "sleep_mediation"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [],
+      "answerability": {
+        "status": "answerable"
+      },
+      "review": {
+        "author": "Codex GPT-6",
+        "method": "Main-PDF full-text methods/results/limitations; pinned extraction and relevant JATS/table cross-check",
+        "independent_review": "Pending Juan PR review; author review is not independent clinical review",
+        "duplicate_leakage_check": "No requested gold values in question; shared anchors serve different scope/comparison tasks",
+        "tuning_exposure": "Authored and frozen before retrieval scores"
+      },
+      "selection_rationale": "Coverage and evidence distinction identified in legacy audit, before retrieval evaluation",
+      "reference_answer": "Small indirect effects were seen in unadjusted models; none remained evident after covariate adjustment. This is not proof of no biological mediation.",
+      "dependencies": {
+        "required": [
+          "PMC13472562"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10452755",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11847805",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12419643",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13107781",
+          "PMC13175446",
+          "PMC13311226",
+          "PMC13423648",
+          "PMC13430954",
+          "PMC13433181",
+          "PMC13433218",
+          "PMC13433680",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC13472562",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "answer_rubric": {
+        "required_claims": [
+          "f1"
+        ],
+        "acceptable_alternatives": "Complete listed evidence sets; source conflicts explicitly attributed. Unlisted semantically valid paraphrases require manual review.",
+        "forbidden_conflations": [
+          "Do not substitute another study/cohort/endpoint/timepoint",
+          "Do not imply source consistency or clinical superiority from reported observational/vignette findings"
+        ],
+        "judging_status": "No generated answer or paid judge run; rubric is for manual or separately approved future evaluation."
+      }
+    },
+    {
+      "id": "d014",
+      "revision": 3,
+      "category": "multi_hop",
+      "topics": [
+        "diabetes"
+      ],
+      "question": "What did the Cameroon fourth-line spironolactone trial report for office BP reductions relative to control, and over what follow-up?",
+      "required_facts": [
+        {
+          "id": "f1",
+          "expected_text": "Daily spironolactone 25 mg over four weeks; office systolic/diastolic reductions were 33 versus 14 and 14 versus 5 mmHg. This is BP response in T2DM resistant hypertension, not glycemic drug response.",
+          "units": "mg/day; weeks; mmHg",
+          "population": "What did the Cameroon fourth-line spironolactone trial report for office BP reductions relative to control, and over what follow-up?",
+          "endpoint": "Named source-specific endpoint; no cross-population substitution",
+          "timeframe": "As specified in question and evidence",
+          "qualifiers": "Preserve experimental design, adjusted/unadjusted estimates, reported source conflicts and association/causation distinctions.",
+          "tolerance": "Source-stated rounding only",
+          "contradiction_rule": "No invented reconciliation, causal treatment inference, or unsupported subgroup claim."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "primary",
+          "anchors": [
+            "shared_spirono_design",
+            "shared_spirono_results"
+          ],
+          "fact_anchors": {
+            "f1": [
+              "shared_spirono_design",
+              "shared_spirono_results"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [],
+      "answerability": {
+        "status": "answerable"
+      },
+      "review": {
+        "author": "Codex GPT-6",
+        "method": "Main-PDF full-text methods/results/limitations; pinned extraction and relevant JATS/table cross-check",
+        "independent_review": "Pending Juan PR review; author review is not independent clinical review",
+        "duplicate_leakage_check": "No requested gold values in question; shared anchors serve different scope/comparison tasks",
+        "tuning_exposure": "Questions and evidence anchors frozen before retrieval; category/reference annotations corrected afterward by source/standards review; this revision clarifies that chronology. No score-driven tuning."
+      },
+      "selection_rationale": "Coverage and evidence distinction identified in legacy audit, before retrieval evaluation",
+      "reference_answer": "Daily spironolactone 25 mg over four weeks; office systolic/diastolic reductions were 33 versus 14 and 14 versus 5 mmHg. This is BP response in T2DM resistant hypertension, not glycemic drug response.",
+      "dependencies": {
+        "required": [
+          "PMC4804513"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10452755",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11847805",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12419643",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13107781",
+          "PMC13175446",
+          "PMC13311226",
+          "PMC13423648",
+          "PMC13430954",
+          "PMC13433181",
+          "PMC13433218",
+          "PMC13433680",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC13472562",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "answer_rubric": {
+        "required_claims": [
+          "f1"
+        ],
+        "acceptable_alternatives": "Complete listed evidence sets; source conflicts explicitly attributed. Unlisted semantically valid paraphrases require manual review.",
+        "forbidden_conflations": [
+          "Do not substitute another study/cohort/endpoint/timepoint",
+          "Do not imply source consistency or clinical superiority from reported observational/vignette findings"
+        ],
+        "judging_status": "No generated answer or paid judge run; rubric is for manual or separately approved future evaluation."
+      },
+      "reasoning": "Connect the separate randomized dose/follow-up Methods with office BP result comparisons."
+    },
+    {
+      "id": "d015",
+      "revision": 3,
+      "category": "multi_hop",
+      "topics": [
+        "diabetes"
+      ],
+      "question": "What do partitioned T2DM/BP polygenic associations imply about treating diabetes-risk mechanisms as a uniformly positive BP-risk axis?",
+      "required_facts": [
+        {
+          "id": "f1",
+          "expected_text": "An inverse cluster associates higher T2DM risk with lower BP; genetics does not fully explain the comorbidity and environmental factors remain. Do not infer a universal positive axis or a causal treatment effect.",
+          "units": "source-specific values/qualifiers",
+          "population": "What do partitioned T2DM/BP polygenic associations imply about treating diabetes-risk mechanisms as a uniformly positive BP-risk axis?",
+          "endpoint": "Named source-specific endpoint; no cross-population substitution",
+          "timeframe": "As specified in question and evidence",
+          "qualifiers": "Preserve experimental design, adjusted/unadjusted estimates, reported source conflicts and association/causation distinctions.",
+          "tolerance": "Source-stated rounding only",
+          "contradiction_rule": "No invented reconciliation, causal treatment inference, or unsupported subgroup claim."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "primary",
+          "anchors": [
+            "shared_pgs_inverse",
+            "shared_pgs_caveat"
+          ],
+          "fact_anchors": {
+            "f1": [
+              "shared_pgs_inverse",
+              "shared_pgs_caveat"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [],
+      "answerability": {
+        "status": "answerable"
+      },
+      "review": {
+        "author": "Codex GPT-6",
+        "method": "Main-PDF full-text methods/results/limitations; pinned extraction and relevant JATS/table cross-check",
+        "independent_review": "Pending Juan PR review; author review is not independent clinical review",
+        "duplicate_leakage_check": "No requested gold values in question; shared anchors serve different scope/comparison tasks",
+        "tuning_exposure": "Questions and evidence anchors frozen before retrieval; category/reference annotations corrected afterward by source/standards review; this revision clarifies that chronology. No score-driven tuning."
+      },
+      "selection_rationale": "Coverage and evidence distinction identified in legacy audit, before retrieval evaluation",
+      "reference_answer": "An inverse cluster associates higher T2DM risk with lower BP; genetics does not fully explain the comorbidity and environmental factors remain. Do not infer a universal positive axis or a causal treatment effect.",
+      "dependencies": {
+        "required": [
+          "PMC12886974"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10452755",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11847805",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12419643",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13107781",
+          "PMC13175446",
+          "PMC13311226",
+          "PMC13423648",
+          "PMC13430954",
+          "PMC13433181",
+          "PMC13433218",
+          "PMC13433680",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC13472562",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "answer_rubric": {
+        "required_claims": [
+          "f1"
+        ],
+        "acceptable_alternatives": "Complete listed evidence sets; source conflicts explicitly attributed. Unlisted semantically valid paraphrases require manual review.",
+        "forbidden_conflations": [
+          "Do not substitute another study/cohort/endpoint/timepoint",
+          "Do not imply source consistency or clinical superiority from reported observational/vignette findings"
+        ],
+        "judging_status": "No generated answer or paid judge run; rubric is for manual or separately approved future evaluation."
+      },
+      "reasoning": "Connect the inverse genetic-cluster Results with separately located scope/environmental limitations."
+    },
+    {
+      "id": "d026",
+      "revision": 1,
+      "category": "direct_lookup",
+      "topics": [
+        "diabetes"
+      ],
+      "question": "Why should Wang et al.’s three-cohort sleep-quality estimates not be treated as directly interchangeable effect sizes?",
+      "required_facts": [
+        {
+          "id": "f1",
+          "expected_text": "Sleep measures differed across cohorts and harmonization occurred at the construct/score level; cross-cohort effect-size comparisons require caution.",
+          "units": "source-specific values/qualifiers",
+          "population": "Why should Wang et al.’s three-cohort sleep-quality estimates not be treated as directly interchangeable effect sizes?",
+          "endpoint": "Named source-specific endpoint; no cross-population substitution",
+          "timeframe": "As specified in question and evidence",
+          "qualifiers": "Preserve experimental design, adjusted/unadjusted estimates, reported source conflicts and association/causation distinctions.",
+          "tolerance": "Source-stated rounding only",
+          "contradiction_rule": "No invented reconciliation, causal treatment inference, or unsupported subgroup claim."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "primary",
+          "anchors": [
+            "sleep_caution"
+          ],
+          "fact_anchors": {
+            "f1": [
+              "sleep_caution"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [],
+      "answerability": {
+        "status": "answerable"
+      },
+      "review": {
+        "author": "Codex GPT-6",
+        "method": "Main-PDF full-text methods/results/limitations; pinned extraction and relevant JATS/table cross-check",
+        "independent_review": "Pending Juan PR review; author review is not independent clinical review",
+        "duplicate_leakage_check": "No requested gold values in question; shared anchors serve different scope/comparison tasks",
+        "tuning_exposure": "Authored and frozen before retrieval scores"
+      },
+      "selection_rationale": "Coverage and evidence distinction identified in legacy audit, before retrieval evaluation",
+      "reference_answer": "Sleep measures differed across cohorts and harmonization occurred at the construct/score level; cross-cohort effect-size comparisons require caution.",
+      "dependencies": {
+        "required": [
+          "PMC13472562"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10363301",
+          "PMC10452755",
+          "PMC10607686",
+          "PMC10619268",
+          "PMC10985250",
+          "PMC11265054",
+          "PMC11354916",
+          "PMC11373557",
+          "PMC11374717",
+          "PMC11514186",
+          "PMC11549774",
+          "PMC11847805",
+          "PMC11973566",
+          "PMC12003177",
+          "PMC12419643",
+          "PMC12436478",
+          "PMC12683810",
+          "PMC12880197",
+          "PMC12886974",
+          "PMC13107781",
+          "PMC13175446",
+          "PMC13311226",
+          "PMC13423648",
+          "PMC13430954",
+          "PMC13433181",
+          "PMC13433218",
+          "PMC13433680",
+          "PMC13433862",
+          "PMC13439631",
+          "PMC13472562",
+          "PMC4804513",
+          "PMC8866621"
+        ],
+        "negative_evidence": []
+      },
+      "answer_rubric": {
+        "required_claims": [
+          "f1"
+        ],
+        "acceptable_alternatives": "Complete listed evidence sets; source conflicts explicitly attributed. Unlisted semantically valid paraphrases require manual review.",
+        "forbidden_conflations": [
+          "Do not substitute another study/cohort/endpoint/timepoint",
+          "Do not imply source consistency or clinical superiority from reported observational/vignette findings"
+        ],
+        "judging_status": "No generated answer or paid judge run; rubric is for manual or separately approved future evaluation."
+      }
+    },
+    {
+      "id": "q079",
+      "revision": 3,
+      "category": "direct_lookup",
+      "topics": [
+        "oncology"
+      ],
+      "question": "According to the liquid-biopsy review, distinguish the pooled CSF ctDNA detection rate from sensitivity and specificity for CNS metastases in NSCLC, and compare detection with cytology.",
+      "required_facts": [
+        {
+          "id": "f1",
+          "expected_text": "The cited 26-study meta-analysis reports CSF ctDNA detection 86% (95% CI 79–91%) versus cytology 60% (36–81%); sensitivity 91.8% and specificity 93.5% are separate diagnostic measures.",
+          "units": "Percent",
+          "population": "Cited CNS/NSCLC pooled evidence",
+          "endpoint": "Detection, sensitivity and specificity",
+          "timeframe": "Pinned article publication date 2026-07-20; no unreported follow-up horizon inferred.",
+          "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject a different population, comparator or endpoint; preserve the stated numeric estimates, uncertainty and source qualifications."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "primary",
+          "anchors": [
+            "csf"
+          ],
+          "fact_anchors": {
+            "f1": [
+              "csf"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [],
+      "reference_answer": "The cited 26-study meta-analysis reports CSF ctDNA detection 86% (95% CI 79–91%) versus cytology 60% (36–81%); sensitivity 91.8% and specificity 93.5% are separate diagnostic measures.",
+      "answer_rubric": {
+        "required_claims": [
+          "f1"
+        ],
+        "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
+        "forbidden_conflations": [
+          "Do not substitute another population or endpoint for Cited CNS/NSCLC pooled evidence: Detection, sensitivity and specificity."
+        ],
+        "judging_status": "Manual review; no automated answer judging approved."
+      },
+      "answerability": {
+        "status": "answerable"
+      },
+      "dependencies": {
+        "required": [
+          "PMC13429855"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC13429855"
+        ],
+        "negative_evidence": []
+      },
+      "review": {
+        "author": "Codex",
+        "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
+        "independent_review": "Claude reviewed 8b1adbe, a226bba and b626fbb; Codex independently checked the latest findings and applied this correction. Changed gold and alternatives require independent re-review before freeze.",
+        "duplicate_leakage_check": "Shares no evidence anchor with another case; the question identifies the source without disclosing target values. Absorbs retired legacy q084, whose detection-rate fact is required here.",
+        "tuning_exposure": "No retrieval or answer-generation results used in authoring.",
+        "alternative_evidence_check": "CSF detection/sensitivity/specificity and cytology comparison occur only in the pinned meta-analysis paragraph; no complete restatement found."
+      },
+      "selection_rationale": "Tests separating the cited meta-analysis's pooled CSF ctDNA detection rate (versus cytology) from its sensitivity and specificity, which are different diagnostic measures. Direct lookup: one passage holds all values."
+    },
+    {
+      "id": "o009",
+      "revision": 5,
+      "category": "multi_hop",
+      "topics": [
+        "oncology"
+      ],
+      "question": "What CV-event estimates and study design did the observational NSCLC immunotherapy meta-analysis report?",
+      "required_facts": [
+        {
+          "id": "f1",
+          "expected_text": "Twelve observational studies included 23,621 NSCLC patients; overall CV-event prevalence was 3%, a separate measure from the HR. Only four studies contributed to the pooled HR 1.78 (95% CI 1.46–2.17), I²=72%, comparing ICI with non-ICI treatment. Observational association is not proof of causation or CVD mortality.",
+          "units": "Percent and hazard ratio",
+          "population": "Observational NSCLC cohorts",
+          "endpoint": "CV-event prevalence and hazard",
+          "timeframe": "Pinned article publication date 2025-02-24; no unreported follow-up horizon inferred.",
+          "qualifiers": "Preserve source attribution, group order, study design and reported conflicts. The Results describe statistically higher CV-event occurrence with ICI versus non-ICI alongside the prevalence; accept that wording when source-attributed without interpreting 3% as the HR or relative risk.",
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject a different population, comparator or endpoint; preserve the stated numeric estimates, uncertainty and source qualifications."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "primary",
+          "anchors": [
+            "obs_cv",
+            "obs_hr_scope"
+          ],
+          "fact_anchors": {
+            "f1": [
+              "obs_cv",
+              "obs_hr_scope"
+            ]
+          }
+        },
+        {
+          "id": "results_with_hr_scope",
+          "anchors": [
+            "obs_population_results",
+            "obs_prevalence_results",
+            "obs_hr_results",
+            "obs_hr_scope"
+          ],
+          "fact_anchors": {
+            "f1": [
+              "obs_population_results",
+              "obs_prevalence_results",
+              "obs_hr_results",
+              "obs_hr_scope"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [],
+      "reference_answer": "Twelve observational studies included 23,621 NSCLC patients; overall CV-event prevalence was 3%, a separate measure from the HR. Only four studies contributed to the pooled HR 1.78 (95% CI 1.46–2.17), I²=72%, comparing ICI with non-ICI treatment. Observational association is not proof of causation or CVD mortality.",
+      "answer_rubric": {
+        "required_claims": [
+          "f1"
+        ],
+        "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict. Accept the Results statement of significantly higher CV-event occurrence when explicitly attributed to the source. Keep the 3% prevalence distinct from HR 1.78; do not present 3% as a hazard ratio or relative-risk estimate.",
+        "forbidden_conflations": [
+          "Do not substitute another population or endpoint for Observational NSCLC cohorts: CV-event prevalence and hazard."
+        ],
+        "judging_status": "Manual review; no automated answer judging approved."
+      },
+      "answerability": {
+        "status": "answerable"
+      },
+      "dependencies": {
+        "required": [
+          "PMC11891047"
+        ],
+        "alternatives": [
+          "PMC11891047"
+        ],
+        "decoys": [],
+        "overlap_review": [
+          "PMC11891047"
+        ],
+        "negative_evidence": []
+      },
+      "review": {
+        "author": "Codex",
+        "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
+        "independent_review": "Claude reviewed 8b1adbe, a226bba and b626fbb; Codex independently checked the latest findings and applied this correction. Changed gold and alternatives require independent re-review before freeze.",
+        "duplicate_leakage_check": "Evidence is a subset of o017's. Retained because o017 tests cross-document endpoint separation, while o009 tests single-source scope of the HR.",
+        "tuning_exposure": "No retrieval or answer-generation results used in authoring.",
+        "alternative_evidence_check": "Accept the Results statement of significantly higher CV-event occurrence when explicitly attributed to the source. Keep the 3% prevalence distinct from HR 1.78; do not present 3% as a hazard ratio or relative-risk estimate."
+      },
+      "selection_rationale": "Tests separating overall CV-event prevalence (3%, distinct from HR; attributed Results comparison accepted) from the pooled HR, which only four of twelve observational studies contribute. Association is not causation or CVD mortality. Multi-hop: abstract and Limitations anchors (recategorised from direct lookup).",
+      "reasoning": "Join the abstract's prevalence and pooled HR to the Limitations statement that only four studies contribute to that HR."
+    },
+    {
+      "id": "o026",
+      "revision": 2,
+      "category": "direct_lookup",
+      "topics": [
+        "oncology"
+      ],
+      "question": "Among deaths in the older advanced-NSCLC PD-1 cohort, what shares were attributed to NSCLC and CVD, and which factors were associated with CVD mortality?",
+      "required_facts": [
+        {
+          "id": "f1",
+          "expected_text": "Of 3,746 deaths among 5,076 patients, 85.34% were NSCLC and 2.80% CVD. CHF history sHR 2.10 (95% CI 1.37–3.21) and Medicaid dual eligibility versus private insurance sHR 2.70 (1.28–5.56) were associated with CVD mortality. Percentages use deaths, not all patients.",
+          "units": "Percent and subdistribution hazard ratio",
+          "population": "Older advanced-NSCLC PD-1 cohort",
+          "endpoint": "Cause-of-death shares and CVD mortality associations",
+          "timeframe": "Pinned article publication date 2025-10-03; no unreported follow-up horizon inferred.",
+          "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject a different population, comparator or endpoint; preserve the stated numeric estimates, uncertainty and source qualifications."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "primary",
+          "anchors": [
+            "mortality"
+          ],
+          "fact_anchors": {
+            "f1": [
+              "mortality"
+            ]
+          }
+        },
+        {
+          "id": "results",
+          "anchors": [
+            "mortality_deaths_results",
+            "mortality_medicaid_results",
+            "mortality_chf_results"
+          ],
+          "fact_anchors": {
+            "f1": [
+              "mortality_deaths_results",
+              "mortality_medicaid_results",
+              "mortality_chf_results"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [],
+      "reference_answer": "Of 3,746 deaths among 5,076 patients, 85.34% were NSCLC and 2.80% CVD. CHF history sHR 2.10 (95% CI 1.37–3.21) and Medicaid dual eligibility versus private insurance sHR 2.70 (1.28–5.56) were associated with CVD mortality. Percentages use deaths, not all patients.",
+      "answer_rubric": {
+        "required_claims": [
+          "f1"
+        ],
+        "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict. CVD 2.80% may be derived from Results death categories 1.17% ischemic heart disease plus 1.63% other CVD.",
+        "forbidden_conflations": [
+          "Do not substitute another population or endpoint for Older advanced-NSCLC PD-1 cohort: Cause-of-death shares and CVD mortality associations."
+        ],
+        "judging_status": "Manual review; no automated answer judging approved."
+      },
+      "answerability": {
+        "status": "answerable"
+      },
+      "dependencies": {
+        "required": [
+          "PMC12495207"
+        ],
+        "alternatives": [
+          "PMC12495207"
+        ],
+        "decoys": [],
+        "overlap_review": [
+          "PMC12495207"
+        ],
+        "negative_evidence": []
+      },
+      "review": {
+        "author": "Codex",
+        "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
+        "independent_review": "Claude reviewed 8b1adbe, a226bba and b626fbb; Codex independently checked the latest findings and applied this correction. Changed gold and alternatives require independent re-review before freeze.",
+        "duplicate_leakage_check": "Shares mortality with o012 and o017. Distinct: o012 asks the between-drug comparison; o017 uses it in a cross-document endpoint contrast.",
+        "tuning_exposure": "No retrieval or answer-generation results used in authoring.",
+        "alternative_evidence_check": "Results repeat 5,076 patients, 3,746 deaths, NSCLC 85.34%, CVD components 1.17%+1.63%=2.80%, and the same CHF/Medicaid sHRs. These three source-bound spans form a complete alternative; Table 2 uses different reference directions and is not substituted."
+      },
+      "selection_rationale": "Tests cause-specific death shares (denominator: deaths, not patients) and factors associated with CVD mortality, including the insurance comparator. Replaces legacy q112's CVD-mortality coverage. Direct lookup: one passage.",
+      "supersedes_coverage_of": "q112"
+    },
+    {
+      "id": "o014",
+      "revision": 2,
+      "category": "direct_lookup",
+      "topics": [
+        "oncology"
+      ],
+      "question": "In the ICD mini-review, what distinct dendritic-cell mechanisms are attributed to CALR, ATP and HMGB1?",
+      "required_facts": [
+        {
+          "id": "f1",
+          "expected_text": "Surface CALR is an eat-me signal supporting phagocytosis; extracellular ATP activates P2RX7 and inflammasome signalling with IL-1β/IL-18; HMGB1 engages TLR4 to promote dendritic-cell maturation and antigen presentation. These are reviewed mechanisms, not a measured clinical treatment effect.",
+          "units": "Qualitative",
+          "population": "Mechanistic ICD review",
+          "endpoint": "DAMP–dendritic cell pathways",
+          "timeframe": "Pinned article publication date 2026-05-07; no unreported follow-up horizon inferred.",
+          "qualifiers": "Preserve source attribution, group order, study design and reported conflicts.",
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject a different population, comparator or endpoint; preserve the stated numeric estimates, uncertainty and source qualifications."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "primary",
+          "anchors": [
+            "icd_damp"
+          ],
+          "fact_anchors": {
+            "f1": [
+              "icd_damp"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [],
+      "reference_answer": "Surface CALR is an eat-me signal supporting phagocytosis; extracellular ATP activates P2RX7 and inflammasome signalling with IL-1β/IL-18; HMGB1 engages TLR4 to promote dendritic-cell maturation and antigen presentation. These are reviewed mechanisms, not a measured clinical treatment effect.",
+      "answer_rubric": {
+        "required_claims": [
+          "f1"
+        ],
+        "acceptable_alternatives": "Faithful paraphrase with complete scoped evidence; explicitly attribute any source conflict.",
+        "forbidden_conflations": [
+          "Do not substitute another population or endpoint for Mechanistic ICD review: DAMP–dendritic cell pathways."
+        ],
+        "judging_status": "Manual review; no automated answer judging approved."
+      },
+      "answerability": {
+        "status": "answerable"
+      },
+      "dependencies": {
+        "required": [
+          "PMC13190586"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC13190586"
+        ],
+        "negative_evidence": []
+      },
+      "review": {
+        "author": "Codex",
+        "method": "Pinned full-text population/methods/results/limitations and competing evidence; exact PDF offsets and relevant JATS cross-check.",
+        "independent_review": "Claude reviewed 8b1adbe, a226bba and b626fbb; Codex independently checked the latest findings and applied this correction. Changed gold and alternatives require independent re-review before freeze.",
+        "duplicate_leakage_check": "Shares icd_damp with o016, which links these mechanisms to separate cellular-stress pathways.",
+        "tuning_exposure": "No retrieval or answer-generation results used in authoring.",
+        "alternative_evidence_check": "Biomarker framework and Figure 1 repeat CALR/ATP/HMGB1 but omit P2RX7 plus IL-1β/IL-18; only the pinned DAMP passage is complete."
+      },
+      "selection_rationale": "Tests distinct dendritic-cell mechanisms of CALR, ATP and HMGB1 as reviewed mechanisms, not clinical treatment effects. Direct lookup: one passage."
+    },
+    {
+      "id": "q083",
+      "revision": 2,
+      "category": "unanswerable",
+      "topics": [
+        "oncology"
+      ],
+      "question": "What FDA-validated early-stage sensitivity value for EarlyCDT-Lung is reported in the selected oncology corpus?",
+      "required_facts": [],
+      "evidence_sets": [],
+      "related_distractors": [],
+      "reference_answer": "",
+      "answer_rubric": {
+        "required_claims": [],
+        "acceptable_alternatives": "Explain the study limitation without inventing a number.",
+        "forbidden_conflations": [
+          "Do not infer the missing requested fact from a near-miss study or endpoint."
+        ],
+        "judging_status": "Manual review."
+      },
+      "answerability": {
+        "status": "absent_fact",
+        "search_scope": {
+          "article_ids": [
+            "PMC10073666",
+            "PMC10485396",
+            "PMC10770829",
+            "PMC10840225",
+            "PMC11181582",
+            "PMC11431721",
+            "PMC11547071",
+            "PMC11891047",
+            "PMC12495207",
+            "PMC12931073",
+            "PMC13190586",
+            "PMC13429855",
+            "PMC9239676",
+            "PMC9844597"
+          ],
+          "conditions": [
+            "C1",
+            "C2"
+          ],
+          "selection_sha256": "5c0116e9e191a729e9dddbf359114e0bf49bac23d1d13fe4a22edd5178053803",
+          "searched_terms": [
+            "EarlyCDT",
+            "FDA",
+            "autoantibod",
+            "validated"
+          ],
+          "reviewed_sections": [
+            "Named study full text, methods, results, tables and discussion; selected competitor populations and endpoints"
+          ],
+          "rationale": "No selected source reports an FDA-validated early-stage sensitivity for EarlyCDT-Lung. The review describes an investigational autoantibody panel and setting-dependent study estimates, which do not establish the requested regulatory validation."
+        }
+      },
+      "dependencies": {
+        "required": [],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [],
+        "negative_evidence": [
+          "PMC10073666",
+          "PMC10485396",
+          "PMC10770829",
+          "PMC10840225",
+          "PMC11181582",
+          "PMC11431721",
+          "PMC11547071",
+          "PMC11891047",
+          "PMC12495207",
+          "PMC12931073",
+          "PMC13190586",
+          "PMC13429855",
+          "PMC9239676",
+          "PMC9844597"
+        ],
+        "negative_context": [
+          {
+            "anchor_id": "earlycdt",
+            "assessment": "No selected source reports an FDA-validated early-stage sensitivity for EarlyCDT-Lung. The review describes an investigational autoantibody panel and setting-dependent study estimates, which do not establish the requested regulatory validation."
+          }
+        ]
+      },
+      "review": {
+        "author": "Codex",
+        "method": "Named-source full-text and all selected article text reviewed for requested entity, value and regulatory/geographic scope.",
+        "independent_review": "Claude reviewed 8b1adbe and re-reviewed a226bba; re-review findings are corrected here. Independent re-review of changed gold pending before freeze.",
+        "tuning_exposure": "No retrieval runs used to author gold.",
+        "duplicate_leakage_check": "Uses earlycdt only as negative context."
+      },
+      "selection_rationale": "Absent fact on a retained source: an FDA-validated early-stage EarlyCDT-Lung sensitivity. The review describes an investigational panel with setting-dependent estimates; the question's \"FDA-validated\" wording itself presupposes a status the corpus does not report. Scope: whole selected oncology corpus."
+    },
+    {
+      "id": "q078",
+      "revision": 3,
+      "category": "direct_lookup",
+      "topics": [
+        "oncology"
+      ],
+      "question": "According to the liquid-biopsy review, how much does combining ctDNA with ctRNA analysis change gene-fusion detection yield compared with ctDNA alone, and what RNA-testing recommendation does the review connect to this?",
+      "required_facts": [
+        {
+          "id": "f1",
+          "expected_text": "The review reports that combined ctDNA/ctRNA approaches increase fusion detection yield by approximately 28%–37% compared with ctDNA alone, citing several studies; ctRNA helps detect fusions and splice variants that DNA-based assays may miss. It notes that NCCN NSCLC guidelines recommend RNA-based testing when DNA-based profiling does not identify a driver oncogene.",
+          "units": "Percent (approximate range)",
+          "population": "Cited NSCLC liquid-biopsy studies",
+          "endpoint": "Fusion detection yield and RNA-testing recommendation",
+          "timeframe": "Pinned article publication date 2026-07-20; no unreported follow-up horizon inferred.",
+          "qualifiers": "A range across cited studies, not one pooled estimate; the review does not say whether the gain is relative or absolute.",
+          "tolerance": "Numbers may use source rounding; preserve the reported comparison, confidence level and denominator. Qualitative facts require the complete scoped meaning.",
+          "contradiction_rule": "Reject a single pooled value, conversion into percentage points or a relative ratio, or attributing the range to the review's own data."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "primary",
+          "anchors": [
+            "fusion_yield"
+          ],
+          "fact_anchors": {
+            "f1": [
+              "fusion_yield"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [],
+      "reference_answer": "The review reports that combined ctDNA/ctRNA approaches increase fusion detection yield by approximately 28%–37% compared with ctDNA alone, citing several studies; ctRNA helps detect fusions and splice variants that DNA-based assays may miss. It notes that NCCN NSCLC guidelines recommend RNA-based testing when DNA-based profiling does not identify a driver oncogene.",
+      "answer_rubric": {
+        "required_claims": [
+          "f1"
+        ],
+        "acceptable_alternatives": "Faithful paraphrase that keeps the approximate range and its attribution to cited studies.",
+        "forbidden_conflations": [
+          "Do not present the range as a single pooled estimate, as percentage points, or as the review's own measurement."
+        ],
+        "judging_status": "Manual review; no automated answer judging approved."
+      },
+      "answerability": {
+        "status": "answerable"
+      },
+      "dependencies": {
+        "required": [
+          "PMC13429855"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC13429855"
+        ],
+        "negative_evidence": []
+      },
+      "review": {
+        "author": "Claude",
+        "method": "Pinned full-text review of the cited passage and surrounding methods/results; exact PDF extraction offsets.",
+        "independent_review": "Claude reviewed 8b1adbe, a226bba and b626fbb; Codex independently checked the latest findings and applied this correction. Changed gold and alternatives require independent re-review before freeze.",
+        "duplicate_leakage_check": "Shares no evidence anchor with another case; the question names the comparison without disclosing the range.",
+        "tuning_exposure": "No retrieval or answer-generation results used in authoring.",
+        "alternative_evidence_check": "Other fusion/RNA mentions lack the 28–37% range and NCCN no-driver recommendation together; primary passage retained."
+      },
+      "selection_rationale": "Restored legacy case. Tests attributing a cited-study range (about 28%–37% higher fusion yield with combined ctDNA/ctRNA) without converting it into a single pooled or absolute value, and linking it to the NCCN RNA-testing recommendation. Direct lookup: one passage."
+    }
+  ],
+  "query_sha256": "e83a47d1f00f3ec7e226bfa340f943a14db7e163d612d48a266a9e4337625d1d"
+}

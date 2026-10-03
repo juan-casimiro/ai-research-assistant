@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0",
+  "corpus_version": "outliers-v1",
+  "article_relationships": [
+    {
+      "article_id": "PMC12823827",
+      "topics": [
+        "cognitive-diagnosis",
+        "diagnostic-ai",
+        "cardiometabolic-overlap"
+      ],
+      "related_benchmark_cases": [
+        "c001",
+        "c003",
+        "c006",
+        "c007",
+        "c008",
+        "c016",
+        "q058",
+        "q129",
+        "d008",
+        "d014",
+        "d015",
+        "d026"
+      ],
+      "relationship": "The Alzheimer clinical feature analysis includes systolic blood pressure, diabetes and cardiovascular disease. These are contextual/model-feature overlaps with AF prediction, hypertension, cardiometabolic and diabetes cases; they do not establish the same population, endpoint or causal effect.",
+      "review_status": "selected for the broader topic relationship map; related sampled cases are identified in regression/queries.json, while complete cross-topic review belongs to JUA-114"
+    },
+    {
+      "article_id": "PMC10765819",
+      "topics": [
+        "microbiome",
+        "tuberculosis",
+        "genetic-epidemiology"
+      ],
+      "related_benchmark_cases": [
+        "c016",
+        "d002",
+        "d003",
+        "d015"
+      ],
+      "relationship": "The MR/GWAS design shares statistical-method vocabulary with cardiometabolic and diabetes genetic cases; the microbiome exposures and TB outcomes are different.",
+      "review_status": "selected for the broader topic relationship map; related sampled cases are identified in regression/queries.json, while complete cross-topic review belongs to JUA-114"
+    },
+    {
+      "article_id": "PMC10997137",
+      "topics": [
+        "environmental-amr",
+        "wastewater",
+        "sequencing-methods"
+      ],
+      "related_benchmark_cases": [
+        "q078",
+        "q079",
+        "q080",
+        "q083",
+        "o023"
+      ],
+      "relationship": "PCR, sequencing and assay sensitivity terms overlap oncology biomarker/testing cases; the samples and ARG targets are environmental, not cancer diagnostics.",
+      "review_status": "selected for the broader topic relationship map; related sampled cases are identified in regression/queries.json, while complete cross-topic review belongs to JUA-114"
+    },
+    {
+      "article_id": "PMC11411718",
+      "topics": [
+        "environmental-amr",
+        "wastewater"
+      ],
+      "related_benchmark_cases": [
+        "q079",
+        "q080",
+        "q083",
+        "o023"
+      ],
+      "relationship": "Metagenomic measurement and resistance-gene vocabulary overlap biomarker/sequencing language; the paper measures wastewater treatment, not oncology outcomes.",
+      "review_status": "selected for the broader topic relationship map; related sampled cases are identified in regression/queries.json, while complete cross-topic review belongs to JUA-114"
+    },
+    {
+      "article_id": "PMC13328407",
+      "topics": [
+        "microbiome",
+        "tuberculosis",
+        "diagnostic-ai"
+      ],
+      "related_benchmark_cases": [
+        "c001",
+        "c003",
+        "d015",
+        "q078",
+        "q079",
+        "o014"
+      ],
+      "relationship": "The review discusses AI, microbiome interventions and TB translational evidence; shared method terms can retrieve it for AI/biomarker questions, but its disease and endpoints differ.",
+      "review_status": "selected for the broader topic relationship map; related sampled cases are identified in regression/queries.json, while complete cross-topic review belongs to JUA-114"
+    }
+  ]
+}

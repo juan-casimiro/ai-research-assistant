@@ -1,0 +1,1266 @@
+{
+  "schema_version": "1.0",
+  "corpus_version": "outliers-v1",
+  "status": "author_reviewed; independent review pending",
+  "canonicalization": "UTF-8 sorted-key compact JSON, ensure_ascii=False, no NaN; exclude own fingerprint",
+  "articles": [
+    {
+      "pmcid": "PMC10765819",
+      "pmc_version": 1,
+      "pmid": "38178098",
+      "doi": "10.1186/s12931-023-02652-7",
+      "title": "Causal relationship between gut microbiota and tuberculosis: a bidirectional two-sample Mendelian randomization analysis",
+      "authors": [
+        "Zongxiang Yuan",
+        "Yiwen Kang",
+        "Chuye Mo",
+        "Shihui Huang",
+        "Fang Qin",
+        "Junhan Zhang",
+        "Fengyi Wang",
+        "Junjun Jiang",
+        "Xiaoxiang Yang",
+        "Hao Liang",
+        "Li Ye"
+      ],
+      "journal": "Respiratory Research",
+      "publication_date": "2024-01-04",
+      "publication_date_precision": "day",
+      "year": 2024,
+      "article_type": "research-article",
+      "abstract": "BACKGROUND: Growing evidence from observational studies and clinical trials suggests that the gut microbiota is associated with tuberculosis (TB). However, it is unclear whether any causal relationship exists between them and whether causality is bidirectional.\n\nMETHODS: A bidirectional two-sample Mendelian randomization (MR) analysis was performed. The genome-wide association study (GWAS) summary statistics of gut microbiota were obtained from the MiBioGen consortium, while the GWAS summary statistics of TB and its specific phenotypes [respiratory tuberculosis (RTB) and extrapulmonary tuberculosis (EPTB)] were retrieved from the UK Biobank and the FinnGen consortium. And 195 bacterial taxa from phylum to genus were analyzed. Inverse variance weighted (IVW), MR-Egger regression, maximum likelihood (ML), weighted median, and weighted mode methods were applied to the MR analysis. The robustness of causal estimation was tested using the heterogeneity test, horizontal pleiotropy test, and leave-one-out method.\n\nRESULTS: In the UK Biobank database, we found that 11 bacterial taxa had potential causal effects on TB. Three bacterial taxa genus.Akkermansia, family.Verrucomicrobiacea, order.Verrucomicrobiales were validated in the FinnGen database. Based on the results in the FinnGen database, the present study found significant differences in the characteristics of gut microbial distribution between RTB and EPTB. Four bacterial taxa genus.LachnospiraceaeUCG010, genus.Parabacteroides, genus.RuminococcaceaeUCG011, and order.Bacillales were common traits in relation to both RTB and TB, among which order.Bacillales showed a protective effect. Additionally, family.Bacteroidacea and genus.Bacteroides were identified as common traits in relation to both EPTB and TB, positively associating with a higher risk of EPTB. In reverse MR analysis, no causal association was identified. No significant heterogeneity of instrumental variables (IVs) or horizontal pleiotropy was found.\n\nCONCLUSION: Our study supports a one-way causal relationship between gut microbiota and TB, with gut microbiota having a causal effect on TB. The identification of characteristic gut microbiota provides scientific insights for the potential application of the gut microbiota as a preventive, diagnostic, and therapeutic tool for TB.",
+      "abstract_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "Growing evidence from observational studies and clinical trials suggests that the gut microbiota is associated with tuberculosis (TB). However, it is unclear whether any causal relationship exists between them and whether causality is bidirectional."
+        },
+        {
+          "label": "METHODS",
+          "text": "A bidirectional two-sample Mendelian randomization (MR) analysis was performed. The genome-wide association study (GWAS) summary statistics of gut microbiota were obtained from the MiBioGen consortium, while the GWAS summary statistics of TB and its specific phenotypes [respiratory tuberculosis (RTB) and extrapulmonary tuberculosis (EPTB)] were retrieved from the UK Biobank and the FinnGen consortium. And 195 bacterial taxa from phylum to genus were analyzed. Inverse variance weighted (IVW), MR-Egger regression, maximum likelihood (ML), weighted median, and weighted mode methods were applied to the MR analysis. The robustness of causal estimation was tested using the heterogeneity test, horizontal pleiotropy test, and leave-one-out method."
+        },
+        {
+          "label": "RESULTS",
+          "text": "In the UK Biobank database, we found that 11 bacterial taxa had potential causal effects on TB. Three bacterial taxa genus.Akkermansia, family.Verrucomicrobiacea, order.Verrucomicrobiales were validated in the FinnGen database. Based on the results in the FinnGen database, the present study found significant differences in the characteristics of gut microbial distribution between RTB and EPTB. Four bacterial taxa genus.LachnospiraceaeUCG010, genus.Parabacteroides, genus.RuminococcaceaeUCG011, and order.Bacillales were common traits in relation to both RTB and TB, among which order.Bacillales showed a protective effect. Additionally, family.Bacteroidacea and genus.Bacteroides were identified as common traits in relation to both EPTB and TB, positively associating with a higher risk of EPTB. In reverse MR analysis, no causal association was identified. No significant heterogeneity of instrumental variables (IVs) or horizontal pleiotropy was found."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "Our study supports a one-way causal relationship between gut microbiota and TB, with gut microbiota having a causal effect on TB. The identification of characteristic gut microbiota provides scientific insights for the potential application of the gut microbiota as a preventive, diagnostic, and therapeutic tool for TB."
+        }
+      ],
+      "abstract_absence_reason": null,
+      "abstract_summary": "Authored selection summary: Add primary genetic evidence as competition to the review: nominal associations lose significance after multiplicity correction; MR cannot establish a treatment benefit.",
+      "license": "CC BY 4.0",
+      "license_notes": "© The Author(s) 2024https://creativecommons.org/licenses/by/4.0/Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/. The Creative Commons Public Domain Dedication waiver (http://creativecommons.org/publicdomain/zero/1.0/) applies to the data made available in this article, unless otherwise stated in a credit line to the data.",
+      "licence_urls": [
+        "http://creativecommons.org/licenses/by/4.0/",
+        "http://creativecommons.org/publicdomain/zero/1.0/",
+        "https://creativecommons.org/licenses/by/4.0/",
+        "https://creativecommons.org/publicdomain/zero/1.0/"
+      ],
+      "page_count": 14,
+      "has_structured_sections": true,
+      "notes": "Add primary genetic evidence as competition to the review: nominal associations lose significance after multiplicity correction; MR cannot establish a treatment benefit. Standalone supplements are not selected.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/38178098/",
+      "article_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10765819.1/",
+      "pubmed_title": "Causal relationship between gut microbiota and tuberculosis: a bidirectional two-sample Mendelian randomization analysis.",
+      "pubmed_publication_types": [
+        "Journal Article"
+      ],
+      "pubmed_corrections": [],
+      "pmc_related_articles": [],
+      "eligibility": "eligible",
+      "filename": "outlier-microbiome-tb-mr.pdf",
+      "cluster": "outlier",
+      "search_query": "tuberculosis gut microbiota 2024 cohort",
+      "metadata_fetched_at": "2026-10-03T12:49:47.716794+00:00",
+      "metadata_url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC10765819.1.json",
+      "metadata_sha256": "0ef1a3cc2f16e37b0df05ceda4dc3d2c487f3480b495edd859b42c7e1ad6220a",
+      "metadata_sources": {
+        "cloud.json": {
+          "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC10765819.1.json",
+          "sha256": "0ef1a3cc2f16e37b0df05ceda4dc3d2c487f3480b495edd859b42c7e1ad6220a",
+          "archive": "metadata/PMC10765819.1.cloud.json"
+        },
+        "id-converter.json": {
+          "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC10765819&format=json&versions=yes&tool=ai-research-assistant",
+          "sha256": "cf1a2a91a7997155ddb6cf349f14083343a4f8ea6fef5e005587efab669290c0",
+          "archive": "metadata/PMC10765819.1.id-converter.json"
+        },
+        "pubmed.xml": {
+          "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=38178098&retmode=xml&tool=ai-research-assistant",
+          "sha256": "23e2d9881f997cddd685b5a79260b729d7a5e48ec371ce6b9c80b3587df6b7a7",
+          "archive": "metadata/PMC10765819.1.pubmed.xml"
+        },
+        "article.xml": {
+          "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10765819.1/PMC10765819.1.xml?md5=e1bbfab1143e9ab4f1333cdaad884bbd",
+          "sha256": "33a2f8af7cb3ed194c6605fba4c9a598d5e61e5b0cf30554cdb13da8e81e018b",
+          "local_archive": "corpus/outliers-v1/PMC10765819.1.cloud.xml"
+        }
+      },
+      "article_id": "PMC10765819",
+      "topics": [
+        "microbiome",
+        "tuberculosis",
+        "genetic-epidemiology"
+      ],
+      "topic_rationale": "Add primary genetic evidence as competition to the review: nominal associations lose significance after multiplicity correction; MR cannot establish a treatment benefit.",
+      "selection_rationale": "Add primary genetic evidence as competition to the review: nominal associations lose significance after multiplicity correction; MR cannot establish a treatment benefit.",
+      "attribution_id": "PMC10765819",
+      "search_query_type": "candidate-log query string; original search syntax not independently retained",
+      "licence": {
+        "id": "CC-BY-4.0",
+        "version": "4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "notice": "© The Author(s) 2024https://creativecommons.org/licenses/by/4.0/Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/. The Creative Commons Public Domain Dedication waiver (http://creativecommons.org/publicdomain/zero/1.0/) applies to the data made available in this article, unless otherwise stated in a credit line to the data.",
+        "evidence_locations": {
+          "pmc_xml": "front/article-meta/permissions",
+          "pdf_licence_links": [
+            {
+              "page": 1,
+              "url": "http://creativecommons.org/licenses/by/4.0/"
+            },
+            {
+              "page": 1,
+              "url": "http://creativecommons.org/publicdomain/zero/1.0/"
+            },
+            {
+              "page": 1,
+              "url": "http://creativecommons.org/publicdomain/zero/1.0/"
+            }
+          ]
+        },
+        "reviewer": "Codex",
+        "checked_at": "2026-10-03T13:05:58.657991+00:00"
+      },
+      "third_party_review": {
+        "status": "clear",
+        "inspected_locations": [
+          "Pinned JATS permissions, figure/table captions, credit lines and acknowledgements",
+          "PDF first-page identity and licence notice",
+          "Extracted text and rendered identity/evidence pages held in task scratch space"
+        ],
+        "inventory": [
+          {
+            "type": "fig",
+            "id": "Fig1",
+            "label": "Fig. 1",
+            "caption": "Research design and flow chart of this study. TB, tuberculosis; RTB, respiratory tuberculosis; EPTB, extrapulmonary tuberculosis; SNP, single nucleotide polymorphism; MAF, minor allele frequency; LD, linkage disequilibrium; IVW, inverse variance weighted; MR-PRESSO, Mendelian randomization pleiotropy residual sum and outlier",
+            "credits": []
+          },
+          {
+            "type": "fig",
+            "id": "Fig2",
+            "label": "Fig. 2",
+            "caption": "Causal effect of the gut microbiota on TB by MR analyses. A In the UK Biobank database; B In the FinnGen ddatabase. From outside to inside, the P values of IVW_p, ML_p, MR Egger_p, WMe_p, and WMo_p were represented, respectively. TB, tuberculosis; IVW, inverse variance weighted; ML, maximum likelihood; WMe, weighted median; WMo, weighted mode",
+            "credits": []
+          },
+          {
+            "type": "fig",
+            "id": "Fig3",
+            "label": "Fig. 3",
+            "caption": "A forest plot of causal effect of gut microbiota on TB in the UK Biobank database (P-IVW < 0.05). TB, tuberculosis; OR, odds ratio; CI, confidence interval",
+            "credits": []
+          },
+          {
+            "type": "fig",
+            "id": "Fig4",
+            "label": "Fig. 4",
+            "caption": "A forest plot of causal effect of gut microbiota on TB in the FinnGen database (P-IVW < 0.05). TB, tuberculosis; OR, odds ratio; CI, confidence interval",
+            "credits": []
+          },
+          {
+            "type": "fig",
+            "id": "Fig5",
+            "label": "Fig. 5",
+            "caption": "The common bacterial traits in two databases for TB, RTB, and EPTB. A The common bacterial traits in two databases for TB. B The common bacterial traits in relation to both TB and RTB in two databases. C The common bacterial traits in relation to both TB and EPTB in two databases. TB, tuberculosis; RTB, respiratory tuberculosis; EPTB, extrapulmonary tuberculosis; UKBB, the UK Biobank database; FinnGen, the FinnGen database",
+            "credits": []
+          },
+          {
+            "type": "fig",
+            "id": "Fig6",
+            "label": "Fig. 6",
+            "caption": "The common bacterial traits in the FinnGen database for RTB and EPTB. A The common bacterial traits in relation to both TB and RTB in the FinnGen database. B The common bacterial traits in relation to both TB and EPTB in the FinnGen database. TB, tuberculosis; RTB, respiratory tuberculosis; EPTB, extrapulmonary tuberculosis; FinnGen, the FinnGen database",
+            "credits": []
+          }
+        ],
+        "acknowledgements": [
+          "AcknowledgementsWe appreciate all the volunteers and patients who participated in this study. We thank the MiBioGen consortium for releasing the gut microbiota GWAS summary statistics, and the FinnGen consortium for releasing the TB, RTB, and EPTB GWAS summary statistics. We are also grateful to Donertas et al. for conducting a large study of common genetic associations between age-related diseases based on the UK Biobank database and for sharing the TB GWAS summary statistics on the GWAS catalog website."
+        ],
+        "exclusions": [],
+        "resolution": "No specific incompatible third-party exclusion identified; broad article terms retained. Standalone supplements excluded."
+      },
+      "download": {
+        "route": "pmc_cloud",
+        "pdf_url": "s3://pmc-oa-opendata/PMC10765819.1/PMC10765819.1.pdf?md5=5a64cf00d70390ad458714433873e4bc",
+        "resolved_url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10765819.1/PMC10765819.1.pdf?md5=5a64cf00d70390ad458714433873e4bc",
+        "object_version": 1,
+        "acquired_at": "2026-10-03T12:49:47.716794+00:00",
+        "provider_checksum": {
+          "algorithm": "md5",
+          "value": "5a64cf00d70390ad458714433873e4bc"
+        },
+        "byte_count": 8142285,
+        "pdf_sha256": "b84edcd99fa0718c9d3a09436bf6630753e58b76242627950a95062bbf1c3ff8",
+        "tool": "download_corpus.resolve_pdf/download; provider MD5 checked before save"
+      },
+      "validation": {
+        "identity_match": "Pinned Cloud/ID Converter/PubMed/JATS DOI, PMCID, PMID and title match; rendered PDF first page title/authors/DOI checked",
+        "page_count": 14,
+        "parser": "pypdf",
+        "parser_version": "6.16.1",
+        "readability": "Every physical page has nonempty extracted text",
+        "table_check": "No unbound table value is used as a gold fact; selected table evidence is checked against the pinned physical PDF and corresponding JATS content.",
+        "extracted_text_sha256": "32fd5a8b7b6aed7bef9d0b549c46a24794341b3fd65cfc8aa11b62c8558d3452",
+        "extraction": "Newline-joined page.extract_text() in physical page order; UTF-8",
+        "extraction_version": "6.16.1"
+      },
+      "provenance": {
+        "discovery_query": "tuberculosis gut microbiota 2024 cohort",
+        "discovery_source": "candidate-log query string; original search syntax not independently retained",
+        "version_decision": "Explicit deposit 1; provider, converter, PMID and XML agree. No latest-version substitution.",
+        "reviewer": "Codex",
+        "reviewed_at": "2026-10-03T13:05:58.657991+00:00",
+        "corrections_check": {
+          "pubmed": [],
+          "pmc": [],
+          "retracted": false
+        },
+        "discrepancies": "The abstract and Results differ in significance language: the abstract reports 11 potential UK Biobank associations and three FinnGen-validated taxa; the UK Results call their associations suggestive and say they no longer meet the Bonferroni threshold, while a later section calls three taxa significant in both databases. The benchmark preserves these attributed claims without reconciliation. See x001 and case_review.json.",
+        "discovery_query_status": "This candidate-log string is retained for provenance; the database, search syntax, filters and exact search date are not independently preserved."
+      }
+    },
+    {
+      "pmcid": "PMC10997137",
+      "pmc_version": 1,
+      "pmid": "38578803",
+      "doi": "10.1371/journal.pone.0298325",
+      "title": "Comparison of qPCR and metagenomic sequencing methods for quantifying antibiotic resistance genes in wastewater",
+      "authors": [
+        "Gihan Daw Elbait",
+        "Mariane Daou",
+        "Miral Abuoudah",
+        "Ahmed Elmekawy",
+        "Shadi W. Hasan",
+        "Dean B. Everett",
+        "Habiba Alsafar",
+        "Andreas Henschel",
+        "Ahmed F. Yousef"
+      ],
+      "journal": "PLOS ONE",
+      "publication_date": "2024-04-05",
+      "publication_date_precision": "day",
+      "year": 2024,
+      "article_type": "research-article",
+      "abstract": "Surveillance methods of circulating antibiotic resistance genes (ARGs) are of utmost importance in order to tackle what has been described as one of the greatest threats to humanity in the 21st century. In order to be effective, these methods have to be accurate, quickly deployable, and scalable. In this study, we compare metagenomic shotgun sequencing (TruSeq DNA sequencing) of wastewater samples with a state-of-the-art PCR-based method (Resistomap HT-qPCR) on four wastewater samples that were taken from hospital, industrial, urban and rural areas. ARGs that confer resistance to 11 antibiotic classes have been identified in these wastewater samples using both methods, with the most abundant observed classes of ARGs conferring resistance to aminoglycoside, multidrug-resistance (MDR), macrolide-lincosamide-streptogramin B (MLSB), tetracycline and beta-lactams. In comparing the methods, we observed a strong correlation of relative abundance of ARGs obtained by the two tested methods for the majority of antibiotic classes. Finally, we investigated the source of discrepancies in the results obtained by the two methods. This analysis revealed that false negatives were more likely to occur in qPCR due to mutated primer target sites, whereas ARGs with incomplete or low coverage were not detected by the sequencing method due to the parameters set in the bioinformatics pipeline. Indeed, despite the good correlation between the methods, each has its advantages and disadvantages which are also discussed here. By using both methods together, a more robust ARG surveillance program can be established. Overall, the work described here can aid wastewater treatment plants that plan on implementing an ARG surveillance program.",
+      "abstract_sections": [
+        {
+          "label": null,
+          "text": "Surveillance methods of circulating antibiotic resistance genes (ARGs) are of utmost importance in order to tackle what has been described as one of the greatest threats to humanity in the 21st century. In order to be effective, these methods have to be accurate, quickly deployable, and scalable. In this study, we compare metagenomic shotgun sequencing (TruSeq DNA sequencing) of wastewater samples with a state-of-the-art PCR-based method (Resistomap HT-qPCR) on four wastewater samples that were taken from hospital, industrial, urban and rural areas. ARGs that confer resistance to 11 antibiotic classes have been identified in these wastewater samples using both methods, with the most abundant observed classes of ARGs conferring resistance to aminoglycoside, multidrug-resistance (MDR), macrolide-lincosamide-streptogramin B (MLSB), tetracycline and beta-lactams. In comparing the methods, we observed a strong correlation of relative abundance of ARGs obtained by the two tested methods for the majority of antibiotic classes. Finally, we investigated the source of discrepancies in the results obtained by the two methods. This analysis revealed that false negatives were more likely to occur in qPCR due to mutated primer target sites, whereas ARGs with incomplete or low coverage were not detected by the sequencing method due to the parameters set in the bioinformatics pipeline. Indeed, despite the good correlation between the methods, each has its advantages and disadvantages which are also discussed here. By using both methods together, a more robust ARG surveillance program can be established. Overall, the work described here can aid wastewater treatment plants that plan on implementing an ARG surveillance program."
+        }
+      ],
+      "abstract_absence_reason": null,
+      "abstract_summary": "Authored selection summary: Add a complementary method-comparison study to test primer mismatches versus sequencing coverage thresholds; four Abu Dhabi samples are distinct from the international WWTP facilities.",
+      "license": "CC BY 4.0",
+      "license_notes": "© 2024 Daw Elbait et al2024Daw Elbait et alhttps://creativecommons.org/licenses/by/4.0/This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.",
+      "licence_urls": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "page_count": 22,
+      "has_structured_sections": true,
+      "notes": "Add a complementary method-comparison study to test primer mismatches versus sequencing coverage thresholds; four Abu Dhabi samples are distinct from the international WWTP facilities. Standalone supplements are not selected.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/38578803/",
+      "article_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10997137.1/",
+      "pubmed_title": "Comparison of qPCR and metagenomic sequencing methods for quantifying antibiotic resistance genes in wastewater.",
+      "pubmed_publication_types": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "pubmed_corrections": [],
+      "pmc_related_articles": [],
+      "eligibility": "eligible",
+      "filename": "outlier-amr-method-comparison.pdf",
+      "cluster": "outlier",
+      "search_query": "Comparison of qPCR and metagenomic sequencing methods PMC",
+      "metadata_fetched_at": "2026-10-03T12:50:04.954511+00:00",
+      "metadata_url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC10997137.1.json",
+      "metadata_sha256": "444c724c2230ad94c041cb24d2f2e36029f1d886c2f22a5a0a9baf59b3978872",
+      "metadata_sources": {
+        "cloud.json": {
+          "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC10997137.1.json",
+          "sha256": "444c724c2230ad94c041cb24d2f2e36029f1d886c2f22a5a0a9baf59b3978872",
+          "archive": "metadata/PMC10997137.1.cloud.json"
+        },
+        "id-converter.json": {
+          "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC10997137&format=json&versions=yes&tool=ai-research-assistant",
+          "sha256": "cb9740db2684fb2a66caff6a8a4c18a4c52600060eae38d40d24f142eaa41748",
+          "archive": "metadata/PMC10997137.1.id-converter.json"
+        },
+        "pubmed.xml": {
+          "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=38578803&retmode=xml&tool=ai-research-assistant",
+          "sha256": "5d5b4042b54c0a6e9a3e6699994f53797f9bd8dea38078ea94ed598cb5fcd443",
+          "archive": "metadata/PMC10997137.1.pubmed.xml"
+        },
+        "article.xml": {
+          "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10997137.1/PMC10997137.1.xml?md5=23c13062995db8c36db942a7ddcb2865",
+          "sha256": "e558412a61e01714afebeb5954842e9b27d1902dd73c7e1eeb4d28b4c844ab6d",
+          "local_archive": "corpus/outliers-v1/PMC10997137.1.cloud.xml"
+        }
+      },
+      "article_id": "PMC10997137",
+      "topics": [
+        "environmental-amr",
+        "wastewater",
+        "sequencing-methods"
+      ],
+      "topic_rationale": "Add a complementary method-comparison study to test primer mismatches versus sequencing coverage thresholds; four Abu Dhabi samples are distinct from the international WWTP facilities.",
+      "selection_rationale": "Add a complementary method-comparison study to test primer mismatches versus sequencing coverage thresholds; four Abu Dhabi samples are distinct from the international WWTP facilities.",
+      "attribution_id": "PMC10997137",
+      "search_query_type": "candidate-log query string; original search syntax not independently retained",
+      "licence": {
+        "id": "CC-BY-4.0",
+        "version": "4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "notice": "© 2024 Daw Elbait et al2024Daw Elbait et alhttps://creativecommons.org/licenses/by/4.0/This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.",
+        "evidence_locations": {
+          "pmc_xml": "front/article-meta/permissions",
+          "pdf_licence_links": [
+            {
+              "page": 1,
+              "url": "http://creativecommons.org/licenses/by/4.0/"
+            }
+          ]
+        },
+        "reviewer": "Codex",
+        "checked_at": "2026-10-03T13:05:58.657991+00:00"
+      },
+      "third_party_review": {
+        "status": "clear",
+        "inspected_locations": [
+          "Pinned JATS permissions, figure/table captions, credit lines and acknowledgements",
+          "PDF first-page identity and licence notice",
+          "Extracted text and rendered identity/evidence pages held in task scratch space"
+        ],
+        "inventory": [
+          {
+            "type": "fig",
+            "id": "pone.0298325.g001",
+            "label": "Fig 1",
+            "caption": "The distribution of reads assigned to “Class” taxon using the Kraken tool for the four wastewater samples.S1 was collected from an urban residential site, S2 from an industrial site, S3 from a healthcare facility, and S4 was collected from a rural sewage treatment plant influent.",
+            "credits": []
+          },
+          {
+            "type": "fig",
+            "id": "pone.0298325.g002",
+            "label": "Fig 2",
+            "caption": "Rarefaction landscape using different gene coverage thresholds for number of antibiotic resistance ontology (ARO) terms, drug classes and AMR gene families for sample S1.Each line graph contains lines representing the different gene cover thresholds used in the rarefaction analysis (indicated in the legend).",
+            "credits": []
+          },
+          {
+            "type": "fig",
+            "id": "pone.0298325.g003",
+            "label": "Fig 3",
+            "caption": "The distribution of identified genes represented as number of genes per class of antibiotics in each of the tested samples (S1-S4).(A) by the Resistomap qPCR method and (B) and by sequencing and CARD/RGI method.",
+            "credits": []
+          },
+          {
+            "type": "fig",
+            "id": "pone.0298325.g004",
+            "label": "Fig 4",
+            "caption": "Heatmap displaying the relative abundance data of 93 genes with matching primers (equivalent genes) in both Resistomap qPCR and CARD/RGI methods.",
+            "credits": []
+          },
+          {
+            "type": "fig",
+            "id": "pone.0298325.g005",
+            "label": "Fig 5",
+            "caption": "CARD/RGI alignment results showing reads coverage of gene mexB.Note that more than 95% of the gene is covered with at least one read in all samples.",
+            "credits": []
+          },
+          {
+            "type": "fig",
+            "id": "pone.0298325.g006",
+            "label": "Fig 6",
+            "caption": "The region of the mexB gene targeted by Resistomap primers.The regions are shown as blue and red lines below the CARD sequence for mexB. In grey are conserved amino acids and mutations are represented by colors.",
+            "credits": []
+          },
+          {
+            "type": "fig",
+            "id": "pone.0298325.g007",
+            "label": "Fig 7",
+            "caption": "Heatmap displaying the relative abundance data of 45 genes with Resistomap primers matching multiple genes in CARD.",
+            "credits": []
+          },
+          {
+            "type": "fig",
+            "id": "pone.0298325.g008",
+            "label": "Fig 8",
+            "caption": "Pearson correlation breakdown by antibiotic class for single-match genes across all locations.",
+            "credits": []
+          },
+          {
+            "type": "table-wrap",
+            "id": "pone.0298325.t001",
+            "label": "Table 1",
+            "caption": "Comparison of the detected genes between Resistomap and CARD/RGI approaches where there is one to one and one to many primers matches.",
+            "credits": []
+          }
+        ],
+        "acknowledgements": [
+          "The authors would like to acknowledge the UK Centre for Environment, Fisheries and Aquaculture Science (Cefas) for the Resistomap analysis of our wastewater samples and providing valuable insight and discussion. The authors would like to acknowledge the assistance provided by the Emirates Bio-research Center at Ministry of Interior and the Department of Energy in providing our laboratory with wastewater samples."
+        ],
+        "exclusions": [],
+        "resolution": "No specific incompatible third-party exclusion identified; broad article terms retained. Standalone supplements excluded."
+      },
+      "download": {
+        "route": "pmc_cloud",
+        "pdf_url": "s3://pmc-oa-opendata/PMC10997137.1/PMC10997137.1.pdf?md5=8a3b137b91e94069e89003e371b6b1d2",
+        "resolved_url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10997137.1/PMC10997137.1.pdf?md5=8a3b137b91e94069e89003e371b6b1d2",
+        "object_version": 1,
+        "acquired_at": "2026-10-03T12:50:04.954511+00:00",
+        "provider_checksum": {
+          "algorithm": "md5",
+          "value": "8a3b137b91e94069e89003e371b6b1d2"
+        },
+        "byte_count": 3135554,
+        "pdf_sha256": "da6eed455d3c5bb168b1d479a6a4bb91da44f04e4ca3c49ab3da6e071c744a7a",
+        "tool": "download_corpus.resolve_pdf/download; provider MD5 checked before save"
+      },
+      "validation": {
+        "identity_match": "Pinned Cloud/ID Converter/PubMed/JATS DOI, PMCID, PMID and title match; rendered PDF first page title/authors/DOI checked",
+        "page_count": 22,
+        "parser": "pypdf",
+        "parser_version": "6.16.1",
+        "readability": "Every physical page has nonempty extracted text",
+        "table_check": "No unbound table value is used as a gold fact; selected table evidence is checked against the pinned physical PDF and corresponding JATS content.",
+        "extracted_text_sha256": "99626756dd68014d3cff69314d24433c1b4ba68dddedede8640c5a2d1c1a9f71",
+        "extraction": "Newline-joined page.extract_text() in physical page order; UTF-8",
+        "extraction_version": "6.16.1"
+      },
+      "provenance": {
+        "discovery_query": "Comparison of qPCR and metagenomic sequencing methods PMC",
+        "discovery_source": "candidate-log query string; original search syntax not independently retained",
+        "version_decision": "Explicit deposit 1; provider, converter, PMID and XML agree. No latest-version substitution.",
+        "reviewer": "Codex",
+        "reviewed_at": "2026-10-03T13:05:58.657991+00:00",
+        "corrections_check": {
+          "pubmed": [],
+          "pmc": [],
+          "retracted": false
+        },
+        "discrepancies": "The query review records source wording and numerical conflicts; no conflicting claim is silently reconciled. See queries.json and case_review.json.",
+        "discovery_query_status": "This candidate-log string is retained for provenance; the database, search syntax, filters and exact search date are not independently preserved."
+      }
+    },
+    {
+      "pmcid": "PMC11411718",
+      "pmc_version": 1,
+      "pmid": "39229966",
+      "doi": "10.1021/acs.est.4c03726",
+      "title": "Metagenomic Profiling of Internationally Sourced Sewage Influents and Effluents Yields Insight into Selecting Targets for Antibiotic Resistance Monitoring",
+      "authors": [
+        "Emily Garner",
+        "Ayella Maile-Moskowitz",
+        "Luisa F. Angeles",
+        "Carl-Fredrik Flach",
+        "Diana S. Aga",
+        "Indumathi Nambi",
+        "D. G. Joakim Larsson",
+        "Helmut Bürgmann",
+        "Tong Zhang",
+        "Peter J. Vikesland",
+        "Amy Pruden"
+      ],
+      "journal": "Environmental Science & Technology",
+      "publication_date": "2024-09-04",
+      "publication_date_precision": "day",
+      "year": 2024,
+      "article_type": "research-article",
+      "abstract": "It has been debated whether wastewater treatment plants (WWTPs) primarily act to attenuate or amplify antibiotic resistance genes (ARGs). However, ARGs are highly diverse with respect to their resistance mechanisms, mobilities, and taxonomic hosts and therefore their behavior in WWTPs should not be expected to be universally conserved. We applied metagenomic sequencing to wastewater influent and effluent samples from 12 international WWTPs to classify the behavior of specific ARGs entering and exiting WWTPs. In total, 1079 different ARGs originating from a variety of bacteria were detected. This included ARGs that could be mapped to assembled scaffolds corresponding to nine human pathogens. While the relative abundance (per 16S rRNA gene) of ARGs decreased during treatment at 11 of the 12 WWTPs sampled and absolute abundance (per mL) decreased at all 12 WWTPs, increases in relative abundance were observed for 40% of the ARGs detected at the 12th WWTP. Also, the relative abundance of mobile genetic elements (MGE) increased during treatment, but the fraction of ARGs known to be transmissible between species decreased, thus demonstrating that increased MGE prevalence may not be generally indicative of an increase in ARGs. A distinct conserved resistome was documented in both influent and effluent across samples, suggesting that well-functioning WWTPs generally attenuate influent antibiotic resistance loads. This work helps inform strategies for wastewater surveillance of antibiotic resistance, highlighting the utility of tracking ARGs as indicators of treatment performance and relative risk reduction.",
+      "abstract_sections": [
+        {
+          "label": null,
+          "text": "It has been debated whether wastewater treatment plants (WWTPs) primarily act to attenuate or amplify antibiotic resistance genes (ARGs). However, ARGs are highly diverse with respect to their resistance mechanisms, mobilities, and taxonomic hosts and therefore their behavior in WWTPs should not be expected to be universally conserved. We applied metagenomic sequencing to wastewater influent and effluent samples from 12 international WWTPs to classify the behavior of specific ARGs entering and exiting WWTPs. In total, 1079 different ARGs originating from a variety of bacteria were detected. This included ARGs that could be mapped to assembled scaffolds corresponding to nine human pathogens. While the relative abundance (per 16S rRNA gene) of ARGs decreased during treatment at 11 of the 12 WWTPs sampled and absolute abundance (per mL) decreased at all 12 WWTPs, increases in relative abundance were observed for 40% of the ARGs detected at the 12th WWTP. Also, the relative abundance of mobile genetic elements (MGE) increased during treatment, but the fraction of ARGs known to be transmissible between species decreased, thus demonstrating that increased MGE prevalence may not be generally indicative of an increase in ARGs. A distinct conserved resistome was documented in both influent and effluent across samples, suggesting that well-functioning WWTPs generally attenuate influent antibiotic resistance loads. This work helps inform strategies for wastewater surveillance of antibiotic resistance, highlighting the utility of tracking ARGs as indicators of treatment performance and relative risk reduction."
+        }
+      ],
+      "abstract_absence_reason": null,
+      "abstract_summary": "Authored selection summary: Replace the excluded Galápagos field study with a different explicitly identified wastewater evidence family: absolute versus relative ARG abundance, diversity, mobility and pathogen-scaffold denominators.",
+      "license": "CC BY 4.0",
+      "license_notes": "© 2024 The Authors. Published by American Chemical Society2024The Authorshttps://creativecommons.org/licenses/by/4.0/Permits the broadest form of re-use including for commercial purposes, provided that author attribution and integrity are maintained (https://creativecommons.org/licenses/by/4.0/).",
+      "licence_urls": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "page_count": 13,
+      "has_structured_sections": true,
+      "notes": "Replace the excluded Galápagos field study with a different explicitly identified wastewater evidence family: absolute versus relative ARG abundance, diversity, mobility and pathogen-scaffold denominators. Standalone supplements are not selected.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/39229966/",
+      "article_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11411718.1/",
+      "pubmed_title": "Metagenomic Profiling of Internationally Sourced Sewage Influents and Effluents Yields Insight into Selecting Targets for Antibiotic Resistance Monitoring.",
+      "pubmed_publication_types": [
+        "Journal Article"
+      ],
+      "pubmed_corrections": [],
+      "pmc_related_articles": [],
+      "eligibility": "eligible",
+      "filename": "outlier-amr-international-wwtp.pdf",
+      "cluster": "outlier",
+      "search_query": "wastewater antimicrobial resistance metagenomic surveillance 2024 Creative Commons",
+      "metadata_fetched_at": "2026-10-03T12:49:03.273792+00:00",
+      "metadata_url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC11411718.1.json",
+      "metadata_sha256": "7649bb13e405eb8a49e8910858f8961d9eb7ef8942ece9bb7021d3a7be0a6e72",
+      "metadata_sources": {
+        "cloud.json": {
+          "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC11411718.1.json",
+          "sha256": "7649bb13e405eb8a49e8910858f8961d9eb7ef8942ece9bb7021d3a7be0a6e72",
+          "archive": "metadata/PMC11411718.1.cloud.json"
+        },
+        "id-converter.json": {
+          "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC11411718&format=json&versions=yes&tool=ai-research-assistant",
+          "sha256": "cb1b013950cf360972cf78fa326cbda629135451791e332e3a968c87311000c9",
+          "archive": "metadata/PMC11411718.1.id-converter.json"
+        },
+        "pubmed.xml": {
+          "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=39229966&retmode=xml&tool=ai-research-assistant",
+          "sha256": "3cdd9cecba2d13a8d49360ff21c020d1e72e6d64248ba73bf16afabf847ff529",
+          "archive": "metadata/PMC11411718.1.pubmed.xml"
+        },
+        "article.xml": {
+          "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC11411718.1/PMC11411718.1.xml?md5=86d70d6472f1dc147fb22e16bd28519f",
+          "sha256": "0c5bf003372ef8ef6df84d355353236323c15d1f59b41bcf31b6a2cf29281feb",
+          "local_archive": "corpus/outliers-v1/PMC11411718.1.cloud.xml"
+        }
+      },
+      "article_id": "PMC11411718",
+      "topics": [
+        "environmental-amr",
+        "wastewater"
+      ],
+      "topic_rationale": "Replace the excluded Galápagos field study with a different explicitly identified wastewater evidence family: absolute versus relative ARG abundance, diversity, mobility and pathogen-scaffold denominators.",
+      "selection_rationale": "Replace the excluded Galápagos field study with a different explicitly identified wastewater evidence family: absolute versus relative ARG abundance, diversity, mobility and pathogen-scaffold denominators.",
+      "attribution_id": "PMC11411718",
+      "search_query_type": "candidate-log query string; original search syntax not independently retained",
+      "licence": {
+        "id": "CC-BY-4.0",
+        "version": "4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "notice": "© 2024 The Authors. Published by American Chemical Society2024The Authorshttps://creativecommons.org/licenses/by/4.0/Permits the broadest form of re-use including for commercial purposes, provided that author attribution and integrity are maintained (https://creativecommons.org/licenses/by/4.0/).",
+        "evidence_locations": {
+          "pmc_xml": "front/article-meta/permissions",
+          "pdf_licence_links": [
+            {
+              "page": 1,
+              "url": "https://creativecommons.org/licenses/by/4.0/"
+            },
+            {
+              "page": 1,
+              "url": "https://creativecommons.org/licenses/by/4.0/"
+            },
+            {
+              "page": 1,
+              "url": "https://creativecommons.org/licenses/by/4.0/"
+            }
+          ]
+        },
+        "reviewer": "Codex",
+        "checked_at": "2026-10-03T13:05:58.657991+00:00"
+      },
+      "third_party_review": {
+        "status": "clear",
+        "inspected_locations": [
+          "Pinned JATS permissions, figure/table captions, credit lines and acknowledgements",
+          "PDF first-page identity and licence notice",
+          "Extracted text and rendered identity/evidence pages held in task scratch space"
+        ],
+        "inventory": [
+          {
+            "type": "fig",
+            "id": "fig1",
+            "label": "Figure 1",
+            "caption": "ARGs in WWTP influent and effluent based on (A) relative abundance annotated against the CARD database via MetaStorm and normalized to 16S rRNA genes, (B) absolute abundance of ARGs annotated against the CARD database via MetaStorm and normalized to sample volume, (C) potentially mobile ARGs, identified as those included in the ResFinder database of acquired ARGs, and (D) ubiquitous ARGs (i.e., detected in all samples).",
+            "credits": []
+          },
+          {
+            "type": "fig",
+            "id": "fig2",
+            "label": "Figure 2",
+            "caption": "(A) Relative abundance of all detected ARGs in each WWTP’s influent vs final effluent. (B) Log change in relative abundance of individual ARGs during treatment at each WWTP. (C) Log change in relative abundance of individual ARGs during treatment by antibiotic resistance class.",
+            "credits": []
+          },
+          {
+            "type": "fig",
+            "id": "fig3",
+            "label": "Figure 3",
+            "caption": "Change in abundance following treatment of (A) ARGs according to class of resistance and (B) select clinically relevant ARGs.",
+            "credits": []
+          },
+          {
+            "type": "fig",
+            "id": "fig4",
+            "label": "Figure 4",
+            "caption": "NMDS plot depicting the resistome of influent versus final effluent samples from twelve global WWTPs. Similarity was calculated according to the Bray–Curtis metric. Samples clustered at 55% similarity.",
+            "credits": []
+          },
+          {
+            "type": "fig",
+            "id": "fig5",
+            "label": "Figure 5",
+            "caption": "Abundance of ARGs, by class, identified on assembled scaffolds aligning with pathogen reference genomes using default parameters in NanoARG.43",
+            "credits": []
+          }
+        ],
+        "acknowledgements": [
+          "AcknowledgmentsWe wish to thank all waterworks that allowed us to sample at their WWTPs and aided in sample collection. We also thank all who contributed to the collection of samples used in this study: Dr. Caroline Jaraula, Matthew Blair, Matthew Chan, Alexandria Cook, Kris Mapili, Jacob Metch, and Maria Virginia Riquelme. This work was funded by the U.S. National Science Foundation (NSF) Partnerships for International Research and Education Award #1545756, NSF CSSI Award # 2004751, NSF NRT Award #2122798, Water Research Foundation Project 4961, and U.S. Environmental Protection Agency Grant #84082801. H.B. acknowledges additional funding form Swiss National Science Foundation Grants # 167116 and 186531. D.G.J.L. acknowledges additional funding from the Swedish Research Council VR (2022-00945, 2018-05771). C.F.F. acknowledges additional funding from the Swedish Research Council Formas (2018-00833 and 2021-00922)."
+        ],
+        "exclusions": [],
+        "resolution": "No specific incompatible third-party exclusion identified; broad article terms retained. Standalone supplements excluded."
+      },
+      "download": {
+        "route": "pmc_cloud",
+        "pdf_url": "s3://pmc-oa-opendata/PMC11411718.1/PMC11411718.1.pdf?md5=66923ffe8acdfdf403d3a1e755108c37",
+        "resolved_url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC11411718.1/PMC11411718.1.pdf?md5=66923ffe8acdfdf403d3a1e755108c37",
+        "object_version": 1,
+        "acquired_at": "2026-10-03T12:49:03.273792+00:00",
+        "provider_checksum": {
+          "algorithm": "md5",
+          "value": "66923ffe8acdfdf403d3a1e755108c37"
+        },
+        "byte_count": 7268196,
+        "pdf_sha256": "ac7199ca586a309cc471d35f36e09a24708320b6f0e9e75536ffcb0d5f5c983e",
+        "tool": "download_corpus.resolve_pdf/download; provider MD5 checked before save"
+      },
+      "validation": {
+        "identity_match": "Pinned Cloud/ID Converter/PubMed/JATS DOI, PMCID, PMID and title match; rendered PDF first page title/authors/DOI checked",
+        "page_count": 13,
+        "parser": "pypdf",
+        "parser_version": "6.16.1",
+        "readability": "Every physical page has nonempty extracted text",
+        "table_check": "No unbound table value is used as a gold fact; selected table evidence is checked against the pinned physical PDF and corresponding JATS content.",
+        "extracted_text_sha256": "78dfa58d912a6feeea8a5f16e20c949694f586cd043f16f3fba50e93f51eb85e",
+        "extraction": "Newline-joined page.extract_text() in physical page order; UTF-8",
+        "extraction_version": "6.16.1"
+      },
+      "provenance": {
+        "discovery_query": "wastewater antimicrobial resistance metagenomic surveillance 2024 Creative Commons",
+        "discovery_source": "candidate-log query string; original search syntax not independently retained",
+        "version_decision": "Explicit deposit 1; provider, converter, PMID and XML agree. No latest-version substitution.",
+        "reviewer": "Codex",
+        "reviewed_at": "2026-10-03T13:05:58.657991+00:00",
+        "corrections_check": {
+          "pubmed": [],
+          "pmc": [],
+          "retracted": false
+        },
+        "discrepancies": "The query review records source wording and numerical conflicts; no conflicting claim is silently reconciled. See queries.json and case_review.json.",
+        "discovery_query_status": "This candidate-log string is retained for provenance; the database, search syntax, filters and exact search date are not independently preserved."
+      }
+    },
+    {
+      "pmcid": "PMC12823827",
+      "pmc_version": 1,
+      "pmid": "41585257",
+      "doi": "10.3389/fmed.2025.1713062",
+      "title": "A dual-model AI framework for Alzheimer’s disease diagnosis using clinical and MRI data",
+      "authors": [
+        "Fatih Ciftci",
+        "Kadriye Yasemin Usta Ayanoğlu",
+        "Sajjad Nematzadeh",
+        "Ferzat Anka"
+      ],
+      "journal": "Frontiers in Medicine",
+      "publication_date": "2026-01-08",
+      "publication_date_precision": "day",
+      "year": 2026,
+      "article_type": "research-article",
+      "abstract": "BACKGROUND: Alzheimer's disease (AD) is a progressive neurodegenerative disorder that requires advanced diagnostic strategies for early and accurate detection.\n\nMETHODS: This study introduces a hybrid AI-driven diagnostic framework that integrates an Artificial Neural Network (ANN) trained on clinical data from 1,200 patients using 31 demographic, symptomatic, and behavioral features with a Convolutional Neural Network (CNN) trained on 4,876 MRI images to classify AD into four stages.\n\nRESULTS AND DISCUSSION: The ANN achieved an accuracy of 87.08% in early-stage risk prediction, while the CNN demonstrated a superior 97% accuracy in disease staging, supported by Grad-CAM visualizations that improved model interpretability. This dual-model approach effectively combines structured clinical data with imaging-based analysis, addressing the sensitivity and scalability limitations of traditional diagnostic methods and providing a more comprehensive assessment of AD.\n\nCONCLUSION: The integration of ANN and CNN enhances diagnostic precision and supports AI-assisted clinical decision-making, with future work focusing on lightweight CNN architectures and wearable technologies to enable broader accessibility and earlier intervention.",
+      "abstract_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "Alzheimer's disease (AD) is a progressive neurodegenerative disorder that requires advanced diagnostic strategies for early and accurate detection."
+        },
+        {
+          "label": "METHODS",
+          "text": "This study introduces a hybrid AI-driven diagnostic framework that integrates an Artificial Neural Network (ANN) trained on clinical data from 1,200 patients using 31 demographic, symptomatic, and behavioral features with a Convolutional Neural Network (CNN) trained on 4,876 MRI images to classify AD into four stages."
+        },
+        {
+          "label": "RESULTS AND DISCUSSION",
+          "text": "The ANN achieved an accuracy of 87.08% in early-stage risk prediction, while the CNN demonstrated a superior 97% accuracy in disease staging, supported by Grad-CAM visualizations that improved model interpretability. This dual-model approach effectively combines structured clinical data with imaging-based analysis, addressing the sensitivity and scalability limitations of traditional diagnostic methods and providing a more comprehensive assessment of AD."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "The integration of ANN and CNN enhances diagnostic precision and supports AI-assisted clinical decision-making, with future work focusing on lightweight CNN architectures and wearable technologies to enable broader accessibility and earlier intervention."
+        }
+      ],
+      "abstract_absence_reason": null,
+      "abstract_summary": "The paper describes an ANN using a public clinical dataset and a CNN using MRI images; the reported accuracies concern different tasks. Its discussion notes that independent external validation is absent.",
+      "license": "CC BY 4.0",
+      "license_notes": "Copyright © 2026 Ciftci, Ayanoğlu, Nematzadeh and Anka.2026Ciftci, Ayanoğlu, Nematzadeh and Ankahttps://creativecommons.org/licenses/by/4.0/This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms.",
+      "licence_urls": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "page_count": 13,
+      "has_structured_sections": true,
+      "notes": "Restore cognitive/AI-diagnosis topic coverage with eligible imaging/clinical models, not GPT-5 or p-tau217 facts. Test reported model performance, missing external validation, vascular predictors and conflicting workflow descriptions. Standalone supplements are not selected.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/41585257/",
+      "article_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12823827.1/",
+      "pubmed_title": "A dual-model AI framework for Alzheimer's disease diagnosis using clinical and MRI data.",
+      "pubmed_publication_types": [
+        "Journal Article"
+      ],
+      "pubmed_corrections": [],
+      "pmc_related_articles": [],
+      "eligibility": "eligible",
+      "filename": "outlier-alzheimer-dual-model.pdf",
+      "cluster": "outlier",
+      "search_query": "machine learning Alzheimer 2023 CC BY diagnosis",
+      "metadata_fetched_at": "2026-10-03T12:50:14.235828+00:00",
+      "metadata_url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC12823827.1.json",
+      "metadata_sha256": "456f9915b28ce9cc899ecaf2396b7206629cd8b6ee0f67989e390b1e2e5e0238",
+      "metadata_sources": {
+        "cloud.json": {
+          "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC12823827.1.json",
+          "sha256": "456f9915b28ce9cc899ecaf2396b7206629cd8b6ee0f67989e390b1e2e5e0238",
+          "archive": "metadata/PMC12823827.1.cloud.json"
+        },
+        "id-converter.json": {
+          "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC12823827&format=json&versions=yes&tool=ai-research-assistant",
+          "sha256": "feced74d6c78df056cb1cdb2f561662103161fc8972b1348efdd9a01c77e07a7",
+          "archive": "metadata/PMC12823827.1.id-converter.json"
+        },
+        "pubmed.xml": {
+          "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=41585257&retmode=xml&tool=ai-research-assistant",
+          "sha256": "8a071c48ff8598391a6415b7920828b1ffe8440adf6d919a50a11f146c7da49c",
+          "archive": "metadata/PMC12823827.1.pubmed.xml"
+        },
+        "article.xml": {
+          "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12823827.1/PMC12823827.1.xml?md5=451d35c4f2516ba35c1819b967609062",
+          "sha256": "83edea0098629238cecc5b13ae208403c7ee1d363e7724900b517d95f3702e77",
+          "local_archive": "corpus/outliers-v1/PMC12823827.1.cloud.xml"
+        }
+      },
+      "article_id": "PMC12823827",
+      "topics": [
+        "cognitive-diagnosis",
+        "diagnostic-ai",
+        "cardiometabolic-overlap"
+      ],
+      "topic_rationale": "Restore cognitive/AI-diagnosis topic coverage with eligible imaging/clinical models, not GPT-5 or p-tau217 facts. Test reported model performance, missing external validation, vascular predictors and conflicting workflow descriptions. The clinical model also includes systolic blood pressure and reports diabetes and cardiovascular disease as contributing comorbidities; these are contextual overlaps, not evidence that those conditions cause Alzheimer disease.",
+      "selection_rationale": "Restore cognitive/AI-diagnosis topic coverage with eligible imaging/clinical models, not GPT-5 or p-tau217 facts. Test reported model performance, missing external validation, vascular predictors and conflicting workflow descriptions. The clinical model also includes systolic blood pressure and reports diabetes and cardiovascular disease as contributing comorbidities; these are contextual overlaps, not evidence that those conditions cause Alzheimer disease.",
+      "attribution_id": "PMC12823827",
+      "search_query_type": "candidate-log query string; original search syntax not independently retained",
+      "licence": {
+        "id": "CC-BY-4.0",
+        "version": "4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "notice": "Copyright © 2026 Ciftci, Ayanoğlu, Nematzadeh and Anka.2026Ciftci, Ayanoğlu, Nematzadeh and Ankahttps://creativecommons.org/licenses/by/4.0/This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms.",
+        "evidence_locations": {
+          "pmc_xml": "front/article-meta/permissions",
+          "pdf_licence_links": [
+            {
+              "page": 1,
+              "url": "http://creativecommons.org/licenses/by/4.0/"
+            },
+            {
+              "page": 1,
+              "url": "http://creativecommons.org/licenses/by/4.0/"
+            }
+          ]
+        },
+        "reviewer": "Codex",
+        "checked_at": "2026-10-03T13:05:58.657991+00:00"
+      },
+      "third_party_review": {
+        "status": "clear",
+        "inspected_locations": [
+          "Pinned JATS permissions, figure/table captions, credit lines and acknowledgements",
+          "PDF first-page identity and licence notice",
+          "Extracted text and rendered identity/evidence pages held in task scratch space"
+        ],
+        "inventory": [
+          {
+            "type": "fig",
+            "id": "fig1",
+            "label": "Figure 1",
+            "caption": "Overview of the proposed dual-model framework integrating CNN and ANN.",
+            "credits": []
+          },
+          {
+            "type": "fig",
+            "id": "fig2",
+            "label": "Figure 2",
+            "caption": "Hierarchical deep learning workflow for MRI-based Alzheimer’s classification.",
+            "credits": []
+          },
+          {
+            "type": "fig",
+            "id": "fig3",
+            "label": "Figure 3",
+            "caption": "CNN architecture used for MRI classification.",
+            "credits": []
+          },
+          {
+            "type": "fig",
+            "id": "fig4",
+            "label": "Figure 4",
+            "caption": "Training and validation performance of the CNN model.",
+            "credits": []
+          },
+          {
+            "type": "fig",
+            "id": "fig5",
+            "label": "Figure 5",
+            "caption": "Multi-class ROC curve for Alzheimer’s disease classification using CNN.",
+            "credits": []
+          },
+          {
+            "type": "fig",
+            "id": "fig6",
+            "label": "Figure 6",
+            "caption": "Confusion matrix for Alzheimer’s disease classification using CNN model.",
+            "credits": []
+          },
+          {
+            "type": "fig",
+            "id": "fig7",
+            "label": "Figure 7",
+            "caption": "Example predictions generated by the CNN model.",
+            "credits": []
+          },
+          {
+            "type": "fig",
+            "id": "fig8",
+            "label": "Figure 8",
+            "caption": "Grad-CAM visualization for the “Very Mild dementia” class.",
+            "credits": []
+          },
+          {
+            "type": "fig",
+            "id": "fig9",
+            "label": "Figure 9",
+            "caption": "Training and validation accuracy of ANN model.",
+            "credits": []
+          },
+          {
+            "type": "fig",
+            "id": "fig10",
+            "label": "Figure 10",
+            "caption": "Confusion matrix for ANN-based binary classification.",
+            "credits": []
+          },
+          {
+            "type": "table-wrap",
+            "id": "tab1",
+            "label": "Table 1",
+            "caption": "Performance metrics for Alzheimer’s disease classification using CNN.",
+            "credits": []
+          },
+          {
+            "type": "table-wrap",
+            "id": "tab2",
+            "label": "Table 2",
+            "caption": "Comparison of baseline machine-learning models and proposed deep-learning models.",
+            "credits": []
+          },
+          {
+            "type": "table-wrap",
+            "id": "tab3",
+            "label": "Table 3",
+            "caption": "Performance of the integrated CNN–ANN diagnostic framework.",
+            "credits": []
+          }
+        ],
+        "acknowledgements": [
+          "AcknowledgmentsThe endeavor was exclusively carried out using the organization’s current staff and infrastructure, and all resources and assistance came from inside sources. We would like to thank Emir Öncü, ex-member of the BioriginAI Research Group, for his contributions to the studies."
+        ],
+        "exclusions": [],
+        "resolution": "No specific incompatible third-party exclusion identified; broad article terms retained. Standalone supplements excluded."
+      },
+      "download": {
+        "route": "pmc_cloud",
+        "pdf_url": "s3://pmc-oa-opendata/PMC12823827.1/PMC12823827.1.pdf?md5=875fbe51bf98535e9fe14c285ed7aeb5",
+        "resolved_url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12823827.1/PMC12823827.1.pdf?md5=875fbe51bf98535e9fe14c285ed7aeb5",
+        "object_version": 1,
+        "acquired_at": "2026-10-03T12:50:14.235828+00:00",
+        "provider_checksum": {
+          "algorithm": "md5",
+          "value": "875fbe51bf98535e9fe14c285ed7aeb5"
+        },
+        "byte_count": 3337323,
+        "pdf_sha256": "22866337743e361ad24e69d905fc3bd10ae0d2b541808c82f8bf8be887e35e4b",
+        "tool": "download_corpus.resolve_pdf/download; provider MD5 checked before save"
+      },
+      "validation": {
+        "identity_match": "Pinned Cloud/ID Converter/PubMed/JATS DOI, PMCID, PMID and title match; rendered PDF first page title/authors/DOI checked",
+        "page_count": 13,
+        "parser": "pypdf",
+        "parser_version": "6.16.1",
+        "readability": "Every physical page has nonempty extracted text",
+        "table_check": "No unbound table value is used as a gold fact; selected table evidence is checked against the pinned physical PDF and corresponding JATS content.",
+        "extracted_text_sha256": "4fc104e32e46b97399b6ce80f51512ef4d8aa27f02da36400b0d064e5fc5ee74",
+        "extraction": "Newline-joined page.extract_text() in physical page order; UTF-8",
+        "extraction_version": "6.16.1"
+      },
+      "provenance": {
+        "discovery_query": "machine learning Alzheimer 2023 CC BY diagnosis",
+        "discovery_source": "candidate-log query string; original search syntax not independently retained",
+        "version_decision": "Explicit deposit 1; provider, converter, PMID and XML agree. No latest-version substitution.",
+        "reviewer": "Codex",
+        "reviewed_at": "2026-10-03T13:05:58.657991+00:00",
+        "corrections_check": {
+          "pubmed": [],
+          "pmc": [],
+          "retracted": false
+        },
+        "discrepancies": "The query review records source wording and numerical conflicts; no conflicting claim is silently reconciled. See queries.json and case_review.json.",
+        "discovery_query_status": "This candidate-log string is retained for provenance; the database, search syntax, filters and exact search date are not independently preserved."
+      }
+    },
+    {
+      "pmcid": "PMC13328407",
+      "pmc_version": 1,
+      "pmid": "42555388",
+      "doi": "10.3389/fcimb.2026.1847443",
+      "title": "Harnessing the gut microbiome to combat tuberculosis: a technological and clinical review",
+      "authors": [
+        "Weiguo Sun",
+        "Meng Xiao",
+        "Syed Luqman Ali",
+        "Chanyuan Jin",
+        "Asifullah Khan",
+        "Shakirullah",
+        "Ruizi Ni",
+        "Yajing An",
+        "Mingming Zhang",
+        "Yuan Tian",
+        "Shradha Kaushik",
+        "Yuhang Zhang",
+        "Wenping Gong"
+      ],
+      "journal": "Frontiers in Cellular and Infection Microbiology",
+      "publication_date": "2026-06-19",
+      "publication_date_precision": "day",
+      "year": 2026,
+      "article_type": "review-article",
+      "abstract": "Tuberculosis (TB), especially multidrug-resistant and extensively drug-resistant strains, remains a severe global health threat. Advances in high-throughput sequencing, omics technologies and artificial intelligence have revealed the critical involvement of the gut microbiome (GM) in TB pathogenesis, diagnosis and treatment via the gut-lung axis. The GM modulates host immunity and metabolism; TB patients typically show reduced microbial diversity and enriched pro-inflammatory taxa closely linked to disease severity and treatment responses. Omics research has identified promising biomarkers and pathways for early diagnosis and personalized management, while artificial intelligence improves diagnostic accuracy and treatment outcome prediction. GM-targeted interventions, including probiotics, dietary adjustment and fecal microbiota transplantation, can enhance therapeutic efficacy and relieve adverse drug reactions. Current limitations include insufficient validation of the gut-lung axis' causal mechanisms, lagged clinical translation of biomarkers, biases and errors in diagnosis and prediction, data privacy and security concerns, gaps in intervention research, and poor accessibility of related technologies in resource-scarce medical regions. Future studies need rigorous causal analyses, real-time monitoring tools and large-scale multicenter trials to validate microbiome-based strategies. This review highlights the translational potential of GM interventions to optimize personalized TB prevention, diagnosis and treatment and improve clinical outcomes.",
+      "abstract_sections": [
+        {
+          "label": null,
+          "text": "Tuberculosis (TB), especially multidrug-resistant and extensively drug-resistant strains, remains a severe global health threat. Advances in high-throughput sequencing, omics technologies and artificial intelligence have revealed the critical involvement of the gut microbiome (GM) in TB pathogenesis, diagnosis and treatment via the gut-lung axis. The GM modulates host immunity and metabolism; TB patients typically show reduced microbial diversity and enriched pro-inflammatory taxa closely linked to disease severity and treatment responses. Omics research has identified promising biomarkers and pathways for early diagnosis and personalized management, while artificial intelligence improves diagnostic accuracy and treatment outcome prediction. GM-targeted interventions, including probiotics, dietary adjustment and fecal microbiota transplantation, can enhance therapeutic efficacy and relieve adverse drug reactions. Current limitations include insufficient validation of the gut-lung axis' causal mechanisms, lagged clinical translation of biomarkers, biases and errors in diagnosis and prediction, data privacy and security concerns, gaps in intervention research, and poor accessibility of related technologies in resource-scarce medical regions. Future studies need rigorous causal analyses, real-time monitoring tools and large-scale multicenter trials to validate microbiome-based strategies. This review highlights the translational potential of GM interventions to optimize personalized TB prevention, diagnosis and treatment and improve clinical outcomes."
+        }
+      ],
+      "abstract_absence_reason": null,
+      "abstract_summary": "Authored selection summary: Retain the legacy review with exact deposit rights and source identity; contrast translational promises with missing clinical FMT evidence and distinguish liver-toxicity prediction from diagnosis.",
+      "license": "CC BY 4.0",
+      "license_notes": "Copyright © 2026 Sun, Xiao, Ali, Jin, Khan, Shakirullah, Ni, An, Zhang, Tian, Kaushik, Zhang and Gong.2026Sun, Xiao, Ali, Jin, Khan, Shakirullah, Ni, An, Zhang, Tian, Kaushik, Zhang and Gonghttps://creativecommons.org/licenses/by/4.0/This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms.",
+      "licence_urls": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "page_count": 26,
+      "has_structured_sections": true,
+      "notes": "Retain the legacy review with exact deposit rights and source identity; contrast translational promises with missing clinical FMT evidence and distinguish liver-toxicity prediction from diagnosis. Standalone supplements are not selected.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/42555388/",
+      "article_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13328407.1/",
+      "pubmed_title": "Harnessing the gut microbiome to combat tuberculosis: a technological and clinical review.",
+      "pubmed_publication_types": [
+        "Journal Article",
+        "Review"
+      ],
+      "pubmed_corrections": [],
+      "pmc_related_articles": [],
+      "eligibility": "eligible",
+      "filename": "outlier-microbiome-tuberculosis.pdf",
+      "cluster": "outlier",
+      "search_query": "gut microbiome AND dietary intervention",
+      "metadata_fetched_at": "2026-10-03T12:48:54.604738+00:00",
+      "metadata_url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC13328407.1.json",
+      "metadata_sha256": "74dca3d76bc134b408ff72adb510bf69ec8694b076cfd29bab62610e46e9de79",
+      "metadata_sources": {
+        "cloud.json": {
+          "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC13328407.1.json",
+          "sha256": "74dca3d76bc134b408ff72adb510bf69ec8694b076cfd29bab62610e46e9de79",
+          "archive": "metadata/PMC13328407.1.cloud.json"
+        },
+        "id-converter.json": {
+          "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC13328407&format=json&versions=yes&tool=ai-research-assistant",
+          "sha256": "fae13b87a572b58ebc5f51671fbcdebc9cc4a44ef1b28dd3b499beb9795485e5",
+          "archive": "metadata/PMC13328407.1.id-converter.json"
+        },
+        "pubmed.xml": {
+          "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=42555388&retmode=xml&tool=ai-research-assistant",
+          "sha256": "f62a10aeeb11c94f8873c3f14fe6d18c271fc6dcd028bacc52d1eca5b3426c56",
+          "archive": "metadata/PMC13328407.1.pubmed.xml"
+        },
+        "article.xml": {
+          "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13328407.1/PMC13328407.1.xml?md5=a1a1f7d5e7eb11f73c77ff1bee5ffe32",
+          "sha256": "7f03914561182e37d9ca84805bf4cb524217c1ee141f58f95f7dd2fc7d13a7e5",
+          "local_archive": "corpus/outliers-v1/PMC13328407.1.cloud.xml"
+        }
+      },
+      "article_id": "PMC13328407",
+      "topics": [
+        "microbiome",
+        "tuberculosis",
+        "diagnostic-ai"
+      ],
+      "topic_rationale": "Retain the legacy review with exact deposit rights and source identity; contrast translational promises with missing clinical FMT evidence and distinguish liver-toxicity prediction from diagnosis.",
+      "selection_rationale": "Retain the legacy review with exact deposit rights and source identity; contrast translational promises with missing clinical FMT evidence and distinguish liver-toxicity prediction from diagnosis.",
+      "attribution_id": "PMC13328407",
+      "search_query_type": "legacy_manifest; original query record not independently retained",
+      "licence": {
+        "id": "CC-BY-4.0",
+        "version": "4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "notice": "Copyright © 2026 Sun, Xiao, Ali, Jin, Khan, Shakirullah, Ni, An, Zhang, Tian, Kaushik, Zhang and Gong.2026Sun, Xiao, Ali, Jin, Khan, Shakirullah, Ni, An, Zhang, Tian, Kaushik, Zhang and Gonghttps://creativecommons.org/licenses/by/4.0/This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms.",
+        "evidence_locations": {
+          "pmc_xml": "front/article-meta/permissions",
+          "pdf_licence_links": [
+            {
+              "page": 1,
+              "url": "http://creativecommons.org/licenses/by/4.0/"
+            },
+            {
+              "page": 1,
+              "url": "http://creativecommons.org/licenses/by/4.0/"
+            }
+          ]
+        },
+        "reviewer": "Codex",
+        "checked_at": "2026-10-03T13:05:58.657991+00:00"
+      },
+      "third_party_review": {
+        "status": "clear",
+        "inspected_locations": [
+          "Pinned JATS permissions, figure/table captions, credit lines and acknowledgements",
+          "PDF first-page identity and licence notice",
+          "Extracted text and rendered identity/evidence pages held in task scratch space"
+        ],
+        "inventory": [
+          {
+            "type": "fig",
+            "id": "f1",
+            "label": "Figure 1",
+            "caption": "Bidirectional regulatory mechanism of the gut–lung metabolic axis in TB. Gut bacteria produce bioactive metabolites (including SCFAs, secondary bile acids, and tryptophan derivatives) that enter the systemic circulation and modulate immune cell function in the lung. These metabolites can either enhance or inhibit the host’s ability to control MTB infection. Conversely, pulmonary TB and anti-TB treatment disrupt gut microbial communities and their metabolite profiles, completing a bidirectional gut-lung regulatory loop.",
+            "credits": []
+          },
+          {
+            "type": "fig",
+            "id": "f2",
+            "label": "Figure 2",
+            "caption": "A four-layer framework for multi-omics integration to decipher GM-TB interactions and its clinical translation. (I) Core Input Layer: collection of multi-omics data including genomics, metabolomics, and proteomics; (II) Intermediate Integration Layer: correlation analysis and regulatory network construction to identify core functional nodes; (III) Output Application Layer: clinical decision-making implementation encompassing early diagnosis, treatment guidance, prognostic monitoring, and new drug development; (IV) Feedback Regulation Layer: clinical data feedback to optimize the regulatory network and improve biomarker applicability.",
+            "credits": []
+          },
+          {
+            "type": "fig",
+            "id": "f3",
+            "label": "Figure 3",
+            "caption": "Applications of AI/ML algorithms in the early and accurate diagnosis of TB. AI/ML algorithms are applied across multiple TB diagnostic modalities, including AI-assisted CXR/CT imaging diagnosis for early TB detection and lesion identification (A), fluorescence microscopy of sputum smears for automated bacillus quantification (B), transbronchial lung biopsy (TBLB) analysis for pattern recognition and grading (C), and differential diagnosis of TB from silicosis, peripheral lung cancer, and viral pneumonia through multi-modal data integration (D).",
+            "credits": []
+          },
+          {
+            "type": "fig",
+            "id": "f4",
+            "label": "Figure 4",
+            "caption": "Key application aspects and process pathways of AI in precision medicine for TB. The framework integrates multi-modal data inputs (genomic/transcriptomic data, medical imaging, microbiome profiles, clinical indicators, and environmental/social/behavioral factors) through AI/ML algorithms, supported by prediction models, causal inference analysis, multimodal fusion algorithms, and clinical decision support systems, to generate personalized outputs including drug recommendations, treatment duration prediction, adverse reaction risk alerts, and disease monitoring with recurrence assessment.",
+            "credits": []
+          },
+          {
+            "type": "fig",
+            "id": "f5",
+            "label": "Figure 5",
+            "caption": "Integrated schematic of the gut-lung axis in TB. This comprehensive framework illustrates five interconnected components: technologies and AI applications, gut microbiome, gut-lung communication, pulmonary system and interventions. The overarching therapeutic goals are to enhance anti-TB therapy efficacy and reduce adverse reactions.",
+            "credits": []
+          },
+          {
+            "type": "table-wrap",
+            "id": "T1",
+            "label": "Table 1",
+            "caption": "Comparison of next-generation sequencing technologies for microbiome analysis.",
+            "credits": []
+          },
+          {
+            "type": "table-wrap",
+            "id": "T2",
+            "label": "Table 2",
+            "caption": "Overview of multi-omic data preprocessing and integration.",
+            "credits": []
+          },
+          {
+            "type": "table-wrap",
+            "id": "T3",
+            "label": "Table 3",
+            "caption": "Resources, databases, and platform for GM-TB research.",
+            "credits": []
+          },
+          {
+            "type": "table-wrap",
+            "id": "T4",
+            "label": "Table 4",
+            "caption": "Key GM-derived metabolites influencing host immune responses relevant to TB.",
+            "credits": []
+          },
+          {
+            "type": "table-wrap",
+            "id": "T5",
+            "label": "Table 5",
+            "caption": "Representative host metabolic alterations in active TB compared to healthy controls.",
+            "credits": []
+          },
+          {
+            "type": "table-wrap",
+            "id": "T6",
+            "label": "Table 6",
+            "caption": "Representative biomarkers obtained from combined analysis of metabolic-proteomic-genomic.",
+            "credits": []
+          },
+          {
+            "type": "table-wrap",
+            "id": "T7",
+            "label": "Table 7",
+            "caption": "ML algorithms for TB risk prediction & diagnosis based on GM features.",
+            "credits": []
+          },
+          {
+            "type": "table-wrap",
+            "id": "T8",
+            "label": "Table 8",
+            "caption": "Results of existing microbiome-based interventions in tuberculosis research.",
+            "credits": []
+          }
+        ],
+        "acknowledgements": [],
+        "exclusions": [],
+        "resolution": "No specific incompatible third-party exclusion identified; broad article terms retained. Standalone supplements excluded."
+      },
+      "download": {
+        "route": "pmc_cloud",
+        "pdf_url": "s3://pmc-oa-opendata/PMC13328407.1/PMC13328407.1.pdf?md5=d6666e51b55f60865307314c232d6455",
+        "resolved_url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13328407.1/PMC13328407.1.pdf?md5=d6666e51b55f60865307314c232d6455",
+        "object_version": 1,
+        "acquired_at": "2026-10-03T12:48:54.604738+00:00",
+        "provider_checksum": {
+          "algorithm": "md5",
+          "value": "d6666e51b55f60865307314c232d6455"
+        },
+        "byte_count": 6859243,
+        "pdf_sha256": "3a11a3ecb40e48c359731f9059657690d3b0a83fe34550c576e93c85d1890141",
+        "tool": "download_corpus.resolve_pdf/download; provider MD5 checked before save"
+      },
+      "validation": {
+        "identity_match": "Pinned Cloud/ID Converter/PubMed/JATS DOI, PMCID, PMID and title match; rendered PDF first page title/authors/DOI checked",
+        "page_count": 26,
+        "parser": "pypdf",
+        "parser_version": "6.16.1",
+        "readability": "Every physical page has nonempty extracted text",
+        "table_check": "No unbound table value is used as a gold fact; selected table evidence is checked against the pinned physical PDF and corresponding JATS content.",
+        "extracted_text_sha256": "7d5dc6d4c487c524916aca28a6d0dcb0b5efb0c50b2732749ad3bbb8e48b36e3",
+        "extraction": "Newline-joined page.extract_text() in physical page order; UTF-8",
+        "extraction_version": "6.16.1"
+      },
+      "provenance": {
+        "discovery_query": "gut microbiome AND dietary intervention",
+        "discovery_source": "legacy_manifest; original query record not independently retained",
+        "version_decision": "Explicit deposit 1; provider, converter, PMID and XML agree. No latest-version substitution.",
+        "reviewer": "Codex",
+        "reviewed_at": "2026-10-03T13:05:58.657991+00:00",
+        "corrections_check": {
+          "pubmed": [],
+          "pmc": [],
+          "retracted": false
+        },
+        "discrepancies": "The query review records source wording and numerical conflicts; no conflicting claim is silently reconciled. See queries.json and case_review.json.",
+        "discovery_query_status": "This candidate-log string is retained for provenance; the database, search syntax, filters and exact search date are not independently preserved."
+      }
+    }
+  ],
+  "selection_log": [
+    {
+      "candidate_id": "PMC13439418",
+      "filename": "outlier-amr-surveillance.pdf",
+      "decision": "excluded",
+      "failed_gates": [
+        "licence: CC BY-NC-ND 4.0 is outside the selected policy"
+      ],
+      "reason": "The Galápagos wastewater study is not eligible for the new permissive corpus; the internationally sampled replacement covers a distinct wastewater evidence family.",
+      "review_date": "2026-10-03",
+      "owner_issue": "JUA-113"
+    },
+    {
+      "candidate_id": "outlier-gpt5-tau217-diagnosis.pdf",
+      "filename": "outlier-gpt5-tau217-diagnosis.pdf",
+      "decision": "excluded",
+      "failed_gates": [
+        "identifier: no validated PMCID",
+        "licence: CC BY-NC-ND 4.0",
+        "download: only a manual Ovid route was recorded"
+      ],
+      "reason": "Reuse the cardiology task's exclusion. A newly selected Alzheimer imaging/clinical model does not replace the source-specific plasma p-tau217/physician-versus-GPT-5 evidence.",
+      "review_date": "2026-10-03",
+      "owner_issue": "JUA-108"
+    },
+    {
+      "candidate_id": "PMC12484780",
+      "decision": "excluded",
+      "failed_gates": [
+        "licence: Cloud metadata identifies CC BY-NC-ND",
+        "PDF: no eligible PDF acquired"
+      ],
+      "reason": "Does not meet the selected article policy.",
+      "review_date": "2026-10-03",
+      "owner_issue": "JUA-113"
+    },
+    {
+      "candidate_id": "PMC13144492",
+      "decision": "excluded",
+      "failed_gates": [
+        "licence: Cloud metadata identifies CC BY-NC-ND",
+        "PDF: no eligible PDF acquired"
+      ],
+      "reason": "Does not meet the selected article policy.",
+      "review_date": "2026-10-03",
+      "owner_issue": "JUA-113"
+    },
+    {
+      "candidate_id": "PMC13237847",
+      "decision": "excluded",
+      "failed_gates": [
+        "licence: Cloud metadata identifies CC BY-NC-ND",
+        "PDF: no eligible PDF acquired"
+      ],
+      "reason": "Does not meet the selected article policy.",
+      "review_date": "2026-10-03",
+      "owner_issue": "JUA-113"
+    },
+    {
+      "candidate_id": "PMC12666730",
+      "decision": "excluded",
+      "failed_gates": [
+        "licence: Cloud metadata identifies CC BY-NC-ND",
+        "PDF: no eligible PDF acquired"
+      ],
+      "reason": "Does not meet the selected article policy.",
+      "review_date": "2026-10-03",
+      "owner_issue": "JUA-113"
+    },
+    {
+      "candidate_id": "PMC12919097",
+      "decision": "deferred",
+      "failed_gates": [
+        "identity: full identity/rights checks incomplete after ID Converter HTTP 429",
+        "publication: preprint status not independently resolved"
+      ],
+      "reason": "Eligibility was not established; no claim that this candidate passes the corpus gates.",
+      "review_date": "2026-10-03",
+      "owner_issue": "JUA-113"
+    },
+    {
+      "candidate_id": "PMC9450895",
+      "decision": "deferred",
+      "failed_gates": [
+        "identity: repeated ID Converter HTTP 429 prevented full bibliographic verification",
+        "PDF/licence: eligibility not established"
+      ],
+      "reason": "Cloud availability alone is not sufficient to select this useful fecal-carriage methods candidate.",
+      "review_date": "2026-10-03",
+      "owner_issue": "JUA-113"
+    }
+  ],
+  "fingerprint_sha256": "87aabf643b06a6234355326c060dac6db2f4f8e69cfc22e5acd35282476f150e"
+}
