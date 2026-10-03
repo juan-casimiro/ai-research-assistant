@@ -395,6 +395,27 @@
         "a010:f2"
       ],
       "role": "support"
+    },
+    {
+      "id": "cas13-cell-results",
+      "article_id": "PMC11527445",
+      "filename": "als-ftd-pmc11527445.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "727d7a7b5b0e970861c4c67ffb549b9e6c1edae9e6437652a8892cbf986af415",
+      "text_sha256": "ce07184439306ce6f7f756e3a2500b5df10d7df389286faa249efa2af859adc7",
+      "page": 6,
+      "pages": [
+        6
+      ],
+      "section": "Results: same-donor line-2 transcript response",
+      "text_start": 26493,
+      "text_end": 26807,
+      "excerpt": "Notably, iPSC line 2 and iMN line 2 \nwere derived from the same individual, yet the decrease in C9-V1 \nand C9-V3 was only observed in the iMNs but not in the iPSCs, \nhighlighting the intricate interplay between the CRISPR/Cas13d \nsystem and the cellular environment in targeting RNA with high-\ner-order structures.",
+      "excerpt_sha256": "db5e000e792184050572de52c07f3b751451ba3f19771b9255062fdf5ff206b0",
+      "fact_ids": [
+        "a003:f1"
+      ],
+      "role": "support"
     }
   ],
   "queries": [
@@ -486,9 +507,20 @@
         "freeze_status": "pending",
         "alternative_evidence_review": {
           "reviewer": "Codex",
-          "reviewed_at": "2026-10-03T15:33:45.879506+00:00",
-          "scope": "Main-PDF Results, Discussion and relevant figure legends; only passages sufficient for the required facts are enumerated. Supplements and unselected cited papers are not accepted sources.",
-          "status": "author_revision; independent completeness review pending"
+          "reviewed_at": "2026-10-03T15:42:39.356347+00:00",
+          "scope": "Author review of the pinned anchors and candidate alternative passages in main-PDF Results, Discussion and relevant legends; this does not attest exhaustive section coverage. Supplements and unselected papers are not accepted sources.",
+          "status": "author_revision; independent completeness review pending",
+          "candidate_decisions": [
+            {
+              "article_id": "PMC10188109",
+              "locations": [
+                "Abstract: increased phosphorylation in frontal cortex",
+                "Discussion: increased activation in patient frontal cortex"
+              ],
+              "decision": "not accepted as standalone complete replacements for isr-tissue",
+              "reason": "These summaries do not explicitly supply all qualifiers of the pinned fact: normalized phosphorylated eIF2α, control comparison and postmortem scope. They can contribute context; an answer with the full Results anchor remains accepted. Independent review may revise fact granularity before freeze."
+            }
+          ]
         }
       },
       "reasoning": "Connect separated tissue and young-neuron results; neither alone supplies the contrast."
@@ -590,15 +622,15 @@
         "freeze_status": "pending",
         "alternative_evidence_review": {
           "reviewer": "Codex",
-          "reviewed_at": "2026-10-03T15:33:45.879506+00:00",
-          "scope": "Main-PDF Results, Discussion and relevant figure legends; only passages sufficient for the required facts are enumerated. Supplements and unselected cited papers are not accepted sources.",
+          "reviewed_at": "2026-10-03T15:42:39.356347+00:00",
+          "scope": "Author review of the pinned anchors and candidate alternative passages in main-PDF Results, Discussion and relevant legends; this does not attest exhaustive section coverage. Supplements and unselected papers are not accepted sources.",
           "status": "author_revision; independent completeness review pending"
         }
       }
     },
     {
       "id": "a003",
-      "revision": 2,
+      "revision": 3,
       "question": "How did C9-V1/V3 responses to Cas13d differ between the same-donor iPSC line 2 and motor-neuron line 2 in Liu et al. (2024)?",
       "category": "direct_lookup",
       "topics": [
@@ -609,7 +641,7 @@
       "required_facts": [
         {
           "id": "a003:f1",
-          "expected": "The mild decrease occurred in iMNs, not in iPSCs, despite the same donor; cellular environment may influence cleavage.",
+          "expected": "A C9-V1/V3 decrease was observed only in iMNs, not in same-donor iPSCs; the authors suggest that cellular environment may influence targeting.",
           "population": "Same-donor C9-ALS iPSC line 2/iMN line 2",
           "endpoint": "C9-V1/V3 RNA levels",
           "timeframe": "Cell experiments",
@@ -630,15 +662,26 @@
               "cas13-cell"
             ]
           }
+        },
+        {
+          "id": "a003:set2",
+          "anchors": [
+            "cas13-cell-results"
+          ],
+          "fact_anchors": {
+            "a003:f1": [
+              "cas13-cell-results"
+            ]
+          }
         }
       ],
       "related_distractors": [],
       "reference_answer": "A mild C9-V1/V3 decrease was seen only in the induced motor neurons. A shared donor does not make cell states interchangeable; the authors suggest a cellular-environment effect.",
       "answer_rubric": {
         "required_claims": [
-          "The mild decrease occurred in iMNs, not in iPSCs, despite the same donor; cellular environment may influence cleavage."
+          "A C9-V1/V3 decrease was observed only in iMNs, not in same-donor iPSCs; the authors suggest that cellular environment may influence targeting."
         ],
-        "acceptable_alternatives": "Equivalent scope-preserving paraphrases; accepted complete passage alternatives are enumerated in evidence_sets. Independent full-text and cross-topic alternative review remains pending before freeze.",
+        "acceptable_alternatives": "Equivalent scope-preserving paraphrases; accepted complete passage alternatives are enumerated in evidence_sets. Independent full-text and cross-topic alternative review remains pending before freeze. The Discussion calls the decrease mild; this adjective is acceptable but is not required because the accepted Results passage omits it.",
         "forbidden_conflations": [
           "Do not generalize the same-donor line-2 response to every patient line or cell state.",
           "Do not report the proposed cellular-environment explanation as a demonstrated mechanism or a mild decrease as necessarily statistically significant."
@@ -668,8 +711,8 @@
         "freeze_status": "pending",
         "alternative_evidence_review": {
           "reviewer": "Codex",
-          "reviewed_at": "2026-10-03T15:33:45.879506+00:00",
-          "scope": "Main-PDF Results, Discussion and relevant figure legends; only passages sufficient for the required facts are enumerated. Supplements and unselected cited papers are not accepted sources.",
+          "reviewed_at": "2026-10-03T15:42:39.356347+00:00",
+          "scope": "Author review of the pinned anchors and candidate alternative passages in main-PDF Results, Discussion and relevant legends; this does not attest exhaustive section coverage. Supplements and unselected papers are not accepted sources.",
           "status": "author_revision; independent completeness review pending"
         }
       }
@@ -807,9 +850,20 @@
         "freeze_status": "pending",
         "alternative_evidence_review": {
           "reviewer": "Codex",
-          "reviewed_at": "2026-10-03T15:33:45.879506+00:00",
-          "scope": "Main-PDF Results, Discussion and relevant figure legends; only passages sufficient for the required facts are enumerated. Supplements and unselected cited papers are not accepted sources.",
-          "status": "author_revision; independent completeness review pending"
+          "reviewed_at": "2026-10-03T15:42:39.356347+00:00",
+          "scope": "Author review of the pinned anchors and candidate alternative passages in main-PDF Results, Discussion and relevant legends; this does not attest exhaustive section coverage. Supplements and unselected papers are not accepted sources.",
+          "status": "author_revision; independent completeness review pending",
+          "candidate_decisions": [
+            {
+              "article_id": "PMC11047104",
+              "locations": [
+                "Abstract: editing versus sense silencing",
+                "Discussion: electrophysiologic summary and therapeutic implications"
+              ],
+              "decision": "not accepted as standalone complete evidence sets",
+              "reason": "General electrophysiologic improvement or its absence does not state the required 3-week network-burst comparison by REx/HET(Mut)x versus C9-unedited/1Ax. Poly-GP-specific Results and Figure 3 plus the explicit network-burst Results/Figure 5 are accepted. These broad summaries must not substitute for the endpoint-specific f2."
+            }
+          ]
         }
       },
       "reasoning": "Connect DPR and electrophysiological endpoints from separated Results sections."
@@ -930,8 +984,8 @@
         "freeze_status": "pending",
         "alternative_evidence_review": {
           "reviewer": "Codex",
-          "reviewed_at": "2026-10-03T15:33:45.879506+00:00",
-          "scope": "Main-PDF Results, Discussion and relevant figure legends; only passages sufficient for the required facts are enumerated. Supplements and unselected cited papers are not accepted sources.",
+          "reviewed_at": "2026-10-03T15:42:39.356347+00:00",
+          "scope": "Author review of the pinned anchors and candidate alternative passages in main-PDF Results, Discussion and relevant legends; this does not attest exhaustive section coverage. Supplements and unselected papers are not accepted sources.",
           "status": "author_revision; independent completeness review pending"
         }
       }
@@ -1021,8 +1075,8 @@
         "freeze_status": "pending",
         "alternative_evidence_review": {
           "reviewer": "Codex",
-          "reviewed_at": "2026-10-03T15:33:45.879506+00:00",
-          "scope": "Main-PDF Results, Discussion and relevant figure legends; only passages sufficient for the required facts are enumerated. Supplements and unselected cited papers are not accepted sources.",
+          "reviewed_at": "2026-10-03T15:42:39.356347+00:00",
+          "scope": "Author review of the pinned anchors and candidate alternative passages in main-PDF Results, Discussion and relevant legends; this does not attest exhaustive section coverage. Supplements and unselected papers are not accepted sources.",
           "status": "author_revision; independent completeness review pending"
         }
       }
@@ -1118,8 +1172,8 @@
         "freeze_status": "pending",
         "alternative_evidence_review": {
           "reviewer": "Codex",
-          "reviewed_at": "2026-10-03T15:33:45.879506+00:00",
-          "scope": "Main-PDF Results, Discussion and relevant figure legends; only passages sufficient for the required facts are enumerated. Supplements and unselected cited papers are not accepted sources.",
+          "reviewed_at": "2026-10-03T15:42:39.356347+00:00",
+          "scope": "Author review of the pinned anchors and candidate alternative passages in main-PDF Results, Discussion and relevant legends; this does not attest exhaustive section coverage. Supplements and unselected papers are not accepted sources.",
           "status": "author_revision; independent completeness review pending"
         }
       },
@@ -1220,9 +1274,20 @@
         "freeze_status": "pending",
         "alternative_evidence_review": {
           "reviewer": "Codex",
-          "reviewed_at": "2026-10-03T15:33:45.879506+00:00",
-          "scope": "Main-PDF Results, Discussion and relevant figure legends; only passages sufficient for the required facts are enumerated. Supplements and unselected cited papers are not accepted sources.",
-          "status": "author_revision; independent completeness review pending"
+          "reviewed_at": "2026-10-03T15:42:39.356347+00:00",
+          "scope": "Author review of the pinned anchors and candidate alternative passages in main-PDF Results, Discussion and relevant legends; this does not attest exhaustive section coverage. Supplements and unselected papers are not accepted sources.",
+          "status": "author_revision; independent completeness review pending",
+          "candidate_decisions": [
+            {
+              "article_id": "PMC10188109",
+              "locations": [
+                "Abstract: increased phosphorylation in frontal cortex",
+                "Discussion: increased activation in patient frontal cortex"
+              ],
+              "decision": "not accepted as standalone complete replacements for isr-tissue",
+              "reason": "These summaries do not explicitly supply all qualifiers of the pinned fact: normalized phosphorylated eIF2α, control comparison and postmortem scope. They can contribute context; an answer with the full Results anchor remains accepted. Independent review may revise fact granularity before freeze."
+            }
+          ]
         }
       }
     },
@@ -1310,8 +1375,8 @@
         "freeze_status": "pending",
         "alternative_evidence_review": {
           "reviewer": "Codex",
-          "reviewed_at": "2026-10-03T15:33:45.879506+00:00",
-          "scope": "Main-PDF Results, Discussion and relevant figure legends; only passages sufficient for the required facts are enumerated. Supplements and unselected cited papers are not accepted sources.",
+          "reviewed_at": "2026-10-03T15:42:39.356347+00:00",
+          "scope": "Author review of the pinned anchors and candidate alternative passages in main-PDF Results, Discussion and relevant legends; this does not attest exhaustive section coverage. Supplements and unselected papers are not accepted sources.",
           "status": "author_revision; independent completeness review pending"
         }
       }
@@ -1422,8 +1487,8 @@
         "freeze_status": "pending",
         "alternative_evidence_review": {
           "reviewer": "Codex",
-          "reviewed_at": "2026-10-03T15:33:45.879506+00:00",
-          "scope": "Main-PDF Results, Discussion and relevant figure legends; only passages sufficient for the required facts are enumerated. Supplements and unselected cited papers are not accepted sources.",
+          "reviewed_at": "2026-10-03T15:42:39.356347+00:00",
+          "scope": "Author review of the pinned anchors and candidate alternative passages in main-PDF Results, Discussion and relevant legends; this does not attest exhaustive section coverage. Supplements and unselected papers are not accepted sources.",
           "status": "author_revision; independent completeness review pending"
         }
       },
@@ -1439,6 +1504,11 @@
       "revision": 2,
       "reviewed_at": "2026-10-03T15:33:45.879506+00:00",
       "decision": "Pre-evaluation Claude review fixes: remove restoration-to-normal implications; separate a008 source fact from authored caution; attribute BAC phenotype to cited work; record false premise; expand poly-GP contrast; enumerate figure-legend alternatives and case-specific rubrics. All cases remain prepared; no retrieval results consulted."
+    },
+    {
+      "revision": 3,
+      "reviewed_at": "2026-10-03T15:42:39.356347+00:00",
+      "decision": "Follow-up review: accept the alternate a003 Results passage without requiring the Discussion-only adjective mild; record why broad tissue/electrophysiology summaries do not alone satisfy endpoint-specific facts; narrow author alternative-review attestation and commit per-set reproduction tooling. No retrieval results consulted."
     }
   ]
 }

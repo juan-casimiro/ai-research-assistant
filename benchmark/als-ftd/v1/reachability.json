@@ -1,6 +1,6 @@
 {
-  "available_anchors": 18,
-  "reachable_anchors": 18,
+  "available_anchors": 19,
+  "reachable_anchors": 19,
   "anchors_requiring_adjacent_chunks": 7,
   "evidence_queries": 10,
   "unlimited_reachable_evidence_queries": 10,
@@ -59,7 +59,7 @@
       }
     },
     "a003": {
-      "minimum_chunks": 2,
+      "minimum_chunks": 1,
       "by_depth": {
         "n3": "feasible",
         "n8": "feasible"
@@ -120,5 +120,5 @@
   "chunker_source_sha256": "2bce57440e693cdc844c8543c324d8f534128b735ced56c5105d2643f906a71b",
   "method": "offline all-chunks oracle and minimum evidence witnesses; no models or collection",
   "selection_sha256": "c8a1c6ec743b665503fb75ee428d07873c924537a61263802b7d8efcbe1467e9",
-  "query_sha256": "0fe667e283b70b683f0bd3f06fdb55abc3a28d9d84b72af4e51a34a339aebfe2"
+  "query_sha256": "2325d611943896f7eebf04caae2169fea18210ed0361a8f2c167823bdc51cef8"
 }

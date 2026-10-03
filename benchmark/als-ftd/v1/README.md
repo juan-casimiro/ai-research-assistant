@@ -58,7 +58,7 @@ The actual discovery queries are retained; later PMCID lookups are not discoveri
 
 [queries.json](queries.json) contains a001–a010: four same-article multi-hop cases,
 two direct lookups, two cross-document synthesis cases, one false-premise case,
-and one named-distractor case. Eighteen physical-page anchors bind exact extraction
+and one named-distractor case. Nineteen physical-page anchors bind exact extraction
 spans and hashes to facts and evidence sets. [case_dependencies.json](case_dependencies.json)
 records source/overlap/decoy dependencies. There are no absent-fact cases, so this
 release makes no whole-corpus negative claim. No legacy IDs or gold are replaced.
@@ -90,10 +90,15 @@ the poly-GP anchor includes both editing outcomes; the BAC phenotype limitation
 is attributed to cited prior work; and a002 records its premise and correction
 anchors. a008's phosphorylation fact is separated from an authored methodological
 caution in its rubric. Case-specific forbidden claims replace generic boilerplate.
-Sixteen complete evidence sets include main-PDF figure-legend alternatives for
-a004, a005, a006 and a010. The figure legend's "minimal to no" network bursting
+Seventeen complete evidence sets include main-PDF figure-legend alternatives for
+a004, a005, a006 and a010, plus the alternate Results passage for a003. The figure legend's "minimal to no" network bursting
 is accepted alongside the Results wording "no". Other passages and cross-topic
 alternatives still require independent completeness review before freeze.
+Revision 3 records acceptance of a003’s Results passage without requiring the
+Discussion-only adjective "mild", and explains why broad tissue/electrophysiology
+summaries alone do not supply all pinned fact qualifiers. Author review covers
+identified candidate passages; exhaustive completeness review remains pending.
+The per-alternative receipt is reproducible with `verify_als_ftd_alternatives.py`.
 No retrieval output, paid rewriting or judge result was used to choose them.
 Before freeze, an independent reviewer should read the four full texts, verify
 fact/anchor sufficiency and alternatives, check overlap/duplicates and assess
@@ -113,9 +118,9 @@ diabetes clinical efficacy; cognitive/diagnostic themes warrant overlap review.
 
 [verification.json](verification.json) records mechanical provenance checks and
 [reachability.json](reachability.json) records the offline production chunker oracle.
-All 18 anchors and all 10 cases are reachable with unlimited chunks; 10/10 are
+All 19 anchors and all 10 cases are reachable with unlimited chunks; 10/10 are
 structurally feasible at n=8. At n=3, 8/10 are feasible: a005 and a008 need more
-chunks for their complete pinned evidence. Seven anchors require adjacent chunks.
+chunks for their complete pinned evidence. 7 anchors require adjacent chunks.
 The oracle generated 288 chunks and loaded no retrieval models or collection.
 These are feasibility ceilings, not retrieval scores or answer correctness.
 
@@ -148,6 +153,7 @@ for article in json.loads((release / 'manifest.json').read_text())['articles']:
     (corpus / f"{article['article_id']}.{article['pmc_version']}.article.xml").write_bytes(read_pmc_xml(cloud['xml_url']))
 PY
 .venv/bin/python verify_als_ftd_release.py
+.venv/bin/python verify_als_ftd_alternatives.py
 .venv/bin/python verify_benchmark_reachability.py --benchmark benchmark/als-ftd/v1 --corpus-dir corpus/als-ftd-v1 --condition C2
 .venv/bin/python -m unittest discover -v
 ```
