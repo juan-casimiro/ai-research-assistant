@@ -1,0 +1,16 @@
+{
+  "cardiology": {
+    "parent_queries": "benchmark/cardiology/v1/queries.json",
+    "parent_sha256": "1da725cbbca276e554e344fd5d4d6f20418955905831873e52f3eeafcc29826d",
+    "parent_manifest": "benchmark/cardiology/v1/manifest.json",
+    "parent_manifest_sha256": "9cc146c8f9fad941126681080ae775bd72b8e07045da0c6606f0fd395a750928",
+    "change": "Only selection_sha256 in queries points to the expanded comparison manifest; question bodies, categories, required facts, anchors, alternatives and revisions are identical."
+  },
+  "diabetes": {
+    "parent_queries": "benchmark/diabetes/v1/queries.json",
+    "parent_sha256": "7a11bba086f50e4433eace7b51edb26281c11902dda2347f58864a87324d7e63",
+    "parent_manifest": "benchmark/diabetes/v1/manifest.json",
+    "parent_manifest_sha256": "3108fa8f1b5814897ccf0b7d423483527f1cc2d234c0d1a53c5b7e172e857a64",
+    "change": "Only selection_sha256 in queries points to the expanded comparison manifest; question bodies, categories, required facts, anchors, alternatives and revisions are identical."
+  }
+}

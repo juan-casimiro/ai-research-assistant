@@ -1,0 +1,1161 @@
+{
+  "run_id": "20261003T104030Z-7a5d54e3",
+  "run_status": "complete",
+  "created_at": "2026-10-03T10:40:30.558692+00:00",
+  "code_commit": "17dd21b4dd50ae86e61c19c7a2282ba70222c8c4",
+  "config_label": "vector-only-baseline",
+  "config": {
+    "use_bm25": false,
+    "use_query_rewriting": false,
+    "n_values": [
+      3,
+      8
+    ]
+  },
+  "provenance": {
+    "query_version": "diabetes-queries-v1",
+    "query_sha256": "7234efb8faac6620c1450e3145b5f739ee62a53311b6eebdd44db2f5c8cdbf23",
+    "subset_sha256": "35c71823aeb7d5c752c89816e9633acb3ba5721d1f92817c19d4171b48408159",
+    "scorer_version": "pinned-span-coverage-v3",
+    "feasibility_version": "minimum-evidence-chunks-v3",
+    "feasibility_sha256": "54a801107f1245eda236ab6aa79f49f606053ce4540e7cf15bdc809f6ed0128e",
+    "scorer_sha256": "e358ba1bbf07c2f6ce32fd54d3b6a57e2daadff3c85d9ee13d019f4fa862b321",
+    "retrieval_sha256": "beeb5ea41bf4ff3b1943261c386e9cea23794fef4c15aaee136ba91ddbac6577",
+    "selection_sha256": "6d003566542ee904704f2cab751f93866d23f864363eabe54eb128a2450dae28",
+    "conditions_sha256": "b2866f73ea84f9ad3f0723028b7e93c12d35a05f8028adb748a994271bf520d1",
+    "condition": "C2",
+    "membership_sha256": "9019159bb466a9dc1142c0132d566dd6216dec14592f3c0122260f4005053009",
+    "article_tuples": [
+      {
+        "article_id": "PMC10363301",
+        "pmc_version": 1,
+        "pdf_sha256": "97cb98ece2c75b991827fcd1b7899adf16112b30b4f99bf43de3c7708b6ddb1d",
+        "text_sha256": "e7c60503d9e39d2a97c9c8d20977584c0c0bf9815a815dcc9bc16e4f0338dc90"
+      },
+      {
+        "article_id": "PMC10452755",
+        "pmc_version": 1,
+        "pdf_sha256": "428b996c883cc4c2371bb35395dc0bb9573268f63083c11d07d7a13ff8b9d018",
+        "text_sha256": "6a9cde184a6d795fd7fd24b96d72c137d0794eeb03dca6a4f89f9aae2a0991e6"
+      },
+      {
+        "article_id": "PMC10607686",
+        "pmc_version": 1,
+        "pdf_sha256": "b7893a0d1767f32346e8f8e3932c3a365bfe5fc1cd01906570ef8352ba8b288d",
+        "text_sha256": "f90d7a116e315fef1cbf4db4e7ed0ac95d08477f2011c5ea1dce1bbcc62801ac"
+      },
+      {
+        "article_id": "PMC10619268",
+        "pmc_version": 1,
+        "pdf_sha256": "eee1cec10b138c2f30bd8dc8baf9e8a8a37be7fd9e630f9259b4165a82598f15",
+        "text_sha256": "8384138ffaf40155d96b7a86b7860c1368f564cb551461bb4b57fdd537f7d47f"
+      },
+      {
+        "article_id": "PMC10985250",
+        "pmc_version": 1,
+        "pdf_sha256": "da3f20ab88773c13ae08e73f8c18f0a6bb9ccb9000edc0aaf20231fe69fab042",
+        "text_sha256": "9540f1db4e82cd5c2b5317cc8e7c22bb9e574bedb8a482183059aa75079f83c2"
+      },
+      {
+        "article_id": "PMC11265054",
+        "pmc_version": 1,
+        "pdf_sha256": "2e0ede0a64a478e6a71597953a3a129f1b0ec2e517c141031626716902617988",
+        "text_sha256": "8eca20550e7b3985ea416f673e8e7215ae5c1d3b4324f43fd6fa7025cd8da9b9"
+      },
+      {
+        "article_id": "PMC11354916",
+        "pmc_version": 1,
+        "pdf_sha256": "57bc82e367b1c0e1287949bd450a99f9781d44f1a1d771329da3790e866ddcca",
+        "text_sha256": "adfd72166763a7877947d3a00e7d284e83c5c957d1c69b14edfc001cf93e9303"
+      },
+      {
+        "article_id": "PMC11373557",
+        "pmc_version": 1,
+        "pdf_sha256": "0c9c6285ea1c2ca4ab5988ee086381b216024bd83fc30fdb87b312f14e7573e2",
+        "text_sha256": "7f7028f9cb1faf7340e0a1332173ba45b6c49f2b5de9fd8cd0ce21228f39fcbc"
+      },
+      {
+        "article_id": "PMC11374717",
+        "pmc_version": 1,
+        "pdf_sha256": "ad7d0765df4acc821140a90163616d16eac041d3189c62a84816393f6fb3d7a2",
+        "text_sha256": "81bea566735ce5a3dd900c3d5c799f2be52d1aa98e269271051f86c42faeba23"
+      },
+      {
+        "article_id": "PMC11514186",
+        "pmc_version": 1,
+        "pdf_sha256": "4b2d042eb6899421eddf9f9c9156a16a1323ccb47448e2209591eac5bec96412",
+        "text_sha256": "08fd7ff833e8fb16f4f84673fb9284f0c4a3b8de60f5b0ffd8e65f65c7e11a5b"
+      },
+      {
+        "article_id": "PMC11549774",
+        "pmc_version": 1,
+        "pdf_sha256": "a601b1f08ceffa558785589ddd1318b1721e0e43f942ef842555dad101e513d0",
+        "text_sha256": "8139a3464d5e449d8b767a7a2b84755fe46c22425cc7404984274ea22a0ed25a"
+      },
+      {
+        "article_id": "PMC11847805",
+        "pmc_version": 1,
+        "pdf_sha256": "8ea3e3eb1035ddc82f07f1d43c47fc3a4a5d58fbc85ab4812e609b9361c6c789",
+        "text_sha256": "96ae44c60b11d2de402678c86da83fb49e06805de44c32d4c47780b3609d0910"
+      },
+      {
+        "article_id": "PMC11973566",
+        "pmc_version": 1,
+        "pdf_sha256": "d313c0487c3de9e7592629cb1a40487ef9014a6765b754be0aa5dd4540586f40",
+        "text_sha256": "8f08eee9d4ce3d6674fdc4033da15e6aaebb9c7c4c1ef8ecc90ad58fb9677bb1"
+      },
+      {
+        "article_id": "PMC12003177",
+        "pmc_version": 1,
+        "pdf_sha256": "d977b0dc0b6e1642cdf840e3980a7049b2705efea8c3673b1966228426b00747",
+        "text_sha256": "9fba58ea3eca0bfbd3ffe13706c8668f5b8c63bf6cbc612684ce977c19bba230"
+      },
+      {
+        "article_id": "PMC12419643",
+        "pmc_version": 1,
+        "pdf_sha256": "d0754aa1dfca29959133cef42e62a22906dc8f2d114b5ed5ee2ee029b334a6a5",
+        "text_sha256": "0f1c10c5d946e9985178c3aee354fb854f7ceb42016d5c14369c20df9b008c93"
+      },
+      {
+        "article_id": "PMC12436478",
+        "pmc_version": 1,
+        "pdf_sha256": "c4233f82070beead4ccd734da37ca8debdd5ea932a6ac1b6da943534dd407bb8",
+        "text_sha256": "537c270971b992263815e4f0c1238c2a12df2ce0a03ef897223104fb314c54c1"
+      },
+      {
+        "article_id": "PMC12683810",
+        "pmc_version": 1,
+        "pdf_sha256": "73e09eabefaa17069e9dfa759b25f0bcdff6670ff98e13376c6bf4edf5a9d00d",
+        "text_sha256": "2ae0ddbaa222c6338b2ef243f54db4bb48c309956d452c3e93ee9c8fbf165644"
+      },
+      {
+        "article_id": "PMC12880197",
+        "pmc_version": 1,
+        "pdf_sha256": "4184a379fbcc8ee900c7bafdef97ce0a510754edd13cc2b03b793fbfd2178c10",
+        "text_sha256": "a80597a43244637e86546a9aa05f04069b7e8c8d3effccdd9aa082fd99721767"
+      },
+      {
+        "article_id": "PMC12886974",
+        "pmc_version": 1,
+        "pdf_sha256": "224b75380b1f544fff0e70a11497feb5831ed510081ddd62d7507e7c54addd64",
+        "text_sha256": "59b924df2bfc187cb9b46d7e364de4c886b988e4ac533c275e23047540f5e978"
+      },
+      {
+        "article_id": "PMC13107781",
+        "pmc_version": 1,
+        "pdf_sha256": "7d945aa70dc355ad5b23458e78110f7c3ee61448067494fa3ca0bad444f73f96",
+        "text_sha256": "33f34e3bbb6db92d53526c631b4e4cbf276edd335fb8264f5f4f4b5911091676"
+      },
+      {
+        "article_id": "PMC13175446",
+        "pmc_version": 1,
+        "pdf_sha256": "30bfd354492c282ad33fd2b6819d26d0c61c724481a66197355152c45f25b37a",
+        "text_sha256": "60dfde8e7c8e2d7f7b5cf53cea134a12b0072b0cf3f2cc7729c0e2e4c0ea284f"
+      },
+      {
+        "article_id": "PMC13311226",
+        "pmc_version": 1,
+        "pdf_sha256": "270a950107f45871e2c9155847cc4e315ffd98c6b9538ae7f233389d894ccab8",
+        "text_sha256": "eee25ef331e38928ef027fbd0d85ce3e12895e5c6cd3d976d8e3737d0f79dbac"
+      },
+      {
+        "article_id": "PMC13423648",
+        "pmc_version": 1,
+        "pdf_sha256": "2afbf5dc2056eca213a2a8ae3953e454e63e6a2c9d5d6143a485e27bc5d59e2c",
+        "text_sha256": "e3700cc45c8127da12bfd7a9e97d73e8ef6c3b96ea53413ea66c828c98663b28"
+      },
+      {
+        "article_id": "PMC13430954",
+        "pmc_version": 1,
+        "pdf_sha256": "e25002f03766a70a0d260c1ba9917933a1cde3aebe091e8694a75634fb0c0b11",
+        "text_sha256": "fb07bbfd6201c00c0d65e1e396a199d70252583042674ca3ec34091a83d4fea2"
+      },
+      {
+        "article_id": "PMC13433181",
+        "pmc_version": 1,
+        "pdf_sha256": "1d935134ce714762ed0cf19167c622f4ae4914b3e85f86094d07d85909b93c53",
+        "text_sha256": "e4a478287bfa1d922ed24b37de0756eb37f283583ddc5a98379d60eb600b472a"
+      },
+      {
+        "article_id": "PMC13433218",
+        "pmc_version": 1,
+        "pdf_sha256": "1eab8391f2d6c495a37c0dc9ac3ea53c9a014d89ae4cc2ec5c80214fcc00e2df",
+        "text_sha256": "3d980a356bac2baae11a9214434d3df2f3209132ec5122836810913e163d8bca"
+      },
+      {
+        "article_id": "PMC13433680",
+        "pmc_version": 1,
+        "pdf_sha256": "318eb20f7938dfcc713cb0132f03506cfb1eadc7d349b50547b844c40a8ad6a7",
+        "text_sha256": "4f85a4ba5a9d7c6eff49c0b52e98d863879864fb8f29272141e1f2ece181c34c"
+      },
+      {
+        "article_id": "PMC13433862",
+        "pmc_version": 1,
+        "pdf_sha256": "98440a13560fb770655aab38680bbb8d8f21a700eed8db59ee6ab14f1713cad0",
+        "text_sha256": "a7392cc279bda7889978699cb469095c6ea2d0fdfc4a21909562e8ffcbeffa75"
+      },
+      {
+        "article_id": "PMC13439631",
+        "pmc_version": 1,
+        "pdf_sha256": "f53e37eee5fffda71935451944718520aab7cf16ad5dc7724db098b129d757f0",
+        "text_sha256": "24d5f324a1c5a6bd8f7481b08e216ecf32bda77af3932c09636a5bb854520d54"
+      },
+      {
+        "article_id": "PMC13472562",
+        "pmc_version": 1,
+        "pdf_sha256": "bb7c82cd722d116881f4a770f6f599407d86d425801d098bc6332d3176fdaa51",
+        "text_sha256": "77aa0fdd8e2fbc61b5ab6b3f0c029e2ddee577ab9a3c2f7bbc2babe7e7938abe"
+      },
+      {
+        "article_id": "PMC4804513",
+        "pmc_version": 1,
+        "pdf_sha256": "7a9d0736403d43d29074d4ae86e207287148a915c60c436d2e796669bedd2f66",
+        "text_sha256": "1fa7ea1e51386b8bec2c48538ae64bf304763b96e9d8e62495a8dfef40ba498c"
+      },
+      {
+        "article_id": "PMC8866621",
+        "pmc_version": 1,
+        "pdf_sha256": "5fac4e90fefa67859c05eb5740926afdab413a980ae6a4876b2ed691f7742928",
+        "text_sha256": "aa9921406485752eefe722a0c02d5104d49ad3c252110a7299b64a4b9459934c"
+      },
+      {
+        "article_id": "PMC13429855",
+        "pmc_version": 1,
+        "pdf_sha256": "7c9c6384315c78c2d87b85a626a77df3f062cb844d938d63555a43cbc485f5fe",
+        "text_sha256": "58575a81d8a421f828c2df5ee858c9cc6042affcd304fa806ba272ecc77fbdd5"
+      },
+      {
+        "article_id": "PMC9239676",
+        "pmc_version": 1,
+        "pdf_sha256": "5c288149e5302d2a0df3b1f5b5eac2aa66fdbf814e2f6b4a1e3edd221e91b9e9",
+        "text_sha256": "7810d2970ea970c2d6f1a545e2d837e6307483394f4b3bfbd00e4d88f2ffa282"
+      },
+      {
+        "article_id": "PMC9844597",
+        "pmc_version": 1,
+        "pdf_sha256": "3b7648ae2dad0474f9713ef4fd45321baa410102e45edb9859430a69817f6017",
+        "text_sha256": "28c1a5108837001e0a4e43860ee16bb52bcbce6d4f6796e0052c889a4480bfb3"
+      },
+      {
+        "article_id": "PMC10770829",
+        "pmc_version": 1,
+        "pdf_sha256": "62a31bebac42df923ba7e01b7524099f883e790f0358a76633812919bff242a9",
+        "text_sha256": "7e85e97c85e91940d433f874146fe212cadd7b545858218d94c4a838b82d13af"
+      },
+      {
+        "article_id": "PMC12931073",
+        "pmc_version": 1,
+        "pdf_sha256": "c21b91878e5575f47778a01e98dffe75570d63522d16b4ea59426b2d75417edf",
+        "text_sha256": "3108f6544c856644bd4fe8dc5e65960de70e79dc335eabcfe9cf5c60f5cc07c1"
+      },
+      {
+        "article_id": "PMC10840225",
+        "pmc_version": 1,
+        "pdf_sha256": "08c2b565efa48747d337ba0acde43b8b9a37940afaeab53dc3d7457f40925180",
+        "text_sha256": "86b78e7067fe6d0ebacbd0cc57cfe5999080d5a94b510b79dcb440575db36295"
+      },
+      {
+        "article_id": "PMC11891047",
+        "pmc_version": 1,
+        "pdf_sha256": "c5b888eeddb09eb5f0eb9a87a0f80865f1b3c23b5c593d84f0e9b1e959a45052",
+        "text_sha256": "951e0f660ba1d43156b2b831ad9da1002294f302c31568684239f9a0336ea883"
+      },
+      {
+        "article_id": "PMC11181582",
+        "pmc_version": 1,
+        "pdf_sha256": "fbaf0850e1febcf9e6050115bdb995b191a2bead8d266b15f4f65ebf48760ebe",
+        "text_sha256": "303566c85b08800eeb2dd86c9001d71ceb3e8233338804f37521b8b99797ce4c"
+      },
+      {
+        "article_id": "PMC11431721",
+        "pmc_version": 1,
+        "pdf_sha256": "855c75cc83d34f8f8a78824ae1d2390e8235c1149ddc6b037c663d872fd95a4e",
+        "text_sha256": "c620e1397bfa90c892296c9d1135d9a11186cf5c2183ec6b91497045afb3e2e8"
+      },
+      {
+        "article_id": "PMC11547071",
+        "pmc_version": 1,
+        "pdf_sha256": "773f4d6d7babdfef218232a0cc2e4c825790f3420eeb1313954b481a14c49701",
+        "text_sha256": "aecc3690ab9e2438bd9469beae209f850307e53aab032e4ede390b6b2593ab21"
+      },
+      {
+        "article_id": "PMC10485396",
+        "pmc_version": 1,
+        "pdf_sha256": "4ea7336bee5f5debbda1ae1ff24ec7bd1c1ff6a26b433f236aa6962353d7e3a8",
+        "text_sha256": "239fdefc8b7c1632d37036b15857a422310b82a294b0accd9bbee977553d4862"
+      },
+      {
+        "article_id": "PMC13190586",
+        "pmc_version": 1,
+        "pdf_sha256": "b6827e067f65071cf839298155d88d4b4a7bd21dfc76774d757640915d5f3166",
+        "text_sha256": "a98f88c8d05330ae30625d0b3a0d2bfafad82d4b1596d69423a281e9a067aa32"
+      },
+      {
+        "article_id": "PMC10073666",
+        "pmc_version": 1,
+        "pdf_sha256": "cecd1e55b465a71511cba93ff35d06102232f8b8cac1900d5a13ad6d66f9122d",
+        "text_sha256": "8e91f65a1da7e8209f83fbe0f8b64fed9a80ad3020db901045e2279e2c05eb2f"
+      },
+      {
+        "article_id": "PMC12495207",
+        "pmc_version": 1,
+        "pdf_sha256": "bc2ae72df423b20b71363eb813f283d6300add43104bac1a9b2f12874b10adef",
+        "text_sha256": "097a58141efdda58c9212125e2f434912bfcac3a538c014a960a136a0c9e79c2"
+      }
+    ],
+    "requested_ids": [
+      "d012",
+      "d016",
+      "d022",
+      "q030"
+    ],
+    "executed_ids": [
+      "d012",
+      "d016",
+      "d022",
+      "q030"
+    ],
+    "missing_ids": [],
+    "depths": [
+      3,
+      8
+    ],
+    "dependencies": {
+      "fastembed": "0.8.0",
+      "chromadb": "1.5.9",
+      "pypdf": "6.16.1",
+      "rank-bm25": "0.2.2",
+      "onnxruntime": "1.28.0"
+    },
+    "loaded_models": {
+      "embedding": {
+        "model_name": "BAAI/bge-small-en-v1.5",
+        "files": {
+          "config.json": "13582bcf2effc85b7bf3d3f5532e686bc1c9ce86bb009d10f0ec33cbe92299dd",
+          "model_optimized.onnx": "51f1bd0addd6e859e42c2c8021a5e5461385bb676a649f4b269aa445449f2431",
+          "special_tokens_map.json": "5d5b662e421ea9fac075174bb0688ee0d9431699900b90662acd44b2a350503a",
+          "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+          "tokenizer_config.json": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53"
+        },
+        "sha256": "d9e46143a9cabd7abdbe181fd67443a66089fd55d721db87b7b2964085ed0bff"
+      },
+      "reranker": {
+        "model_name": "Xenova/ms-marco-MiniLM-L-6-v2",
+        "files": {
+          "config.json": "d827779a72d27ae68cf878a6fc2e954542663fe21ca515d9f4783fc96be2d37e",
+          "onnx/model.onnx": "c623d0bcb99f4622beb413eaef00cfbe5db20df9f1dd982da4b4f26022881870",
+          "special_tokens_map.json": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+          "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+          "tokenizer_config.json": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53"
+        },
+        "sha256": "253fe4bae5a04bd859f462ffca4c1818e42725f6b14a55392b3ed9040728fb49"
+      }
+    },
+    "rewrite_identity": {
+      "provider": "ollama",
+      "model": "smollm2:1.7b-instruct-q4_K_M"
+    },
+    "ingestion_verification": {
+      "collection_name": "documents",
+      "chunk_count": 2927,
+      "per_source_chunks": {
+        "cardio-af-incident-ecg-calibration.pdf": 53,
+        "cardio-af-lorenz-detection.pdf": 50,
+        "cardio-af-stroke-mechanisms-review.pdf": 84,
+        "cardio-ahre-echo-transformer.pdf": 40,
+        "cardio-ai-af-management-review.pdf": 71,
+        "cardio-cad-ct-angiography.pdf": 77,
+        "cardio-cardiorenal-drug-network-meta-analysis.pdf": 77,
+        "cardio-ccta-tyg-incremental-value.pdf": 40,
+        "cardio-ckd-sglt2-acei-arb.pdf": 59,
+        "cardio-ctffr-diabetes-unstable-angina.pdf": 53,
+        "cardio-diabetes-hypertension-polygenic.pdf": 86,
+        "cardio-emperor-preserved-resistant-hypertension.pdf": 62,
+        "cardio-heartfailure-biomarkers.pdf": 62,
+        "cardio-hfpef-dapagliflozin-cost-analysis.pdf": 43,
+        "cardio-hfpef-geriatric-biomarkers.pdf": 56,
+        "cardio-mi-risk-stratification.pdf": 51,
+        "cardio-resistant-hypertension-korean-consensus.pdf": 117,
+        "cardio-resistant-hypertension-thai-consensus.pdf": 43,
+        "cardio-spironolactone-diabetes-trial.pdf": 37,
+        "cardio-stemi-vasc-fmd-no-reflow.pdf": 36,
+        "cardio-tailored-af-randomized-trial.pdf": 73,
+        "diabetes-cardiovascular-outcomes.pdf": 89,
+        "diabetes-cgm-management.pdf": 112,
+        "diabetes-cyp2c9-hypoglycaemia.pdf": 41,
+        "diabetes-digital-education-cgm-trial.pdf": 59,
+        "diabetes-gene-sex-hormone-interactions.pdf": 57,
+        "diabetes-hif-zinc-review.pdf": 121,
+        "diabetes-metabolic-syndrome-cameroon.pdf": 67,
+        "diabetes-nephropathy-complications.pdf": 106,
+        "diabetes-pharmacotherapy-rct.pdf": 47,
+        "diabetes-semaglutide-size-dm-trial.pdf": 39,
+        "diabetes-sleep-multimorbidity-cohorts.pdf": 66,
+        "onco-afatinib-vietnam.pdf": 42,
+        "onco-breast-pembrolizumab-helsinki.pdf": 45,
+        "onco-colorectal-screening.pdf": 70,
+        "onco-driver-nonmetastatic-review.pdf": 85,
+        "onco-icd-cold-tumor-review.pdf": 59,
+        "onco-ici-cardiac-rct-meta.pdf": 51,
+        "onco-ici-cv-observational.pdf": 53,
+        "onco-immune-exclusion-definition.pdf": 68,
+        "onco-lung-liquidbiopsy.pdf": 100,
+        "onco-nsclc-neoadjuvant-hunan.pdf": 54,
+        "onco-nsclc-neoadjuvant-stageiii.pdf": 41,
+        "onco-pd1-cause-specific-mortality.pdf": 57,
+        "onco-polmol-testing.pdf": 82,
+        "onco-reflex-biomarker-consensus.pdf": 46
+      },
+      "chunks_sha256": "7fced5d4d0c5dd61499fa04509e7aaec98c35dff77492cc56b77a400da9b937f",
+      "collection_path": "/Users/agentdev/development/.agent-tmp/JUA-112-regression-20261003-expanded"
+    }
+  },
+  "results": [
+    {
+      "id": "q030",
+      "revision": 2,
+      "question": "What heart-disease and stroke risks does Ghanem et al.’s sleep-loss review attribute to Cappuccio’s short-sleep synthesis?",
+      "query_sha256": "c2e7ab97891c3b5068bfc38c12fe97090159656e514782e1cb53d9774ff5f7f4",
+      "category": "direct_lookup",
+      "answerability": "answerable",
+      "evidence_feasibility": {
+        "minimum_chunks": 2,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "n3": {
+        "retrieved_sources": [
+          "diabetes-cardiovascular-outcomes.pdf",
+          "diabetes-cardiovascular-outcomes.pdf",
+          "diabetes-cardiovascular-outcomes.pdf"
+        ],
+        "retrieved_contexts": [
+          " of \n35–70 years of age, Isomaa et al. demonstrated that meta‑\nbolic disease significantly increased the risk of CAD, MI, \nand stroke. The RRs were 2.96, 2.63, and 2.27 respectively \n(p 0.001) [89].\nIt has also been demonstrated that short sleep increases \nthe risk of T2DM. People with habitual short sleep dura‑\ntion (< 4.5–6 h per night) had significantly higher levels of \nHbA1c (mean difference: 0.23%; 95% CI, 0.10–0.36) com‑\npared to normal sleep duration (6–8 h per night) [90]. Lastly, \nobesity is also associated with short sleep duration of ≤ 6 h. \nShort sleepers had a higher BMI (1.1 ± 0.36 kg, m(−2), \nP < 0.05) and fat mass (difference: 2.4  ± 0.64 kg, P < 0.05) \nover a period of 6 ‑years [83 ]. Interestingly those subjects \nwho increased their sleep from ≤ 6 to 7–8 h significantly \ndecreased their BMI and fat mass [91]. T2DM is of course \na risk factor for CVD. Risk of heart failure after adjusting \nfor age remained high (OR, 2.8, 95% CI 2.2–3.6). Cardio‑\nvascular death rate is",
+          "Vol.:(0123456789)\nJournal of Clinical Sleep Medicine (2026) 22:129 \nhttps://doi.org/10.1007/s44470-026-00144-1\nREVIEW ARTICLE\nSleep loss as a cardiometabolic risk factor: a narrative review of clinical \nand public health implications\nFiras K. Ghanem1  · Hrayr Attarian2  · Zeina Al‑Khalil3  · Colette S. Kabrita4 \nReceived: 2 April 2026 / Revised: 25 June 2026 / Accepted: 1 July 2026 \n© The Author(s) 2026\nAbstract\nPurpose To synthesize current evidence on how sleep deprivation, impaired sleep architecture, and circadian misalignment \naffect cardiovascular and metabolic regulation across autonomic, hormonal, inflammatory, and behavioral pathways, and to \nhighlight remaining research gaps in cardiometabolic sleep medicine.\nMethods A structured literature search was conducted using PubMed, Scopus, and Google Scholar to identify peer‑reviewed \nprimary and review articles published within the past decade, using chronobiological and cardiometabolic search terms. \nReference lists of retrieved a",
+          "ated to \nstudy heterogeneity, sex imbalance in mechanistic research, \nand potential bidirectional relationships between sleep and \ncardiometabolic disease are explicitly acknowledged in the \nLimitations section. A systematic review with predefined \neligibility criteria and formal risk‑of‑bias assessment is war‑\nranted in future research to provide a more definitive synthe‑\nsis of the evidence base.\nResults\nSleep deprivation and cardiovascular disease\nChronic sleep deprivation is linked to cardiovascular health \ndeterioration. This relationship has been consistently dem‑\nonstrated and replicated across several studies, even after \nadjustment for other cardiac risk factors, including age, \nJournal of Clinical Sleep Medicine (2026) 22:129  \n Page 3 of 16   129 \nsmoking, physical activity, weight, cholesterol, and diabetes. \nIn a large longitudinal study spanning 7–25 years, Cappuc‑\ncio et al. (2011) compiled evidence from over 474,000 par‑\nticipants across 8 countries. They found that hab"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "sleep_cappuccio": []
+          },
+          "anchor_match_groups": {
+            "sleep_cappuccio": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "n8": {
+        "retrieved_sources": [
+          "diabetes-cardiovascular-outcomes.pdf",
+          "diabetes-cardiovascular-outcomes.pdf",
+          "diabetes-cardiovascular-outcomes.pdf",
+          "diabetes-cardiovascular-outcomes.pdf",
+          "diabetes-cardiovascular-outcomes.pdf",
+          "cardio-af-stroke-mechanisms-review.pdf",
+          "diabetes-cardiovascular-outcomes.pdf",
+          "diabetes-cardiovascular-outcomes.pdf"
+        ],
+        "retrieved_contexts": [
+          " of \n35–70 years of age, Isomaa et al. demonstrated that meta‑\nbolic disease significantly increased the risk of CAD, MI, \nand stroke. The RRs were 2.96, 2.63, and 2.27 respectively \n(p 0.001) [89].\nIt has also been demonstrated that short sleep increases \nthe risk of T2DM. People with habitual short sleep dura‑\ntion (< 4.5–6 h per night) had significantly higher levels of \nHbA1c (mean difference: 0.23%; 95% CI, 0.10–0.36) com‑\npared to normal sleep duration (6–8 h per night) [90]. Lastly, \nobesity is also associated with short sleep duration of ≤ 6 h. \nShort sleepers had a higher BMI (1.1 ± 0.36 kg, m(−2), \nP < 0.05) and fat mass (difference: 2.4  ± 0.64 kg, P < 0.05) \nover a period of 6 ‑years [83 ]. Interestingly those subjects \nwho increased their sleep from ≤ 6 to 7–8 h significantly \ndecreased their BMI and fat mass [91]. T2DM is of course \na risk factor for CVD. Risk of heart failure after adjusting \nfor age remained high (OR, 2.8, 95% CI 2.2–3.6). Cardio‑\nvascular death rate is",
+          "Vol.:(0123456789)\nJournal of Clinical Sleep Medicine (2026) 22:129 \nhttps://doi.org/10.1007/s44470-026-00144-1\nREVIEW ARTICLE\nSleep loss as a cardiometabolic risk factor: a narrative review of clinical \nand public health implications\nFiras K. Ghanem1  · Hrayr Attarian2  · Zeina Al‑Khalil3  · Colette S. Kabrita4 \nReceived: 2 April 2026 / Revised: 25 June 2026 / Accepted: 1 July 2026 \n© The Author(s) 2026\nAbstract\nPurpose To synthesize current evidence on how sleep deprivation, impaired sleep architecture, and circadian misalignment \naffect cardiovascular and metabolic regulation across autonomic, hormonal, inflammatory, and behavioral pathways, and to \nhighlight remaining research gaps in cardiometabolic sleep medicine.\nMethods A structured literature search was conducted using PubMed, Scopus, and Google Scholar to identify peer‑reviewed \nprimary and review articles published within the past decade, using chronobiological and cardiometabolic search terms. \nReference lists of retrieved a",
+          "ated to \nstudy heterogeneity, sex imbalance in mechanistic research, \nand potential bidirectional relationships between sleep and \ncardiometabolic disease are explicitly acknowledged in the \nLimitations section. A systematic review with predefined \neligibility criteria and formal risk‑of‑bias assessment is war‑\nranted in future research to provide a more definitive synthe‑\nsis of the evidence base.\nResults\nSleep deprivation and cardiovascular disease\nChronic sleep deprivation is linked to cardiovascular health \ndeterioration. This relationship has been consistently dem‑\nonstrated and replicated across several studies, even after \nadjustment for other cardiac risk factors, including age, \nJournal of Clinical Sleep Medicine (2026) 22:129  \n Page 3 of 16   129 \nsmoking, physical activity, weight, cholesterol, and diabetes. \nIn a large longitudinal study spanning 7–25 years, Cappuc‑\ncio et al. (2011) compiled evidence from over 474,000 par‑\nticipants across 8 countries. They found that hab",
+          "rticles were screened to identify additional relevant studies.\nResults Experimental and epidemiologic data consistently link short or disturbed sleep with increased incidence of hyperten‑\nsion, coronary artery disease, stroke, obesity, type 2 diabetes, and metabolic syndrome. Sleep loss activates the sympathetic \nnervous system and elevates cortisol, while suppressing growth hormone, thereby promoting vasoconstriction, endothelial \ndysfunction, and cardiac remodeling. Parallel disruption of leptin, ghrelin, and endocannabinoid signaling increases hunger, \ncaloric intake, and preference for energy‑dense foods, driving weight gain, visceral adiposity, and insulin resistance. Circa‑\ndian misalignment from shift work and social jet lag further amplifies inflammatory signaling and metabolic risk across the \nlifespan. Limited interventional data suggest that sleep extension can improve appetite regulation, blood pressure, and some \nglycemic indices, but mechanistic and long‑term outcomes rem",
+          "tion, \nGH plays an important role in maintaining myocardial mass. \nHence, the increased risk of heart failure in GH deficiency \n[25]. Insufficient GH is associated with a higher likelihood \nof atherosclerosis and, thus, potentially myocardial or cer ‑\nebral infarction, or stroke [26].\nCollectively, these mechanisms illustrate how sleep dep‑\nrivation initiates a cascade of physiological disturbances \nthat adversely affect cardiovascular function. In contrast, \nadequate sleep, particularly during deep non–rapid eye \nmovement stage 3 (N3) sleep, exerts a protective effect on \ncardiovascular homeostasis. During N3 sleep, parasympa‑\nthetic activity increases and sympathetic activity, result ‑\ning in reductions in HR and BP. This sustained autonomic \nregulation mitigates physiological stress and lowers the risk \nof hypertension, MI, heart failure, and stroke [27]. Accord‑\ningly, deep N3 sleep can be considered a critical period for \nnocturnal cardiovascular recovery and regulation.\nAs a fina",
+          "endez, J.; Warshofsky, M.K. Effect of Obstructive Sleep Apnea on\nFrequency of Stroke in Patients with Atrial Fibrillation. Am. J. Cardiol. 2015, 115, 461–465. [CrossRef] [PubMed]\n116. Szymanski, F.M.; Filipiak, K.J.; Platek, A.E.; Hrynkiewicz-Szymanska, A.; Karpinski, G.; Opolski, G. Assessment of CHADS2 and\nCHA2DS2-VASc Scores in Obstructive Sleep Apnea Patients with Atrial Fibrillation. Sleep Breath. 2015, 19, 531–537. [CrossRef]\n[PubMed]\n117. Verdecchia, P .; Porcellati, C.; Reboldi, G.; Gattobigio, R.; Borgioni, C.; Pearson, T.A.; Ambrosio, G. Left Ventricular Hypertrophy as\nan Independent Predictor of Acute Cerebrovascular Events in Essential Hypertension.Circulation 2001, 104, 2039–2044. [CrossRef]\n[PubMed]\n118. Yaghi, S.; Kamel, H. Stratifying Stroke Risk in Atrial Fibrillation: Beyond Clinical Risk Scores. Stroke 2017, 48, 2665–2670.\n[CrossRef]\n119. Cai, Y.; Xiong, Q.; Chen, S.; Jiang, X.; Liao, J.; Chen, W.; Zou, L.; Su, L.; Zhu, Y.; Yin, Y.; et al. Left Atrial Appendage Throm",
+          "itual sleep \nduration of < 6 h per night was associated with a 48% higher \nrisk of developing and/or dying from heart disease and a \n15% increased chance of developing and/or dying from a \nstroke [9]. Studies of this kind showed that individuals with \npoorer sleep quality and/or duration (namely, sleeping < 6 h \nper night) were twice as likely to suffer from myocardial \ninfarction (MI) or stroke during their lives as those sleep‑\ning 7–8 h on average. This association was particularly true \nwhen following up middle‑aged adults (45 years or older). \nOptimizing sleep in middle age is thus crucial to a better, \nFig. 1  Structured literature \nselection process for this \nnarrative review. This figure \nillustrates the stepwise process \nused to identify and select \nstudies included in the narrative \nsynthesis on sleep depriva‑\ntion, circadian disruption, and \ncardiometabolic outcomes. \nElectronic databases (PubMed, \nScopus, and Google Scholar) \nwere searched using predefined \nchronobiology‑ a",
+          "sity, T2DM, and \ntheir associated morbidity and mortality.\nSleep loss and cardiometabolic disease\nAs highlighted above, short sleep and sleep deprivation are \nrisk factors for metabolic disease, diabetes, and CVD. In a \n2021 meta‑analysis of 36 studies, Hua and colleagues dem‑\nonstrated that habitual short sleep (defined as ≤ 6 h) in cohort \nstudies was significantly associated with higher incidence \nof metabolic syndrome with a risk ratio (RR) of 1.15 (95% \nCI 1.05–1.25, P < 0.001). In cross sectional studies, it was \nalso associated with higher prevalence of metabolic syn‑\ndrome with an odds ratio (OR) of 1.06 (95% CI 1.01–1.11, \nP < 0.001) [87].\nShort sleep defined as < 7 h was also associated with \nhigher cardiovascular mortality in another meta‑anal‑\nysis of 19 studies with a RR of 1.19 (95% CI 1.13–1.26, \nP < 0.001) [88]. It has also been long established that meta‑\nbolic syndrome increases the risk of cardiovascular morbid‑\nity and mortality. In a landmark study of 4483 subjects"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "pass",
+          "fact_recall": 1.0,
+          "supported_facts": [
+            "f1"
+          ],
+          "anchor_matches": {
+            "sleep_cappuccio": [
+              2,
+              6
+            ]
+          },
+          "anchor_match_groups": {
+            "sleep_cappuccio": [
+              [
+                2,
+                6
+              ]
+            ]
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      }
+    },
+    {
+      "id": "d012",
+      "revision": 1,
+      "question": "How should Lebedeva’s zinc/HIF renal mechanisms and the Taiwan SGLT2-plus-ACEI/ARB cohort’s renal association be distinguished?",
+      "query_sha256": "8fd32d0d339900e6caa174f05f716dc7c5b3b399a6632d37d344ff3b8b5518db",
+      "category": "cross_doc_synthesis",
+      "answerability": "answerable",
+      "evidence_feasibility": {
+        "minimum_chunks": 4,
+        "by_depth": {
+          "n3": "infeasible",
+          "n8": "feasible"
+        }
+      },
+      "n3": {
+        "retrieved_sources": [
+          "diabetes-nephropathy-complications.pdf",
+          "diabetes-nephropathy-complications.pdf",
+          "cardio-ckd-sglt2-acei-arb.pdf"
+        ],
+        "retrieved_contexts": [
+          "nducible factor-1 a (HIF-1a). Zinc is further relevant for anti-in ﬂamma-\ntory, antioxidant, anti-apoptotic, and anti- ﬁbrotic signalling pathways with\nnephroprotective effects in DKD. In this review, we focus on the role of zinc\nhomeostasis in the development of diabetes and DKD, with particular emphasis\non hypoxia as the central trigger of DKD. We also discuss the role of the zinc\nsignaling in the cellular and systemic carbohydrate metabolism in the context of\ndiabetes and DKD.\nKEYWORDS\ndiabetes, diabetic kidney disease, HIF-1 a, hypoxia, hypoxia-inducible factors, insulin,\npancreatic b-cells, zinc\nFrontiers in Endocrinology frontiersin.org01\nOPEN ACCESS\nEDITED BY\nCristia´ n A. Amador,\nSan Sebastia´ n University, Chile\nREVIEWED BY\nTakafumi Hara,\nTokushima Bunri University, Japan\nJiayi Zhou,\nUniversity of North Carolina at Chapel Hill,\nUnited States\nAhmed Fotouh,\nNew Valley University Faculty of\nAgriculture, Egypt\n*CORRESPONDENCE\nSvetlana A. Lebedeva\nlebedeva502@yandex.ru\nRECEIVED 07 ",
+          "u14071353\n8. Fine LG, Bandyopadhay D, Norman JT. Is there a common mechanism for the\nprogression of different types of renal diseases other than proteinuria? Towards the\nunifying theme of chronic hypoxia. Kidney Int Suppl . (2000) 75:S22 –6. doi: 10.1046/\nj.1523-1755.2000.07512.x\nLebedeva et al. 10.3389/fendo.2026.1825409\nFrontiers in Endocrinology frontiersin.org13\n9. Fine LG, Norman JT. Chronic hypoxia as a mechanism of progression of chronic\nkidney diseases: from hypothesis to novel therapeutics. Kidney Int . (2008) 74:867 –72.\ndoi: 10.1038/ki.2008.350\n10. Qin W, Nie P, Hui X, Chen F, Hu X, Shi W, et al. Research progress of hypoxia-\ninducible factor-1 a and zinc in the mechanism of diabetic kidney disease. Front\nPharmacol. (2025) 16:1537749. doi: 10.3389/fphar.2025.1537749\n11. Tanaka S, Tanaka T, Nangaku M. Hypoxia as a key player in the AKI-to-CKD\ntransition. Am J Physiol Renal Physiol . (2014) 307:F1187 –95. doi: 10.1152/ajprenal.\n00425.2014\n12. Guo Y, Yu C, Lu Z, Zhang M, Zhang ",
+          "2024; 21(11): 2109-2118. doi: 10.7150/ijms.96969 \nResearch Paper \nInvestigation of cardiorenal outcomes and incidence of \ngenitourinary tract infection after combined SGLT2 \ninhibitor and ACEI/ARB use in patients with chronic \nkidney disease stages 3–5: A real-world retrospective \ncohort study in Taiwan \nYu-Hsuan Joni Shao, PhD1,2,3; Wan-Ting Chen, MS3; Samuel Mon-Wei Yu, MD, PhD4; Liam Li-An Tsou, \nBS4,5; Yung-Ho Hsu, MD6,7,8,9; Mai-Szu Wu, MD, PhD6,7,8; Yung-Hsi Kao, PhD10; Chu-Lin Chou, MD, \nPhD6,7,8,9; Po-Jen Hsiao, MD, PhD10,11,12 \n1. Graduate Institute of Biomedical Informatics, College of Medical Science and Technology, Taipei Medical University, Taipei, Taiwan. \n2. Clinical Big Data Research Center, Taipei Medical University Hospital, Taipei, Taiwan. \n3. Health and Clinical Research Data Center, Office of Data Science, Taipei Medical University, Taipei, Taiwan. \n4. Division of Nephrology, Department of Medicine, Mount Sinai School of Medicine, New York, New York, USA. \n5. Bio"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "shared_ckd_confounding": [],
+            "shared_ckd_renal": [],
+            "zinc_hif": []
+          },
+          "anchor_match_groups": {
+            "shared_ckd_confounding": [],
+            "shared_ckd_renal": [],
+            "zinc_hif": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "n8": {
+        "retrieved_sources": [
+          "diabetes-nephropathy-complications.pdf",
+          "diabetes-nephropathy-complications.pdf",
+          "cardio-ckd-sglt2-acei-arb.pdf",
+          "diabetes-hif-zinc-review.pdf",
+          "diabetes-nephropathy-complications.pdf",
+          "diabetes-nephropathy-complications.pdf",
+          "diabetes-hif-zinc-review.pdf",
+          "diabetes-hif-zinc-review.pdf"
+        ],
+        "retrieved_contexts": [
+          "nducible factor-1 a (HIF-1a). Zinc is further relevant for anti-in ﬂamma-\ntory, antioxidant, anti-apoptotic, and anti- ﬁbrotic signalling pathways with\nnephroprotective effects in DKD. In this review, we focus on the role of zinc\nhomeostasis in the development of diabetes and DKD, with particular emphasis\non hypoxia as the central trigger of DKD. We also discuss the role of the zinc\nsignaling in the cellular and systemic carbohydrate metabolism in the context of\ndiabetes and DKD.\nKEYWORDS\ndiabetes, diabetic kidney disease, HIF-1 a, hypoxia, hypoxia-inducible factors, insulin,\npancreatic b-cells, zinc\nFrontiers in Endocrinology frontiersin.org01\nOPEN ACCESS\nEDITED BY\nCristia´ n A. Amador,\nSan Sebastia´ n University, Chile\nREVIEWED BY\nTakafumi Hara,\nTokushima Bunri University, Japan\nJiayi Zhou,\nUniversity of North Carolina at Chapel Hill,\nUnited States\nAhmed Fotouh,\nNew Valley University Faculty of\nAgriculture, Egypt\n*CORRESPONDENCE\nSvetlana A. Lebedeva\nlebedeva502@yandex.ru\nRECEIVED 07 ",
+          "u14071353\n8. Fine LG, Bandyopadhay D, Norman JT. Is there a common mechanism for the\nprogression of different types of renal diseases other than proteinuria? Towards the\nunifying theme of chronic hypoxia. Kidney Int Suppl . (2000) 75:S22 –6. doi: 10.1046/\nj.1523-1755.2000.07512.x\nLebedeva et al. 10.3389/fendo.2026.1825409\nFrontiers in Endocrinology frontiersin.org13\n9. Fine LG, Norman JT. Chronic hypoxia as a mechanism of progression of chronic\nkidney diseases: from hypothesis to novel therapeutics. Kidney Int . (2008) 74:867 –72.\ndoi: 10.1038/ki.2008.350\n10. Qin W, Nie P, Hui X, Chen F, Hu X, Shi W, et al. Research progress of hypoxia-\ninducible factor-1 a and zinc in the mechanism of diabetic kidney disease. Front\nPharmacol. (2025) 16:1537749. doi: 10.3389/fphar.2025.1537749\n11. Tanaka S, Tanaka T, Nangaku M. Hypoxia as a key player in the AKI-to-CKD\ntransition. Am J Physiol Renal Physiol . (2014) 307:F1187 –95. doi: 10.1152/ajprenal.\n00425.2014\n12. Guo Y, Yu C, Lu Z, Zhang M, Zhang ",
+          "2024; 21(11): 2109-2118. doi: 10.7150/ijms.96969 \nResearch Paper \nInvestigation of cardiorenal outcomes and incidence of \ngenitourinary tract infection after combined SGLT2 \ninhibitor and ACEI/ARB use in patients with chronic \nkidney disease stages 3–5: A real-world retrospective \ncohort study in Taiwan \nYu-Hsuan Joni Shao, PhD1,2,3; Wan-Ting Chen, MS3; Samuel Mon-Wei Yu, MD, PhD4; Liam Li-An Tsou, \nBS4,5; Yung-Ho Hsu, MD6,7,8,9; Mai-Szu Wu, MD, PhD6,7,8; Yung-Hsi Kao, PhD10; Chu-Lin Chou, MD, \nPhD6,7,8,9; Po-Jen Hsiao, MD, PhD10,11,12 \n1. Graduate Institute of Biomedical Informatics, College of Medical Science and Technology, Taipei Medical University, Taipei, Taiwan. \n2. Clinical Big Data Research Center, Taipei Medical University Hospital, Taipei, Taiwan. \n3. Health and Clinical Research Data Center, Office of Data Science, Taipei Medical University, Taipei, Taiwan. \n4. Division of Nephrology, Department of Medicine, Mount Sinai School of Medicine, New York, New York, USA. \n5. Bio",
+          "rated that a 3-month regimen of zinc\nsupplementation in diabetic rats led to a reduction in histological\nalterations, a signi ﬁcant decrease in the expression of ﬁbrotic\nmarkers such as connective tissue growth factor, and an\nupregulation of metal-binding proteins in both cardiac and renal\ntissues ( Tang et al., 2010 ).\nThe preceding discussion has elucidated the role of HIF-1 α in\nfacilitating the advancement of renal ﬁbrosis through multiple\nmechanisms. Research indicates that zinc supplementation can\nmitigate renal tubular EMT and renal tubular interstitial ﬁbrosis\nby downregulating HIF-1α in models of DKD (Zhang X et al., 2016).\nSpeciﬁcally, Zhang et al. demonstrated that zinc supplementation in\nDKD rat models and in high glucose/hypoxia-induced cellular\nmodels signi ﬁcantly reduced the expression of ﬁbrotic markers,\nincluding ﬁbronectin, α-SMA, and E-cadherin. Han et al. found\nthat both HIF-1 α siRNA and the overexpression of PHD2 can\neffectively block the loss of epithelial marke",
+          "Zinc, type 2 diabetes, diabetic\nkidney disease: focus on hypoxia\nSvetlana A. Lebedeva1*, Ekaterina M. Mikhailova1,\nMaria Yu Materenchuk2,3, Denis V. Kurkin4, Mikhail Samsonov5,\nVadim V. Tarasov1 and Kerim Mutig1,6\n1Sechenov First Moscow State Medical University, Moscow, Russia, 2Skolkovo Institute of Science and\nTechnology, Moscow, Russia, 3Center for Molecular and Cellular Biology, Moscow, Russia, 4Russian\nUniversity of Medicine, Moscow, Russia, 5Medical Department, R-Pharm JSC, Moscow, Russia,\n6Scientiﬁc Center of Genetics and Life Sciences, Sirius University of Science and Technology,\nSirius, Russia\nThe incidence of type 2 diabetes mellitus is approaching pandemic levels, posing\na major global healthcare problem. Diabetic kidney disease (DKD) is the main\ncause of the chronic kidney disease. Hyperglycemia-dependent renal hypoxia\ndrives the onset and progression of DKD. The adaptive cellular response to\nhypoxia depends on the zinc signalling, which promotes expression of the\nhypoxia-i",
+          "March 2026\nREVISED 20 June 2026\nACCEPTED 23 June 2026\nPUBLISHED 21 July 2026\nCITATION\nLebedeva SA, Mikhailova EM,\nMaterenchuk MY, Kurkin DV,\nSamsonov M, Tarasov VV and Mutig K\n(2026) Zinc, type 2 diabetes, diabetic\nkidney disease: focus on hypoxia.\nFront. Endocrinol. 17:1825409.\ndoi: 10.3389/fendo.2026.1825409\nCOPYRIGHT\n© 2026 Lebedeva, Mikhailova,\nMaterenchuk, Kurkin, Samsonov, Tarasov\nand Mutig. This is an open-access article\ndistributed under the terms of the\nCreative Commons Attribution License\n(CC BY). The use, distribution or\nreproduction in other forums is\npermitted, provided the original\nauthor(s) and the copyright owner(s) are\ncredited and that the original publication\nin this journal is cited, in accordance\nwith accepted academic practice. No\nuse, distribution or reproduction is\npermitted which does not comply with\nthese terms.\nTYPE Review\nPUBLISHED 21 July 2026\nDOI 10.3389/fendo.2026.1825409\nGRAPHICAL ABSTRACT\nIntroduction\nBy 2045, projections suggest that nearly 640 million",
+          "zinc may\nrepresent a viable therapeutic strategy for modulating HIF-1 α and\ndecelerating the progression of DKD. However, current investigations\ninto the ef ﬁcacy of zinc predominantly focus on animal and cellular\nmodels, highlighting the necessity for further clinical research in\nhuman populations to elucidate the speci ﬁc mechanisms by which\nzinc supplementation may affect DKD. While some studies have\nindicated a potential renal protective effect of zinc supplementation in\nDKD patients, there remains a pressing need for more randomized\ncontrolled trials with larger cohorts and extended follow-up durations\nto ascertain the long-term effects of zinc treatment. Given that zinc\nsupplementation may negatively impact copper metabolism,\nadditional clinical research is urgently required to establish the\noptimal zinc intake levels for DKD patients to maintain a balance\nbetween copper and zinc. Furthermore, under pathological\nconditions, the pharmacokinetics and pharmacodynamics of zinc\nsupple",
+          "has gradually increased in\nrecent years, many enigmas remain unresolved. For instance, does HIF-\n1α exert non-transcriptional effects while mediating hypoxic adaptation\nin a high-glucose and hypoxia environment? How can we effectively\nvisualize the levels of PO\n2 within renal cells? Furthermore, the\nmechanisms, translational potential, and clinical exploration of\ntreating DKD through the modulation of HIF-1 α activity still\nwarrant deeper investigation.\nPatients suffering from DKD frequently exhibit dysregulated zinc\nmetabolism. Existing literature suggests that zinc supplementation\nmay exert beneﬁcial effects on DKD. Zinc inﬂuences the expression of\nHIF-1α in cells subjected to hyperglycemic and hypoxic conditions\nthrough multiple mechanisms, including the inhibition of HIF-1 α\ntranslocation, as well as exhibiting anti-in ﬂammatory, antioxidant,\nFrontiers in Pharmacology frontiersin.org14\nQin et al. 10.3389/fphar.2025.1537749\nanti-apoptotic, and anti-ﬁbrotic properties. Consequently, "
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "shared_ckd_confounding": [],
+            "shared_ckd_renal": [],
+            "zinc_hif": []
+          },
+          "anchor_match_groups": {
+            "shared_ckd_confounding": [],
+            "shared_ckd_renal": [],
+            "zinc_hif": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      }
+    },
+    {
+      "id": "d016",
+      "revision": 3,
+      "question": "In the cardiorenal network meta-analysis, did HFpEF comparisons establish a significant drug-class difference in cardiovascular mortality?",
+      "query_sha256": "28ed22a4ffe689ae50d865db2a942ae43dab45ab8837623f76d013a2106ee578",
+      "category": "multi_hop",
+      "answerability": "answerable",
+      "evidence_feasibility": {
+        "minimum_chunks": 4,
+        "by_depth": {
+          "n3": "infeasible",
+          "n8": "feasible"
+        }
+      },
+      "n3": {
+        "retrieved_sources": [
+          "cardio-cardiorenal-drug-network-meta-analysis.pdf",
+          "cardio-cardiorenal-drug-network-meta-analysis.pdf",
+          "cardio-cardiorenal-drug-network-meta-analysis.pdf"
+        ],
+        "retrieved_contexts": [
+          "n contrast, no significant differences were observed \nbetween drug classes in the HFpEF population across \nCV mortality, all-cause mortality, or HF outcomes. The \nNMA findings should be interpreted with caution and \nviewed as hypothesis generating rather than definitive. \nWhile indirect NMA comparisons reached statistical \nsignificance for some outcomes, class-level estimates \nagainst placebo show overlapping confidence intervals, \nand head-to-head trial evidence is lacking. Nonetheless, \nthese findings highlight the differential cardiorenal bene -\nfits of each medication class depending on the underlying \ncomorbidity, reinforcing the need for phenotype-specific \ntherapeutic strategies, and the importance of determin -\ning the optimal sequencing of therapy in patients eligible \nfor dual or triple therapy.\nLimitations\nSome limitations should be acknowledged when inter -\npreting the findings of this review. Heterogeneity in \nstudy design, patient populations, and endpoint defi -\nnitions ",
+          "ed therapies, and finerenone across \ndiverse subpopulations. While prior meta-analyses [ 11–\n13] primarily focused on patients with T2D and CKD, \nthe present work expands upon these efforts by incorpo -\nrating newly published RCTs and extending the evalua -\ntion to additional subpopulations—including patients \nwith T2D with ASCVD or high cardiovascular (CV) risk, \nCKD, HFrEF, HFpEF, HFpEF with obesity, post-MI, acute \nHF, and ASCVD with overweight/obesity without T2D—\nin order to inform clinical decision-making in a broader \nspectrum of patients at risk for cardiorenal events. To \nsupplement the findings, a network meta-analysis (NMA) \nwas conducted to compare the relative efficacy of treat -\nment classes.\nConclusions These findings confirm the role of SGLT2i, incretin-based therapies, and finerenone in cardiorenal risk \nreduction across established high-risk groups, including T2D and CKD, and extend benefits to newer populations, \nincluding acute HF and post-MI for SGLT2i, and HFpEF w",
+          "icant \ndownward trends, while no effect was observed for non-\nfatal stroke.\nFinerenone: heart failure with preserved ejection fraction\nAmong individuals with HFpEF, finerenone was asso -\nciated with a statistically significant reduction in HF \nhospitalization under the DL model. This effect was \nnot statistically significant under the REML-modified \nHK model but remained significant in the REML-Wald \nmodel. No significant effects were observed for CV mor -\ntality across models. All-cause mortality, non-fatal MI, \nnon-fatal stroke, and kidney composite outcome were \neach assessed in only one study and were not significant.\nNetwork meta-analysis\nA network meta-analysis (NMA) was conducted across \nthree populations with available data: (1) T2D with \nASCVD/high CV risk, (2) CKD, and (3) HFpEF. For the \nT2D with ASCVD/high CV risk and CKD NMAs, all \nthree drug classes were included in the analysis. Finere -\nnone data were incorporated into both analyses but \nprimarily reflect patients with "
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "shared_nma_hfpef": [],
+            "shared_nma_indirect": []
+          },
+          "anchor_match_groups": {
+            "shared_nma_hfpef": [],
+            "shared_nma_indirect": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "n8": {
+        "retrieved_sources": [
+          "cardio-cardiorenal-drug-network-meta-analysis.pdf",
+          "cardio-cardiorenal-drug-network-meta-analysis.pdf",
+          "cardio-cardiorenal-drug-network-meta-analysis.pdf",
+          "cardio-cardiorenal-drug-network-meta-analysis.pdf",
+          "cardio-cardiorenal-drug-network-meta-analysis.pdf",
+          "cardio-cardiorenal-drug-network-meta-analysis.pdf",
+          "cardio-cardiorenal-drug-network-meta-analysis.pdf",
+          "cardio-cardiorenal-drug-network-meta-analysis.pdf"
+        ],
+        "retrieved_contexts": [
+          "n contrast, no significant differences were observed \nbetween drug classes in the HFpEF population across \nCV mortality, all-cause mortality, or HF outcomes. The \nNMA findings should be interpreted with caution and \nviewed as hypothesis generating rather than definitive. \nWhile indirect NMA comparisons reached statistical \nsignificance for some outcomes, class-level estimates \nagainst placebo show overlapping confidence intervals, \nand head-to-head trial evidence is lacking. Nonetheless, \nthese findings highlight the differential cardiorenal bene -\nfits of each medication class depending on the underlying \ncomorbidity, reinforcing the need for phenotype-specific \ntherapeutic strategies, and the importance of determin -\ning the optimal sequencing of therapy in patients eligible \nfor dual or triple therapy.\nLimitations\nSome limitations should be acknowledged when inter -\npreting the findings of this review. Heterogeneity in \nstudy design, patient populations, and endpoint defi -\nnitions ",
+          "ed therapies, and finerenone across \ndiverse subpopulations. While prior meta-analyses [ 11–\n13] primarily focused on patients with T2D and CKD, \nthe present work expands upon these efforts by incorpo -\nrating newly published RCTs and extending the evalua -\ntion to additional subpopulations—including patients \nwith T2D with ASCVD or high cardiovascular (CV) risk, \nCKD, HFrEF, HFpEF, HFpEF with obesity, post-MI, acute \nHF, and ASCVD with overweight/obesity without T2D—\nin order to inform clinical decision-making in a broader \nspectrum of patients at risk for cardiorenal events. To \nsupplement the findings, a network meta-analysis (NMA) \nwas conducted to compare the relative efficacy of treat -\nment classes.\nConclusions These findings confirm the role of SGLT2i, incretin-based therapies, and finerenone in cardiorenal risk \nreduction across established high-risk groups, including T2D and CKD, and extend benefits to newer populations, \nincluding acute HF and post-MI for SGLT2i, and HFpEF w",
+          "icant \ndownward trends, while no effect was observed for non-\nfatal stroke.\nFinerenone: heart failure with preserved ejection fraction\nAmong individuals with HFpEF, finerenone was asso -\nciated with a statistically significant reduction in HF \nhospitalization under the DL model. This effect was \nnot statistically significant under the REML-modified \nHK model but remained significant in the REML-Wald \nmodel. No significant effects were observed for CV mor -\ntality across models. All-cause mortality, non-fatal MI, \nnon-fatal stroke, and kidney composite outcome were \neach assessed in only one study and were not significant.\nNetwork meta-analysis\nA network meta-analysis (NMA) was conducted across \nthree populations with available data: (1) T2D with \nASCVD/high CV risk, (2) CKD, and (3) HFpEF. For the \nT2D with ASCVD/high CV risk and CKD NMAs, all \nthree drug classes were included in the analysis. Finere -\nnone data were incorporated into both analyses but \nprimarily reflect patients with ",
+          ") [7, 8].\nPast meta-analyses have examined the role of SGLT2i \nand GLP-1RA on cardiorenal outcomes in diverse pop -\nulations, including those with chronic kidney disease \n(CKD), heart failure (HF) stratified based on preserved \n(HFpEF, including persons with HF and mid-range ejec -\ntion fraction [HFmrEF]) or reduced ejection fraction \n(HFrEF), and type 2 diabetes (T2D) [ 9–13]. Since these \nanalyses, there has been an expansion not only in the \nnumber of studies, but also in clinical trials assessing \nnewer medications and involving broader patient popu -\nlations. This includes trials evaluating finerenone in \nHFpEF, SGLT2i in post-myocardial infarction (MI) popu-\nlations, and incretin-based therapies in emerging popu -\nlations, including individuals with HFpEF and obesity, \nor atherosclerotic cardiovascular disease (ASCVD) and \noverweight/obesity without T2D.\nThe goal of this study was to provide an updated meta-\nanalysis on key cardiorenal outcomes in RCTs using \nSGLT2i, incretin-bas",
+          "ree \ntrials did not reach statistical significance. This discrep -\nancy likely reflects differences in methodology, as FINE-\nHEART was able to apply consistent outcome definitions \nacross trials and conduct more statistically powerful anal-\nyses. Nevertheless, these findings highlight finerenone’s \ncardiorenal efficacy and reinforce its role in patients with \noverlapping cardiovascular, renal, and metabolic risk.\nClass-level comparison of therapeutic efficacy\nOur NMA provides a comparative overview of class-\nlevel efficacy across T2D with ASCVD/high CV risk, \nCKD, and HFpEF populations. SGLT2i demonstrated \nsuperior efficacy in reducing both HF hospitalization \nand kidney composite outcome compared to incretin-\nbased therapies in T2D with ASCVD/high CV risk and \nCKD subgroups. SGLT2i also outperformed finerenone \nfor these outcomes; however, this comparison should be \ninterpreted with caution, as most finerenone data were \nderived from a broader diabetic kidney disease popula -\ntion. I",
+          "th a statistically sig -\nnificant reduction in time to first HF hospitalization/\nevent using the DL model, which persisted in sensitivity \nanalyses using both the REML-modified HK and REML-\nWald models. No significant effects were observed for \nCV or all-cause mortality. Outcome data including a \nbroader HFpEF subgroup analysis including subsets \nof the SELECT trial and the FLOW trial (which were \nrestricted to patients with left ventricular ejection frac -\ntion [LVEF] ≥ 40% and LVEF ≥ 50% respectively), with \nSELECT enrolling participants with body mass index \n(BMI) ≥ 27  kg/m² and FLOW reporting a mean BMI of \n32 kg/m² across the study population, demonstrated sim-\nilar directional effects and statistical significance across \ncardiorenal outcomes (Supplemental Figures S30-S39).\nIncretin-based therapies: ASCVD and overweight/obesity \nwith no T2D\nAmong individuals with ASCVD and overweight/obe -\nsity without T2D, evidence was derived exclusively from \nthe SELECT trial, which evaluated ",
+          " in HF hospitalization/event. In patients \nwith HFmrEF or HFpEF, finerenone appears to confer \nclinical benefits across the spectrum of kidney risk. In a \nprespecified analysis of FINEARTS-HF, finerenone con -\nsistently reduced CV mortality and total HF events, and \nimproved HF-related health status (as measured by Kan -\nsas City Cardiomyopathy Questionnaire-Total Symptom \nScore [KCCQ-TSS]), regardless of baseline KDIGO risk \ncategory [65].\nA meta-analysis of the three finerenone trials, titled \nFINE-HEART, was published in 2024 and employed indi-\nvidual participant-level data, allowing for harmonized \nendpoint definitions and more granular time-to-event \nanalyses [ 66]. Interestingly, it demonstrated a statisti -\ncally significant 20% reduction in the risk of the kidney \ncomposite outcome, largely driven by FIDELIO-DKD \nand FIGARO-DKD [66]. In contrast, while our trial-level \nmeta-analysis showed a consistent direction of effect, the \npooled kidney composite outcome data across the th",
+          "Page 10 of 14\nShokravi et al. Cardiovascular Diabetology – Endocrinology Reports            (2025) 11:37 \nstatistically significant with the inclusion of broader HF \nevent data from the SOUL and STEP-HFpEF DM trials.\nIn the CKD population, beyond their renal benefits, \nincretin-based therapies also led to significant reductions \nin CV mortality, all-cause mortality, non-fatal MI, and \nMACE. This finding was in part driven by the addition of \nrelatively newer data from the FLOW trial for CV mor -\ntality, all-cause mortality, and non-fatal MI, as well as the \ninclusion of the FLOW trial and a subset of the SELECT \ntrial for MACE outcomes. This reinforces the growing \nevidence base supporting the cardioprotective effects \nof incretin-based therapies, especially in patients with \ndiabetes and CKD. The 2024 Kidney Disease Improving \nGlobal Outcomes (KDIGO) guidelines recommend the \nuse of GLP-1RAs in “adults with T2D and CKD who have \nnot achieved individualized glycemic targets despite use"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "shared_nma_hfpef": [],
+            "shared_nma_indirect": []
+          },
+          "anchor_match_groups": {
+            "shared_nma_hfpef": [],
+            "shared_nma_indirect": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      }
+    },
+    {
+      "id": "d022",
+      "revision": 1,
+      "question": "What was five-year cardiovascular mortality in the randomized SIZE-DM cohort after generic versus innovator semaglutide?",
+      "query_sha256": "508dd242d5c31879bd57fed4419ea760db14ac8754666c396738e9c155074b86",
+      "category": "unanswerable",
+      "answerability": "absent_fact",
+      "evidence_feasibility": {
+        "minimum_chunks": null,
+        "by_depth": {
+          "n3": "not_scored",
+          "n8": "not_scored"
+        }
+      },
+      "n3": {
+        "retrieved_sources": [
+          "diabetes-semaglutide-size-dm-trial.pdf",
+          "diabetes-semaglutide-size-dm-trial.pdf",
+          "diabetes-semaglutide-size-dm-trial.pdf"
+        ],
+        "retrieved_contexts": [
+          "inology Reports           (2026) 12:21 \nhttps://doi.org/10.1186/s40842-026-00290-8\nCardiovascular Diabetology – \nEndocrinology Reports\n*Correspondence:\nMayur Mayabhate\nmayur.mayabhate@alkem.com\nFull list of author information is available at the end of the article\nAbstract\nBackground This study evaluated the efficacy and safety of generic semaglutide compared with innovator \nSemaglutide in Indian adults with type 2 diabetes mellitus (T2DM).\nMethods This Phase 3, multicenter, randomized, active-controlled, non-inferiority trial enrolled 320 adults with \nT2DM inadequately controlled on metformin. Participants were randomized 1:1 to receive either generic semaglutide \n(Alkem laboratories Ltd.) or innovator Inj. semaglutide (Novo Nordisk) for 24 weeks in step-wise dose escalation from \n0.25 mg/week to 2 mg/week. The primary endpoint was change in HbA1c from baseline to Week 24. Secondary \nendpoints included changes in fasting and post-prandial glucose, body weight, and proportion of patien",
+          "hile categorical outcomes are assessed using chi-square \nor Fisher’s exact tests.\nResults\nOf the 384 subjects screened, 320 were randomized in a \n1:1 ratio to receive either generic semaglutide (test arm) \nor innovator semaglutide (reference arm). A total of 313 \nparticipants (98.13% in test arm; 97.50% in reference \narm) completed the study per protocol. All randomized \nsubjects (n = 320) were included in the safety population, \nwith 160 subjects in each arm (Fig. 1).\nThe study population comprised 187 males (58.44%) \nand 133 females (41.56%). At baseline, the mean \nage was 50.07 ± 9.02 years, mean body weight was \n70.93 ± 11.91  kg, and mean BMI was 27.42 ± 4.00  kg/m². \nBaseline demographic and clinical characteristics were \ncomparable between the two treatment groups (Table 1).\nPrimary efficacy endpoint\nIn the per-protocol population, baseline HbA1c lev -\nels were similar between the test (8.41 ± 0.77%) and ref -\nerence (8.47 ± 0.77%) arms ( p = 0.5244). At Week 24, \nmean HbA1c lev",
+          "art failure hospi-\ntalizations, and non-fatal myocardial infarctions [6].\nDespite these global advances, data on semaglutide \nuse in Indian populations remain limited. The high cost \nof the innovator semaglutide poses a significant barrier \nto accessibility, especially in low- and middle-income \nsettings where affordability directly influences treat -\nment adherence and outcomes [ 1]. Local manufactur -\ning of generic formulations may offer a viable solution to \nimprove access without compromising efficacy or safety.\nThis Phase 3, multicenter, randomized, single-blind, \nactive-controlled, non-inferiority trial was designed \nto evaluate the efficacy, safety, and immunogenicity of \ngeneric semaglutide formulation compared to innovator \nsemaglutide in Indian adults with T2DM inadequately \ncontrolled on metformin. The study aimed to generate \nrobust local evidence to support the clinical utility and \naffordability of semaglutide in India.\nMethods\nThis Phase 3, multicenter, randomized, acti"
+        ],
+        "verdict": "not_scored",
+        "metrics": {
+          "document_coverage": "not_scored",
+          "evidence_coverage": "not_scored",
+          "fact_recall": null,
+          "supported_facts": [],
+          "anchor_matches": {},
+          "anchor_match_groups": {},
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "n8": {
+        "retrieved_sources": [
+          "diabetes-semaglutide-size-dm-trial.pdf",
+          "diabetes-semaglutide-size-dm-trial.pdf",
+          "diabetes-semaglutide-size-dm-trial.pdf",
+          "cardio-cardiorenal-drug-network-meta-analysis.pdf",
+          "diabetes-semaglutide-size-dm-trial.pdf",
+          "diabetes-semaglutide-size-dm-trial.pdf",
+          "cardio-cardiorenal-drug-network-meta-analysis.pdf",
+          "diabetes-semaglutide-size-dm-trial.pdf"
+        ],
+        "retrieved_contexts": [
+          "inology Reports           (2026) 12:21 \nhttps://doi.org/10.1186/s40842-026-00290-8\nCardiovascular Diabetology – \nEndocrinology Reports\n*Correspondence:\nMayur Mayabhate\nmayur.mayabhate@alkem.com\nFull list of author information is available at the end of the article\nAbstract\nBackground This study evaluated the efficacy and safety of generic semaglutide compared with innovator \nSemaglutide in Indian adults with type 2 diabetes mellitus (T2DM).\nMethods This Phase 3, multicenter, randomized, active-controlled, non-inferiority trial enrolled 320 adults with \nT2DM inadequately controlled on metformin. Participants were randomized 1:1 to receive either generic semaglutide \n(Alkem laboratories Ltd.) or innovator Inj. semaglutide (Novo Nordisk) for 24 weeks in step-wise dose escalation from \n0.25 mg/week to 2 mg/week. The primary endpoint was change in HbA1c from baseline to Week 24. Secondary \nendpoints included changes in fasting and post-prandial glucose, body weight, and proportion of patien",
+          "hile categorical outcomes are assessed using chi-square \nor Fisher’s exact tests.\nResults\nOf the 384 subjects screened, 320 were randomized in a \n1:1 ratio to receive either generic semaglutide (test arm) \nor innovator semaglutide (reference arm). A total of 313 \nparticipants (98.13% in test arm; 97.50% in reference \narm) completed the study per protocol. All randomized \nsubjects (n = 320) were included in the safety population, \nwith 160 subjects in each arm (Fig. 1).\nThe study population comprised 187 males (58.44%) \nand 133 females (41.56%). At baseline, the mean \nage was 50.07 ± 9.02 years, mean body weight was \n70.93 ± 11.91  kg, and mean BMI was 27.42 ± 4.00  kg/m². \nBaseline demographic and clinical characteristics were \ncomparable between the two treatment groups (Table 1).\nPrimary efficacy endpoint\nIn the per-protocol population, baseline HbA1c lev -\nels were similar between the test (8.41 ± 0.77%) and ref -\nerence (8.47 ± 0.77%) arms ( p = 0.5244). At Week 24, \nmean HbA1c lev",
+          "art failure hospi-\ntalizations, and non-fatal myocardial infarctions [6].\nDespite these global advances, data on semaglutide \nuse in Indian populations remain limited. The high cost \nof the innovator semaglutide poses a significant barrier \nto accessibility, especially in low- and middle-income \nsettings where affordability directly influences treat -\nment adherence and outcomes [ 1]. Local manufactur -\ning of generic formulations may offer a viable solution to \nimprove access without compromising efficacy or safety.\nThis Phase 3, multicenter, randomized, single-blind, \nactive-controlled, non-inferiority trial was designed \nto evaluate the efficacy, safety, and immunogenicity of \ngeneric semaglutide formulation compared to innovator \nsemaglutide in Indian adults with T2DM inadequately \ncontrolled on metformin. The study aimed to generate \nrobust local evidence to support the clinical utility and \naffordability of semaglutide in India.\nMethods\nThis Phase 3, multicenter, randomized, acti",
+          " T2D \nand symptomatic peripheral artery disease (PAD) [ 73]. \nSemaglutide significantly improved maximum walking \ndistance, pain-free walking distance, and vascular qual -\nity-of-life scores over 52 weeks, and reduced need for \nrescue interventions [ 73].  While event rates were low, \nsemaglutide was associated with a lower incidence of all-\ncause mortality (1% vs. 2%); however, this difference was \nnot statistically significant [ 73]. To our knowledge this is \nthe first large RCT to evaluate the effects of a GLP-1RA \non functional outcomes in patients with symptomatic \nPAD, addressing a major therapeutic gap in this high-risk \npopulation. The DAPA-TAVI trial evaluated the effects of \ndapagliflozin patients with HF and aortic stenosis under -\ngoing transcatheter aortic valve implantation (TAVI) \n[74]. Dapagliflozin significantly reduced the 1-year inci -\ndence of the composite of all-cause mortality or worsen -\ning HF compared to standard care, driven primarily by \nfewer HF events [ 74",
+          "%)2 3 (0.94%)3\nTable 2 Incidence of treatment emergent adverse events by system organ class (SOC) and preferred term (PT) by treatment group- \nsafety population (N = 320)\nPage 8 of 10\nKapoor et al. Cardiovascular Diabetology – Endocrinology Reports            (2026) 12:21 \nImmunogenicity was minimal, with only a few sub -\njects testing ADA-positive and no clinical consequences \nobserved. This aligns with previous studies showing low \nimmunogenic potential of semaglutide [15].\nAffordability remains a major barrier to GLP-1RA \nuse in South-Asian countries. Generic semaglutide may \nimprove access and adherence, especially in public health \nsettings [ 16]. Real-world data from low- and middle-\nincome countries underscore the importance of cost-\neffective alternatives to branded therapies [17].\nOur study has notable strengths and certain limitations. \nIt is, to our knowledge, the first Phase 3, randomized, \nactive-controlled, non-inferiority trial directly compar -\ning a locally manufacture",
+          "ve-con -\ntrolled, parallel-group, non-inferiority trial conducted \nacross 23 tertiary care centers in India to evaluate the \nefficacy and safety of generic Inj. semaglutide (Alkem \nlaboratories Ltd) compared to innovator Inj. semaglu -\ntide (Novo Nordisk) in patients with T2DM. The study \nadhered to the principles outlined in the Declaration \nof Helsinki, ICH-GCP E6(R2), and applicable Indian \nregulatory guidelines. Ethics approval was obtained \nfrom institutional review boards at all participating \nsites, and written informed consent was obtained from \nall participants. The trial is registered with the Clini -\ncal Trials Registry of India (CTRI/2025/02/081490) on \n28/02/2025.\nEligible participants are adults aged 18–65 years, diag -\nnosed with T2DM for at least six months, with HbA1c \nlevels between 7.0% and 10.0%, and inadequate glyce -\nmic control despite receiving ≥ 1000 mg/day of metfor -\nmin for at least 8 weeks were enrolled. Key exclusion \ncriteria included type 1 diabetes, dia",
+          " \nindividuals with ASCVD and overweight/obesity with -\nout T2D were limited to the SELECT trial. Among the \noutcomes of interest, semaglutide was associated with \nstatistically significant reductions in all-cause mortality, \nCV mortality or HF hospitalization/event, non-fatal MI, \nMACE, and the composite kidney outcome [46].\nEarly results from the SURPASS-CVOT trial, which \ncompared tirzepatide with dulaglutide in patients with \nT2D and ASCVD, demonstrated noninferiority for \nMACE, with preliminary evidence suggesting potential \nbenefits in all-cause mortality, glycemic control, weight \nreduction, and kidney outcomes, with these findings \npending full publication [61].\nSGLT2i\nAcross diverse patient populations, SGLT2i significantly \nreduced the risk of several outcomes. In subpopulations \nwith T2D and ASCVD/high CV risk, as well as in those \nwith CKD, SGLT2i lowered the risk of CV mortality, all-\ncause mortality, HF hospitalization/event, non-fatal MI, \nMACE, and the kidney composite o",
+          "d generic semaglutide with the \ninnovator product in Indian adults with type 2 diabe -\ntes inadequately controlled on metformin. Conducted \nacross multiple tertiary care centres in diverse geo -\ngraphic regions, the trial enhances the external validity \nof the findings and reflects routine clinical practice in a \nreal-world–relevant population. The rigorous design with \ncentral randomization, pre-specified non-inferiority mar-\ngin, and concordant results across mITT and per -proto-\ncol populations, supports the robustness of the efficacy \nand safety conclusions. Demonstrated non-inferiority in \nglycaemic control, along with comparable safety and tol -\nerability profiles, highlights the potential of the generic \nformulation to expand access to GLP -1RA therapy in \nresource-constrained settings where affordability is a key \nbarrier. At the same time, the study has limitations. The \n24-week duration, while sufficient to assess short -term \nglycaemic efficacy and initial weight change, doe"
+        ],
+        "verdict": "not_scored",
+        "metrics": {
+          "document_coverage": "not_scored",
+          "evidence_coverage": "not_scored",
+          "fact_recall": null,
+          "supported_facts": [],
+          "anchor_matches": {},
+          "anchor_match_groups": {},
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      }
+    }
+  ],
+  "summary": {
+    "n3": {
+      "answerable": {
+        "executed": 3,
+        "answer_judged": 0,
+        "evidence_coverage": {
+          "full_set": {
+            "pass": 0,
+            "total": 3,
+            "rate": 0.0
+          },
+          "feasible_only": {
+            "pass": 0,
+            "total": 1,
+            "rate": 0.0
+          },
+          "structural_ceiling": {
+            "pass": 1,
+            "total": 3,
+            "rate": 0.3333333333333333
+          },
+          "infeasible_ids": [
+            "d012",
+            "d016"
+          ]
+        },
+        "document_coverage_pass": 3,
+        "pinned_evidence_complete": 0,
+        "macro_fact_recall": 0.0
+      },
+      "false_premise": {
+        "executed": 0,
+        "answer_judged": 0,
+        "evidence_coverage": {
+          "full_set": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "feasible_only": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "structural_ceiling": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "infeasible_ids": []
+        },
+        "document_coverage_pass": 0,
+        "pinned_evidence_complete": 0,
+        "macro_fact_recall": null
+      },
+      "absent_fact": {
+        "executed": 1,
+        "answer_judged": 0,
+        "evidence_coverage": {
+          "full_set": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "feasible_only": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "structural_ceiling": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "infeasible_ids": []
+        }
+      },
+      "distractor_ordering": {
+        "total": 0,
+        "pass": 0,
+        "decoy_present": 0
+      },
+      "categories": {
+        "cross_doc_synthesis": {
+          "executed": 1,
+          "document_scored": 1,
+          "document_pass": 1,
+          "evidence_scored": 1,
+          "evidence_pass": 0,
+          "evidence_coverage": {
+            "full_set": {
+              "pass": 0,
+              "total": 1,
+              "rate": 0.0
+            },
+            "feasible_only": {
+              "pass": 0,
+              "total": 0,
+              "rate": null
+            },
+            "structural_ceiling": {
+              "pass": 0,
+              "total": 1,
+              "rate": 0.0
+            },
+            "infeasible_ids": [
+              "d012"
+            ]
+          }
+        },
+        "direct_lookup": {
+          "executed": 1,
+          "document_scored": 1,
+          "document_pass": 1,
+          "evidence_scored": 1,
+          "evidence_pass": 0,
+          "evidence_coverage": {
+            "full_set": {
+              "pass": 0,
+              "total": 1,
+              "rate": 0.0
+            },
+            "feasible_only": {
+              "pass": 0,
+              "total": 1,
+              "rate": 0.0
+            },
+            "structural_ceiling": {
+              "pass": 1,
+              "total": 1,
+              "rate": 1.0
+            },
+            "infeasible_ids": []
+          }
+        },
+        "multi_hop": {
+          "executed": 1,
+          "document_scored": 1,
+          "document_pass": 1,
+          "evidence_scored": 1,
+          "evidence_pass": 0,
+          "evidence_coverage": {
+            "full_set": {
+              "pass": 0,
+              "total": 1,
+              "rate": 0.0
+            },
+            "feasible_only": {
+              "pass": 0,
+              "total": 0,
+              "rate": null
+            },
+            "structural_ceiling": {
+              "pass": 0,
+              "total": 1,
+              "rate": 0.0
+            },
+            "infeasible_ids": [
+              "d016"
+            ]
+          }
+        },
+        "unanswerable": {
+          "executed": 1,
+          "document_scored": 0,
+          "document_pass": 0,
+          "evidence_scored": 0,
+          "evidence_pass": 0,
+          "evidence_coverage": {
+            "full_set": {
+              "pass": 0,
+              "total": 0,
+              "rate": null
+            },
+            "feasible_only": {
+              "pass": 0,
+              "total": 0,
+              "rate": null
+            },
+            "structural_ceiling": {
+              "pass": 0,
+              "total": 0,
+              "rate": null
+            },
+            "infeasible_ids": []
+          }
+        }
+      },
+      "evidence_coverage": {
+        "full_set": {
+          "pass": 0,
+          "total": 3,
+          "rate": 0.0
+        },
+        "feasible_only": {
+          "pass": 0,
+          "total": 1,
+          "rate": 0.0
+        },
+        "structural_ceiling": {
+          "pass": 1,
+          "total": 3,
+          "rate": 0.3333333333333333
+        },
+        "infeasible_ids": [
+          "d012",
+          "d016"
+        ]
+      }
+    },
+    "n8": {
+      "answerable": {
+        "executed": 3,
+        "answer_judged": 0,
+        "evidence_coverage": {
+          "full_set": {
+            "pass": 1,
+            "total": 3,
+            "rate": 0.3333333333333333
+          },
+          "feasible_only": {
+            "pass": 1,
+            "total": 3,
+            "rate": 0.3333333333333333
+          },
+          "structural_ceiling": {
+            "pass": 3,
+            "total": 3,
+            "rate": 1.0
+          },
+          "infeasible_ids": []
+        },
+        "document_coverage_pass": 3,
+        "pinned_evidence_complete": 1,
+        "macro_fact_recall": 0.3333333333333333
+      },
+      "false_premise": {
+        "executed": 0,
+        "answer_judged": 0,
+        "evidence_coverage": {
+          "full_set": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "feasible_only": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "structural_ceiling": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "infeasible_ids": []
+        },
+        "document_coverage_pass": 0,
+        "pinned_evidence_complete": 0,
+        "macro_fact_recall": null
+      },
+      "absent_fact": {
+        "executed": 1,
+        "answer_judged": 0,
+        "evidence_coverage": {
+          "full_set": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "feasible_only": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "structural_ceiling": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "infeasible_ids": []
+        }
+      },
+      "distractor_ordering": {
+        "total": 0,
+        "pass": 0,
+        "decoy_present": 0
+      },
+      "categories": {
+        "cross_doc_synthesis": {
+          "executed": 1,
+          "document_scored": 1,
+          "document_pass": 1,
+          "evidence_scored": 1,
+          "evidence_pass": 0,
+          "evidence_coverage": {
+            "full_set": {
+              "pass": 0,
+              "total": 1,
+              "rate": 0.0
+            },
+            "feasible_only": {
+              "pass": 0,
+              "total": 1,
+              "rate": 0.0
+            },
+            "structural_ceiling": {
+              "pass": 1,
+              "total": 1,
+              "rate": 1.0
+            },
+            "infeasible_ids": []
+          }
+        },
+        "direct_lookup": {
+          "executed": 1,
+          "document_scored": 1,
+          "document_pass": 1,
+          "evidence_scored": 1,
+          "evidence_pass": 1,
+          "evidence_coverage": {
+            "full_set": {
+              "pass": 1,
+              "total": 1,
+              "rate": 1.0
+            },
+            "feasible_only": {
+              "pass": 1,
+              "total": 1,
+              "rate": 1.0
+            },
+            "structural_ceiling": {
+              "pass": 1,
+              "total": 1,
+              "rate": 1.0
+            },
+            "infeasible_ids": []
+          }
+        },
+        "multi_hop": {
+          "executed": 1,
+          "document_scored": 1,
+          "document_pass": 1,
+          "evidence_scored": 1,
+          "evidence_pass": 0,
+          "evidence_coverage": {
+            "full_set": {
+              "pass": 0,
+              "total": 1,
+              "rate": 0.0
+            },
+            "feasible_only": {
+              "pass": 0,
+              "total": 1,
+              "rate": 0.0
+            },
+            "structural_ceiling": {
+              "pass": 1,
+              "total": 1,
+              "rate": 1.0
+            },
+            "infeasible_ids": []
+          }
+        },
+        "unanswerable": {
+          "executed": 1,
+          "document_scored": 0,
+          "document_pass": 0,
+          "evidence_scored": 0,
+          "evidence_pass": 0,
+          "evidence_coverage": {
+            "full_set": {
+              "pass": 0,
+              "total": 0,
+              "rate": null
+            },
+            "feasible_only": {
+              "pass": 0,
+              "total": 0,
+              "rate": null
+            },
+            "structural_ceiling": {
+              "pass": 0,
+              "total": 0,
+              "rate": null
+            },
+            "infeasible_ids": []
+          }
+        }
+      },
+      "evidence_coverage": {
+        "full_set": {
+          "pass": 1,
+          "total": 3,
+          "rate": 0.3333333333333333
+        },
+        "feasible_only": {
+          "pass": 1,
+          "total": 3,
+          "rate": 0.3333333333333333
+        },
+        "structural_ceiling": {
+          "pass": 3,
+          "total": 3,
+          "rate": 1.0
+        },
+        "infeasible_ids": []
+      }
+    }
+  },
+  "limitations": [
+    "Exact pinned-excerpt coverage is conservative; a missed substring is not proof of absent semantic evidence.",
+    "Collection verification checks stored text/source chunks; it does not recompute stored embeddings to certify their original embedding model. Isolated ingestion provenance remains required for quality claims.",
+    "No generated answers, refusal judgments or premise-correction judgments.",
+    "Remote rewrite model aliases cannot establish immutable provider weight versions."
+  ]
+}
