@@ -1,0 +1,967 @@
+{
+  "schema_version": "1.0",
+  "query_version": "outliers-v1",
+  "status": "author reviewed; Claude CLI reviewed; domain review pending",
+  "authored_for": "JUA-113; no retrieval results used to choose questions or gold facts",
+  "selection_sha256": "87aabf643b06a6234355326c060dac6db2f4f8e69cfc22e5acd35282476f150e",
+  "anchors": [
+    {
+      "id": "mr-summary",
+      "article_id": "PMC10765819",
+      "filename": "outlier-microbiome-tb-mr.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "b84edcd99fa0718c9d3a09436bf6630753e58b76242627950a95062bbf1c3ff8",
+      "text_sha256": "32fd5a8b7b6aed7bef9d0b549c46a24794341b3fd65cfc8aa11b62c8558d3452",
+      "page": 1,
+      "section": "Abstract: Methods and Results",
+      "excerpt": "And 195 bacterial taxa \nfrom phylum to genus were analyzed. Inverse variance weighted (IVW), MR-Egger regression, maximum likelihood \n(ML), weighted median, and weighted mode methods were applied to the MR analysis. The robustness of causal esti-\nmation was tested using the heterogeneity test, horizontal pleiotropy test, and leave-one-out method.\nResults In the UK Biobank database, we found that 11 bacterial taxa had potential causal effects on TB. Three \nbacterial taxa genus.Akkermansia, family.Verrucomicrobiacea, order.Verrucomicrobiales were validated in the FinnGen \ndatabase.",
+      "text_start": 2213,
+      "text_end": 2799,
+      "excerpt_sha256": "a4fce591d9d575293c5288c3254f484c9aaf47a5c78d8798c3d833c4a13cf0f8",
+      "fact_ids": [
+        "f1"
+      ]
+    },
+    {
+      "id": "mr-uk-correction",
+      "article_id": "PMC10765819",
+      "filename": "outlier-microbiome-tb-mr.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "b84edcd99fa0718c9d3a09436bf6630753e58b76242627950a95062bbf1c3ff8",
+      "text_sha256": "32fd5a8b7b6aed7bef9d0b549c46a24794341b3fd65cfc8aa11b62c8558d3452",
+      "page": 4,
+      "section": "Results: UK Biobank",
+      "excerpt": "were suggestive associated with the increased risks of \nTB.",
+      "text_start": 15753,
+      "text_end": 15812,
+      "excerpt_sha256": "ab841b24d8226ac994d69add31d1f7db9508be6bc94994c0e383ed9be8f80b48",
+      "fact_ids": [
+        "f1"
+      ]
+    },
+    {
+      "id": "mr-uk-bonferroni",
+      "article_id": "PMC10765819",
+      "filename": "outlier-microbiome-tb-mr.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "b84edcd99fa0718c9d3a09436bf6630753e58b76242627950a95062bbf1c3ff8",
+      "text_sha256": "32fd5a8b7b6aed7bef9d0b549c46a24794341b3fd65cfc8aa11b62c8558d3452",
+      "page": 4,
+      "section": "Results: UK Biobank",
+      "excerpt": "Nevertheless, these associations were no \nlonger significant after the Bonferroni correction.",
+      "text_start": 16149,
+      "text_end": 16242,
+      "excerpt_sha256": "0c627fb19b1a1cc8419660a3cb529ef5932d58143660edfd78d30f3f552e7fd5",
+      "fact_ids": [
+        "f1"
+      ]
+    },
+    {
+      "id": "mr-common-taxa",
+      "article_id": "PMC10765819",
+      "filename": "outlier-microbiome-tb-mr.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "b84edcd99fa0718c9d3a09436bf6630753e58b76242627950a95062bbf1c3ff8",
+      "text_sha256": "32fd5a8b7b6aed7bef9d0b549c46a24794341b3fd65cfc8aa11b62c8558d3452",
+      "page": 8,
+      "section": "Results: Common taxa across databases",
+      "excerpt": "had a significant causal association with TB commonly in \nboth databases.",
+      "text_start": 22809,
+      "text_end": 22882,
+      "excerpt_sha256": "a44d08da0e30e0b1ead52c5b631315b5acdbad2f794b18bf66bcb2810053bf4a",
+      "fact_ids": [
+        "f1"
+      ]
+    },
+    {
+      "id": "mr-design",
+      "article_id": "PMC10765819",
+      "filename": "outlier-microbiome-tb-mr.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "b84edcd99fa0718c9d3a09436bf6630753e58b76242627950a95062bbf1c3ff8",
+      "text_sha256": "32fd5a8b7b6aed7bef9d0b549c46a24794341b3fd65cfc8aa11b62c8558d3452",
+      "page": 1,
+      "section": "Abstract: Methods",
+      "excerpt": "A bidirectional two-sample Mendelian randomization (MR) analysis was performed. The genome-wide \nassociation study (GWAS) summary statistics of gut microbiota were obtained from the MiBioGen consortium, \nwhile the GWAS summary statistics of TB and its specific phenotypes [respiratory tuberculosis (RTB) and extrapulmo-\nnary tuberculosis (EPTB)] were retrieved from the UK Biobank and the FinnGen consortium.",
+      "text_start": 1804,
+      "text_end": 2212,
+      "excerpt_sha256": "285d151e5961dcd948bfc80043b8087a88209fd1dd034205e3e5525979a6c53f",
+      "fact_ids": [
+        "f1"
+      ]
+    },
+    {
+      "id": "qPCR-summary",
+      "article_id": "PMC10997137",
+      "filename": "outlier-amr-method-comparison.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "da6eed455d3c5bb168b1d479a6a4bb91da44f04e4ca3c49ab3da6e071c744a7a",
+      "text_sha256": "99626756dd68014d3cff69314d24433c1b4ba68dddedede8640c5a2d1c1a9f71",
+      "page": 1,
+      "section": "Abstract",
+      "excerpt": "In this study, we compare metagenomic shotgun sequencing\n(TruSeq DNA sequencin g) of wastewater samples with a state-of-the-art PCR-based\nmethod (Resistomap HT-qPCR) on four wastewater samples that were taken from hospital,\nindustrial, urban and rural areas. ARGs that confer resistance to 11 antibiotic classes have\nbeen identified in these wastewater samples using both methods, with the most abundant\nobserved classes of ARGs conferring resistance to aminoglycoside, multidrug-r esistance\n(MDR), macrolide-lincosa mide-streptogramin B (MLSB), tetracycline and beta-lactams. In\ncomparing the methods, we observed a strong correlation of relative abundance of ARGs\nobtained by the two tested methods for the majority of antibiotic classes. Finally, we investi-\ngated the source of discrepancies in the results obtained by the two methods. This analysis\nrevealed that false negatives were more likely to occur in qPCR due to mutated primer target\nsites, whereas ARGs with incomplete or low coverage were not detected by the sequencing\nmethod due to the parameters set in the bioinformatics pipeline.",
+      "text_start": 1742,
+      "text_end": 2841,
+      "excerpt_sha256": "9c29fd13d8d979b5779af972b80dd26a8bbca1dc9a74dd3afb65f78a239689a9",
+      "fact_ids": [
+        "f1"
+      ]
+    },
+    {
+      "id": "wwtp-summary",
+      "article_id": "PMC11411718",
+      "filename": "outlier-amr-international-wwtp.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "ac7199ca586a309cc471d35f36e09a24708320b6f0e9e75536ffcb0d5f5c983e",
+      "text_sha256": "78dfa58d912a6feeea8a5f16e20c949694f586cd043f16f3fba50e93f51eb85e",
+      "page": 1,
+      "section": "Abstract",
+      "excerpt": "While the relative abundance (per 16S\nrRNA gene) of ARGs decreased during treatment at 11 of the 12\nWWTPs sampled and absolute abundance (per mL) decreased at all 12 WWTPs, increases in relative abundance were observed for\n40% of the ARGs detected at the 12th WWTP.",
+      "text_start": 1208,
+      "text_end": 1473,
+      "excerpt_sha256": "0d2b3d56752cda95fa6023dfb688bb186f4f02a38c6d6f20b03e94e0fb8cb48e",
+      "fact_ids": [
+        "f1"
+      ]
+    },
+    {
+      "id": "alzheimer-summary",
+      "article_id": "PMC12823827",
+      "filename": "outlier-alzheimer-dual-model.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "22866337743e361ad24e69d905fc3bd10ae0d2b541808c82f8bf8be887e35e4b",
+      "text_sha256": "4fc104e32e46b97399b6ce80f51512ef4d8aa27f02da36400b0d064e5fc5ee74",
+      "page": 1,
+      "section": "Abstract",
+      "excerpt": "The ANN achieved an accuracy of 87.08% in early-\nstage risk prediction, while the CNN demonstrated a superior 97% accuracy in \ndisease staging",
+      "text_start": 1432,
+      "text_end": 1574,
+      "excerpt_sha256": "b4ed427075c3a6653d380a68cace609397ca7f8a9b9745ff21f3229aabf154e3",
+      "fact_ids": [
+        "f1"
+      ]
+    },
+    {
+      "id": "alzheimer-validation-limit",
+      "article_id": "PMC12823827",
+      "filename": "outlier-alzheimer-dual-model.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "22866337743e361ad24e69d905fc3bd10ae0d2b541808c82f8bf8be887e35e4b",
+      "text_sha256": "4fc104e32e46b97399b6ce80f51512ef4d8aa27f02da36400b0d064e5fc5ee74",
+      "page": 11,
+      "section": "Discussion: Limitations",
+      "excerpt": "Another limitation is the absence of \nexternal validation using independent repositories such as ADNI or \nOASIS-3, which restricts the generalizability of the findings.",
+      "text_start": 42756,
+      "text_end": 42924,
+      "excerpt_sha256": "9aa2be51bd035b4ad7d96265f2ad1b991820b2020eae6cd53a72baf5a93a6555",
+      "fact_ids": [
+        "f1"
+      ]
+    },
+    {
+      "id": "ptb-probiotic-summary",
+      "article_id": "PMC13328407",
+      "filename": "outlier-microbiome-tuberculosis.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "3a11a3ecb40e48c359731f9059657690d3b0a83fe34550c576e93c85d1890141",
+      "text_sha256": "7d5dc6d4c487c524916aca28a6d0dcb0b5efb0c50b2732749ad3bbb8e48b36e3",
+      "page": 17,
+      "section": "6.2 Clinical evidence for FMT and probiotics",
+      "excerpt": "Patients with PTB who received\nprobiotics (n=5) showed a signi ﬁcant increase in gut microbiota\nalpha diversity compared to those who did not receive probiotics,\nalthough there was no notable change in beta diversity",
+      "text_start": 90651,
+      "text_end": 90867,
+      "excerpt_sha256": "54f6fdfebdb56b414026933f8d0ac00e49f1c2f7a4c7554a545e935af24fcc92",
+      "fact_ids": [
+        "f1"
+      ]
+    },
+    {
+      "id": "tb-ai-rct-gap",
+      "article_id": "PMC13328407",
+      "filename": "outlier-microbiome-tuberculosis.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "3a11a3ecb40e48c359731f9059657690d3b0a83fe34550c576e93c85d1890141",
+      "text_sha256": "7d5dc6d4c487c524916aca28a6d0dcb0b5efb0c50b2732749ad3bbb8e48b36e3",
+      "page": 14,
+      "section": "AI-assisted TB care limitations",
+      "excerpt": "Before AI algorithms can be routinely\napplied in TB precision care, randomized controlled trials are\nessential to assess whether AI-assisted strategies are superior to,\nequivalent to, or non-inferior to current standard-of-care treat-\nments",
+      "text_start": 74922,
+      "text_end": 75162,
+      "excerpt_sha256": "638f63b458011d35b89e8f75fd018b0a48f1b3d92c3b6b3b2162344cd7de0873",
+      "fact_ids": [
+        "f1"
+      ]
+    },
+    {
+      "id": "alzheimer-feature-importance",
+      "article_id": "PMC12823827",
+      "filename": "outlier-alzheimer-dual-model.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "22866337743e361ad24e69d905fc3bd10ae0d2b541808c82f8bf8be887e35e4b",
+      "text_sha256": "4fc104e32e46b97399b6ce80f51512ef4d8aa27f02da36400b0d064e5fc5ee74",
+      "page": 11,
+      "section": "Discussion: Feature importance",
+      "excerpt": "The results \nconsistently showed that the Mini-Mental State Examination \n(MMSE) score, age, systolic blood pressure, total cholesterol, and \nfamily history were the most influential features across all five \ntraining runs. Additional factors such as sleep quality, physical \nactivity, and comorbidities (e.g., diabetes, cardiovascular disease) \nalso contributed meaningfully to predictions.",
+      "text_start": 39677,
+      "text_end": 40067,
+      "excerpt_sha256": "a6a1863d0d0fb8d1cb78da0bd80733c20bde57cec18c05c46c4c33dc7cbbcf6f",
+      "fact_ids": [
+        "f1"
+      ]
+    }
+  ],
+  "queries": [
+    {
+      "id": "x001",
+      "revision": 1,
+      "category": "multi_hop",
+      "topics": [
+        "microbiome",
+        "tuberculosis",
+        "genetic-epidemiology"
+      ],
+      "question": "Yuan et al.’s abstract reports results for 195 taxa, 11 UK Biobank associations and three taxa validated in FinnGen. How does the UK-results section qualify those associations after multiple-comparison correction, and what does the later common-taxa section claim?",
+      "required_facts": [
+        {
+          "id": "f1",
+          "expected_text": "The abstract reports 195 taxa analyzed, 11 potential UK Biobank associations and three taxa (genus Akkermansia, family Verrucomicrobiacea and order Verrucomicrobiales) validated in FinnGen. The UK-results text labels the listed associations suggestive and says they were no longer significant after Bonferroni correction. A later section nevertheless describes three of those taxa as having significant causal associations in both databases. Preserve this internal inconsistency as the paper’s attributed wording; do not treat the reported genetic associations as an intervention effect.",
+          "units": "Source-reported values and qualifiers",
+          "population": "Genetically predicted gut-microbiota taxa and TB GWAS outcomes",
+          "endpoint": "Abstract counts and the study's multiplicity-adjusted UK/common-taxa claims",
+          "timeframe": "As reported in the cited study; no unreported horizon inferred.",
+          "qualifiers": "Preserve the stated study design, population, endpoint and association/causation limits.",
+          "tolerance": "Retain source rounding and all population/task qualifiers.",
+          "contradiction_rule": "Reject values from other populations or endpoints; do not turn observational or genetic associations into treatment effects."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "primary",
+          "anchors": [
+            "mr-summary",
+            "mr-uk-correction",
+            "mr-uk-bonferroni",
+            "mr-common-taxa"
+          ],
+          "fact_anchors": {
+            "f1": [
+              "mr-summary",
+              "mr-uk-correction",
+              "mr-uk-bonferroni",
+              "mr-common-taxa"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [],
+      "reference_answer": "The abstract reports 195 taxa analyzed, 11 potential UK Biobank associations and three taxa (genus Akkermansia, family Verrucomicrobiacea and order Verrucomicrobiales) validated in FinnGen. The UK-results text labels the listed associations suggestive and says they were no longer significant after Bonferroni correction. A later section nevertheless describes three of those taxa as having significant causal associations in both databases. Preserve this internal inconsistency as the paper’s attributed wording; do not treat the reported genetic associations as an intervention effect.",
+      "answer_rubric": {
+        "required_claims": [
+          "f1"
+        ],
+        "acceptable_alternatives": "Faithful, fully scoped paraphrase with source attribution; no unsupported clinical inference.",
+        "forbidden_conflations": [
+          "Do not equate environmental ARG abundance with patient infection incidence or clinical treatment outcomes."
+        ],
+        "judging_status": "Manual evidence review only; no generated-answer or paid judge run."
+      },
+      "answerability": {
+        "status": "answerable"
+      },
+      "dependencies": {
+        "required": [
+          "PMC10765819"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10765819",
+          "PMC10997137",
+          "PMC11411718",
+          "PMC12823827",
+          "PMC13328407"
+        ],
+        "negative_evidence": []
+      },
+      "review": {
+        "author": "Codex",
+        "method": "Focused full-text review of methods, results, limitations and topic overlap; searched the complete extracted text for alternative evidence and checked identity/evidence pages against source metadata and relevant JATS.",
+        "independent_review": "Claude CLI read-only review completed; Juan PR review pending. This is not independent clinical or domain-expert validation.",
+        "duplicate_leakage_check": "Four evidence anchors cover one abstract statement and three separate Results statements; the question supplies the abstract counts but not the correction result or the later significance claim.",
+        "tuning_exposure": "Authored before any retrieval result for this release.",
+        "alternative_evidence_check": "The TB review cites the MR study but does not reproduce the complete abstract/body conflict. No other selected article reports this set of taxa counts and correction language."
+      },
+      "selection_rationale": "Connects separated abstract and Results statements so the benchmark tests source-conflict handling rather than rewarding an unqualified abstract paraphrase.",
+      "reasoning": "Combine the abstract’s study-size and validation summary with three Results passages, explicitly reporting the source’s inconsistency and preserving genetic-association limits."
+    },
+    {
+      "id": "x002",
+      "revision": 1,
+      "category": "false_premise",
+      "topics": [
+        "microbiome",
+        "tuberculosis",
+        "genetic-epidemiology"
+      ],
+      "question": "What probiotic treatment and dose did Yuan et al. administer to demonstrate reduced TB incidence in patients?",
+      "required_facts": [
+        {
+          "id": "f1",
+          "expected_text": "None. Yuan et al. performed a bidirectional two-sample Mendelian-randomization analysis using genetic instruments and GWAS summary statistics; the study did not administer a probiotic or measure a treatment effect in patients.",
+          "units": "Source-reported values and qualifiers",
+          "population": "GWAS-derived genetic instruments and TB summary statistics",
+          "endpoint": "Whether the study tested a clinical probiotic intervention",
+          "timeframe": "As reported in the cited study; no unreported horizon inferred.",
+          "qualifiers": "Preserve the stated study design, population, endpoint and association/causation limits.",
+          "tolerance": "Retain source rounding and all population/task qualifiers.",
+          "contradiction_rule": "Reject values from other populations or endpoints; do not turn observational or genetic associations into treatment effects."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "primary",
+          "anchors": [
+            "mr-design"
+          ],
+          "fact_anchors": {
+            "f1": [
+              "mr-design"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [],
+      "reference_answer": "None. Yuan et al. performed a bidirectional two-sample Mendelian-randomization analysis using genetic instruments and GWAS summary statistics; the study did not administer a probiotic or measure a treatment effect in patients.",
+      "answer_rubric": {
+        "required_claims": [
+          "f1"
+        ],
+        "acceptable_alternatives": "Faithful, fully scoped paraphrase with source attribution; no unsupported clinical inference.",
+        "forbidden_conflations": [
+          "Do not equate environmental ARG abundance with patient infection incidence or clinical treatment outcomes."
+        ],
+        "judging_status": "Manual evidence review only; no generated-answer or paid judge run."
+      },
+      "answerability": {
+        "status": "false_premise"
+      },
+      "dependencies": {
+        "required": [
+          "PMC10765819"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10765819",
+          "PMC10997137",
+          "PMC11411718",
+          "PMC12823827",
+          "PMC13328407"
+        ],
+        "negative_evidence": []
+      },
+      "review": {
+        "author": "Codex",
+        "method": "Focused full-text review of methods, results, limitations and topic overlap; searched the complete extracted text for alternative evidence and checked identity/evidence pages against source metadata and relevant JATS.",
+        "independent_review": "Claude CLI read-only review completed; Juan PR review pending. This is not independent clinical or domain-expert validation.",
+        "duplicate_leakage_check": "The method description identifies a two-sample genetic analysis; the requested administered dose is not in the question.",
+        "tuning_exposure": "Authored before any retrieval result for this release.",
+        "alternative_evidence_check": "The review discusses probiotic studies separately, but none changes the design of this named MR study."
+      },
+      "selection_rationale": "A false-premise case separating genetic association from intervention evidence."
+    },
+    {
+      "id": "x003",
+      "revision": 1,
+      "category": "direct_lookup",
+      "topics": [
+        "environmental-amr",
+        "wastewater",
+        "sequencing-methods"
+      ],
+      "question": "In Daw Elbait et al.’s qPCR-versus-metagenomic comparison, what kinds of wastewater sites supplied the four samples, and what did the authors identify as the main source of false negatives for each method?",
+      "required_facts": [
+        {
+          "id": "f1",
+          "expected_text": "The four samples came from hospital, industrial, urban and rural areas. False negatives were more likely in qPCR when primer target sites were mutated; metagenomic sequencing missed ARGs with incomplete or low coverage under the bioinformatics-pipeline thresholds.",
+          "units": "Source-reported values and qualifiers",
+          "population": "Four wastewater samples analyzed with Resistomap HT-qPCR and shotgun metagenomic sequencing",
+          "endpoint": "Sampling settings and method-specific false-negative mechanisms",
+          "timeframe": "As reported in the cited study; no unreported horizon inferred.",
+          "qualifiers": "Preserve the stated study design, population, endpoint and association/causation limits.",
+          "tolerance": "Retain source rounding and all population/task qualifiers.",
+          "contradiction_rule": "Reject values from other populations or endpoints; do not turn observational or genetic associations into treatment effects."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "primary",
+          "anchors": [
+            "qPCR-summary"
+          ],
+          "fact_anchors": {
+            "f1": [
+              "qPCR-summary"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [],
+      "reference_answer": "The four samples came from hospital, industrial, urban and rural areas. False negatives were more likely in qPCR when primer target sites were mutated; metagenomic sequencing missed ARGs with incomplete or low coverage under the bioinformatics-pipeline thresholds.",
+      "answer_rubric": {
+        "required_claims": [
+          "f1"
+        ],
+        "acceptable_alternatives": "Faithful, fully scoped paraphrase with source attribution; no unsupported clinical inference.",
+        "forbidden_conflations": [
+          "Do not equate environmental ARG abundance with patient infection incidence or clinical treatment outcomes."
+        ],
+        "judging_status": "Manual evidence review only; no generated-answer or paid judge run."
+      },
+      "answerability": {
+        "status": "answerable"
+      },
+      "dependencies": {
+        "required": [
+          "PMC10997137"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10765819",
+          "PMC10997137",
+          "PMC11411718",
+          "PMC12823827",
+          "PMC13328407"
+        ],
+        "negative_evidence": []
+      },
+      "review": {
+        "author": "Codex",
+        "method": "Focused full-text review of methods, results, limitations and topic overlap; searched the complete extracted text for alternative evidence and checked identity/evidence pages against source metadata and relevant JATS.",
+        "independent_review": "Claude CLI read-only review completed; Juan PR review pending. This is not independent clinical or domain-expert validation.",
+        "duplicate_leakage_check": "The values and paired failure mechanisms occur together in the article abstract.",
+        "tuning_exposure": "Authored before any retrieval result for this release.",
+        "alternative_evidence_check": "The international WWTP study uses metagenomics and qPCR normalization but does not report this four-site primer-mismatch comparison."
+      },
+      "selection_rationale": "A methods-comparison case that tests the distinction between targeted-primer mismatch and sequencing coverage thresholds."
+    },
+    {
+      "id": "x004",
+      "revision": 1,
+      "category": "cross_doc_distractor",
+      "topics": [
+        "environmental-amr",
+        "wastewater"
+      ],
+      "question": "Across Garner et al.’s internationally sampled wastewater-treatment plants, how often did total ARG abundance decline after treatment when abundance was expressed per 16S rRNA gene and per millilitre?",
+      "required_facts": [
+        {
+          "id": "f1",
+          "expected_text": "Total ARG relative abundance (per 16S rRNA gene) decreased at 11 of 12 WWTPs, while absolute abundance (per mL) decreased at all 12. The separate qPCR-versus-metagenomic comparison sampled four wastewater settings and is not the 12-plant result.",
+          "units": "Source-reported values and qualifiers",
+          "population": "Twelve internationally sourced WWTPs",
+          "endpoint": "Aggregate relative and absolute ARG abundance after treatment",
+          "timeframe": "As reported in the cited study; no unreported horizon inferred.",
+          "qualifiers": "Preserve the stated study design, population, endpoint and association/causation limits.",
+          "tolerance": "Retain source rounding and all population/task qualifiers.",
+          "contradiction_rule": "Reject values from other populations or endpoints; do not turn observational or genetic associations into treatment effects."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "primary",
+          "anchors": [
+            "wwtp-summary"
+          ],
+          "fact_anchors": {
+            "f1": [
+              "wwtp-summary"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [
+        {
+          "article_id": "PMC10997137",
+          "filename": "outlier-amr-method-comparison.pdf",
+          "anchor_id": "qPCR-summary",
+          "plausible_confusion": "Both papers report metagenomic wastewater measurements and ARG abundance.",
+          "reason_inapplicable": "The four-site qPCR comparison does not report treatment outcomes across Garner et al.’s 12 internationally sourced WWTPs."
+        }
+      ],
+      "reference_answer": "Total ARG relative abundance (per 16S rRNA gene) decreased at 11 of 12 WWTPs, while absolute abundance (per mL) decreased at all 12. The separate qPCR-versus-metagenomic comparison sampled four wastewater settings and is not the 12-plant result.",
+      "answer_rubric": {
+        "required_claims": [
+          "f1"
+        ],
+        "acceptable_alternatives": "Faithful, fully scoped paraphrase with source attribution; no unsupported clinical inference.",
+        "forbidden_conflations": [
+          "Do not equate environmental ARG abundance with patient infection incidence or clinical treatment outcomes."
+        ],
+        "judging_status": "Manual evidence review only; no generated-answer or paid judge run."
+      },
+      "answerability": {
+        "status": "answerable"
+      },
+      "dependencies": {
+        "required": [
+          "PMC11411718"
+        ],
+        "alternatives": [],
+        "decoys": [
+          "PMC10997137"
+        ],
+        "overlap_review": [
+          "PMC10765819",
+          "PMC10997137",
+          "PMC11411718",
+          "PMC12823827",
+          "PMC13328407"
+        ],
+        "negative_evidence": []
+      },
+      "review": {
+        "author": "Codex",
+        "method": "Focused full-text review of methods, results, limitations and topic overlap; searched the complete extracted text for alternative evidence and checked identity/evidence pages against source metadata and relevant JATS.",
+        "independent_review": "Claude CLI read-only review completed; Juan PR review pending. This is not independent clinical or domain-expert validation.",
+        "duplicate_leakage_check": "The target values and denominators are not present in the question; the qPCR article is a plausible study-level competitor.",
+        "tuning_exposure": "Authored before any retrieval result for this release.",
+        "alternative_evidence_check": "The 11/12 and 12/12 totals are specific to Garner et al.; Daw Elbait et al. studies four different wastewater samples and method agreement."
+      },
+      "selection_rationale": "A named competitor distinguishes a 12-plant treatment study from a four-sample methods comparison."
+    },
+    {
+      "id": "x005",
+      "revision": 1,
+      "category": "direct_lookup",
+      "topics": [
+        "cognitive-diagnosis",
+        "diagnostic-ai"
+      ],
+      "question": "In Ciftci et al.’s dual-model Alzheimer paper, what accuracies are reported for the clinical ANN and MRI CNN, and what distinct tasks do those figures describe?",
+      "required_facts": [
+        {
+          "id": "f1",
+          "expected_text": "The ANN reports 87.08% accuracy for early-stage risk prediction using clinical data; the CNN reports 97% accuracy for classifying Alzheimer disease into four stages from MRI images. These are different datasets and tasks, not a head-to-head comparison of clinical diagnostic performance.",
+          "units": "Source-reported values and qualifiers",
+          "population": "The paper’s public clinical dataset and MRI-image dataset",
+          "endpoint": "Accuracy for clinical early-stage risk prediction versus MRI-based four-stage classification",
+          "timeframe": "As reported in the cited study; no unreported horizon inferred.",
+          "qualifiers": "Preserve the stated study design, population, endpoint and association/causation limits.",
+          "tolerance": "Retain source rounding and all population/task qualifiers.",
+          "contradiction_rule": "Reject values from other populations or endpoints; do not turn observational or genetic associations into treatment effects."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "primary",
+          "anchors": [
+            "alzheimer-summary"
+          ],
+          "fact_anchors": {
+            "f1": [
+              "alzheimer-summary"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [],
+      "reference_answer": "The ANN reports 87.08% accuracy for early-stage risk prediction using clinical data; the CNN reports 97% accuracy for classifying Alzheimer disease into four stages from MRI images. These are different datasets and tasks, not a head-to-head comparison of clinical diagnostic performance.",
+      "answer_rubric": {
+        "required_claims": [
+          "f1"
+        ],
+        "acceptable_alternatives": "Faithful, fully scoped paraphrase with source attribution; no unsupported clinical inference.",
+        "forbidden_conflations": [
+          "Do not equate environmental ARG abundance with patient infection incidence or clinical treatment outcomes."
+        ],
+        "judging_status": "Manual evidence review only; no generated-answer or paid judge run."
+      },
+      "answerability": {
+        "status": "answerable"
+      },
+      "dependencies": {
+        "required": [
+          "PMC12823827"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10765819",
+          "PMC10997137",
+          "PMC11411718",
+          "PMC12823827",
+          "PMC13328407"
+        ],
+        "negative_evidence": []
+      },
+      "review": {
+        "author": "Codex",
+        "method": "Focused full-text review of methods, results, limitations and topic overlap; searched the complete extracted text for alternative evidence and checked identity/evidence pages against source metadata and relevant JATS.",
+        "independent_review": "Claude CLI read-only review completed; Juan PR review pending. This is not independent clinical or domain-expert validation.",
+        "duplicate_leakage_check": "The abstract states both accuracies with their separate model tasks; the question does not give target values.",
+        "tuning_exposure": "Authored before any retrieval result for this release.",
+        "alternative_evidence_check": "No other selected article reports these two Alzheimer-model results."
+      },
+      "selection_rationale": "Separates two prominent percentages whose populations, inputs and outcomes differ."
+    },
+    {
+      "id": "x006",
+      "revision": 1,
+      "category": "false_premise",
+      "topics": [
+        "cognitive-diagnosis",
+        "diagnostic-ai"
+      ],
+      "question": "Which independent ADNI or OASIS-3 validation cohort confirmed the Alzheimer models’ reported performance?",
+      "required_facts": [
+        {
+          "id": "f1",
+          "expected_text": "None is reported. The authors list the absence of external validation using independent repositories such as ADNI or OASIS-3 as a limitation, which restricts generalizability.",
+          "units": "Source-reported values and qualifiers",
+          "population": "The Alzheimer paper’s model validation",
+          "endpoint": "Whether independent external validation was performed",
+          "timeframe": "As reported in the cited study; no unreported horizon inferred.",
+          "qualifiers": "Preserve the stated study design, population, endpoint and association/causation limits.",
+          "tolerance": "Retain source rounding and all population/task qualifiers.",
+          "contradiction_rule": "Reject values from other populations or endpoints; do not turn observational or genetic associations into treatment effects."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "primary",
+          "anchors": [
+            "alzheimer-validation-limit"
+          ],
+          "fact_anchors": {
+            "f1": [
+              "alzheimer-validation-limit"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [],
+      "reference_answer": "None is reported. The authors list the absence of external validation using independent repositories such as ADNI or OASIS-3 as a limitation, which restricts generalizability.",
+      "answer_rubric": {
+        "required_claims": [
+          "f1"
+        ],
+        "acceptable_alternatives": "Faithful, fully scoped paraphrase with source attribution; no unsupported clinical inference.",
+        "forbidden_conflations": [
+          "Do not equate environmental ARG abundance with patient infection incidence or clinical treatment outcomes."
+        ],
+        "judging_status": "Manual evidence review only; no generated-answer or paid judge run."
+      },
+      "answerability": {
+        "status": "false_premise"
+      },
+      "dependencies": {
+        "required": [
+          "PMC12823827"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10765819",
+          "PMC10997137",
+          "PMC11411718",
+          "PMC12823827",
+          "PMC13328407"
+        ],
+        "negative_evidence": []
+      },
+      "review": {
+        "author": "Codex",
+        "method": "Focused full-text review of methods, results, limitations and topic overlap; searched the complete extracted text for alternative evidence and checked identity/evidence pages against source metadata and relevant JATS.",
+        "independent_review": "Claude CLI read-only review completed; Juan PR review pending. This is not independent clinical or domain-expert validation.",
+        "duplicate_leakage_check": "The question asks for an external validation result not claimed in the source.",
+        "tuning_exposure": "Authored before any retrieval result for this release.",
+        "alternative_evidence_check": "No other selected article validates these Alzheimer models or supplies an ADNI/OASIS-3 result for them."
+      },
+      "selection_rationale": "A false-premise correction grounded in the authors’ stated limitation."
+    },
+    {
+      "id": "x007",
+      "revision": 1,
+      "category": "direct_lookup",
+      "topics": [
+        "microbiome",
+        "tuberculosis"
+      ],
+      "question": "In the TB review’s summary of a small PTB probiotic group, what happened to alpha diversity and beta diversity compared with patients who did not receive probiotics?",
+      "required_facts": [
+        {
+          "id": "f1",
+          "expected_text": "For the cited PTB group receiving probiotics (n=5), gut-microbiota alpha diversity increased significantly compared with those not receiving probiotics; no notable change in beta diversity was reported.",
+          "units": "Source-reported values and qualifiers",
+          "population": "PTB patients in the cited probiotic study",
+          "endpoint": "Gut-microbiota alpha and beta diversity",
+          "timeframe": "As reported in the cited study; no unreported horizon inferred.",
+          "qualifiers": "Preserve the stated study design, population, endpoint and association/causation limits.",
+          "tolerance": "Retain source rounding and all population/task qualifiers.",
+          "contradiction_rule": "Reject values from other populations or endpoints; do not turn observational or genetic associations into treatment effects."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "primary",
+          "anchors": [
+            "ptb-probiotic-summary"
+          ],
+          "fact_anchors": {
+            "f1": [
+              "ptb-probiotic-summary"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [],
+      "reference_answer": "For the cited PTB group receiving probiotics (n=5), gut-microbiota alpha diversity increased significantly compared with those not receiving probiotics; no notable change in beta diversity was reported.",
+      "answer_rubric": {
+        "required_claims": [
+          "f1"
+        ],
+        "acceptable_alternatives": "Faithful, fully scoped paraphrase with source attribution; no unsupported clinical inference.",
+        "forbidden_conflations": [
+          "Do not equate environmental ARG abundance with patient infection incidence or clinical treatment outcomes."
+        ],
+        "judging_status": "Manual evidence review only; no generated-answer or paid judge run."
+      },
+      "answerability": {
+        "status": "answerable"
+      },
+      "dependencies": {
+        "required": [
+          "PMC13328407"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10765819",
+          "PMC10997137",
+          "PMC11411718",
+          "PMC12823827",
+          "PMC13328407"
+        ],
+        "negative_evidence": []
+      },
+      "review": {
+        "author": "Codex",
+        "method": "Focused full-text review of methods, results, limitations and topic overlap; searched the complete extracted text for alternative evidence and checked identity/evidence pages against source metadata and relevant JATS.",
+        "independent_review": "Claude CLI read-only review completed; Juan PR review pending. This is not independent clinical or domain-expert validation.",
+        "duplicate_leakage_check": "The cited group size and both diversity outcomes occur in one passage.",
+        "tuning_exposure": "Authored before any retrieval result for this release.",
+        "alternative_evidence_check": "The MR paper reports genetic associations rather than this probiotic cohort; no other selected article reports its alpha/beta diversity comparison."
+      },
+      "selection_rationale": "A bounded lookup of the review’s description of a cited human probiotic study; it does not establish a TB treatment effect."
+    },
+    {
+      "id": "x008",
+      "revision": 1,
+      "category": "false_premise",
+      "topics": [
+        "microbiome",
+        "tuberculosis",
+        "diagnostic-ai"
+      ],
+      "question": "Which randomized clinical trial in the TB review established that AI-assisted precision-care strategies outperform standard care?",
+      "required_facts": [
+        {
+          "id": "f1",
+          "expected_text": "The review identifies no such established superiority result. It says randomized controlled trials are essential to assess whether AI-assisted TB strategies are superior, equivalent or non-inferior to standard care.",
+          "units": "Source-reported values and qualifiers",
+          "population": "AI-assisted TB precision-care strategies",
+          "endpoint": "Comparative clinical outcomes versus standard care",
+          "timeframe": "As reported in the cited study; no unreported horizon inferred.",
+          "qualifiers": "Preserve the stated study design, population, endpoint and association/causation limits.",
+          "tolerance": "Retain source rounding and all population/task qualifiers.",
+          "contradiction_rule": "Reject values from other populations or endpoints; do not turn observational or genetic associations into treatment effects."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "primary",
+          "anchors": [
+            "tb-ai-rct-gap"
+          ],
+          "fact_anchors": {
+            "f1": [
+              "tb-ai-rct-gap"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [],
+      "reference_answer": "The review identifies no such established superiority result. It says randomized controlled trials are essential to assess whether AI-assisted TB strategies are superior, equivalent or non-inferior to standard care.",
+      "answer_rubric": {
+        "required_claims": [
+          "f1"
+        ],
+        "acceptable_alternatives": "Faithful, fully scoped paraphrase with source attribution; no unsupported clinical inference.",
+        "forbidden_conflations": [
+          "Do not equate environmental ARG abundance with patient infection incidence or clinical treatment outcomes."
+        ],
+        "judging_status": "Manual evidence review only; no generated-answer or paid judge run."
+      },
+      "answerability": {
+        "status": "false_premise"
+      },
+      "dependencies": {
+        "required": [
+          "PMC13328407"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10765819",
+          "PMC10997137",
+          "PMC11411718",
+          "PMC12823827",
+          "PMC13328407"
+        ],
+        "negative_evidence": []
+      },
+      "review": {
+        "author": "Codex",
+        "method": "Focused full-text review of methods, results, limitations and topic overlap; searched the complete extracted text for alternative evidence and checked identity/evidence pages against source metadata and relevant JATS.",
+        "independent_review": "Claude CLI read-only review completed; Juan PR review pending. This is not independent clinical or domain-expert validation.",
+        "duplicate_leakage_check": "The source explicitly presents the comparative trial as needed; it does not provide a result.",
+        "tuning_exposure": "Authored before any retrieval result for this release.",
+        "alternative_evidence_check": "The Alzheimer article evaluates public datasets and does not test AI-assisted TB care or standard-care outcomes."
+      },
+      "selection_rationale": "A false-premise correction that distinguishes promised AI applications from demonstrated comparative clinical benefit."
+    },
+    {
+      "id": "x009",
+      "revision": 1,
+      "category": "unanswerable",
+      "topics": [
+        "environmental-amr",
+        "wastewater"
+      ],
+      "question": "Across the five selected outlier articles, how many downstream patients developed antibiotic-resistant infections linked to the sampled wastewater plants?",
+      "required_facts": [],
+      "evidence_sets": [],
+      "related_distractors": [],
+      "reference_answer": "The selected corpus does not report a prospective patient infection count linked to the sampled wastewater plants. The wastewater papers measure environmental ARGs; neither follows exposed residents for clinical infection outcomes.",
+      "answer_rubric": {
+        "required_claims": [],
+        "acceptable_alternatives": "Faithful, fully scoped paraphrase with source attribution; no unsupported clinical inference.",
+        "forbidden_conflations": [
+          "Do not equate environmental ARG abundance with patient infection incidence or clinical treatment outcomes."
+        ],
+        "judging_status": "Manual evidence review only; no generated-answer or paid judge run."
+      },
+      "answerability": {
+        "status": "absent_fact",
+        "missing_fact": "No selected article reports a prospective downstream patient cohort or counts resistant infections linked to the sampled WWTP ARG measurements.",
+        "search_scope": "All five selected outlier articles in outliers-v1; both wastewater papers were checked in full for patient-linked infection outcomes, then the other three selected articles were reviewed for the same relation."
+      },
+      "dependencies": {
+        "required": [],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10765819",
+          "PMC10997137",
+          "PMC11411718",
+          "PMC12823827",
+          "PMC13328407"
+        ],
+        "negative_evidence": [
+          "PMC10997137",
+          "PMC11411718",
+          "PMC10765819",
+          "PMC12823827",
+          "PMC13328407"
+        ]
+      },
+      "review": {
+        "author": "Codex",
+        "method": "Focused full-text review of methods, results, limitations and topic overlap; searched the complete extracted text for alternative evidence and checked identity/evidence pages against source metadata and relevant JATS.",
+        "independent_review": "Claude CLI read-only review completed; Juan PR review pending. This is not independent clinical or domain-expert validation.",
+        "duplicate_leakage_check": "The five-outlier-article absence review was completed before evaluation; this asks for patient outcomes, not environmental ARG detection.",
+        "tuning_exposure": "Authored before any retrieval result for this release.",
+        "alternative_evidence_check": "The two environmental articles report wastewater samples and ARG measurements; the other three concern microbiome/TB associations, a TB review and Alzheimer models. No downstream WWTP-exposed patient cohort or linked infection count appears."
+      },
+      "selection_rationale": "An absent-fact case testing the boundary between environmental resistance-gene surveillance and linked human clinical outcomes."
+    },
+    {
+      "id": "x010",
+      "revision": 1,
+      "category": "direct_lookup",
+      "topics": [
+        "cognitive-diagnosis",
+        "cardiometabolic-overlap"
+      ],
+      "question": "Across the Alzheimer ANN’s five training runs, which clinical features were most influential, and how did the authors describe diabetes and cardiovascular disease?",
+      "required_facts": [
+        {
+          "id": "f1",
+          "expected_text": "MMSE score, age, systolic blood pressure, total cholesterol and family history were the most influential features across the five runs. Diabetes and cardiovascular disease were additional contributing comorbidities; the feature analysis was post-hoc and does not establish that those conditions cause Alzheimer disease.",
+          "units": "Source-reported values and qualifiers",
+          "population": "The Alzheimer paper’s clinical ANN feature analysis",
+          "endpoint": "Post-hoc predictive feature importance and comorbidity contribution",
+          "timeframe": "As reported in the cited study; no unreported horizon inferred.",
+          "qualifiers": "Preserve the stated study design, population, endpoint and association/causation limits.",
+          "tolerance": "Retain source rounding and all population/task qualifiers.",
+          "contradiction_rule": "Reject values from other populations or endpoints; do not turn observational or genetic associations into treatment effects."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "primary",
+          "anchors": [
+            "alzheimer-feature-importance"
+          ],
+          "fact_anchors": {
+            "f1": [
+              "alzheimer-feature-importance"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [],
+      "reference_answer": "MMSE score, age, systolic blood pressure, total cholesterol and family history were the most influential features across the five runs. Diabetes and cardiovascular disease were additional contributing comorbidities; the feature analysis was post-hoc and does not establish that those conditions cause Alzheimer disease.",
+      "answer_rubric": {
+        "required_claims": [
+          "f1"
+        ],
+        "acceptable_alternatives": "Faithful, fully scoped paraphrase with source attribution; no unsupported clinical inference.",
+        "forbidden_conflations": [
+          "Do not equate environmental ARG abundance with patient infection incidence or clinical treatment outcomes."
+        ],
+        "judging_status": "Manual evidence review only; no generated-answer or paid judge run."
+      },
+      "answerability": {
+        "status": "answerable"
+      },
+      "dependencies": {
+        "required": [
+          "PMC12823827"
+        ],
+        "alternatives": [],
+        "decoys": [],
+        "overlap_review": [
+          "PMC10765819",
+          "PMC10997137",
+          "PMC11411718",
+          "PMC12823827",
+          "PMC13328407"
+        ],
+        "negative_evidence": []
+      },
+      "review": {
+        "author": "Codex",
+        "method": "Focused full-text review of methods, results, limitations and topic overlap; searched the complete extracted text for alternative evidence and checked identity/evidence pages against source metadata and relevant JATS.",
+        "independent_review": "Claude CLI read-only review completed; Juan PR review pending. This is not independent clinical or domain-expert validation.",
+        "duplicate_leakage_check": "The requested features occur together in one Discussion passage; no feature names appear in the question.",
+        "tuning_exposure": "Authored before any retrieval result for this release.",
+        "alternative_evidence_check": "Cardiology and diabetes papers discuss related factors but do not reproduce the Alzheimer model’s five-run feature-importance result."
+      },
+      "selection_rationale": "Records the explicit vascular and diabetes vocabulary bridge while preserving the paper’s predictive, non-causal scope."
+    }
+  ],
+  "query_sha256": "152679650cd8a591abd99421e03d1dc6fe7bfee5b240936b927e205256be3f2d"
+}

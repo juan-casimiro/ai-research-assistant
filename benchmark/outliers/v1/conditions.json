@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "corpus_version": "outliers-v1",
+  "query_sha256": "20c1be5bb8f3e83b94cee0731698c02452ad5203f4e61c1c257c095b24baa1dd",
+  "article_tuples": [
+    {
+      "article_id": "PMC10765819",
+      "pmc_version": 1,
+      "pdf_sha256": "b84edcd99fa0718c9d3a09436bf6630753e58b76242627950a95062bbf1c3ff8",
+      "text_sha256": "32fd5a8b7b6aed7bef9d0b549c46a24794341b3fd65cfc8aa11b62c8558d3452"
+    },
+    {
+      "article_id": "PMC10997137",
+      "pmc_version": 1,
+      "pdf_sha256": "da6eed455d3c5bb168b1d479a6a4bb91da44f04e4ca3c49ab3da6e071c744a7a",
+      "text_sha256": "99626756dd68014d3cff69314d24433c1b4ba68dddedede8640c5a2d1c1a9f71"
+    },
+    {
+      "article_id": "PMC11411718",
+      "pmc_version": 1,
+      "pdf_sha256": "ac7199ca586a309cc471d35f36e09a24708320b6f0e9e75536ffcb0d5f5c983e",
+      "text_sha256": "78dfa58d912a6feeea8a5f16e20c949694f586cd043f16f3fba50e93f51eb85e"
+    },
+    {
+      "article_id": "PMC12823827",
+      "pmc_version": 1,
+      "pdf_sha256": "22866337743e361ad24e69d905fc3bd10ae0d2b541808c82f8bf8be887e35e4b",
+      "text_sha256": "4fc104e32e46b97399b6ce80f51512ef4d8aa27f02da36400b0d064e5fc5ee74"
+    },
+    {
+      "article_id": "PMC13328407",
+      "pmc_version": 1,
+      "pdf_sha256": "3a11a3ecb40e48c359731f9059657690d3b0a83fe34550c576e93c85d1890141",
+      "text_sha256": "7d5dc6d4c487c524916aca28a6d0dcb0b5efb0c50b2732749ad3bbb8e48b36e3"
+    }
+  ],
+  "conditions": {
+    "C1": {
+      "article_ids": [
+        "PMC10765819",
+        "PMC10997137",
+        "PMC11411718",
+        "PMC12823827",
+        "PMC13328407"
+      ],
+      "purpose": "Exact union of answer-source articles and the named within-topic decoy.",
+      "membership_sha256": "3188841aad66ce0979a30f47f7cbe5dcfb8d9d2bcdade1931c64ad309cac4d70"
+    },
+    "C2": {
+      "article_ids": [
+        "PMC10765819",
+        "PMC10997137",
+        "PMC11411718",
+        "PMC12823827",
+        "PMC13328407"
+      ],
+      "purpose": "C1 plus all selected outlier-topic articles; no unprescribed additional competition articles were selected, so membership is identical and should be evaluated once.",
+      "membership_sha256": "3188841aad66ce0979a30f47f7cbe5dcfb8d9d2bcdade1931c64ad309cac4d70"
+    },
+    "C3": {
+      "article_ids": [
+        "PMC10765819",
+        "PMC10997137",
+        "PMC11411718",
+        "PMC12823827",
+        "PMC13328407"
+      ],
+      "purpose": "Outlier-only placeholder; combined multi-topic membership and absence review belong to JUA-114.",
+      "status": "broader_cross_topic_membership_pending",
+      "membership_sha256": "3188841aad66ce0979a30f47f7cbe5dcfb8d9d2bcdade1931c64ad309cac4d70"
+    }
+  },
+  "query_version": "outliers-v1"
+}

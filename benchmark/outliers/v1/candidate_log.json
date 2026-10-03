@@ -1,0 +1,131 @@
+{
+  "selected": [
+    {
+      "article_id": "PMC10765819",
+      "decision": "selected",
+      "reason": "Add primary genetic evidence as competition to the review: nominal associations lose significance after multiplicity correction; MR cannot establish a treatment benefit.",
+      "candidate_query": "tuberculosis gut microbiota 2024 cohort",
+      "query_provenance": "candidate-log query string; original search syntax not independently retained"
+    },
+    {
+      "article_id": "PMC10997137",
+      "decision": "selected",
+      "reason": "Add a complementary method-comparison study to test primer mismatches versus sequencing coverage thresholds; four Abu Dhabi samples are distinct from the international WWTP facilities.",
+      "candidate_query": "Comparison of qPCR and metagenomic sequencing methods PMC",
+      "query_provenance": "candidate-log query string; original search syntax not independently retained"
+    },
+    {
+      "article_id": "PMC11411718",
+      "decision": "selected",
+      "reason": "Replace the excluded Galápagos field study with a different explicitly identified wastewater evidence family: absolute versus relative ARG abundance, diversity, mobility and pathogen-scaffold denominators.",
+      "candidate_query": "wastewater antimicrobial resistance metagenomic surveillance 2024 Creative Commons",
+      "query_provenance": "candidate-log query string; original search syntax not independently retained"
+    },
+    {
+      "article_id": "PMC12823827",
+      "decision": "selected",
+      "reason": "Restore cognitive/AI-diagnosis topic coverage with eligible imaging/clinical models, not GPT-5 or p-tau217 facts. Test reported model performance, missing external validation, vascular predictors and conflicting workflow descriptions. The clinical model also includes systolic blood pressure and reports diabetes and cardiovascular disease as contributing comorbidities; these are contextual overlaps, not evidence that those conditions cause Alzheimer disease.",
+      "candidate_query": "machine learning Alzheimer 2023 CC BY diagnosis",
+      "query_provenance": "candidate-log query string; original search syntax not independently retained"
+    },
+    {
+      "article_id": "PMC13328407",
+      "decision": "selected",
+      "reason": "Retain the legacy review with exact deposit rights and source identity; contrast translational promises with missing clinical FMT evidence and distinguish liver-toxicity prediction from diagnosis.",
+      "candidate_query": "gut microbiome AND dietary intervention",
+      "query_provenance": "legacy_manifest; original query record not independently retained"
+    }
+  ],
+  "other_candidates": [
+    {
+      "candidate_id": "PMC13439418",
+      "filename": "outlier-amr-surveillance.pdf",
+      "decision": "excluded",
+      "failed_gates": [
+        "licence: CC BY-NC-ND 4.0 is outside the selected policy"
+      ],
+      "reason": "The Galápagos wastewater study is not eligible for the new permissive corpus; the internationally sampled replacement covers a distinct wastewater evidence family.",
+      "review_date": "2026-10-03",
+      "owner_issue": "JUA-113"
+    },
+    {
+      "candidate_id": "outlier-gpt5-tau217-diagnosis.pdf",
+      "filename": "outlier-gpt5-tau217-diagnosis.pdf",
+      "decision": "excluded",
+      "failed_gates": [
+        "identifier: no validated PMCID",
+        "licence: CC BY-NC-ND 4.0",
+        "download: only a manual Ovid route was recorded"
+      ],
+      "reason": "Reuse the cardiology task's exclusion. A newly selected Alzheimer imaging/clinical model does not replace the source-specific plasma p-tau217/physician-versus-GPT-5 evidence.",
+      "review_date": "2026-10-03",
+      "owner_issue": "JUA-108"
+    },
+    {
+      "candidate_id": "PMC12484780",
+      "decision": "excluded",
+      "failed_gates": [
+        "licence: Cloud metadata identifies CC BY-NC-ND",
+        "PDF: no eligible PDF acquired"
+      ],
+      "reason": "Does not meet the selected article policy.",
+      "review_date": "2026-10-03",
+      "owner_issue": "JUA-113"
+    },
+    {
+      "candidate_id": "PMC13144492",
+      "decision": "excluded",
+      "failed_gates": [
+        "licence: Cloud metadata identifies CC BY-NC-ND",
+        "PDF: no eligible PDF acquired"
+      ],
+      "reason": "Does not meet the selected article policy.",
+      "review_date": "2026-10-03",
+      "owner_issue": "JUA-113"
+    },
+    {
+      "candidate_id": "PMC13237847",
+      "decision": "excluded",
+      "failed_gates": [
+        "licence: Cloud metadata identifies CC BY-NC-ND",
+        "PDF: no eligible PDF acquired"
+      ],
+      "reason": "Does not meet the selected article policy.",
+      "review_date": "2026-10-03",
+      "owner_issue": "JUA-113"
+    },
+    {
+      "candidate_id": "PMC12666730",
+      "decision": "excluded",
+      "failed_gates": [
+        "licence: Cloud metadata identifies CC BY-NC-ND",
+        "PDF: no eligible PDF acquired"
+      ],
+      "reason": "Does not meet the selected article policy.",
+      "review_date": "2026-10-03",
+      "owner_issue": "JUA-113"
+    },
+    {
+      "candidate_id": "PMC12919097",
+      "decision": "deferred",
+      "failed_gates": [
+        "identity: full identity/rights checks incomplete after ID Converter HTTP 429",
+        "publication: preprint status not independently resolved"
+      ],
+      "reason": "Eligibility was not established; no claim that this candidate passes the corpus gates.",
+      "review_date": "2026-10-03",
+      "owner_issue": "JUA-113"
+    },
+    {
+      "candidate_id": "PMC9450895",
+      "decision": "deferred",
+      "failed_gates": [
+        "identity: repeated ID Converter HTTP 429 prevented full bibliographic verification",
+        "PDF/licence: eligibility not established"
+      ],
+      "reason": "Cloud availability alone is not sufficient to select this useful fecal-carriage methods candidate.",
+      "review_date": "2026-10-03",
+      "owner_issue": "JUA-113"
+    }
+  ]
+}
