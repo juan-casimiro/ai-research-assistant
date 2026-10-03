@@ -178,5 +178,29 @@
       ],
       "negative_evidence": []
     }
-  ]
+  ],
+  "supplementary_als_ftd_review": {
+    "version": "outlier-als-ftd-audit-v1",
+    "record": "als-ftd-audit-v1/audit.json",
+    "reviewed_article_ids": [
+      "PMC10188109",
+      "PMC10802081",
+      "PMC11047104",
+      "PMC11527445"
+    ],
+    "case_ids": [
+      "x001",
+      "x002",
+      "x003",
+      "x004",
+      "x005",
+      "x006",
+      "x007",
+      "x008",
+      "x009",
+      "x010"
+    ],
+    "scope": "Advisory cross-topic review only; original frozen query dependencies and negative-evidence scope unchanged. All ten cases retained; JUA-114 owns integrated freeze and retrieval.",
+    "revision": 2
+  }
 }

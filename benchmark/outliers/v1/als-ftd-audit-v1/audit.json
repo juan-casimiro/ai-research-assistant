@@ -1,0 +1,837 @@
+{
+  "schema_version": "1.0",
+  "audit_version": "outlier-als-ftd-audit-v1",
+  "reviewer": "Codex",
+  "review_date": "2026-10-03",
+  "status": "author audit complete; independent scientific review pending",
+  "method": "Compared source populations, models, methods, endpoints and case qualifiers using pinned full-text extraction, source JATS body passages and existing accepted anchors. Exact term scans are supporting triage, not proof of absence. No retrieval output used to select or change gold.",
+  "frozen_inputs": {
+    "benchmark/outliers/v1/queries.json": "03865ffc8845de7cf13e8925921ab6bc1a45cd12ff7f3f2eabf98cb4e550e60d",
+    "benchmark/outliers/v1/manifest.json": "e0cc1de105b65844b5a775541409b2032d347ff20ca12ae00218fc7edaedf698",
+    "benchmark/outliers/v1/conditions.json": "781ec8d2adbf9a8399c3afbc8dd32fecaaba64a78e1dd3d534818e8e6ec063bb",
+    "benchmark/als-ftd/v1/queries.json": "5c5c20793cdd64a356c4be66e9e1f7b9f3780a40549893f4ffd74e450128ed38",
+    "benchmark/als-ftd/v1/manifest.json": "4ff5956a669f159a0038ee6d397790be4bdb379fb733a729bc45fe0d82059ca7",
+    "benchmark/als-ftd/v1/conditions.json": "9ac4ca7763e7511149ddf24ec1d0ac7b7fbc344570a55fbb60977dc8262a1340"
+  },
+  "articles": {
+    "PMC10765819": {
+      "group": "outliers",
+      "filename": "outlier-microbiome-tb-mr.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "b84edcd99fa0718c9d3a09436bf6630753e58b76242627950a95062bbf1c3ff8",
+      "text_sha256": "32fd5a8b7b6aed7bef9d0b549c46a24794341b3fd65cfc8aa11b62c8558d3452"
+    },
+    "PMC10997137": {
+      "group": "outliers",
+      "filename": "outlier-amr-method-comparison.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "da6eed455d3c5bb168b1d479a6a4bb91da44f04e4ca3c49ab3da6e071c744a7a",
+      "text_sha256": "99626756dd68014d3cff69314d24433c1b4ba68dddedede8640c5a2d1c1a9f71"
+    },
+    "PMC11411718": {
+      "group": "outliers",
+      "filename": "outlier-amr-international-wwtp.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "ac7199ca586a309cc471d35f36e09a24708320b6f0e9e75536ffcb0d5f5c983e",
+      "text_sha256": "78dfa58d912a6feeea8a5f16e20c949694f586cd043f16f3fba50e93f51eb85e"
+    },
+    "PMC12823827": {
+      "group": "outliers",
+      "filename": "outlier-alzheimer-dual-model.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "22866337743e361ad24e69d905fc3bd10ae0d2b541808c82f8bf8be887e35e4b",
+      "text_sha256": "4fc104e32e46b97399b6ce80f51512ef4d8aa27f02da36400b0d064e5fc5ee74"
+    },
+    "PMC13328407": {
+      "group": "outliers",
+      "filename": "outlier-microbiome-tuberculosis.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "3a11a3ecb40e48c359731f9059657690d3b0a83fe34550c576e93c85d1890141",
+      "text_sha256": "7d5dc6d4c487c524916aca28a6d0dcb0b5efb0c50b2732749ad3bbb8e48b36e3"
+    },
+    "PMC11527445": {
+      "group": "als-ftd",
+      "filename": "als-ftd-pmc11527445.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "727d7a7b5b0e970861c4c67ffb549b9e6c1edae9e6437652a8892cbf986af415",
+      "text_sha256": "ce07184439306ce6f7f756e3a2500b5df10d7df389286faa249efa2af859adc7"
+    },
+    "PMC11047104": {
+      "group": "als-ftd",
+      "filename": "als-ftd-pmc11047104.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "f5208717e1e8b2e8a7443975665c0ddd1803a266b4a7af085ad7b08a887eea85",
+      "text_sha256": "0ba06505e30830ab48fe6191271c93b4eb9032678b3a09b823d7649816eed6ea"
+    },
+    "PMC10188109": {
+      "group": "als-ftd",
+      "filename": "als-ftd-pmc10188109.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "9ac7d0a9c34b9eaac89db21fe1d0cc1963590de8c883bf7b0fbd41cb778dec43",
+      "text_sha256": "a82b8591a24b1bc20275e46e62189af34291a128d0b77f627b4c9a098c65d2ac"
+    },
+    "PMC10802081": {
+      "group": "als-ftd",
+      "filename": "als-ftd-pmc10802081.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "bbc9043b3787c90d5b2d4764ffcf455949abace5c9681234cf76f89d0cabe9a6",
+      "text_sha256": "83e181ac9dec8bd02f035bb526a4987965df39aece8cf3237902c88516168d55"
+    }
+  },
+  "evidence_spans": [
+    {
+      "id": "clinical-pathology",
+      "article_id": "PMC10802081",
+      "text_start": 11097,
+      "text_end": 11496,
+      "excerpt": "ysphagia. Ultimately, he died from complica-\ntions of aspiration pneumonia. His family consented to\npost-mortem autopsy and the ﬁnal report con ﬁrmed a\nfronto-temporal lobar degeneration with transactive re-\nsponse DNA binding protein (TDP) pathology, interna-\ntional harmonized classi ﬁcation type C.\nDiscussion\nThis is a case summary of a 42-year-old male with a rapidly\nprogressive FTD-ALS caused",
+      "excerpt_sha256": "a914dce9f57eeda1b1963630ae778f755391038b85aabb62b875f0555a8922c9"
+    },
+    {
+      "id": "clinical-future-therapy",
+      "article_id": "PMC10802081",
+      "text_start": 20064,
+      "text_end": 20465,
+      "excerpt": " bind and remove toxic RNA are being\nclinically developed. 32,33 Small molecule approaches,\nsuch as repurposing Metformin to reduce toxic C9orf72\ntranslation products, and new molecules such as TPN101\nto reduce CNS in ﬂammation are also in development.\n34 In\naddition, molecules have been studied to reduce the\nneurotoxic effects of DPRs by blocking their export from\nthe nucleus.\n35 Loss of function ",
+      "excerpt_sha256": "4b0a55a369964bb1bbfa40c896aa377c992f9d9c2c9823026c9f36f0cd08d82a"
+    },
+    {
+      "id": "brain-bank-provenance",
+      "article_id": "PMC10188109",
+      "text_start": 61014,
+      "text_end": 61409,
+      "excerpt": "7\nImmunohistochemistry\nPostmortem brain tissues were obtained from the brain bank maintained by the Emory Alzheimer \nDisease Research Center under proper Institutional Review Board protocols. Paraffin- embedded \nsections from frontal cortex (8 μm thickness) were deparaffinized by incubation at 60°C for 30 min and \nrehydrated by immersion in graded ethanol solutions. Antigen retrieval was done",
+      "excerpt_sha256": "6d0f49e0c8c2e529fd84016849d13628648d1e7423fd6424ac1fb30ec5ac15a6"
+    },
+    {
+      "id": "secondary-mouse-metformin",
+      "article_id": "PMC10188109",
+      "text_start": 52246,
+      "text_end": 52643,
+      "excerpt": "quired to develop successful therapies for C9FTD/\nALS. On this note, Zu et al. recently showed that metformin, an FDA- approved drug widely used for \ntreating type 2 diabetes, inhibits PKR activation, reduces DPR proteins RAN translated from the sense \nstrand, and improves behavioral and pathological deficits in BAC transgenic mice expressing G 4C2 \nrepeats (Zu et al., 2020). Our study now sugg",
+      "excerpt_sha256": "3935a98049500cf40c6ba67916b264a3e8bff21fdc40138d6c2514fc83c117c9"
+    },
+    {
+      "id": "bac-endpoint-limit",
+      "article_id": "PMC11527445",
+      "text_start": 35783,
+      "text_end": 36183,
+      "excerpt": "C repeat (C9-500) and substantial ﬂanking sequences (41) . \nAlthough this mouse model has exhibited no survival or motor \ndeficits (42), the mice still express C9orf72 DPRs that can be \nThe Journal of Clinical Investigation    RESEARCH ARTICLE\nJ Clin Invest. 2024;134(21):e179016  https://doi.org/10.1172/JCI1790168\n(Figure 5, B and C ). Importantly, the treatment with Cas13d-S24 \nor Cas13d-S30 led ",
+      "excerpt_sha256": "108ed63adafb15fd4a3e7b6acc6ae0197136b19f9c70539e92cd2e7297e77613"
+    },
+    {
+      "id": "neuron-endpoint",
+      "article_id": "PMC11047104",
+      "text_start": 52956,
+      "text_end": 53352,
+      "excerpt": "f the C9orf72 mutation. \n(A) C9- unedited and 1Ax 3- wk- old \ninduced neurons showed minimal \nto no network bursting activity on \nMEAs (defined as burst events de-\ntected simultaneously from multi-\nple electrodes within a single array). \nREx and HET(Mut)x showed network \nburst activity, with HET(Mut)x activity \nsignificantly increased compared to \nC9- unedited (1- way ANOVA F(3,84) = \n17.3, P ",
+      "excerpt_sha256": "75fce55a996f682bd86a0880f923c99491a4e833e71b055cbd6d4c9a4a4ec61a"
+    },
+    {
+      "id": "x005-source-scope",
+      "article_id": "PMC12823827",
+      "text_start": 1432,
+      "text_end": 1574,
+      "excerpt": "The ANN achieved an accuracy of 87.08% in early-\nstage risk prediction, while the CNN demonstrated a superior 97% accuracy in \ndisease staging",
+      "excerpt_sha256": "b4ed427075c3a6653d380a68cace609397ca7f8a9b9745ff21f3229aabf154e3"
+    },
+    {
+      "id": "x002-source-scope",
+      "article_id": "PMC10765819",
+      "text_start": 1804,
+      "text_end": 2212,
+      "excerpt": "A bidirectional two-sample Mendelian randomization (MR) analysis was performed. The genome-wide \nassociation study (GWAS) summary statistics of gut microbiota were obtained from the MiBioGen consortium, \nwhile the GWAS summary statistics of TB and its specific phenotypes [respiratory tuberculosis (RTB) and extrapulmo-\nnary tuberculosis (EPTB)] were retrieved from the UK Biobank and the FinnGen consortium.",
+      "excerpt_sha256": "285d151e5961dcd948bfc80043b8087a88209fd1dd034205e3e5525979a6c53f"
+    },
+    {
+      "id": "x003-source-scope",
+      "article_id": "PMC10997137",
+      "text_start": 1742,
+      "text_end": 2841,
+      "excerpt": "In this study, we compare metagenomic shotgun sequencing\n(TruSeq DNA sequencin g) of wastewater samples with a state-of-the-art PCR-based\nmethod (Resistomap HT-qPCR) on four wastewater samples that were taken from hospital,\nindustrial, urban and rural areas. ARGs that confer resistance to 11 antibiotic classes have\nbeen identified in these wastewater samples using both methods, with the most abundant\nobserved classes of ARGs conferring resistance to aminoglycoside, multidrug-r esistance\n(MDR), macrolide-lincosa mide-streptogramin B (MLSB), tetracycline and beta-lactams. In\ncomparing the methods, we observed a strong correlation of relative abundance of ARGs\nobtained by the two tested methods for the majority of antibiotic classes. Finally, we investi-\ngated the source of discrepancies in the results obtained by the two methods. This analysis\nrevealed that false negatives were more likely to occur in qPCR due to mutated primer target\nsites, whereas ARGs with incomplete or low coverage were not detected by the sequencing\nmethod due to the parameters set in the bioinformatics pipeline.",
+      "excerpt_sha256": "9c29fd13d8d979b5779af972b80dd26a8bbca1dc9a74dd3afb65f78a239689a9"
+    },
+    {
+      "id": "x004-source-scope",
+      "article_id": "PMC11411718",
+      "text_start": 1208,
+      "text_end": 1473,
+      "excerpt": "While the relative abundance (per 16S\nrRNA gene) of ARGs decreased during treatment at 11 of the 12\nWWTPs sampled and absolute abundance (per mL) decreased at all 12 WWTPs, increases in relative abundance were observed for\n40% of the ARGs detected at the 12th WWTP.",
+      "excerpt_sha256": "0d2b3d56752cda95fa6023dfb688bb186f4f02a38c6d6f20b03e94e0fb8cb48e"
+    },
+    {
+      "id": "x007-source-scope",
+      "article_id": "PMC13328407",
+      "text_start": 90651,
+      "text_end": 90867,
+      "excerpt": "Patients with PTB who received\nprobiotics (n=5) showed a signi ﬁcant increase in gut microbiota\nalpha diversity compared to those who did not receive probiotics,\nalthough there was no notable change in beta diversity",
+      "excerpt_sha256": "54f6fdfebdb56b414026933f8d0ac00e49f1c2f7a4c7554a545e935af24fcc92"
+    },
+    {
+      "id": "clinical-imaging",
+      "article_id": "PMC10802081",
+      "text_start": 9986,
+      "text_end": 10836,
+      "excerpt": "A brain SPECT scan was ordered and demonstrated\nmoderate decreased perfusion to the parietal lobes bilat-\nerally, left greater than right, with some involvement of the\nposterior aspect of the left frontal lobe. The nuclear\nmedicine radiologist concluded the distribution was most\nin keeping with Alzheimer ’s disease and it was not felt to\nrepresent frontotemporal lobar degeneration (FTLD).\nHowever, given ongoing clinical suspicion for a rapidly\nprogressive neurodegenerative cause, genetic testing was\nperformed and identi ﬁed a repeat expansion of GGGGCC\nin C9orf72, thereby con ﬁrming a diagnosis of FTD-ALS.\nThe patient’s substitute decision maker was informed and\ngoals of care were established given the progressive and\nultimately fatal outcome of this disease. The genetics team\nplayed a central role in providing psychoeducation,\ncounseling",
+      "excerpt_sha256": "760e9d311c0893cb4241c9bde6153161ae3bec6b3619b7d7a68b79aa1ff7b7ca"
+    },
+    {
+      "id": "clinical-infection-outcome",
+      "article_id": "PMC10802081",
+      "text_start": 11107,
+      "text_end": 11457,
+      "excerpt": "Ultimately, he died from complica-\ntions of aspiration pneumonia. His family consented to\npost-mortem autopsy and the ﬁnal report con ﬁrmed a\nfronto-temporal lobar degeneration with transactive re-\nsponse DNA binding protein (TDP) pathology, interna-\ntional harmonized classi ﬁcation type C.\nDiscussion\nThis is a case summary of a 42-year-old male wi",
+      "excerpt_sha256": "354b2fc772a019a52ef1fa9d33c997b8b2ff52ab9b0889bf5ce84620c7b6b6ae"
+    },
+    {
+      "id": "incidental-funding",
+      "article_id": "PMC11047104",
+      "text_start": 59629,
+      "text_end": 59799,
+      "excerpt": "Alzheimer’s Association AACSF- 17- 531484, UCSF CTSI TL1 Fellowship \n5TL1TR001871- 04, Bright Focus Foundation A20201490F, Carol and Gene Ludwig \nAward for Early Career R",
+      "excerpt_sha256": "9a45c9a00ffbfafe308f7bceb4f82a276a97518cd6c7bf6c4465dfdf694b6479"
+    },
+    {
+      "id": "pkr-assay",
+      "article_id": "PMC10188109",
+      "text_start": 30576,
+      "text_end": 31026,
+      "excerpt": "mRNA levels were measured by quantitative qPCR in cell expressing in_(C4G2)75, (C4G2)75, or 2 repeats. Error bars represent SD (n = 3). (D, \nE) Immunoblotting of p- PKR and p- eIF2α in HEK293T cells expressing in_(C4G2)75, (C4G2)75, (C4G2)108RO, or 2 repeats. p- PKR (T446) and p- eIF2α (Ser51) \nwere normalized to total PKR and eIF2α, respectively. GAPDH was used as a loading control. Error bars represent SD (n = 3 independent experiments). \nStati",
+      "excerpt_sha256": "7ef7f7a565c2a7552b3e300283f1a1f543ca525da77081ab05e9f98384e5f148"
+    },
+    {
+      "id": "editing-assay",
+      "article_id": "PMC11047104",
+      "text_start": 3496,
+      "text_end": 3946,
+      "excerpt": "Using digital droplet PCR (ddPCR), we determined that transcription from \nthe mutant allele is upregulated at least 10- fold, and that sense transcription is independently \nregulated from each allele. Surprisingly, excision of the WT allele increased pathologic \ndipeptide repeat poly- GP expression from the mutant allele. Importantly, a single allele \nwas sufficient to supply a normal amount of protein, suggesting that the C9orf72 gene is \nhaplo-",
+      "excerpt_sha256": "bfa897c96d18f8b5637534c2a35d8f63c36450866fbd5117af6cebeaab766301"
+    },
+    {
+      "id": "cas13-assay",
+      "article_id": "PMC11527445",
+      "text_start": 22236,
+      "text_end": 22686,
+      "excerpt": "reverse transcription PCR (RT-qPCR) to assess the expression lev-\nel of Cas13d in each treated cell line and found variable Cas13d \nlevels among lines. However, within each line, there were no sig -\nnificant differences in the average Cas13d levels among the S24, \nS30, and non-targeting NT30 groups (Figure 3C), confirming that \nthe observed poly-GP and poly-GA knockdown was due to specific \nguide RNA (gRNA) targeting. We then performed linear reg",
+      "excerpt_sha256": "06ca50665cf1611bfc946176e0eec6e1a34ff09a977102f7fce18546e8b2e667"
+    },
+    {
+      "id": "clinical-genetic-test",
+      "article_id": "PMC10802081",
+      "text_start": 10471,
+      "text_end": 10921,
+      "excerpt": "genetic testing was\nperformed and identi ﬁed a repeat expansion of GGGGCC\nin C9orf72, thereby con ﬁrming a diagnosis of FTD-ALS.\nThe patient’s substitute decision maker was informed and\ngoals of care were established given the progressive and\nultimately fatal outcome of this disease. The genetics team\nplayed a central role in providing psychoeducation,\ncounseling and support to the family.\nThe patient was transferred to a geriatric psychiatry\ninp",
+      "excerpt_sha256": "4de49f979308ddafadb921eea0217fe40884459762c3b6f6a301f5de197e0a02"
+    }
+  ],
+  "article_pairs": [
+    {
+      "outlier_article": "PMC10765819",
+      "als_ftd_article": "PMC11527445",
+      "relationship": "method-context",
+      "outlier_case_ids": [
+        "x001",
+        "x002",
+        "x009"
+      ],
+      "als_ftd_case_ids": [
+        "a002",
+        "a003",
+        "a005"
+      ],
+      "evidence_spans": [
+        "x002-source-scope",
+        "bac-endpoint-limit"
+      ],
+      "rationale": "Genetic terminology is shared, but microbiome-exposure/TB-outcome MR using GWAS instruments differs from RNA targeting in cells and BAC mice. The ALS/FTD article provides no Yuan taxa counts, Bonferroni reconciliation or administered probiotic dose.",
+      "accepted_alternative_evidence": false,
+      "retrieval_confusion": "plausible; ranking impact unmeasured"
+    },
+    {
+      "outlier_article": "PMC10765819",
+      "als_ftd_article": "PMC11047104",
+      "relationship": "method-context",
+      "outlier_case_ids": [
+        "x001",
+        "x002",
+        "x009"
+      ],
+      "als_ftd_case_ids": [
+        "a004",
+        "a005"
+      ],
+      "evidence_spans": [
+        "x002-source-scope",
+        "neuron-endpoint"
+      ],
+      "rationale": "Genetic terminology is shared, but microbiome-exposure/TB-outcome MR using GWAS instruments differs from DNA editing in isogenic patient-derived neurons. The ALS/FTD article provides no Yuan taxa counts, Bonferroni reconciliation or administered probiotic dose.",
+      "accepted_alternative_evidence": false,
+      "retrieval_confusion": "plausible; ranking impact unmeasured"
+    },
+    {
+      "outlier_article": "PMC10765819",
+      "als_ftd_article": "PMC10188109",
+      "relationship": "method-context",
+      "outlier_case_ids": [
+        "x001",
+        "x002",
+        "x009"
+      ],
+      "als_ftd_case_ids": [
+        "a001",
+        "a006",
+        "a008",
+        "a010"
+      ],
+      "evidence_spans": [
+        "x002-source-scope",
+        "secondary-mouse-metformin"
+      ],
+      "rationale": "Genetic terminology is shared, but microbiome-exposure/TB-outcome MR using GWAS instruments differs from repeat-RNA/PKR mechanistic experiments, zebrafish and postmortem tissue. The ALS/FTD article provides no Yuan taxa counts, Bonferroni reconciliation or administered probiotic dose. Its metformin mouse finding is cited secondary evidence, not an administered TB probiotic treatment.",
+      "accepted_alternative_evidence": false,
+      "retrieval_confusion": "plausible; ranking impact unmeasured"
+    },
+    {
+      "outlier_article": "PMC10765819",
+      "als_ftd_article": "PMC10802081",
+      "relationship": "method-context",
+      "outlier_case_ids": [
+        "x001",
+        "x002",
+        "x009"
+      ],
+      "als_ftd_case_ids": [
+        "a007",
+        "a008",
+        "a009"
+      ],
+      "evidence_spans": [
+        "x002-source-scope",
+        "clinical-imaging",
+        "clinical-future-therapy"
+      ],
+      "rationale": "Genetic terminology is shared, but microbiome-exposure/TB-outcome MR using GWAS instruments differs from a repeat-expansion diagnosis in one clinical case. The ALS/FTD article provides no Yuan taxa counts, Bonferroni reconciliation or administered probiotic dose. Its metformin discussion concerns future development, not a TB probiotic trial.",
+      "accepted_alternative_evidence": false,
+      "retrieval_confusion": "plausible; ranking impact unmeasured"
+    },
+    {
+      "outlier_article": "PMC10997137",
+      "als_ftd_article": "PMC11527445",
+      "relationship": "distant-with-assay-vocabulary",
+      "outlier_case_ids": [
+        "x003",
+        "x009"
+      ],
+      "als_ftd_case_ids": [
+        "a002",
+        "a003",
+        "a005"
+      ],
+      "evidence_spans": [
+        "x003-source-scope",
+        "cas13-assay"
+      ],
+      "rationale": "Sequencing, PCR, genes and measurement vocabulary can overlap. Wastewater ARG detection/abundance is environmental evidence; C9orf72 repeat assays, neuronal endpoints and clinical diagnosis concern different samples and targets. No downstream wastewater-linked antibiotic-resistant infection cohort is supplied.",
+      "accepted_alternative_evidence": false,
+      "retrieval_confusion": "plausible; ranking impact unmeasured"
+    },
+    {
+      "outlier_article": "PMC10997137",
+      "als_ftd_article": "PMC11047104",
+      "relationship": "distant-with-assay-vocabulary",
+      "outlier_case_ids": [
+        "x003",
+        "x009"
+      ],
+      "als_ftd_case_ids": [
+        "a004",
+        "a005"
+      ],
+      "evidence_spans": [
+        "x003-source-scope",
+        "editing-assay"
+      ],
+      "rationale": "Sequencing, PCR, genes and measurement vocabulary can overlap. Wastewater ARG detection/abundance is environmental evidence; C9orf72 repeat assays, neuronal endpoints and clinical diagnosis concern different samples and targets. No downstream wastewater-linked antibiotic-resistant infection cohort is supplied.",
+      "accepted_alternative_evidence": false,
+      "retrieval_confusion": "plausible; ranking impact unmeasured"
+    },
+    {
+      "outlier_article": "PMC10997137",
+      "als_ftd_article": "PMC10188109",
+      "relationship": "distant-with-assay-vocabulary",
+      "outlier_case_ids": [
+        "x003",
+        "x009"
+      ],
+      "als_ftd_case_ids": [
+        "a001",
+        "a006",
+        "a008",
+        "a010"
+      ],
+      "evidence_spans": [
+        "x003-source-scope",
+        "pkr-assay"
+      ],
+      "rationale": "Sequencing, PCR, genes and measurement vocabulary can overlap. Wastewater ARG detection/abundance is environmental evidence; C9orf72 repeat assays, neuronal endpoints and clinical diagnosis concern different samples and targets. No downstream wastewater-linked antibiotic-resistant infection cohort is supplied.",
+      "accepted_alternative_evidence": false,
+      "retrieval_confusion": "plausible; ranking impact unmeasured"
+    },
+    {
+      "outlier_article": "PMC10997137",
+      "als_ftd_article": "PMC10802081",
+      "relationship": "distant-with-assay-vocabulary",
+      "outlier_case_ids": [
+        "x003",
+        "x009"
+      ],
+      "als_ftd_case_ids": [
+        "a007",
+        "a008",
+        "a009"
+      ],
+      "evidence_spans": [
+        "x003-source-scope",
+        "clinical-genetic-test",
+        "clinical-infection-outcome"
+      ],
+      "rationale": "Environmental ARG detection/abundance and this case’s C9orf72 genetic testing concern different samples, targets and outcomes. Genetic-diagnosis vocabulary is a broad bridge, not an environmental assay result. The patient died from aspiration pneumonia; no antibiotic-resistant infection ascertainment or sampled-wastewater linkage is reported.",
+      "accepted_alternative_evidence": false,
+      "retrieval_confusion": "plausible; ranking impact unmeasured"
+    },
+    {
+      "outlier_article": "PMC11411718",
+      "als_ftd_article": "PMC11527445",
+      "relationship": "distant-with-assay-vocabulary",
+      "outlier_case_ids": [
+        "x004",
+        "x009"
+      ],
+      "als_ftd_case_ids": [
+        "a002",
+        "a003",
+        "a005"
+      ],
+      "evidence_spans": [
+        "x004-source-scope",
+        "cas13-assay"
+      ],
+      "rationale": "Sequencing, PCR, genes and measurement vocabulary can overlap. Wastewater ARG detection/abundance is environmental evidence; C9orf72 repeat assays, neuronal endpoints and clinical diagnosis concern different samples and targets. No downstream wastewater-linked antibiotic-resistant infection cohort is supplied.",
+      "accepted_alternative_evidence": false,
+      "retrieval_confusion": "plausible; ranking impact unmeasured"
+    },
+    {
+      "outlier_article": "PMC11411718",
+      "als_ftd_article": "PMC11047104",
+      "relationship": "distant-with-assay-vocabulary",
+      "outlier_case_ids": [
+        "x004",
+        "x009"
+      ],
+      "als_ftd_case_ids": [
+        "a004",
+        "a005"
+      ],
+      "evidence_spans": [
+        "x004-source-scope",
+        "editing-assay"
+      ],
+      "rationale": "Sequencing, PCR, genes and measurement vocabulary can overlap. Wastewater ARG detection/abundance is environmental evidence; C9orf72 repeat assays, neuronal endpoints and clinical diagnosis concern different samples and targets. No downstream wastewater-linked antibiotic-resistant infection cohort is supplied.",
+      "accepted_alternative_evidence": false,
+      "retrieval_confusion": "plausible; ranking impact unmeasured"
+    },
+    {
+      "outlier_article": "PMC11411718",
+      "als_ftd_article": "PMC10188109",
+      "relationship": "distant-with-assay-vocabulary",
+      "outlier_case_ids": [
+        "x004",
+        "x009"
+      ],
+      "als_ftd_case_ids": [
+        "a001",
+        "a006",
+        "a008",
+        "a010"
+      ],
+      "evidence_spans": [
+        "x004-source-scope",
+        "pkr-assay"
+      ],
+      "rationale": "Sequencing, PCR, genes and measurement vocabulary can overlap. Wastewater ARG detection/abundance is environmental evidence; C9orf72 repeat assays, neuronal endpoints and clinical diagnosis concern different samples and targets. No downstream wastewater-linked antibiotic-resistant infection cohort is supplied.",
+      "accepted_alternative_evidence": false,
+      "retrieval_confusion": "plausible; ranking impact unmeasured"
+    },
+    {
+      "outlier_article": "PMC11411718",
+      "als_ftd_article": "PMC10802081",
+      "relationship": "distant-with-assay-vocabulary",
+      "outlier_case_ids": [
+        "x004",
+        "x009"
+      ],
+      "als_ftd_case_ids": [
+        "a007",
+        "a008",
+        "a009"
+      ],
+      "evidence_spans": [
+        "x004-source-scope",
+        "clinical-genetic-test",
+        "clinical-infection-outcome"
+      ],
+      "rationale": "Environmental ARG detection/abundance and this case’s C9orf72 genetic testing concern different samples, targets and outcomes. Genetic-diagnosis vocabulary is a broad bridge, not an environmental assay result. The patient died from aspiration pneumonia; no antibiotic-resistant infection ascertainment or sampled-wastewater linkage is reported.",
+      "accepted_alternative_evidence": false,
+      "retrieval_confusion": "plausible; ranking impact unmeasured"
+    },
+    {
+      "outlier_article": "PMC12823827",
+      "als_ftd_article": "PMC11527445",
+      "relationship": "method-context",
+      "outlier_case_ids": [
+        "x005",
+        "x006",
+        "x009",
+        "x010"
+      ],
+      "als_ftd_case_ids": [
+        "a002",
+        "a003",
+        "a005"
+      ],
+      "evidence_spans": [
+        "x005-source-scope",
+        "bac-endpoint-limit"
+      ],
+      "rationale": "Disease-model and patient-derived terminology can compete with cognitive-model terms. Cas13d molecular effects in cells and BAC mice are distinct from ANN risk prediction or MRI classification accuracy.",
+      "accepted_alternative_evidence": false,
+      "retrieval_confusion": "plausible; ranking impact unmeasured"
+    },
+    {
+      "outlier_article": "PMC12823827",
+      "als_ftd_article": "PMC11047104",
+      "relationship": "incidental-plus-method",
+      "outlier_case_ids": [
+        "x005",
+        "x006",
+        "x009",
+        "x010"
+      ],
+      "als_ftd_case_ids": [
+        "a004",
+        "a005"
+      ],
+      "evidence_spans": [
+        "x005-source-scope",
+        "neuron-endpoint",
+        "incidental-funding"
+      ],
+      "rationale": "Neuronal function and neurodegeneration are broad shared terms. Alzheimer Association funding in acknowledgments is incidental; isogenic-neuron editing and network bursting do not validate cognitive AI or MRI staging.",
+      "accepted_alternative_evidence": false,
+      "retrieval_confusion": "plausible; ranking impact unmeasured"
+    },
+    {
+      "outlier_article": "PMC12823827",
+      "als_ftd_article": "PMC10188109",
+      "relationship": "method-context",
+      "outlier_case_ids": [
+        "x005",
+        "x006",
+        "x009",
+        "x010"
+      ],
+      "als_ftd_case_ids": [
+        "a001",
+        "a006",
+        "a008",
+        "a010"
+      ],
+      "evidence_spans": [
+        "x005-source-scope",
+        "pkr-assay",
+        "brain-bank-provenance"
+      ],
+      "rationale": "Neurodegeneration and human frontal-cortex observations overlap broadly. The Alzheimer Research Center is tissue-bank provenance, not an Alzheimer ANN/CNN validation cohort. PKR/eIF2α phosphorylation is not model classification performance.",
+      "accepted_alternative_evidence": false,
+      "retrieval_confusion": "plausible; ranking impact unmeasured"
+    },
+    {
+      "outlier_article": "PMC12823827",
+      "als_ftd_article": "PMC10802081",
+      "relationship": "substantive-adjacent",
+      "outlier_case_ids": [
+        "x005",
+        "x006",
+        "x009",
+        "x010"
+      ],
+      "als_ftd_case_ids": [
+        "a007",
+        "a008",
+        "a009"
+      ],
+      "evidence_spans": [
+        "x005-source-scope",
+        "clinical-imaging",
+        "clinical-pathology"
+      ],
+      "rationale": "Both discuss cognitive diagnosis and brain imaging. LeBlanc reports an Alzheimer-like SPECT interpretation followed by C9orf72 testing and FTLD-TDP pathology; Ciftci studies ANN clinical features and CNN MRI staging. Neither supplies the other study’s diagnostic history, datasets, accuracy estimates or external validation.",
+      "accepted_alternative_evidence": false,
+      "retrieval_confusion": "plausible; ranking impact unmeasured"
+    },
+    {
+      "outlier_article": "PMC13328407",
+      "als_ftd_article": "PMC11527445",
+      "relationship": "method-context",
+      "outlier_case_ids": [
+        "x007",
+        "x008",
+        "x009"
+      ],
+      "als_ftd_case_ids": [
+        "a002",
+        "a003",
+        "a005"
+      ],
+      "evidence_spans": [
+        "x007-source-scope",
+        "bac-endpoint-limit"
+      ],
+      "rationale": "Translation, precision care, human/animal evidence and intervention limitations overlap at a general level. The TB review’s probiotic-diversity summary and proposed AI-care trials concern TB; C9orf72 mechanisms or clinical diagnosis do not supply those endpoints.",
+      "accepted_alternative_evidence": false,
+      "retrieval_confusion": "plausible; ranking impact unmeasured"
+    },
+    {
+      "outlier_article": "PMC13328407",
+      "als_ftd_article": "PMC11047104",
+      "relationship": "method-context",
+      "outlier_case_ids": [
+        "x007",
+        "x008",
+        "x009"
+      ],
+      "als_ftd_case_ids": [
+        "a004",
+        "a005"
+      ],
+      "evidence_spans": [
+        "x007-source-scope",
+        "neuron-endpoint"
+      ],
+      "rationale": "Translation, precision care, human/animal evidence and intervention limitations overlap at a general level. The TB review’s probiotic-diversity summary and proposed AI-care trials concern TB; C9orf72 mechanisms or clinical diagnosis do not supply those endpoints.",
+      "accepted_alternative_evidence": false,
+      "retrieval_confusion": "plausible; ranking impact unmeasured"
+    },
+    {
+      "outlier_article": "PMC13328407",
+      "als_ftd_article": "PMC10188109",
+      "relationship": "method-context",
+      "outlier_case_ids": [
+        "x007",
+        "x008",
+        "x009"
+      ],
+      "als_ftd_case_ids": [
+        "a001",
+        "a006",
+        "a008",
+        "a010"
+      ],
+      "evidence_spans": [
+        "x007-source-scope",
+        "secondary-mouse-metformin"
+      ],
+      "rationale": "Translation, precision care, human/animal evidence and intervention limitations overlap at a general level. The TB review’s probiotic-diversity summary and proposed AI-care trials concern TB; C9orf72 mechanisms or clinical diagnosis do not supply those endpoints. Metformin appears in ALS/FTD therapeutic discussion (secondary evidence or future development), not as a microbiome/TB trial or established human ALS treatment.",
+      "accepted_alternative_evidence": false,
+      "retrieval_confusion": "plausible; ranking impact unmeasured"
+    },
+    {
+      "outlier_article": "PMC13328407",
+      "als_ftd_article": "PMC10802081",
+      "relationship": "clinical-context",
+      "outlier_case_ids": [
+        "x007",
+        "x008",
+        "x009"
+      ],
+      "als_ftd_case_ids": [
+        "a007",
+        "a008",
+        "a009"
+      ],
+      "evidence_spans": [
+        "x007-source-scope",
+        "clinical-imaging",
+        "clinical-future-therapy"
+      ],
+      "rationale": "Both discuss clinical translation and precision care, but the TB review concerns microbiome/AI interventions while LeBlanc describes one patient’s diagnostic history. Metformin is discussed as future therapeutic development, not a probiotic-diversity result or an AI-assisted TB-care comparative trial.",
+      "accepted_alternative_evidence": false,
+      "retrieval_confusion": "plausible; ranking impact unmeasured"
+    }
+  ],
+  "case_checks": [
+    {
+      "id": "x001",
+      "revision": 1,
+      "answerability": "answerable",
+      "reviewed_als_ftd_articles": [
+        "PMC10188109",
+        "PMC10802081",
+        "PMC11047104",
+        "PMC11527445"
+      ],
+      "decision": "retain unchanged",
+      "rationale": "No ALS/FTD article reports the named MR study’s taxa counts or internal significance discrepancy."
+    },
+    {
+      "id": "x002",
+      "revision": 1,
+      "answerability": "false_premise",
+      "reviewed_als_ftd_articles": [
+        "PMC10188109",
+        "PMC10802081",
+        "PMC11047104",
+        "PMC11527445"
+      ],
+      "decision": "retain unchanged",
+      "rationale": "The named Yuan study remains MR without administered probiotics. C9orf72 interventions and any clinical-trial references concern different diseases, studies and endpoints."
+    },
+    {
+      "id": "x003",
+      "revision": 1,
+      "answerability": "answerable",
+      "reviewed_als_ftd_articles": [
+        "PMC10188109",
+        "PMC10802081",
+        "PMC11047104",
+        "PMC11527445"
+      ],
+      "decision": "retain unchanged",
+      "rationale": "RNA/DNA assays in ALS/FTD do not provide the four-site wastewater sampling design or method-specific ARG false negatives."
+    },
+    {
+      "id": "x004",
+      "revision": 1,
+      "answerability": "answerable",
+      "reviewed_als_ftd_articles": [
+        "PMC10188109",
+        "PMC10802081",
+        "PMC11047104",
+        "PMC11527445"
+      ],
+      "decision": "retain unchanged",
+      "rationale": "No ALS/FTD source supplies Garner’s 12-plant environmental abundance result."
+    },
+    {
+      "id": "x005",
+      "revision": 1,
+      "answerability": "answerable",
+      "reviewed_als_ftd_articles": [
+        "PMC10188109",
+        "PMC10802081",
+        "PMC11047104",
+        "PMC11527445"
+      ],
+      "decision": "retain unchanged",
+      "rationale": "LeBlanc’s Alzheimer-like SPECT finding is substantive adjacent competition, not evidence of either Ciftci ANN or CNN performance."
+    },
+    {
+      "id": "x006",
+      "revision": 1,
+      "answerability": "false_premise",
+      "reviewed_als_ftd_articles": [
+        "PMC10188109",
+        "PMC10802081",
+        "PMC11047104",
+        "PMC11527445"
+      ],
+      "decision": "retain unchanged",
+      "rationale": "A tissue bank, clinical SPECT case and laboratory cell models are not independent ADNI/OASIS-3 validation of Ciftci’s Alzheimer models. The source’s explicit external-validation limitation remains the correction evidence."
+    },
+    {
+      "id": "x007",
+      "revision": 1,
+      "answerability": "answerable",
+      "reviewed_als_ftd_articles": [
+        "PMC10188109",
+        "PMC10802081",
+        "PMC11047104",
+        "PMC11527445"
+      ],
+      "decision": "retain unchanged",
+      "rationale": "Patient-derived neurons, BAC mice and a clinical FTD-ALS case do not supply the cited n=5 PTB probiotic alpha/beta diversity result."
+    },
+    {
+      "id": "x008",
+      "revision": 1,
+      "answerability": "false_premise",
+      "reviewed_als_ftd_articles": [
+        "PMC10188109",
+        "PMC10802081",
+        "PMC11047104",
+        "PMC11527445"
+      ],
+      "decision": "retain unchanged",
+      "rationale": "ALS/FTD therapeutic discussions and cited trials do not establish AI-assisted TB precision-care superiority. The TB review still calls for comparative randomized trials."
+    },
+    {
+      "id": "x009",
+      "revision": 1,
+      "answerability": "absent_fact",
+      "reviewed_als_ftd_articles": [
+        "PMC10188109",
+        "PMC10802081",
+        "PMC11047104",
+        "PMC11527445"
+      ],
+      "decision": "retain unchanged",
+      "rationale": "The ALS/FTD clinical case ends in aspiration pneumonia; it supplies neither antibiotic-resistant infection ascertainment nor a link to sampled wastewater plants. The mechanistic papers study cells, tissue and animal models, not that linked patient cohort. The frozen question explicitly concerns five outliers; this supplementary nine-article review does not extend its benchmark search scope or certify full integrated-corpus absence."
+    },
+    {
+      "id": "x010",
+      "revision": 1,
+      "answerability": "answerable",
+      "reviewed_als_ftd_articles": [
+        "PMC10188109",
+        "PMC10802081",
+        "PMC11047104",
+        "PMC11527445"
+      ],
+      "decision": "retain unchanged",
+      "rationale": "Clinical cognitive decline and family history in LeBlanc do not supply Ciftci’s five-run feature-importance ranking or comorbidity interpretation."
+    }
+  ],
+  "decision": "No material query/evidence/membership defect identified. Preserve both query releases, original negative-evidence scope and historical retrieval fingerprints. Extend advisory relationship/dependency records only.",
+  "handoff": {
+    "owner": "JUA-114",
+    "independent_als_ftd_review_and_freeze": "Pending; ALS/FTD remains prepared.",
+    "integrated_absence_review": "Recheck all frozen absent-fact and false-premise cases across actual cardio/diabetes/oncology/outlier/ALS-FTD membership; this audit covers nine sources, not all 55 selected articles.",
+    "targeted_ids": [
+      "x001",
+      "x002",
+      "x003",
+      "x004",
+      "x005",
+      "x006",
+      "x007",
+      "x008",
+      "x009",
+      "x010",
+      "a001",
+      "a002",
+      "a003",
+      "a004",
+      "a005",
+      "a006",
+      "a007",
+      "a008",
+      "a009",
+      "a010"
+    ],
+    "selection_rationale": "Use complete declared coverage of the two small audited strands (20 cases): cognitive/imaging competition, genetic/model/intervention scope, and generic assay vocabulary map to all selected ALS/FTD sources. x009 depends negatively on all five outliers, including the environmental sources for x003/x004. a003/a006/a010 remain relevant model/assay controls rather than changed gold. Retain the 18-topic sample for historical comparability and add justified ALS/FTD-sensitive controls after combined alternative review. This initial affected set is not complete integrated topic coverage; final whole-benchmark claims require full declared coverage.",
+    "run_requirements": "Before runs, freeze accepted alternatives and negative scope, ingest isolated declared nested corpora with SEED_ON_EMPTY=false, preserve requested/executed IDs and fingerprints. Report decoy exposure and evidence metrics separately; no generation/refusal accuracy inferred. Paid calls require explicit run approval."
+  },
+  "revision": 2,
+  "revision_reason": "Claude software/records review: improve supporting spans, query-relative dependencies, external decoy roles and reproducible integrity checks; frozen benchmark inputs unchanged.",
+  "pair_case_link_scope": "Outlier case links include required sources and negative-evidence dependencies. ALS/FTD pair links list answer-source cases; named-decoy roles are separately recorded and verified in topic_relationships.json external_article_roles."
+}
