@@ -33,7 +33,9 @@ All ten existing cases are retained. In particular:
   articles, so that scope remains unchanged. Reviewing four additional papers
   does not establish absence across the complete integrated corpus.
 
-The relationship map now includes ALS/FTD roles and case links. The dependency
+The relationship map now includes ALS/FTD roles and case links. Pair-level
+ALS/FTD links list answer-source cases; existing named-decoy roles, including
+PMC11527445 for a009, are recorded separately in `external_article_roles`. The dependency
 and case-review files point to this supplementary record; their original frozen
 dependencies remain available for reproducing historical runs. No material gap
 required a new case or a semantic query revision. Existing ALS/FTD cases already
@@ -41,18 +43,26 @@ exercise diagnostic discordance and human/cell/animal distinctions.
 
 ## Verification
 
-With the pinned ignored source PDFs/texts available, run from the repository root:
+Acquire and extract the pinned ignored ALS/FTD sources using the durable
+[ALS/FTD release reproduction instructions](../../../als-ftd/v1/README.md#reproduce);
+the manifest records download routes and source hashes. Reuse verified local
+bytes when available. Outlier acquisition is documented in the parent release.
+With those PDFs/texts available, run from the repository root:
 
 ```sh
-.venv/bin/python benchmark/outliers/v1/als-ftd-audit-v1/verify.py --als-ftd-corpus <local-als-ftd-source-directory>
+.venv/bin/python benchmark/outliers/v1/als-ftd-audit-v1/verify.py --als-ftd-corpus <local-als-ftd-source-directory> --corruption-checks
 .venv/bin/python -m unittest discover -v
 ```
 
 `verification.json` preserves the mechanical audit receipt and offline regression
 result. Verification checks all nine PDF/text pairs, span offsets/hashes, the six
-unchanged inputs and complete pair/case coverage. It cannot certify the author's
-scientific interpretation. No models, collection ingestion, retrieval, rewriting,
-generation or paid judge were run for this audit: the executable benchmark did
+unchanged inputs and complete pair/case coverage. It also cross-checks source/decoy
+roles, case dependencies and relationship links.
+The six corruption probes run reproducibly with `--corruption-checks` in temporary
+fixtures. Neither source-offset checks nor pair coverage certify that an excerpt
+scientifically supports a rationale; that remains a manual review responsibility.
+No models, collection ingestion, retrieval, rewriting, generation or paid judge
+were run for this audit: the executable benchmark did
 not change. Historical outlier and 18-case regression results remain historical
 conditions that did not contain ALS/FTD.
 
@@ -60,12 +70,28 @@ conditions that did not contain ALS/FTD.
 
 JUA-114 must complete independent ALS/FTD review and freeze, recheck alternatives
 and negative scope against actual integrated membership, and run isolated nested
-comparisons with compatible fingerprints. `audit.json` selects 15 affected IDs
+comparisons with compatible fingerprints. `audit.json` selects 20 affected IDs
 and explains their roles. Retain the original 18-topic sample for comparison;
 supplement it with justified ALS/FTD-sensitive cases after the combined review.
-x003/x004 and a003/a006/a010 have no audit-driven gold change; omission from this
-targeted handoff is not a claim that their rankings cannot change. Complete final
-claims require full declared coverage. Record whether competing sources actually
+The 20-case set covers both small audited strands, including x009’s negative
+dependencies on all five outliers and the ALS/FTD model/assay controls. Complete
+final claims require full declared coverage. Record whether competing sources actually
 enter retrieved contexts; unchanged scores without competitor exposure cannot
 establish resistance to interference. Refusal correctness requires separate
 answer review, and paid calls require explicit approval.
+
+## Review revisions
+
+Revision 2 addresses Claude’s software/records review: assay-specific and
+clinical outcome spans replace weak supporting excerpts; duplicate span links
+are removed; x009 is linked to every article pair; MR/clinical/mechanistic role
+wording is made source-specific; a009’s existing named decoy is carried into
+external roles; and the integrated handoff covers all 20 audited cases. The
+verifier now checks these links and includes reproducible corruption probes.
+Claude’s initial review found no material scientific or gold-evidence error,
+but it is not domain-expert certification.
+
+Claude’s focused follow-up confirmed all five review findings resolved and no
+blocking defect. Its two minor residuals were addressed by replacing an irrelevant
+metformin span in the cognition/PKR pair and documenting answer-source versus
+named-decoy link scope. Mechanical checks were repeated after those edits.

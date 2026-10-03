@@ -292,7 +292,7 @@
         },
         {
           "article_id": "PMC10802081",
-          "relationship": "method-context",
+          "relationship": "clinical-context",
           "related_benchmark_cases": [
             "a007",
             "a008",
@@ -306,7 +306,8 @@
   "als_ftd_audit": {
     "version": "outlier-als-ftd-audit-v1",
     "record": "als-ftd-audit-v1/audit.json",
-    "scope": "Five outliers against four ALS/FTD articles; advisory review, frozen experiment membership unchanged"
+    "scope": "Five outliers against four ALS/FTD articles; advisory review, frozen experiment membership unchanged",
+    "revision": 2
   },
   "external_article_roles": [
     {
@@ -320,7 +321,8 @@
         "a010"
       ],
       "role_for_outlier_cases": "potential related competition; no accepted alternative or named decoy added",
-      "rationale": "See per-pair source-grounded audit; ALS/FTD membership remains owned by its existing manifest."
+      "rationale": "See per-pair source-grounded audit; ALS/FTD membership remains owned by its existing manifest.",
+      "named_decoy_for": []
     },
     {
       "article_id": "PMC10802081",
@@ -332,7 +334,8 @@
         "a009"
       ],
       "role_for_outlier_cases": "potential related competition; no accepted alternative or named decoy added",
-      "rationale": "See per-pair source-grounded audit; ALS/FTD membership remains owned by its existing manifest."
+      "rationale": "See per-pair source-grounded audit; ALS/FTD membership remains owned by its existing manifest.",
+      "named_decoy_for": []
     },
     {
       "article_id": "PMC11047104",
@@ -343,7 +346,8 @@
         "a005"
       ],
       "role_for_outlier_cases": "potential related competition; no accepted alternative or named decoy added",
-      "rationale": "See per-pair source-grounded audit; ALS/FTD membership remains owned by its existing manifest."
+      "rationale": "See per-pair source-grounded audit; ALS/FTD membership remains owned by its existing manifest.",
+      "named_decoy_for": []
     },
     {
       "article_id": "PMC11527445",
@@ -355,7 +359,10 @@
         "a005"
       ],
       "role_for_outlier_cases": "potential related competition; no accepted alternative or named decoy added",
-      "rationale": "See per-pair source-grounded audit; ALS/FTD membership remains owned by its existing manifest."
+      "rationale": "See per-pair source-grounded audit; ALS/FTD membership remains owned by its existing manifest.",
+      "named_decoy_for": [
+        "a009"
+      ]
     }
   ]
 }

@@ -1,19 +1,19 @@
 {
-  "audit_sha256": "a587955b7cad173daf3f0ea2f09041507bf6192379c46b0687f3106f980264ad",
+  "audit_sha256": "337f9938ea329b56a479578cfaec4b89bf817dda0d18237adb873badc19cc66d",
   "frozen_inputs_verified": 6,
   "source_pdf_text_pairs_verified": 9,
-  "evidence_spans_verified": 12,
+  "evidence_spans_verified": 18,
   "article_pairs_verified": 20,
   "case_reviews_verified": 10,
   "retrieval_run": false,
   "integrated_absence_certified": false,
   "scientific_review_certified": false,
-  "verifier_sha256": "ffa6245e45253ebd38fe12fd909403c184e1b386e1bc522b9c97c5ee3d246a64",
+  "verifier_sha256": "0cc91070060205d4746bd30f7f1501f92243adf307fbda7fb7b81af406557a80",
   "corruption_checks": [
     {
       "mutation": "span_offset",
       "rejected": true,
-      "reason": "Invalid evidence span: clinical-imaging"
+      "reason": "Invalid evidence span: clinical-pathology"
     },
     {
       "mutation": "missing_pair",
@@ -24,6 +24,21 @@
       "mutation": "case_revision",
       "rejected": true,
       "reason": "Case review scope changed: x001"
+    },
+    {
+      "mutation": "duplicate_span",
+      "rejected": true,
+      "reason": "Duplicate pair evidence span"
+    },
+    {
+      "mutation": "missing_negative_dependency",
+      "rejected": true,
+      "reason": "Pair case dependencies differ from releases"
+    },
+    {
+      "mutation": "wrong_external_decoy",
+      "rejected": true,
+      "reason": "External source/decoy roles differ from release"
     }
   ],
   "offline_regressions": {
@@ -32,5 +47,5 @@
     "result": "passed"
   },
   "review_date": "2026-10-03",
-  "limitations": "Mechanical integrity and coverage only; scientific interpretation and integrated retrieval remain separate."
+  "limitations": "Mechanical integrity, dependencies and coverage only; span existence does not certify scientific support. Integrated retrieval and domain-expert review remain separate."
 }
