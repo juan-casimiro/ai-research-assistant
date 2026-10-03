@@ -1,0 +1,857 @@
+{
+  "run_id": "20261003T104255Z-86bde93a",
+  "run_status": "complete",
+  "created_at": "2026-10-03T10:42:56.259062+00:00",
+  "code_commit": "17dd21b4dd50ae86e61c19c7a2282ba70222c8c4",
+  "config_label": "vector-only-baseline",
+  "config": {
+    "use_bm25": false,
+    "use_query_rewriting": false,
+    "n_values": [
+      3,
+      8
+    ]
+  },
+  "provenance": {
+    "query_version": "cardiology-queries-v1",
+    "query_sha256": "21b5c5d61283852c201c63ba6ff832592c1cc92e11df88ea4a7385a40582d3f5",
+    "subset_sha256": "896176e3d7e55c3058cf00390405089fa373064cb27b19e70a69359ec2c41bcf",
+    "scorer_version": "pinned-span-coverage-v3",
+    "feasibility_version": "minimum-evidence-chunks-v3",
+    "feasibility_sha256": "544ad126e0e49bf37d159b3c8b648c7092357aa0d0d4aa15d5882336ce828633",
+    "scorer_sha256": "e358ba1bbf07c2f6ce32fd54d3b6a57e2daadff3c85d9ee13d019f4fa862b321",
+    "retrieval_sha256": "beeb5ea41bf4ff3b1943261c386e9cea23794fef4c15aaee136ba91ddbac6577",
+    "selection_sha256": "6d003566542ee904704f2cab751f93866d23f864363eabe54eb128a2450dae28",
+    "conditions_sha256": "71bb1f14b2b3133bc5c6ae0134508b3597a41e3d278a6172faf9a24c61c1cff2",
+    "condition": "C2",
+    "membership_sha256": "9019159bb466a9dc1142c0132d566dd6216dec14592f3c0122260f4005053009",
+    "article_tuples": [
+      {
+        "article_id": "PMC10363301",
+        "pmc_version": 1,
+        "pdf_sha256": "97cb98ece2c75b991827fcd1b7899adf16112b30b4f99bf43de3c7708b6ddb1d",
+        "text_sha256": "e7c60503d9e39d2a97c9c8d20977584c0c0bf9815a815dcc9bc16e4f0338dc90"
+      },
+      {
+        "article_id": "PMC10452755",
+        "pmc_version": 1,
+        "pdf_sha256": "428b996c883cc4c2371bb35395dc0bb9573268f63083c11d07d7a13ff8b9d018",
+        "text_sha256": "6a9cde184a6d795fd7fd24b96d72c137d0794eeb03dca6a4f89f9aae2a0991e6"
+      },
+      {
+        "article_id": "PMC10607686",
+        "pmc_version": 1,
+        "pdf_sha256": "b7893a0d1767f32346e8f8e3932c3a365bfe5fc1cd01906570ef8352ba8b288d",
+        "text_sha256": "f90d7a116e315fef1cbf4db4e7ed0ac95d08477f2011c5ea1dce1bbcc62801ac"
+      },
+      {
+        "article_id": "PMC10619268",
+        "pmc_version": 1,
+        "pdf_sha256": "eee1cec10b138c2f30bd8dc8baf9e8a8a37be7fd9e630f9259b4165a82598f15",
+        "text_sha256": "8384138ffaf40155d96b7a86b7860c1368f564cb551461bb4b57fdd537f7d47f"
+      },
+      {
+        "article_id": "PMC10985250",
+        "pmc_version": 1,
+        "pdf_sha256": "da3f20ab88773c13ae08e73f8c18f0a6bb9ccb9000edc0aaf20231fe69fab042",
+        "text_sha256": "9540f1db4e82cd5c2b5317cc8e7c22bb9e574bedb8a482183059aa75079f83c2"
+      },
+      {
+        "article_id": "PMC11265054",
+        "pmc_version": 1,
+        "pdf_sha256": "2e0ede0a64a478e6a71597953a3a129f1b0ec2e517c141031626716902617988",
+        "text_sha256": "8eca20550e7b3985ea416f673e8e7215ae5c1d3b4324f43fd6fa7025cd8da9b9"
+      },
+      {
+        "article_id": "PMC11354916",
+        "pmc_version": 1,
+        "pdf_sha256": "57bc82e367b1c0e1287949bd450a99f9781d44f1a1d771329da3790e866ddcca",
+        "text_sha256": "adfd72166763a7877947d3a00e7d284e83c5c957d1c69b14edfc001cf93e9303"
+      },
+      {
+        "article_id": "PMC11373557",
+        "pmc_version": 1,
+        "pdf_sha256": "0c9c6285ea1c2ca4ab5988ee086381b216024bd83fc30fdb87b312f14e7573e2",
+        "text_sha256": "7f7028f9cb1faf7340e0a1332173ba45b6c49f2b5de9fd8cd0ce21228f39fcbc"
+      },
+      {
+        "article_id": "PMC11374717",
+        "pmc_version": 1,
+        "pdf_sha256": "ad7d0765df4acc821140a90163616d16eac041d3189c62a84816393f6fb3d7a2",
+        "text_sha256": "81bea566735ce5a3dd900c3d5c799f2be52d1aa98e269271051f86c42faeba23"
+      },
+      {
+        "article_id": "PMC11514186",
+        "pmc_version": 1,
+        "pdf_sha256": "4b2d042eb6899421eddf9f9c9156a16a1323ccb47448e2209591eac5bec96412",
+        "text_sha256": "08fd7ff833e8fb16f4f84673fb9284f0c4a3b8de60f5b0ffd8e65f65c7e11a5b"
+      },
+      {
+        "article_id": "PMC11549774",
+        "pmc_version": 1,
+        "pdf_sha256": "a601b1f08ceffa558785589ddd1318b1721e0e43f942ef842555dad101e513d0",
+        "text_sha256": "8139a3464d5e449d8b767a7a2b84755fe46c22425cc7404984274ea22a0ed25a"
+      },
+      {
+        "article_id": "PMC11847805",
+        "pmc_version": 1,
+        "pdf_sha256": "8ea3e3eb1035ddc82f07f1d43c47fc3a4a5d58fbc85ab4812e609b9361c6c789",
+        "text_sha256": "96ae44c60b11d2de402678c86da83fb49e06805de44c32d4c47780b3609d0910"
+      },
+      {
+        "article_id": "PMC11973566",
+        "pmc_version": 1,
+        "pdf_sha256": "d313c0487c3de9e7592629cb1a40487ef9014a6765b754be0aa5dd4540586f40",
+        "text_sha256": "8f08eee9d4ce3d6674fdc4033da15e6aaebb9c7c4c1ef8ecc90ad58fb9677bb1"
+      },
+      {
+        "article_id": "PMC12003177",
+        "pmc_version": 1,
+        "pdf_sha256": "d977b0dc0b6e1642cdf840e3980a7049b2705efea8c3673b1966228426b00747",
+        "text_sha256": "9fba58ea3eca0bfbd3ffe13706c8668f5b8c63bf6cbc612684ce977c19bba230"
+      },
+      {
+        "article_id": "PMC12419643",
+        "pmc_version": 1,
+        "pdf_sha256": "d0754aa1dfca29959133cef42e62a22906dc8f2d114b5ed5ee2ee029b334a6a5",
+        "text_sha256": "0f1c10c5d946e9985178c3aee354fb854f7ceb42016d5c14369c20df9b008c93"
+      },
+      {
+        "article_id": "PMC12436478",
+        "pmc_version": 1,
+        "pdf_sha256": "c4233f82070beead4ccd734da37ca8debdd5ea932a6ac1b6da943534dd407bb8",
+        "text_sha256": "537c270971b992263815e4f0c1238c2a12df2ce0a03ef897223104fb314c54c1"
+      },
+      {
+        "article_id": "PMC12683810",
+        "pmc_version": 1,
+        "pdf_sha256": "73e09eabefaa17069e9dfa759b25f0bcdff6670ff98e13376c6bf4edf5a9d00d",
+        "text_sha256": "2ae0ddbaa222c6338b2ef243f54db4bb48c309956d452c3e93ee9c8fbf165644"
+      },
+      {
+        "article_id": "PMC12880197",
+        "pmc_version": 1,
+        "pdf_sha256": "4184a379fbcc8ee900c7bafdef97ce0a510754edd13cc2b03b793fbfd2178c10",
+        "text_sha256": "a80597a43244637e86546a9aa05f04069b7e8c8d3effccdd9aa082fd99721767"
+      },
+      {
+        "article_id": "PMC12886974",
+        "pmc_version": 1,
+        "pdf_sha256": "224b75380b1f544fff0e70a11497feb5831ed510081ddd62d7507e7c54addd64",
+        "text_sha256": "59b924df2bfc187cb9b46d7e364de4c886b988e4ac533c275e23047540f5e978"
+      },
+      {
+        "article_id": "PMC13107781",
+        "pmc_version": 1,
+        "pdf_sha256": "7d945aa70dc355ad5b23458e78110f7c3ee61448067494fa3ca0bad444f73f96",
+        "text_sha256": "33f34e3bbb6db92d53526c631b4e4cbf276edd335fb8264f5f4f4b5911091676"
+      },
+      {
+        "article_id": "PMC13175446",
+        "pmc_version": 1,
+        "pdf_sha256": "30bfd354492c282ad33fd2b6819d26d0c61c724481a66197355152c45f25b37a",
+        "text_sha256": "60dfde8e7c8e2d7f7b5cf53cea134a12b0072b0cf3f2cc7729c0e2e4c0ea284f"
+      },
+      {
+        "article_id": "PMC13311226",
+        "pmc_version": 1,
+        "pdf_sha256": "270a950107f45871e2c9155847cc4e315ffd98c6b9538ae7f233389d894ccab8",
+        "text_sha256": "eee25ef331e38928ef027fbd0d85ce3e12895e5c6cd3d976d8e3737d0f79dbac"
+      },
+      {
+        "article_id": "PMC13423648",
+        "pmc_version": 1,
+        "pdf_sha256": "2afbf5dc2056eca213a2a8ae3953e454e63e6a2c9d5d6143a485e27bc5d59e2c",
+        "text_sha256": "e3700cc45c8127da12bfd7a9e97d73e8ef6c3b96ea53413ea66c828c98663b28"
+      },
+      {
+        "article_id": "PMC13430954",
+        "pmc_version": 1,
+        "pdf_sha256": "e25002f03766a70a0d260c1ba9917933a1cde3aebe091e8694a75634fb0c0b11",
+        "text_sha256": "fb07bbfd6201c00c0d65e1e396a199d70252583042674ca3ec34091a83d4fea2"
+      },
+      {
+        "article_id": "PMC13433181",
+        "pmc_version": 1,
+        "pdf_sha256": "1d935134ce714762ed0cf19167c622f4ae4914b3e85f86094d07d85909b93c53",
+        "text_sha256": "e4a478287bfa1d922ed24b37de0756eb37f283583ddc5a98379d60eb600b472a"
+      },
+      {
+        "article_id": "PMC13433218",
+        "pmc_version": 1,
+        "pdf_sha256": "1eab8391f2d6c495a37c0dc9ac3ea53c9a014d89ae4cc2ec5c80214fcc00e2df",
+        "text_sha256": "3d980a356bac2baae11a9214434d3df2f3209132ec5122836810913e163d8bca"
+      },
+      {
+        "article_id": "PMC13433680",
+        "pmc_version": 1,
+        "pdf_sha256": "318eb20f7938dfcc713cb0132f03506cfb1eadc7d349b50547b844c40a8ad6a7",
+        "text_sha256": "4f85a4ba5a9d7c6eff49c0b52e98d863879864fb8f29272141e1f2ece181c34c"
+      },
+      {
+        "article_id": "PMC13433862",
+        "pmc_version": 1,
+        "pdf_sha256": "98440a13560fb770655aab38680bbb8d8f21a700eed8db59ee6ab14f1713cad0",
+        "text_sha256": "a7392cc279bda7889978699cb469095c6ea2d0fdfc4a21909562e8ffcbeffa75"
+      },
+      {
+        "article_id": "PMC13439631",
+        "pmc_version": 1,
+        "pdf_sha256": "f53e37eee5fffda71935451944718520aab7cf16ad5dc7724db098b129d757f0",
+        "text_sha256": "24d5f324a1c5a6bd8f7481b08e216ecf32bda77af3932c09636a5bb854520d54"
+      },
+      {
+        "article_id": "PMC13472562",
+        "pmc_version": 1,
+        "pdf_sha256": "bb7c82cd722d116881f4a770f6f599407d86d425801d098bc6332d3176fdaa51",
+        "text_sha256": "77aa0fdd8e2fbc61b5ab6b3f0c029e2ddee577ab9a3c2f7bbc2babe7e7938abe"
+      },
+      {
+        "article_id": "PMC4804513",
+        "pmc_version": 1,
+        "pdf_sha256": "7a9d0736403d43d29074d4ae86e207287148a915c60c436d2e796669bedd2f66",
+        "text_sha256": "1fa7ea1e51386b8bec2c48538ae64bf304763b96e9d8e62495a8dfef40ba498c"
+      },
+      {
+        "article_id": "PMC8866621",
+        "pmc_version": 1,
+        "pdf_sha256": "5fac4e90fefa67859c05eb5740926afdab413a980ae6a4876b2ed691f7742928",
+        "text_sha256": "aa9921406485752eefe722a0c02d5104d49ad3c252110a7299b64a4b9459934c"
+      },
+      {
+        "article_id": "PMC13429855",
+        "pmc_version": 1,
+        "pdf_sha256": "7c9c6384315c78c2d87b85a626a77df3f062cb844d938d63555a43cbc485f5fe",
+        "text_sha256": "58575a81d8a421f828c2df5ee858c9cc6042affcd304fa806ba272ecc77fbdd5"
+      },
+      {
+        "article_id": "PMC9239676",
+        "pmc_version": 1,
+        "pdf_sha256": "5c288149e5302d2a0df3b1f5b5eac2aa66fdbf814e2f6b4a1e3edd221e91b9e9",
+        "text_sha256": "7810d2970ea970c2d6f1a545e2d837e6307483394f4b3bfbd00e4d88f2ffa282"
+      },
+      {
+        "article_id": "PMC9844597",
+        "pmc_version": 1,
+        "pdf_sha256": "3b7648ae2dad0474f9713ef4fd45321baa410102e45edb9859430a69817f6017",
+        "text_sha256": "28c1a5108837001e0a4e43860ee16bb52bcbce6d4f6796e0052c889a4480bfb3"
+      },
+      {
+        "article_id": "PMC10770829",
+        "pmc_version": 1,
+        "pdf_sha256": "62a31bebac42df923ba7e01b7524099f883e790f0358a76633812919bff242a9",
+        "text_sha256": "7e85e97c85e91940d433f874146fe212cadd7b545858218d94c4a838b82d13af"
+      },
+      {
+        "article_id": "PMC12931073",
+        "pmc_version": 1,
+        "pdf_sha256": "c21b91878e5575f47778a01e98dffe75570d63522d16b4ea59426b2d75417edf",
+        "text_sha256": "3108f6544c856644bd4fe8dc5e65960de70e79dc335eabcfe9cf5c60f5cc07c1"
+      },
+      {
+        "article_id": "PMC10840225",
+        "pmc_version": 1,
+        "pdf_sha256": "08c2b565efa48747d337ba0acde43b8b9a37940afaeab53dc3d7457f40925180",
+        "text_sha256": "86b78e7067fe6d0ebacbd0cc57cfe5999080d5a94b510b79dcb440575db36295"
+      },
+      {
+        "article_id": "PMC11891047",
+        "pmc_version": 1,
+        "pdf_sha256": "c5b888eeddb09eb5f0eb9a87a0f80865f1b3c23b5c593d84f0e9b1e959a45052",
+        "text_sha256": "951e0f660ba1d43156b2b831ad9da1002294f302c31568684239f9a0336ea883"
+      },
+      {
+        "article_id": "PMC11181582",
+        "pmc_version": 1,
+        "pdf_sha256": "fbaf0850e1febcf9e6050115bdb995b191a2bead8d266b15f4f65ebf48760ebe",
+        "text_sha256": "303566c85b08800eeb2dd86c9001d71ceb3e8233338804f37521b8b99797ce4c"
+      },
+      {
+        "article_id": "PMC11431721",
+        "pmc_version": 1,
+        "pdf_sha256": "855c75cc83d34f8f8a78824ae1d2390e8235c1149ddc6b037c663d872fd95a4e",
+        "text_sha256": "c620e1397bfa90c892296c9d1135d9a11186cf5c2183ec6b91497045afb3e2e8"
+      },
+      {
+        "article_id": "PMC11547071",
+        "pmc_version": 1,
+        "pdf_sha256": "773f4d6d7babdfef218232a0cc2e4c825790f3420eeb1313954b481a14c49701",
+        "text_sha256": "aecc3690ab9e2438bd9469beae209f850307e53aab032e4ede390b6b2593ab21"
+      },
+      {
+        "article_id": "PMC10485396",
+        "pmc_version": 1,
+        "pdf_sha256": "4ea7336bee5f5debbda1ae1ff24ec7bd1c1ff6a26b433f236aa6962353d7e3a8",
+        "text_sha256": "239fdefc8b7c1632d37036b15857a422310b82a294b0accd9bbee977553d4862"
+      },
+      {
+        "article_id": "PMC13190586",
+        "pmc_version": 1,
+        "pdf_sha256": "b6827e067f65071cf839298155d88d4b4a7bd21dfc76774d757640915d5f3166",
+        "text_sha256": "a98f88c8d05330ae30625d0b3a0d2bfafad82d4b1596d69423a281e9a067aa32"
+      },
+      {
+        "article_id": "PMC10073666",
+        "pmc_version": 1,
+        "pdf_sha256": "cecd1e55b465a71511cba93ff35d06102232f8b8cac1900d5a13ad6d66f9122d",
+        "text_sha256": "8e91f65a1da7e8209f83fbe0f8b64fed9a80ad3020db901045e2279e2c05eb2f"
+      },
+      {
+        "article_id": "PMC12495207",
+        "pmc_version": 1,
+        "pdf_sha256": "bc2ae72df423b20b71363eb813f283d6300add43104bac1a9b2f12874b10adef",
+        "text_sha256": "097a58141efdda58c9212125e2f434912bfcac3a538c014a960a136a0c9e79c2"
+      }
+    ],
+    "requested_ids": [
+      "q056",
+      "q067"
+    ],
+    "executed_ids": [
+      "q056",
+      "q067"
+    ],
+    "missing_ids": [],
+    "depths": [
+      3,
+      8
+    ],
+    "dependencies": {
+      "fastembed": "0.8.0",
+      "chromadb": "1.5.9",
+      "pypdf": "6.16.1",
+      "rank-bm25": "0.2.2",
+      "onnxruntime": "1.28.0"
+    },
+    "loaded_models": {
+      "embedding": {
+        "model_name": "BAAI/bge-small-en-v1.5",
+        "files": {
+          "config.json": "13582bcf2effc85b7bf3d3f5532e686bc1c9ce86bb009d10f0ec33cbe92299dd",
+          "model_optimized.onnx": "51f1bd0addd6e859e42c2c8021a5e5461385bb676a649f4b269aa445449f2431",
+          "special_tokens_map.json": "5d5b662e421ea9fac075174bb0688ee0d9431699900b90662acd44b2a350503a",
+          "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+          "tokenizer_config.json": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53"
+        },
+        "sha256": "d9e46143a9cabd7abdbe181fd67443a66089fd55d721db87b7b2964085ed0bff"
+      },
+      "reranker": {
+        "model_name": "Xenova/ms-marco-MiniLM-L-6-v2",
+        "files": {
+          "config.json": "d827779a72d27ae68cf878a6fc2e954542663fe21ca515d9f4783fc96be2d37e",
+          "onnx/model.onnx": "c623d0bcb99f4622beb413eaef00cfbe5db20df9f1dd982da4b4f26022881870",
+          "special_tokens_map.json": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+          "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+          "tokenizer_config.json": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53"
+        },
+        "sha256": "253fe4bae5a04bd859f462ffca4c1818e42725f6b14a55392b3ed9040728fb49"
+      }
+    },
+    "rewrite_identity": {
+      "provider": "ollama",
+      "model": "smollm2:1.7b-instruct-q4_K_M"
+    },
+    "ingestion_verification": {
+      "collection_name": "documents",
+      "chunk_count": 2927,
+      "per_source_chunks": {
+        "cardio-af-incident-ecg-calibration.pdf": 53,
+        "cardio-af-lorenz-detection.pdf": 50,
+        "cardio-af-stroke-mechanisms-review.pdf": 84,
+        "cardio-ahre-echo-transformer.pdf": 40,
+        "cardio-ai-af-management-review.pdf": 71,
+        "cardio-cad-ct-angiography.pdf": 77,
+        "cardio-cardiorenal-drug-network-meta-analysis.pdf": 77,
+        "cardio-ccta-tyg-incremental-value.pdf": 40,
+        "cardio-ckd-sglt2-acei-arb.pdf": 59,
+        "cardio-ctffr-diabetes-unstable-angina.pdf": 53,
+        "cardio-diabetes-hypertension-polygenic.pdf": 86,
+        "cardio-emperor-preserved-resistant-hypertension.pdf": 62,
+        "cardio-heartfailure-biomarkers.pdf": 62,
+        "cardio-hfpef-dapagliflozin-cost-analysis.pdf": 43,
+        "cardio-hfpef-geriatric-biomarkers.pdf": 56,
+        "cardio-mi-risk-stratification.pdf": 51,
+        "cardio-resistant-hypertension-korean-consensus.pdf": 117,
+        "cardio-resistant-hypertension-thai-consensus.pdf": 43,
+        "cardio-spironolactone-diabetes-trial.pdf": 37,
+        "cardio-stemi-vasc-fmd-no-reflow.pdf": 36,
+        "cardio-tailored-af-randomized-trial.pdf": 73,
+        "diabetes-cardiovascular-outcomes.pdf": 89,
+        "diabetes-cgm-management.pdf": 112,
+        "diabetes-cyp2c9-hypoglycaemia.pdf": 41,
+        "diabetes-digital-education-cgm-trial.pdf": 59,
+        "diabetes-gene-sex-hormone-interactions.pdf": 57,
+        "diabetes-hif-zinc-review.pdf": 121,
+        "diabetes-metabolic-syndrome-cameroon.pdf": 67,
+        "diabetes-nephropathy-complications.pdf": 106,
+        "diabetes-pharmacotherapy-rct.pdf": 47,
+        "diabetes-semaglutide-size-dm-trial.pdf": 39,
+        "diabetes-sleep-multimorbidity-cohorts.pdf": 66,
+        "onco-afatinib-vietnam.pdf": 42,
+        "onco-breast-pembrolizumab-helsinki.pdf": 45,
+        "onco-colorectal-screening.pdf": 70,
+        "onco-driver-nonmetastatic-review.pdf": 85,
+        "onco-icd-cold-tumor-review.pdf": 59,
+        "onco-ici-cardiac-rct-meta.pdf": 51,
+        "onco-ici-cv-observational.pdf": 53,
+        "onco-immune-exclusion-definition.pdf": 68,
+        "onco-lung-liquidbiopsy.pdf": 100,
+        "onco-nsclc-neoadjuvant-hunan.pdf": 54,
+        "onco-nsclc-neoadjuvant-stageiii.pdf": 41,
+        "onco-pd1-cause-specific-mortality.pdf": 57,
+        "onco-polmol-testing.pdf": 82,
+        "onco-reflex-biomarker-consensus.pdf": 46
+      },
+      "chunks_sha256": "7fced5d4d0c5dd61499fa04509e7aaec98c35dff77492cc56b77a400da9b937f",
+      "collection_path": "/Users/agentdev/development/.agent-tmp/JUA-112-regression-20261003-expanded"
+    }
+  },
+  "results": [
+    {
+      "id": "q056",
+      "revision": 2,
+      "question": "What six-month reductions in NT-proBNP, PIIINP and GDF-15 were reported in the HFpEF SGLT2 biomarker study, compared with controls?",
+      "query_sha256": "1362ca89b1c5e2b570e2bc64c7b9b9a9129e6a3c7658ef7228173d777a1be354",
+      "category": "direct_lookup",
+      "answerability": "answerable",
+      "evidence_feasibility": {
+        "minimum_chunks": 1,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "n3": {
+        "retrieved_sources": [
+          "cardio-heartfailure-biomarkers.pdf",
+          "cardio-heartfailure-biomarkers.pdf",
+          "cardio-hfpef-geriatric-biomarkers.pdf"
+        ],
+        "retrieved_contexts": [
+          "two gro ups re garding the change in \ntricuspid regurgit ation velocity (TR V) (P = 0.343; Tab le 2 ).\n3.4 Changes in serum biomark ers\nCompar ed with the contr ol gr oup, the SGL T2i group exhibited \na gr eater magnitude of decline in serum biomarkers . NT-pr oBNP \nlev els decr eased by 30.4% in the SGL T2i gr oup, compared to 9.7% \nin the control group (P < 0.001; Table 3 , Figur e 4A ). The reduction \nin the myocardial fibr osis mark er PIIINP was 15.1% in the SGL T2i \ngroup, significantly higher than the 5.8% red uction in the control \ngroup (P < 0.001; Table 3 , Figure 4B ). Gro wth differe ntiation \nfactor -15 (GDF-15) also decreased more significantly in the \nSGL T2i group (20.5% vs. 8.6%; P < 0.001; Table 3 , Figur e 4C ).\n3.5 Clinical outcomes: heart failur e \nr ehospitaliza tion r at e\nDuring the median 12-month follow-up period, the heart \nfailure reh ospitalization ra te was 24.7% (23/93) in the SGL T2i \ngroup, significantly lo wer than 55.4% (51/92) in the control \ngroup, ",
+          "kers in patien ts with HFpEF . The ke y \nfindings wer e as follows: After 6 months of SGL T2i trea tment, \npatien ts ex hibited significant impro v ement in GLS, with a ΔGLS \n1.95% gr eater than that in the contro l group (P < 0.001). The \nreduct ions in diastolic function parameters including E/e’, LA VI, \nand left vent ricular mass index (L VMI) we re all significantly \ngrea ter in the SGL T2i group than in the control gr oup (all \nP < 0.001). The perce ntage decr eases in serum fibrosi s mark ers \nPIIINP , GDF-15, and NT-proBNP we re also significantly higher \nFIGURE 1 \nPa tient screening flowchart.\nXu et al.                                                                                                                                                                 10.3389/fcvm.2026.1858364\nFrontiers in Cardiovascular Medicine 05 frontiersin.org\nT ABLE 1 Baseline chara cteristics.\nV ariable SGL T2i Gr oup (n = 93) Contr ol Gr oup (n = 92) t/U/χ\n2\nP-value\nAge ( ye ars) 71.16 ± 10.39",
+          "ation biomarkers, in a cohort of HFpEF elderly\npatients with T2DM. We recruited 150 elderly outpatients (mean age75.8 ± 7.4 years). Results: At\nsix-month follow-up, there was a significant improvement in MMSE (p < 0.0001), MoCA (p < 0.0001),\nGDS score (p < 0.0001), and SPPB ( p < 0.0001). Moreover, we observed a significant reduction in\nNox-2 (p < 0.0001), 8-Isoprostane (p < 0.0001), Sp-Selectin (p < 0.0001), and Gp-VI (p < 0.0001). Consid-\nering ∆MMSE as the dependent variable, ∆E/e’, ∆Nox-2, ∆HOMA, ∆8-Isoprostane, and ∆Uricemia\nwere associated for 59.6% with ∆MMSE. When ∆MoCA was considered as the dependent variable,\n∆HOMA, ∆E/e’, ∆8-Isoprostane, ∆Nox-2 and ∆Uricemia were associated for 59.2%. Considering\n∆GDS as the dependent variable, ∆HOMA, ∆Nox-2, ∆8-Isoprostane, and ∆Uricemia were associated\nwith 41.6% of ∆GDS variation. Finally, ∆HOMA was the main predictor of ∆SPPB, which was associ-\nated with 21.3% with ∆SPPB, ∆8-Isoprostane, ∆Nox-2, ∆E/e’, and ∆Uricemia added another 24.1%.\n"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "pass",
+          "fact_recall": 1.0,
+          "supported_facts": [
+            "f1"
+          ],
+          "anchor_matches": {
+            "hf_gdf": [
+              0
+            ],
+            "hf_ntprobnp": [
+              0
+            ]
+          },
+          "anchor_match_groups": {
+            "hf_gdf": [
+              [
+                0
+              ]
+            ],
+            "hf_ntprobnp": [
+              [
+                0
+              ]
+            ]
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "n8": {
+        "retrieved_sources": [
+          "cardio-heartfailure-biomarkers.pdf",
+          "cardio-heartfailure-biomarkers.pdf",
+          "cardio-hfpef-geriatric-biomarkers.pdf",
+          "cardio-heartfailure-biomarkers.pdf",
+          "cardio-hfpef-geriatric-biomarkers.pdf",
+          "cardio-heartfailure-biomarkers.pdf",
+          "cardio-heartfailure-biomarkers.pdf",
+          "cardio-heartfailure-biomarkers.pdf"
+        ],
+        "retrieved_contexts": [
+          "two gro ups re garding the change in \ntricuspid regurgit ation velocity (TR V) (P = 0.343; Tab le 2 ).\n3.4 Changes in serum biomark ers\nCompar ed with the contr ol gr oup, the SGL T2i group exhibited \na gr eater magnitude of decline in serum biomarkers . NT-pr oBNP \nlev els decr eased by 30.4% in the SGL T2i gr oup, compared to 9.7% \nin the control group (P < 0.001; Table 3 , Figur e 4A ). The reduction \nin the myocardial fibr osis mark er PIIINP was 15.1% in the SGL T2i \ngroup, significantly higher than the 5.8% red uction in the control \ngroup (P < 0.001; Table 3 , Figure 4B ). Gro wth differe ntiation \nfactor -15 (GDF-15) also decreased more significantly in the \nSGL T2i group (20.5% vs. 8.6%; P < 0.001; Table 3 , Figur e 4C ).\n3.5 Clinical outcomes: heart failur e \nr ehospitaliza tion r at e\nDuring the median 12-month follow-up period, the heart \nfailure reh ospitalization ra te was 24.7% (23/93) in the SGL T2i \ngroup, significantly lo wer than 55.4% (51/92) in the control \ngroup, ",
+          "kers in patien ts with HFpEF . The ke y \nfindings wer e as follows: After 6 months of SGL T2i trea tment, \npatien ts ex hibited significant impro v ement in GLS, with a ΔGLS \n1.95% gr eater than that in the contro l group (P < 0.001). The \nreduct ions in diastolic function parameters including E/e’, LA VI, \nand left vent ricular mass index (L VMI) we re all significantly \ngrea ter in the SGL T2i group than in the control gr oup (all \nP < 0.001). The perce ntage decr eases in serum fibrosi s mark ers \nPIIINP , GDF-15, and NT-proBNP we re also significantly higher \nFIGURE 1 \nPa tient screening flowchart.\nXu et al.                                                                                                                                                                 10.3389/fcvm.2026.1858364\nFrontiers in Cardiovascular Medicine 05 frontiersin.org\nT ABLE 1 Baseline chara cteristics.\nV ariable SGL T2i Gr oup (n = 93) Contr ol Gr oup (n = 92) t/U/χ\n2\nP-value\nAge ( ye ars) 71.16 ± 10.39",
+          "ation biomarkers, in a cohort of HFpEF elderly\npatients with T2DM. We recruited 150 elderly outpatients (mean age75.8 ± 7.4 years). Results: At\nsix-month follow-up, there was a significant improvement in MMSE (p < 0.0001), MoCA (p < 0.0001),\nGDS score (p < 0.0001), and SPPB ( p < 0.0001). Moreover, we observed a significant reduction in\nNox-2 (p < 0.0001), 8-Isoprostane (p < 0.0001), Sp-Selectin (p < 0.0001), and Gp-VI (p < 0.0001). Consid-\nering ∆MMSE as the dependent variable, ∆E/e’, ∆Nox-2, ∆HOMA, ∆8-Isoprostane, and ∆Uricemia\nwere associated for 59.6% with ∆MMSE. When ∆MoCA was considered as the dependent variable,\n∆HOMA, ∆E/e’, ∆8-Isoprostane, ∆Nox-2 and ∆Uricemia were associated for 59.2%. Considering\n∆GDS as the dependent variable, ∆HOMA, ∆Nox-2, ∆8-Isoprostane, and ∆Uricemia were associated\nwith 41.6% of ∆GDS variation. Finally, ∆HOMA was the main predictor of ∆SPPB, which was associ-\nated with 21.3% with ∆SPPB, ∆8-Isoprostane, ∆Nox-2, ∆E/e’, and ∆Uricemia added another 24.1%.\n",
+          "Δ \n%\nSta tistic \nfor Δ%, t/U\nP-value \nfor Δ%\nNT-proBNP \n( pg/mL)\n706.71 491.61 −30.4% 609.04 549.75 −9.7% −13.651 <0.001\nPIIINP (ng/mL) 0.77 0.66 −15.1% 0.78 0.74 −5.8% −13.069 <0.001\nGDF-15 \n( pg/mL)\n1,553.57 1,235.15 −20.5% 1,517.21 1,386.04 −8.6% −15.222 <0.001\nXu et al.                                                                                                                                                                 10.3389/fcvm.2026.1858364\nFrontiers in Cardiovascular Medicine 08 frontiersin.org\ncorrela te with the change in NT-proBNP (r = 0.120, P = 0.238). \nThis lac k of individual-level correla tion suggests that while \nSGL T2i concurr ently impro ves myocardial str ain and reduces \nfibrosis markers, the two effects may not be linearly coupled. \nOther mechanisms—such as enhanced endothelial function, \nreduce d oxidativ e str ess, optimized energy metabolism, or direct \nanti-inflammatory actions—ma y contribute independently to the \nimpro vement in GLS. Precl inical s",
+          " of their individual\neffects on ∆MMSE, MoCA, GDS, and SPPB. Differences were considered significant at\np < 0.05. Statistical analysis was carried out using the SPSS V20.0 program for Windows\n(SPSS Inc., Chicago, IL, USA).\n5. Conclusions\nThis real-life study carried out in a cohort of elderly patients suffering from chronic\nHFpEF and T2DM with several comorbidities, demonstrated that treatment with SGLT2i\nfor six months induced important improvements in clinical, metabolic, and hemodynamic\noutcomes. These changes were associated with an improvement in cognitive, mood, and\nfunctional status, as well as markers of oxidative stress and platelet activation in the whole\npopulation. In conclusion, in elderly patients suffering from HFpEF and T2DM, treatment\nwith SGLT2i results in important clinical benefits affecting not only cardiovascular and\nmetabolic aspects but also CGA scales with significant improvement in QoL.\nAuthor Contributions: Conceptualization, A.S., M.M. and G.A.; Methodology, ",
+          "urther confirms that SGL T2i allevia tes left \nventr icular hypertrophy and impro ves cardiac s tructure. \nCollectiv ely , these findings suggest that SGL T2i not only \nimpro ves myocardial function but also promotes rev erse cardiac \nstruc tural remodeling, with potential value for disease \nmodifica tion in HFpEF .\nAn important inno vation of this study is the correla tion \nbetween dynamic changes in myocardial fibrosis markers and \nimpro vements in cardiac function. As a serolog ical mark er of \nmyocardial fibrosis, elevated PIIINP reflect s act ive extr ace llular \nmat rix collagen metabolism and is associated with adverse \noutcomes in patients with HFpEF ( 36 ). In this study , PIIINP \ndecreased by 15.1% in the SGL T2i group, significantly higher \nthan the 4.3% re duction in the control gr oup (P < 0.001), \nindicat ing that SGL T2i at tenuates myocardial fibrosi s. GDF-15, a \nmarker rela ted to myocardial fibrosis and inflammation , also \ndecreased to a gr eater extent in the SGL T",
+          " 4 Corr elation analyses.\nAnaly sis Group Cor rela tion \nwith ΔGLS\nPearson \nr\nP-value\nSGL T2i Group - \nChange in PIIINP\nΔGLS vs. Change in \nPIIINP\n0.013 0.896\nC ontrol Group - \nChange in PIIINP\nΔGLS vs. Change in \nPIIINP\n−0.099 0.365\nSGL T2i Group - \nChange in NT- \nproB NP\nΔGLS vs. Change in \nNT-proBNP\n0.120 0.238\nC ontrol Group - \nChange in NT- \nproB NP\nΔGLS vs. Change in \nNT-proBNP\n0.056 0.610\nXu et al.                                                                                                                                                                 10.3389/fcvm.2026.1858364\nFrontiers in Cardiovascular Medicine 09 frontiersin.org\n(r = 0.013, P = 0.896). Sever al explana tions may accou nt for this \nphenomenon. First , SGL T2i may benefit the ov erall population \nthr ough a uniform anti-fibrotic mechanism, and interindividual \nvariability may be maske d by the consis tent interve ntion in the \ntrea tment group. Second, the impro vement in GLS induced by \nSGL T2i may invol v",
+          "ular hypertrophy and myocardial fibro sis \nintera ct causally, collectively forming the structur al basis of \ndiastolic dys function in HFpEF patie nts, and are closely associated \nwith reduced ex ercise tolerance and poor pro gnosis ( 12 ).\nQuan titativ e detection of serum biomarkers pr ovides a non- \ninvasive approa ch for assessing myocar dial fibrosis. The \nN-terminal pr opeptide of type III procollagen (PIIINP), a \nserolog ical marker of myocardial fibrosis, is eleva ted in response \nto act ive extr acellul ar matrix collagen metabolism and is closely \nlinked to adverse outcomes in HFpEF patients. Gro wth \ndifferen tiation fact or-15 (GDF-15) has also been pro ven to \nparticipate in myocardial fibrosis and inflammatory re sponses, \nserving as an independent pr edictor of pr ognosis in HFpEF \n( 13 ). Dynamic changes in these biomarkers can indire ctly reflect \nthe progr ession of myocardial fibrosis and its response to \ntherapeutic interventions, offering important insights into t"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "pass",
+          "fact_recall": 1.0,
+          "supported_facts": [
+            "f1"
+          ],
+          "anchor_matches": {
+            "hf_gdf": [
+              0
+            ],
+            "hf_ntprobnp": [
+              0
+            ]
+          },
+          "anchor_match_groups": {
+            "hf_gdf": [
+              [
+                0
+              ]
+            ],
+            "hf_ntprobnp": [
+              [
+                0
+              ]
+            ]
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      }
+    },
+    {
+      "id": "q067",
+      "revision": 2,
+      "question": "What proportion of Sun’s STEMI primary-PCI cohort developed no-reflow?",
+      "query_sha256": "f5190e1da77370ae732dea6871986511293cb72d618476444c8941fb887e5632",
+      "category": "direct_lookup",
+      "answerability": "answerable",
+      "evidence_feasibility": {
+        "minimum_chunks": 1,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "n3": {
+        "retrieved_sources": [
+          "cardio-stemi-vasc-fmd-no-reflow.pdf",
+          "cardio-stemi-vasc-fmd-no-reflow.pdf",
+          "cardio-stemi-vasc-fmd-no-reflow.pdf"
+        ],
+        "retrieved_contexts": [
+          "-reflow among our stud-\nied population was 15% among the direct stenting group \nand the conventional stenting group was 33%. This ratio \nbetween both groups is similar to the ratio of Antoniucci \net al. [14] showing that the incidence of angiographic no-\nreflow was 12% in the conventional stenting group and \n5.5% in the direct stenting group (p-value = 0.040).\nThe current study’s findings confirmed the clinical \nsignificance of the CHA2DS2 VASc score in predicting \nno-reflow after primary PCI where the CHA2DS VASc \nscore was significantly higher in patients with < TIMI \nIII flow (p-value = 0.000) and patients with MBG < II \n(p-value = 0.002) compared to those with TIMI III and \nMBG ≥ II. These findings were consistent with those of \nMirbolouk et al. [15], who discovered that the CHA2DS -\n2VASc score was an important predictor of no-reflow in \n398 patients with acute STEMI (p-value = 0.001). Sig -\nnificantly, the CHA2DS2 VASc score was associated with \nsuboptimal revascularization and s",
+          ": This study included 150 patients who presented with acute STEMI, underwent primary PCI, and were \ndivided into two groups according to the flow result, reflow group and a no-reflow group. The CHA2DS2 VASc score \nwas calculated and evaluation of endothelial function by measuring the brachial artery FDM% was done for each \npatient before the procedure. There were 39 (26%) patients in the no-reflow group and 111 (74%) in the reflow group. \nThe no-reflow patients were older and had significantly higher body mass index (BMI), higher frequency of diabetes \nmellitus, hypertension, history of heart failure, dyslipidemia, Killip class IV on admission, thrombus grade V, multiple \naffected vessels, conventional stenting, and multiple stents placement, longer ischemic times, higher CHA2DS VASc \nscore, and lower brachial artery FMD% (p-values of < 0.05 for all). Moreover, there was a significant negative correlation \nbetween CHA2DS VAS score and preprocedural FMD%, with the higher the score indic",
+          "Description of LV systolic function and inpatient major \nadverse cardiovascular events (MACE) among study cases\n74% of the studied population (111 patients) had LV dys -\nfunction (an EF < 50%) and 26% (39 patients) had an EF of \n50% or more. No significant relation was found between \nthe patients’ CHA2DS VASc scores, brachial artery FMD, \nand the incidence of major adverse cardiovascular events \nduring the hospital stay (p-value = 0.164, and 0.723, \nrespectively).\nDiscussion\nOur study evaluated the preprocedural CHA2DS2-VASc \nscore and the brachial arteries FMD as predictors for the \nno reflow phenomenon in patients with STEMI undergo-\ning primary PCI. The rate of no-reflow following primary \nPCI in our study was 26%, which was in agreement with \npreviously described no-reflow rates between 11 and 41% \nwith variation between different studies according to the \npatient characteristics, angiographic factors, and man -\nagement methods [9].\nThe current study evaluated the risk factors with"
+        ],
+        "verdict": "fail",
+        "metrics": {
+          "document_coverage": "fail",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "nrp_incidence": []
+          },
+          "anchor_match_groups": {
+            "nrp_incidence": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "n8": {
+        "retrieved_sources": [
+          "cardio-stemi-vasc-fmd-no-reflow.pdf",
+          "cardio-stemi-vasc-fmd-no-reflow.pdf",
+          "cardio-stemi-vasc-fmd-no-reflow.pdf",
+          "cardio-stemi-vasc-fmd-no-reflow.pdf",
+          "cardio-mi-risk-stratification.pdf",
+          "cardio-mi-risk-stratification.pdf",
+          "cardio-mi-risk-stratification.pdf",
+          "cardio-stemi-vasc-fmd-no-reflow.pdf"
+        ],
+        "retrieved_contexts": [
+          "-reflow among our stud-\nied population was 15% among the direct stenting group \nand the conventional stenting group was 33%. This ratio \nbetween both groups is similar to the ratio of Antoniucci \net al. [14] showing that the incidence of angiographic no-\nreflow was 12% in the conventional stenting group and \n5.5% in the direct stenting group (p-value = 0.040).\nThe current study’s findings confirmed the clinical \nsignificance of the CHA2DS2 VASc score in predicting \nno-reflow after primary PCI where the CHA2DS VASc \nscore was significantly higher in patients with < TIMI \nIII flow (p-value = 0.000) and patients with MBG < II \n(p-value = 0.002) compared to those with TIMI III and \nMBG ≥ II. These findings were consistent with those of \nMirbolouk et al. [15], who discovered that the CHA2DS -\n2VASc score was an important predictor of no-reflow in \n398 patients with acute STEMI (p-value = 0.001). Sig -\nnificantly, the CHA2DS2 VASc score was associated with \nsuboptimal revascularization and s",
+          ": This study included 150 patients who presented with acute STEMI, underwent primary PCI, and were \ndivided into two groups according to the flow result, reflow group and a no-reflow group. The CHA2DS2 VASc score \nwas calculated and evaluation of endothelial function by measuring the brachial artery FDM% was done for each \npatient before the procedure. There were 39 (26%) patients in the no-reflow group and 111 (74%) in the reflow group. \nThe no-reflow patients were older and had significantly higher body mass index (BMI), higher frequency of diabetes \nmellitus, hypertension, history of heart failure, dyslipidemia, Killip class IV on admission, thrombus grade V, multiple \naffected vessels, conventional stenting, and multiple stents placement, longer ischemic times, higher CHA2DS VASc \nscore, and lower brachial artery FMD% (p-values of < 0.05 for all). Moreover, there was a significant negative correlation \nbetween CHA2DS VAS score and preprocedural FMD%, with the higher the score indic",
+          "Description of LV systolic function and inpatient major \nadverse cardiovascular events (MACE) among study cases\n74% of the studied population (111 patients) had LV dys -\nfunction (an EF < 50%) and 26% (39 patients) had an EF of \n50% or more. No significant relation was found between \nthe patients’ CHA2DS VASc scores, brachial artery FMD, \nand the incidence of major adverse cardiovascular events \nduring the hospital stay (p-value = 0.164, and 0.723, \nrespectively).\nDiscussion\nOur study evaluated the preprocedural CHA2DS2-VASc \nscore and the brachial arteries FMD as predictors for the \nno reflow phenomenon in patients with STEMI undergo-\ning primary PCI. The rate of no-reflow following primary \nPCI in our study was 26%, which was in agreement with \npreviously described no-reflow rates between 11 and 41% \nwith variation between different studies according to the \npatient characteristics, angiographic factors, and man -\nagement methods [9].\nThe current study evaluated the risk factors with",
+          "hort-term adverse \ncardiovascular outcomes after primary PCI in patients \nwith acute STEMI, which may indicate that the score \neffectively predicts the outcomes in patients by predict -\ning no-reflow [16]. So, high-risk patients for no reflow \ncould be identified with simpler risk scores, more effec -\ntive medications and follow up of patients may be given.\nThe median of FMD% in the studied population was \nhigher in patients with TIMI III Flow (p-value = 0.000) \nand in patients with MBG ≥ II (p-value = 0.027) than in \nthose with TIMI < III flow and MBG < II adding a value in \naddition to the CHA2DS2 VASc score to identify high-\nrisk patients for no-reflow and follow up them. In addi -\ntion, the multivariate regression analysis of different \nindependent factors increasing no-reflow risk showed \nsignificant value only for FMD% ≤ 11% (p-value = 0.000) \n(odds ratio = 68.250). A limited number of studies have \ntried to identify the relation between endothelial dys -\nfunction, and suboptimal",
+          "hether sex modified the association between the CV score \nand no‐reflow, a formal interaction term (sex × CV score) was \ntested. To assess the incremental predictive value of combining the \nCV score with other clinically relevant variables, we constructed a \ncombined model and compared the area under the curve (AUC) \nvalues using the DeLong test. Statistical significance (p < 0.05) was \nassessed using two‐sided tests for all analyses.\n3 | Results \n3.1 | Patient Characteristics \nSeven hundred and twenty‐five STEMI patients (550 males and \n175 females) who underwent primary PCI were enrolled in the \nstudy (Figure 1 ). Two groups were defined by the median value \nof the CV score: ≤ 2 and > 2. Significant differences were \nobserved in age, smoking status, DM, hypertension, CAD, sex, \nheart rate, hemoglobin, WBC counts, platelet, TC, D ‐dimer, no‐ \nreflow rate, number of lesion vessels, and mean stent diameter \n(Table 1 ). Additionally, we conducted a subgroup analysis based \non sex, the di",
+          "ndation,  \nGrant/Award Number: LYQN201925\nKeywords: Acute myocardial infarction | CHA2DS2‐VA score | no‐reflow phenomenon | sex difference | ST‐elevation myocardial infarction\nABSTRACT\nBackground: No‐reflow phenomenon (NRP) frequently complicates ST‐elevation myocardial infarction (STEMI). This study \nevaluated the CHA\n2\nDS\n2\n‐VA score (CV score) as a predictor of NRP in STEMI patients undergoing primary PCI.\nMethods: A total of 725 STEMI patients were retrospectively enrolled and stratified by median of CV score (≤ 2 vs. > 2). The predictive \nability of the CV score for NRP was assessed using logistic regression, receiver operating characteristic analysis, and DeLong tests.\nResults: NRP incidence was higher in the high CV score group (15.2% vs. 8.7%, p = 0.007). The CV score predicted NRP overall \n(adjusted OR: 1.295, p = 0.002), but this effect was confined to females (AOR: 1.597, p = 0.002), with no significant association \nin males. Area under the curve value (AUC) of the CV score ",
+          "ndition known as the \nno‐reflow phenomenon (NRP) [ 2 ]. The incidence rate of NRP \namong STEMI patients ranges from 10% to 30% [ 3 ]. Furthermore, \nNRP has been associated with more extensive myocardial injury, \nadvanced heart failure (HF), and increased mortality [ 3, 4 ]. \nTherefore, there is an urgent need to find predictors of NRP in \nSTEMI and to reduce the associated mortality. Beyond clinical risk \nscores, electrocardiographic parameters such as ST‐segment ele -\nvation in lead aVR may provide additional prognostic information \nin acute coronary syndrome (ACS) [ 5, 6 ]. However, simple, pre -\nprocedural clinical risk scores that integrate baseline comorbidity \nburden remain particularly valuable for early risk stratification \nand clinical decision‐making.\nThis is an open access article under the terms of the Creative Commons Attribution License, which permits use, distribution and reproduction in any medium, provided \nthe original work is properly cited. \n© 2026 The Author(s). Cl",
+          "Rashed et al. The Egyptian Heart Journal           (2022) 74:13  \nhttps://doi.org/10.1186/s43044-022-00249-x\nRESEARCH\nCHA2DS2 VASc score and brachial \nartery flow-mediated dilation as predictors \nfor no-reflow phenomenon in patients \nwith ST-segment elevation myocardial infarction \nundergoing primary percutaneous coronary \nintervention\nMohamed Ismail Rashed*, Mohamed Ayman Saleh, Ehab Mohamed Elfekky and \nAhmed Mohamed Elmahmoudy \nAbstract \nBackground: Following primary percutaneous coronary intervention (PCI), no-reflow is associated with a high rate \nof long-term unfavorable clinical outcomes. Despite the importance of early no-reflow prediction in cardiovascular \nmedicine, noninvasive assessment is lacking. This study aimed to evaluate the preprocedural CHA2DS2 VASc score \nand the brachial artery flow-mediated dilation percentage (FMD%) as predictors of the no-reflow phenomenon in \npatients with acute ST-segment elevation myocardial infarction (STEMI) undergoing primary PCI.\nResults"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "nrp_incidence": []
+          },
+          "anchor_match_groups": {
+            "nrp_incidence": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      }
+    }
+  ],
+  "summary": {
+    "n3": {
+      "answerable": {
+        "executed": 2,
+        "answer_judged": 0,
+        "evidence_coverage": {
+          "full_set": {
+            "pass": 1,
+            "total": 2,
+            "rate": 0.5
+          },
+          "feasible_only": {
+            "pass": 1,
+            "total": 2,
+            "rate": 0.5
+          },
+          "structural_ceiling": {
+            "pass": 2,
+            "total": 2,
+            "rate": 1.0
+          },
+          "infeasible_ids": []
+        },
+        "document_coverage_pass": 1,
+        "pinned_evidence_complete": 1,
+        "macro_fact_recall": 0.5
+      },
+      "false_premise": {
+        "executed": 0,
+        "answer_judged": 0,
+        "evidence_coverage": {
+          "full_set": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "feasible_only": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "structural_ceiling": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "infeasible_ids": []
+        },
+        "document_coverage_pass": 0,
+        "pinned_evidence_complete": 0,
+        "macro_fact_recall": null
+      },
+      "absent_fact": {
+        "executed": 0,
+        "answer_judged": 0,
+        "evidence_coverage": {
+          "full_set": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "feasible_only": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "structural_ceiling": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "infeasible_ids": []
+        }
+      },
+      "distractor_ordering": {
+        "total": 0,
+        "pass": 0,
+        "decoy_present": 0
+      },
+      "categories": {
+        "direct_lookup": {
+          "executed": 2,
+          "document_scored": 2,
+          "document_pass": 1,
+          "evidence_scored": 2,
+          "evidence_pass": 1,
+          "evidence_coverage": {
+            "full_set": {
+              "pass": 1,
+              "total": 2,
+              "rate": 0.5
+            },
+            "feasible_only": {
+              "pass": 1,
+              "total": 2,
+              "rate": 0.5
+            },
+            "structural_ceiling": {
+              "pass": 2,
+              "total": 2,
+              "rate": 1.0
+            },
+            "infeasible_ids": []
+          }
+        }
+      },
+      "evidence_coverage": {
+        "full_set": {
+          "pass": 1,
+          "total": 2,
+          "rate": 0.5
+        },
+        "feasible_only": {
+          "pass": 1,
+          "total": 2,
+          "rate": 0.5
+        },
+        "structural_ceiling": {
+          "pass": 2,
+          "total": 2,
+          "rate": 1.0
+        },
+        "infeasible_ids": []
+      }
+    },
+    "n8": {
+      "answerable": {
+        "executed": 2,
+        "answer_judged": 0,
+        "evidence_coverage": {
+          "full_set": {
+            "pass": 1,
+            "total": 2,
+            "rate": 0.5
+          },
+          "feasible_only": {
+            "pass": 1,
+            "total": 2,
+            "rate": 0.5
+          },
+          "structural_ceiling": {
+            "pass": 2,
+            "total": 2,
+            "rate": 1.0
+          },
+          "infeasible_ids": []
+        },
+        "document_coverage_pass": 2,
+        "pinned_evidence_complete": 1,
+        "macro_fact_recall": 0.5
+      },
+      "false_premise": {
+        "executed": 0,
+        "answer_judged": 0,
+        "evidence_coverage": {
+          "full_set": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "feasible_only": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "structural_ceiling": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "infeasible_ids": []
+        },
+        "document_coverage_pass": 0,
+        "pinned_evidence_complete": 0,
+        "macro_fact_recall": null
+      },
+      "absent_fact": {
+        "executed": 0,
+        "answer_judged": 0,
+        "evidence_coverage": {
+          "full_set": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "feasible_only": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "structural_ceiling": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "infeasible_ids": []
+        }
+      },
+      "distractor_ordering": {
+        "total": 0,
+        "pass": 0,
+        "decoy_present": 0
+      },
+      "categories": {
+        "direct_lookup": {
+          "executed": 2,
+          "document_scored": 2,
+          "document_pass": 2,
+          "evidence_scored": 2,
+          "evidence_pass": 1,
+          "evidence_coverage": {
+            "full_set": {
+              "pass": 1,
+              "total": 2,
+              "rate": 0.5
+            },
+            "feasible_only": {
+              "pass": 1,
+              "total": 2,
+              "rate": 0.5
+            },
+            "structural_ceiling": {
+              "pass": 2,
+              "total": 2,
+              "rate": 1.0
+            },
+            "infeasible_ids": []
+          }
+        }
+      },
+      "evidence_coverage": {
+        "full_set": {
+          "pass": 1,
+          "total": 2,
+          "rate": 0.5
+        },
+        "feasible_only": {
+          "pass": 1,
+          "total": 2,
+          "rate": 0.5
+        },
+        "structural_ceiling": {
+          "pass": 2,
+          "total": 2,
+          "rate": 1.0
+        },
+        "infeasible_ids": []
+      }
+    }
+  },
+  "limitations": [
+    "Exact pinned-excerpt coverage is conservative; a missed substring is not proof of absent semantic evidence.",
+    "Collection verification checks stored text/source chunks; it does not recompute stored embeddings to certify their original embedding model. Isolated ingestion provenance remains required for quality claims.",
+    "No generated answers, refusal judgments or premise-correction judgments.",
+    "Remote rewrite model aliases cannot establish immutable provider weight versions."
+  ]
+}

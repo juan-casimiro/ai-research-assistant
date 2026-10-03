@@ -1,0 +1,31 @@
+{
+  "status": "fixed_for_local_C1_C2_retrieval",
+  "reviewed_merge_commit": "17dd21b4dd50ae86e61c19c7a2282ba70222c8c4",
+  "scope": "Oncology-only C1/C2; combined C3 remains JUA-114. User merged reviewed benchmark and authorized continuation.",
+  "files": {
+    "benchmark/oncology/v1/queries.json": "1d6542bb877befd9b8ae4963e204b56b32faf702e2093690dc5b9f7ef43b1d7a",
+    "benchmark/oncology/v1/manifest.json": "8695f7918c04c8129a4eb67c8fa316ce41a90f0637920a6033e9259b43a3bfb9",
+    "benchmark/oncology/v1/conditions.json": "6e832adcef467a42241c1fe29c02b833694db6ecdfe31e2d05b785a56d214ff0",
+    "benchmark_scoring.py": "2d02ca1fb4b7cb79f9967ee6dcbe703c5588d2ecadb5049ddb738cb19ef0432d",
+    "main.py": "2bce57440e693cdc844c8543c324d8f534128b735ced56c5105d2643f906a71b",
+    "eval_benchmark.py": "2b2259fbdba35404b964148ea6d0b0d7fc917846c0ddd1f3e1a111842624a2ae"
+  },
+  "initial_ids": [
+    "o001",
+    "o002",
+    "o003",
+    "o006",
+    "o009",
+    "o013",
+    "o017",
+    "o021",
+    "o024",
+    "o025",
+    "o029",
+    "o030",
+    "q098",
+    "q100"
+  ],
+  "initial_selection": "Treatment response/survival and count conflicts, TNBC, dose conflict, cardiovascular scope/synthesis, immune-exclusion correction, biomarker contrast, MRD decoy, Hunan conflict/synthesis, screening correction and absent-fact control.",
+  "configuration": "vector-only, no rewriting, no generation or judge; n=3 and n=8"
+}

@@ -1,0 +1,18 @@
+Document-level/category-ranking pass rate; this does not measure answer correctness.
+
+n=3: 3/3 → 3/3  (Δ +0)
+  document_coverage: 3/3 → 3/3
+  evidence_coverage (full_set): 0/3 → 0/3
+  evidence_coverage (feasible_only): 0/1 → 0/1
+  evidence ceiling: 1/3; infeasible IDs: ['d012', 'd016']
+
+n=8: 3/3 → 3/3  (Δ +0)
+  document_coverage: 3/3 → 3/3
+  evidence_coverage (full_set): 1/3 → 1/3
+  evidence_coverage (feasible_only): 1/3 → 1/3
+  evidence ceiling: 3/3; infeasible IDs: []
+
+======================================================================
+PER-QUERY CHANGES
+======================================================================
+No changes between runs.

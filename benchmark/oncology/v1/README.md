@@ -2,8 +2,8 @@
 
 JUA-112 review candidate, 2026-10-02. **14 articles**, 187 physical PDF pages,
 25,168,522 downloaded bytes; **44 cases** and 84 exact extraction anchors.
-Selection and gold were authored without retrieval results. Independent review
-and freeze are pending; this release makes no retrieval-quality claim.
+Selection and gold were authored without retrieval results. Review rounds
+are recorded in the historical review files. The reviewed merge is held fixed for the local retrieval baseline in [EVALUATION.md](EVALUATION.md).
 
 [DECISIONS.md](DECISIONS.md) explains every article, candidate, case and legacy-migration
 decision, and lists open decisions. [render_decisions.py](render_decisions.py) generates it from the
@@ -133,22 +133,19 @@ recomputes both oracles, validates ledger hash/category history and migration li
 and checks anchor fact bindings and positive false-premise correction evidence.
 Source/decoy roles remain question-specific, as required by STANDARDS.
 
-## Remaining evaluation
+## Retrieval evaluation
 
-The [verification report](REPORT.md) contains offline results only. Freeze reviewed
-selection, queries and scorer before retrieval comparisons, as required by the
-[shared standards](../../STANDARDS.md). After review, use an isolated oncology
-collection and explicit output paths, selecting affected IDs from dependencies.
-o030, o024 and o025 plus treatment, dose-conflict, TNBC and cardio-oncology cases
-are the initial focused sample. Then obtain declared complete coverage before
-reporting a full oncology baseline. Validate requested-ID coverage, collection
-membership and artifact hashes. Use the same fixed questions for C1/C2 comparisons.
-Selected article changes warrant a small cardiology/diabetes regression sample,
-but current outputs of those parallel tasks must first be fixed and available.
+The reviewed PR #33 merge is held fixed in [runs/freeze.json](runs/freeze.json).
+[EVALUATION.md](EVALUATION.md) records complete C1/C2 vector retrieval and a
+focused cardiology/diabetes regression, with immutable raw contexts, matching
+fingerprints and verification limits. Gold, source bytes, scorer and retrieval
+implementation were unchanged during the comparison. No paid calls occurred.
 
-Raw duplicate PDFs and deferred candidates are archived below `corpus/oncology-v1/acquisition/`, outside the selected directory’s top-level PDF membership.
+The original [REPORT.md](REPORT.md) records the pre-retrieval offline checks;
+its no-retrieval statements describe that earlier stage. Combined C3 and
+cross-topic negative review remain JUA-114 work. Paid rewrite/generation/judge
+runs require separate explicit approval. JUA-112 remains open for review and
+delivery of the evaluation report.
 
-No model loading, collection creation, ingestion, retrieval, rewriting, generation
-or answer judging was performed here. Paid rewrite/generation/judge runs require
-separate explicit approval. PR review/freeze, oncology retrieval and overlapping
-topic regressions remain outstanding; JUA-112 must not be marked Done yet.
+Raw duplicate PDFs and deferred candidates remain archived under
+`corpus/oncology-v1/acquisition/`, outside top-level selected membership.

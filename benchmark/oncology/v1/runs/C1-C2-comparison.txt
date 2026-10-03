@@ -1,0 +1,24 @@
+Document-level/category-ranking pass rate; this does not measure answer correctness.
+
+n=3: 31/34 → 31/34  (Δ +0)
+  document_coverage: 31/34 → 31/34
+  evidence_coverage (full_set): 7/34 → 7/34
+  evidence_coverage (feasible_only): 7/28 → 7/28
+  evidence ceiling: 28/34; infeasible IDs: ['o016', 'o017', 'o018', 'o029', 'o030', 'q099']
+  false-premise evidence (full_set): 0/7 → 0/7
+  false-premise evidence (feasible_only): 0/5 → 0/5
+  false-premise evidence ceiling: 5/7; infeasible IDs: ['o013', 'q081']
+
+n=8: 32/34 → 32/34  (Δ +0)
+  document_coverage: 32/34 → 32/34
+  evidence_coverage (full_set): 15/34 → 15/34
+  evidence_coverage (feasible_only): 15/34 → 15/34
+  evidence ceiling: 34/34; infeasible IDs: []
+  false-premise evidence (full_set): 3/7 → 3/7
+  false-premise evidence (feasible_only): 3/7 → 3/7
+  false-premise evidence ceiling: 7/7; infeasible IDs: []
+
+======================================================================
+PER-QUERY CHANGES
+======================================================================
+No changes between runs.

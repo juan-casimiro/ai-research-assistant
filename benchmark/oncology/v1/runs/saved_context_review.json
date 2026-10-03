@@ -1,0 +1,59 @@
+{
+  "method": "Manual inspection of saved source lists, key returned text and pinned-anchor matches; no answer generation, clinical judgment or new retrieval.",
+  "parent": {
+    "path": "benchmark/oncology/v1/runs/C2-complete.json",
+    "sha256": "9a748e7cf9931ee6a45fc46657b58cc9be8741e76233723528a0b1fbf3eb4e9b",
+    "run_id": "20261003-C2-assembled"
+  },
+  "cases": [
+    {
+      "id": "o009",
+      "depth": 8,
+      "finding": "The abstract estimates are retrieved, but the pinned four-study HR-scope limitations passage is not matched; the source document alone is insufficient for the complete fact.",
+      "document_coverage": "pass",
+      "evidence_coverage": "fail"
+    },
+    {
+      "id": "o013",
+      "depth": 8,
+      "finding": "The retained positive correction evidence passes at n8 after removal of the incomplete alternative. No generated correction answer was judged.",
+      "document_coverage": "pass",
+      "evidence_coverage": "pass"
+    },
+    {
+      "id": "o017",
+      "depth": 8,
+      "finding": "All eight returned chunks come from the cause-specific mortality cohort; the observational meta-analysis is missing. This is a cross-document source failure.",
+      "document_coverage": "fail",
+      "evidence_coverage": "fail"
+    },
+    {
+      "id": "o024",
+      "depth": 8,
+      "finding": "The returned text includes 85% versus 73%, HR 0.49 and adjuvant/resected setting language. The driver_os anchor matches, but driver_dfs does not. Exact pinned-evidence failure is conservative and does not prove absence of every semantically sufficient answer passage.",
+      "document_coverage": "pass",
+      "evidence_coverage": "fail"
+    },
+    {
+      "id": "o025",
+      "depth": 8,
+      "finding": "The primary MRD evidence passes. Its driver-review decoy is not returned, so the ordering pass does not demonstrate rejection of a retrieved competitor.",
+      "document_coverage": "pass",
+      "evidence_coverage": "pass"
+    },
+    {
+      "id": "o030",
+      "depth": 8,
+      "finding": "Hunan is returned, but the required Gosney reflex-testing consensus is absent. C2 adds a POL-MOL passage, already reviewed as partial support, without completing the source/evidence set.",
+      "document_coverage": "fail",
+      "evidence_coverage": "fail"
+    },
+    {
+      "id": "q098",
+      "depth": 8,
+      "finding": "The corrected screening race evidence passes at n8; gold was not altered after observing retrieval.",
+      "document_coverage": "pass",
+      "evidence_coverage": "pass"
+    }
+  ]
+}

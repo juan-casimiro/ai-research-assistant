@@ -1,0 +1,1164 @@
+{
+  "run_id": "20261003T104024Z-f81aace2",
+  "run_status": "complete",
+  "created_at": "2026-10-03T10:40:25.381312+00:00",
+  "code_commit": "17dd21b4dd50ae86e61c19c7a2282ba70222c8c4",
+  "config_label": "vector-only-baseline",
+  "config": {
+    "use_bm25": false,
+    "use_query_rewriting": false,
+    "n_values": [
+      3,
+      8
+    ]
+  },
+  "provenance": {
+    "query_version": "cardiology-queries-v1",
+    "query_sha256": "21b5c5d61283852c201c63ba6ff832592c1cc92e11df88ea4a7385a40582d3f5",
+    "subset_sha256": "46f37b062ce68a6460919efb0143c06d9d9c4204d46e4e18ed7a839953a46d56",
+    "scorer_version": "pinned-span-coverage-v3",
+    "feasibility_version": "minimum-evidence-chunks-v3",
+    "feasibility_sha256": "67c4d6792580775767ae91afa8e02ce51df4007fcc12f46083d40fe82439c30a",
+    "scorer_sha256": "e358ba1bbf07c2f6ce32fd54d3b6a57e2daadff3c85d9ee13d019f4fa862b321",
+    "retrieval_sha256": "beeb5ea41bf4ff3b1943261c386e9cea23794fef4c15aaee136ba91ddbac6577",
+    "selection_sha256": "6d003566542ee904704f2cab751f93866d23f864363eabe54eb128a2450dae28",
+    "conditions_sha256": "71bb1f14b2b3133bc5c6ae0134508b3597a41e3d278a6172faf9a24c61c1cff2",
+    "condition": "C2",
+    "membership_sha256": "9019159bb466a9dc1142c0132d566dd6216dec14592f3c0122260f4005053009",
+    "article_tuples": [
+      {
+        "article_id": "PMC10363301",
+        "pmc_version": 1,
+        "pdf_sha256": "97cb98ece2c75b991827fcd1b7899adf16112b30b4f99bf43de3c7708b6ddb1d",
+        "text_sha256": "e7c60503d9e39d2a97c9c8d20977584c0c0bf9815a815dcc9bc16e4f0338dc90"
+      },
+      {
+        "article_id": "PMC10452755",
+        "pmc_version": 1,
+        "pdf_sha256": "428b996c883cc4c2371bb35395dc0bb9573268f63083c11d07d7a13ff8b9d018",
+        "text_sha256": "6a9cde184a6d795fd7fd24b96d72c137d0794eeb03dca6a4f89f9aae2a0991e6"
+      },
+      {
+        "article_id": "PMC10607686",
+        "pmc_version": 1,
+        "pdf_sha256": "b7893a0d1767f32346e8f8e3932c3a365bfe5fc1cd01906570ef8352ba8b288d",
+        "text_sha256": "f90d7a116e315fef1cbf4db4e7ed0ac95d08477f2011c5ea1dce1bbcc62801ac"
+      },
+      {
+        "article_id": "PMC10619268",
+        "pmc_version": 1,
+        "pdf_sha256": "eee1cec10b138c2f30bd8dc8baf9e8a8a37be7fd9e630f9259b4165a82598f15",
+        "text_sha256": "8384138ffaf40155d96b7a86b7860c1368f564cb551461bb4b57fdd537f7d47f"
+      },
+      {
+        "article_id": "PMC10985250",
+        "pmc_version": 1,
+        "pdf_sha256": "da3f20ab88773c13ae08e73f8c18f0a6bb9ccb9000edc0aaf20231fe69fab042",
+        "text_sha256": "9540f1db4e82cd5c2b5317cc8e7c22bb9e574bedb8a482183059aa75079f83c2"
+      },
+      {
+        "article_id": "PMC11265054",
+        "pmc_version": 1,
+        "pdf_sha256": "2e0ede0a64a478e6a71597953a3a129f1b0ec2e517c141031626716902617988",
+        "text_sha256": "8eca20550e7b3985ea416f673e8e7215ae5c1d3b4324f43fd6fa7025cd8da9b9"
+      },
+      {
+        "article_id": "PMC11354916",
+        "pmc_version": 1,
+        "pdf_sha256": "57bc82e367b1c0e1287949bd450a99f9781d44f1a1d771329da3790e866ddcca",
+        "text_sha256": "adfd72166763a7877947d3a00e7d284e83c5c957d1c69b14edfc001cf93e9303"
+      },
+      {
+        "article_id": "PMC11373557",
+        "pmc_version": 1,
+        "pdf_sha256": "0c9c6285ea1c2ca4ab5988ee086381b216024bd83fc30fdb87b312f14e7573e2",
+        "text_sha256": "7f7028f9cb1faf7340e0a1332173ba45b6c49f2b5de9fd8cd0ce21228f39fcbc"
+      },
+      {
+        "article_id": "PMC11374717",
+        "pmc_version": 1,
+        "pdf_sha256": "ad7d0765df4acc821140a90163616d16eac041d3189c62a84816393f6fb3d7a2",
+        "text_sha256": "81bea566735ce5a3dd900c3d5c799f2be52d1aa98e269271051f86c42faeba23"
+      },
+      {
+        "article_id": "PMC11514186",
+        "pmc_version": 1,
+        "pdf_sha256": "4b2d042eb6899421eddf9f9c9156a16a1323ccb47448e2209591eac5bec96412",
+        "text_sha256": "08fd7ff833e8fb16f4f84673fb9284f0c4a3b8de60f5b0ffd8e65f65c7e11a5b"
+      },
+      {
+        "article_id": "PMC11549774",
+        "pmc_version": 1,
+        "pdf_sha256": "a601b1f08ceffa558785589ddd1318b1721e0e43f942ef842555dad101e513d0",
+        "text_sha256": "8139a3464d5e449d8b767a7a2b84755fe46c22425cc7404984274ea22a0ed25a"
+      },
+      {
+        "article_id": "PMC11847805",
+        "pmc_version": 1,
+        "pdf_sha256": "8ea3e3eb1035ddc82f07f1d43c47fc3a4a5d58fbc85ab4812e609b9361c6c789",
+        "text_sha256": "96ae44c60b11d2de402678c86da83fb49e06805de44c32d4c47780b3609d0910"
+      },
+      {
+        "article_id": "PMC11973566",
+        "pmc_version": 1,
+        "pdf_sha256": "d313c0487c3de9e7592629cb1a40487ef9014a6765b754be0aa5dd4540586f40",
+        "text_sha256": "8f08eee9d4ce3d6674fdc4033da15e6aaebb9c7c4c1ef8ecc90ad58fb9677bb1"
+      },
+      {
+        "article_id": "PMC12003177",
+        "pmc_version": 1,
+        "pdf_sha256": "d977b0dc0b6e1642cdf840e3980a7049b2705efea8c3673b1966228426b00747",
+        "text_sha256": "9fba58ea3eca0bfbd3ffe13706c8668f5b8c63bf6cbc612684ce977c19bba230"
+      },
+      {
+        "article_id": "PMC12419643",
+        "pmc_version": 1,
+        "pdf_sha256": "d0754aa1dfca29959133cef42e62a22906dc8f2d114b5ed5ee2ee029b334a6a5",
+        "text_sha256": "0f1c10c5d946e9985178c3aee354fb854f7ceb42016d5c14369c20df9b008c93"
+      },
+      {
+        "article_id": "PMC12436478",
+        "pmc_version": 1,
+        "pdf_sha256": "c4233f82070beead4ccd734da37ca8debdd5ea932a6ac1b6da943534dd407bb8",
+        "text_sha256": "537c270971b992263815e4f0c1238c2a12df2ce0a03ef897223104fb314c54c1"
+      },
+      {
+        "article_id": "PMC12683810",
+        "pmc_version": 1,
+        "pdf_sha256": "73e09eabefaa17069e9dfa759b25f0bcdff6670ff98e13376c6bf4edf5a9d00d",
+        "text_sha256": "2ae0ddbaa222c6338b2ef243f54db4bb48c309956d452c3e93ee9c8fbf165644"
+      },
+      {
+        "article_id": "PMC12880197",
+        "pmc_version": 1,
+        "pdf_sha256": "4184a379fbcc8ee900c7bafdef97ce0a510754edd13cc2b03b793fbfd2178c10",
+        "text_sha256": "a80597a43244637e86546a9aa05f04069b7e8c8d3effccdd9aa082fd99721767"
+      },
+      {
+        "article_id": "PMC12886974",
+        "pmc_version": 1,
+        "pdf_sha256": "224b75380b1f544fff0e70a11497feb5831ed510081ddd62d7507e7c54addd64",
+        "text_sha256": "59b924df2bfc187cb9b46d7e364de4c886b988e4ac533c275e23047540f5e978"
+      },
+      {
+        "article_id": "PMC13107781",
+        "pmc_version": 1,
+        "pdf_sha256": "7d945aa70dc355ad5b23458e78110f7c3ee61448067494fa3ca0bad444f73f96",
+        "text_sha256": "33f34e3bbb6db92d53526c631b4e4cbf276edd335fb8264f5f4f4b5911091676"
+      },
+      {
+        "article_id": "PMC13175446",
+        "pmc_version": 1,
+        "pdf_sha256": "30bfd354492c282ad33fd2b6819d26d0c61c724481a66197355152c45f25b37a",
+        "text_sha256": "60dfde8e7c8e2d7f7b5cf53cea134a12b0072b0cf3f2cc7729c0e2e4c0ea284f"
+      },
+      {
+        "article_id": "PMC13311226",
+        "pmc_version": 1,
+        "pdf_sha256": "270a950107f45871e2c9155847cc4e315ffd98c6b9538ae7f233389d894ccab8",
+        "text_sha256": "eee25ef331e38928ef027fbd0d85ce3e12895e5c6cd3d976d8e3737d0f79dbac"
+      },
+      {
+        "article_id": "PMC13423648",
+        "pmc_version": 1,
+        "pdf_sha256": "2afbf5dc2056eca213a2a8ae3953e454e63e6a2c9d5d6143a485e27bc5d59e2c",
+        "text_sha256": "e3700cc45c8127da12bfd7a9e97d73e8ef6c3b96ea53413ea66c828c98663b28"
+      },
+      {
+        "article_id": "PMC13430954",
+        "pmc_version": 1,
+        "pdf_sha256": "e25002f03766a70a0d260c1ba9917933a1cde3aebe091e8694a75634fb0c0b11",
+        "text_sha256": "fb07bbfd6201c00c0d65e1e396a199d70252583042674ca3ec34091a83d4fea2"
+      },
+      {
+        "article_id": "PMC13433181",
+        "pmc_version": 1,
+        "pdf_sha256": "1d935134ce714762ed0cf19167c622f4ae4914b3e85f86094d07d85909b93c53",
+        "text_sha256": "e4a478287bfa1d922ed24b37de0756eb37f283583ddc5a98379d60eb600b472a"
+      },
+      {
+        "article_id": "PMC13433218",
+        "pmc_version": 1,
+        "pdf_sha256": "1eab8391f2d6c495a37c0dc9ac3ea53c9a014d89ae4cc2ec5c80214fcc00e2df",
+        "text_sha256": "3d980a356bac2baae11a9214434d3df2f3209132ec5122836810913e163d8bca"
+      },
+      {
+        "article_id": "PMC13433680",
+        "pmc_version": 1,
+        "pdf_sha256": "318eb20f7938dfcc713cb0132f03506cfb1eadc7d349b50547b844c40a8ad6a7",
+        "text_sha256": "4f85a4ba5a9d7c6eff49c0b52e98d863879864fb8f29272141e1f2ece181c34c"
+      },
+      {
+        "article_id": "PMC13433862",
+        "pmc_version": 1,
+        "pdf_sha256": "98440a13560fb770655aab38680bbb8d8f21a700eed8db59ee6ab14f1713cad0",
+        "text_sha256": "a7392cc279bda7889978699cb469095c6ea2d0fdfc4a21909562e8ffcbeffa75"
+      },
+      {
+        "article_id": "PMC13439631",
+        "pmc_version": 1,
+        "pdf_sha256": "f53e37eee5fffda71935451944718520aab7cf16ad5dc7724db098b129d757f0",
+        "text_sha256": "24d5f324a1c5a6bd8f7481b08e216ecf32bda77af3932c09636a5bb854520d54"
+      },
+      {
+        "article_id": "PMC13472562",
+        "pmc_version": 1,
+        "pdf_sha256": "bb7c82cd722d116881f4a770f6f599407d86d425801d098bc6332d3176fdaa51",
+        "text_sha256": "77aa0fdd8e2fbc61b5ab6b3f0c029e2ddee577ab9a3c2f7bbc2babe7e7938abe"
+      },
+      {
+        "article_id": "PMC4804513",
+        "pmc_version": 1,
+        "pdf_sha256": "7a9d0736403d43d29074d4ae86e207287148a915c60c436d2e796669bedd2f66",
+        "text_sha256": "1fa7ea1e51386b8bec2c48538ae64bf304763b96e9d8e62495a8dfef40ba498c"
+      },
+      {
+        "article_id": "PMC8866621",
+        "pmc_version": 1,
+        "pdf_sha256": "5fac4e90fefa67859c05eb5740926afdab413a980ae6a4876b2ed691f7742928",
+        "text_sha256": "aa9921406485752eefe722a0c02d5104d49ad3c252110a7299b64a4b9459934c"
+      },
+      {
+        "article_id": "PMC13429855",
+        "pmc_version": 1,
+        "pdf_sha256": "7c9c6384315c78c2d87b85a626a77df3f062cb844d938d63555a43cbc485f5fe",
+        "text_sha256": "58575a81d8a421f828c2df5ee858c9cc6042affcd304fa806ba272ecc77fbdd5"
+      },
+      {
+        "article_id": "PMC9239676",
+        "pmc_version": 1,
+        "pdf_sha256": "5c288149e5302d2a0df3b1f5b5eac2aa66fdbf814e2f6b4a1e3edd221e91b9e9",
+        "text_sha256": "7810d2970ea970c2d6f1a545e2d837e6307483394f4b3bfbd00e4d88f2ffa282"
+      },
+      {
+        "article_id": "PMC9844597",
+        "pmc_version": 1,
+        "pdf_sha256": "3b7648ae2dad0474f9713ef4fd45321baa410102e45edb9859430a69817f6017",
+        "text_sha256": "28c1a5108837001e0a4e43860ee16bb52bcbce6d4f6796e0052c889a4480bfb3"
+      },
+      {
+        "article_id": "PMC10770829",
+        "pmc_version": 1,
+        "pdf_sha256": "62a31bebac42df923ba7e01b7524099f883e790f0358a76633812919bff242a9",
+        "text_sha256": "7e85e97c85e91940d433f874146fe212cadd7b545858218d94c4a838b82d13af"
+      },
+      {
+        "article_id": "PMC12931073",
+        "pmc_version": 1,
+        "pdf_sha256": "c21b91878e5575f47778a01e98dffe75570d63522d16b4ea59426b2d75417edf",
+        "text_sha256": "3108f6544c856644bd4fe8dc5e65960de70e79dc335eabcfe9cf5c60f5cc07c1"
+      },
+      {
+        "article_id": "PMC10840225",
+        "pmc_version": 1,
+        "pdf_sha256": "08c2b565efa48747d337ba0acde43b8b9a37940afaeab53dc3d7457f40925180",
+        "text_sha256": "86b78e7067fe6d0ebacbd0cc57cfe5999080d5a94b510b79dcb440575db36295"
+      },
+      {
+        "article_id": "PMC11891047",
+        "pmc_version": 1,
+        "pdf_sha256": "c5b888eeddb09eb5f0eb9a87a0f80865f1b3c23b5c593d84f0e9b1e959a45052",
+        "text_sha256": "951e0f660ba1d43156b2b831ad9da1002294f302c31568684239f9a0336ea883"
+      },
+      {
+        "article_id": "PMC11181582",
+        "pmc_version": 1,
+        "pdf_sha256": "fbaf0850e1febcf9e6050115bdb995b191a2bead8d266b15f4f65ebf48760ebe",
+        "text_sha256": "303566c85b08800eeb2dd86c9001d71ceb3e8233338804f37521b8b99797ce4c"
+      },
+      {
+        "article_id": "PMC11431721",
+        "pmc_version": 1,
+        "pdf_sha256": "855c75cc83d34f8f8a78824ae1d2390e8235c1149ddc6b037c663d872fd95a4e",
+        "text_sha256": "c620e1397bfa90c892296c9d1135d9a11186cf5c2183ec6b91497045afb3e2e8"
+      },
+      {
+        "article_id": "PMC11547071",
+        "pmc_version": 1,
+        "pdf_sha256": "773f4d6d7babdfef218232a0cc2e4c825790f3420eeb1313954b481a14c49701",
+        "text_sha256": "aecc3690ab9e2438bd9469beae209f850307e53aab032e4ede390b6b2593ab21"
+      },
+      {
+        "article_id": "PMC10485396",
+        "pmc_version": 1,
+        "pdf_sha256": "4ea7336bee5f5debbda1ae1ff24ec7bd1c1ff6a26b433f236aa6962353d7e3a8",
+        "text_sha256": "239fdefc8b7c1632d37036b15857a422310b82a294b0accd9bbee977553d4862"
+      },
+      {
+        "article_id": "PMC13190586",
+        "pmc_version": 1,
+        "pdf_sha256": "b6827e067f65071cf839298155d88d4b4a7bd21dfc76774d757640915d5f3166",
+        "text_sha256": "a98f88c8d05330ae30625d0b3a0d2bfafad82d4b1596d69423a281e9a067aa32"
+      },
+      {
+        "article_id": "PMC10073666",
+        "pmc_version": 1,
+        "pdf_sha256": "cecd1e55b465a71511cba93ff35d06102232f8b8cac1900d5a13ad6d66f9122d",
+        "text_sha256": "8e91f65a1da7e8209f83fbe0f8b64fed9a80ad3020db901045e2279e2c05eb2f"
+      },
+      {
+        "article_id": "PMC12495207",
+        "pmc_version": 1,
+        "pdf_sha256": "bc2ae72df423b20b71363eb813f283d6300add43104bac1a9b2f12874b10adef",
+        "text_sha256": "097a58141efdda58c9212125e2f434912bfcac3a538c014a960a136a0c9e79c2"
+      }
+    ],
+    "requested_ids": [
+      "c012",
+      "c016",
+      "q051",
+      "q054"
+    ],
+    "executed_ids": [
+      "c012",
+      "c016",
+      "q051",
+      "q054"
+    ],
+    "missing_ids": [],
+    "depths": [
+      3,
+      8
+    ],
+    "dependencies": {
+      "fastembed": "0.8.0",
+      "chromadb": "1.5.9",
+      "pypdf": "6.16.1",
+      "rank-bm25": "0.2.2",
+      "onnxruntime": "1.28.0"
+    },
+    "loaded_models": {
+      "embedding": {
+        "model_name": "BAAI/bge-small-en-v1.5",
+        "files": {
+          "config.json": "13582bcf2effc85b7bf3d3f5532e686bc1c9ce86bb009d10f0ec33cbe92299dd",
+          "model_optimized.onnx": "51f1bd0addd6e859e42c2c8021a5e5461385bb676a649f4b269aa445449f2431",
+          "special_tokens_map.json": "5d5b662e421ea9fac075174bb0688ee0d9431699900b90662acd44b2a350503a",
+          "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+          "tokenizer_config.json": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53"
+        },
+        "sha256": "d9e46143a9cabd7abdbe181fd67443a66089fd55d721db87b7b2964085ed0bff"
+      },
+      "reranker": {
+        "model_name": "Xenova/ms-marco-MiniLM-L-6-v2",
+        "files": {
+          "config.json": "d827779a72d27ae68cf878a6fc2e954542663fe21ca515d9f4783fc96be2d37e",
+          "onnx/model.onnx": "c623d0bcb99f4622beb413eaef00cfbe5db20df9f1dd982da4b4f26022881870",
+          "special_tokens_map.json": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+          "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+          "tokenizer_config.json": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53"
+        },
+        "sha256": "253fe4bae5a04bd859f462ffca4c1818e42725f6b14a55392b3ed9040728fb49"
+      }
+    },
+    "rewrite_identity": {
+      "provider": "ollama",
+      "model": "smollm2:1.7b-instruct-q4_K_M"
+    },
+    "ingestion_verification": {
+      "collection_name": "documents",
+      "chunk_count": 2927,
+      "per_source_chunks": {
+        "cardio-af-incident-ecg-calibration.pdf": 53,
+        "cardio-af-lorenz-detection.pdf": 50,
+        "cardio-af-stroke-mechanisms-review.pdf": 84,
+        "cardio-ahre-echo-transformer.pdf": 40,
+        "cardio-ai-af-management-review.pdf": 71,
+        "cardio-cad-ct-angiography.pdf": 77,
+        "cardio-cardiorenal-drug-network-meta-analysis.pdf": 77,
+        "cardio-ccta-tyg-incremental-value.pdf": 40,
+        "cardio-ckd-sglt2-acei-arb.pdf": 59,
+        "cardio-ctffr-diabetes-unstable-angina.pdf": 53,
+        "cardio-diabetes-hypertension-polygenic.pdf": 86,
+        "cardio-emperor-preserved-resistant-hypertension.pdf": 62,
+        "cardio-heartfailure-biomarkers.pdf": 62,
+        "cardio-hfpef-dapagliflozin-cost-analysis.pdf": 43,
+        "cardio-hfpef-geriatric-biomarkers.pdf": 56,
+        "cardio-mi-risk-stratification.pdf": 51,
+        "cardio-resistant-hypertension-korean-consensus.pdf": 117,
+        "cardio-resistant-hypertension-thai-consensus.pdf": 43,
+        "cardio-spironolactone-diabetes-trial.pdf": 37,
+        "cardio-stemi-vasc-fmd-no-reflow.pdf": 36,
+        "cardio-tailored-af-randomized-trial.pdf": 73,
+        "diabetes-cardiovascular-outcomes.pdf": 89,
+        "diabetes-cgm-management.pdf": 112,
+        "diabetes-cyp2c9-hypoglycaemia.pdf": 41,
+        "diabetes-digital-education-cgm-trial.pdf": 59,
+        "diabetes-gene-sex-hormone-interactions.pdf": 57,
+        "diabetes-hif-zinc-review.pdf": 121,
+        "diabetes-metabolic-syndrome-cameroon.pdf": 67,
+        "diabetes-nephropathy-complications.pdf": 106,
+        "diabetes-pharmacotherapy-rct.pdf": 47,
+        "diabetes-semaglutide-size-dm-trial.pdf": 39,
+        "diabetes-sleep-multimorbidity-cohorts.pdf": 66,
+        "onco-afatinib-vietnam.pdf": 42,
+        "onco-breast-pembrolizumab-helsinki.pdf": 45,
+        "onco-colorectal-screening.pdf": 70,
+        "onco-driver-nonmetastatic-review.pdf": 85,
+        "onco-icd-cold-tumor-review.pdf": 59,
+        "onco-ici-cardiac-rct-meta.pdf": 51,
+        "onco-ici-cv-observational.pdf": 53,
+        "onco-immune-exclusion-definition.pdf": 68,
+        "onco-lung-liquidbiopsy.pdf": 100,
+        "onco-nsclc-neoadjuvant-hunan.pdf": 54,
+        "onco-nsclc-neoadjuvant-stageiii.pdf": 41,
+        "onco-pd1-cause-specific-mortality.pdf": 57,
+        "onco-polmol-testing.pdf": 82,
+        "onco-reflex-biomarker-consensus.pdf": 46
+      },
+      "chunks_sha256": "7fced5d4d0c5dd61499fa04509e7aaec98c35dff77492cc56b77a400da9b937f",
+      "collection_path": "/Users/agentdev/development/.agent-tmp/JUA-112-regression-20261003-expanded"
+    }
+  },
+  "results": [
+    {
+      "id": "q051",
+      "revision": 2,
+      "question": "Which derivation sample-size statements appear in Gao’s CCTA paper, and how does the discussion frame its reported events-per-variable ratio?",
+      "query_sha256": "5160dd296cedb46452e810c8772f10542c109c15db64006e19936686acf50749",
+      "category": "multi_hop",
+      "answerability": "answerable",
+      "evidence_feasibility": {
+        "minimum_chunks": 6,
+        "by_depth": {
+          "n3": "infeasible",
+          "n8": "feasible"
+        }
+      },
+      "n3": {
+        "retrieved_sources": [
+          "cardio-af-incident-ecg-calibration.pdf",
+          "diabetes-metabolic-syndrome-cameroon.pdf",
+          "cardio-tailored-af-randomized-trial.pdf"
+        ],
+        "retrieved_contexts": [
+          "sample size, while the most visible effect is the greater \nvariability for small sample sizes, as obviously expected. \nFor these two models the maximum AUC values, \nobtained with the biggest sample size, are respectively \n0.74 and 0.68. Another aspect to note is that balancing \nthe training set with RUS to an event ratio of 0.5 (same \nnumber of AF cases and censored samples) does not \nimprove discrimination in any of the models considered, \nalso not for small samples sizes.\nIn Fig.  1 it is also reported the ICI as a function of \nthe sample size. Figure  1C represents the case where no \nimbalance corrections were introduced, and we can see \nthat increasing the sample size has the effect of reducing \nthe ICI (i.e., it improves calibration), for all three models \nTable 1 Descriptive features of the dataset. For all the \nnumerical variables median and  (1st,  3rd quartile) are reported. \nWe compared “Censored” and “Event” populations with Mann–\nWhitney and Chi-squared tests, respectively ",
+          "Where n = sample size, z= critical value at 95% \nconfidence level usually set at 1.96, p=prevalence \n(5.8% prevalence rate of DM in Cameroon) [ 16], q \n= 1 -p, d= imprecision of 5%. Inputting the \nvariables: \nn=[((1.96)²(0.058)(1-0.058))/(0.05)²]=84 \nHowever, a total sample size of 139 was studied. \nSampling technique: the Buea Health District and \nthe two selected hospitals were selected by \npurposive sampling. The Buea Regional Hospital \nand the Muea Sub -Divisional Health Centre are \nsituated in the South -West R egion of Cameroon. \nThey serve as primary health care facilities and \ncater for diverse population. Participants who met \nthe inclusion criteria were selected by systematic \nsampling. Starting from the first among the 700 \nregistered patients, every fifth patie nt was \nselected, and a sample size of 139 was attained. \nData collection:  the dependent variable is the \npresence of metabolic syndrome. The \nindependent variables are sociodemographic, \nbiochemical, clinical, and ",
+          "p and a randomization \nratio of 1:1, a total of 292 participants were needed for the study to have \na power of 80% at a one-sided alpha level of 0.025. Assuming a dropout \nrate of 22% (no index ablation performed or loss to follow-up), 374 \nparticipants were required.\nAssumptions regarding the rates of AF in both study arms were \nverified after 50% of the originally planned total patient sample  \n(73 in each arm) completed primary endpoint data collection.  \nA conditional power approach for sample-size re-estimation, using \nthe Mehta–Pocock method, was applied. Following this interim \nassessment, the sample size could only remain the same or be \nincreased.\nAll statistical analyses were performed on enrolled partici -\npants who underwent an ablation procedure and were not lost to \nfollow-up during the 3-month blanking period (the mITT popula\n-\ntion). Primary and secondary endpoints were analyzed using a Cox \nproportional-hazards model, with treatment group and a dichoto -\nmous effect fo"
+        ],
+        "verdict": "fail",
+        "metrics": {
+          "document_coverage": "fail",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "ccta_131": [],
+            "ccta_incidence": [],
+            "ccta_limit": []
+          },
+          "anchor_match_groups": {
+            "ccta_131": [],
+            "ccta_incidence": [],
+            "ccta_limit": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "n8": {
+        "retrieved_sources": [
+          "cardio-af-incident-ecg-calibration.pdf",
+          "diabetes-metabolic-syndrome-cameroon.pdf",
+          "cardio-tailored-af-randomized-trial.pdf",
+          "diabetes-pharmacotherapy-rct.pdf",
+          "diabetes-cgm-management.pdf",
+          "onco-ici-cv-observational.pdf",
+          "diabetes-cgm-management.pdf",
+          "cardio-af-incident-ecg-calibration.pdf"
+        ],
+        "retrieved_contexts": [
+          "sample size, while the most visible effect is the greater \nvariability for small sample sizes, as obviously expected. \nFor these two models the maximum AUC values, \nobtained with the biggest sample size, are respectively \n0.74 and 0.68. Another aspect to note is that balancing \nthe training set with RUS to an event ratio of 0.5 (same \nnumber of AF cases and censored samples) does not \nimprove discrimination in any of the models considered, \nalso not for small samples sizes.\nIn Fig.  1 it is also reported the ICI as a function of \nthe sample size. Figure  1C represents the case where no \nimbalance corrections were introduced, and we can see \nthat increasing the sample size has the effect of reducing \nthe ICI (i.e., it improves calibration), for all three models \nTable 1 Descriptive features of the dataset. For all the \nnumerical variables median and  (1st,  3rd quartile) are reported. \nWe compared “Censored” and “Event” populations with Mann–\nWhitney and Chi-squared tests, respectively ",
+          "Where n = sample size, z= critical value at 95% \nconfidence level usually set at 1.96, p=prevalence \n(5.8% prevalence rate of DM in Cameroon) [ 16], q \n= 1 -p, d= imprecision of 5%. Inputting the \nvariables: \nn=[((1.96)²(0.058)(1-0.058))/(0.05)²]=84 \nHowever, a total sample size of 139 was studied. \nSampling technique: the Buea Health District and \nthe two selected hospitals were selected by \npurposive sampling. The Buea Regional Hospital \nand the Muea Sub -Divisional Health Centre are \nsituated in the South -West R egion of Cameroon. \nThey serve as primary health care facilities and \ncater for diverse population. Participants who met \nthe inclusion criteria were selected by systematic \nsampling. Starting from the first among the 700 \nregistered patients, every fifth patie nt was \nselected, and a sample size of 139 was attained. \nData collection:  the dependent variable is the \npresence of metabolic syndrome. The \nindependent variables are sociodemographic, \nbiochemical, clinical, and ",
+          "p and a randomization \nratio of 1:1, a total of 292 participants were needed for the study to have \na power of 80% at a one-sided alpha level of 0.025. Assuming a dropout \nrate of 22% (no index ablation performed or loss to follow-up), 374 \nparticipants were required.\nAssumptions regarding the rates of AF in both study arms were \nverified after 50% of the originally planned total patient sample  \n(73 in each arm) completed primary endpoint data collection.  \nA conditional power approach for sample-size re-estimation, using \nthe Mehta–Pocock method, was applied. Following this interim \nassessment, the sample size could only remain the same or be \nincreased.\nAll statistical analyses were performed on enrolled partici -\npants who underwent an ablation procedure and were not lost to \nfollow-up during the 3-month blanking period (the mITT popula\n-\ntion). Primary and secondary endpoints were analyzed using a Cox \nproportional-hazards model, with treatment group and a dichoto -\nmous effect fo",
+          "atment groups. When SDs of change scores\nwere not directly reported, they were derived using the standard\nformula: SD_change = √(SD_baseline² + SD_ ﬁnal² − 2r ×\nSD_baseline × SD_ ﬁnal). This calculation was performed in accor-\ndance with guidance in the Cochrane Handbook for Systematic\nReviews of Interventions ( 10). Because within-participant correla-\ntions were not reported in the included studies, a correlation\ncoefﬁcient of r = 0.50 was prespeci ﬁed as a plausible primary\nassumption. Sensitivity analyses using r = 0.25 and r = 0.75 were\nconducted to assess whether the primary change-score ﬁndings\nwere robust to lower and higher correlation assumptions.\nTwo additional sensitivity analyses based on post-treatment\nﬁnal values were conducted. The ﬁrst was restricted to trials with\nclearly reported randomization methods (S1 –S3). The second\nincluded all eight trials to examine whether inclusion of trials\nwith unclear randomization reporting changed the direction or\nstatistical signi ﬁca",
+          "cific results are interpreted as\nexploratory, with an emphasis on effect sizes and CIs rather\nthan formal adjustment for multiplicity.\nSafety flags were tabulated for CA and clinician responses\nand are reported descriptively, given the very low num-\nber of flagged responses. For the source-identification task\n(Turing test [ 63]), the proportions of responses that raters\ncorrectly identified were calculated both overall and at the\nindividual rater level. Identification accuracy was compared\nagainst random chance (50%) using exact binomial tests\n[64]. Furthermore, to assess potential evaluation bias, overall\nquality scores were stratified and visualized using boxplots\nbased on the raters’ perceived source (ie, whether the rater\nbelieved the response was generated by a CA or a clinician),\nregardless of the true source.\nMissing ratings were rare and handled using complete-case\nanalysis without imputation. All statistical tests were 2-sided\n(except for the one-sided binomial tests assessing",
+          "ation bias was analyzed through a funnel plot ( Figure 2),\nwhich indicated a symmetrical distribution, suggesting that no\npublication bias was present in the analysis. This plot is a\ngraphical representation that displays the precision of the\nestimated treatment effect on the x-axis, and the sample size of\neach study on the y-axis. The presence of publication bias would\nhave manifested as an asymmetrical plot, indicating that smaller\nstudies with negative or null results were not being published.\nTherefore, the symmetrical distribution observed on our funnel plot\nindicated that there was no evidence of publication bias, providing\nan extra level of con ﬁdence in the validity of the study results.\nOut of the twelve studies incorporated in our analysis, four\ndemonstrated a moderated risk of bias, while the remaining eight\ndisplayed a low risk of bias, resulting in a cumulative score of 7.5, as\nshown in Table 2 .\n3.4 Meta-analysis results\nTwelve cohort studies were used to assess the preva",
+          " findings, particularly those based on modest absolute\ndifferences, should be interpreted cautiously because the\nrating instrument and sample size may not support strong\ninferences at the individual-dimension level.\nSecond, the case set was small and included only 3\ntype 2 diabetes cases. This limits generalizability to rou-\ntine diabetes care, where type 2 diabetes accounts for the\nmajority of diagnosed diabetes [ 76]. However, this imbalance\nalso reflects a broader data-availability constraint, as CGM\nuse and publicly available CGM datasets remain dispropor-\ntionately concentrated in type 1 diabetes and insulin-treated\npopulations [ 77,78]. More broadly, the study had limited\ncoverage of medication-policy-sensitive scenarios, including\nquestions involving treatment escalation, eligibility crite-\nria, cardiometabolic risk management, and locally specific\nprescribing rules. At the aggregate level, safety flag frequen-\ncies were similar between CA and clinician responses, and\nmajor safe",
+          " of AF particularly in the elderly population and the \nFig. 1 A AUC values for the varying sample sizes (original event fraction in the training set). Error bars represent the 95% CI around the mean. \nB AUC values for the varying sample sizes (perfectly balanced training set). C ICI values for the varying sample sizes (original event fraction \nin the training set). D ICI values for the varying sample sizes (perfectly balanced training set)\nPage 7 of 10\nBaj et al. BMC Medical Research Methodology          (2023) 23:169"
+        ],
+        "verdict": "fail",
+        "metrics": {
+          "document_coverage": "fail",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "ccta_131": [],
+            "ccta_incidence": [],
+            "ccta_limit": []
+          },
+          "anchor_match_groups": {
+            "ccta_131": [],
+            "ccta_incidence": [],
+            "ccta_limit": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      }
+    },
+    {
+      "id": "q054",
+      "revision": 2,
+      "question": "At the reported follow-up, what HF rehospitalization proportions and counts were observed in the HFpEF SGLT2 biomarker cohort?",
+      "query_sha256": "b93c3fabfcc2f33463fdf848035f85388f113b6960b143499b2484c38de4d281",
+      "category": "direct_lookup",
+      "answerability": "answerable",
+      "evidence_feasibility": {
+        "minimum_chunks": 2,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "n3": {
+        "retrieved_sources": [
+          "cardio-hfpef-geriatric-biomarkers.pdf",
+          "cardio-cardiorenal-drug-network-meta-analysis.pdf",
+          "cardio-cardiorenal-drug-network-meta-analysis.pdf"
+        ],
+        "retrieved_contexts": [
+          "ation biomarkers, in a cohort of HFpEF elderly\npatients with T2DM. We recruited 150 elderly outpatients (mean age75.8 ± 7.4 years). Results: At\nsix-month follow-up, there was a significant improvement in MMSE (p < 0.0001), MoCA (p < 0.0001),\nGDS score (p < 0.0001), and SPPB ( p < 0.0001). Moreover, we observed a significant reduction in\nNox-2 (p < 0.0001), 8-Isoprostane (p < 0.0001), Sp-Selectin (p < 0.0001), and Gp-VI (p < 0.0001). Consid-\nering ∆MMSE as the dependent variable, ∆E/e’, ∆Nox-2, ∆HOMA, ∆8-Isoprostane, and ∆Uricemia\nwere associated for 59.6% with ∆MMSE. When ∆MoCA was considered as the dependent variable,\n∆HOMA, ∆E/e’, ∆8-Isoprostane, ∆Nox-2 and ∆Uricemia were associated for 59.2%. Considering\n∆GDS as the dependent variable, ∆HOMA, ∆Nox-2, ∆8-Isoprostane, and ∆Uricemia were associated\nwith 41.6% of ∆GDS variation. Finally, ∆HOMA was the main predictor of ∆SPPB, which was associ-\nated with 21.3% with ∆SPPB, ∆8-Isoprostane, ∆Nox-2, ∆E/e’, and ∆Uricemia added another 24.1%.\n",
+          "utcome. Similar to \nprevious analyses, no reduction in non-fatal stroke risk \nwas observed in either the T2D or CKD subpopulations \n[10]. In the HFrEF subpopulation, significant reductions \nwere seen in CV mortality, all-cause mortality, HF hos -\npitalization/event, and the kidney composite outcome. \nWhile benefits were also observed in HFpEF populations, \nthey were more modest, with a significant reduction pri -\nmarily in time to first HF hospitalization/event.\nIn the post-MI population, pooled data from DAPA-MI \nand EMPACT-MI showed a significant reduction in time \nto first HF hospitalization, driven largely by EMPACT-\nMI, which contributed over 80% of the weight (Supple -\nmental Figure S42). Notably, subgroup analysis from \nEMPACT-MI indicated that the benefit was confined to \npatients without baseline T2D, with no significant effect \nobserved in those with diabetes [ 43]. The pooled analy -\nsis limited to DAPA-MI and the non-diabetic subgroup \nof EMPACT-MI remained significant, sug",
+          "Page 8 of 14\nShokravi et al. Cardiovascular Diabetology – Endocrinology Reports            (2025) 11:37 \neither the REML-modified HK or REML-Wald models. \nIn sensitivity analyses using the REML-modified HK \nmodel, non-fatal MI lost statistical significance; however, \nremained significant in the REML-Wald model.\nSGL T2i: heart failure with preserved ejection fraction\nAmong individuals with HFpEF, SGLT2i were associated \nwith a statistically significant reduction in time to first \nHF hospitalization/event across the DL, REML-modified \nHK, and REML-Wald models. No significant effects were \nobserved for CV mortality, all-cause mortality, or kidney \ncomposite outcome.\nSGL T2i: heart failure with reduced ejection fraction\nAmong individuals with HFrEF, SGLT2i were associated \nwith statistically significant reductions in CV mortality, \nall-cause mortality, HF hospitalization/event, and kid -\nney composite outcome under the DL model. Sensitiv -\nity analyses using the REML-modified HK model yiel"
+        ],
+        "verdict": "fail",
+        "metrics": {
+          "document_coverage": "fail",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "hf_readmission": []
+          },
+          "anchor_match_groups": {
+            "hf_readmission": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "n8": {
+        "retrieved_sources": [
+          "cardio-hfpef-geriatric-biomarkers.pdf",
+          "cardio-cardiorenal-drug-network-meta-analysis.pdf",
+          "cardio-cardiorenal-drug-network-meta-analysis.pdf",
+          "cardio-hfpef-geriatric-biomarkers.pdf",
+          "cardio-cardiorenal-drug-network-meta-analysis.pdf",
+          "cardio-cardiorenal-drug-network-meta-analysis.pdf",
+          "cardio-hfpef-geriatric-biomarkers.pdf",
+          "cardio-ckd-sglt2-acei-arb.pdf"
+        ],
+        "retrieved_contexts": [
+          "ation biomarkers, in a cohort of HFpEF elderly\npatients with T2DM. We recruited 150 elderly outpatients (mean age75.8 ± 7.4 years). Results: At\nsix-month follow-up, there was a significant improvement in MMSE (p < 0.0001), MoCA (p < 0.0001),\nGDS score (p < 0.0001), and SPPB ( p < 0.0001). Moreover, we observed a significant reduction in\nNox-2 (p < 0.0001), 8-Isoprostane (p < 0.0001), Sp-Selectin (p < 0.0001), and Gp-VI (p < 0.0001). Consid-\nering ∆MMSE as the dependent variable, ∆E/e’, ∆Nox-2, ∆HOMA, ∆8-Isoprostane, and ∆Uricemia\nwere associated for 59.6% with ∆MMSE. When ∆MoCA was considered as the dependent variable,\n∆HOMA, ∆E/e’, ∆8-Isoprostane, ∆Nox-2 and ∆Uricemia were associated for 59.2%. Considering\n∆GDS as the dependent variable, ∆HOMA, ∆Nox-2, ∆8-Isoprostane, and ∆Uricemia were associated\nwith 41.6% of ∆GDS variation. Finally, ∆HOMA was the main predictor of ∆SPPB, which was associ-\nated with 21.3% with ∆SPPB, ∆8-Isoprostane, ∆Nox-2, ∆E/e’, and ∆Uricemia added another 24.1%.\n",
+          "utcome. Similar to \nprevious analyses, no reduction in non-fatal stroke risk \nwas observed in either the T2D or CKD subpopulations \n[10]. In the HFrEF subpopulation, significant reductions \nwere seen in CV mortality, all-cause mortality, HF hos -\npitalization/event, and the kidney composite outcome. \nWhile benefits were also observed in HFpEF populations, \nthey were more modest, with a significant reduction pri -\nmarily in time to first HF hospitalization/event.\nIn the post-MI population, pooled data from DAPA-MI \nand EMPACT-MI showed a significant reduction in time \nto first HF hospitalization, driven largely by EMPACT-\nMI, which contributed over 80% of the weight (Supple -\nmental Figure S42). Notably, subgroup analysis from \nEMPACT-MI indicated that the benefit was confined to \npatients without baseline T2D, with no significant effect \nobserved in those with diabetes [ 43]. The pooled analy -\nsis limited to DAPA-MI and the non-diabetic subgroup \nof EMPACT-MI remained significant, sug",
+          "Page 8 of 14\nShokravi et al. Cardiovascular Diabetology – Endocrinology Reports            (2025) 11:37 \neither the REML-modified HK or REML-Wald models. \nIn sensitivity analyses using the REML-modified HK \nmodel, non-fatal MI lost statistical significance; however, \nremained significant in the REML-Wald model.\nSGL T2i: heart failure with preserved ejection fraction\nAmong individuals with HFpEF, SGLT2i were associated \nwith a statistically significant reduction in time to first \nHF hospitalization/event across the DL, REML-modified \nHK, and REML-Wald models. No significant effects were \nobserved for CV mortality, all-cause mortality, or kidney \ncomposite outcome.\nSGL T2i: heart failure with reduced ejection fraction\nAmong individuals with HFrEF, SGLT2i were associated \nwith statistically significant reductions in CV mortality, \nall-cause mortality, HF hospitalization/event, and kid -\nney composite outcome under the DL model. Sensitiv -\nity analyses using the REML-modified HK model yiel",
+          " treatment with\nSGLT2i on functional, mood-related, and cognitive aspects, assessed by performing a\ncomprehensive geriatric assessment (CGA), and on oxidative stress and platelet activation\nbiomarkers, as possible pathophysiological targets, in a cohort of HFpEF elderly patients\nwith T2DM.\nInt. J. Mol. Sci. 2024, 25, 8811 3 of 13\n2. Results\n2.1. Baseline Characteristic of the Study Population\nThe study population included 115 men (76.6%) and 35 women (23.4%), with an\naverage age of 75.8 ± 7.4 years. All patients were affected by T2DM and HFpEF. Among\nthese, 59 patients were affected by HFimpEF; considering the associated comorbidities,\n57.3% of the patients presented Ischemic Heart Disease, 25.3% presented with AF, and\n22.7% had chronic obstructive pulmonary disease (COPD) (Table 1).\nTable 1. Clinical characteristics and pharmacological therapies of the study population at baseline.\nAll Population (n. 150)\nAge, years 75.8 ± 7.4\nMale gender, n ( %) 115 (76.6)\nHFimpEF, n (%) 59 (39.3)\nIH",
+          ") [7, 8].\nPast meta-analyses have examined the role of SGLT2i \nand GLP-1RA on cardiorenal outcomes in diverse pop -\nulations, including those with chronic kidney disease \n(CKD), heart failure (HF) stratified based on preserved \n(HFpEF, including persons with HF and mid-range ejec -\ntion fraction [HFmrEF]) or reduced ejection fraction \n(HFrEF), and type 2 diabetes (T2D) [ 9–13]. Since these \nanalyses, there has been an expansion not only in the \nnumber of studies, but also in clinical trials assessing \nnewer medications and involving broader patient popu -\nlations. This includes trials evaluating finerenone in \nHFpEF, SGLT2i in post-myocardial infarction (MI) popu-\nlations, and incretin-based therapies in emerging popu -\nlations, including individuals with HFpEF and obesity, \nor atherosclerotic cardiovascular disease (ASCVD) and \noverweight/obesity without T2D.\nThe goal of this study was to provide an updated meta-\nanalysis on key cardiorenal outcomes in RCTs using \nSGLT2i, incretin-bas",
+          "gesting poten -\ntial utility of SGLT2 inhibitors in non-diabetic post-MI \npatients.\nEvidence supporting SGLT2i in the peri-acute HF set -\nting was primarily derived from the SOLOIST-WHF \ntrial, which demonstrated a significant reduction in total \nHF hospitalization events. The DAPA ACT HF-TIMI 68 \ntrial was recently published after the date of our origi -\nnal search was therefore not included in this review. \nThis trial found in-hospital initiation of dapagliflozin in \npatients hospitalized for acute HF had no statistically \nsignificant reduction in the risk of worsening HF events \nor CV death. However, a prespecified meta-analysis of \nSOLOIST-WHF, EMPULSE, and DAPA ACT HF-TIMI \n68 demonstrated that in-hospital initiation of SGLT2i \nsignificantly reduced the risk of worsening HF or CV \ndeath by 29% and all-cause mortality by 43% [62].\nPage 11 of 14\nShokravi et al. Cardiovascular Diabetology – Endocrinology Reports            (2025) 11:37 \nFinerenone\nFinerenone has demonstrated an impro",
+          " of their individual\neffects on ∆MMSE, MoCA, GDS, and SPPB. Differences were considered significant at\np < 0.05. Statistical analysis was carried out using the SPSS V20.0 program for Windows\n(SPSS Inc., Chicago, IL, USA).\n5. Conclusions\nThis real-life study carried out in a cohort of elderly patients suffering from chronic\nHFpEF and T2DM with several comorbidities, demonstrated that treatment with SGLT2i\nfor six months induced important improvements in clinical, metabolic, and hemodynamic\noutcomes. These changes were associated with an improvement in cognitive, mood, and\nfunctional status, as well as markers of oxidative stress and platelet activation in the whole\npopulation. In conclusion, in elderly patients suffering from HFpEF and T2DM, treatment\nwith SGLT2i results in important clinical benefits affecting not only cardiovascular and\nmetabolic aspects but also CGA scales with significant improvement in QoL.\nAuthor Contributions: Conceptualization, A.S., M.M. and G.A.; Methodology, ",
+          "https://www.medsci.org \n2112 \nused to evaluate the risk of outcomes of interest \nassociated with SGLT2 inhibitors after controlling for \ndemographic and clinical factors. Patients who died, \nwere lost to follow -up, or were discharged at the end \nof the follow -up period before the event of interest \noccurred were censored. Cumulative incidence curves \nwere plotted and tested via a logarithmic rank test. \nSubgroup analyses were used to evaluate whether the \nimpact of SGLT2 inhibitors on GUTIs or CVD differed \naccording to patients’ preexisting conditions. In this \nstudy, a two-sided p value of < 0.05 was considered to \nindicate a significant difference. All analyses were \nperformed via SAS/STAT 9.2 (SAS Institute, Cary, \nNC, USA). \nResults \nBaseline characteristics \nThe final study included 205 patients who had \nreceived SGLT2 inhibitors and 820 patients who had \nnot (Figure 1). During the follow-up period (median = \n15.5 months), a total of 205 patients with CKD who \nreceived ACEIs/AR"
+        ],
+        "verdict": "fail",
+        "metrics": {
+          "document_coverage": "fail",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "hf_readmission": []
+          },
+          "anchor_match_groups": {
+            "hf_readmission": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      }
+    },
+    {
+      "id": "c012",
+      "revision": 1,
+      "question": "What renal benefit and infection association were reported in the advanced-CKD SGLT2 cohort, and how does its evidential design compare with the HFpEF GLS cohort?",
+      "query_sha256": "6d9a8916e01ecf208bf268fba481c7b2bb5267ebba9eb3cede96a00bfab1f893",
+      "category": "cross_doc_synthesis",
+      "answerability": "answerable",
+      "evidence_feasibility": {
+        "minimum_chunks": 7,
+        "by_depth": {
+          "n3": "infeasible",
+          "n8": "feasible"
+        }
+      },
+      "n3": {
+        "retrieved_sources": [
+          "cardio-ckd-sglt2-acei-arb.pdf",
+          "cardio-ckd-sglt2-acei-arb.pdf",
+          "cardio-cardiorenal-drug-network-meta-analysis.pdf"
+        ],
+        "retrieved_contexts": [
+          "g enzyme inhibitors \n(ACEIs) and angiotensin receptor blockers (ARBs) may also cause deterioration of kidney function. The \nlong-term follow-up of c ardiorenal outcomes  and GUTI incidence in patients with advanced CKD \nreceiving SGLT2 inhibitors combined with ACEIs/ARBs should be further investigated. \nMethods: We analysed data from 5,503 patients in Taiwan's Taipei Medical University Research \nDatabase (2016-2020) who were part of a pre-end-stage renal disease (ESRD) program (CKD stages 3-5) \nand received ACEIs/ARBs. SGLT2 inhibitor users were matched 1:4 with nonusers on the basis of sex, \nCKD, and program entry duration. \nResults: The final cohort included 205 SGLT2 inhibitor users and 820 nonusers. SGLT2 inhibitor users \nexperienced a significant reduction in ESRD/dialysis risk (aHR = 0.35, 95% CI = 0.190.67), and SGLT2 \ninhibitor use was not significantly associated with acute kidney injury or acute kidney disease risk. Among \nSGLT2 inhibitor users, those with a history of cardio",
+          "ion [ 49, 50]. Ongoing \nresearch and clinical trials are continuing to explore \nthe safety and efficacy of SGLT2 inhibitors in patients \nwith advanced kidney disease or who are undergoing \ndialysis. \nNotably, in our study, SGLT2 inhibitor users \nwith a history of CVD had higher rates of CVD than \nthose without a history of CVD did. Although the \naHR did not reach statistical significance, the results \nsuggested that such patients might have more \nadvanced or poorly controlled disease or that SGLT2 \ninhibitors might not be as effective in this subgroup. \nMoreover, our study revealed decreased rates of AMI, \nCHF, and arrhythmias in SGLT2 inhibitor users \nwithout a CVD history, and while not statistically \nsignificant, these findings suggest a protective effect \nand cardiovascular benefits. Research on several \nSGLT2 inhibitors has suggested potential reductions \nin the atherogenic lipid profile, plaque progression, \nand systemic inflammation and improvements in \nendothelial function, whi",
+          "Page 7 of 14\nShokravi et al. Cardiovascular Diabetology – Endocrinology Reports            (2025) 11:37 \nhospitalization/event, non-fatal MI, and kidney compos -\nite outcome under the DL model. No significant effect \nwas observed for non-fatal stroke. In sensitivity analyses \nusing the REML-modified HK model, all statistically sig -\nnificant findings remained significant except for non-fatal \nMI.\nSGL T2i: chronic kidney disease\nAmong individuals with CKD, SGLT2i were associated \nwith statistically significant reductions in CV mortal -\nity, all-cause mortality, HF hospitalization/event, non-\nfatal MI, and kidney composite outcome under the DL \nmodel. Non-fatal stroke showed a non-significant down -\nward trend and did not reach statistical significance in \nFig. 4 Summary of the effects of finerenone versus placebo on cardiorenal outcomes. DL = DerSimonian and Laird; modified HK = restricted maximum-\nlikelihood (REML) estimation with the modified Hartung-Knapp adjustment; Wald = REML esti"
+        ],
+        "verdict": "fail",
+        "metrics": {
+          "document_coverage": "fail",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "ckd_confounding": [],
+            "ckd_infection": [],
+            "ckd_renal": [
+              0
+            ],
+            "hf_gls": [],
+            "hf_observational": []
+          },
+          "anchor_match_groups": {
+            "ckd_confounding": [],
+            "ckd_infection": [],
+            "ckd_renal": [
+              [
+                0
+              ]
+            ],
+            "hf_gls": [],
+            "hf_observational": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "n8": {
+        "retrieved_sources": [
+          "cardio-ckd-sglt2-acei-arb.pdf",
+          "cardio-ckd-sglt2-acei-arb.pdf",
+          "cardio-cardiorenal-drug-network-meta-analysis.pdf",
+          "cardio-ckd-sglt2-acei-arb.pdf",
+          "cardio-ckd-sglt2-acei-arb.pdf",
+          "cardio-ckd-sglt2-acei-arb.pdf",
+          "cardio-cardiorenal-drug-network-meta-analysis.pdf",
+          "cardio-cardiorenal-drug-network-meta-analysis.pdf"
+        ],
+        "retrieved_contexts": [
+          "g enzyme inhibitors \n(ACEIs) and angiotensin receptor blockers (ARBs) may also cause deterioration of kidney function. The \nlong-term follow-up of c ardiorenal outcomes  and GUTI incidence in patients with advanced CKD \nreceiving SGLT2 inhibitors combined with ACEIs/ARBs should be further investigated. \nMethods: We analysed data from 5,503 patients in Taiwan's Taipei Medical University Research \nDatabase (2016-2020) who were part of a pre-end-stage renal disease (ESRD) program (CKD stages 3-5) \nand received ACEIs/ARBs. SGLT2 inhibitor users were matched 1:4 with nonusers on the basis of sex, \nCKD, and program entry duration. \nResults: The final cohort included 205 SGLT2 inhibitor users and 820 nonusers. SGLT2 inhibitor users \nexperienced a significant reduction in ESRD/dialysis risk (aHR = 0.35, 95% CI = 0.190.67), and SGLT2 \ninhibitor use was not significantly associated with acute kidney injury or acute kidney disease risk. Among \nSGLT2 inhibitor users, those with a history of cardio",
+          "ion [ 49, 50]. Ongoing \nresearch and clinical trials are continuing to explore \nthe safety and efficacy of SGLT2 inhibitors in patients \nwith advanced kidney disease or who are undergoing \ndialysis. \nNotably, in our study, SGLT2 inhibitor users \nwith a history of CVD had higher rates of CVD than \nthose without a history of CVD did. Although the \naHR did not reach statistical significance, the results \nsuggested that such patients might have more \nadvanced or poorly controlled disease or that SGLT2 \ninhibitors might not be as effective in this subgroup. \nMoreover, our study revealed decreased rates of AMI, \nCHF, and arrhythmias in SGLT2 inhibitor users \nwithout a CVD history, and while not statistically \nsignificant, these findings suggest a protective effect \nand cardiovascular benefits. Research on several \nSGLT2 inhibitors has suggested potential reductions \nin the atherogenic lipid profile, plaque progression, \nand systemic inflammation and improvements in \nendothelial function, whi",
+          "Page 7 of 14\nShokravi et al. Cardiovascular Diabetology – Endocrinology Reports            (2025) 11:37 \nhospitalization/event, non-fatal MI, and kidney compos -\nite outcome under the DL model. No significant effect \nwas observed for non-fatal stroke. In sensitivity analyses \nusing the REML-modified HK model, all statistically sig -\nnificant findings remained significant except for non-fatal \nMI.\nSGL T2i: chronic kidney disease\nAmong individuals with CKD, SGLT2i were associated \nwith statistically significant reductions in CV mortal -\nity, all-cause mortality, HF hospitalization/event, non-\nfatal MI, and kidney composite outcome under the DL \nmodel. Non-fatal stroke showed a non-significant down -\nward trend and did not reach statistical significance in \nFig. 4 Summary of the effects of finerenone versus placebo on cardiorenal outcomes. DL = DerSimonian and Laird; modified HK = restricted maximum-\nlikelihood (REML) estimation with the modified Hartung-Knapp adjustment; Wald = REML esti",
+          "ve cohort study. Additionally, the \nlong-term follow -up of cardiorenal o utcomes and \nGUTI incidence in patients with advanced CKD  \nreceiving SGLT2 inhibitors combined with \nACEI/ARB treatment were further investigated. \nTherefore, we investigated the effects of SGLT2 \nInt. J. Med. Sci. 2024, Vol. 21",
+          "https://www.medsci.org \n2110 \nConclusion: Among patients with CKD stages 3-5, SGLT2 inhibitor use was linked to increased GUTI \nincidence, but it also significantly reduced the ESRD/dialysis risk without an episodic AKI or AKD risk. \nClinical physicians should consider a personalized medicine approach by balancing GUTI episodes and \ncardiorenal outcomes for advanced CKD patients receiving SGLT2 inhibitors. \nKeywords: sodium‒glucose cotransporter -2 (SGLT2) inhibitor; angiotensin -converting enzyme inhibitor (ACEI)/angiotensin \nreceptor blocker (ARB); chronic kidney disease; acute kidney injury; acute kidney disease; end -stage renal disease; cardiorenal \noutcome; genitourinary tract infection \nIntroduction \nManaging glucose metabolism and selecting \nantihyperglycaemic agents in people with advanced \nchronic kidney disease (CKD) is challenging, \nrequiring careful personalization of treatment to \nminimize risks [1]. There are limited options for the \nuse of antihyperglycaemic agents in p",
+          "https://www.medsci.org \n2116 \nThe long-term effects of SGLT2 inhibitors on the \nprogression of kidney disease to ESRD are not fully \nunderstood. In this 5 -year cohort study, we found a \nsignificant reduction in the risk of developing ESRD \nor requiring dialysis among users of SGLT2 inhibitors, \nwhich was similar to the findings of the CREDENCE \ntrial [48]. Furthermore, the use of SGLT2 inhibitors in \ndiabetic patients without oliguria undergoing dialysis \nposes unique challenges. Dose adjustments and \nconsiderations for concurrent medications must be \ncarefully managed to avoid adverse effects and \noptimize diabetes control. In addition to the \nestablished cardiovascular benefits of SGLT2 \ninhibitors, the updated data support the use of SGLT2 \ninhibitors to modify the risk of CKD progression and \nAKD, not only in patients with type 2 DM at high \ncardiovascular risk but also in patients with CKD or \nheart failure irrespective of diabetes status, primary \nkidney disease, or kidney funct",
+          "ith obesity for incretin-based therapies. Indirect NMA \nevidence further suggests SGLT2i may reduce HF hospitalization/events and kidney composite outcomes more than \nincretin-based therapies in T2D with ASCVD/high CV risk and CKD populations.\nGraphical Abstract",
+          "educed HF hospitalization/events. SGLT2i \nreduced CV mortality, all-cause mortality, HF hospitalization/events, and kidney composite outcomes in HFrEF, and \nreduced these outcomes as well as non-fatal MI in CKD and T2D with ASCVD/high CV risk. SGLT2i decreased HF \nhospitalization/events in HFpEF, and lowered HF hospitalizations in post-MI and acute HF populations. Finerenone \nreduced HF hospitalizations and kidney composite outcomes in diabetic CKD and reduced HF hospitalizations in \nHFpEF. Using placebo as the common comparator in the NMA, SGLT2i conferred significantly greater reductions in HF \nhospitalization/events and kidney composite outcomes compared to incretin-based therapies in T2D with ASCVD/\nhigh CV risk and CKD.\nEffectiveness of SGLT2 inhibitors, \nincretin-based therapies, and finerenone \non cardiorenal outcomes: a meta-analysis \nand network meta-analysis\nArveen Shokravi1*, Jayant Seth1, Nelson Lu1,2 and G. B. John Mancini1,2\nPage 2 of 14\nShokravi et al. Cardiovascular Dia"
+        ],
+        "verdict": "fail",
+        "metrics": {
+          "document_coverage": "fail",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "ckd_confounding": [],
+            "ckd_infection": [],
+            "ckd_renal": [
+              0
+            ],
+            "hf_gls": [],
+            "hf_observational": []
+          },
+          "anchor_match_groups": {
+            "ckd_confounding": [],
+            "ckd_infection": [],
+            "ckd_renal": [
+              [
+                0
+              ]
+            ],
+            "hf_gls": [],
+            "hf_observational": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      }
+    },
+    {
+      "id": "c016",
+      "revision": 1,
+      "question": "How does the genetic inverse T2D–BP cluster relate to cardiometabolic risk, and why should it not be read as a drug-response result?",
+      "query_sha256": "6b83b4d82d383cf578eb590bebd7cc5bb175904a63cb12dd4fcb1fcece8111c2",
+      "category": "cross_doc_synthesis",
+      "answerability": "answerable",
+      "evidence_feasibility": {
+        "minimum_chunks": 6,
+        "by_depth": {
+          "n3": "infeasible",
+          "n8": "feasible"
+        }
+      },
+      "n3": {
+        "retrieved_sources": [
+          "cardio-diabetes-hypertension-polygenic.pdf",
+          "cardio-diabetes-hypertension-polygenic.pdf",
+          "cardio-diabetes-hypertension-polygenic.pdf"
+        ],
+        "retrieved_contexts": [
+          "e Inverse T2D-BP riskcluster, we noted an inverse relationship\nof associated SNVs effects on higher T2D risk related to lower SBP/\nDBP/PP. Predominantly originating from associations with BP traits\n(Supplementary Fig. 1), the 353 SNVs within this cluster, when aligned\nto the T2D risk allele, are associated with a lower risk of cardiovascular\nevents, such as atrial ﬁbrillation (AF), coronary artery disease (CAD),\nstroke and heart failure. Additionally, these SNVs demonstrated asso-\nciations with BMI and systemic higher IR (higher HOMA-IR). Compar-\nison with previously reported BP-related clusters showed partial\noverlap with the Hypolipidaemiaand Short stature SNV groups (Sup-\nplementary Fig. 6)\n38.\nThe Higher adiposity cluster contained 137 SNVs—predominantly\nT2D signals —which showcased effects on higher BMI, reduced sex\nhormones (testosterone and SHBG), higher TG along with lower HDL-\nand LDL-cholesterol, higher risk of cardiovascular events (CAD, heart\nrate, stroke), and insulin resi",
+          "=1 . 0 1×1 0−10), chronic ischaemic heart disease\n(OR[95% CI] = 0.96[0.95–0.97], p =9 . 0 8×1 0−10). The Inverse T2D-BP\nrisk cluster PGS also associates with lower risk of gout (OR[95%\nCI] = 0.92[0.89–0.95], p =1 . 1 0×1 0−6) and hypercholesterolaemia\n(OR[95% CI] = 0.98[0.97–0.99], p =1 . 9 0×1 0−17). These results support\nprevious research on the heterogeneous effects of hypertensive\nmedications on the risk of T2D, indicating that some biological pro-\ncesses between T2D and high BP may reduce the risk of comorbidity\n16.\nWe conﬁrmed the high contribution into T2D-BP comorbidity of\nthe Metabolic Syndrome cluster, by showing tha t its relatively small\nnumber of SNVs could predict risk of multiple metabolic disorders,\nincluding T2D (OR[95% CI] = 1.24[1.23–1.26], p <1 . 0 0×1 0\n−40), hyperten-\nsion (OR[95% CI] = 1.13[1.12 –1.14], p ≤ 1.00 × 10−40), hypercholester-\nolaemia (OR[95% CI] = 1.10[1.09–1.10], p ≤ 1.00 × 10−40), hyperlipidaemia\n(OR[95% CI] = 1.10[1.08–1.13], p =6 . 5 2×1 0−20), fa",
+          "osition and T2D risk.\nClusters of pathogenetic processes\nTo dissect the complexity of shared biological pathways between T2D\nand BP, we curated and reﬁned the SNV list to 1304 independent var-\niants (LDr² < 0.2), including 500 T2D-associated and 813 BP-associated\nSNVs, to cluster them based on their effects on 45 related (endo)\nphenotypes, including T2D/BP traits (Supplementary Data 2). Our\ninvestigation encompassed a wide array of related endpoints or risk\nfactors, including biomarkers of in ﬂammation and hepatic function,\ncirculating plasma lipids, cardiovascular health indicators, anthropo-\nmetric measures, glycaemic traits, and sex hormones (Supplementary\nData 2). All SNVs (originally associated with T2D, BP traits, or both)\nwere aligned to the T2D risk allele. When information for a particular\nphenotype at an SNV was unavailable, we used LD proxies\n(“Methods”)\n33, and performed imputation of the remaining missing\ndata by random forest algorithm implemented in the imputeSCOPA\nsoftw"
+        ],
+        "verdict": "fail",
+        "metrics": {
+          "document_coverage": "fail",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.5,
+          "supported_facts": [
+            "f1"
+          ],
+          "anchor_matches": {
+            "ckd_infection": [],
+            "ckd_renal": [],
+            "pgs_caveat": [],
+            "pgs_inverse": [
+              0
+            ]
+          },
+          "anchor_match_groups": {
+            "ckd_infection": [],
+            "ckd_renal": [],
+            "pgs_caveat": [],
+            "pgs_inverse": [
+              [
+                0
+              ]
+            ]
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "n8": {
+        "retrieved_sources": [
+          "cardio-diabetes-hypertension-polygenic.pdf",
+          "cardio-diabetes-hypertension-polygenic.pdf",
+          "cardio-diabetes-hypertension-polygenic.pdf",
+          "cardio-diabetes-hypertension-polygenic.pdf",
+          "cardio-diabetes-hypertension-polygenic.pdf",
+          "cardio-diabetes-hypertension-polygenic.pdf",
+          "cardio-diabetes-hypertension-polygenic.pdf",
+          "cardio-diabetes-hypertension-polygenic.pdf"
+        ],
+        "retrieved_contexts": [
+          "e Inverse T2D-BP riskcluster, we noted an inverse relationship\nof associated SNVs effects on higher T2D risk related to lower SBP/\nDBP/PP. Predominantly originating from associations with BP traits\n(Supplementary Fig. 1), the 353 SNVs within this cluster, when aligned\nto the T2D risk allele, are associated with a lower risk of cardiovascular\nevents, such as atrial ﬁbrillation (AF), coronary artery disease (CAD),\nstroke and heart failure. Additionally, these SNVs demonstrated asso-\nciations with BMI and systemic higher IR (higher HOMA-IR). Compar-\nison with previously reported BP-related clusters showed partial\noverlap with the Hypolipidaemiaand Short stature SNV groups (Sup-\nplementary Fig. 6)\n38.\nThe Higher adiposity cluster contained 137 SNVs—predominantly\nT2D signals —which showcased effects on higher BMI, reduced sex\nhormones (testosterone and SHBG), higher TG along with lower HDL-\nand LDL-cholesterol, higher risk of cardiovascular events (CAD, heart\nrate, stroke), and insulin resi",
+          "=1 . 0 1×1 0−10), chronic ischaemic heart disease\n(OR[95% CI] = 0.96[0.95–0.97], p =9 . 0 8×1 0−10). The Inverse T2D-BP\nrisk cluster PGS also associates with lower risk of gout (OR[95%\nCI] = 0.92[0.89–0.95], p =1 . 1 0×1 0−6) and hypercholesterolaemia\n(OR[95% CI] = 0.98[0.97–0.99], p =1 . 9 0×1 0−17). These results support\nprevious research on the heterogeneous effects of hypertensive\nmedications on the risk of T2D, indicating that some biological pro-\ncesses between T2D and high BP may reduce the risk of comorbidity\n16.\nWe conﬁrmed the high contribution into T2D-BP comorbidity of\nthe Metabolic Syndrome cluster, by showing tha t its relatively small\nnumber of SNVs could predict risk of multiple metabolic disorders,\nincluding T2D (OR[95% CI] = 1.24[1.23–1.26], p <1 . 0 0×1 0\n−40), hyperten-\nsion (OR[95% CI] = 1.13[1.12 –1.14], p ≤ 1.00 × 10−40), hypercholester-\nolaemia (OR[95% CI] = 1.10[1.09–1.10], p ≤ 1.00 × 10−40), hyperlipidaemia\n(OR[95% CI] = 1.10[1.08–1.13], p =6 . 5 2×1 0−20), fa",
+          "osition and T2D risk.\nClusters of pathogenetic processes\nTo dissect the complexity of shared biological pathways between T2D\nand BP, we curated and reﬁned the SNV list to 1304 independent var-\niants (LDr² < 0.2), including 500 T2D-associated and 813 BP-associated\nSNVs, to cluster them based on their effects on 45 related (endo)\nphenotypes, including T2D/BP traits (Supplementary Data 2). Our\ninvestigation encompassed a wide array of related endpoints or risk\nfactors, including biomarkers of in ﬂammation and hepatic function,\ncirculating plasma lipids, cardiovascular health indicators, anthropo-\nmetric measures, glycaemic traits, and sex hormones (Supplementary\nData 2). All SNVs (originally associated with T2D, BP traits, or both)\nwere aligned to the T2D risk allele. When information for a particular\nphenotype at an SNV was unavailable, we used LD proxies\n(“Methods”)\n33, and performed imputation of the remaining missing\ndata by random forest algorithm implemented in the imputeSCOPA\nsoftw",
+          "proﬁle, implicating retinol metabolism. Although recent meta-\nanalysis on the role of retinol in T2D and BP regulation have yielded\ninconsistent results, one retinol derivative, retinoic acid, has consistently\nbeen linked to higher IR and reduced cardiovascular events\n55.W h i l ew e\npropose a mechanistically plausible pathophysiological hypothesis for\ninverse T2D-BP risk effects, these patterns may also arise from incom-\nplete overlap in the genetic architectures underlying T2D and BP. The\nMetabolic Syndromecluster was associated with features such as shorter\nstature, higher WHR, and no detectable effect on BMI. These features are\nconsistent with the International Diabetes Federation (IDF) deﬁnition of\nMetS\n72, which emphasises central obesity—better captured by WHR than\na\nPrevalence(comorbid \nT2D+Hypertension) = 5.49%\nPrevalence(T2D) = 7.28%\nPrevalence(Hypertension) = 47.38%\nControls\nc \nPartitioned PGS\nCumulative Hazard\nFollow-up (years)\nIndividuals in the top 10%\nof the partitioned ",
+          "approach extends beyond this by leveraging clus-\ntering of genetic variants to partition the T2D-BP genetic architecture\ninto biologically coherent groups.\nWe curated a set of genome-wide signiﬁcant common SNVs asso-\nciated with T2D and high BP, thereby enriching for variants with stron-\nger and trait-speciﬁc effects, and reducing the inﬂuence of broader, less\nspeciﬁc cross-trait associations\n67,68. Through hierarchical clustering\nusing T2D-BP related endpoints and risk factors, we identi ﬁed ﬁve\nclusters of SNVs, each highlighting unique pathogenetic processes\nunderlying the T2D-BP relationship. This clustering approach provided a\nclearer delineation of genetic relationships, reducing heterogeneity\ncompared to other clustering methods. Four of these SNV clusters —\nMetabolic Syndrome, Higher adiposity, Vascular dysfunction,a n dReduced\nbeta-cell function—align with establishedﬁndings in high BP or T2D\n27,69–71.\nWe discovered an intriguing cluster of variants with anInverse T2D-BP\nrisk ",
+          "pulse pressure (PP = SBP-DBP) 12.W e\nclustered the T2D-BP-associated independent single-nucleotide var-\niant (SNV) effects into distinct groups based on their underlying\npathogenetic processes. We observed the cluster-associated changes\nin gene expression through colocalization analysis with eQTL and\nenrichment in the scATAC-seq atlas. We ﬁnally evaluated the cluster-\nspeciﬁc risks of complication using partitioned polygenic scores (PGS)\nin 459,247 individuals (Fig. 1).\nResults\nGenetic overlap between T2D and BP\nWe explored the genetic relationships between T2D and BP by evalu-\nating the overall genetic correlation and associated loci that overlap\nbetween the two conditions. We performed linkage disequilibrium\n(LD) score regression using ldsc\n23 and observed a direct genetic cor-\nrelation between T2D and SBP ( rg[SE] = 0.25[0.028], p =1 . 5 6×1 0−19),\nDBP (rg[SE] = 0.18[0.027],p =1 . 3 8×1 0−11), and PP (rg[SE] = 0.23[0.029],\np =2 . 2 5×1 0−15), consistent with previous research.\nTo fu",
+          "n process (GO:0031401). The overlap of signals between colo-\ncalized genes and cCREs in the other four tissues consistently\nhighlighted the MAP3K3 gene. Subsequent pathway analyses did not\nyield conclusive results (Supplementary Table 4).\nOverall, changes in gene expression within clusters highlighted\nthe importance of the thyroid tissue in T2D-BP shared pathophysiol-\nogy and retinol metabolism within theInverse T2D-BP riskcluster, while\nthe high number of fetal cell regulatory elements enrichment suggests\na strong contribution of intrauterine growth pathways in both T2D and\nhigh BP.\nT2D-BP comorbidity using partitioned PGSs\nTo evaluate the ability of the T2D-BP SNV clusters to predict comor-\nbidities and complications, we used the individual-level data from UKB\nand built unweighted partitioned PGSs for each cluster group. Using\nthe R software environment tool,comorbidPGS, we aligned partitioned\nPGS to the T2D risk allele, i.e., each allele increasing the risk of T2D is\ncounted as one ",
+          ". The\nReduced beta-cell function weighted PGS (“Methods”)s h o w e ds t r o n g\nassociation with high SBP and PP, albeit not with DBP (Supplemen-\ntary Data 9).\nThe partitioned PGSs effectively delineated the differences in\nprediction among the T2D-BP cluster SNVs. Partitioned PGSs shows\nthat grouping of SNVs can highlight related comorbidities through\ndifferent pathophysiological processes.\nDiscussion\nIn this large-scale multiomic study, we explored the complex genetic\nunderpinnings of the comorbid relationship between T2D and high BP.\nOur analysis conﬁrms and extends prior evidence of a direct genetic\nArticle https://doi.org/10.1038/s41467-025-67449-2\nNature Communications|         (2026) 17:1446 5\ncorrelation and a large overlap in genetic signals shared between T2D\nand high BP 65,66. This observation is not unexpected, given the well-\nestablished comorbidity between T2D and hypertension —largely\nattributable to shared environmental and biological risk factors such\nas adiposity. Our "
+        ],
+        "verdict": "fail",
+        "metrics": {
+          "document_coverage": "fail",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.5,
+          "supported_facts": [
+            "f1"
+          ],
+          "anchor_matches": {
+            "ckd_infection": [],
+            "ckd_renal": [],
+            "pgs_caveat": [],
+            "pgs_inverse": [
+              0
+            ]
+          },
+          "anchor_match_groups": {
+            "ckd_infection": [],
+            "ckd_renal": [],
+            "pgs_caveat": [],
+            "pgs_inverse": [
+              [
+                0
+              ]
+            ]
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      }
+    }
+  ],
+  "summary": {
+    "n3": {
+      "answerable": {
+        "executed": 4,
+        "answer_judged": 0,
+        "evidence_coverage": {
+          "full_set": {
+            "pass": 0,
+            "total": 4,
+            "rate": 0.0
+          },
+          "feasible_only": {
+            "pass": 0,
+            "total": 1,
+            "rate": 0.0
+          },
+          "structural_ceiling": {
+            "pass": 1,
+            "total": 4,
+            "rate": 0.25
+          },
+          "infeasible_ids": [
+            "c012",
+            "c016",
+            "q051"
+          ]
+        },
+        "document_coverage_pass": 0,
+        "pinned_evidence_complete": 0,
+        "macro_fact_recall": 0.125
+      },
+      "false_premise": {
+        "executed": 0,
+        "answer_judged": 0,
+        "evidence_coverage": {
+          "full_set": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "feasible_only": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "structural_ceiling": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "infeasible_ids": []
+        },
+        "document_coverage_pass": 0,
+        "pinned_evidence_complete": 0,
+        "macro_fact_recall": null
+      },
+      "absent_fact": {
+        "executed": 0,
+        "answer_judged": 0,
+        "evidence_coverage": {
+          "full_set": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "feasible_only": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "structural_ceiling": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "infeasible_ids": []
+        }
+      },
+      "distractor_ordering": {
+        "total": 0,
+        "pass": 0,
+        "decoy_present": 0
+      },
+      "categories": {
+        "cross_doc_synthesis": {
+          "executed": 2,
+          "document_scored": 2,
+          "document_pass": 0,
+          "evidence_scored": 2,
+          "evidence_pass": 0,
+          "evidence_coverage": {
+            "full_set": {
+              "pass": 0,
+              "total": 2,
+              "rate": 0.0
+            },
+            "feasible_only": {
+              "pass": 0,
+              "total": 0,
+              "rate": null
+            },
+            "structural_ceiling": {
+              "pass": 0,
+              "total": 2,
+              "rate": 0.0
+            },
+            "infeasible_ids": [
+              "c012",
+              "c016"
+            ]
+          }
+        },
+        "direct_lookup": {
+          "executed": 1,
+          "document_scored": 1,
+          "document_pass": 0,
+          "evidence_scored": 1,
+          "evidence_pass": 0,
+          "evidence_coverage": {
+            "full_set": {
+              "pass": 0,
+              "total": 1,
+              "rate": 0.0
+            },
+            "feasible_only": {
+              "pass": 0,
+              "total": 1,
+              "rate": 0.0
+            },
+            "structural_ceiling": {
+              "pass": 1,
+              "total": 1,
+              "rate": 1.0
+            },
+            "infeasible_ids": []
+          }
+        },
+        "multi_hop": {
+          "executed": 1,
+          "document_scored": 1,
+          "document_pass": 0,
+          "evidence_scored": 1,
+          "evidence_pass": 0,
+          "evidence_coverage": {
+            "full_set": {
+              "pass": 0,
+              "total": 1,
+              "rate": 0.0
+            },
+            "feasible_only": {
+              "pass": 0,
+              "total": 0,
+              "rate": null
+            },
+            "structural_ceiling": {
+              "pass": 0,
+              "total": 1,
+              "rate": 0.0
+            },
+            "infeasible_ids": [
+              "q051"
+            ]
+          }
+        }
+      },
+      "evidence_coverage": {
+        "full_set": {
+          "pass": 0,
+          "total": 4,
+          "rate": 0.0
+        },
+        "feasible_only": {
+          "pass": 0,
+          "total": 1,
+          "rate": 0.0
+        },
+        "structural_ceiling": {
+          "pass": 1,
+          "total": 4,
+          "rate": 0.25
+        },
+        "infeasible_ids": [
+          "c012",
+          "c016",
+          "q051"
+        ]
+      }
+    },
+    "n8": {
+      "answerable": {
+        "executed": 4,
+        "answer_judged": 0,
+        "evidence_coverage": {
+          "full_set": {
+            "pass": 0,
+            "total": 4,
+            "rate": 0.0
+          },
+          "feasible_only": {
+            "pass": 0,
+            "total": 4,
+            "rate": 0.0
+          },
+          "structural_ceiling": {
+            "pass": 4,
+            "total": 4,
+            "rate": 1.0
+          },
+          "infeasible_ids": []
+        },
+        "document_coverage_pass": 0,
+        "pinned_evidence_complete": 0,
+        "macro_fact_recall": 0.125
+      },
+      "false_premise": {
+        "executed": 0,
+        "answer_judged": 0,
+        "evidence_coverage": {
+          "full_set": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "feasible_only": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "structural_ceiling": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "infeasible_ids": []
+        },
+        "document_coverage_pass": 0,
+        "pinned_evidence_complete": 0,
+        "macro_fact_recall": null
+      },
+      "absent_fact": {
+        "executed": 0,
+        "answer_judged": 0,
+        "evidence_coverage": {
+          "full_set": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "feasible_only": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "structural_ceiling": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "infeasible_ids": []
+        }
+      },
+      "distractor_ordering": {
+        "total": 0,
+        "pass": 0,
+        "decoy_present": 0
+      },
+      "categories": {
+        "cross_doc_synthesis": {
+          "executed": 2,
+          "document_scored": 2,
+          "document_pass": 0,
+          "evidence_scored": 2,
+          "evidence_pass": 0,
+          "evidence_coverage": {
+            "full_set": {
+              "pass": 0,
+              "total": 2,
+              "rate": 0.0
+            },
+            "feasible_only": {
+              "pass": 0,
+              "total": 2,
+              "rate": 0.0
+            },
+            "structural_ceiling": {
+              "pass": 2,
+              "total": 2,
+              "rate": 1.0
+            },
+            "infeasible_ids": []
+          }
+        },
+        "direct_lookup": {
+          "executed": 1,
+          "document_scored": 1,
+          "document_pass": 0,
+          "evidence_scored": 1,
+          "evidence_pass": 0,
+          "evidence_coverage": {
+            "full_set": {
+              "pass": 0,
+              "total": 1,
+              "rate": 0.0
+            },
+            "feasible_only": {
+              "pass": 0,
+              "total": 1,
+              "rate": 0.0
+            },
+            "structural_ceiling": {
+              "pass": 1,
+              "total": 1,
+              "rate": 1.0
+            },
+            "infeasible_ids": []
+          }
+        },
+        "multi_hop": {
+          "executed": 1,
+          "document_scored": 1,
+          "document_pass": 0,
+          "evidence_scored": 1,
+          "evidence_pass": 0,
+          "evidence_coverage": {
+            "full_set": {
+              "pass": 0,
+              "total": 1,
+              "rate": 0.0
+            },
+            "feasible_only": {
+              "pass": 0,
+              "total": 1,
+              "rate": 0.0
+            },
+            "structural_ceiling": {
+              "pass": 1,
+              "total": 1,
+              "rate": 1.0
+            },
+            "infeasible_ids": []
+          }
+        }
+      },
+      "evidence_coverage": {
+        "full_set": {
+          "pass": 0,
+          "total": 4,
+          "rate": 0.0
+        },
+        "feasible_only": {
+          "pass": 0,
+          "total": 4,
+          "rate": 0.0
+        },
+        "structural_ceiling": {
+          "pass": 4,
+          "total": 4,
+          "rate": 1.0
+        },
+        "infeasible_ids": []
+      }
+    }
+  },
+  "limitations": [
+    "Exact pinned-excerpt coverage is conservative; a missed substring is not proof of absent semantic evidence.",
+    "Collection verification checks stored text/source chunks; it does not recompute stored embeddings to certify their original embedding model. Isolated ingestion provenance remains required for quality claims.",
+    "No generated answers, refusal judgments or premise-correction judgments.",
+    "Remote rewrite model aliases cannot establish immutable provider weight versions."
+  ]
+}
