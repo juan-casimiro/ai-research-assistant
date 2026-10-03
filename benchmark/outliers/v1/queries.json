@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "query_version": "outliers-v1",
-  "status": "author_reviewed; independent review pending",
+  "status": "author reviewed; Claude CLI reviewed; domain review pending",
   "authored_for": "JUA-113; no retrieval results used to choose questions or gold facts",
   "selection_sha256": "87aabf643b06a6234355326c060dac6db2f4f8e69cfc22e5acd35282476f150e",
   "anchors": [
@@ -286,7 +286,7 @@
       "review": {
         "author": "Codex",
         "method": "Focused full-text review of methods, results, limitations and topic overlap; searched the complete extracted text for alternative evidence and checked identity/evidence pages against source metadata and relevant JATS.",
-        "independent_review": "Pending final Claude review and Juan PR review; author review is not independent clinical review.",
+        "independent_review": "Claude CLI read-only review completed; Juan PR review pending. This is not independent clinical or domain-expert validation.",
         "duplicate_leakage_check": "Four evidence anchors cover one abstract statement and three separate Results statements; the question supplies the abstract counts but not the correction result or the later significance claim.",
         "tuning_exposure": "Authored before any retrieval result for this release.",
         "alternative_evidence_check": "The TB review cites the MR study but does not reproduce the complete abstract/body conflict. No other selected article reports this set of taxa counts and correction language."
@@ -363,7 +363,7 @@
       "review": {
         "author": "Codex",
         "method": "Focused full-text review of methods, results, limitations and topic overlap; searched the complete extracted text for alternative evidence and checked identity/evidence pages against source metadata and relevant JATS.",
-        "independent_review": "Pending final Claude review and Juan PR review; author review is not independent clinical review.",
+        "independent_review": "Claude CLI read-only review completed; Juan PR review pending. This is not independent clinical or domain-expert validation.",
         "duplicate_leakage_check": "The method description identifies a two-sample genetic analysis; the requested administered dose is not in the question.",
         "tuning_exposure": "Authored before any retrieval result for this release.",
         "alternative_evidence_check": "The review discusses probiotic studies separately, but none changes the design of this named MR study."
@@ -439,7 +439,7 @@
       "review": {
         "author": "Codex",
         "method": "Focused full-text review of methods, results, limitations and topic overlap; searched the complete extracted text for alternative evidence and checked identity/evidence pages against source metadata and relevant JATS.",
-        "independent_review": "Pending final Claude review and Juan PR review; author review is not independent clinical review.",
+        "independent_review": "Claude CLI read-only review completed; Juan PR review pending. This is not independent clinical or domain-expert validation.",
         "duplicate_leakage_check": "The values and paired failure mechanisms occur together in the article abstract.",
         "tuning_exposure": "Authored before any retrieval result for this release.",
         "alternative_evidence_check": "The international WWTP study uses metagenomics and qPCR normalization but does not report this four-site primer-mismatch comparison."
@@ -524,7 +524,7 @@
       "review": {
         "author": "Codex",
         "method": "Focused full-text review of methods, results, limitations and topic overlap; searched the complete extracted text for alternative evidence and checked identity/evidence pages against source metadata and relevant JATS.",
-        "independent_review": "Pending final Claude review and Juan PR review; author review is not independent clinical review.",
+        "independent_review": "Claude CLI read-only review completed; Juan PR review pending. This is not independent clinical or domain-expert validation.",
         "duplicate_leakage_check": "The target values and denominators are not present in the question; the qPCR article is a plausible study-level competitor.",
         "tuning_exposure": "Authored before any retrieval result for this release.",
         "alternative_evidence_check": "The 11/12 and 12/12 totals are specific to Garner et al.; Daw Elbait et al. studies four different wastewater samples and method agreement."
@@ -599,7 +599,7 @@
       "review": {
         "author": "Codex",
         "method": "Focused full-text review of methods, results, limitations and topic overlap; searched the complete extracted text for alternative evidence and checked identity/evidence pages against source metadata and relevant JATS.",
-        "independent_review": "Pending final Claude review and Juan PR review; author review is not independent clinical review.",
+        "independent_review": "Claude CLI read-only review completed; Juan PR review pending. This is not independent clinical or domain-expert validation.",
         "duplicate_leakage_check": "The abstract states both accuracies with their separate model tasks; the question does not give target values.",
         "tuning_exposure": "Authored before any retrieval result for this release.",
         "alternative_evidence_check": "No other selected article reports these two Alzheimer-model results."
@@ -674,7 +674,7 @@
       "review": {
         "author": "Codex",
         "method": "Focused full-text review of methods, results, limitations and topic overlap; searched the complete extracted text for alternative evidence and checked identity/evidence pages against source metadata and relevant JATS.",
-        "independent_review": "Pending final Claude review and Juan PR review; author review is not independent clinical review.",
+        "independent_review": "Claude CLI read-only review completed; Juan PR review pending. This is not independent clinical or domain-expert validation.",
         "duplicate_leakage_check": "The question asks for an external validation result not claimed in the source.",
         "tuning_exposure": "Authored before any retrieval result for this release.",
         "alternative_evidence_check": "No other selected article validates these Alzheimer models or supplies an ADNI/OASIS-3 result for them."
@@ -749,7 +749,7 @@
       "review": {
         "author": "Codex",
         "method": "Focused full-text review of methods, results, limitations and topic overlap; searched the complete extracted text for alternative evidence and checked identity/evidence pages against source metadata and relevant JATS.",
-        "independent_review": "Pending final Claude review and Juan PR review; author review is not independent clinical review.",
+        "independent_review": "Claude CLI read-only review completed; Juan PR review pending. This is not independent clinical or domain-expert validation.",
         "duplicate_leakage_check": "The cited group size and both diversity outcomes occur in one passage.",
         "tuning_exposure": "Authored before any retrieval result for this release.",
         "alternative_evidence_check": "The MR paper reports genetic associations rather than this probiotic cohort; no other selected article reports its alpha/beta diversity comparison."
@@ -825,7 +825,7 @@
       "review": {
         "author": "Codex",
         "method": "Focused full-text review of methods, results, limitations and topic overlap; searched the complete extracted text for alternative evidence and checked identity/evidence pages against source metadata and relevant JATS.",
-        "independent_review": "Pending final Claude review and Juan PR review; author review is not independent clinical review.",
+        "independent_review": "Claude CLI read-only review completed; Juan PR review pending. This is not independent clinical or domain-expert validation.",
         "duplicate_leakage_check": "The source explicitly presents the comparative trial as needed; it does not provide a result.",
         "tuning_exposure": "Authored before any retrieval result for this release.",
         "alternative_evidence_check": "The Alzheimer article evaluates public datasets and does not test AI-assisted TB care or standard-care outcomes."
@@ -880,7 +880,7 @@
       "review": {
         "author": "Codex",
         "method": "Focused full-text review of methods, results, limitations and topic overlap; searched the complete extracted text for alternative evidence and checked identity/evidence pages against source metadata and relevant JATS.",
-        "independent_review": "Pending final Claude review and Juan PR review; author review is not independent clinical review.",
+        "independent_review": "Claude CLI read-only review completed; Juan PR review pending. This is not independent clinical or domain-expert validation.",
         "duplicate_leakage_check": "The five-outlier-article absence review was completed before evaluation; this asks for patient outcomes, not environmental ARG detection.",
         "tuning_exposure": "Authored before any retrieval result for this release.",
         "alternative_evidence_check": "The two environmental articles report wastewater samples and ARG measurements; the other three concern microbiome/TB associations, a TB review and Alzheimer models. No downstream WWTP-exposed patient cohort or linked infection count appears."
@@ -955,7 +955,7 @@
       "review": {
         "author": "Codex",
         "method": "Focused full-text review of methods, results, limitations and topic overlap; searched the complete extracted text for alternative evidence and checked identity/evidence pages against source metadata and relevant JATS.",
-        "independent_review": "Pending final Claude review and Juan PR review; author review is not independent clinical review.",
+        "independent_review": "Claude CLI read-only review completed; Juan PR review pending. This is not independent clinical or domain-expert validation.",
         "duplicate_leakage_check": "The requested features occur together in one Discussion passage; no feature names appear in the question.",
         "tuning_exposure": "Authored before any retrieval result for this release.",
         "alternative_evidence_check": "Cardiology and diabetes papers discuss related factors but do not reproduce the Alzheimer model’s five-run feature-importance result."
@@ -963,5 +963,5 @@
       "selection_rationale": "Records the explicit vascular and diabetes vocabulary bridge while preserving the paper’s predictive, non-causal scope."
     }
   ],
-  "query_sha256": "86f8a16c5b4b45ff8f90638d8f97bd80d21c81e7d84aa959581167ac470ba355"
+  "query_sha256": "152679650cd8a591abd99421e03d1dc6fe7bfee5b240936b927e205256be3f2d"
 }

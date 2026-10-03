@@ -1,0 +1,1476 @@
+{
+  "run_id": "20261003T143117Z-b430d01b",
+  "run_status": "complete",
+  "created_at": "2026-10-03T14:31:18.516963+00:00",
+  "code_commit": "5a0796036f1dd67e798a3916e4478885afe6a9a1",
+  "config_label": "vector-only-baseline",
+  "config": {
+    "use_bm25": false,
+    "use_query_rewriting": false,
+    "n_values": [
+      3,
+      8
+    ]
+  },
+  "provenance": {
+    "query_version": "outliers-v1",
+    "query_sha256": "20c1be5bb8f3e83b94cee0731698c02452ad5203f4e61c1c257c095b24baa1dd",
+    "subset_sha256": "ca9202b6f5e1c61788640ce88839a93d5fdbc89adb7ff858d09aba143f1cff70",
+    "scorer_version": "pinned-span-coverage-v3",
+    "feasibility_version": "minimum-evidence-chunks-v3",
+    "feasibility_sha256": "d84cb4c54adb3a275ea663ab849e8169410f68223c72614b20a6e9591bf23de0",
+    "scorer_sha256": "e358ba1bbf07c2f6ce32fd54d3b6a57e2daadff3c85d9ee13d019f4fa862b321",
+    "retrieval_sha256": "beeb5ea41bf4ff3b1943261c386e9cea23794fef4c15aaee136ba91ddbac6577",
+    "selection_sha256": "87aabf643b06a6234355326c060dac6db2f4f8e69cfc22e5acd35282476f150e",
+    "conditions_sha256": "9dc592b3cdb5d18623414fc72af900c2fb4048f4d0f1455fe7c856ba9600c4ba",
+    "condition": "C1",
+    "membership_sha256": "3188841aad66ce0979a30f47f7cbe5dcfb8d9d2bcdade1931c64ad309cac4d70",
+    "article_tuples": [
+      {
+        "article_id": "PMC10765819",
+        "pmc_version": 1,
+        "pdf_sha256": "b84edcd99fa0718c9d3a09436bf6630753e58b76242627950a95062bbf1c3ff8",
+        "text_sha256": "32fd5a8b7b6aed7bef9d0b549c46a24794341b3fd65cfc8aa11b62c8558d3452"
+      },
+      {
+        "article_id": "PMC10997137",
+        "pmc_version": 1,
+        "pdf_sha256": "da6eed455d3c5bb168b1d479a6a4bb91da44f04e4ca3c49ab3da6e071c744a7a",
+        "text_sha256": "99626756dd68014d3cff69314d24433c1b4ba68dddedede8640c5a2d1c1a9f71"
+      },
+      {
+        "article_id": "PMC11411718",
+        "pmc_version": 1,
+        "pdf_sha256": "ac7199ca586a309cc471d35f36e09a24708320b6f0e9e75536ffcb0d5f5c983e",
+        "text_sha256": "78dfa58d912a6feeea8a5f16e20c949694f586cd043f16f3fba50e93f51eb85e"
+      },
+      {
+        "article_id": "PMC12823827",
+        "pmc_version": 1,
+        "pdf_sha256": "22866337743e361ad24e69d905fc3bd10ae0d2b541808c82f8bf8be887e35e4b",
+        "text_sha256": "4fc104e32e46b97399b6ce80f51512ef4d8aa27f02da36400b0d064e5fc5ee74"
+      },
+      {
+        "article_id": "PMC13328407",
+        "pmc_version": 1,
+        "pdf_sha256": "3a11a3ecb40e48c359731f9059657690d3b0a83fe34550c576e93c85d1890141",
+        "text_sha256": "7d5dc6d4c487c524916aca28a6d0dcb0b5efb0c50b2732749ad3bbb8e48b36e3"
+      }
+    ],
+    "requested_ids": [
+      "x001",
+      "x002",
+      "x003",
+      "x004",
+      "x005",
+      "x006",
+      "x007",
+      "x008",
+      "x009",
+      "x010"
+    ],
+    "executed_ids": [
+      "x001",
+      "x002",
+      "x003",
+      "x004",
+      "x005",
+      "x006",
+      "x007",
+      "x008",
+      "x009",
+      "x010"
+    ],
+    "missing_ids": [],
+    "depths": [
+      3,
+      8
+    ],
+    "dependencies": {
+      "fastembed": "0.8.0",
+      "chromadb": "1.5.9",
+      "pypdf": "6.16.1",
+      "rank-bm25": "0.2.2",
+      "onnxruntime": "1.28.0"
+    },
+    "loaded_models": {
+      "embedding": {
+        "model_name": "BAAI/bge-small-en-v1.5",
+        "files": {
+          "config.json": "13582bcf2effc85b7bf3d3f5532e686bc1c9ce86bb009d10f0ec33cbe92299dd",
+          "model_optimized.onnx": "51f1bd0addd6e859e42c2c8021a5e5461385bb676a649f4b269aa445449f2431",
+          "special_tokens_map.json": "5d5b662e421ea9fac075174bb0688ee0d9431699900b90662acd44b2a350503a",
+          "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+          "tokenizer_config.json": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53"
+        },
+        "sha256": "d9e46143a9cabd7abdbe181fd67443a66089fd55d721db87b7b2964085ed0bff"
+      },
+      "reranker": {
+        "model_name": "Xenova/ms-marco-MiniLM-L-6-v2",
+        "files": {
+          "config.json": "d827779a72d27ae68cf878a6fc2e954542663fe21ca515d9f4783fc96be2d37e",
+          "onnx/model.onnx": "c623d0bcb99f4622beb413eaef00cfbe5db20df9f1dd982da4b4f26022881870",
+          "special_tokens_map.json": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+          "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+          "tokenizer_config.json": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53"
+        },
+        "sha256": "253fe4bae5a04bd859f462ffca4c1818e42725f6b14a55392b3ed9040728fb49"
+      }
+    },
+    "rewrite_identity": {
+      "provider": "ollama",
+      "model": "smollm2:1.7b-instruct-q4_K_M"
+    },
+    "ingestion_verification": {
+      "collection_name": "documents",
+      "chunk_count": 423,
+      "per_source_chunks": {
+        "outlier-alzheimer-dual-model.pdf": 60,
+        "outlier-amr-international-wwtp.pdf": 71,
+        "outlier-amr-method-comparison.pdf": 69,
+        "outlier-microbiome-tb-mr.pdf": 60,
+        "outlier-microbiome-tuberculosis.pdf": 163
+      },
+      "chunks_sha256": "1b27eb05599e7d15ae3c3d3ef87d2df9b575ec9c947e07270d9188b1c0b18a29",
+      "collection_path": "/Users/agentdev/development/.agent-tmp/JUA-113/chroma-outliers-c1"
+    }
+  },
+  "results": [
+    {
+      "id": "x001",
+      "revision": 1,
+      "question": "Yuan et al.’s abstract reports results for 195 taxa, 11 UK Biobank associations and three taxa validated in FinnGen. How does the UK-results section qualify those associations after multiple-comparison correction, and what does the later common-taxa section claim?",
+      "query_sha256": "80063a2b408af9d8b26c6e93dbfdcfcdf071c42dc22e5c552d6e9026a690e90e",
+      "category": "multi_hop",
+      "answerability": "answerable",
+      "evidence_feasibility": {
+        "minimum_chunks": 4,
+        "by_depth": {
+          "n3": "infeasible",
+          "n8": "feasible"
+        }
+      },
+      "n3": {
+        "retrieved_sources": [
+          "outlier-microbiome-tb-mr.pdf",
+          "outlier-microbiome-tb-mr.pdf",
+          "outlier-microbiome-tb-mr.pdf"
+        ],
+        "retrieved_contexts": [
+          "rtium, \nwhile the GWAS summary statistics of TB and its specific phenotypes [respiratory tuberculosis (RTB) and extrapulmo-\nnary tuberculosis (EPTB)] were retrieved from the UK Biobank and the FinnGen consortium. And 195 bacterial taxa \nfrom phylum to genus were analyzed. Inverse variance weighted (IVW), MR-Egger regression, maximum likelihood \n(ML), weighted median, and weighted mode methods were applied to the MR analysis. The robustness of causal esti-\nmation was tested using the heterogeneity test, horizontal pleiotropy test, and leave-one-out method.\nResults In the UK Biobank database, we found that 11 bacterial taxa had potential causal effects on TB. Three \nbacterial taxa genus.Akkermansia, family.Verrucomicrobiacea, order.Verrucomicrobiales were validated in the FinnGen \ndatabase. Based on the results in the FinnGen database, the present study found significant differences in the char-\nacteristics of gut microbial distribution between RTB and EPTB. Four bacterial taxa genus.Lac",
+          "dge, we first applied a two-sample \nMR analysis to assess the causal relationship between gut \nmicrobiota and TB by using multiple genetic databases. \nConcerning the UK Biobank database, our results indi -\ncated that 11 bacterial taxa had suggestive risk factors \nwith TB and 3 of them were validated in the FinnGen \ndatabase. We also identified 4 bacterial taxa associated \nwith RTB and 2 bacterial taxa associated with EPTB in \nthe FinnGen database. In reverse MR analysis, no causal \nassociation were identified. In short, these results empha-\nsized the potential role of specific gut microbiota in the \ndevelopment and progression of different types of TB.\nThe taxonomic composition of the human gut micro -\nbiota is dominated by Firmicutes, Bacteroidetes, Act-\ninobacteria, Proteobacteria, and other important phyla, \nincluding Verrucomicrobia, Fusobacteria, and Euryar -\nchaeota [41]. Genus.Akkermansia, family. Verrucomi -\ncrobiacea,  and order. Verrucomicrobiales, which were \nidentified as r",
+          " CI \n0.302–0.959, P = 0.035), genus.Streptococcus (OR = 0.485, \n95% CI 0.265–0.886, P = 0.019). ML and weighted median \nmethods yielded the similar direction for the casual \neffects of these bacterial taxa on the risk of EPTB. Never -\ntheless, these associations were no longer significant after \nthe Bonferroni correction.\nCommon bacterial taxa between UK Biobank database \nand FinnGen database\nThree bacterial taxa, including genus.Akkermansia, fam-\nily. Verrucomicrobiacea, and order. Verrucomicrobiales, \nhad a significant causal association with TB commonly in \nboth databases. Notably, according to the results of MR \nanalyses in the UK Biobank database, no bacterial taxa \nwere identified to overlap with RTB or EPTB (Fig.  5). \nCompared with the analysis results of TB in the FinnGen \ndatabase, genus.LachnospiraceaeUCG010, genus.Para-\nbacteroides, genus.RuminococcaceaeUCG011, and order.\nBacillales were common bacterial taxa of RTB, while \nfamily.Bacteroidacea and genus.Bacteroides were co"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "mr-common-taxa": [
+              2
+            ],
+            "mr-summary": [
+              0
+            ],
+            "mr-uk-bonferroni": [],
+            "mr-uk-correction": []
+          },
+          "anchor_match_groups": {
+            "mr-common-taxa": [
+              [
+                2
+              ]
+            ],
+            "mr-summary": [
+              [
+                0
+              ]
+            ],
+            "mr-uk-bonferroni": [],
+            "mr-uk-correction": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "n8": {
+        "retrieved_sources": [
+          "outlier-microbiome-tb-mr.pdf",
+          "outlier-microbiome-tb-mr.pdf",
+          "outlier-microbiome-tb-mr.pdf",
+          "outlier-microbiome-tb-mr.pdf",
+          "outlier-microbiome-tb-mr.pdf",
+          "outlier-microbiome-tb-mr.pdf",
+          "outlier-microbiome-tb-mr.pdf",
+          "outlier-microbiome-tb-mr.pdf"
+        ],
+        "retrieved_contexts": [
+          "rtium, \nwhile the GWAS summary statistics of TB and its specific phenotypes [respiratory tuberculosis (RTB) and extrapulmo-\nnary tuberculosis (EPTB)] were retrieved from the UK Biobank and the FinnGen consortium. And 195 bacterial taxa \nfrom phylum to genus were analyzed. Inverse variance weighted (IVW), MR-Egger regression, maximum likelihood \n(ML), weighted median, and weighted mode methods were applied to the MR analysis. The robustness of causal esti-\nmation was tested using the heterogeneity test, horizontal pleiotropy test, and leave-one-out method.\nResults In the UK Biobank database, we found that 11 bacterial taxa had potential causal effects on TB. Three \nbacterial taxa genus.Akkermansia, family.Verrucomicrobiacea, order.Verrucomicrobiales were validated in the FinnGen \ndatabase. Based on the results in the FinnGen database, the present study found significant differences in the char-\nacteristics of gut microbial distribution between RTB and EPTB. Four bacterial taxa genus.Lac",
+          "dge, we first applied a two-sample \nMR analysis to assess the causal relationship between gut \nmicrobiota and TB by using multiple genetic databases. \nConcerning the UK Biobank database, our results indi -\ncated that 11 bacterial taxa had suggestive risk factors \nwith TB and 3 of them were validated in the FinnGen \ndatabase. We also identified 4 bacterial taxa associated \nwith RTB and 2 bacterial taxa associated with EPTB in \nthe FinnGen database. In reverse MR analysis, no causal \nassociation were identified. In short, these results empha-\nsized the potential role of specific gut microbiota in the \ndevelopment and progression of different types of TB.\nThe taxonomic composition of the human gut micro -\nbiota is dominated by Firmicutes, Bacteroidetes, Act-\ninobacteria, Proteobacteria, and other important phyla, \nincluding Verrucomicrobia, Fusobacteria, and Euryar -\nchaeota [41]. Genus.Akkermansia, family. Verrucomi -\ncrobiacea,  and order. Verrucomicrobiales, which were \nidentified as r",
+          " CI \n0.302–0.959, P = 0.035), genus.Streptococcus (OR = 0.485, \n95% CI 0.265–0.886, P = 0.019). ML and weighted median \nmethods yielded the similar direction for the casual \neffects of these bacterial taxa on the risk of EPTB. Never -\ntheless, these associations were no longer significant after \nthe Bonferroni correction.\nCommon bacterial taxa between UK Biobank database \nand FinnGen database\nThree bacterial taxa, including genus.Akkermansia, fam-\nily. Verrucomicrobiacea, and order. Verrucomicrobiales, \nhad a significant causal association with TB commonly in \nboth databases. Notably, according to the results of MR \nanalyses in the UK Biobank database, no bacterial taxa \nwere identified to overlap with RTB or EPTB (Fig.  5). \nCompared with the analysis results of TB in the FinnGen \ndatabase, genus.LachnospiraceaeUCG010, genus.Para-\nbacteroides, genus.RuminococcaceaeUCG011, and order.\nBacillales were common bacterial taxa of RTB, while \nfamily.Bacteroidacea and genus.Bacteroides were co",
+          " caused by confounders, we \nremoved potential confounding SNPs associated with \nthese confounders of gut microbiota and TB by searching \nthe PhenoScanner website (Additional file  1: Table  S2). \nAs a result, a total of 2,544 SNPs were identified as IVs for \nPage 4 of 14Yuan et al. Respiratory Research           (2024) 25:16 \n195 bacterial taxa according to the above selection crite -\nria. The F-statistic for IVs ranged from 10.781–95.389, \nindicating no evidence of weak instrumental bias. The \ndetails of these IVs in different databases were shown in \nAdditional file 1: Table S3, S4.\nCausal inference between the gut microbiota and TB \nby in the UK Biobank database\nThen we performed MR analysis of TB dataset from the \nUK Biobank database. Figure  2 and Additional file  1: \nTable  S5 presented the impact of changes in the abun -\ndance of 195 bacterial taxa on the risk of TB. According \nto the IVW analysis, 11 bacterial taxa of genetically pre -\ndicted gut microbiota were found to be rel",
+          "m -\nmon bacterial taxa of EPTB (Fig. 6).\nBi‑directional causal inference between the gut microbiota \nand TB\nTo assess possible reverse causal associations, we \napplied reverse MR analysis with TB, RTB, or EPTB \nas exposure and gut microbiota as outcome. We iden -\ntified 113 IVs for TB in the UK Biobank database, 83 \nIVs for TB in the FinnGen database, 77 IVs for RTB in \nthe FinnGen database, 78 IVs for EPTB in the FinnGen \ndatabase (Additional file  1: Table  S9) and did not \nfind any reverse causal correlation (Additional file  1: \nTable  S10). We subsequently applied the MR Steiger \ndirectionality test to further confirm the true direction \nof causal association, and the result supported that gut \nmicrobiome was the influencing factor of TB (Addi -\ntional file 1 : Table S11).\nSensitivity analysis\nFinally, sensitivity analyses were performed for all the \nresults (Additional file  1: Table  S12, Additional file  1: \nTable  S13). We found that no evidence of horizontal \npleiotropic of e",
+          "e no longer significant after the Bonferroni \ncorrection.\nCausal inference between the gut microbiota and RTB, \nEPTB in the FinnGen database\nIn this study, we also separately conducted MR analyses \nfor the gut microbiota and two types of TB (RTB and \nEPTB) to establish a more compelling causal association \nbetween them. For RTB, the causal effects of 195 bac -\nterial taxa on the risk of RTB were shown in the Addi -\ntional file  2: Fig. S1 and Additional file  1: Table  S7. As \nillustrated in Additional file  3: Fig. S2, the results of the \nIVW analysis showed that genus..Eubacteriumbrachy -\ngroup (OR = 1.329, 95% CI 1.084–1.630, P = 0.006), \ngenus.Eisenbergiella (OR = 1.258, 95% CI 1.004–1.575, \nP = 0.046), genus.LachnospiraceaeUCG010 (OR = 1.799, \n95% CI 1.243–2.604, P = 0.002), genus.Marvinbryantia \n(OR = 1.437, 95% CI 1.009–2.048, P = 0.045), genus.Para-\nbacteroides (OR = 1.765, 95% CI 1.020–3.053, P = 0.042), \ngenus.RuminococcaceaeUCG011 (OR = 1.245, 95% CI \n1.002–1.549, P = 0.048)",
+          " in \nML analyses. Nevertheless, these associations were no \nlonger significant after the Bonferroni correction.\nCausal inference between the gut microbiota and TB \nby in the FinnGen database\nTo further explore the causal association between the gut \nmicrobiota and TB, we simultaneously performed MR \nanalysis in another large-scale population-based biobank \nfrom Europe (the FinnGen database). The FinnGen data -\nbase contains a large amount of shared DNA in linkage \ndisequilibrium and is rich in alleles that are uncommon \nin other populations, and thus it is highly valuable in \nidentifying rare single-gene disorders and the genetic \nvariants responsible for them [39]. Figure  2 and Addi -\ntional file  1: Table  S6 presented the impact of changes \nin the abundance of 195 bacterial taxa on the risk of TB. \nThe IVW analysis results were presented in Fig.  4, and \nwe identified 11 bacterial taxa. Specifically, the risk of TB \nFig. 1 Research design and flow chart of this study. TB, tuberculo",
+          "t, and we \nhave striven to meticulously mitigate the confounding \nbiases linked to these sources. Nonetheless, confounding \nfactors endure, especially those that remain uncharacter -\nized. Second, insufficiently stringent control thresholds \nwere applied in the selection of IVs. Elevating the thresh -\nold helps to identify more potentially valuable IVs, and \nbidirectional MR analysis and sensitivity analysis further \nensure the stability of the results. Finally, in this study, the \ngut microbiota data were sourced from MiBioGen con -\nsortium, and TB data were obtained from UK Biobank \ndatabase and FinnGen database. Although these datasets \nare of high quality, it is important to note that there may \nbe differences in the frequency distribution of these three \ndatabases that may introduce some potential biases. In \nthe future, we hope our findings will be supported by \nlarger data and evidence from in vitro experiments.\nConclusion\nIn conclusion, through a bidirectional two-sample MR \nan"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "mr-common-taxa": [
+              2
+            ],
+            "mr-summary": [
+              0
+            ],
+            "mr-uk-bonferroni": [
+              6
+            ],
+            "mr-uk-correction": []
+          },
+          "anchor_match_groups": {
+            "mr-common-taxa": [
+              [
+                2
+              ]
+            ],
+            "mr-summary": [
+              [
+                0
+              ]
+            ],
+            "mr-uk-bonferroni": [
+              [
+                6
+              ]
+            ],
+            "mr-uk-correction": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      }
+    },
+    {
+      "id": "x002",
+      "revision": 1,
+      "question": "What probiotic treatment and dose did Yuan et al. administer to demonstrate reduced TB incidence in patients?",
+      "query_sha256": "8a3700c80e148f63f2985cdb460c4c5f70463edf03e6035cb79485130ee53259",
+      "category": "false_premise",
+      "answerability": "false_premise",
+      "evidence_feasibility": {
+        "minimum_chunks": 2,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "n3": {
+        "retrieved_sources": [
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf"
+        ],
+        "retrieved_contexts": [
+          "e standard anti-tuberculosis therapy (ATT). Current\nresearch mainly aims to con ﬁrm the effectiveness of probiotics as\nadjunct therapies to reduce the side effects of ATT, followed by\ninvestigations into FMT for addressing severe gut dysbiosis. Most\nexisting studies on FMT are small-scale, single-center, prospective\nexploratory trials and lack robust evidence from large, multicenter\nRCTs (Chai et al., 2025 ; Liu et al., 2025 ). This limitation may stem\nfrom the combined challenges of chronic infection and prolonged\nchemotherapy in TB patients, which lead to pathogen-speci ﬁc\npatterns of gut microbiota disruption. Moreover, the direct sup-\npressive effects of anti-TB medications—particularly rifampicin and\nisoniazid—on gut microbiota differ from those caused by other drug\ntypes ( Baral et al., 2025 ). The immune restoration processes\ninvolved in TB, such as granuloma formation and shifts in Th1/\nTh2 balance, may present more complex immune environments\ncompared to other diseases. A summ",
+          "ary of previous intervention\noutcomes involving probiotics, FMT, dietary or nutritional supple-\nments, and other microbiota-targeted approaches in TB patients or\nMTB-infected animal models is provided in Table 8 .\n6.1 Preclinical research on FMT, probiotics,\nand dietary approaches\nResearch on FMT in TB is currently con ﬁned to animal studies.\nOne investigation demonstrated that colonizing experimental\nBALB/c mice with the diverse microbiota from wild mice led to\nsigniﬁcantly reduced bacterial loads in the lungs and less severe lung\ndamage after aerosol exposure to MTB ( Xie et al., 2023 ). This\nprovides crucial experimental evidence supporting a causal link\nbetween the microbiota and TB. The study also showed that\nconventional laboratory mice experienced a rapid decline in\nmicrobial diversity following infection, whereas the microbiota of\nwild-derived mice remained stable. This offers direct proof that\nmicrobiota diversity underpins protective immunity against TB.\nAntibiotic-induced di",
+          "healthy donor\nto a recipient to restore a balanced GM. In the context of TB, FMT\nhas been proposed as a potential therapy to restore microbial diversity\nand function, which are often disrupted in TB patients (Li et al., 2019;\nSeyed Aria and Alexander, 2024). Studies have shown that FMT can\nreduce the abundance of antimicrobial resistance genes and restore\nmicrobial balance, suggesting its potential as an adjunct therapy in TB\nmanagement (Mai and Draganov, 2009). However, safety and efﬁcacy\nconcerns remain, and further research is needed to fully understand\nthe long-term effects of FMT in TB patients.\n5.1.2 Probiotics and prebiotics\nProbiotics are live microorganisms that, when administered in\nadequate amounts, confer a health beneﬁt on the host. Prebiotics are\nnondigestible food ingredients that bene ﬁcially affect the host by\nselectively stimulating the growth and activity of one or a limited\nFIGURE 4\nKey application aspects and process pathways of AI in precision medicine for TB. The"
+        ],
+        "verdict": "not_scored",
+        "metrics": {
+          "document_coverage": "fail",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "mr-design": []
+          },
+          "anchor_match_groups": {
+            "mr-design": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "n8": {
+        "retrieved_sources": [
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tb-mr.pdf"
+        ],
+        "retrieved_contexts": [
+          "e standard anti-tuberculosis therapy (ATT). Current\nresearch mainly aims to con ﬁrm the effectiveness of probiotics as\nadjunct therapies to reduce the side effects of ATT, followed by\ninvestigations into FMT for addressing severe gut dysbiosis. Most\nexisting studies on FMT are small-scale, single-center, prospective\nexploratory trials and lack robust evidence from large, multicenter\nRCTs (Chai et al., 2025 ; Liu et al., 2025 ). This limitation may stem\nfrom the combined challenges of chronic infection and prolonged\nchemotherapy in TB patients, which lead to pathogen-speci ﬁc\npatterns of gut microbiota disruption. Moreover, the direct sup-\npressive effects of anti-TB medications—particularly rifampicin and\nisoniazid—on gut microbiota differ from those caused by other drug\ntypes ( Baral et al., 2025 ). The immune restoration processes\ninvolved in TB, such as granuloma formation and shifts in Th1/\nTh2 balance, may present more complex immune environments\ncompared to other diseases. A summ",
+          "ary of previous intervention\noutcomes involving probiotics, FMT, dietary or nutritional supple-\nments, and other microbiota-targeted approaches in TB patients or\nMTB-infected animal models is provided in Table 8 .\n6.1 Preclinical research on FMT, probiotics,\nand dietary approaches\nResearch on FMT in TB is currently con ﬁned to animal studies.\nOne investigation demonstrated that colonizing experimental\nBALB/c mice with the diverse microbiota from wild mice led to\nsigniﬁcantly reduced bacterial loads in the lungs and less severe lung\ndamage after aerosol exposure to MTB ( Xie et al., 2023 ). This\nprovides crucial experimental evidence supporting a causal link\nbetween the microbiota and TB. The study also showed that\nconventional laboratory mice experienced a rapid decline in\nmicrobial diversity following infection, whereas the microbiota of\nwild-derived mice remained stable. This offers direct proof that\nmicrobiota diversity underpins protective immunity against TB.\nAntibiotic-induced di",
+          "healthy donor\nto a recipient to restore a balanced GM. In the context of TB, FMT\nhas been proposed as a potential therapy to restore microbial diversity\nand function, which are often disrupted in TB patients (Li et al., 2019;\nSeyed Aria and Alexander, 2024). Studies have shown that FMT can\nreduce the abundance of antimicrobial resistance genes and restore\nmicrobial balance, suggesting its potential as an adjunct therapy in TB\nmanagement (Mai and Draganov, 2009). However, safety and efﬁcacy\nconcerns remain, and further research is needed to fully understand\nthe long-term effects of FMT in TB patients.\n5.1.2 Probiotics and prebiotics\nProbiotics are live microorganisms that, when administered in\nadequate amounts, confer a health beneﬁt on the host. Prebiotics are\nnondigestible food ingredients that bene ﬁcially affect the host by\nselectively stimulating the growth and activity of one or a limited\nFIGURE 4\nKey application aspects and process pathways of AI in precision medicine for TB. The",
+          "stinal side\neffects caused by anti-TB medications in patients and may also help\ncounteract antibiotic-induced disturbances in gut microbiota ( Baral\net al., 2026 ). However, this particular study did not examine fecal\nmicrobiota, so it did not clarify the microbiota-related mechanisms\ninvolved. Another study that combined probiotic supplementation\nwith B vitamins during intensive treatment observed that IFN- g\nlevels tended to rise after one month but signi ﬁcantly dropped by\nthe second month, possibly indicating a shift from early Th1-driven\nimmune beneﬁts to more complex immune system recovery in later\ntreatment phases ( Lin et al., 2020 ). Patients with PTB who received\nprobiotics (n=5) showed a signi ﬁcant increase in gut microbiota\nalpha diversity compared to those who did not receive probiotics,\nalthough there was no notable change in beta diversity ( Mitsui et al.,\n2022). This suggests that short-term probiotic use may guide the\nmicrobiota in a speci ﬁc direction —such as increa",
+          "on FMT are promising, applying\nFMT in TB patients poses unique dif ﬁculties. There is currently no\nstandardized clinical trial design for FMT in TB, and existing\nstudies vary widely in probiotic strains used, dosages, timing of\nintervention, and outcome measures ( Baral et al., 2026 ). Moreover,\nhigh-quality, large-scale, multicenter trials con ﬁrming FMT’s effec-\ntiveness are lacking. TB patients undergoing long-term multidrug\nchemotherapy experience continuous “drug pressure ” on their gut\nmicrobiota, which may create strong resistance to colonization by\ntransplanted microbes. Additionally, the safety of FMT must be\ntaken into account. Patients with active TB often have weakened\nimmune systems, and live biotherapeutic products carry risks such\nas bacterial translocation and infections like bacteremia. This\nnecessitates caution from regulatory authorities and healthcare\nproviders when developing live biotherapeutic treatments.\nMicrobiome-based therapies, including FMT and probiotics,\n",
+          "require stringent and effective regulatory frameworks. This includes\nimplementing thorough ethical reviews and standardized\nTABLE 8 Results of existing microbiome-based interventions in tuberculosis research.\nIntervene\ntype\nResearch\nlevel\nStudy\ntarget\nIntervention\nprotocol Primary outcome\nBacterial\ncommunity-related\nﬁndings\nReferences\nProbiotics RCT\nFirst-line\ntreatment for\npulmonary\ntuberculosis\npatients\nProbiotics + B-complex\nVitamins vs Standard\nTreatment\nIFN-g exhibited an upward trend\nin January and declined thereafter\nin February; IL-12 levels in both\ngroups initially increased followed\nby a decrease, with a more\npronounced rise observed in the\nintervention group.\nNo microbial community\ndetected\n(Haitjema et al.,\n2026)\nProbiotics\n(subgroup\nanalysis)\nForward-\nlooking\ncohort\n(subgroup)\nFirst-line\ntreatment for\npulmonary\ntuberculosis\npatients\nVSL3 or Evogut\ncombined with anti-\ntuberculosis therapy\n(within 2 months, based\non physician\nprescription)\nThe alpha-diversity of the\nprobioti",
+          "86/s13099-025-\n00736-x\nBaral, T., Sudha Gururaj, V. K., Manu, M. K., Udyavara Kudru, C., Singh, J.,\nMukhopadhyay, C., et al. (2026). Effect of probiotics supplementation on clinical,\nhumanistic, and safety outcomes in patients with tuberculosis: A prospective cohort\nstudy in a tertiary healthcare facility in South India. J. Am. Nutr. Assoc. 45, 44–51. doi:\n10.1080/27697061.2025.2531086\nBiadglegne, F., König, B., Rodloff, A. C., Dorhoi, A., and Sack, U. (2021). Composition\nand clinical signi ﬁcance of exosomes in tuberculosis: A systematic literature review. J.\nClin. Med. 10 (1), 145. doi: 10.3390/jcm10010145\nBing, X., Lovelace, T., Bunea, F., Wegkamp, M., Kasturi, S. P., Singh, H., et al. (2022).\nEssential regression: a generalizable framework for inferring causal latent factors from\nmulti-omic datasets. Patterns\n3 (5), 100473. doi: 10.1016/j.patter.2022.100473\nBlanco-Mı́guez, A., Beghini, F., Cumbo, F., McIver, L. J., Thompson, K. N., Zolfo, M.,\net al. (2023). Extending and improving ",
+          "ales \nis a member of the Firmicutes, which is quite resistant \nto adverse external factors [52]. Our results supported \nOrder.Bacillales as a probiotic with a potential beneficial \nrole in TB treatment and immunization strategies.\nFurthermore, the present study uncovered significant \ndifferences in the characteristics of gut microbial distri -\nbution between EPTB and RTB. Family.Bacteroidacea \nand genus.Bacteroides were identified as common traits \nin relation to both EPTB and TB. However, decreased \nBacteroidetes has been observed in intestinal tubercu -\nlosis (ITB) and tuberculosis meningitis (TBM) [53-55]. \nHuang et al. [56] have indicated that dysbiosis caused by \na reduced Firmicutes to Bacteroidetes ratio in TB infec -\ntion was associated with systemic pro-inflammation. It \nis speculated that short-chain fatty acids (SCFAs) in the \ngastrointestinal tract may play a potential immunomod -\nulatory role [17]. SCFAs are essential for maintaining a \nhomeostatic environment, which are m"
+        ],
+        "verdict": "not_scored",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "mr-design": []
+          },
+          "anchor_match_groups": {
+            "mr-design": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      }
+    },
+    {
+      "id": "x003",
+      "revision": 1,
+      "question": "In Daw Elbait et al.’s qPCR-versus-metagenomic comparison, what kinds of wastewater sites supplied the four samples, and what did the authors identify as the main source of false negatives for each method?",
+      "query_sha256": "85f894357e22988c9126a6cffe7bfae94a17c4d31448ef009b86d3a8f9362a53",
+      "category": "direct_lookup",
+      "answerability": "answerable",
+      "evidence_feasibility": {
+        "minimum_chunks": 2,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "n3": {
+        "retrieved_sources": [
+          "outlier-amr-method-comparison.pdf",
+          "outlier-amr-method-comparison.pdf",
+          "outlier-amr-method-comparison.pdf"
+        ],
+        "retrieved_contexts": [
+          "RESEA RCH ARTICL E\nComparison of qPCR and metagenomic\nsequencing methods for quantifying antibiotic\nresistance genes in wastewater\nGihan Daw Elbait\n1\n, Mariane Daou\nID\n1\n, Miral Abuoudah\n1\n, Ahmed Elmekawy\nID\n2\n, Shadi\nW. Hasan\n2,3\n, Dean B. Everett\n4,5,6\n, Habiba Alsafar\n5,7,8\n, Andreas Henschel\nID\n9\n, Ahmed\nF. Yousef\nID\n1,2,5\n*\n1 Department of Biological Sciences, Khalifa University of Science and Technolog y, Abu Dhabi, United Arab\nEmirate s, 2 Center for Membrane s and Advanced Water Technolo gy (CMAT), Khalifa University of Science\nand Technolo gy, Abu Dhabi, United Arab Emirates, 3 Department of Chemic al Engineeri ng, Khalifa\nUniversity of Science and Technolo gy, Abu Dhabi, United Arab Emirate s, 4 Department of Pathology, Khalifa\nUniversity of Science and Technolo gy, Abu Dhabi, United Arab Emirate s, 5 Center for Biotechnology (BTC),\nKhalifa Universit y of Science and Technolo gy, Abu Dhabi, United Arab Emirate s, 6 Infection Research Unit,\nKhalifa Universit y of Science and ",
+          "s for ARG identification in\nwastewater samples. To address this, we analyzed the ARGs in four wastewater samples from\ndifferent locations in the Emirate of Abu Dhabi, UAE. We then compared the resulting com-\nposition of the ARGs detected by the Resistomap (WaferGen HT-qPCR) array to TruSeq\nDNA PCR-free sequences analyzed using the Resistance Gene Identifier (RGI) method offered\nby CARD. The RGI method uses protein data based on homology to predict resistomes. A\nqualitative and quantitative evaluation of the resulting genomic data was carried out, and a\ncomparison between both methods’ validity and sensitivity is discussed here. The comparison\nPLOS ONE\nComparing qPCR and metageno mic sequencin g methods for quantifyin g antibiotic resistance genes in wastewate r\nPLOS ONE | https://doi.or g/10.137 1/journal.po ne.02983 25 April 5, 2024 2 / 22\n2018-009) , and Center for Biotechn ology at Khalifa\nUniversity . There was no additional external\nfunding received for this study.\nCompeting inter",
+          "reverse primer (Fig 6).\nPLOS ONE\nComparing qPCR and metageno mic sequencin g methods for quantifyin g antibiotic resistance genes in wastewate r\nPLOS ONE | https://doi.or g/10.137 1/journal.po ne.02983 25 April 5, 2024 16 / 22\nIt was notable that Staphylococci were not detected in any of the four water samples using\neither method (Table 1). In one previous study that examined 62 wastewater samples, Staphy-\nlococcus was recovered from only 12 (19%) of the samples [62]. Another study utilizing qPCR\nbased methods similarly found that S. aureus is not very prevalent in wastewater [63]. In our\nown study where 88 wastewater samples were analyzed, Staphylococcus was only detected in 2\nout of the 88 samples (2.3%) [29]. Furthermore, the abundance of Staphylococcus in those two\nsamples was very low (0.03% and 0.06%) of the bacterial community. Taking these data\ntogether, the lack of detection could indicate that low abundance microbes in wastewater\nrequire either more sequencing depth or enrich"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "qPCR-summary": []
+          },
+          "anchor_match_groups": {
+            "qPCR-summary": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "n8": {
+        "retrieved_sources": [
+          "outlier-amr-method-comparison.pdf",
+          "outlier-amr-method-comparison.pdf",
+          "outlier-amr-method-comparison.pdf",
+          "outlier-amr-method-comparison.pdf",
+          "outlier-amr-method-comparison.pdf",
+          "outlier-amr-method-comparison.pdf",
+          "outlier-amr-international-wwtp.pdf",
+          "outlier-amr-method-comparison.pdf"
+        ],
+        "retrieved_contexts": [
+          "RESEA RCH ARTICL E\nComparison of qPCR and metagenomic\nsequencing methods for quantifying antibiotic\nresistance genes in wastewater\nGihan Daw Elbait\n1\n, Mariane Daou\nID\n1\n, Miral Abuoudah\n1\n, Ahmed Elmekawy\nID\n2\n, Shadi\nW. Hasan\n2,3\n, Dean B. Everett\n4,5,6\n, Habiba Alsafar\n5,7,8\n, Andreas Henschel\nID\n9\n, Ahmed\nF. Yousef\nID\n1,2,5\n*\n1 Department of Biological Sciences, Khalifa University of Science and Technolog y, Abu Dhabi, United Arab\nEmirate s, 2 Center for Membrane s and Advanced Water Technolo gy (CMAT), Khalifa University of Science\nand Technolo gy, Abu Dhabi, United Arab Emirates, 3 Department of Chemic al Engineeri ng, Khalifa\nUniversity of Science and Technolo gy, Abu Dhabi, United Arab Emirate s, 4 Department of Pathology, Khalifa\nUniversity of Science and Technolo gy, Abu Dhabi, United Arab Emirate s, 5 Center for Biotechnology (BTC),\nKhalifa Universit y of Science and Technolo gy, Abu Dhabi, United Arab Emirate s, 6 Infection Research Unit,\nKhalifa Universit y of Science and ",
+          "s for ARG identification in\nwastewater samples. To address this, we analyzed the ARGs in four wastewater samples from\ndifferent locations in the Emirate of Abu Dhabi, UAE. We then compared the resulting com-\nposition of the ARGs detected by the Resistomap (WaferGen HT-qPCR) array to TruSeq\nDNA PCR-free sequences analyzed using the Resistance Gene Identifier (RGI) method offered\nby CARD. The RGI method uses protein data based on homology to predict resistomes. A\nqualitative and quantitative evaluation of the resulting genomic data was carried out, and a\ncomparison between both methods’ validity and sensitivity is discussed here. The comparison\nPLOS ONE\nComparing qPCR and metageno mic sequencin g methods for quantifyin g antibiotic resistance genes in wastewate r\nPLOS ONE | https://doi.or g/10.137 1/journal.po ne.02983 25 April 5, 2024 2 / 22\n2018-009) , and Center for Biotechn ology at Khalifa\nUniversity . There was no additional external\nfunding received for this study.\nCompeting inter",
+          "reverse primer (Fig 6).\nPLOS ONE\nComparing qPCR and metageno mic sequencin g methods for quantifyin g antibiotic resistance genes in wastewate r\nPLOS ONE | https://doi.or g/10.137 1/journal.po ne.02983 25 April 5, 2024 16 / 22\nIt was notable that Staphylococci were not detected in any of the four water samples using\neither method (Table 1). In one previous study that examined 62 wastewater samples, Staphy-\nlococcus was recovered from only 12 (19%) of the samples [62]. Another study utilizing qPCR\nbased methods similarly found that S. aureus is not very prevalent in wastewater [63]. In our\nown study where 88 wastewater samples were analyzed, Staphylococcus was only detected in 2\nout of the 88 samples (2.3%) [29]. Furthermore, the abundance of Staphylococcus in those two\nsamples was very low (0.03% and 0.06%) of the bacterial community. Taking these data\ntogether, the lack of detection could indicate that low abundance microbes in wastewater\nrequire either more sequencing depth or enrich",
+          "her, a more robust ARG surveillance pro-\ngram can be established. Overall, the work described here can aid wastewater treatment\nplants that plan on implementing an ARG surveillance program.\nPLOS ONE\nPLOS ONE | https://doi.or g/10.137 1/journal.po ne.02983 25 April 5, 2024 1 / 22\na1111111111\na1111111111\na1111111111\na1111111111\na1111111111\nOPEN ACCESS\nCitation: Daw Elbait G, Daou M, Abuouda h M,\nElmekawy A, Hasan SW, Everett DB, et al. (2024)\nCompariso n of qPCR and metagenomi c\nsequencin g methods for quantifying antibioti c\nresistance genes in wastewater. PLoS ONE 19(4):\ne0298325. https://d oi.org/10.1371/j ournal.\npone.029832 5\nEditor: Clinton Moodley, Univers ity of Cape Town,\nSOUTH AFRICA\nReceived: May 29, 2023\nAccepted: January 18, 2024\nPublished: April 5, 2024\nCopyright: © 2024 Daw Elbait et al. This is an open\naccess article distributed under the terms of the\nCreative Commons Attribution License, which\npermits unrestricte d use, distribu tion, and\nreproduction in any medium, prov",
+          " ARGs that confer resistance to 11 antibiotic classes have\nbeen identified in these wastewater samples using both methods, with the most abundant\nobserved classes of ARGs conferring resistance to aminoglycoside, multidrug-r esistance\n(MDR), macrolide-lincosa mide-streptogramin B (MLSB), tetracycline and beta-lactams. In\ncomparing the methods, we observed a strong correlation of relative abundance of ARGs\nobtained by the two tested methods for the majority of antibiotic classes. Finally, we investi-\ngated the source of discrepancies in the results obtained by the two methods. This analysis\nrevealed that false negatives were more likely to occur in qPCR due to mutated primer target\nsites, whereas ARGs with incomplete or low coverage were not detected by the sequencing\nmethod due to the parameters set in the bioinformatics pipeline. Indeed, despite the good\ncorrelation between the methods, each has its advantages and disadvantages which are\nalso discussed here. By using both methods toget",
+          " the tested samples and\ndemonstrating that sequencing can provide more information on the ARGs composition in\nwastewater compared to HT-qPCR. ARGs conferring resistance to beta-lactams for example\nwere more prevalent in the wastewater sample collected nearby a healthcare facility by\nsequencing this sample. Beta-lactam antibiotics have a broad spectrum of activity and are\nFig 8. Pearso n correlatio n breakdown by antibiotic class for single-matc h genes across all location s.\nhttps://doi. org/10.1371/j ournal.pone .0298325.g00 8\nPLOS ONE\nComparing qPCR and metageno mic sequencin g methods for quantifyin g antibiotic resistance genes in wastewate r\nPLOS ONE | https://doi.or g/10.137 1/journal.po ne.02983 25 April 5, 2024 15 / 22\nfrequently prescribed in clinical settings [48]. Their extensive use raises the likelihood of the\nemergence of resistant strains as observed by the increasing trend of percentage resistant iso-\nlates in the UAE during the period 2010–2020 [49]. It has been previo",
+          "Metagenomic Profiling of Internationally Sourced Sewage Influents\nand Effluents Yields Insight into Selecting Targets for Antibiotic\nResistance Monitoring\nEmily Garner,* Ayella Maile-Moskowitz, Luisa F. Angeles, Carl-Fredrik Flach, Diana S. Aga,\nIndumathi Nambi, D. G. Joakim Larsson, Helmut Bu ̈ rgmann, Tong Zhang, Peter J. Vikesland,*\nand Amy Pruden*\nCite This: Environ. Sci. Technol. 2024, 58, 16547−16559\n Read Online\nACCESS\nMetrics & More\n Article Recommendations *\nsı Supporting Information\nABSTRACT: It has been debated whether wastewater treatment\nplants (WWTPs) primarily act to attenuate or amplify antibiotic\nresistance genes (ARGs). However, ARGs are highly diverse with\nrespect to their resistance mechanisms, mobilities, and taxonomic\nhosts and therefore their behavior in WWTPs should not be\nexpected to be universally conserved. We applied metagenomic\nsequencing to wastewater influent and effluent samples from 12\ninternational WWTPs to classify the behavior of specific ARGs\nenteri",
+          ", Habiba Alsafar, Andreas Henschel, Ahmed F. Yousef.\nWriting – original draft: Gihan Daw Elbait, Mariane Daou, Miral Abuoudah, Ahmed Elme-\nkawy, Andreas Henschel, Ahmed F. Yousef.\nWriting – review & editing: Shadi W. Hasan, Dean B. Everett, Habiba Alsafar, Ahmed F.\nYousef.\nReferences\n1. Hassoun -Kheir N, Stabholz Y, Kreft J-U, De La Cruz R, Roma lde JL, Nesme J, et al. Compa rison of\nantibiotic -resistant bacteria and antibiotic resistanc e genes abundanc e in hospital and commu nity\nwastewate r: A systematic review. Sci Total Environ. 2020; 743:140 804. https://doi.or g/10.101 6/j.\nscitotenv. 2020.140804 PMID: 327588 46\nPLOS ONE\nComparing qPCR and metageno mic sequencin g methods for quantifyin g antibiotic resistance genes in wastewate r\nPLOS ONE | https://doi.or g/10.137 1/journal.po ne.02983 25 April 5, 2024 18 / 22\n2. Zhou Z-C, Lin Z-J, Shuai X-Y, Zheng J, Meng L-X, Zhu L, et al. Tempora l variation and sharing of antibi-\notic resistanc e genes between water and wild fish gut in a"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "qPCR-summary": []
+          },
+          "anchor_match_groups": {
+            "qPCR-summary": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      }
+    },
+    {
+      "id": "x004",
+      "revision": 1,
+      "question": "Across Garner et al.’s internationally sampled wastewater-treatment plants, how often did total ARG abundance decline after treatment when abundance was expressed per 16S rRNA gene and per millilitre?",
+      "query_sha256": "10903eb0ccdb23d73e82a8fbcee965836d1ef5deac461375322e31ff1ce6d5e0",
+      "category": "cross_doc_distractor",
+      "answerability": "answerable",
+      "evidence_feasibility": {
+        "minimum_chunks": 1,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "n3": {
+        "retrieved_sources": [
+          "outlier-amr-international-wwtp.pdf",
+          "outlier-amr-international-wwtp.pdf",
+          "outlier-amr-international-wwtp.pdf"
+        ],
+        "retrieved_contexts": [
+          "ng and exiting WWTPs. In total, 1079 different ARGs\noriginating from a variety of bacteria were detected. This included\nARGs that could be mapped to assembled scaffolds corresponding\nto nine human pathogens. While the relative abundance (per 16S\nrRNA gene) of ARGs decreased during treatment at 11 of the 12\nWWTPs sampled and absolute abundance (per mL) decreased at all 12 WWTPs, increases in relative abundance were observed for\n40% of the ARGs detected at the 12th WWTP. Also, the relative abundance of mobile genetic elements (MGE) increased during\ntreatment, but the fraction of ARGs known to be transmissible between species decreased, thus demonstrating that increased MGE\nprevalence may not be generally indicative of an increase in ARGs. A distinct conserved resistome was documented in both influent\nand effluent across samples, suggesting that well-functioning WWTPs generally attenuate influent antibiotic resistance loads. This\nwork helps inform strategies for wastewater surveillance of",
+          "h our hypothesis (4), clinically relevant ARGs generally\ndecreased during treatment at the majority of WWTPs,\nconsistent with the findings of previous studies.\n4,27\nOthers\nhave recently reported striking trends in resistome composi-\ntions of raw sewage collected globally,\n13,14\nnoting abundance of\ntotal and clinically relevant ARGs are higher in Asian than US/\nEuropean sewages. The present study expands this finding by\nnoting the same pattern is retained in the corresponding\nWWTP final effluents, even while globally sourced effluent\nresistomes as a group were distinct from influents, which\nconfirms our hypothesis (2). While this study did not address\ntemporal variability in the resistome composition at each site,\nseveral previous studies have demonstrated that sewage\nresistomes are relatively stable over time, with minimal\nvariation in the broader resistome composition during the\nshort-term.\n27,29\nWWTP PHL-1 was consistently noted as an outlier herein.\nFor example, relative abundance o",
+          "te abundance (per mL; Figure 1) to provide insight into\nthe effect of changing overall microbial concentrations on the\nobserved resistome.\nImpact of Treatment on Total ARG Abundance. While\nmany ARG classes remained dominant from the influent to the\nfinal effluent, the overall relative abundance of the summed\ntotal ARGs (total ARGs) decreased at 11 of 12 WWTPs (p =\n0.01 across the data set). Only one WWTP, PHL-1, exhibited\nan increase in relative total ARG during treatment. Absolute\nabundance (per mL) of total ARGs exhibited a similar trend to\nthat observed for relative abundance, decreasing at all 12\nWWTPs by ∼0.5−3.5 log (Figure 1B). Hereafter, we focus on\nrelative abundance as an indicator of the tendency of ARGs to\nbe enriched or attenuated across WWTP microbial commun-\nities.\nPatterns in the Fate of Individual ARGs. The relative\nabundance of each ARG is provided in Table S3. While both\nthe relative and absolute abundance of total ARGs decreased\nconsistently during treatment, many i"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "pass",
+          "fact_recall": 1.0,
+          "supported_facts": [
+            "f1"
+          ],
+          "anchor_matches": {
+            "wwtp-summary": [
+              0
+            ]
+          },
+          "anchor_match_groups": {
+            "wwtp-summary": [
+              [
+                0
+              ]
+            ]
+          },
+          "distractor_ordering": "pass",
+          "present_distractors": []
+        }
+      },
+      "n8": {
+        "retrieved_sources": [
+          "outlier-amr-international-wwtp.pdf",
+          "outlier-amr-international-wwtp.pdf",
+          "outlier-amr-international-wwtp.pdf",
+          "outlier-amr-international-wwtp.pdf",
+          "outlier-amr-international-wwtp.pdf",
+          "outlier-amr-international-wwtp.pdf",
+          "outlier-amr-international-wwtp.pdf",
+          "outlier-amr-method-comparison.pdf"
+        ],
+        "retrieved_contexts": [
+          "ng and exiting WWTPs. In total, 1079 different ARGs\noriginating from a variety of bacteria were detected. This included\nARGs that could be mapped to assembled scaffolds corresponding\nto nine human pathogens. While the relative abundance (per 16S\nrRNA gene) of ARGs decreased during treatment at 11 of the 12\nWWTPs sampled and absolute abundance (per mL) decreased at all 12 WWTPs, increases in relative abundance were observed for\n40% of the ARGs detected at the 12th WWTP. Also, the relative abundance of mobile genetic elements (MGE) increased during\ntreatment, but the fraction of ARGs known to be transmissible between species decreased, thus demonstrating that increased MGE\nprevalence may not be generally indicative of an increase in ARGs. A distinct conserved resistome was documented in both influent\nand effluent across samples, suggesting that well-functioning WWTPs generally attenuate influent antibiotic resistance loads. This\nwork helps inform strategies for wastewater surveillance of",
+          "h our hypothesis (4), clinically relevant ARGs generally\ndecreased during treatment at the majority of WWTPs,\nconsistent with the findings of previous studies.\n4,27\nOthers\nhave recently reported striking trends in resistome composi-\ntions of raw sewage collected globally,\n13,14\nnoting abundance of\ntotal and clinically relevant ARGs are higher in Asian than US/\nEuropean sewages. The present study expands this finding by\nnoting the same pattern is retained in the corresponding\nWWTP final effluents, even while globally sourced effluent\nresistomes as a group were distinct from influents, which\nconfirms our hypothesis (2). While this study did not address\ntemporal variability in the resistome composition at each site,\nseveral previous studies have demonstrated that sewage\nresistomes are relatively stable over time, with minimal\nvariation in the broader resistome composition during the\nshort-term.\n27,29\nWWTP PHL-1 was consistently noted as an outlier herein.\nFor example, relative abundance o",
+          "te abundance (per mL; Figure 1) to provide insight into\nthe effect of changing overall microbial concentrations on the\nobserved resistome.\nImpact of Treatment on Total ARG Abundance. While\nmany ARG classes remained dominant from the influent to the\nfinal effluent, the overall relative abundance of the summed\ntotal ARGs (total ARGs) decreased at 11 of 12 WWTPs (p =\n0.01 across the data set). Only one WWTP, PHL-1, exhibited\nan increase in relative total ARG during treatment. Absolute\nabundance (per mL) of total ARGs exhibited a similar trend to\nthat observed for relative abundance, decreasing at all 12\nWWTPs by ∼0.5−3.5 log (Figure 1B). Hereafter, we focus on\nrelative abundance as an indicator of the tendency of ARGs to\nbe enriched or attenuated across WWTP microbial commun-\nities.\nPatterns in the Fate of Individual ARGs. The relative\nabundance of each ARG is provided in Table S3. While both\nthe relative and absolute abundance of total ARGs decreased\nconsistently during treatment, many i",
+          "Metagenomic Profiling of Internationally Sourced Sewage Influents\nand Effluents Yields Insight into Selecting Targets for Antibiotic\nResistance Monitoring\nEmily Garner,* Ayella Maile-Moskowitz, Luisa F. Angeles, Carl-Fredrik Flach, Diana S. Aga,\nIndumathi Nambi, D. G. Joakim Larsson, Helmut Bu ̈ rgmann, Tong Zhang, Peter J. Vikesland,*\nand Amy Pruden*\nCite This: Environ. Sci. Technol. 2024, 58, 16547−16559\n Read Online\nACCESS\nMetrics & More\n Article Recommendations *\nsı Supporting Information\nABSTRACT: It has been debated whether wastewater treatment\nplants (WWTPs) primarily act to attenuate or amplify antibiotic\nresistance genes (ARGs). However, ARGs are highly diverse with\nrespect to their resistance mechanisms, mobilities, and taxonomic\nhosts and therefore their behavior in WWTPs should not be\nexpected to be universally conserved. We applied metagenomic\nsequencing to wastewater influent and effluent samples from 12\ninternational WWTPs to classify the behavior of specific ARGs\nenteri",
+          "ance of total ARGs decrease as a result of wastewater\ntreatment; (2) the final effluent resistome composition mirrors\nregional patterns previously documented in the influent;\n14\n(3)\nremoval efficiencies for individual ARGs vary widely across and\nwithin resistance classes and WWTPs; (4) wastewater\ntreatment reduces the abundance of ARGs carried by bacteria\ncausing human disease; (5) biological wastewater treatment\nincreases ARG diversity in the final effluent relative to the\ninfluent; (6) wastewater treatment leads to a reproducible shift\nin resistome composition across geographically diverse\nWWTPs. By leveraging metagenomic sequencing across 12\ndiverse WWTPs from six countries in three continents\ngenerated using a consistent field collection and analysis\nprotocol, this study provides insight into the extent to which\ntreatment impacts on the resistome are conserved globally\nacross facilities and proposes specific metrics for comparing\ntreatment efficacy and identifying potential human h",
+          "Removal of\nantibiotic resistant bacteria (ARB), such as Escherichia coli and\nEnterococcus spp., by activated sludge treatment have likewise\nbeen reported in the range of 2−5-log,\n3,4\nbut ARB of clinical\nconcern can persist in WWTP effluents and pose health risks.\n5\nThere remains a lack of consensus about whether WWTPs act\nto increase versus attenuate the relative abundance, i.e.,\nabundance normalized to a marker of the total bacterial\npopulation such as the 16S rRNA gene, of ARB or antibiotic\nresistance genes (ARGs).\n5−7\nShifts in relative abundances of\nARB and ARGs could reflect selective pressures occurring\nwithin the WWTP, but also will be strongly shaped by\nmicrobial ecological shifts that reflect aeration of the secondary\nbioreactor.\nPrevious research has demonstrated that the relative\nabundance of some ARGs can be reduced during wastewater\nReceived: April 22, 2024\nRevised: August 26, 2024\nAccepted: August 27, 2024\nPublished: September 4, 2024\nArticlepubs.acs.org/est\n© 2024 The Au",
+          "thin each\nclass (Figure 2C).\nAcross all WWTPs, there was a significant increase in ARG\ndiversity from the influent to the final effluent (Wilcox, p =\n0.0005; Figure S2A), consistent with the biological reactors\nharboring a distinct microbial community that carry a distinct\narray of ARGs that are additionally detected in final effluents. It\nwas noted that some ARGs that were highly abundant in the\ninfluent were among those that experienced the greatest overall\nreduction during treatment. Twenty-two ARGs fell within both\nthe 15th percentile of the highest influent concentrations and\nthe 15th percentile of greatest reductions in relative abundance\nduring treatment (Figure S3): two aminoglycoside (APH(3″)-\nlb, APH(6)-ld), two beta-lactam (Cf xA4, Cf xA6), six MLS\n(ErmB, ErmF, mefA, mel, mphD, msrE), four multidrug (adeJ,\nadeK, adeM, CRP), one peptide (pmrE), one phenicol (cat),\ntwo quinolone (qacH, QnrS2), one sulfonamide (sul1), and\nthree tetracycline (tet(39), tetQ, tetW) ARGs. While dec",
+          "uals in wastewater treatment plants [14–16].\nSignificant amounts of antibiotics have been discovered in water supplies, and numerous\nstudies have shown the prevalence of ARGs in wastewater treatment plants (WWTPs) [17–20].\nSince the human body cannot metabolize around 60–85% of antibiotics, they are excreted into\nsewage wastewater [21]. However, traditional biological treatment approaches in WWTPs are\ninsufficient in fully removing ARGs and antibiotics as they are mainly designed for the elimi-\nnation of solids and other organic matter [22–24]. Importantly, since wastewater from differ-\nent parts of a city all end up at large WWTPs, these WWTPs represent an opportunity to set\nup an effective ARG surveillance system. However, the success of this system is dependent on\nthe ability to accurately characterize the resistome in these waters.\nRecent advances in next-generation sequencing technologies and accompanying computa-\ntional methods have become increasingly important for identifying A"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "pass",
+          "fact_recall": 1.0,
+          "supported_facts": [
+            "f1"
+          ],
+          "anchor_matches": {
+            "wwtp-summary": [
+              0
+            ]
+          },
+          "anchor_match_groups": {
+            "wwtp-summary": [
+              [
+                0
+              ]
+            ]
+          },
+          "distractor_ordering": "pass",
+          "present_distractors": [
+            "outlier-amr-method-comparison.pdf"
+          ]
+        }
+      }
+    },
+    {
+      "id": "x005",
+      "revision": 1,
+      "question": "In Ciftci et al.’s dual-model Alzheimer paper, what accuracies are reported for the clinical ANN and MRI CNN, and what distinct tasks do those figures describe?",
+      "query_sha256": "924385ba8a72fffe8a728ffd09b648fd538c747c42d5866bfae37e2ea22e4c8a",
+      "category": "direct_lookup",
+      "answerability": "answerable",
+      "evidence_feasibility": {
+        "minimum_chunks": 1,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "n3": {
+        "retrieved_sources": [
+          "outlier-alzheimer-dual-model.pdf",
+          "outlier-alzheimer-dual-model.pdf",
+          "outlier-alzheimer-dual-model.pdf"
+        ],
+        "retrieved_contexts": [
+          "ses \nclinical data to assess a patient’s risk of Alzheimer’s disease. This \npreliminary evaluation provides a non-invasive and accessible method \nfor initial screening, leveraging demographic, symptomatic, and \nmedical history data. Patients identified as at-risk by the ANN can \nthen undergo further assessment with the CNN model, which uses \nMRI scans to confirm the presence of Alzheimer’s disease and \ndetermine its severity. The CNN also provides detailed classification \ninto disease stages—mild dementia, moderate person with dementia, \nvery mild dementia, or non-dementia—enhancing diagnostic \nprecision and clinical relevance.\nThe experimental results underscore the effectiveness of this \ndual-model approach. The ANN model demonstrated high reliability \nin predicting Alzheimer’s risk, achieving an overall accuracy of \n87.08%. It performed particularly well in identifying patients \nwithout Alzheimer’s, with a precision of 93% and an F1-score of \n0.90. However, the ANN exhibited slightl",
+          "re effective integration of clinical and imaging \nrepresentations. Such approaches could further enhance diagnostic \nprecision and support more holistic Alzheimer’s disease assessment.\n6 Conclusion\nThis study presents a dual-model diagnostic framework that \ncombines an Artificial Neural Network (ANN) and a Convolutional \nNeural Network (CNN) to improve the detection and classification of \nAlzheimer’s disease. The ANN provides a rapid and accessible method \nfor assessing patient risk using structured clinical data, while the CNN \nleverages MRI imaging to confirm the diagnosis and determine \ndisease severity with high precision. Together, these models create a \ncomprehensive diagnostic pathway that reflects real-world clinical \nworkflows. The ANN achieved an accuracy of 87.08%, effectively \nidentifying individuals at risk, whereas the CNN demonstrated 97% \naccuracy in staging Alzheimer’s disease. The incorporation of \nGrad-CAM visualizations further enhanced the interpretability of the \n",
+          "ighlight the value of multimodal \nfusion in enhancing diagnostic precision for Alzheimer’s disease.\n5 Discussion\nIn this study, we developed and evaluated two distinct artificial \nintelligence models, an ANN and a CNN, for predicting Alzheimer’s \nFIGURE 6\nConfusion matrix for Alzheimer’s disease classification using CNN model.\nFIGURE 7\nExample predictions generated by the CNN model.\nCiftci et al. 10.3389/fmed.2025.1713062\nFrontiers in Medicine 10 frontiersin.org\ndisease stages and assessing its severity. These models, when used \ntogether, form a complementary diagnostic framework that integrates \npatient-specific clinical data with imaging-based insights, offering a \ncomprehensive approach to Alzheimer’s disease diagnosis. Similar \nhybrid approaches have been proposed in previous research, \ndemonstrating the effectiveness of combining clinical and imaging \ndata to improve diagnostic precision for neurodegenerative diseases \n(33). The proposed workflow begins with the ANN model, which u"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "alzheimer-summary": []
+          },
+          "anchor_match_groups": {
+            "alzheimer-summary": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "n8": {
+        "retrieved_sources": [
+          "outlier-alzheimer-dual-model.pdf",
+          "outlier-alzheimer-dual-model.pdf",
+          "outlier-alzheimer-dual-model.pdf",
+          "outlier-alzheimer-dual-model.pdf",
+          "outlier-alzheimer-dual-model.pdf",
+          "outlier-alzheimer-dual-model.pdf",
+          "outlier-alzheimer-dual-model.pdf",
+          "outlier-alzheimer-dual-model.pdf"
+        ],
+        "retrieved_contexts": [
+          "ses \nclinical data to assess a patient’s risk of Alzheimer’s disease. This \npreliminary evaluation provides a non-invasive and accessible method \nfor initial screening, leveraging demographic, symptomatic, and \nmedical history data. Patients identified as at-risk by the ANN can \nthen undergo further assessment with the CNN model, which uses \nMRI scans to confirm the presence of Alzheimer’s disease and \ndetermine its severity. The CNN also provides detailed classification \ninto disease stages—mild dementia, moderate person with dementia, \nvery mild dementia, or non-dementia—enhancing diagnostic \nprecision and clinical relevance.\nThe experimental results underscore the effectiveness of this \ndual-model approach. The ANN model demonstrated high reliability \nin predicting Alzheimer’s risk, achieving an overall accuracy of \n87.08%. It performed particularly well in identifying patients \nwithout Alzheimer’s, with a precision of 93% and an F1-score of \n0.90. However, the ANN exhibited slightl",
+          "re effective integration of clinical and imaging \nrepresentations. Such approaches could further enhance diagnostic \nprecision and support more holistic Alzheimer’s disease assessment.\n6 Conclusion\nThis study presents a dual-model diagnostic framework that \ncombines an Artificial Neural Network (ANN) and a Convolutional \nNeural Network (CNN) to improve the detection and classification of \nAlzheimer’s disease. The ANN provides a rapid and accessible method \nfor assessing patient risk using structured clinical data, while the CNN \nleverages MRI imaging to confirm the diagnosis and determine \ndisease severity with high precision. Together, these models create a \ncomprehensive diagnostic pathway that reflects real-world clinical \nworkflows. The ANN achieved an accuracy of 87.08%, effectively \nidentifying individuals at risk, whereas the CNN demonstrated 97% \naccuracy in staging Alzheimer’s disease. The incorporation of \nGrad-CAM visualizations further enhanced the interpretability of the \n",
+          "ighlight the value of multimodal \nfusion in enhancing diagnostic precision for Alzheimer’s disease.\n5 Discussion\nIn this study, we developed and evaluated two distinct artificial \nintelligence models, an ANN and a CNN, for predicting Alzheimer’s \nFIGURE 6\nConfusion matrix for Alzheimer’s disease classification using CNN model.\nFIGURE 7\nExample predictions generated by the CNN model.\nCiftci et al. 10.3389/fmed.2025.1713062\nFrontiers in Medicine 10 frontiersin.org\ndisease stages and assessing its severity. These models, when used \ntogether, form a complementary diagnostic framework that integrates \npatient-specific clinical data with imaging-based insights, offering a \ncomprehensive approach to Alzheimer’s disease diagnosis. Similar \nhybrid approaches have been proposed in previous research, \ndemonstrating the effectiveness of combining clinical and imaging \ndata to improve diagnostic precision for neurodegenerative diseases \n(33). The proposed workflow begins with the ANN model, which u",
+          "s \n(Figure 1).\n2 Datasets and symptom analysis\nThis study utilized two publicly available Kaggle datasets to \ndevelop a dual-model diagnostic framework for Alzheimer’s disease. \nThe first dataset contains 4,876 MRI brain images, used to train the \nCNN model, while the second dataset includes clinical data from \n1,200 patients, used to train the ANN model. The combined system \naims to accurately classify Alzheimer’s disease into four categories: \nmild dementia, moderate person with dementia, non-dementia, and \nvery mild dementia.\n2.1 MRI dataset\nThe MRI dataset, sourced from the “ Augmented Alzheimer MRI \nDataset” (Kaggle), consists of 4,876 labeled T1-weighted brain MRI \nimages distributed across the four Alzheimer’s categories. The dataset \nincludes augmented samples originally derived from the OASIS \nrepository, enhancing class balance and increasing training robustness.\nTo ensure consistency for deep learning, the following \npreprocessing steps were applied:\n • All MRI images were r",
+          "elines, could also \nextend accessibility to resource-limited clinical environments. \nExternal validation with independent datasets such as ADNI or \nOASIS-3 represents an essential next step for strengthening \ngeneralizability and clinical applicability.\nIn summary, this dual-model system demonstrates the \ntransformative potential of AI in Alzheimer’s diagnostics by providing \nan accurate, interpretable, and clinically meaningful framework for \nearly disease detection and management.\nData availability statement\nThe clinical dataset used for the ANN model was obtained from \nthe “ Alzheimer’s Disease Dataset (Classification)” ( 39). The MRI \ndataset used for the CNN model was sourced from the “ Augmented \nAlzheimer MRI Dataset” (40), which includes augmented MRI scans \nderived from the OASIS neuroimaging repository. Both datasets are \npublicly available and provided under open-access licenses. The \nimplementation code is available from the authors upon \nreasonable request.\nAuthor contribu",
+          "ive feature set enables the ANN to model \ncomplex clinical patterns associated with AD progression. By \nintegrating demographic, symptomatic, and behavioral data, the ANN \nmodel was designed to classify patients into the four Alzheimer’s \ndisease categories, facilitating a comprehensive diagnostic approach.\nFigure 2 illustrates the hierarchical diagnostic framework used \nin this study. The system operates through a two-stage classification \npipeline that integrates MRI-based imaging analysis with clinical \nCiftci et al. 10.3389/fmed.2025.1713062\nFrontiers in Medicine 04 frontiersin.org\ndata to improve diagnostic precision. In the first stage, a \nConvolutional Neural Network (CNN) evaluates the MRI scan to \ndetermine whether the findings appear within the normal cognitive \nrange or indicate potential abnormalities that warrant further \nassessment. If the MRI is assessed as not suggestive of dementia, \nthe case proceeds to an Artificial Neural Network (ANN) for \nsecondary evaluation, whi",
+          "tructural biomarkers. Furthermore, Heising and Angelopoulos (29) \nemphasized fairness considerations in CNN-based AD classification, \nhighlighting the need for robust and equitable diagnostic tools. Beyond \nunimodal approaches, Xu et al. ( 32) discussed the critical role of \nmultimodal data fusion which includes combining imaging, clinical, \nand biomarker information, to achieve superior diagnostic performance.\nBuilding upon this literature, we propose a dual-model architecture \nthat integrates the strengths of both CNN and ANN to enhance the \nprediction and diagnosis of Alzheimer’s disease. While previous studies \nhave explored multimodal AD detection, most rely on fully fused or \njoint-feature architectures. In contrast, our framework adopts a parallel \ndual-model structure, in which the CNN and ANN independently learn \nmodality-specific representations. This approach offers two advantages:\n • It preserves interpretability by keeping clinical and imaging \ndecisions traceable.\n • It m",
+          "ge \ndatasets or high-performance computing (29). One of the previous \nstudies has utilized CNN-based models for Alzheimer’s disease \ndetection, achieving 94.46% accuracy using CLAHE and GLCM for \nfeature extraction ( 30). Their U-Net-based model achieved high \nsegmentation and classification accuracy, reporting an average \naccuracy of 94.46% across five AD Neuroimaging Initiative categories. \nIn our study, we further enhance the diagnostic capability by \nintegrating an ANN with CNN, enabling a more refined classification \nprocess. Our proposed method achieved superior accuracy, \ndemonstrating the effectiveness of combining ANN and CNN models \nfor more precise Alzheimer’s disease detection and classification.\nCiftci et al. 10.3389/fmed.2025.1713062\nFrontiers in Medicine 03 frontiersin.org\nSimilarly, Dardouri ( 31) demonstrated an optimized CNN \narchitecture for MRI-based early AD detection, reporting high accuracy \nand reinforcing the relevance of deep CNNs for capturing fine-grained \ns"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "alzheimer-summary": []
+          },
+          "anchor_match_groups": {
+            "alzheimer-summary": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      }
+    },
+    {
+      "id": "x006",
+      "revision": 1,
+      "question": "Which independent ADNI or OASIS-3 validation cohort confirmed the Alzheimer models’ reported performance?",
+      "query_sha256": "35f09885608cdc66a74f271ef75b2672a231559beffc544570ccae44235faaf1",
+      "category": "false_premise",
+      "answerability": "false_premise",
+      "evidence_feasibility": {
+        "minimum_chunks": 1,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "n3": {
+        "retrieved_sources": [
+          "outlier-alzheimer-dual-model.pdf",
+          "outlier-alzheimer-dual-model.pdf",
+          "outlier-alzheimer-dual-model.pdf"
+        ],
+        "retrieved_contexts": [
+          "elines, could also \nextend accessibility to resource-limited clinical environments. \nExternal validation with independent datasets such as ADNI or \nOASIS-3 represents an essential next step for strengthening \ngeneralizability and clinical applicability.\nIn summary, this dual-model system demonstrates the \ntransformative potential of AI in Alzheimer’s diagnostics by providing \nan accurate, interpretable, and clinically meaningful framework for \nearly disease detection and management.\nData availability statement\nThe clinical dataset used for the ANN model was obtained from \nthe “ Alzheimer’s Disease Dataset (Classification)” ( 39). The MRI \ndataset used for the CNN model was sourced from the “ Augmented \nAlzheimer MRI Dataset” (40), which includes augmented MRI scans \nderived from the OASIS neuroimaging repository. Both datasets are \npublicly available and provided under open-access licenses. The \nimplementation code is available from the authors upon \nreasonable request.\nAuthor contribu",
+          "of 0.90, \nreflecting strong performance. For the “ Alzheimer’s” class, the \nprecision is slightly lower at 76%, but the recall reaches 86%, resulting \nin an F1-score of 0.81. The weighted averages for precision, recall, and \nF1-score are 0.88, 0.87, and 0.87, respectively, showing a balanced \nFIGURE 4\nTraining and validation performance of the CNN model.\nCiftci et al. 10.3389/fmed.2025.1713062\nFrontiers in Medicine 08 frontiersin.org\nperformance across both classes. With an overall accuracy of 87.08%, \nthe model demonstrates reliability, though there is room for \nimprovement in predicting “ Alzheimer’s” cases more accurately.\nTable 2 summarizes the performance of traditional baseline \nclassifiers and the proposed deep-learning models across five \nindependent training runs. For both MRI and clinical datasets, classical \nmachine-learning methods, such as Logistic Regression, Random \nForest, and SVM, show noticeably lower performance in accuracy, \nprecision, recall, and F1-score. These al",
+          "\ntransparency is particularly valuable in medical applications, where \ntrust in AI-driven outcomes is essential (36).\nDespite these strengths, there are limitations to consider. The \nANN model’s reliance on clinical data introduces variability due to \ndifferences in data quality and completeness. This limitation is \ncommonly reported in studies using electronic health records or self-\nreported data, which can be prone to errors and inconsistencies (37). \nAdditionally, both datasets were sourced from publicly available \nKaggle collections, which may introduce demographic bias or imaging \nheterogeneity. Although augmentation and class-weighting strategies \nwere applied, class imbalance, especially in moderate dementia \nsamples remains a challenge. Another limitation is the absence of \nexternal validation using independent repositories such as ADNI or \nOASIS-3, which restricts the generalizability of the findings.\nEthical considerations are also essential when developing AI \nsystems for m"
+        ],
+        "verdict": "not_scored",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "pass",
+          "fact_recall": 1.0,
+          "supported_facts": [
+            "f1"
+          ],
+          "anchor_matches": {
+            "alzheimer-validation-limit": [
+              2
+            ]
+          },
+          "anchor_match_groups": {
+            "alzheimer-validation-limit": [
+              [
+                2
+              ]
+            ]
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "n8": {
+        "retrieved_sources": [
+          "outlier-alzheimer-dual-model.pdf",
+          "outlier-alzheimer-dual-model.pdf",
+          "outlier-alzheimer-dual-model.pdf",
+          "outlier-alzheimer-dual-model.pdf",
+          "outlier-alzheimer-dual-model.pdf",
+          "outlier-alzheimer-dual-model.pdf",
+          "outlier-alzheimer-dual-model.pdf",
+          "outlier-alzheimer-dual-model.pdf"
+        ],
+        "retrieved_contexts": [
+          "elines, could also \nextend accessibility to resource-limited clinical environments. \nExternal validation with independent datasets such as ADNI or \nOASIS-3 represents an essential next step for strengthening \ngeneralizability and clinical applicability.\nIn summary, this dual-model system demonstrates the \ntransformative potential of AI in Alzheimer’s diagnostics by providing \nan accurate, interpretable, and clinically meaningful framework for \nearly disease detection and management.\nData availability statement\nThe clinical dataset used for the ANN model was obtained from \nthe “ Alzheimer’s Disease Dataset (Classification)” ( 39). The MRI \ndataset used for the CNN model was sourced from the “ Augmented \nAlzheimer MRI Dataset” (40), which includes augmented MRI scans \nderived from the OASIS neuroimaging repository. Both datasets are \npublicly available and provided under open-access licenses. The \nimplementation code is available from the authors upon \nreasonable request.\nAuthor contribu",
+          "of 0.90, \nreflecting strong performance. For the “ Alzheimer’s” class, the \nprecision is slightly lower at 76%, but the recall reaches 86%, resulting \nin an F1-score of 0.81. The weighted averages for precision, recall, and \nF1-score are 0.88, 0.87, and 0.87, respectively, showing a balanced \nFIGURE 4\nTraining and validation performance of the CNN model.\nCiftci et al. 10.3389/fmed.2025.1713062\nFrontiers in Medicine 08 frontiersin.org\nperformance across both classes. With an overall accuracy of 87.08%, \nthe model demonstrates reliability, though there is room for \nimprovement in predicting “ Alzheimer’s” cases more accurately.\nTable 2 summarizes the performance of traditional baseline \nclassifiers and the proposed deep-learning models across five \nindependent training runs. For both MRI and clinical datasets, classical \nmachine-learning methods, such as Logistic Regression, Random \nForest, and SVM, show noticeably lower performance in accuracy, \nprecision, recall, and F1-score. These al",
+          "\ntransparency is particularly valuable in medical applications, where \ntrust in AI-driven outcomes is essential (36).\nDespite these strengths, there are limitations to consider. The \nANN model’s reliance on clinical data introduces variability due to \ndifferences in data quality and completeness. This limitation is \ncommonly reported in studies using electronic health records or self-\nreported data, which can be prone to errors and inconsistencies (37). \nAdditionally, both datasets were sourced from publicly available \nKaggle collections, which may introduce demographic bias or imaging \nheterogeneity. Although augmentation and class-weighting strategies \nwere applied, class imbalance, especially in moderate dementia \nsamples remains a challenge. Another limitation is the absence of \nexternal validation using independent repositories such as ADNI or \nOASIS-3, which restricts the generalizability of the findings.\nEthical considerations are also essential when developing AI \nsystems for m",
+          "y lower performance for \nthe “ Alzheimer’s” class, with a precision of 76%, indicating some \nlimitations in differentiating Alzheimer’s cases from other potential \nconditions or variations in clinical data. These results align with \nfindings from previous studies that emphasize the challenges of \nusing clinical data alone to diagnose Alzheimer’s disease due to \noverlapping symptoms with other conditions ( 34). On the other \nhand, the CNN model excelled in its ability to classify Alzheimer’s \nstages using MRI images, achieving an impressive accuracy of 97%. \nThe use of CNNs for neurodegenerative disease classification has \nbeen widely validated in the literature, with similar studies achieving \nhigh accuracy through optimized architecture and data \nFIGURE 8\nGrad-CAM visualization for the “Very Mild dementia” class.\nFIGURE 9\nTraining and validation accuracy of ANN model.\n FIGURE 10\nConfusion matrix for ANN-based binary classification.\nCiftci et al. 10.3389/fmed.2025.1713062\nFrontiers in ",
+          "CNN model, highlighting anatomically relevant regions and \nincreasing clinician confidence in the system’s predictions.\nThe results underscore the potential of AI-driven multimodal \napproaches to strengthen early Alzheimer’s detection, support clinical \ndecision-making, and facilitate timely intervention. Furthermore, \nrepeated-run evaluations and confidence interval analyses support the \nreliability of the reported performance, emphasizing the robustness of \nthe dual-model framework.\nFuture advancements could further expand the utility of this \nsystem. Integrating additional data modalities such as wearable \nsensor signals, longitudinal health data, or cognitive behavioral \npatterns may enhance early-stage detection. Exploring advanced \nmultimodal fusion techniques, including attention-based and late-\nfusion strategies, could enable more effective integration of clinical \nand imaging representations. Optimizing CNN architectures for \nscalability, or deploying cloud-based inference pip",
+          "ge \ndatasets or high-performance computing (29). One of the previous \nstudies has utilized CNN-based models for Alzheimer’s disease \ndetection, achieving 94.46% accuracy using CLAHE and GLCM for \nfeature extraction ( 30). Their U-Net-based model achieved high \nsegmentation and classification accuracy, reporting an average \naccuracy of 94.46% across five AD Neuroimaging Initiative categories. \nIn our study, we further enhance the diagnostic capability by \nintegrating an ANN with CNN, enabling a more refined classification \nprocess. Our proposed method achieved superior accuracy, \ndemonstrating the effectiveness of combining ANN and CNN models \nfor more precise Alzheimer’s disease detection and classification.\nCiftci et al. 10.3389/fmed.2025.1713062\nFrontiers in Medicine 03 frontiersin.org\nSimilarly, Dardouri ( 31) demonstrated an optimized CNN \narchitecture for MRI-based early AD detection, reporting high accuracy \nand reinforcing the relevance of deep CNNs for capturing fine-grained \ns",
+          "ses \nclinical data to assess a patient’s risk of Alzheimer’s disease. This \npreliminary evaluation provides a non-invasive and accessible method \nfor initial screening, leveraging demographic, symptomatic, and \nmedical history data. Patients identified as at-risk by the ANN can \nthen undergo further assessment with the CNN model, which uses \nMRI scans to confirm the presence of Alzheimer’s disease and \ndetermine its severity. The CNN also provides detailed classification \ninto disease stages—mild dementia, moderate person with dementia, \nvery mild dementia, or non-dementia—enhancing diagnostic \nprecision and clinical relevance.\nThe experimental results underscore the effectiveness of this \ndual-model approach. The ANN model demonstrated high reliability \nin predicting Alzheimer’s risk, achieving an overall accuracy of \n87.08%. It performed particularly well in identifying patients \nwithout Alzheimer’s, with a precision of 93% and an F1-score of \n0.90. However, the ANN exhibited slightl",
+          "s \n(Figure 1).\n2 Datasets and symptom analysis\nThis study utilized two publicly available Kaggle datasets to \ndevelop a dual-model diagnostic framework for Alzheimer’s disease. \nThe first dataset contains 4,876 MRI brain images, used to train the \nCNN model, while the second dataset includes clinical data from \n1,200 patients, used to train the ANN model. The combined system \naims to accurately classify Alzheimer’s disease into four categories: \nmild dementia, moderate person with dementia, non-dementia, and \nvery mild dementia.\n2.1 MRI dataset\nThe MRI dataset, sourced from the “ Augmented Alzheimer MRI \nDataset” (Kaggle), consists of 4,876 labeled T1-weighted brain MRI \nimages distributed across the four Alzheimer’s categories. The dataset \nincludes augmented samples originally derived from the OASIS \nrepository, enhancing class balance and increasing training robustness.\nTo ensure consistency for deep learning, the following \npreprocessing steps were applied:\n • All MRI images were r"
+        ],
+        "verdict": "not_scored",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "pass",
+          "fact_recall": 1.0,
+          "supported_facts": [
+            "f1"
+          ],
+          "anchor_matches": {
+            "alzheimer-validation-limit": [
+              2
+            ]
+          },
+          "anchor_match_groups": {
+            "alzheimer-validation-limit": [
+              [
+                2
+              ]
+            ]
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      }
+    },
+    {
+      "id": "x007",
+      "revision": 1,
+      "question": "In the TB review’s summary of a small PTB probiotic group, what happened to alpha diversity and beta diversity compared with patients who did not receive probiotics?",
+      "query_sha256": "1fe581aaa34efb18aeac19d4b2621ed881443b251cf74abca92cd23b519a32c6",
+      "category": "direct_lookup",
+      "answerability": "answerable",
+      "evidence_feasibility": {
+        "minimum_chunks": 1,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "n3": {
+        "retrieved_sources": [
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf"
+        ],
+        "retrieved_contexts": [
+          "cant inconsistencies in ﬁndings across research\ngroups, greatly impeding the clinical application of these results. A\nmajor point of debate concerns the speciﬁc changes in gut microbial\ndiversity observed in TB patients. Most research suggests that\nindividuals with ATB show a marked reduction in both alpha and\nbeta diversity of gut microbes, with diversity levels inversely related\nto disease severity and rates of treatment failure. Nonetheless, these\nchanges do not follow a consistent pattern but instead exhibit strong\ngeographic variation, with differing trends in microbial diversity\nreported in cohort studies from various regions ( Mbabazi et al.,\n2025). Some studies have reported that TB onset is closely linked to\nreduced diversity in lung microbiota, while gut microbial diversity\nremains largely unchanged. In contrast, anti-TB therapy can cause a\nsustained decrease in microbial diversity in both the lungs and gut,\nleading to depletion of key dominant bacterial genera in the gut and",
+          "stinal side\neffects caused by anti-TB medications in patients and may also help\ncounteract antibiotic-induced disturbances in gut microbiota ( Baral\net al., 2026 ). However, this particular study did not examine fecal\nmicrobiota, so it did not clarify the microbiota-related mechanisms\ninvolved. Another study that combined probiotic supplementation\nwith B vitamins during intensive treatment observed that IFN- g\nlevels tended to rise after one month but signi ﬁcantly dropped by\nthe second month, possibly indicating a shift from early Th1-driven\nimmune beneﬁts to more complex immune system recovery in later\ntreatment phases ( Lin et al., 2020 ). Patients with PTB who received\nprobiotics (n=5) showed a signi ﬁcant increase in gut microbiota\nalpha diversity compared to those who did not receive probiotics,\nalthough there was no notable change in beta diversity ( Mitsui et al.,\n2022). This suggests that short-term probiotic use may guide the\nmicrobiota in a speci ﬁc direction —such as increa",
+          "c group showed\nsigniﬁcant improvement; b-\ndiversity exhibited no notable\nchanges.\nMicrobiome sequencing:\nAkkermansia was the\ndominant genus in\nuntreated PTB patients; after\nprobiotic therapy,\nAgathobacter,\nFusobacterium, and\nFaecalibacterium were\nenriched.\n(Baral et al.,\n2025)\nFMT Preclinical\nBALB/c mice\n(Mtb H37Rv\naerosol\ninfection)\nWild mouse microbiota\ncolonization vs.\nconventional laboratory\nmice\nThe bacterial load in the lungs of\nWildR mice was signi ﬁcantly\nlower than that in LabC mice;\npulmonary pathological damage\nwas also reduced.\nThe microbial diversity of\nWildR was signi ﬁcantly\nhigher than that of LabC;\nMTB infection led to a rapid\nloss of diversity in LabC,\nwhereas WildR maintained\nstable diversity.\n(Xie et al.,\n2023)\nFMT (logical\ninference) Commentary —\nIt is proposed that FMT\nmay enhance anti-\ntuberculosis immunity\nby restoring gut\nmicrobiota homeostasis.\n—— (Liu et al.,\n2024)\nDietary\nintervention\n(nutritional\nsupplementation)\nClinical test\nMalnourished\nmultidrug-\nresist"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "pass",
+          "fact_recall": 1.0,
+          "supported_facts": [
+            "f1"
+          ],
+          "anchor_matches": {
+            "ptb-probiotic-summary": [
+              1
+            ]
+          },
+          "anchor_match_groups": {
+            "ptb-probiotic-summary": [
+              [
+                1
+              ]
+            ]
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "n8": {
+        "retrieved_sources": [
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf"
+        ],
+        "retrieved_contexts": [
+          "cant inconsistencies in ﬁndings across research\ngroups, greatly impeding the clinical application of these results. A\nmajor point of debate concerns the speciﬁc changes in gut microbial\ndiversity observed in TB patients. Most research suggests that\nindividuals with ATB show a marked reduction in both alpha and\nbeta diversity of gut microbes, with diversity levels inversely related\nto disease severity and rates of treatment failure. Nonetheless, these\nchanges do not follow a consistent pattern but instead exhibit strong\ngeographic variation, with differing trends in microbial diversity\nreported in cohort studies from various regions ( Mbabazi et al.,\n2025). Some studies have reported that TB onset is closely linked to\nreduced diversity in lung microbiota, while gut microbial diversity\nremains largely unchanged. In contrast, anti-TB therapy can cause a\nsustained decrease in microbial diversity in both the lungs and gut,\nleading to depletion of key dominant bacterial genera in the gut and",
+          "stinal side\neffects caused by anti-TB medications in patients and may also help\ncounteract antibiotic-induced disturbances in gut microbiota ( Baral\net al., 2026 ). However, this particular study did not examine fecal\nmicrobiota, so it did not clarify the microbiota-related mechanisms\ninvolved. Another study that combined probiotic supplementation\nwith B vitamins during intensive treatment observed that IFN- g\nlevels tended to rise after one month but signi ﬁcantly dropped by\nthe second month, possibly indicating a shift from early Th1-driven\nimmune beneﬁts to more complex immune system recovery in later\ntreatment phases ( Lin et al., 2020 ). Patients with PTB who received\nprobiotics (n=5) showed a signi ﬁcant increase in gut microbiota\nalpha diversity compared to those who did not receive probiotics,\nalthough there was no notable change in beta diversity ( Mitsui et al.,\n2022). This suggests that short-term probiotic use may guide the\nmicrobiota in a speci ﬁc direction —such as increa",
+          "c group showed\nsigniﬁcant improvement; b-\ndiversity exhibited no notable\nchanges.\nMicrobiome sequencing:\nAkkermansia was the\ndominant genus in\nuntreated PTB patients; after\nprobiotic therapy,\nAgathobacter,\nFusobacterium, and\nFaecalibacterium were\nenriched.\n(Baral et al.,\n2025)\nFMT Preclinical\nBALB/c mice\n(Mtb H37Rv\naerosol\ninfection)\nWild mouse microbiota\ncolonization vs.\nconventional laboratory\nmice\nThe bacterial load in the lungs of\nWildR mice was signi ﬁcantly\nlower than that in LabC mice;\npulmonary pathological damage\nwas also reduced.\nThe microbial diversity of\nWildR was signi ﬁcantly\nhigher than that of LabC;\nMTB infection led to a rapid\nloss of diversity in LabC,\nwhereas WildR maintained\nstable diversity.\n(Xie et al.,\n2023)\nFMT (logical\ninference) Commentary —\nIt is proposed that FMT\nmay enhance anti-\ntuberculosis immunity\nby restoring gut\nmicrobiota homeostasis.\n—— (Liu et al.,\n2024)\nDietary\nintervention\n(nutritional\nsupplementation)\nClinical test\nMalnourished\nmultidrug-\nresist",
+          "ary of previous intervention\noutcomes involving probiotics, FMT, dietary or nutritional supple-\nments, and other microbiota-targeted approaches in TB patients or\nMTB-infected animal models is provided in Table 8 .\n6.1 Preclinical research on FMT, probiotics,\nand dietary approaches\nResearch on FMT in TB is currently con ﬁned to animal studies.\nOne investigation demonstrated that colonizing experimental\nBALB/c mice with the diverse microbiota from wild mice led to\nsigniﬁcantly reduced bacterial loads in the lungs and less severe lung\ndamage after aerosol exposure to MTB ( Xie et al., 2023 ). This\nprovides crucial experimental evidence supporting a causal link\nbetween the microbiota and TB. The study also showed that\nconventional laboratory mice experienced a rapid decline in\nmicrobial diversity following infection, whereas the microbiota of\nwild-derived mice remained stable. This offers direct proof that\nmicrobiota diversity underpins protective immunity against TB.\nAntibiotic-induced di",
+          "require stringent and effective regulatory frameworks. This includes\nimplementing thorough ethical reviews and standardized\nTABLE 8 Results of existing microbiome-based interventions in tuberculosis research.\nIntervene\ntype\nResearch\nlevel\nStudy\ntarget\nIntervention\nprotocol Primary outcome\nBacterial\ncommunity-related\nﬁndings\nReferences\nProbiotics RCT\nFirst-line\ntreatment for\npulmonary\ntuberculosis\npatients\nProbiotics + B-complex\nVitamins vs Standard\nTreatment\nIFN-g exhibited an upward trend\nin January and declined thereafter\nin February; IL-12 levels in both\ngroups initially increased followed\nby a decrease, with a more\npronounced rise observed in the\nintervention group.\nNo microbial community\ndetected\n(Haitjema et al.,\n2026)\nProbiotics\n(subgroup\nanalysis)\nForward-\nlooking\ncohort\n(subgroup)\nFirst-line\ntreatment for\npulmonary\ntuberculosis\npatients\nVSL3 or Evogut\ncombined with anti-\ntuberculosis therapy\n(within 2 months, based\non physician\nprescription)\nThe alpha-diversity of the\nprobioti",
+          "sing butyrate-\nproducing bacteria like Agathobacter and Faecalibacterium —but is\ninsufﬁcient to fully reverse the broad microbial community changes\nassociated with PTB. Unlike the relatively active research on\nprobiotics, clinical studies on FMT in TB are lacking, likely due\nto the complexity of the procedure and the higher risk of infection\ninvolved in transplanting donor fecal material into a recipient ’s gut.\n6.3 Challenges and clinical translational\nbarriers for FMT, probiotics, and dietary\ninterventions\nThere are several scienti ﬁc and clinical challenges hindering the\nwidespread clinical application of microbiome-based therapies for\nTB. Although a link between gut dysbiosis and TB has been\nestablished, the precise molecular mechanisms remain unclear\n(Nasare and Bagade, 2025 ). The potential bene ﬁts of probiotics,\nFMT, and dietary ﬁbers (such as short-chain fatty acids) in TB are\noften inferred from studies in other conditions like in ﬂammatory\nbowel disease (IBD), cancer immunot",
+          "86/s13099-025-\n00736-x\nBaral, T., Sudha Gururaj, V. K., Manu, M. K., Udyavara Kudru, C., Singh, J.,\nMukhopadhyay, C., et al. (2026). Effect of probiotics supplementation on clinical,\nhumanistic, and safety outcomes in patients with tuberculosis: A prospective cohort\nstudy in a tertiary healthcare facility in South India. J. Am. Nutr. Assoc. 45, 44–51. doi:\n10.1080/27697061.2025.2531086\nBiadglegne, F., König, B., Rodloff, A. C., Dorhoi, A., and Sack, U. (2021). Composition\nand clinical signi ﬁcance of exosomes in tuberculosis: A systematic literature review. J.\nClin. Med. 10 (1), 145. doi: 10.3390/jcm10010145\nBing, X., Lovelace, T., Bunea, F., Wegkamp, M., Kasturi, S. P., Singh, H., et al. (2022).\nEssential regression: a generalizable framework for inferring causal latent factors from\nmulti-omic datasets. Patterns\n3 (5), 100473. doi: 10.1016/j.patter.2022.100473\nBlanco-Mı́guez, A., Beghini, F., Cumbo, F., McIver, L. J., Thompson, K. N., Zolfo, M.,\net al. (2023). Extending and improving ",
+          "healthy donor\nto a recipient to restore a balanced GM. In the context of TB, FMT\nhas been proposed as a potential therapy to restore microbial diversity\nand function, which are often disrupted in TB patients (Li et al., 2019;\nSeyed Aria and Alexander, 2024). Studies have shown that FMT can\nreduce the abundance of antimicrobial resistance genes and restore\nmicrobial balance, suggesting its potential as an adjunct therapy in TB\nmanagement (Mai and Draganov, 2009). However, safety and efﬁcacy\nconcerns remain, and further research is needed to fully understand\nthe long-term effects of FMT in TB patients.\n5.1.2 Probiotics and prebiotics\nProbiotics are live microorganisms that, when administered in\nadequate amounts, confer a health beneﬁt on the host. Prebiotics are\nnondigestible food ingredients that bene ﬁcially affect the host by\nselectively stimulating the growth and activity of one or a limited\nFIGURE 4\nKey application aspects and process pathways of AI in precision medicine for TB. The"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "pass",
+          "fact_recall": 1.0,
+          "supported_facts": [
+            "f1"
+          ],
+          "anchor_matches": {
+            "ptb-probiotic-summary": [
+              1
+            ]
+          },
+          "anchor_match_groups": {
+            "ptb-probiotic-summary": [
+              [
+                1
+              ]
+            ]
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      }
+    },
+    {
+      "id": "x008",
+      "revision": 1,
+      "question": "Which randomized clinical trial in the TB review established that AI-assisted precision-care strategies outperform standard care?",
+      "query_sha256": "12da537316e9435cee47676ad56acc2227c4a2cea6533b23d1124f34fb4ed8d2",
+      "category": "false_premise",
+      "answerability": "false_premise",
+      "evidence_feasibility": {
+        "minimum_chunks": 2,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "n3": {
+        "retrieved_sources": [
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf"
+        ],
+        "retrieved_contexts": [
+          " controlled trials are\nessential to assess whether AI-assisted strategies are superior to,\nequivalent to, or non-inferior to current standard-of-care treat-\nments ( He et al., 2021 ).\nLooking ahead, AI holds signi ﬁcant potential in advancing\npersonalized and precision TB care. The integration of causal\ninference techniques may help overcome the current reliance on\ncorrelative associations, enabling identi ﬁcation of true causal rela-\ntionships between gut microbiota or clinical features and disease\nonset or treatment outcomes ( Bing et al., 2022 ). To address ethical\nand regulatory challenges, secure medical data infrastructure and\ninteroperable data governance frameworks are needed to ensure AI\nsystems comply with healthcare standards and are prepared for risk\nand liability management. Multimodal AI models that integrate\ngenomic, imaging, microbiome, and clinical data can enhance\ndiagnostic and prognostic accuracy ( Han et al., 2025 ). Li et al.\ndeveloped a multimodal model combining",
+          " also enables physicians to identify risk\nfactors for treatment failure in individual patients —such as a\nhistory of drug allergies or speci ﬁc radiographic features —thereby\nenhancing the prediction of therapeutic response and prognosis.\nThis facilitates personalized drug regimen recommendations tai-\nlored to different clinical scenarios ( Mahomed et al., 2019 ).\nThe application of AI is shifting the clinical management of TB\nfrom a “one-size-ﬁts-all” model toward individualized treatment\nstrategies, offering valuable advancements in the ﬁeld of precision\nmedicine ( Figure 4 )( Mahomed et al., 2019 ). However, the clinical\ntranslation of AI in TB care still faces multiple challenges. First, the\ngeneralizability of AI models is limited by issues such as small\nsample sizes, high data heterogeneity, and the lack of standardized\nannotation and data-sharing frameworks for TB-related multi-\nmodal datasets ( Kumar et al., 2025 ). Second, many current AI\nmodels function as “black boxes, ” mak",
+          "fectively improving\ndiagnostic efﬁciency and optimizing outpatient clinical work ﬂows.\nStudies have shown that AI-assisted diagnostic systems outperform\nphysician-only diagnosis across multiple metrics, including sensi-\ntivity, speci ﬁcity, positive/negative predictive values, and overall\ndiagnostic accuracy ( Li et al., 2023 ). Compared with CXR, com-\nputed tomography (CT) is more sensitive for detecting active TB\nfeatures and parenchymal abnormalities (e.g., cavitation, consoli-\ndation, centrilobular nodules) (Du et al., 2024). Yan et al. developed\na fully automated deep learning-based CT analysis system for the\ndetection, diagnosis, and quanti ﬁcation of TB lesions, achieving a\nTABLE 7 ML algorithms for TB risk prediction & diagnosis based on GM features.\nML\nalgorithm\nGM features Cohort size\n(cases vs.\ncontrols)\nIntended\npurpose\nKey\nperformance\nValidation\nmethod\nReference\nRF Species-level abundances\n(shotgun metagenomics)\n46 ATB vs 31 HC ATB diagnosis AUC 0.846 (training),\n0.767 (te"
+        ],
+        "verdict": "not_scored",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "tb-ai-rct-gap": []
+          },
+          "anchor_match_groups": {
+            "tb-ai-rct-gap": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "n8": {
+        "retrieved_sources": [
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf",
+          "outlier-microbiome-tuberculosis.pdf"
+        ],
+        "retrieved_contexts": [
+          " controlled trials are\nessential to assess whether AI-assisted strategies are superior to,\nequivalent to, or non-inferior to current standard-of-care treat-\nments ( He et al., 2021 ).\nLooking ahead, AI holds signi ﬁcant potential in advancing\npersonalized and precision TB care. The integration of causal\ninference techniques may help overcome the current reliance on\ncorrelative associations, enabling identi ﬁcation of true causal rela-\ntionships between gut microbiota or clinical features and disease\nonset or treatment outcomes ( Bing et al., 2022 ). To address ethical\nand regulatory challenges, secure medical data infrastructure and\ninteroperable data governance frameworks are needed to ensure AI\nsystems comply with healthcare standards and are prepared for risk\nand liability management. Multimodal AI models that integrate\ngenomic, imaging, microbiome, and clinical data can enhance\ndiagnostic and prognostic accuracy ( Han et al., 2025 ). Li et al.\ndeveloped a multimodal model combining",
+          " also enables physicians to identify risk\nfactors for treatment failure in individual patients —such as a\nhistory of drug allergies or speci ﬁc radiographic features —thereby\nenhancing the prediction of therapeutic response and prognosis.\nThis facilitates personalized drug regimen recommendations tai-\nlored to different clinical scenarios ( Mahomed et al., 2019 ).\nThe application of AI is shifting the clinical management of TB\nfrom a “one-size-ﬁts-all” model toward individualized treatment\nstrategies, offering valuable advancements in the ﬁeld of precision\nmedicine ( Figure 4 )( Mahomed et al., 2019 ). However, the clinical\ntranslation of AI in TB care still faces multiple challenges. First, the\ngeneralizability of AI models is limited by issues such as small\nsample sizes, high data heterogeneity, and the lack of standardized\nannotation and data-sharing frameworks for TB-related multi-\nmodal datasets ( Kumar et al., 2025 ). Second, many current AI\nmodels function as “black boxes, ” mak",
+          "fectively improving\ndiagnostic efﬁciency and optimizing outpatient clinical work ﬂows.\nStudies have shown that AI-assisted diagnostic systems outperform\nphysician-only diagnosis across multiple metrics, including sensi-\ntivity, speci ﬁcity, positive/negative predictive values, and overall\ndiagnostic accuracy ( Li et al., 2023 ). Compared with CXR, com-\nputed tomography (CT) is more sensitive for detecting active TB\nfeatures and parenchymal abnormalities (e.g., cavitation, consoli-\ndation, centrilobular nodules) (Du et al., 2024). Yan et al. developed\na fully automated deep learning-based CT analysis system for the\ndetection, diagnosis, and quanti ﬁcation of TB lesions, achieving a\nTABLE 7 ML algorithms for TB risk prediction & diagnosis based on GM features.\nML\nalgorithm\nGM features Cohort size\n(cases vs.\ncontrols)\nIntended\npurpose\nKey\nperformance\nValidation\nmethod\nReference\nRF Species-level abundances\n(shotgun metagenomics)\n46 ATB vs 31 HC ATB diagnosis AUC 0.846 (training),\n0.767 (te",
+          "\nmost achieving AUCs above 0.70; the forward selection model\nyielded the highest AUC of 0.74. Imaging (particularly CT features)\nand demographic variables were identi ﬁed as key determinants of\npoor outcomes ( Sauer et al., 2018 ).In addition, AI has been\nemployed to monitor MTB drug resistance mutations during\ntreatment ( Cirillo et al., 2017 ) and to predict the occurrence of\nmultidrug-resistant TB (MDR-TB) based on clinical and imaging\ndata ( Li et al., 2023b ). Collectively, these studies highlight the\npotential of AI in treatment response monitoring and prognostic\nevaluation in TB care, providing more precise decision support\nfor clinicians.\n4.3 Future prospects and challenges of AI\nin personalized and precision TB treatment\nThe WHO currently recommends a standardized six-month\ntreatment regimen for TB that includes a two-month intensive\nphase with isoniazid (INH), rifampicin (RIF), pyrazinamide (PZA),\nand ethambutol (ETB), followed by at least a four-month contin-\nuation phase wi",
+          " diagnostic modalities,\nincluding AI-assisted CXR/CT imaging diagnosis for early TB detection and lesion identi ﬁcation (A), ﬂuorescence microscopy of sputum smears for\nautomated bacillus quanti ﬁcation (B), transbronchial lung biopsy (TBLB) analysis for pattern recognition and grading (C), and differential diagnosis of\nTB from silicosis, peripheral lung cancer, and viral pneumonia through multi-modal data integration (D).\nSun et al. 10.3389/fcimb.2026.1847443\nFrontiers in Cellular and Infection Microbiology frontiersin.org13\nachieved a precision of 90%, recall of 74%, classi ﬁcation accuracy of\n76%, and balanced error rate of 77%, offering a valuable tool for\nclinicians to mitigate severe liver toxicity in TB patients. Sauer et al.\nanalyzed TB treatment datasets using multiple ML methods, in-\ncluding stepwise forward selection, backward elimination, LASSO\nregression, random forest, and SVMs, to predict treatment failure.\nThese models outperformed conventional statistical methods, with",
+          "erapeutic\nefﬁcacy and relieve adverse drug reactions. Current limitations include insuf ﬁcient\nvalidation of the gut-lung axis ’ causal mechanisms, lagged clinical translation of\nbiomarkers, biases and errors in diagnosis and prediction, data privacy and security\nconcerns, gaps in intervention research, and poor accessibility of related technol-\nogies in resource-scarce medical regions. Future studies need rigorous causal\nanalyses, real-time monitoring tools and la rge-scale multicenter trials to validate\nmicrobiome-based strategies. This review h ighlights the translational potential of\nGM interventions to optimize personalized TB prevention, diagnosis and treatment\nand improve clinical outcomes.\nKEYWORDS\nartiﬁcial intelligence (AI), gut microbiome (GM), metabolomics, next-generation\nsequencing (NGS), proteomics, tuberculosis (TB)\nFrontiers in Cellular and Infection Microbiology frontiersin.org01\nOPEN ACCESS\nEDITED BY\nYing Luo,\nUniversity of Texas Southwestern Medical\nCenter, United S",
+          "oving beyond\ncorrelative associations. Caus al inference techniques can help\nidentify true causal pathways and inform the development of\ntargeted interventions. Real-time monitoring technologies, such as\nwearable devices and point-of-care diagnostics, offer the potential\nfor dynamic tracking of disease progression and treatment re-\nsponse, enabling timely interve ntions and personalized care\n(Mahomed et al., 2019 ). Finally, global multicenter clinical trials\nare essential for validating the ef ﬁcacy and safety of GM-targeted\ninterventions across diverse populations and settings. These trials\nshould be designed to address the speci ﬁc needs of high-burden\nregions and ensure that the bene ﬁts of GM-TB research are\nrealized globally.\nIn summary, the integration of advanced technologies in GM-\nTB research has opened new av enues for understanding and\ncombating TB. However, the successful translation of these tech-\nnologies into clinical practice requires addressing signi ﬁcant chal-\nlenge",
+          "medicine to drug-resistant TB (DR-TB)\nholds potential to improve disease management and prevention\nin underserved communities by minimizing adverse effects through\nexclusion of potentially toxic drugs and by optimizing treatment\noutcomes ( Figure 3 )( Mahomed et al., 2019 ). AI has already been\ndeployed in various areas of TB precision care, including image-\nbased early diagnosis ( Jaeger et al., 2018 ; Sharma et al., 2021 ),\naccurate prediction of treatment outcomes ( Srivastava et al., 2016 ;\nMburu et al., 2018 ; Sauer et al., 2018 ), anti-TB drug design\n(Kouchaki et al., 2019 ), prediction of pathogen drug resistance\n(Yang et al., 2018 ; Drouin et al., 2016 ; Aytan-Aktug et al., 2020 ;\nPortelli et al., 2020 ), drug dosing and combination therapy optimi-\nzation ( Lee et al., 2017 ; Deshpande et al., 2018 ), and targeted drug\ndelivery system development ( Kouchaki et al., 2019 ). In clinical\npractice, AI assistance not only improves the efﬁciency and accuracy\nof early TB diagnosis but"
+        ],
+        "verdict": "not_scored",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "tb-ai-rct-gap": []
+          },
+          "anchor_match_groups": {
+            "tb-ai-rct-gap": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      }
+    },
+    {
+      "id": "x009",
+      "revision": 1,
+      "question": "Across the five selected outlier articles, how many downstream patients developed antibiotic-resistant infections linked to the sampled wastewater plants?",
+      "query_sha256": "643ef9a69067fd47a92d11b14fc91b14bc16f2f6aa474c7679bcd4348be66cff",
+      "category": "unanswerable",
+      "answerability": "absent_fact",
+      "evidence_feasibility": {
+        "minimum_chunks": null,
+        "by_depth": {
+          "n3": "not_scored",
+          "n8": "not_scored"
+        }
+      },
+      "n3": {
+        "retrieved_sources": [
+          "outlier-amr-international-wwtp.pdf",
+          "outlier-amr-international-wwtp.pdf",
+          "outlier-amr-international-wwtp.pdf"
+        ],
+        "retrieved_contexts": [
+          "Metagenomic Profiling of Internationally Sourced Sewage Influents\nand Effluents Yields Insight into Selecting Targets for Antibiotic\nResistance Monitoring\nEmily Garner,* Ayella Maile-Moskowitz, Luisa F. Angeles, Carl-Fredrik Flach, Diana S. Aga,\nIndumathi Nambi, D. G. Joakim Larsson, Helmut Bu ̈ rgmann, Tong Zhang, Peter J. Vikesland,*\nand Amy Pruden*\nCite This: Environ. Sci. Technol. 2024, 58, 16547−16559\n Read Online\nACCESS\nMetrics & More\n Article Recommendations *\nsı Supporting Information\nABSTRACT: It has been debated whether wastewater treatment\nplants (WWTPs) primarily act to attenuate or amplify antibiotic\nresistance genes (ARGs). However, ARGs are highly diverse with\nrespect to their resistance mechanisms, mobilities, and taxonomic\nhosts and therefore their behavior in WWTPs should not be\nexpected to be universally conserved. We applied metagenomic\nsequencing to wastewater influent and effluent samples from 12\ninternational WWTPs to classify the behavior of specific ARGs\nenteri",
+          "ealth\nhazards. While previous studies have used metagenomic\nsequencing to comprehensively profile the antibiotic resistome\nin sewage\n13,29\nor to monitor changes across individual\ntreatment trains,\n4,27\nthis study is the first to examine the\neffects of biological wastewater treatment on the resistome\nacross a broad range of international facilities.\n■\nMATERIALS AND METHODS\nSite Description and Sample Collection. Sampling was\nconducted at two WWTPs from each of six countries (India\n(IND), Hong Kong, China (HKG), Philippines (PHL),\nUnited States of America (USA), Switzerland (CHE), and\nSweden (SWE)), between March 2016 and January 2017. All\nWWTPs employed secondary treatment, with capacities\nranging from 2.6 to 66 million gallons per day. Both Hong\nKong plants (HKG-1, HKG-2) and one USA plant (USA-1)\nemployed UV-disinfection of effluent; one Philippines WWTP\n(PHL-1), one USA WWTP (USA-2), and both India plants\n(IND-1 and IND-2) disinfected using free chlorine; and one\nSwiss WWTP (CHE-2) d",
+          "a given human population via WWTP influent or\nsewage collection system monitoring (i.e., WBS),\n13,14,66\n(2)\nmonitoring for the risks of evolution of new pathogenic strains\nof resistant organisms, also involving selection and HGT\nduring biological treatment processes,\n67,68\n(3) assessing the\neffectiveness of treatment processes for ARG removal via\nsampling of WWTP effluent, often alongside influent,\n27,69\nand\n(4) assessing potential human health risks associated with\nexposures, particularly to resistant pathogens, downstream of\nWWTP effluent discharge via sampling receiving water\nbodies.\n70,71\nIn WBS and effluent monitoring for human health\nrisk applications, it is important to select clinically relevant\nARGs that are associated with pathogens linked to human\ninfection. Linking ARGs to specific hosts is thus necessary. To\nidentify selection pressures that could drive resistance\nevolution within WWTPs, simple analyses of relative\nabundances of ARGs is insufficient since increases in ARGs"
+        ],
+        "verdict": "not_scored",
+        "metrics": {
+          "document_coverage": "not_scored",
+          "evidence_coverage": "not_scored",
+          "fact_recall": null,
+          "supported_facts": [],
+          "anchor_matches": {},
+          "anchor_match_groups": {},
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "n8": {
+        "retrieved_sources": [
+          "outlier-amr-international-wwtp.pdf",
+          "outlier-amr-international-wwtp.pdf",
+          "outlier-amr-international-wwtp.pdf",
+          "outlier-amr-international-wwtp.pdf",
+          "outlier-amr-method-comparison.pdf",
+          "outlier-amr-method-comparison.pdf",
+          "outlier-amr-international-wwtp.pdf",
+          "outlier-amr-international-wwtp.pdf"
+        ],
+        "retrieved_contexts": [
+          "Metagenomic Profiling of Internationally Sourced Sewage Influents\nand Effluents Yields Insight into Selecting Targets for Antibiotic\nResistance Monitoring\nEmily Garner,* Ayella Maile-Moskowitz, Luisa F. Angeles, Carl-Fredrik Flach, Diana S. Aga,\nIndumathi Nambi, D. G. Joakim Larsson, Helmut Bu ̈ rgmann, Tong Zhang, Peter J. Vikesland,*\nand Amy Pruden*\nCite This: Environ. Sci. Technol. 2024, 58, 16547−16559\n Read Online\nACCESS\nMetrics & More\n Article Recommendations *\nsı Supporting Information\nABSTRACT: It has been debated whether wastewater treatment\nplants (WWTPs) primarily act to attenuate or amplify antibiotic\nresistance genes (ARGs). However, ARGs are highly diverse with\nrespect to their resistance mechanisms, mobilities, and taxonomic\nhosts and therefore their behavior in WWTPs should not be\nexpected to be universally conserved. We applied metagenomic\nsequencing to wastewater influent and effluent samples from 12\ninternational WWTPs to classify the behavior of specific ARGs\nenteri",
+          "ealth\nhazards. While previous studies have used metagenomic\nsequencing to comprehensively profile the antibiotic resistome\nin sewage\n13,29\nor to monitor changes across individual\ntreatment trains,\n4,27\nthis study is the first to examine the\neffects of biological wastewater treatment on the resistome\nacross a broad range of international facilities.\n■\nMATERIALS AND METHODS\nSite Description and Sample Collection. Sampling was\nconducted at two WWTPs from each of six countries (India\n(IND), Hong Kong, China (HKG), Philippines (PHL),\nUnited States of America (USA), Switzerland (CHE), and\nSweden (SWE)), between March 2016 and January 2017. All\nWWTPs employed secondary treatment, with capacities\nranging from 2.6 to 66 million gallons per day. Both Hong\nKong plants (HKG-1, HKG-2) and one USA plant (USA-1)\nemployed UV-disinfection of effluent; one Philippines WWTP\n(PHL-1), one USA WWTP (USA-2), and both India plants\n(IND-1 and IND-2) disinfected using free chlorine; and one\nSwiss WWTP (CHE-2) d",
+          "a given human population via WWTP influent or\nsewage collection system monitoring (i.e., WBS),\n13,14,66\n(2)\nmonitoring for the risks of evolution of new pathogenic strains\nof resistant organisms, also involving selection and HGT\nduring biological treatment processes,\n67,68\n(3) assessing the\neffectiveness of treatment processes for ARG removal via\nsampling of WWTP effluent, often alongside influent,\n27,69\nand\n(4) assessing potential human health risks associated with\nexposures, particularly to resistant pathogens, downstream of\nWWTP effluent discharge via sampling receiving water\nbodies.\n70,71\nIn WBS and effluent monitoring for human health\nrisk applications, it is important to select clinically relevant\nARGs that are associated with pathogens linked to human\ninfection. Linking ARGs to specific hosts is thus necessary. To\nidentify selection pressures that could drive resistance\nevolution within WWTPs, simple analyses of relative\nabundances of ARGs is insufficient since increases in ARGs",
+          "M. P. J.; Deng, Y. High-Throughput Single-Cell Technology\nReveals the Contribution of Horizontal Gene Transfer to Typical\nAntibiotic Resistance Gene Dissemination in Wastewater Treatment\nPlants. Environ. Sci. Technol. 2021, 55 (17), 11824−11834.\n(69) Mao, D.; Yu, S.; Rysz, M.; Luo, Y.; Yang, F.; Li, F.; Hou, J.; Mu,\nQ.; Alvarez, P. J. J. Prevalence and Proliferation of Antibiotic\nResistance Genes in Two Municipal Wastewater Treatment Plants.\nWater Res. 2015, 85, 458−466.\n(70) Rodriguez-Mozaz, S.; Chamorro, S.; Marti, E.; Huerta, B.; Gros,\nM.; Sa ̀nchez-Melsió, A.; Borrego, C. M.; Barceló, D.; Balcázar, J. L.\nOccurrence of Antibiotics and Antibiotic Resistance Genes in\nHospital and Urban Wastewaters and Their Impact on the Receiving\nRiver. Water Res. 2015, 69, 234−242.\n(71) Xu, J.; Xu, Y.; Wang, H.; Guo, C.; Qiu, H.; He, Y.; Zhang, Y.;\nLi, X.; Meng, W. Occurrence of Antibiotics and Antibiotic Resistance\nGenes in a Sewage Treatment Plant and Its Effluent-Receiving River.\nChemosphere 2015",
+          " ARGs that confer resistance to 11 antibiotic classes have\nbeen identified in these wastewater samples using both methods, with the most abundant\nobserved classes of ARGs conferring resistance to aminoglycoside, multidrug-r esistance\n(MDR), macrolide-lincosa mide-streptogramin B (MLSB), tetracycline and beta-lactams. In\ncomparing the methods, we observed a strong correlation of relative abundance of ARGs\nobtained by the two tested methods for the majority of antibiotic classes. Finally, we investi-\ngated the source of discrepancies in the results obtained by the two methods. This analysis\nrevealed that false negatives were more likely to occur in qPCR due to mutated primer target\nsites, whereas ARGs with incomplete or low coverage were not detected by the sequencing\nmethod due to the parameters set in the bioinformatics pipeline. Indeed, despite the good\ncorrelation between the methods, each has its advantages and disadvantages which are\nalso discussed here. By using both methods toget",
+          "sistance plasmids\nisolated from wastewate r treatment plants provides evidence for a widely accessible drug resistance\ngene pool. FEMS Microbiol Rev. 2007; 31(4):449– 77. https://doi.o rg/10.1111/j.1 574-6976.2 007.00074.\nx PMID: 17553065\n11. Martinez JL. Environ mental pollution by antibiotics and by antibiotic resistance determina nts. Environ\nPollut. 2009; 157(11):28 93–902. https://doi.or g/10.101 6/j.envpol. 2009.05.051 PMID: 195608 47\n12. Su Z, Li A, Chen J, Huang B, Mu Q, Chen L, et al. Wastewater discharge drives ARGs spread in the\ncoastal area: a case study in Hangzhou Bay, China. Mar Pollut Bull. 2020; 151:110856. https://do i.org/\n10.1016/ j.marpolbul.20 19.1108 56 PMID: 32056638\n13. Hutinel M, Larsson DJ, Flach C-F. Antibio tic resistance genes of emerging concern in municipal and\nhospital wastewate r from a major Swedish city. Sci Total Environ. 2022; 812:1514 33. https://doi.or g/10.\n1016/j.scitote nv.2021.1 51433 PMID: 34748849\n14. Polianciuc SI, Gurzău AE, Kiss B, Ştefa",
+          "istance\nin Wastewater: Insights from Metagenomic Sequencing. Sci. Total\nEnviron. 2023, 854, 158698.\n(64) Larsson, D. G. J.; Flach, C.-F.; Laxminarayan, R. Sewage\nSurveillance of Antibiotic Resistance Holds Both Opportunities and\nChallenges. Nat. Rev. Microbiol. 2023, 21 (4), 213−214.\n(65) Liguori, K.; Keenum, I.; Davis, B. C.; Calarco, J.; Milligan, E.;\nHarwood, V. J.; Pruden, A. Antimicrobial Resistance Monitoring of\nWater Environments: A Framework for Standardized Methods and\nQuality Control. Environ. Sci. Technol. 2022, 56 (13), 9149−9160.\n(66) Karkman, A.; Berglund, F.; Flach, C.-F.; Kristiansson, E.;\nLarsson, D. G. J. Predicting Clinical Resistance Prevalence Using\nSewage Metagenomic Data. Commun. Biol. 2020, 3 (1), 711−810.\n(67) Hutinel, M.; Fick, J.; Larsson, D. J.; Flach, C.-F. Investigating\nthe Effects of Municipal and Hospital Wastewaters on Horizontal\nGene Transfer. Environ. Pollut. 2021, 276, 116733.\n(68) Wei, Z.; Feng, K.; Wang, Z.; Zhang, Y.; Yang, M.; Zhu, Y.-G.;\nVirta, ",
+          "larithromycin, and 17% of\ninfluent samples and 8% of effluent samples were in excess of\n500 ng/L of the quinolone antibiotic norfloxacin. The\npercentage of samples in excess of the PNEC for erythromycin\n(8%) and azithromycin (17%) remained the same from\ninfluent to effluent.\nThis study demonstrates that it is important to examine\nmultiple targets of antibiotic resistance in monitoring\ncampaigns and that it may be misleading to summarize\nresistome data via a single summary statistic, such as overall\nremoval of total ARGs. While metagenomic sequencing for\nwastewater resistome characterization is the most comprehen-\nsive approach for ARG monitoring, metagenomic sequencing\ncould also be valuable for informing selection of potential ARG\nmonitoring targets.\n63\nIt is important to optimize sampling and\nmonitoring strategies based on specific objectives and to\nensure that monitoring targets are selected accordingly.\n64\nPotential end goals include:\n65\n(1) characterizing the prevalence\nof ARB in "
+        ],
+        "verdict": "not_scored",
+        "metrics": {
+          "document_coverage": "not_scored",
+          "evidence_coverage": "not_scored",
+          "fact_recall": null,
+          "supported_facts": [],
+          "anchor_matches": {},
+          "anchor_match_groups": {},
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      }
+    },
+    {
+      "id": "x010",
+      "revision": 1,
+      "question": "Across the Alzheimer ANN’s five training runs, which clinical features were most influential, and how did the authors describe diabetes and cardiovascular disease?",
+      "query_sha256": "9f555828b06f19c15d96c0aa419bea49311ac6e081a5121b0dc253659731269d",
+      "category": "direct_lookup",
+      "answerability": "answerable",
+      "evidence_feasibility": {
+        "minimum_chunks": 2,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "n3": {
+        "retrieved_sources": [
+          "outlier-alzheimer-dual-model.pdf",
+          "outlier-alzheimer-dual-model.pdf",
+          "outlier-alzheimer-dual-model.pdf"
+        ],
+        "retrieved_contexts": [
+          "Medicine 11 frontiersin.org\naugmentation techniques ( 35). The model demonstrated nearly \nperfect performance in distinguishing non-dementia cases and \nidentifying mild dementia, with precision and recall scores \nexceeding 95% for these categories. While the CNN’s classification \nof moderate dementia was also effective, the small sample size for \nthis category suggests the need for more balanced datasets to \nenhance its reliability further.\nTo improve the interpretability of the ANN model and \nunderstand which clinical variables most strongly contributed to \nAlzheimer’s classification, a feature importance analysis was \nconducted using SHAP and permutation importance. The results \nconsistently showed that the Mini-Mental State Examination \n(MMSE) score, age, systolic blood pressure, total cholesterol, and \nfamily history were the most influential features across all five \ntraining runs. Additional factors such as sleep quality, physical \nactivity, and comorbidities (e.g., diabetes, car",
+          "ifestyle Factors: Age, Gender, Ethnicity, \nEducation Level, BMI, Smoking, Alcohol Consumption, Physical \nActivity, Diet Quality, and Sleep Quality.\n • Medical History and Comorbidities: Family History of \nAlzheimer’s, Cardiovascular Disease, Diabetes, Depression, Head \nInjury, and Hypertension.\n • Clinical Measurements: Systolic Blood Pressure (BP), Diastolic \nBP , Cholesterol Levels (Total, LDL, HDL, Triglycerides), and \nMini-Mental State Examination (MMSE) scores.\n • Symptomatic and Behavioral Features: Functional Assessment, \nMemory Complaints, Behavioral Problems, Activities of Daily \nLiving (ADL), Confusion, Disorientation, Personality Changes, \nDifficulty Completing Tasks, and Forgetfulness.\nPreprocessing for the ANN model included:\n • Standardization (z-score scaling) of all numerical features.\n • Encoding of categorical variables where necessary.\n • Stratified 80/20 train–test split.\n • Application of class weighting to mitigate class imbalance \nduring training.\nThis comprehens",
+          "ch distinguishes between cognitively \nhealthy individuals and those who may require closer \nclinical monitoring.\nIf the initial CNN analysis identifies imaging patterns consistent \nwith possible dementia, a second ANN model trained on clinical \nfeatures is used to differentiate between early-stage and more advanced \nAlzheimer’s categories. This hierarchical structure enhances diagnostic \naccuracy by combining the CNN’s ability to extract detailed \nneuroanatomical patterns with the ANN’s capacity to interpret \npatient-specific clinical indicators. Together, the two models provide \na more holistic, sensitive, and reliable assessment of Alzheimer’s \ndisease progression.\n3 Machine learning model\nA Convolutional Neural Network (CNN) was developed using \nPython and TensorFlow to classify MRI images into four categories \nassociated with Alzheimer’s disease. Figure 3  illustrates the \narchitecture used in the proposed classification system. Before \ntraining, all MRI images were resized to 256 "
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "alzheimer-feature-importance": []
+          },
+          "anchor_match_groups": {
+            "alzheimer-feature-importance": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "n8": {
+        "retrieved_sources": [
+          "outlier-alzheimer-dual-model.pdf",
+          "outlier-alzheimer-dual-model.pdf",
+          "outlier-alzheimer-dual-model.pdf",
+          "outlier-alzheimer-dual-model.pdf",
+          "outlier-alzheimer-dual-model.pdf",
+          "outlier-alzheimer-dual-model.pdf",
+          "outlier-alzheimer-dual-model.pdf",
+          "outlier-alzheimer-dual-model.pdf"
+        ],
+        "retrieved_contexts": [
+          "Medicine 11 frontiersin.org\naugmentation techniques ( 35). The model demonstrated nearly \nperfect performance in distinguishing non-dementia cases and \nidentifying mild dementia, with precision and recall scores \nexceeding 95% for these categories. While the CNN’s classification \nof moderate dementia was also effective, the small sample size for \nthis category suggests the need for more balanced datasets to \nenhance its reliability further.\nTo improve the interpretability of the ANN model and \nunderstand which clinical variables most strongly contributed to \nAlzheimer’s classification, a feature importance analysis was \nconducted using SHAP and permutation importance. The results \nconsistently showed that the Mini-Mental State Examination \n(MMSE) score, age, systolic blood pressure, total cholesterol, and \nfamily history were the most influential features across all five \ntraining runs. Additional factors such as sleep quality, physical \nactivity, and comorbidities (e.g., diabetes, car",
+          "ifestyle Factors: Age, Gender, Ethnicity, \nEducation Level, BMI, Smoking, Alcohol Consumption, Physical \nActivity, Diet Quality, and Sleep Quality.\n • Medical History and Comorbidities: Family History of \nAlzheimer’s, Cardiovascular Disease, Diabetes, Depression, Head \nInjury, and Hypertension.\n • Clinical Measurements: Systolic Blood Pressure (BP), Diastolic \nBP , Cholesterol Levels (Total, LDL, HDL, Triglycerides), and \nMini-Mental State Examination (MMSE) scores.\n • Symptomatic and Behavioral Features: Functional Assessment, \nMemory Complaints, Behavioral Problems, Activities of Daily \nLiving (ADL), Confusion, Disorientation, Personality Changes, \nDifficulty Completing Tasks, and Forgetfulness.\nPreprocessing for the ANN model included:\n • Standardization (z-score scaling) of all numerical features.\n • Encoding of categorical variables where necessary.\n • Stratified 80/20 train–test split.\n • Application of class weighting to mitigate class imbalance \nduring training.\nThis comprehens",
+          "ch distinguishes between cognitively \nhealthy individuals and those who may require closer \nclinical monitoring.\nIf the initial CNN analysis identifies imaging patterns consistent \nwith possible dementia, a second ANN model trained on clinical \nfeatures is used to differentiate between early-stage and more advanced \nAlzheimer’s categories. This hierarchical structure enhances diagnostic \naccuracy by combining the CNN’s ability to extract detailed \nneuroanatomical patterns with the ANN’s capacity to interpret \npatient-specific clinical indicators. Together, the two models provide \na more holistic, sensitive, and reliable assessment of Alzheimer’s \ndisease progression.\n3 Machine learning model\nA Convolutional Neural Network (CNN) was developed using \nPython and TensorFlow to classify MRI images into four categories \nassociated with Alzheimer’s disease. Figure 3  illustrates the \narchitecture used in the proposed classification system. Before \ntraining, all MRI images were resized to 256 ",
+          "of 0.90, \nreflecting strong performance. For the “ Alzheimer’s” class, the \nprecision is slightly lower at 76%, but the recall reaches 86%, resulting \nin an F1-score of 0.81. The weighted averages for precision, recall, and \nF1-score are 0.88, 0.87, and 0.87, respectively, showing a balanced \nFIGURE 4\nTraining and validation performance of the CNN model.\nCiftci et al. 10.3389/fmed.2025.1713062\nFrontiers in Medicine 08 frontiersin.org\nperformance across both classes. With an overall accuracy of 87.08%, \nthe model demonstrates reliability, though there is room for \nimprovement in predicting “ Alzheimer’s” cases more accurately.\nTable 2 summarizes the performance of traditional baseline \nclassifiers and the proposed deep-learning models across five \nindependent training runs. For both MRI and clinical datasets, classical \nmachine-learning methods, such as Logistic Regression, Random \nForest, and SVM, show noticeably lower performance in accuracy, \nprecision, recall, and F1-score. These al",
+          "ive feature set enables the ANN to model \ncomplex clinical patterns associated with AD progression. By \nintegrating demographic, symptomatic, and behavioral data, the ANN \nmodel was designed to classify patients into the four Alzheimer’s \ndisease categories, facilitating a comprehensive diagnostic approach.\nFigure 2 illustrates the hierarchical diagnostic framework used \nin this study. The system operates through a two-stage classification \npipeline that integrates MRI-based imaging analysis with clinical \nCiftci et al. 10.3389/fmed.2025.1713062\nFrontiers in Medicine 04 frontiersin.org\ndata to improve diagnostic precision. In the first stage, a \nConvolutional Neural Network (CNN) evaluates the MRI scan to \ndetermine whether the findings appear within the normal cognitive \nrange or indicate potential abnormalities that warrant further \nassessment. If the MRI is assessed as not suggestive of dementia, \nthe case proceeds to an Artificial Neural Network (ANN) for \nsecondary evaluation, whi",
+          "was trained effectively, achieving \nhigh accuracy and low loss while maintaining robust performance on \nunseen data. To ensure statistical reliability, the CNN was trained five \ntimes with different random seeds. Across all runs, the model achieved \nan average accuracy of 97.0%, with a 95% confidence interval of [96.3, \n97.6%], demonstrating consistent performance and low variance.\nFigure 5 represents the Receiver Operating Characteristic (ROC) \ncurve for a multi-class classification problem in the context of \nAlzheimer’s disease detection using a CNN model. The ROC curve \nplots the True Positive Rate (Sensitivity) against the False Positive Rate \n(1 – Specificity) for each class, providing a visualization of the model’s \nperformance for distinguishing between the four classes of Alzheimer’s \nFIGURE 2\nHierarchical deep learning workflow for MRI-based Alzheimer’s classification.\nCiftci et al. 10.3389/fmed.2025.1713062\nFrontiers in Medicine 06 frontiersin.org\ndisease. Each curve demonstr",
+          "ge \ndatasets or high-performance computing (29). One of the previous \nstudies has utilized CNN-based models for Alzheimer’s disease \ndetection, achieving 94.46% accuracy using CLAHE and GLCM for \nfeature extraction ( 30). Their U-Net-based model achieved high \nsegmentation and classification accuracy, reporting an average \naccuracy of 94.46% across five AD Neuroimaging Initiative categories. \nIn our study, we further enhance the diagnostic capability by \nintegrating an ANN with CNN, enabling a more refined classification \nprocess. Our proposed method achieved superior accuracy, \ndemonstrating the effectiveness of combining ANN and CNN models \nfor more precise Alzheimer’s disease detection and classification.\nCiftci et al. 10.3389/fmed.2025.1713062\nFrontiers in Medicine 03 frontiersin.org\nSimilarly, Dardouri ( 31) demonstrated an optimized CNN \narchitecture for MRI-based early AD detection, reporting high accuracy \nand reinforcing the relevance of deep CNNs for capturing fine-grained \ns",
+          "s \n(Figure 1).\n2 Datasets and symptom analysis\nThis study utilized two publicly available Kaggle datasets to \ndevelop a dual-model diagnostic framework for Alzheimer’s disease. \nThe first dataset contains 4,876 MRI brain images, used to train the \nCNN model, while the second dataset includes clinical data from \n1,200 patients, used to train the ANN model. The combined system \naims to accurately classify Alzheimer’s disease into four categories: \nmild dementia, moderate person with dementia, non-dementia, and \nvery mild dementia.\n2.1 MRI dataset\nThe MRI dataset, sourced from the “ Augmented Alzheimer MRI \nDataset” (Kaggle), consists of 4,876 labeled T1-weighted brain MRI \nimages distributed across the four Alzheimer’s categories. The dataset \nincludes augmented samples originally derived from the OASIS \nrepository, enhancing class balance and increasing training robustness.\nTo ensure consistency for deep learning, the following \npreprocessing steps were applied:\n • All MRI images were r"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "alzheimer-feature-importance": []
+          },
+          "anchor_match_groups": {
+            "alzheimer-feature-importance": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      }
+    }
+  ],
+  "summary": {
+    "n3": {
+      "answerable": {
+        "executed": 6,
+        "answer_judged": 0,
+        "evidence_coverage": {
+          "full_set": {
+            "pass": 2,
+            "total": 6,
+            "rate": 0.3333333333333333
+          },
+          "feasible_only": {
+            "pass": 2,
+            "total": 5,
+            "rate": 0.4
+          },
+          "structural_ceiling": {
+            "pass": 5,
+            "total": 6,
+            "rate": 0.8333333333333334
+          },
+          "infeasible_ids": [
+            "x001"
+          ]
+        },
+        "document_coverage_pass": 6,
+        "pinned_evidence_complete": 2,
+        "macro_fact_recall": 0.3333333333333333
+      },
+      "false_premise": {
+        "executed": 3,
+        "answer_judged": 0,
+        "evidence_coverage": {
+          "full_set": {
+            "pass": 1,
+            "total": 3,
+            "rate": 0.3333333333333333
+          },
+          "feasible_only": {
+            "pass": 1,
+            "total": 3,
+            "rate": 0.3333333333333333
+          },
+          "structural_ceiling": {
+            "pass": 3,
+            "total": 3,
+            "rate": 1.0
+          },
+          "infeasible_ids": []
+        },
+        "document_coverage_pass": 2,
+        "pinned_evidence_complete": 1,
+        "macro_fact_recall": 0.3333333333333333
+      },
+      "absent_fact": {
+        "executed": 1,
+        "answer_judged": 0,
+        "evidence_coverage": {
+          "full_set": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "feasible_only": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "structural_ceiling": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "infeasible_ids": []
+        }
+      },
+      "distractor_ordering": {
+        "total": 1,
+        "pass": 1,
+        "decoy_present": 0
+      },
+      "categories": {
+        "cross_doc_distractor": {
+          "executed": 1,
+          "document_scored": 1,
+          "document_pass": 1,
+          "evidence_scored": 1,
+          "evidence_pass": 1,
+          "evidence_coverage": {
+            "full_set": {
+              "pass": 1,
+              "total": 1,
+              "rate": 1.0
+            },
+            "feasible_only": {
+              "pass": 1,
+              "total": 1,
+              "rate": 1.0
+            },
+            "structural_ceiling": {
+              "pass": 1,
+              "total": 1,
+              "rate": 1.0
+            },
+            "infeasible_ids": []
+          }
+        },
+        "direct_lookup": {
+          "executed": 4,
+          "document_scored": 4,
+          "document_pass": 4,
+          "evidence_scored": 4,
+          "evidence_pass": 1,
+          "evidence_coverage": {
+            "full_set": {
+              "pass": 1,
+              "total": 4,
+              "rate": 0.25
+            },
+            "feasible_only": {
+              "pass": 1,
+              "total": 4,
+              "rate": 0.25
+            },
+            "structural_ceiling": {
+              "pass": 4,
+              "total": 4,
+              "rate": 1.0
+            },
+            "infeasible_ids": []
+          }
+        },
+        "false_premise": {
+          "executed": 3,
+          "document_scored": 3,
+          "document_pass": 2,
+          "evidence_scored": 3,
+          "evidence_pass": 1,
+          "evidence_coverage": {
+            "full_set": {
+              "pass": 1,
+              "total": 3,
+              "rate": 0.3333333333333333
+            },
+            "feasible_only": {
+              "pass": 1,
+              "total": 3,
+              "rate": 0.3333333333333333
+            },
+            "structural_ceiling": {
+              "pass": 3,
+              "total": 3,
+              "rate": 1.0
+            },
+            "infeasible_ids": []
+          }
+        },
+        "multi_hop": {
+          "executed": 1,
+          "document_scored": 1,
+          "document_pass": 1,
+          "evidence_scored": 1,
+          "evidence_pass": 0,
+          "evidence_coverage": {
+            "full_set": {
+              "pass": 0,
+              "total": 1,
+              "rate": 0.0
+            },
+            "feasible_only": {
+              "pass": 0,
+              "total": 0,
+              "rate": null
+            },
+            "structural_ceiling": {
+              "pass": 0,
+              "total": 1,
+              "rate": 0.0
+            },
+            "infeasible_ids": [
+              "x001"
+            ]
+          }
+        },
+        "unanswerable": {
+          "executed": 1,
+          "document_scored": 0,
+          "document_pass": 0,
+          "evidence_scored": 0,
+          "evidence_pass": 0,
+          "evidence_coverage": {
+            "full_set": {
+              "pass": 0,
+              "total": 0,
+              "rate": null
+            },
+            "feasible_only": {
+              "pass": 0,
+              "total": 0,
+              "rate": null
+            },
+            "structural_ceiling": {
+              "pass": 0,
+              "total": 0,
+              "rate": null
+            },
+            "infeasible_ids": []
+          }
+        }
+      },
+      "evidence_coverage": {
+        "full_set": {
+          "pass": 3,
+          "total": 9,
+          "rate": 0.3333333333333333
+        },
+        "feasible_only": {
+          "pass": 3,
+          "total": 8,
+          "rate": 0.375
+        },
+        "structural_ceiling": {
+          "pass": 8,
+          "total": 9,
+          "rate": 0.8888888888888888
+        },
+        "infeasible_ids": [
+          "x001"
+        ]
+      }
+    },
+    "n8": {
+      "answerable": {
+        "executed": 6,
+        "answer_judged": 0,
+        "evidence_coverage": {
+          "full_set": {
+            "pass": 2,
+            "total": 6,
+            "rate": 0.3333333333333333
+          },
+          "feasible_only": {
+            "pass": 2,
+            "total": 6,
+            "rate": 0.3333333333333333
+          },
+          "structural_ceiling": {
+            "pass": 6,
+            "total": 6,
+            "rate": 1.0
+          },
+          "infeasible_ids": []
+        },
+        "document_coverage_pass": 6,
+        "pinned_evidence_complete": 2,
+        "macro_fact_recall": 0.3333333333333333
+      },
+      "false_premise": {
+        "executed": 3,
+        "answer_judged": 0,
+        "evidence_coverage": {
+          "full_set": {
+            "pass": 1,
+            "total": 3,
+            "rate": 0.3333333333333333
+          },
+          "feasible_only": {
+            "pass": 1,
+            "total": 3,
+            "rate": 0.3333333333333333
+          },
+          "structural_ceiling": {
+            "pass": 3,
+            "total": 3,
+            "rate": 1.0
+          },
+          "infeasible_ids": []
+        },
+        "document_coverage_pass": 3,
+        "pinned_evidence_complete": 1,
+        "macro_fact_recall": 0.3333333333333333
+      },
+      "absent_fact": {
+        "executed": 1,
+        "answer_judged": 0,
+        "evidence_coverage": {
+          "full_set": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "feasible_only": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "structural_ceiling": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "infeasible_ids": []
+        }
+      },
+      "distractor_ordering": {
+        "total": 1,
+        "pass": 1,
+        "decoy_present": 1
+      },
+      "categories": {
+        "cross_doc_distractor": {
+          "executed": 1,
+          "document_scored": 1,
+          "document_pass": 1,
+          "evidence_scored": 1,
+          "evidence_pass": 1,
+          "evidence_coverage": {
+            "full_set": {
+              "pass": 1,
+              "total": 1,
+              "rate": 1.0
+            },
+            "feasible_only": {
+              "pass": 1,
+              "total": 1,
+              "rate": 1.0
+            },
+            "structural_ceiling": {
+              "pass": 1,
+              "total": 1,
+              "rate": 1.0
+            },
+            "infeasible_ids": []
+          }
+        },
+        "direct_lookup": {
+          "executed": 4,
+          "document_scored": 4,
+          "document_pass": 4,
+          "evidence_scored": 4,
+          "evidence_pass": 1,
+          "evidence_coverage": {
+            "full_set": {
+              "pass": 1,
+              "total": 4,
+              "rate": 0.25
+            },
+            "feasible_only": {
+              "pass": 1,
+              "total": 4,
+              "rate": 0.25
+            },
+            "structural_ceiling": {
+              "pass": 4,
+              "total": 4,
+              "rate": 1.0
+            },
+            "infeasible_ids": []
+          }
+        },
+        "false_premise": {
+          "executed": 3,
+          "document_scored": 3,
+          "document_pass": 3,
+          "evidence_scored": 3,
+          "evidence_pass": 1,
+          "evidence_coverage": {
+            "full_set": {
+              "pass": 1,
+              "total": 3,
+              "rate": 0.3333333333333333
+            },
+            "feasible_only": {
+              "pass": 1,
+              "total": 3,
+              "rate": 0.3333333333333333
+            },
+            "structural_ceiling": {
+              "pass": 3,
+              "total": 3,
+              "rate": 1.0
+            },
+            "infeasible_ids": []
+          }
+        },
+        "multi_hop": {
+          "executed": 1,
+          "document_scored": 1,
+          "document_pass": 1,
+          "evidence_scored": 1,
+          "evidence_pass": 0,
+          "evidence_coverage": {
+            "full_set": {
+              "pass": 0,
+              "total": 1,
+              "rate": 0.0
+            },
+            "feasible_only": {
+              "pass": 0,
+              "total": 1,
+              "rate": 0.0
+            },
+            "structural_ceiling": {
+              "pass": 1,
+              "total": 1,
+              "rate": 1.0
+            },
+            "infeasible_ids": []
+          }
+        },
+        "unanswerable": {
+          "executed": 1,
+          "document_scored": 0,
+          "document_pass": 0,
+          "evidence_scored": 0,
+          "evidence_pass": 0,
+          "evidence_coverage": {
+            "full_set": {
+              "pass": 0,
+              "total": 0,
+              "rate": null
+            },
+            "feasible_only": {
+              "pass": 0,
+              "total": 0,
+              "rate": null
+            },
+            "structural_ceiling": {
+              "pass": 0,
+              "total": 0,
+              "rate": null
+            },
+            "infeasible_ids": []
+          }
+        }
+      },
+      "evidence_coverage": {
+        "full_set": {
+          "pass": 3,
+          "total": 9,
+          "rate": 0.3333333333333333
+        },
+        "feasible_only": {
+          "pass": 3,
+          "total": 9,
+          "rate": 0.3333333333333333
+        },
+        "structural_ceiling": {
+          "pass": 9,
+          "total": 9,
+          "rate": 1.0
+        },
+        "infeasible_ids": []
+      }
+    }
+  },
+  "limitations": [
+    "Exact pinned-excerpt coverage is conservative; a missed substring is not proof of absent semantic evidence.",
+    "Collection verification checks stored text/source chunks; it does not recompute stored embeddings to certify their original embedding model. Isolated ingestion provenance remains required for quality claims.",
+    "No generated answers, refusal judgments or premise-correction judgments.",
+    "Remote rewrite model aliases cannot establish immutable provider weight versions."
+  ]
+}

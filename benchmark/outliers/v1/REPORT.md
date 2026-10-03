@@ -46,7 +46,7 @@ does not infer topic-wide quality from the focused sample.
 
 ## Exact run scope
 
-`runs/outliers-C1-vector-final-v2.json` is the final complete 10/10 vector-only retrieval run on
+`runs/outliers-C1-vector-reviewed.json` is the final complete 10/10 vector-only retrieval run on
 the five-article outlier corpus. It evaluated all ten cases at n=3 and n=8 using
 the production retrieval path and reranker. The local embedding and reranker
 weights, collection receipt, query/corpus/scorer fingerprints, retrieved
@@ -84,7 +84,7 @@ and run provenance use the hash of the complete serialized query document.
 Topic regression is a 6-case-per-topic sample, not a complete topic evaluation.
 Source-family breadth is uneven: the cognition family has one primary paper.
 The legacy preserved search strings do not prove the exact original search
-syntax. Case review is author review; final Claude review and Juan PR review remain
-pending. Strict evidence retrieval rates are not answer correctness, and no
+syntax. Author case review and read-only Claude CLI review are complete; Juan PR review
+is pending. No clinical or other domain expert has reviewed these cases. Strict evidence retrieval rates are not answer correctness, and no
 generated answer/refusal behavior was evaluated. Full integrated corpus review
 and final cross-topic claims require JUA-114.
