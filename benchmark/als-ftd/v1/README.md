@@ -37,6 +37,16 @@ rendered and inspected; all main-PDF captions/notices and pinned JATS credit
 inventories were checked for separately restrictive material. No such credit was
 located. Standalone supplements and cited articles are not selected.
 
+The recorded corrections have now received explicit author impact review in
+the manifest. Liu's [disclosure correction](https://pmc.ncbi.nlm.nih.gov/articles/PMC11645136/)
+adds a patent conflict of interest; its [figure-label correction](https://pmc.ncbi.nlm.nih.gov/articles/PMC13132388/)
+affects Supplemental Figure 3C, whereas a003 uses main-PDF prose referring to
+Figures 2B/C. Sachdev's [probe correction](https://pmc.ncbi.nlm.nih.gov/articles/PMC12704798/)
+changes a supplementary antisense ddPCR probe sequence; the authors state that
+the published data are unaffected. None changes an accepted anchor. The original
+deposit/PDF/text bytes remain pinned; notices are assessed separately and are
+not added as corpus answer sources.
+
 [ATTRIBUTION.md](ATTRIBUTION.md) preserves ordered citations, notices and licence
 links. [metadata/](metadata/) contains unchanged Cloud JSON, PubMed XML and
 converter responses. PDFs, complete JATS, extracted text, restricted candidates
@@ -48,7 +58,7 @@ The actual discovery queries are retained; later PMCID lookups are not discoveri
 
 [queries.json](queries.json) contains a001–a010: four same-article multi-hop cases,
 two direct lookups, two cross-document synthesis cases, one false-premise case,
-and one named-distractor case. Fourteen physical-page anchors bind exact extraction
+and one named-distractor case. Eighteen physical-page anchors bind exact extraction
 spans and hashes to facts and evidence sets. [case_dependencies.json](case_dependencies.json)
 records source/overlap/decoy dependencies. There are no absent-fact cases, so this
 release makes no whole-corpus negative claim. No legacy IDs or gold are replaced.
@@ -74,6 +84,16 @@ The Drosophila and PKR-distribution claims in a010 are attributed to the selecte
 paper's Discussion and cited work, not independently verified primary findings.
 
 The reference answers preserve models, populations, endpoints and timeframes.
+Revision 2 records the Claude review fixes before any evaluation: network bursting
+is an edited-versus-unedited observation, without a wild-type normalization claim;
+the poly-GP anchor includes both editing outcomes; the BAC phenotype limitation
+is attributed to cited prior work; and a002 records its premise and correction
+anchors. a008's phosphorylation fact is separated from an authored methodological
+caution in its rubric. Case-specific forbidden claims replace generic boilerplate.
+Sixteen complete evidence sets include main-PDF figure-legend alternatives for
+a004, a005, a006 and a010. The figure legend's "minimal to no" network bursting
+is accepted alongside the Results wording "no". Other passages and cross-topic
+alternatives still require independent completeness review before freeze.
 No retrieval output, paid rewriting or judge result was used to choose them.
 Before freeze, an independent reviewer should read the four full texts, verify
 fact/anchor sufficiency and alternatives, check overlap/duplicates and assess
@@ -93,9 +113,9 @@ diabetes clinical efficacy; cognitive/diagnostic themes warrant overlap review.
 
 [verification.json](verification.json) records mechanical provenance checks and
 [reachability.json](reachability.json) records the offline production chunker oracle.
-All 14 anchors and all 10 cases are reachable with unlimited chunks; 10/10 are
+All 18 anchors and all 10 cases are reachable with unlimited chunks; 10/10 are
 structurally feasible at n=8. At n=3, 8/10 are feasible: a005 and a008 need more
-chunks for their complete pinned evidence. Five anchors require adjacent chunks.
+chunks for their complete pinned evidence. Seven anchors require adjacent chunks.
 The oracle generated 288 chunks and loaded no retrieval models or collection.
 These are feasibility ceilings, not retrieval scores or answer correctness.
 
@@ -134,6 +154,8 @@ PY
 
 The release verifier rejects changed source bytes, metadata joins, PDF provider
 receipts, extraction/page boundaries, parser version and incorrect anchor/fact
-bindings. Two corruption checks also reject a re-signed incorrect article title and an
-incorrect evidence offset. All 206 offline regression tests passed. Mechanical
+bindings, missing correction impact records and missing false-premise records.
+Four corruption checks reject a re-signed incorrect title, incorrect evidence
+offset, omitted correction review and omitted offending premise.
+All 206 offline regression tests passed. Mechanical
 success does not certify independent scientific review.

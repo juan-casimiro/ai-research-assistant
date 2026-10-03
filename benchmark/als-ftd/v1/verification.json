@@ -1,16 +1,16 @@
 {
   "articles": 4,
   "cases": 10,
-  "anchors": 14,
+  "anchors": 18,
   "physical_pdf_pages": 58,
   "pdf_bytes": 24135270,
-  "selection_sha256": "1b0441db62689997eb31b6a978642f7866fcefced3e61a465910e46e4ffeaa2a",
-  "query_sha256": "c36ff84461948db238919d2eae33b088528fbdb300abb4cd9ba39e3b2b56887c",
+  "selection_sha256": "c8a1c6ec743b665503fb75ee428d07873c924537a61263802b7d8efcbe1467e9",
+  "query_sha256": "0fe667e283b70b683f0bd3f06fdb55abc3a28d9d84b72af4e51a34a339aebfe2",
   "membership_sha256": "e536578827a71c14268a8ca1d89990b2d3b23d396444849086ab2b0310132f64",
   "independent_review_complete": false,
   "retrieval_quality_measured": false,
-  "verified_at": "2026-10-03T14:27:12.376419+00:00",
-  "method": "offline local source-byte checks",
+  "verified_at": "2026-10-03T15:35:16.030219+00:00",
+  "method": "offline local source-byte and review-record checks",
   "command": "python verify_als_ftd_release.py",
   "corruption_checks": [
     {
@@ -22,11 +22,26 @@
       "mutation": "evidence offsets",
       "rejected": true,
       "reason": "isr-tissue: anchor offset/hash changed"
+    },
+    {
+      "mutation": "missing correction review",
+      "rejected": true,
+      "reason": "PMC11527445: incomplete correction impact review"
+    },
+    {
+      "mutation": "missing false-premise record",
+      "rejected": true,
+      "reason": "a002: incomplete false-premise correction record"
     }
   ],
   "offline_regressions": {
     "command": "python -m unittest discover -v",
     "tests": 206,
     "result": "pass"
+  },
+  "complete_evidence_alternatives": {
+    "sets": 16,
+    "all_reachable_and_minimum_witnesses_pass": true,
+    "method": "Each accepted OR alternative checked separately with production chunker and scorer"
   }
 }

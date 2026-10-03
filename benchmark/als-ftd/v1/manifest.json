@@ -245,7 +245,37 @@
             }
           ]
         },
-        "discrepancy_resolutions": []
+        "discrepancy_resolutions": [
+          {
+            "notice_pmcid": "PMC11645136",
+            "doi": "10.1172/JCI189439",
+            "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11645136/",
+            "reviewer": "Codex",
+            "reviewed_at": "2026-10-03T15:33:45.879506+00:00",
+            "change": "Adds the previously omitted patent conflict-of-interest disclosure for Honghe Liu and Jiou Wang.",
+            "impact_assessment": "Disclosure-only correction; none of the anchored experimental findings is changed. Preserve the disclosure in this review record.",
+            "reviewed_case_ids": [
+              "a002",
+              "a003",
+              "a005",
+              "a009"
+            ],
+            "resolution": "retain pinned PMC deposit version 1 and original PDF/text hashes; notice assessed separately, no silent source replacement"
+          },
+          {
+            "notice_pmcid": "PMC13132388",
+            "doi": "10.1172/JCI207123",
+            "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13132388/",
+            "reviewer": "Codex",
+            "reviewed_at": "2026-10-03T15:33:45.879506+00:00",
+            "change": "Corrects iPSC/iMN line labels in Supplemental Figure 3C to iMN lines 2, 3, 4 and 5.",
+            "impact_assessment": "a003 uses the main-PDF same-donor line-2 paragraph, whose transcript analysis refers to Supplemental Figures 2B/C, not corrected Figure 3C. No accepted anchor quotes Figure 3C or its original labels; no anchored fact requires revision from this notice. Supplementary experimental validation remains outside this main-PDF preparation.",
+            "reviewed_case_ids": [
+              "a003"
+            ],
+            "resolution": "retain pinned PMC deposit version 1 and original PDF/text hashes; notice assessed separately, no silent source replacement"
+          }
+        ]
       }
     },
     {
@@ -469,7 +499,22 @@
             }
           ]
         },
-        "discrepancy_resolutions": []
+        "discrepancy_resolutions": [
+          {
+            "notice_pmcid": "PMC12704798",
+            "doi": "10.1073/pnas.2532505122",
+            "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12704798/",
+            "reviewer": "Codex",
+            "reviewed_at": "2026-10-03T15:33:45.879506+00:00",
+            "change": "Corrects an antisense ddPCR probe sequence in SI Appendix Table S2.",
+            "impact_assessment": "The authors state the correct probe was used to generate the data and published data are unaffected. Accepted DPR/network/donor anchors do not reproduce the erroneous probe sequence. No anchored fact requires revision from this notice.",
+            "reviewed_case_ids": [
+              "a004",
+              "a005"
+            ],
+            "resolution": "retain pinned PMC deposit version 1 and original PDF/text hashes; notice assessed separately, no silent source replacement"
+          }
+        ]
       }
     },
     {
@@ -931,5 +976,5 @@
     "site.pmc.ncbi.nlm.nih.gov ALS FTD C9orf72 \"2024\" \"Creative Commons Attribution 4.0\"",
     "site.pmc.ncbi.nlm.nih.gov C9orf72 loss gain function antisense 2023 2025 ALS"
   ],
-  "fingerprint_sha256": "1b0441db62689997eb31b6a978642f7866fcefced3e61a465910e46e4ffeaa2a"
+  "fingerprint_sha256": "c8a1c6ec743b665503fb75ee428d07873c924537a61263802b7d8efcbe1467e9"
 }

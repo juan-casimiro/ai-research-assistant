@@ -56,6 +56,17 @@ def verify(directory: Path, corpus: Path) -> dict:
         if version("pypdf") != article["validation"]["parser_version"]:
             raise ValueError(f"{aid}: different parser; review extraction before changing hashes")
         root = ET.fromstring(archived["article.xml"])
+        correction_ids = {el.get("{http://www.w3.org/1999/xlink}href")
+                          for el in root.findall(".//related-article")
+                          if el.get("related-article-type") == "correction-forward"}
+        resolutions = article["provenance"]["discrepancy_resolutions"]
+        if (len(resolutions) != len(correction_ids) or
+                {r["notice_pmcid"] for r in resolutions} != correction_ids or
+                any(not all(r.get(k) for k in
+                            ["source_url", "reviewer", "reviewed_at", "change",
+                             "impact_assessment", "resolution", "reviewed_case_ids"])
+                    for r in resolutions)):
+            raise ValueError(f"{aid}: incomplete correction impact review")
         caption_ids = [el.get("id") for el in root.findall(".//fig") + root.findall(".//table-wrap")]
         if caption_ids != [el["id"] for el in article["third_party_review"]["credit_inventory"]]:
             raise ValueError(f"{aid}: incomplete caption inventory")
@@ -73,6 +84,15 @@ def verify(directory: Path, corpus: Path) -> dict:
                            if any(anchor["id"] in s["fact_anchors"][f["id"]] for s in q["evidence_sets"]))
             if sorted(anchor["fact_ids"]) != bound or not bound:
                 raise ValueError(f"{anchor['id']}: orphan or incorrect fact bindings")
+    anchors = {a["id"]: a for a in benchmark["anchors"]}
+    for query in benchmark["queries"]:
+        if query["answerability"]["status"] == "false_premise":
+            answerability = query["answerability"]
+            correction_anchors = answerability.get("correction_anchors", [])
+            accepted = {aid for s in query["evidence_sets"] for aid in s["anchors"]}
+            if (not answerability.get("offending_premise") or not correction_anchors or
+                    not set(correction_anchors) <= accepted & anchors.keys()):
+                raise ValueError(f"{query['id']}: incomplete false-premise correction record")
     required = {a["article_id"] for q in benchmark["queries"] for s in q["evidence_sets"]
                 for a in benchmark["anchors"] if a["id"] in s["anchors"]}
     if set(conditions["conditions"]["C1"]["article_ids"]) != required:

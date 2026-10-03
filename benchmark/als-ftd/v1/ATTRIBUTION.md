@@ -14,6 +14,13 @@ Licence: https://creativecommons.org/licenses/by/4.0/
 
 Third-party review: no separately restrictive credit located in the main PDF; see the full caption inventory in manifest.json.
 
+Liu correction notices: [patent disclosure](https://pmc.ncbi.nlm.nih.gov/articles/PMC11645136/)
+identifies Honghe Liu and Jiou Wang as inventors on Johns Hopkins patent application
+63313150 related to this work; [supplemental labels](https://pmc.ncbi.nlm.nih.gov/articles/PMC13132388/)
+correct Figure 3C. These notices are linked for provenance, not selected as corpus
+sources. Original selected PDF bytes are unmodified; impact assessments are in
+manifest.json.
+
 ## PMC11047104 — deposit 1
 
 Aradhana Sachdev, Kamaljot Gill, Maria Sckaff, Alisha M. Birk, Olubankole Aladesuyi Arogundade, Katherine A. Brown, Runvir S. Chouhan, Patrick Oliver Issagholian-Lewin, Esha Patel, Hannah L. Watry, Mylinh T. Bernardi, Kathleen C. Keough, Yu-Chih Tsai, Alec Simon Tulloch Smith, Bruce R. Conklin, Claire Dudley Clelland. Reversal of C9orf72 mutation-induced transcriptional dysregulation and pathology in cultured human neurons by allele-specific excision. Proceedings of the National Academy of Sciences of the United States of America (2024-04-15).
@@ -25,6 +32,10 @@ Licence: https://creativecommons.org/licenses/by/4.0/
 Copyright © 2024 the Author(s). Published by PNAS.2024https://creativecommons.org/licenses/by/4.0/This open access article is distributed under Creative Commons Attribution License 4.0 (CC BY).
 
 Third-party review: no separately restrictive credit located in the main PDF; see the full caption inventory in manifest.json.
+
+Sachdev's [supplementary probe correction](https://pmc.ncbi.nlm.nih.gov/articles/PMC12704798/)
+is linked for provenance and assessed in manifest.json. It is not a selected
+corpus source; the original selected PDF bytes are unmodified.
 
 ## PMC10188109 — deposit 1
 
