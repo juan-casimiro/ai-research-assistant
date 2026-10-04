@@ -23,6 +23,8 @@ CATEGORIES = ("direct_lookup", "multi_hop", "cross_doc_synthesis",
 DOUBLE_COVERAGE = {"cross_doc_synthesis": 5, "cross_doc_distractor": 5, "false_premise": 5}
 RUNNERS = {
     "stage1_blind": {"cli": "claude", "model": "claude-sonnet-5-5", "workspace": BLIND_WS},
+    "stage1_kimi": {"cli": "kimi", "model": "kimi-code/k3-256k", "effort": "low (config default)",
+                    "brief": "stage1_blind_kimi.md", "agent_file": "kimi_blind_agent.md", "workspace": BLIND_WS},
     "stage1_double": {"cli": "codex", "model": "gpt-6.1-sol", "reasoning_effort": "medium", "workspace": BLIND_WS},
     "stage2_audit": {"cli": "claude", "model": "claude-sonnet-5-5", "workspace": GOLD_WS},
     "stage3_hunt": {"cli": "codex", "model": "gpt-6.1-sol", "reasoning_effort": "medium", "workspace": GOLD_WS},
@@ -171,10 +173,11 @@ def main() -> None:
         "pilot_stage1_blind": grouped("pilot1", pilot, 6), "pilot_stage2_audit": grouped("pilot2", pilot, 6),
         "pilot_stage3_hunt": grouped("pilot3", pilot, 8),
         "stage1_double": grouped("double1", double, 6),
+        "stage1_kimi": grouped("kimi1", sorted(category), 1),  # one question per call
     }
     locations = {  # stage key -> (workspace directory relative to its set, record kind)
         "stage1_blind": (blind, "", "stage1_blind"), "pilot_stage1_blind": (blind, "", "stage1_blind"),
-        "stage1_double": (blind, "", "stage1_blind"),
+        "stage1_double": (blind, "", "stage1_blind"), "stage1_kimi": (blind, "", "stage1_blind"),
         "stage2_audit": (gold / "audit", "", "stage2_audit"), "pilot_stage2_audit": (gold / "audit", "", "stage2_audit"),
         "stage3_hunt": (gold / "hunt", None, "stage3_hunt"), "pilot_stage3_hunt": (gold / "hunt", None, "stage3_hunt"),
     }

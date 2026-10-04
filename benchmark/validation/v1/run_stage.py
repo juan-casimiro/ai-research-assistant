@@ -10,7 +10,9 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import shutil
 import subprocess
+import threading
 import time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
@@ -28,6 +30,9 @@ STAGES = {  # stage -> brief, schema, read tools for the Claude runner, blind
 GOLD_MARKERS = ("benchmark/", "golden_qa", "jua-106-gold-ws", "jua-106-seeds",
                 "ai-research-assistant", "corpus/JUA-106", "queries.json")
 MAX_ATTEMPTS = 2
+LIMIT_ERROR = re.compile(r"usage limit|quota will reset|rate.?limit(ed)? exceeded", re.IGNORECASE)
+KIMI_SESSIONS = Path.home() / ".kimi-code" / "sessions"
+halted = threading.Event()  # set when a runner reports its usage limit; later batches are not started
 
 
 def normalise(text: str) -> str:
@@ -125,13 +130,33 @@ def usage_records(transcript: str) -> list[dict]:
     return records[-3:]
 
 
+def kimi_usage(transcript: str) -> list[dict]:
+    """Token totals from the session log; Kimi's stream-json output carries none."""
+    match = re.search(r'"session_id":\s*"(session_[0-9a-f-]+)"', transcript)
+    if not match:
+        return []
+    total, steps = {}, 0
+    for wire in KIMI_SESSIONS.glob(f"*/{match.group(1)}/agents/*/wire.jsonl"):
+        for line in wire.read_text(encoding="utf-8").splitlines():
+            try:
+                event = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            if event.get("type") == "usage.record" and isinstance(event.get("usage"), dict):
+                steps += 1
+                for key, value in event["usage"].items():
+                    total[key] = total.get(key, 0) + value
+    return [{"session_id": match.group(1), "steps": steps, **total}] if steps else []
+
+
 def command(runner: dict, prompt: str, cwd: Path, schema_path: Path, tools: str,
             reply_path: Path, overrides: dict) -> tuple[list[str], str | None]:
     """Argument list and stdin for one headless call."""
     cli = runner["cli"]
     binary = overrides.get(cli, cli)
     if cli == "kimi":
-        return [binary, "-m", runner["model"], "--output-format", "stream-json", "-p", prompt], None
+        agent = ["--agent-file", str(cwd.parent / runner["agent_file"])] if "agent_file" in runner else []
+        return [binary, "-m", runner["model"], *agent, "--output-format", "stream-json", "-p", prompt], None
     if cli == "codex":
         return [binary, "exec", "-m", runner["model"],
                 "-c", f'model_reasoning_effort="{runner["reasoning_effort"]}"',
@@ -164,6 +189,7 @@ def check_quotes(reply, articles: Path) -> dict:
 
 def run_batch(batch: dict, stage: str, runner: dict, args, schema: dict) -> dict:
     brief, schema_name, tools, blind = STAGES[stage]
+    brief = runner.get("brief", brief)
     batch_path = args.workspace_root / batch["batch_file"]
     cwd = batch_path.parent.parent
     placeholder = "{case_file}" if stage == "stage5_adjudicate" else "{batch_file}"
@@ -176,6 +202,8 @@ def run_batch(batch: dict, stage: str, runner: dict, args, schema: dict) -> dict
     key = "verdict" if stage == "stage5_adjudicate" else "cases"
     problems = []
     for attempt in range(1, MAX_ATTEMPTS + 1):
+        if halted.is_set() and args.execute:
+            return {"batch_id": batch["batch_id"], "status": "not_started"}
         transcript_path = run_dir / f"{batch['batch_id']}.attempt{attempt}.transcript"
         reply_path = run_dir / f"{batch['batch_id']}.attempt{attempt}.reply.json"
         argv, stdin = command(runner, prompt, cwd, HERE / "schemas" / schema_name, tools, reply_path, args.cli)
@@ -183,6 +211,8 @@ def run_batch(batch: dict, stage: str, runner: dict, args, schema: dict) -> dict
             shown = [a if len(a) < 120 else f"<{len(a)} chars>" for a in argv]
             return {"batch_id": batch["batch_id"], "status": "dry_run", "cwd": str(cwd), "command": shown}
         run_dir.mkdir(parents=True, exist_ok=True)
+        if "agent_file" in runner:  # copied beside the workspace so its path names no gold location
+            shutil.copyfile(HERE / "briefs" / runner["agent_file"], cwd.parent / runner["agent_file"])
         started = time.time()
         try:
             done = subprocess.run(argv, input=stdin, cwd=cwd, capture_output=True, text=True, timeout=args.timeout)
@@ -192,6 +222,9 @@ def run_batch(batch: dict, stage: str, runner: dict, args, schema: dict) -> dict
         transcript_path.write_text(transcript, encoding="utf-8")
         reply = load(reply_path) if reply_path.is_file() else pick_reply(extract_replies(transcript, key), schema)
         if reply is None:
+            if LIMIT_ERROR.search(transcript[-2000:]):
+                halted.set()  # not a review gap: the batch is left for a later run
+                return {"batch_id": batch["batch_id"], "status": "limit", "detail": transcript[-300:].strip()}
             problems.append(f"attempt {attempt}: no JSON reply found")
             continue
         errors = schema_errors(reply, schema)
@@ -208,7 +241,7 @@ def run_batch(batch: dict, stage: str, runner: dict, args, schema: dict) -> dict
         record = {
             "batch_id": batch["batch_id"], "stage": stage, "group": args.group, "runner": runner,
             "attempts": attempt, "earlier_problems": problems, "duration_s": round(time.time() - started, 1),
-            "quotes": check_quotes(reply, cwd / "articles"), "usage": usage_records(transcript),
+            "quotes": check_quotes(reply, cwd / "articles"), "usage": kimi_usage(transcript) if runner["cli"] == "kimi" else usage_records(transcript),
             "transcript": str(transcript_path.relative_to(args.workspace_root)), "output": reply,
         }
         args.results_dir.mkdir(parents=True, exist_ok=True)
@@ -244,7 +277,7 @@ def main() -> None:
 
     manifest = load(HERE / "manifest.json")
     stage = args.stage or args.group.removeprefix("pilot_")
-    stage = "stage1_blind" if stage == "stage1_double" else stage
+    stage = "stage1_blind" if stage in ("stage1_double", "stage1_kimi") else stage
     if stage not in STAGES:
         raise SystemExit(f"cannot infer stage from group {args.group!r}; pass --stage")
     batches = load(args.batch_list)[stage] if args.batch_list else manifest["batches"][args.group]
@@ -258,7 +291,7 @@ def main() -> None:
         outcomes = list(pool.map(lambda b: run_batch(b, stage, runner, args, schema), batches))
     for outcome in outcomes:
         print(json.dumps(outcome, ensure_ascii=False))
-    counts = {s: sum(1 for o in outcomes if o["status"] == s) for s in ("ok", "kept", "gap", "dry_run")}
+    counts = {s: sum(1 for o in outcomes if o["status"] == s) for s in ("ok", "kept", "gap", "dry_run", "limit", "not_started")}
     print(json.dumps({"group": args.group, "stage": stage, "runner": runner_key, **counts}))
 
 

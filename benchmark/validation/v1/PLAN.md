@@ -148,6 +148,34 @@ The orchestrator verifies each quote is a substring of the named file
 (whitespace-normalised). Unverifiable quotes are marked and count against the
 blind answer, not against the gold.
 
+#### Kimi single-question pass (`stage1_kimi`, added 2026-10-04)
+
+A second blind pass by Kimi, kept beside the Claude Sonnet results rather than
+replacing them. It differs from the batches above in four ways:
+
+- One question per session: 158 batches of one case, run with `--jobs 1`.
+- Its own brief, `briefs/stage1_blind_kimi.md`: the blind brief, the absolute
+  location of the shared development guidance (the review folder is not a
+  repository, so relative paths to it do not resolve), and reading rules that
+  favour a well-founded answer, including reading a whole article when an
+  excerpt does not settle it.
+- A read-only agent profile, `briefs/kimi_blind_agent.md` (Read, Grep, Glob,
+  Bash), passed with `--agent-file`. Kimi's default profile resends about 42k
+  tokens of tool definitions on every step; this one resends about 6k.
+- Token use is read from Kimi's session log, because its stream output carries
+  none. On a usage-limit error the runner stops the queue and leaves the
+  remaining batches unrun instead of recording them as gaps; rerunning the same
+  command resumes.
+
+```sh
+python3 run_stage.py --group stage1_kimi --workspace-root <development-root>/.agent-tmp \
+  --jobs 1 --timeout 900 --execute
+```
+
+Kimi's quota is a rolling 5-hour window of roughly 2M input tokens, cached
+tokens included. At a median of 75k input tokens per question that is about 25
+questions per window.
+
 ### Stage 2 — gold audit (Claude Sonnet)
 
 Input per case: the full gold record, its anchors, and read access to the
