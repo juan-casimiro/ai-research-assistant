@@ -1,0 +1,253 @@
+{
+  "batch_id": "full4-15",
+  "stage": "stage4_compare",
+  "group": "full_stage4",
+  "runner": {
+    "cli": "claude",
+    "model": "claude-sonnet-5-5",
+    "workspace": "jua-106-gold-ws"
+  },
+  "attempts": 1,
+  "earlier_problems": [],
+  "duration_s": 17.6,
+  "quotes": {
+    "verified": 0,
+    "total": 0
+  },
+  "usage": [
+    {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 13657,
+      "cache_read_input_tokens": 4431,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 13657
+      },
+      "output_tokens": 3,
+      "service_tier": "standard",
+      "inference_geo": "not_available"
+    },
+    {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 15211,
+      "cache_read_input_tokens": 7308,
+      "output_tokens": 2129,
+      "output_tokens_details": {
+        "thinking_tokens": 523
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 15211,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 2040,
+          "cache_read_input_tokens": 4431,
+          "cache_creation_input_tokens": 13657,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 13657
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    {
+      "claude-sonnet-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 2129,
+        "cacheReadInputTokens": 7308,
+        "cacheCreationInputTokens": 15211,
+        "webSearchRequests": 0,
+        "costUSD": 0.0836036,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 523,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    }
+  ],
+  "transcript": "jua-106-runs/full_stage4/full4-15.attempt1.transcript",
+  "output": {
+    "batch_id": "full4-15",
+    "cases": [
+      {
+        "id": "q100",
+        "answerability_agrees": true,
+        "facts": [],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q101",
+        "answerability_agrees": false,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": "States No, goals 84.3%/74.4% vs observed dual screening 58.2%, targets vs achieved."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": true,
+        "ambiguity_changes_answer": false,
+        "escalate": true,
+        "reasons": [
+          "Blind answerability is 'answerable' but key status is false_premise (premise_wrong expected)."
+        ]
+      },
+      {
+        "id": "q102",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": "19,011 hysterectomy exclusion and final analysis group 40,511 both stated."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q108",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "partial",
+            "note": "Says No, review reports trial results; DFS HR 0.17 (99.06% CI 0.11–0.26 in quote) and 0.20 for IB–IIIA given, but the 99.12% CI 0.14–0.30 is missing. Adds OS HR 0.49 not in key."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q124",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": "AUC 0.808."
+          },
+          {
+            "fact_id": "f2",
+            "result": "match",
+            "note": "OR 2.563 (1.273–3.852), P=0.025."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": true,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q126",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": "Syngo.via VB30."
+          },
+          {
+            "fact_id": "f2",
+            "result": "match",
+            "note": "OR 7.501 (1.785–12.348), P<0.001."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q128",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": "Unadjusted OR 0.977 (p=0.008); adjusted OR 0.990 (0.970–1.010, p=0.318), no longer significant."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q129",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": "52.7% (337/640) vs 56.5% (48/85), p=0.508, not significant."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": true,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "x001",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "partial",
+            "note": "Covers suggestive/Bonferroni caveat, later significant causal claim, three named taxa and the inconsistency. Omits the abstract's 195 taxa and FinnGen validation, and the no-intervention-effect caveat."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "x002",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": "No probiotic administered; bidirectional two-sample MR with GWAS summary statistics; no treatment effect in patients."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      }
+    ]
+  }
+}

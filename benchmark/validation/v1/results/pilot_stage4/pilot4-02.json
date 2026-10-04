@@ -1,0 +1,119 @@
+{
+  "batch_id": "pilot4-02",
+  "stage": "stage4_compare",
+  "group": "pilot_stage4",
+  "runner": {
+    "cli": "claude",
+    "model": "claude-sonnet-5-5",
+    "workspace": "jua-106-gold-ws"
+  },
+  "attempts": 1,
+  "earlier_problems": [],
+  "duration_s": 8.8,
+  "quotes": {
+    "verified": 0,
+    "total": 0
+  },
+  "usage": [
+    {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 5567,
+      "cache_read_input_tokens": 4211,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 5567
+      },
+      "output_tokens": 5,
+      "service_tier": "standard",
+      "inference_geo": "not_available"
+    },
+    {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 9778,
+      "cache_read_input_tokens": 4211,
+      "output_tokens": 747,
+      "output_tokens_details": {
+        "thinking_tokens": 250
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 9778,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 656,
+          "cache_read_input_tokens": 4211,
+          "cache_creation_input_tokens": 5567,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 5567
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    {
+      "claude-sonnet-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 747,
+        "cacheReadInputTokens": 4211,
+        "cacheCreationInputTokens": 9778,
+        "webSearchRequests": 0,
+        "costUSD": 0.0474322,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 250,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    }
+  ],
+  "transcript": "jua-106-runs/pilot_stage4/pilot4-02.attempt1.transcript",
+  "output": {
+    "batch_id": "pilot4-02",
+    "cases": [
+      {
+        "id": "x001",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "partial",
+            "note": "Blind gives 11 UK taxa, three FinnGen-validated taxa named, suggestive/no longer significant after Bonferroni, and later section's 'significant causal association in both databases', and flags the inconsistency. It does not state the abstract's 195 taxa count."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": true,
+        "escalate": true,
+        "reasons": [
+          "Blind answer reported ambiguity (which 'later common-taxa section' was meant)."
+        ]
+      },
+      {
+        "id": "x002",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": "Blind says no probiotic was administered, no dose; study is a bidirectional two-sample MR using GWAS summary statistics."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "escalate": false,
+        "reasons": []
+      }
+    ]
+  }
+}

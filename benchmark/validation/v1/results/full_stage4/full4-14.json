@@ -1,0 +1,251 @@
+{
+  "batch_id": "full4-14",
+  "stage": "stage4_compare",
+  "group": "full_stage4",
+  "runner": {
+    "cli": "claude",
+    "model": "claude-sonnet-5-5",
+    "workspace": "jua-106-gold-ws"
+  },
+  "attempts": 1,
+  "earlier_problems": [],
+  "duration_s": 26.1,
+  "quotes": {
+    "verified": 0,
+    "total": 0
+  },
+  "usage": [
+    {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 2084,
+      "cache_read_input_tokens": 19183,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 2084
+      },
+      "output_tokens": 24,
+      "service_tier": "standard",
+      "inference_geo": "not_available"
+    },
+    {
+      "input_tokens": 8,
+      "cache_creation_input_tokens": 18390,
+      "cache_read_input_tokens": 26492,
+      "output_tokens": 3732,
+      "output_tokens_details": {
+        "thinking_tokens": 504
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 18390,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 4,
+          "output_tokens": 1599,
+          "cache_read_input_tokens": 19183,
+          "cache_creation_input_tokens": 2084,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 2084
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    {
+      "claude-sonnet-5-5": {
+        "inputTokens": 8,
+        "outputTokens": 3732,
+        "cacheReadInputTokens": 26492,
+        "cacheCreationInputTokens": 18390,
+        "webSearchRequests": 0,
+        "costUSD": 0.1161944,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 504,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    }
+  ],
+  "transcript": "jua-106-runs/full_stage4/full4-14.attempt1.transcript",
+  "output": {
+    "batch_id": "full4-14",
+    "cases": [
+      {
+        "id": "q079",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": "86% (79–91) vs cytology 60% (36–81), 26 studies, sensitivity 91.8% and specificity 93.5% all stated."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q080",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": "282 untreated patients, noninferior, at least one biomarker in more patients, median 9 vs 15 days."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q081",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "partial",
+            "note": "Says No, and says LDCT has a demonstrated benefit and cites NLST. It omits the 20% relative reduction versus chest radiography."
+          },
+          {
+            "fact_id": "f2",
+            "result": "match",
+            "note": "States that no MCED test has shown a mortality benefit to date. The quote is verified."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q083",
+        "answerability_agrees": true,
+        "facts": [],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q085",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": "Inflamed, desert and excluded are described correctly, and the review's inconsistent definitions are noted."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q095",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": "58.2, 27.1, 5.4 and 9.3 percent, all correct. The answer does not state that dual screening is not the independent CRC rate, but its categories are labeled mutually exclusive."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q096",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": "27.1% vs 5.4%, about fivefold."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": true,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q097",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": "College graduation aOR 3.35 (2.33–4.81) and highest income aOR 3.32 (2.64–4.18) for dual screening vs neither."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q098",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": "Black 2.25 and 1.73, Hispanic 1.68 and 2.34, each vs White and vs neither. Confidence intervals are in the verified quotes."
+          },
+          {
+            "fact_id": "f2",
+            "result": "match",
+            "note": "Hispanic 1.39 higher and Black 0.77 lower for cervical-only vs dual. The answer does not explicitly say Hispanic is the only group significantly higher."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": true,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q099",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "partial",
+            "note": "Names the physician, patient and health-system levels with menopause, speculum reluctance, waiting until 65 for Medicare, and mailed FIT and home tests. It omits the roughly 90% drop in gynecologist visits from age 45 and the COVID context. It does not present the levels as measured results."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      }
+    ]
+  }
+}

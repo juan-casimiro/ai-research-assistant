@@ -1,0 +1,273 @@
+{
+  "batch_id": "pilotseed3-03",
+  "stage": "stage3_hunt",
+  "group": "pilot_seeded_stage3",
+  "runner": {
+    "cli": "codex",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "workspace": "jua-106-gold-ws"
+  },
+  "attempts": 1,
+  "earlier_problems": [],
+  "duration_s": 225.1,
+  "quotes": {
+    "verified": 6,
+    "total": 6
+  },
+  "usage": [
+    {
+      "input_tokens": 516277,
+      "cached_input_tokens": 438784,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 6007,
+      "reasoning_output_tokens": 786
+    }
+  ],
+  "transcript": "jua-106-runs/pilot_seeded_stage3/pilotseed3-03.attempt1.transcript",
+  "output": {
+    "batch_id": "pilotseed3-03",
+    "cases": [
+      {
+        "id": "c028",
+        "findings": [
+          {
+            "type": "H6",
+            "file": "cardio-af-stroke-mechanisms-review.txt",
+            "quote": "Despite the central position that CHA2DS2-VASc has in current clinical practice, its\npredictive accuracy remains modest, with a C-statistic of 0.578 for prediction of throm-\nboembolism [99,121].",
+            "explanation": "The question explicitly requests the review-cited CHA2DS2-VASc thromboembolism discrimination. This named decoy supplies that exact component: C-statistic 0.578 in the AF review. It does not supply Sun’s no-reflow results or sex subgroups, but it is necessary for the requested comparison, contradicting the decoy’s stated inapplicability and exposing an incomplete source list and reference answer.",
+            "strength": "definite",
+            "quote_verified": true
+          },
+          {
+            "type": "H5",
+            "file": "cardio-stemi-vasc-fmd-no-reflow.txt",
+            "quote": "CHA2DS VAS score 0.800  > 3 58.97 92.79 74.2 86.6\nFMD% 0.878  ≤ 11 76.92 95.5 85.7 92.2\nCombination 0.885 – 76.92 93.69 81.1 92.0",
+            "explanation": "Rashed’s study reports CHA2DS2-VASc no-reflow discrimination after primary PCI in STEMI, making its AUC 0.800 a closer numerical competitor to Sun’s no-reflow AUC than the named AF thromboembolism decoy. However, it concerns a different 150-patient cohort, uses VASc rather than VA, and does not provide Sun’s sex subgroups. It is not a conflict.",
+            "strength": "probable",
+            "quote_verified": true
+          }
+        ],
+        "search_terms": [
+          "Sun",
+          "725",
+          "11\\.7",
+          "0\\.613",
+          "0\\.569",
+          "0\\.673",
+          "no.reflow",
+          "CHA2DS2",
+          "CHA.?DS.?VA",
+          "no.?reflow",
+          "0[ .]613",
+          "0[ .]569",
+          "0[ .]673",
+          "11[ .]7",
+          "noreflow",
+          "cha2ds2va",
+          "0.613",
+          "0.569",
+          "0.673"
+        ],
+        "files_examined": [
+          "cardio-af-stroke-mechanisms-review.txt",
+          "cardio-stemi-vasc-fmd-no-reflow.txt",
+          "cardio-ai-af-management-review.txt"
+        ],
+        "stable": false
+      },
+      {
+        "id": "c010",
+        "findings": [
+          {
+            "type": "H5",
+            "file": "cardio-resistant-hypertension-thai-consensus.txt",
+            "quote": "In this analysis, the reduction in systolic BP after 1 and\n4 months was greater with ARNI than with valsartan in\npatients with RH and was even greater in patients with\nMRA-RH.",
+            "explanation": "The surrounding passage attributes this to PARAGON-HF patients with HFpEF and apparent resistant hypertension. It offers another HFpEF resistant-hypertension drug comparison with follow-up and SBP effects, making it a plausible undeclared competitor. It concerns sacubitril/valsartan versus valsartan at one and four months, not EMPEROR-Preserved empagliflozin or the Cameroon spironolactone trial; it supplies neither requested numerical BP comparison.",
+            "strength": "weak",
+            "quote_verified": true
+          }
+        ],
+        "search_terms": [
+          "Cameroon",
+          "spironolactone",
+          "resHTN",
+          "EMPEROR.Preserved",
+          "172",
+          "33.*14",
+          "empagli",
+          "preserved",
+          "resistant",
+          "2\\.4",
+          "3\\.3",
+          "four.week",
+          "4.week",
+          "25 mg",
+          "25.mg",
+          "33 mm",
+          "14 mm",
+          "33.mm",
+          "14.mm",
+          "emperor",
+          "empagliflozin",
+          "EMPEROR",
+          "empag",
+          "empa",
+          "resis"
+        ],
+        "files_examined": [
+          "cardio-resistant-hypertension-thai-consensus.txt",
+          "cardio-resistant-hypertension-korean-consensus.txt",
+          "diabetes-metabolic-syndrome-cameroon.txt",
+          "cardio-hfpef-dapagliflozin-cost-analysis.txt",
+          "cardio-cardiorenal-drug-network-meta-analysis.txt",
+          "cardio-ckd-sglt2-acei-arb.txt",
+          "cardio-heartfailure-biomarkers.txt",
+          "cardio-hfpef-geriatric-biomarkers.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "a008",
+        "findings": [],
+        "search_terms": [
+          "Parameswaran",
+          "LeBlanc",
+          "\\bPKR\\b",
+          "eIF2",
+          "\\bSPECT\\b",
+          "C9FTD",
+          "Parames",
+          "Le.?Blanc",
+          "protein kinase R",
+          "frontal",
+          "postmortem",
+          "post.mortem",
+          "phosphor",
+          "diagnos",
+          "pkr",
+          "spect",
+          "phosphorylated"
+        ],
+        "files_examined": [
+          "als-ftd-pmc11047104.txt",
+          "als-ftd-pmc11527445.txt",
+          "onco-icd-cold-tumor-review.txt",
+          "outlier-alzheimer-dual-model.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "o042",
+        "findings": [
+          {
+            "type": "H3",
+            "file": "onco-lung-liquidbiopsy.txt",
+            "quote": "was noninferior to physician-selected tissue testing for guideline- \nrecommended biomarkers, identifying at least one biomarker in \nmore patients than tissue alone, with faster turnaround (median \n9 vs. 15 days) and high concordance when both were available",
+            "explanation": "The immediately preceding lines identify NILE, Guardant360 plasma cfDNA genotyping, and 282 untreated patients with metastatic NSCLC. This liquid-biopsy review explicitly supplies the requested comparison: noninferiority for guideline-recommended biomarkers, identification of at least one biomarker in more patients than tissue alone, and median turnaround of nine days for plasma versus fifteen for tissue. The absent-fact key is broken.",
+            "strength": "definite",
+            "quote_verified": true
+          }
+        ],
+        "search_terms": [
+          "NILE",
+          "turnaround",
+          "turn.around",
+          "plasma",
+          "liquid.bio",
+          "biomarker",
+          "cfDNA",
+          "genotyping",
+          "Leighl",
+          "Guardant",
+          "blood.first",
+          "plasma.first",
+          "9 vs",
+          "15 days",
+          "turn.?around",
+          "cell.free DNA",
+          "ctDNA",
+          "guardant360",
+          "biomarkeridentification"
+        ],
+        "files_examined": [
+          "onco-lung-liquidbiopsy.txt",
+          "onco-reflex-biomarker-consensus.txt",
+          "onco-polmol-testing.txt",
+          "onco-driver-nonmetastatic-review.txt"
+        ],
+        "stable": false
+      },
+      {
+        "id": "x002",
+        "findings": [
+          {
+            "type": "H5",
+            "file": "outlier-microbiome-tuberculosis.txt",
+            "quote": "Research on the relationship between probiotics and TB shows\nthat probiotic supplementation can help reduce gastrointestinal side\neffects caused by anti-TB medications in patients and may also help\ncounteract antibiotic-induced disturbances in gut microbiota ( Baral\net al., 2026 ).",
+            "explanation": "This review describes actual probiotic supplementation in TB patients, making it a plausible treatment-related competitor. However, it attributes the observation to Baral, concerns adverse effects and microbiota during anti-TB treatment, and does not demonstrate reduced TB incidence or provide a Yuan treatment dose. Its separate discussion of Yuan explicitly identifies Mendelian randomization, so it does not establish the question’s premise.",
+            "strength": "weak",
+            "quote_verified": true
+          }
+        ],
+        "search_terms": [
+          "probiotic",
+          "Yuan",
+          "tuberculosis",
+          "incidence",
+          "\\bYuan\\b",
+          "probiot",
+          "Lactobac",
+          "Bifido",
+          "TB incidence",
+          "tuberculo",
+          "Mendelian"
+        ],
+        "files_examined": [
+          "outlier-microbiome-tuberculosis.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "c027",
+        "findings": [
+          {
+            "type": "H5",
+            "file": "cardio-stemi-vasc-fmd-no-reflow.txt",
+            "quote": "There were 39 (26%) patients in the no-reflow group and 111 (74%) in the reflow group.",
+            "explanation": "Rashed’s article provides a direct post-primary-PCI no-reflow proportion for STEMI patients, making 26% a close undeclared competing answer. The surrounding abstract identifies a 150-patient cohort, not Sun’s 725-patient cohort. The endpoint and procedural timing match, but the study and population do not; this is neither an alternative answer nor a conflicting incidence for Sun.",
+            "strength": "probable",
+            "quote_verified": true
+          }
+        ],
+        "search_terms": [
+          "Sun",
+          "725",
+          "11\\.7",
+          "0\\.613",
+          "0\\.569",
+          "0\\.673",
+          "no.reflow",
+          "CHA2DS2",
+          "CHA.?DS.?VA",
+          "no.?reflow",
+          "0[ .]613",
+          "0[ .]569",
+          "0[ .]673",
+          "11[ .]7",
+          "noreflow",
+          "cha2ds2va",
+          "0.613",
+          "0.569",
+          "0.673"
+        ],
+        "files_examined": [
+          "cardio-stemi-vasc-fmd-no-reflow.txt",
+          "cardio-af-stroke-mechanisms-review.txt",
+          "cardio-ai-af-management-review.txt"
+        ],
+        "stable": true
+      }
+    ]
+  }
+}

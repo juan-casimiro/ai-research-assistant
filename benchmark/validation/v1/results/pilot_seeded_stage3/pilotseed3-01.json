@@ -1,0 +1,253 @@
+{
+  "batch_id": "pilotseed3-01",
+  "stage": "stage3_hunt",
+  "group": "pilot_seeded_stage3",
+  "runner": {
+    "cli": "codex",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "workspace": "jua-106-gold-ws"
+  },
+  "attempts": 1,
+  "earlier_problems": [],
+  "duration_s": 206.1,
+  "quotes": {
+    "verified": 5,
+    "total": 5
+  },
+  "usage": [
+    {
+      "input_tokens": 573410,
+      "cached_input_tokens": 484224,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 5350,
+      "reasoning_output_tokens": 860
+    }
+  ],
+  "transcript": "jua-106-runs/pilot_seeded_stage3/pilotseed3-01.attempt1.transcript",
+  "output": {
+    "batch_id": "pilotseed3-01",
+    "cases": [
+      {
+        "id": "a002",
+        "findings": [
+          {
+            "type": "H5",
+            "file": "als-ftd-pmc10188109.txt",
+            "quote": "Zu et al. recently showed that metformin, an FDA- approved drug widely used for \ntreating type 2 diabetes, inhibits PKR activation, reduces DPR proteins RAN translated from the sense \nstrand, and improves behavioral and pathological deficits in BAC transgenic mice expressing G 4C2 \nrepeats (Zu et al., 2020).",
+            "explanation": "A close competitor reports DPR reduction together with behavioral improvement in repeat-expressing BAC mice. However, it attributes this to metformin and Zu et al. (2020), not Liu's Cas13d experiment, and does not establish survival improvement. It does not make the named study's premise true.",
+            "strength": "weak",
+            "quote_verified": true
+          }
+        ],
+        "search_terms": [
+          "Cas13",
+          "cas13",
+          "C9-500",
+          "C9.?500",
+          "Liu",
+          "BAC",
+          "BAC transgenic",
+          "survival",
+          "motor",
+          "CRISPR",
+          "Zu et"
+        ],
+        "files_examined": [
+          "als-ftd-pmc10188109.txt",
+          "als-ftd-pmc11047104.txt",
+          "als-ftd-pmc10802081.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "o009",
+        "findings": [
+          {
+            "type": "H5",
+            "file": "onco-ici-cardiac-rct-meta.txt",
+            "quote": "Results A total of 30 studies including 16,331 patients, were included in the analysis. Pooled results showed that \nsingle ICI (RR: 2.15; 95% CI: 1.13–4.12; p = 0.02; I2 = 0%) or a combination of single ICI plus chemotherapy (RR: 1.38 \n[1.05–1.82]; p = 0.02) significantly increased the risk of cardiac adverse events when compared with chemotherapy \nalone.",
+            "explanation": "This is another lung-cancer ICI cardiac-event meta-analysis with readily confusable pooled estimates. Its methods include randomized trials and both SCLC and NSCLC; its estimates are risk ratios, with chemotherapy comparators and a search through May 2023. It does not answer or contradict the specified observational NSCLC meta-analysis.",
+            "strength": "weak",
+            "quote_verified": true
+          }
+        ],
+        "search_terms": [
+          "23621",
+          "23,621",
+          "23.?621",
+          "1.78",
+          "1.46",
+          "2.17",
+          "observational",
+          "prevalence",
+          "cardiovascular",
+          "twelve.*stud",
+          "12.*observ",
+          "meta.analysis",
+          "ICI",
+          "checkpoint",
+          "NSCLC"
+        ],
+        "files_examined": [
+          "onco-ici-cardiac-rct-meta.txt",
+          "onco-pd1-cause-specific-mortality.txt",
+          "diabetes-cardiovascular-outcomes.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "c007",
+        "findings": [
+          {
+            "type": "H5",
+            "file": "cardio-resistant-hypertension-korean-consensus.txt",
+            "quote": "Several \nfactors, such as improper BP measurement, the “white-\ncoat effect, ” medication non-adherence, and treatment \ninertia, contribute to pseudoresistance. According to \ncurrent guidelines, accurate BP measurement is the cor -\nnerstone of RH diagnosis [21, 22]. The “white-coat effect” \nshould be excluded when using ABPM or HBPM [23].",
+            "explanation": "This consensus addresses the same apparent-resistant-hypertension diagnostic work-up, including measurement, adherence and out-of-office monitoring. It is the Korean consensus, not the Thai consensus, and this passage does not supply the complete requested drug/substance check or the stated monitoring fallback. It is a close retrieval competitor rather than an attributed alternative answer.",
+            "strength": "weak",
+            "quote_verified": true
+          }
+        ],
+        "search_terms": [
+          "pseudores",
+          "Thai",
+          "white.coat",
+          "adherence",
+          "ambulatory"
+        ],
+        "files_examined": [
+          "cardio-resistant-hypertension-korean-consensus.txt",
+          "cardio-emperor-preserved-resistant-hypertension.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "x001",
+        "findings": [],
+        "search_terms": [
+          "Yuan",
+          "Bonferroni",
+          "bonferroni",
+          "Akkermansia",
+          "FinnGen",
+          "Finn",
+          "195",
+          "Verrucomicro",
+          "verrucomicro",
+          "UK Biobank",
+          "Mendelian",
+          "taxa",
+          "taxon"
+        ],
+        "files_examined": [
+          "outlier-microbiome-tuberculosis.txt",
+          "cardio-diabetes-hypertension-polygenic.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "o041",
+        "findings": [],
+        "search_terms": [
+          "ADAURA",
+          "adaura",
+          "95.03",
+          "83%",
+          "73%",
+          "88%",
+          "78%",
+          "osimertinib",
+          "Tsuboi",
+          "0.49",
+          "five.year",
+          "5.year"
+        ],
+        "files_examined": [
+          "onco-reflex-biomarker-consensus.txt",
+          "onco-lung-liquidbiopsy.txt",
+          "onco-afatinib-vietnam.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "c022",
+        "findings": [
+          {
+            "type": "H5",
+            "file": "cardio-cad-ct-angiography.txt",
+            "quote": "Among 280 patients diagnosed with CAD, 46 pat ients \nexpe rienced MA CE within 1 ye ar of follo w-up, corre sponding to \nan incidence ra te of 16.43%.",
+            "explanation": "The named Gao study supplies an original-cohort event rate and externally validates its nomogram, making this a particularly tempting substitute. However, 16.43% is observed one-year composite incidence, not an assigned ten-year hard-MACE risk. The endpoint includes unstable-angina revascularization and rehospitalization; the limitations explicitly require longer follow-up and harder outcomes. This does not supply the absent fact.",
+            "strength": "weak",
+            "quote_verified": true
+          }
+        ],
+        "search_terms": [
+          "nomogram",
+          "nomog",
+          "Gao",
+          "hard.MACE",
+          "ten.year",
+          "ten-year",
+          "10.year",
+          "10-year",
+          "extern.*valid",
+          "MACE",
+          "MA CE",
+          "Framingham",
+          "hard",
+          "follow",
+          "year",
+          "endpoint",
+          "mortality",
+          "infarct",
+          "CCTA",
+          "CCT A",
+          "computed.tomog",
+          "SCORE",
+          "QRISK",
+          "ASCVD"
+        ],
+        "files_examined": [
+          "cardio-cad-ct-angiography.txt",
+          "cardio-ccta-tyg-incremental-value.txt",
+          "diabetes-cardiovascular-outcomes.txt",
+          "outlier-microbiome-tuberculosis.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "d002",
+        "findings": [
+          {
+            "type": "H5",
+            "file": "cardio-diabetes-hypertension-polygenic.txt",
+            "quote": "The Higher adiposity cluster contained 137 SNVs—predominantly\nT2D signals —which showcased effects on higher BMI, reduced sex\nhormones (testosterone and SHBG), higher TG along with lower HDL-\nand LDL-cholesterol, higher risk of cardiovascular events (CAD, heart\nrate, stroke), and insulin resistance (higher HOMA-IR/HOMA-B).",
+            "explanation": "This article combines polygenic disease-risk research, T2D and SHBG, making it closer to the requested hormone/genetic-risk topic than the named CYP2C9 sulphonylurea-response decoy. However, it concerns variant clusters and T2D–blood-pressure comorbidity, not Dabbs-Brown's female PRS-by-SHBG interaction. It supplies neither the requested female OR nor its confidence interval. The named decoy's abstract confirms its distinct Pashtun hypoglycaemia population and endpoint.",
+            "strength": "weak",
+            "quote_verified": true
+          }
+        ],
+        "search_terms": [
+          "Dabbs",
+          "dabbs",
+          "SHBG",
+          "shbg",
+          "sex.hormone",
+          "PRS",
+          "polygenic",
+          "hormone",
+          "binding.globulin",
+          "0.88",
+          ".85.*.90",
+          "Pashtun",
+          "hypoglyc"
+        ],
+        "files_examined": [
+          "diabetes-cyp2c9-hypoglycaemia.txt",
+          "cardio-diabetes-hypertension-polygenic.txt"
+        ],
+        "stable": true
+      }
+    ]
+  }
+}

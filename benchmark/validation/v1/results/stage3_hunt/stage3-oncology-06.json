@@ -1,0 +1,161 @@
+{
+  "batch_id": "stage3-oncology-06",
+  "stage": "stage3_hunt",
+  "group": "stage3_hunt",
+  "runner": {
+    "cli": "codex",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "workspace": "jua-106-gold-ws"
+  },
+  "attempts": 1,
+  "earlier_problems": [],
+  "duration_s": 112.9,
+  "quotes": {
+    "verified": 1,
+    "total": 1
+  },
+  "usage": [
+    {
+      "input_tokens": 333572,
+      "cached_input_tokens": 288512,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 2838,
+      "reasoning_output_tokens": 188
+    }
+  ],
+  "transcript": "jua-106-runs/stage3_hunt/stage3-oncology-06.attempt1.transcript",
+  "output": {
+    "batch_id": "stage3-oncology-06",
+    "cases": [
+      {
+        "id": "q096",
+        "findings": [],
+        "search_terms": [
+          "cervic",
+          "27.1",
+          "5.4",
+          "dual.screen",
+          "CRC.only",
+          "50.{0,8}64",
+          "cerv",
+          "colorect",
+          "pap.test",
+          "BRFSS",
+          "NHIS",
+          "single.screen",
+          "cerv\\s+ical",
+          "colore\\s+ctal",
+          "cervical.only",
+          "CRC",
+          "Pap",
+          "screening.prevalence",
+          "five.times",
+          "fivefold",
+          "cervical (whitespace removed)",
+          "colorectal (whitespace removed)",
+          "brfss (whitespace removed)"
+        ],
+        "files_examined": [
+          "onco-immune-exclusion-definition.txt",
+          "onco-icd-cold-tumor-review.txt",
+          "onco-lung-liquidbiopsy.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "o016",
+        "findings": [],
+        "search_terms": [
+          "CALR",
+          "calreticul",
+          "P2RX7",
+          "PERK",
+          "eIF2",
+          "immunogenic",
+          "autophag",
+          "endoplasmic",
+          "immunogenic cell",
+          "dendritic",
+          "ATP",
+          "inflammasom",
+          "phagocyt",
+          "DAMP",
+          "P2X7",
+          "purinerg",
+          "ICD",
+          "calreticulin (whitespace removed)",
+          "calr (whitespace removed)",
+          "p2rx7 (whitespace removed)",
+          "p2x7 (whitespace removed)",
+          "dendritic (whitespace removed)"
+        ],
+        "files_examined": [
+          "onco-nsclc-neoadjuvant-stageiii.txt",
+          "diabetes-hif-zinc-review.txt",
+          "als-ftd-pmc10188109.txt",
+          "outlier-microbiome-tuberculosis.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "o006",
+        "findings": [],
+        "search_terms": [
+          "afatinib",
+          "Vietnam",
+          "58.6",
+          "39.9",
+          "343",
+          "30\\s*.?mg",
+          "40\\s*.?mg",
+          "starting.dose",
+          "initial.dose",
+          "afatin",
+          "viet",
+          "58\\s*\\.\\s*6",
+          "39\\s*\\.\\s*9",
+          "afatinib (whitespace removed)",
+          "vietnam (whitespace removed)"
+        ],
+        "files_examined": [
+          "onco-polmol-testing.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "o022",
+        "findings": [
+          {
+            "type": "H5",
+            "file": "onco-nsclc-neoadjuvant-stageiii.txt",
+            "quote": "Participants and methods: A total of 59 consecutive patients were ﬁnally\nselected and divided into two groups: the neoadjuvant chemotherapy group\n(n = 33) and the neoadjuvant chemoimmunotherapy group (n = 26).",
+            "explanation": "An undeclared competitor with the same Chinese retrospective neoadjuvant NSCLC treatment comparison and surgical outcomes; no decoys are named. It concerns Zhongshan stage III patients, published December 2023, rather than the May 2022 Hunan cohort. Its 59 patients and 26/33 groups do not answer or contradict the Hunan 190-patient composition, ECOG eligibility, or exclusion of patients failing surgery.",
+            "strength": "weak",
+            "quote_verified": true
+          }
+        ],
+        "search_terms": [
+          "Hunan",
+          "neoadjuvant",
+          "190",
+          "resect",
+          "ECOG",
+          "121",
+          "69",
+          "Changsha",
+          "Xiangya",
+          "fail.{0,30}surg",
+          "excluded.{0,30}surg",
+          "hunan (whitespace removed)",
+          "changsha (whitespace removed)",
+          "xiangya (whitespace removed)"
+        ],
+        "files_examined": [
+          "onco-nsclc-neoadjuvant-stageiii.txt"
+        ],
+        "stable": true
+      }
+    ]
+  }
+}

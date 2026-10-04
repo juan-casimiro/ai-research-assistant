@@ -1,0 +1,273 @@
+{
+  "batch_id": "pilotseed2-outliers-01",
+  "stage": "stage2_audit",
+  "group": "pilot_seeded_stage2",
+  "runner": {
+    "cli": "claude",
+    "model": "claude-sonnet-5-5",
+    "workspace": "jua-106-gold-ws"
+  },
+  "attempts": 1,
+  "earlier_problems": [],
+  "duration_s": 24.1,
+  "quotes": {
+    "verified": 0,
+    "total": 0
+  },
+  "usage": [
+    {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 1552,
+      "cache_read_input_tokens": 22966,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 1552
+      },
+      "output_tokens": 5,
+      "service_tier": "standard",
+      "inference_geo": "not_available"
+    },
+    {
+      "input_tokens": 10,
+      "cache_creation_input_tokens": 24518,
+      "cache_read_input_tokens": 64059,
+      "output_tokens": 3009,
+      "output_tokens_details": {
+        "thinking_tokens": 487
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 24518,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 2015,
+          "cache_read_input_tokens": 22966,
+          "cache_creation_input_tokens": 1552,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 1552
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    {
+      "claude-sonnet-5-5": {
+        "inputTokens": 10,
+        "outputTokens": 3009,
+        "cacheReadInputTokens": 64059,
+        "cacheCreationInputTokens": 24518,
+        "webSearchRequests": 0,
+        "costUSD": 0.1409938,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 487,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    }
+  ],
+  "transcript": "jua-106-runs/pilot_seeded_stage2/pilotseed2-outliers-01.attempt1.transcript",
+  "output": {
+    "batch_id": "pilotseed2-outliers-01",
+    "cases": [
+      {
+        "id": "x001",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "Self-contained, names the study and the sections asked about. It does not leak the inconsistency.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "pass",
+            "reason": "195 taxa, 11 UK taxa and the three FinnGen-validated taxa are in the abstract. The Bonferroni statement and the common-taxa claim are in the results text.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "pass",
+            "reason": "The population is genetically predicted taxa and TB GWAS data. The Bonferroni qualification applies to the UK Biobank section as stated.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G4",
+            "result": "pass",
+            "reason": "Each anchor supports its part: the abstract counts, 'suggestive', 'no longer significant after the Bonferroni correction', and 'significant causal association ... commonly in both databases'.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "pass",
+            "reason": "The reference answer stays within the text. The 'do not treat as an intervention effect' remark is a scoring caveat, not a claim from the paper.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G6",
+            "result": "pass",
+            "reason": "The gold exposes the internal conflict between the Bonferroni statement and the 'significant causal association' wording. It does not note that the FinnGen section also reports Bonferroni non-significance, but the question only asks about the UK section.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "The case combines the abstract, the UK results and the common-taxa section, which are in separate places.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "No single anchor yields the conflict. The abstract, the Bonferroni statement and the common-taxa claim are all needed.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K2",
+            "result": "pass",
+            "reason": "The anchors sit in the abstract, the UK results section (around line 266-274) and the common-taxa section (around line 389).",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K3",
+            "result": "pass",
+            "reason": "All four anchors contribute. The 'suggestive' anchor is adjacent to the Bonferroni one but carries the 'suggestive' label.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K4",
+            "result": "not_applicable",
+            "reason": "multi_hop has no K4 criterion.",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "f1",
+            "supported": "yes",
+            "note": "All elements are supported. The three taxa named in the abstract match those in the common-taxa section."
+          }
+        ],
+        "verdict": "valid",
+        "severity": "none",
+        "summary": "The gold is supported by the text. The UK section calls the associations suggestive and not significant after Bonferroni correction, while the later section claims significant causal associations for three taxa in both databases. The case is a legitimate multi-hop with an internal inconsistency.",
+        "proposed_correction": ""
+      },
+      {
+        "id": "x002",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "Self-contained and has a single reading. It presupposes a probiotic trial in patients.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "pass",
+            "reason": "The gold states 'None'. The design details (bidirectional two-sample MR, GWAS summary statistics) match the abstract.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "pass",
+            "reason": "The population and design match the abstract.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G4",
+            "result": "pass",
+            "reason": "The anchor states the MR design and the GWAS data sources, so it supports the 'no intervention' correction.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "pass",
+            "reason": "No unsupported claims. The discussion mentions Bacillales 'as a probiotic' only as an interpretation, not an administered treatment.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G6",
+            "result": "not_applicable",
+            "reason": "No conflicting values.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "The case is a false-premise question.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "The text shows an MR design with no probiotic administration, so the premise is false.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K2",
+            "result": "pass",
+            "reason": "The correction rests on the positive description of the design, not on silence alone.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K3",
+            "result": "pass",
+            "reason": "The premise is not partly true. The discussion's 'probiotic' remark about order Bacillales is an interpretation, not an administered dose or a patient incidence result.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K4",
+            "result": "not_applicable",
+            "reason": "False-premise has no K4 criterion.",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "f1",
+            "supported": "yes",
+            "note": "The MR design and the use of GWAS summary statistics are in the abstract. No probiotic administration appears in the article."
+          }
+        ],
+        "verdict": "valid_minor",
+        "severity": "non_blocking",
+        "summary": "The false premise is supported: the study is a two-sample MR analysis of GWAS summary data, with no probiotic dosing and no patient treatment. The only issue is that the pre-check found no recorded offending premise, which is an annotation gap.",
+        "proposed_correction": "Record the offending premise explicitly: that Yuan et al. administered a probiotic treatment and dose and showed reduced TB incidence in patients."
+      }
+    ]
+  }
+}

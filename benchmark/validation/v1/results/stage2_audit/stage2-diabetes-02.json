@@ -1,0 +1,638 @@
+{
+  "batch_id": "stage2-diabetes-02",
+  "stage": "stage2_audit",
+  "group": "stage2_audit",
+  "runner": {
+    "cli": "claude",
+    "model": "claude-sonnet-5-5",
+    "workspace": "jua-106-gold-ws"
+  },
+  "attempts": 1,
+  "earlier_problems": [],
+  "duration_s": 5147.3,
+  "quotes": {
+    "verified": 0,
+    "total": 0
+  },
+  "usage": [
+    {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 37490,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens": 24,
+      "service_tier": "standard",
+      "inference_geo": "not_available"
+    },
+    {
+      "input_tokens": 30,
+      "cache_creation_input_tokens": 32834,
+      "cache_read_input_tokens": 288496,
+      "output_tokens": 6118,
+      "output_tokens_details": {
+        "thinking_tokens": 550
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 32834,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 4,
+          "output_tokens": 3248,
+          "cache_read_input_tokens": 37490,
+          "cache_creation_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    {
+      "claude-sonnet-5-5": {
+        "inputTokens": 30,
+        "outputTokens": 6118,
+        "cacheReadInputTokens": 288496,
+        "cacheCreationInputTokens": 32834,
+        "webSearchRequests": 0,
+        "costUSD": 0.2502752,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 550,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    }
+  ],
+  "transcript": "jua-106-runs/stage2_audit/stage2-diabetes-02.attempt1.transcript",
+  "output": {
+    "batch_id": "stage2-diabetes-02",
+    "cases": [
+      {
+        "id": "q015",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "Self-contained and single reading.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "pass",
+            "reason": "30–40% is stated in the intro and repeated in the DKD section (30-40%).",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "pass",
+            "reason": "The figure is cited from ref 7 and concerns T2DM.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G4",
+            "result": "pass",
+            "reason": "Anchor states the figure.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "pass",
+            "reason": "Gold 'cited estimate' is accurate (ref 7).",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G6",
+            "result": "pass",
+            "reason": "No conflict; the second mention is consistent.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "One passage is enough.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "Local passage suffices.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K2",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K3",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K4",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "f1",
+            "supported": "yes",
+            "note": "Approximately 30–40% of individuals with T2DM develop DKD (7)."
+          }
+        ],
+        "verdict": "valid",
+        "severity": "none",
+        "summary": "The intro states 30–40% with a citation, and the gold correctly frames it as a cited estimate. A later section repeats it consistently.",
+        "proposed_correction": ""
+      },
+      {
+        "id": "q005",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "Clear.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "pass",
+            "reason": "Certainty and downgrade reasons match the text.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "pass",
+            "reason": "Applies to the primary change-score analysis (2 trials).",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G4",
+            "result": "pass",
+            "reason": "Anchor contains all reasons.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "pass",
+            "reason": "No unsupported claims.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G6",
+            "result": "pass",
+            "reason": "Table 2 footnote is consistent.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "Direct lookup.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "One passage.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K2",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K3",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K4",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "f1",
+            "supported": "yes",
+            "note": "Matches the passage."
+          }
+        ],
+        "verdict": "valid",
+        "severity": "none",
+        "summary": "Gold matches the certainty section. The downgrade reasons for HbA1c and for FPG/2hPG are bound correctly.",
+        "proposed_correction": ""
+      },
+      {
+        "id": "d021",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "The false premise is explicit.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "pass",
+            "reason": "No numbers.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "pass",
+            "reason": "Guo et al. is the CGM CA study.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G4",
+            "result": "pass",
+            "reason": "Anchor states it was not a randomized clinical trial.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "pass",
+            "reason": "Supported.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G6",
+            "result": "pass",
+            "reason": "No conflict.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "False premise fits.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "Text says simulated vignette-based, not RCT.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K2",
+            "result": "pass",
+            "reason": "Positive statement, and the abstract says findings do not establish real-world use.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K3",
+            "result": "pass",
+            "reason": "No part of the premise is true.",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "f1",
+            "supported": "yes",
+            "note": "Supported."
+          }
+        ],
+        "verdict": "valid",
+        "severity": "none",
+        "summary": "The article states it is a simulated vignette-based evaluation, not an RCT. The correction rests on positive text.",
+        "proposed_correction": ""
+      },
+      {
+        "id": "q031",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "Clear.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "pass",
+            "reason": "r and P values match; 13+3=16.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "pass",
+            "reason": "Matches the context.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G4",
+            "result": "pass",
+            "reason": "Anchor supports all values.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "pass",
+            "reason": "The text itself says insulin sensitivity 'improved significantly'; the gold's framing as correlations is acceptable.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G6",
+            "result": "pass",
+            "reason": "No conflict.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "Local passage.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "One passage.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K2",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K3",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K4",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "f1",
+            "supported": "yes",
+            "note": "Values and the 'no significant overall change' statement match."
+          }
+        ],
+        "verdict": "valid",
+        "severity": "none",
+        "summary": "Values match the text. The correlations are bound to the percent changes with sleep extension.",
+        "proposed_correction": ""
+      },
+      {
+        "id": "q002",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "Clear.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "pass",
+            "reason": "8 trials, 725 participants.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "pass",
+            "reason": "Review total; the primary analysis used 2 trials and 196 participants, as the gold implies.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G4",
+            "result": "pass",
+            "reason": "Anchor supports.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "pass",
+            "reason": "Supported.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G6",
+            "result": "pass",
+            "reason": "No conflict.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "Direct lookup.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "One passage.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K2",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K3",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K4",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "f1",
+            "supported": "yes",
+            "note": "Abstract and results agree."
+          }
+        ],
+        "verdict": "valid",
+        "severity": "none",
+        "summary": "Eight RCTs with 725 participants are confirmed in both the abstract and the results. The primary analysis used 196 participants, consistent with the gold's caveat.",
+        "proposed_correction": ""
+      },
+      {
+        "id": "q029",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "Clear.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "pass",
+            "reason": "102 studies.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "pass",
+            "reason": "Narrative review.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G4",
+            "result": "pass",
+            "reason": "Anchor supports the count and the lack of a predefined protocol.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "pass",
+            "reason": "The limitations section names PRISMA explicitly.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G6",
+            "result": "pass",
+            "reason": "No conflict. Fig. 1 is called a 'structured literature selection process', but the text says no intermediate counts were recorded.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "Local.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "One passage.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K2",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K3",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K4",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "f1",
+            "supported": "yes",
+            "note": "Supported."
+          }
+        ],
+        "verdict": "valid",
+        "severity": "none",
+        "summary": "102 studies and the absence of a predefined systematic protocol are supported. The article's limitations section explicitly says PRISMA was not used.",
+        "proposed_correction": ""
+      }
+    ]
+  }
+}
