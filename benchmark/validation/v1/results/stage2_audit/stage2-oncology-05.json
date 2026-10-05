@@ -1,0 +1,591 @@
+{
+  "batch_id": "stage2-oncology-05",
+  "stage": "stage2_audit",
+  "group": "stage2_audit",
+  "runner": {
+    "cli": "claude",
+    "model": "claude-sonnet-5-5",
+    "workspace": "jua-106-gold-ws"
+  },
+  "attempts": 1,
+  "earlier_problems": [],
+  "duration_s": 60.9,
+  "quotes": {
+    "verified": 3,
+    "total": 3
+  },
+  "usage": [
+    {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 1414,
+      "cache_read_input_tokens": 39036,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 1414
+      },
+      "output_tokens": 7,
+      "service_tier": "standard",
+      "inference_geo": "not_available"
+    },
+    {
+      "input_tokens": 16,
+      "cache_creation_input_tokens": 35794,
+      "cache_read_input_tokens": 201458,
+      "output_tokens": 8458,
+      "output_tokens_details": {
+        "thinking_tokens": 1065
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 35794,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 5078,
+          "cache_read_input_tokens": 39036,
+          "cache_creation_input_tokens": 1414,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 1414
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    {
+      "claude-sonnet-5-5": {
+        "inputTokens": 16,
+        "outputTokens": 8458,
+        "cacheReadInputTokens": 201458,
+        "cacheCreationInputTokens": 35794,
+        "webSearchRequests": 0,
+        "costUSD": 0.26807960000000003,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 1065,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    }
+  ],
+  "transcript": "jua-106-runs/stage2_audit/stage2-oncology-05.attempt1.transcript",
+  "output": {
+    "batch_id": "stage2-oncology-05",
+    "cases": [
+      {
+        "id": "o025",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "Names the Batra review and asks about tumor-informed vs tumor-agnostic MRD assays at landmark and longitudinal timepoints. One reading.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "pass",
+            "reason": "42/44, 76/79, 97/93 and 96/88 all match the text, with group order preserved.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "pass",
+            "reason": "Population is the NSCLC meta-analysis of 30 studies; the endpoints are sensitivity and specificity. The source is unadjusted pooled data.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G4",
+            "result": "pass",
+            "reason": "The mrd anchor contains the whole passage.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "pass",
+            "reason": "The reference answer repeats the text. It does not mention that the figures are attributed to Lu et al., 2025, a meta-analysis cited by the review. This is a small attribution omission.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G6",
+            "result": "pass",
+            "reason": "No conflict. The 96%–98% specificity range earlier in the section is consistent with the later figures.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "Fits cross_doc_distractor, which needs a named decoy plus an answer from the primary article.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "The decoy is a nonmetastatic NSCLC review that discusses ctDNA-MRD in a resected-NSCLC trial, so it is a plausible but weak competitor.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K2",
+            "result": "pass",
+            "reason": "The stated reason is correct. The decoy has no sensitivity or specificity and no tumor-informed vs tumor-agnostic discussion; a search for those terms found no matches.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K3",
+            "result": "pass",
+            "reason": "The decoy does not answer the question. Its MRD mentions are limited to trial-table rows.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K4",
+            "result": "pass",
+            "reason": "The question is fully answerable from the liquid-biopsy review alone.",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "f1",
+            "supported": "yes",
+            "note": "All values are present and correctly bound. The text attributes them to a meta-analysis (Lu et al., 2025)."
+          }
+        ],
+        "verdict": "valid_minor",
+        "severity": "non_blocking",
+        "summary": "All numbers match the passage (lines 500–507) and the decoy is valid. The only issue is that the gold does not say the figures come from a cited meta-analysis (Lu et al., 2025, 30 studies, n=3,287), although the fact's qualifier asks for source attribution.",
+        "proposed_correction": "Add attribution to the answer, for example: 'per the review's citation of a meta-analysis of 30 NSCLC studies (Lu et al., 2025)'."
+      },
+      {
+        "id": "q108",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "The question is self-contained and has one reading. It is somewhat leading but still makes a clear false-premise test.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "pass",
+            "reason": "HR 0.17 (99.06% CI 0.11–0.26) for stage II–IIIA and HR 0.20 (99.12% CI 0.14–0.30) for stage IB–IIIA are correctly bound.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "pass",
+            "reason": "The endpoint is DFS and the populations are the ADAURA trial populations, attributed with citation [44].",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G4",
+            "result": "pass",
+            "reason": "The anchor describes ADAURA results as a cited trial, with 682 patients and a 3-year osimertinib vs placebo design.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "pass",
+            "reason": "'This is a review attributing results to ADAURA' is supported by the text and the citations.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G6",
+            "result": "pass",
+            "reason": "No conflict found.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "Fits false_premise.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "The text presents these as ADAURA trial results from a review article, not a new cohort of the review.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K2",
+            "result": "pass",
+            "reason": "The correction rests on positive text: the trial description and the [44] citation.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K3",
+            "result": "pass",
+            "reason": "No part of the premise is true. The review enrolled no cohort of its own.",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "f1",
+            "supported": "yes",
+            "note": "Correction and both HRs match the text."
+          }
+        ],
+        "verdict": "valid",
+        "severity": "none",
+        "summary": "The review summarises the ADAURA trial with citation [44]. The two DFS hazard ratios are correct and the premise is clearly false.",
+        "proposed_correction": ""
+      },
+      {
+        "id": "q100",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "Self-contained question about the Basque Country FIT programme dual-screening rate.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "not_applicable",
+            "reason": "No required facts.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "not_applicable",
+            "reason": "No required facts.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G4",
+            "result": "not_applicable",
+            "reason": "No anchors.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "pass",
+            "reason": "The reference answer is empty, so no unsupported claim is made.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G6",
+            "result": "not_applicable",
+            "reason": "Not relevant.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "Fits unanswerable.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "A case-insensitive search across all articles found no 'Basque'. 'Spain' appears only in affiliations, the Spanish immunotherapy registry and a polmol-testing guideline reference, and none concerns FIT or screening.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K2",
+            "result": "pass",
+            "reason": "A rate cannot be derived. The colorectal screening article reports US BRFSS dual-screening (cervical plus CRC) prevalence of 58.2%, which is a different population.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K3",
+            "result": "pass",
+            "reason": "The search terms (Basque, FIT, dual-screen, Spain) and the file list are adequate for this topic's articles.",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [],
+        "verdict": "valid",
+        "severity": "none",
+        "summary": "No Basque programme or Spanish FIT data appear in the topic articles. The only 'dual-screening' content is the US BRFSS cervical-plus-CRC study, which is a different population and endpoint, and the case's rationale says so.",
+        "proposed_correction": ""
+      },
+      {
+        "id": "o007",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "Self-contained, and it asks for five-year OS by stage population.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "pass",
+            "reason": "85% vs 73% with HR 0.49 (0.33–0.73) for stage II–IIIA, and 88% vs 78% with HR 0.49 (0.34–0.70) for stage IB–IIIA, all match the text.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "pass",
+            "reason": "Population and endpoint match, with osimertinib first and placebo second; the HRs are the trial's reported estimates attributed to ADAURA [29].",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G4",
+            "result": "pass",
+            "reason": "The anchor contains the full sentence.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "pass",
+            "reason": "The reference answer matches the text.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G6",
+            "result": "pass",
+            "reason": "No conflict.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "One local passage answers the question.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "A single passage is sufficient.",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "f1",
+            "supported": "yes",
+            "note": "All values match and are bound correctly."
+          }
+        ],
+        "verdict": "valid",
+        "severity": "none",
+        "summary": "The anchor sentence reports the five-year OS rates and HRs for both stage populations exactly as in the gold. Group binding is clear.",
+        "proposed_correction": ""
+      },
+      {
+        "id": "o029",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "The question asks about the Hunan study's DFS change after PSM and OS interpretation. It does not leak the weighted vs PSM label conflict.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "pass",
+            "reason": "DFS 79.3% vs 60.2% (p=0.048) and p=0.096 after PSM are correct. OS 94.1% vs 85.7% (p=0.012) and 93.8% vs 87.1% (p=0.038) are correct, with PD-1+chemo first.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "pass",
+            "reason": "DFS is unadjusted before PSM and loses significance after PSM. The study is retrospective, with 190 patients.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G4",
+            "result": "pass",
+            "reason": "Each anchor supports its mapped fact, and the legend and limitation text supply the OS caveat.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "pass",
+            "reason": "'Not mature causal survival evidence' is a reasonable inference from the limitation text and the retrospective design. The word 'causal' is not in the source.",
+            "file": "onco-nsclc-neoadjuvant-hunan.txt",
+            "quote": "the follow- up time was too \nshort to make OS the primary endpoint of this study.",
+            "quote_verified": true
+          },
+          {
+            "check": "G6",
+            "result": "pass",
+            "reason": "The gold exposes the conflict between the Results wording 'weighted population' and the Figure 1D legend 'after PSM'.",
+            "file": "onco-nsclc-neoadjuvant-hunan.txt",
+            "quote": "The weighted population yielded \n93.8% versus 87.1%, respectively (Figure  1D, p  =  0.038).",
+            "quote_verified": true
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "Fits multi_hop. The answer needs the DFS passage, the OS passage, the figure legend and the limitations section, which are separate places.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "No single anchor answers the whole question.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K2",
+            "result": "pass",
+            "reason": "The anchors sit in the abstract, Results, the figure legend and the Discussion.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K3",
+            "result": "cannot_tell",
+            "reason": "In the primary set, hunan_response is redundant because hunan_matched repeats 79.3%, 60.2% and p=0.048. The declared 'results_dfs' set omits it, so the redundancy is acknowledged.",
+            "file": "onco-nsclc-neoadjuvant-hunan.txt",
+            "quote": "Overall, the 2-  year DFS rate was 79.3% in the \nPD- 1 + Chemo group, which was higher than that of \nChemo group (60.2%; p = 0.048; Figure 1A).",
+            "quote_verified": true
+          },
+          {
+            "check": "ALT",
+            "result": "pass",
+            "reason": "The results_dfs set contains the full DFS numbers in hunan_matched, plus the OS anchors, and answers the same question.",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "f1",
+            "supported": "yes",
+            "note": "Matches the abstract and Results 3.4."
+          },
+          {
+            "fact_id": "f2",
+            "supported": "yes",
+            "note": "The OS values, the label conflict and the follow-up limitation are all in the text."
+          }
+        ],
+        "verdict": "valid_minor",
+        "severity": "non_blocking",
+        "summary": "All numbers and the label conflict are verified. The only issue is that the primary evidence set includes a redundant anchor (hunan_response), and the gold's 'causal' wording goes slightly beyond the source.",
+        "proposed_correction": "Optionally remove hunan_response from the primary set, or note that it duplicates hunan_matched. Optionally replace 'causal' with 'mature'."
+      },
+      {
+        "id": "o008",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "Self-contained, with a single reading.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "pass",
+            "reason": "The fact is qualitative and has no numeric values.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "pass",
+            "reason": "Matches early-stage resectable NSCLC and EGFR testing timing in the consensus text.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G4",
+            "result": "pass",
+            "reason": "The anchor states the early reflex testing argument, the ADAURA example and the neoadjuvant targeted therapies.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "pass",
+            "reason": "'Not restricted to metastatic disease' follows from 'early-stage, resectable disease is now also vital'.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G6",
+            "result": "pass",
+            "reason": "No conflict.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "One passage answers the question.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "A single local passage is sufficient.",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "f1",
+            "supported": "yes",
+            "note": "Matches the passage."
+          }
+        ],
+        "verdict": "valid",
+        "severity": "none",
+        "summary": "The passage states that reflex testing in early-stage resectable disease is vital because of ADAURA and neoadjuvant targeted therapies. It names resected tumour or ideally presurgical specimens. The gold matches this.",
+        "proposed_correction": ""
+      }
+    ]
+  }
+}

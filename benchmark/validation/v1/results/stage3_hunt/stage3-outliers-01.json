@@ -1,0 +1,288 @@
+{
+  "batch_id": "stage3-outliers-01",
+  "stage": "stage3_hunt",
+  "group": "stage3_hunt",
+  "runner": {
+    "cli": "codex",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "workspace": "jua-106-gold-ws"
+  },
+  "attempts": 1,
+  "earlier_problems": [],
+  "duration_s": 191.5,
+  "quotes": {
+    "verified": 4,
+    "total": 4
+  },
+  "usage": [
+    {
+      "input_tokens": 465655,
+      "cached_input_tokens": 384384,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 4692,
+      "reasoning_output_tokens": 446
+    }
+  ],
+  "transcript": "jua-106-runs/stage3_hunt/stage3-outliers-01.attempt1.transcript",
+  "output": {
+    "batch_id": "stage3-outliers-01",
+    "cases": [
+      {
+        "id": "x002",
+        "findings": [
+          {
+            "type": "H5",
+            "file": "outlier-microbiome-tuberculosis.txt",
+            "quote": "Patients with PTB who received\nprobiotics (n=5) showed a signi ﬁcant increase in gut microbiota\nalpha diversity compared to those who did not receive probiotics,\nalthough there was no notable change in beta diversity ( Mitsui et al.,\n2022).",
+            "explanation": "An undeclared clinical probiotic competitor involving TB patients. It concerns Mitsui et al., microbiota diversity and short-term supplementation, rather than Yuan et al., TB incidence or an administered dose. It does not establish the question's premise.",
+            "strength": "weak",
+            "quote_verified": true
+          }
+        ],
+        "search_terms": [
+          "Yuan",
+          "195",
+          "FinnGen",
+          "Bonferroni",
+          "Akkermansia",
+          "Verrucomicrob",
+          "probiot",
+          "tuberc",
+          "PTB",
+          "Lactobac",
+          "rhamnos",
+          "CFU",
+          "Mitsui",
+          "random",
+          "trial"
+        ],
+        "files_examined": [
+          "outlier-microbiome-tuberculosis.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "x005",
+        "findings": [],
+        "search_terms": [
+          "Ciftci",
+          "Çift",
+          "Çiftçi",
+          "87[ .]*08",
+          "87\\s*\\.\\s*08",
+          "87",
+          "97",
+          "97%",
+          "ADNI",
+          "OASIS",
+          "Alzheimer",
+          "Alzheim",
+          "dementia",
+          "ANN",
+          "CNN",
+          "neural",
+          "MRI",
+          "four.stage",
+          "four stage",
+          "early.stage"
+        ],
+        "files_examined": [
+          "als-ftd-pmc10802081.txt",
+          "cardio-ai-af-management-review.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "x006",
+        "findings": [],
+        "search_terms": [
+          "Ciftci",
+          "Çift",
+          "Çiftçi",
+          "ADNI",
+          "OASIS",
+          "OASIS.3",
+          "Alzheimer",
+          "Alzheim",
+          "dementia",
+          "87[ .]*08",
+          "87\\s*\\.\\s*08",
+          "neural",
+          "CNN",
+          "MRI",
+          "validat",
+          "external.valid"
+        ],
+        "files_examined": [
+          "als-ftd-pmc10802081.txt",
+          "cardio-ai-af-management-review.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "x009",
+        "findings": [
+          {
+            "type": "H5",
+            "file": "outlier-amr-international-wwtp.txt",
+            "quote": "In total, 1079 different ARGs\noriginating from a variety of bacteria were detected. This included\nARGs that could be mapped to assembled scaffolds corresponding\nto nine human pathogens.",
+            "explanation": "The count of nine human pathogens is a plausible numerical competitor tied to the sampled wastewater. It counts pathogen taxa inferred from environmental sequences, not downstream patients or resistant infections. No prospective patient follow-up or infection timeframe is supplied.",
+            "strength": "weak",
+            "quote_verified": true
+          }
+        ],
+        "search_terms": [
+          "waste.?water",
+          "WWTP",
+          "sewage",
+          "sew",
+          "waste",
+          "effluent",
+          "downstream",
+          "resistan.{0,20}infection",
+          "resistan.{0,30}infect",
+          "infect.{0,30}resistan",
+          "antimicrobial.resist",
+          "antibiotic.resist",
+          "drug.resist",
+          "waterborne",
+          "water.borne",
+          "exposed.resident",
+          "resistant.pathogen",
+          "water.{0,20}(patient|cohort|resident)",
+          "coloniz",
+          "bacteremia",
+          "infect",
+          "patient",
+          "cohort",
+          "resident",
+          "expos",
+          "incidence",
+          "mortality",
+          "fatal",
+          "risk",
+          "metagenom",
+          "Elbait",
+          "Resistomap",
+          "primer"
+        ],
+        "files_examined": [
+          "outlier-amr-international-wwtp.txt",
+          "outlier-amr-method-comparison.txt",
+          "outlier-microbiome-tuberculosis.txt",
+          "outlier-microbiome-tb-mr.txt",
+          "outlier-alzheimer-dual-model.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "x007",
+        "findings": [],
+        "search_terms": [
+          "probiotic",
+          "probiot",
+          "tuberc",
+          "PTB",
+          "alpha.divers",
+          "beta.divers",
+          "Mitsui",
+          "Lactobac",
+          "CFU",
+          "divers",
+          "Akkermansia",
+          "Bacillales"
+        ],
+        "files_examined": [
+          "outlier-microbiome-tb-mr.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "x003",
+        "findings": [
+          {
+            "type": "H5",
+            "file": "outlier-amr-international-wwtp.txt",
+            "quote": "recognize that metagenomic detection limits are relatively\nhigh\n56\nand likely will not capture rare, but important,\nevolutionary events contributing to clinically important\nresistance.",
+            "explanation": "This wastewater metagenomics article supplies a related detection-limit explanation that could be substituted for the requested sequencing false-negative mechanism. Its population is samples from 12 international WWTPs collected during March 2016–January 2017, rather than Daw Elbait et al.'s four samples. It does not supply the paired primer-mutation and coverage-threshold answer.",
+            "strength": "weak",
+            "quote_verified": true
+          }
+        ],
+        "search_terms": [
+          "Elbait",
+          "Resistomap",
+          "qPCR",
+          "false.neg",
+          "coverage",
+          "hospital",
+          "industrial",
+          "urban",
+          "rural",
+          "primer",
+          "metagenom",
+          "waste.?water",
+          "WWTP"
+        ],
+        "files_examined": [
+          "outlier-amr-international-wwtp.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "x008",
+        "findings": [
+          {
+            "type": "H5",
+            "file": "cardio-tailored-af-randomized-trial.txt",
+            "quote": "These results show that AI-guided \nablation of spatio-temporal dispersion areas in addition to PVI is superior \nto PVI alone in eliminating AF at 1-year follow-up in patients with persistent \nand long-standing persistent AF .",
+            "explanation": "TAILORED-AF is an undeclared randomized clinical competitor demonstrating superiority of individualized AI-guided treatment. It concerns persistent atrial fibrillation, freedom from AF at one year and a PVI comparator, rather than TB precision care or a trial identified in the TB review. It does not make the scoped premise true.",
+            "strength": "weak",
+            "quote_verified": true
+          }
+        ],
+        "search_terms": [
+          "random",
+          "trial",
+          "precision",
+          "precision.care",
+          "AI.assist",
+          "superior",
+          "standard care",
+          "standard.care",
+          "tuberc",
+          "TB",
+          "probiot",
+          "AI"
+        ],
+        "files_examined": [
+          "cardio-tailored-af-randomized-trial.txt",
+          "cardio-ai-af-management-review.txt",
+          "outlier-microbiome-tb-mr.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "x001",
+        "findings": [],
+        "search_terms": [
+          "Yuan",
+          "195",
+          "FinnGen",
+          "Bonferroni",
+          "Akkermansia",
+          "Verrucomicrob",
+          "MiBioGen",
+          "UK.Biobank",
+          "tuberc"
+        ],
+        "files_examined": [
+          "outlier-microbiome-tuberculosis.txt",
+          "outlier-amr-method-comparison.txt"
+        ],
+        "stable": true
+      }
+    ]
+  }
+}

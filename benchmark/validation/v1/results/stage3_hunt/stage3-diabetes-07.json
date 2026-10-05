@@ -1,0 +1,74 @@
+{
+  "batch_id": "stage3-diabetes-07",
+  "stage": "stage3_hunt",
+  "group": "stage3_hunt",
+  "runner": {
+    "cli": "codex",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "workspace": "jua-106-gold-ws"
+  },
+  "attempts": 1,
+  "earlier_problems": [],
+  "duration_s": 84.2,
+  "quotes": {
+    "verified": 0,
+    "total": 0
+  },
+  "usage": [
+    {
+      "input_tokens": 237827,
+      "cached_input_tokens": 190592,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1402,
+      "reasoning_output_tokens": 65
+    }
+  ],
+  "transcript": "jua-106-runs/stage3_hunt/stage3-diabetes-07.attempt1.transcript",
+  "output": {
+    "batch_id": "stage3-diabetes-07",
+    "cases": [
+      {
+        "id": "q034",
+        "findings": [],
+        "search_terms": [
+          "Isom",
+          "Ghanem",
+          "2[ .]*96",
+          "2[ .]*63",
+          "2[ .]*27",
+          "4.?483",
+          "metabolic synd",
+          "sleep",
+          "macrovas",
+          "Botnia",
+          "metab.{0,8}synd",
+          "relative risk",
+          "isomaa (whitespace removed)",
+          "ghanem (whitespace removed)",
+          "4483 (whitespace removed)",
+          "2.96 (whitespace removed)",
+          "2.63 (whitespace removed)",
+          "2.27 (whitespace removed)",
+          "botnia (whitespace removed)",
+          "metabolicsyndrome (whitespace removed)",
+          "coronary",
+          "infarct",
+          "stroke",
+          "risk ratio"
+        ],
+        "files_examined": [
+          "diabetes-metabolic-syndrome-cameroon.txt",
+          "diabetes-sleep-multimorbidity-cohorts.txt",
+          "cardio-diabetes-hypertension-polygenic.txt",
+          "diabetes-gene-sex-hormone-interactions.txt",
+          "cardio-ccta-tyg-incremental-value.txt",
+          "onco-ici-cardiac-rct-meta.txt",
+          "cardio-cad-ct-angiography.txt",
+          "onco-ici-cv-observational.txt"
+        ],
+        "stable": true
+      }
+    ]
+  }
+}

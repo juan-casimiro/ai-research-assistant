@@ -1,0 +1,121 @@
+{
+  "batch_id": "final-a004",
+  "stage": "stage7_final",
+  "group": "final_codex",
+  "runner": {
+    "cli": "codex",
+    "model": "gpt-6-luna",
+    "reasoning_effort": "low",
+    "extra_args": [
+      "--ignore-user-config"
+    ],
+    "workspace": "jua-106-final-ws",
+    "cli_version": "0.157.0"
+  },
+  "attempts": 1,
+  "duration_s": null,
+  "acceptance": "revalidated existing reply; no model call, no semantic repair",
+  "prior_gap": {
+    "batch_id": "final-a004",
+    "stage": "stage7_final",
+    "group": "final_codex",
+    "cases": [
+      "a004"
+    ],
+    "status": "unreviewed",
+    "problems": [
+      "attempt 1: quote is not an exact substring: als-ftd-pmc11047104.txt; quote is not an exact substring: als-ftd-pmc11047104.txt; quote is not an exact substring: als-ftd-pmc11047104.txt; quote is not an exact substring: als-ftd-pmc11047104.txt",
+      "attempt 2: evidence outside case article scope: articles/als-ftd-pmc11047104.txt; evidence outside case article scope: articles/als-ftd-pmc11047104.txt; evidence outside case article scope: articles/als-ftd-pmc11047104.txt; evidence outside case article scope: articles/als-ftd-pmc11047104.txt; evidence outside case article scope: articles/als-ftd-pmc11047104.txt; read outside case article scope: articles/als-ftd-pmc11047104.txt"
+    ]
+  },
+  "quote_adjustments": [
+    {
+      "file_as_returned": "als-ftd-pmc11047104.txt",
+      "quote_as_returned": "Using these two combinations, we measured poly- GA\nand poly- GP DPRs in 2- wk- old neurons derived from our\nC9- isogenic series.\nThe poly- GA is encoded exclusively on the sense strand, whereas\nthe poly- GP can come from either strand (Fig. 3A). As expected,\nPoly- GA expression was eliminated by removal of the REx and\nexcision of the mutant allele (HET(Mut)x), or by elimination of\nsense transcription through excision of exon 1A (1Ax) (Fig. 3B).\nAlso as expected, all poly- GP was eliminated by removal of the\nrepeat expansion or mutant allele. However, some poly- GP\nremained after excision of exon 1A (Fig. 3C, 1Ax).",
+      "file": "als-ftd-pmc11047104.txt",
+      "source_quote": "Using these two combinations, we measured poly- GA \nand poly- GP DPRs in 2- wk- old neurons derived from our \nC9- isogenic series.\nThe poly- GA is encoded exclusively on the sense strand, whereas \nthe poly- GP can come from either strand (Fig. 3A). As expected, \nPoly- GA expression was eliminated by removal of the REx and \nexcision of the mutant allele (HET(Mut)x), or by elimination of \nsense transcription through excision of exon 1A (1Ax) (Fig. 3B). \nAlso as expected, all poly- GP was eliminated by removal of the \nrepeat expansion or mutant allele. However, some poly- GP \nremained after excision of exon 1A (Fig. 3C, 1Ax).",
+      "reason": "source_path_or_whitespace_only"
+    },
+    {
+      "file_as_returned": "als-ftd-pmc11047104.txt",
+      "quote_as_returned": "The C9- unedited and 1Ax motor neurons showed no network\nburst activity at 3 wk of age; in contrast, both REx and HET(Mut)\nx motor neurons did demonstrate network burst activity (Fig. 5A),\nindicating that removing the repeat expansion, but not just silenc-\ning sense expression, enhances functional maturity and network\nforming capabilities in cultured motor neurons. Despite a lack of\nnetwork activity, C9- unedited and 1Ax motor neurons were still\nspontaneously active (Fig. 5B).",
+      "file": "als-ftd-pmc11047104.txt",
+      "source_quote": "The C9- unedited and 1Ax motor neurons showed no network \nburst activity at 3 wk of age; in contrast, both REx and HET(Mut)\nx motor neurons did demonstrate network burst activity (Fig. 5A), \nindicating that removing the repeat expansion, but not just silenc-\ning sense expression, enhances functional maturity and network \nforming capabilities in cultured motor neurons. Despite a lack of \nnetwork activity, C9- unedited and 1Ax motor neurons were still \nspontaneously active (Fig. 5B).",
+      "reason": "source_path_or_whitespace_only"
+    },
+    {
+      "file_as_returned": "als-ftd-pmc11047104.txt",
+      "quote_as_returned": "(A) C9- unedited and 1Ax 3- wk- old\ninduced neurons showed minimal\nto no network bursting activity on\nMEAs (defined as burst events de-\ntected simultaneously from multi-\nple electrodes within a single array).\nREx and HET(Mut)x showed network\nburst activity, with HET(Mut)x activity\nsignificantly increased compared to\nC9- unedited",
+      "file": "als-ftd-pmc11047104.txt",
+      "source_quote": "(A) C9- unedited and 1Ax 3- wk- old \ninduced neurons showed minimal \nto no network bursting activity on \nMEAs (defined as burst events de-\ntected simultaneously from multi-\nple electrodes within a single array). \nREx and HET(Mut)x showed network \nburst activity, with HET(Mut)x activity \nsignificantly increased compared to \nC9- unedited",
+      "reason": "source_path_or_whitespace_only"
+    },
+    {
+      "file_as_returned": "als-ftd-pmc11047104.txt",
+      "quote_as_returned": "excision of exon 1A silences sense transcrip-\ntion but does not eliminate all pathology. In particular, it did not\neliminate the production of toxic peptides from antisense tran-\nscripts and did not improve electrophysiologic measures.",
+      "file": "als-ftd-pmc11047104.txt",
+      "source_quote": "excision of exon 1A silences sense transcrip-\ntion but does not eliminate all pathology. In particular, it did not \neliminate the production of toxic peptides from antisense tran-\nscripts and did not improve electrophysiologic measures.",
+      "reason": "source_path_or_whitespace_only"
+    }
+  ],
+  "quotes": {
+    "verified": 5,
+    "total": 5
+  },
+  "usage": [
+    {
+      "input_tokens": 155065,
+      "cached_input_tokens": 112384,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 2105,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "transcript": "jua-106-runs/final_codex/final-a004.attempt1.transcript",
+  "output": {
+    "id": "a004",
+    "agreement": "disagree",
+    "own_verdict": "valid_minor",
+    "own_severity": "non_blocking",
+    "gold_stands": true,
+    "evidence": [
+      {
+        "file": "als-ftd-pmc11047104.txt",
+        "quote": "Aradhana Sachdeva , Kamaljot Gilla,b , Maria Sckaffa,b , Alisha M. Birka , Olubankole Aladesuyi Arogundadeb,c, Katherine A. Brownb,c,  \nRunvir S. Chouhanb,c, Patrick Oliver Issagholian- Lewinb,c , Esha Patelb,c, Hannah L. Watrya, Mylinh T. Bernardia, Kathleen C. Keougha , Yu- Chih Tsaid ,  \nAlec Simon Tulloch Smithe,f , Bruce R. Conklina,g,h,i,1 , and Claire Dudley Clellandb,c,1",
+        "point": "Lines 53–55 identify the first author as Aradhana Sachdeva. The article does not support the question’s spelling “Sachdev”; that appears to omit the final surname letter rather than reflect an affiliation marker. The named-study cue remains understandable, so this is a nonblocking attribution typo. Lines 1-based: 53–55.",
+        "quote_verified": true
+      },
+      {
+        "file": "als-ftd-pmc11047104.txt",
+        "quote": "Using these two combinations, we measured poly- GA \nand poly- GP DPRs in 2- wk- old neurons derived from our \nC9- isogenic series.\nThe poly- GA is encoded exclusively on the sense strand, whereas \nthe poly- GP can come from either strand (Fig. 3A). As expected, \nPoly- GA expression was eliminated by removal of the REx and \nexcision of the mutant allele (HET(Mut)x), or by elimination of \nsense transcription through excision of exon 1A (1Ax) (Fig. 3B). \nAlso as expected, all poly- GP was eliminated by removal of the \nrepeat expansion or mutant allele. However, some poly- GP \nremained after excision of exon 1A (Fig. 3C, 1Ax).",
+        "point": "Results support required fact f1: at the two-week assay in the C9 isogenic series, repeat-expansion or mutant-allele removal eliminated poly-GP, while some remained after exon 1A excision. Lines 518–528.",
+        "quote_verified": true
+      },
+      {
+        "file": "als-ftd-pmc11047104.txt",
+        "quote": "The C9- unedited and 1Ax motor neurons showed no network \nburst activity at 3 wk of age; in contrast, both REx and HET(Mut)\nx motor neurons did demonstrate network burst activity (Fig. 5A), \nindicating that removing the repeat expansion, but not just silenc-\ning sense expression, enhances functional maturity and network \nforming capabilities in cultured motor neurons. Despite a lack of \nnetwork activity, C9- unedited and 1Ax motor neurons were still \nspontaneously active (Fig. 5B).",
+        "point": "Results support required fact f2 and its scope: the stated groups are compared at three weeks; the result concerns network bursting, not all spontaneous activity. Lines 823–830.",
+        "quote_verified": true
+      },
+      {
+        "file": "als-ftd-pmc11047104.txt",
+        "quote": "(A) C9- unedited and 1Ax 3- wk- old \ninduced neurons showed minimal \nto no network bursting activity on \nMEAs (defined as burst events de-\ntected simultaneously from multi-\nple electrodes within a single array). \nREx and HET(Mut)x showed network \nburst activity, with HET(Mut)x activity \nsignificantly increased compared to \nC9- unedited",
+        "point": "Figure 5 legend independently supports the network-bursting contrast and defines the MEA event. It compares HET(Mut)x with C9-unedited for significance; it does not report a WT electrophysiology comparison. Lines 1108–1117.",
+        "quote_verified": true
+      },
+      {
+        "file": "als-ftd-pmc11047104.txt",
+        "quote": "excision of exon 1A silences sense transcrip-\ntion but does not eliminate all pathology. In particular, it did not \neliminate the production of toxic peptides from antisense tran-\nscripts and did not improve electrophysiologic measures.",
+        "point": "Discussion confirms the distinction between sense silencing, residual antisense-derived peptides, and electrophysiologic measures. Lines 1167–1170.",
+        "quote_verified": true
+      }
+    ],
+    "rationale": "Both required claims are supported by separated results passages in the same article, and the source also provides the corresponding figure legends. The question’s two-part comparison requires connecting the poly-GP assay with the later network-bursting results, so multi_hop admission is met. The first review’s correction is warranted as a nonblocking author-name typo: the paper spells the first author “Sachdeva,” while the question says “Sachdev.” This does not materially obscure which study is meant. No unresolved extraction issue remains for these claims. The source’s WT line is a separate nondiseased background, but the network result and answer remain explicitly limited to the named patient-derived isogenic series; no claim of normalization to WT is made.",
+    "correction_assessment": "Recommend changing “Sachdev et al.” to “Sachdeva et al.” for accurate author attribution. This spelling issue does not alter the required facts, create material ambiguity, or affect the scoring contract, so the gold answer and evidence sets stand.",
+    "severity_basis": "The blocking rule covers scoring errors, material ambiguity, and category-admission violations. The author-name typo does not cause any of these: the article title/topic cue identifies the intended study, both facts are directly supported, and the two separated result passages meet the multi_hop criterion. Severity is therefore non_blocking.",
+    "standards_checks": "Factual support/conflicts: the Results report the 2-week C9-isogenic DPR assay and say repeat-expansion or mutant-allele removal eliminated poly-GP while some remained after 1Ax (lines 518–538); the 3-week network result identifies C9-unedited and 1Ax as no-burst and REx/HET(Mut)x as bursting (lines 823–830), with the figure legend describing minimal-to-no activity and the MEA definition (lines 1108–1117). The abstract also states that sense silencing did not eliminate all DPRs and attributes this presumably to antisense expression (lines 72–75). No conflicting source passage was found. Question clarity: “Sachdev” is a one-letter author-name typo; “deleting exon 1A,” “poly-GP elimination,” and “network bursting” are identifiable from the article, and the question does not reveal the answer. Anchors and complete alternatives: each evidence set combines one DPR passage and one network passage, covering both required facts. The full Results and figure legends were checked; no other complete alternative passage was needed to substantiate the facts. The abstract supplies consistent high-level support but not the group-specific network result. Category admission: multi_hop is met because the answer requires connecting the separated two-week DPR and three-week network-bursting anchors in one article. Answerability and decoy scope: the requested evidence is present in the required article; no named decoys or alternative articles apply. Scoring impact: the attribution typo does not affect acceptance of a factually correct answer or accept a wrong answer; no blocking defect is present. The source discusses a WT-control line elsewhere, but the cited electrophysiology comparison is among patient-derived isogenic groups and the gold does not claim WT normalization.",
+    "articles_read": [
+      "als-ftd-pmc11047104.txt"
+    ]
+  }
+}

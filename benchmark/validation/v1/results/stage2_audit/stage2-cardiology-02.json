@@ -1,0 +1,657 @@
+{
+  "batch_id": "stage2-cardiology-02",
+  "stage": "stage2_audit",
+  "group": "stage2_audit",
+  "runner": {
+    "cli": "claude",
+    "model": "claude-sonnet-5-5",
+    "workspace": "jua-106-gold-ws"
+  },
+  "attempts": 1,
+  "earlier_problems": [],
+  "duration_s": 121.0,
+  "quotes": {
+    "verified": 3,
+    "total": 3
+  },
+  "usage": [
+    {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 5940,
+      "cache_read_input_tokens": 53086,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 5940
+      },
+      "output_tokens": 5,
+      "service_tier": "standard",
+      "inference_geo": "not_available"
+    },
+    {
+      "input_tokens": 32,
+      "cache_creation_input_tokens": 54370,
+      "cache_read_input_tokens": 560120,
+      "output_tokens": 17174,
+      "output_tokens_details": {
+        "thinking_tokens": 2024
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 54370,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 5590,
+          "cache_read_input_tokens": 53086,
+          "cache_creation_input_tokens": 5940,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 5940
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    {
+      "claude-sonnet-5-5": {
+        "inputTokens": 32,
+        "outputTokens": 17174,
+        "cacheReadInputTokens": 560120,
+        "cacheCreationInputTokens": 54370,
+        "webSearchRequests": 0,
+        "costUSD": 0.5013080000000001,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 2024,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    }
+  ],
+  "transcript": "jua-106-runs/stage2_audit/stage2-cardiology-02.attempt1.transcript",
+  "output": {
+    "batch_id": "stage2-cardiology-02",
+    "cases": [
+      {
+        "id": "c010",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "Self-contained; names both studies and the three comparison axes.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "pass",
+            "reason": "25 mg, visits at 2 and 4 weeks, 33 vs 14 mmHg, 2.4–3.3 mmHg at weeks 4–32 and similar BP at weeks 52–172 all appear in the text.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "pass",
+            "reason": "Office SBP, 4 weeks, and EMPEROR resHTN subgroup match source. The Cameroon comparator is an alternative regimen, not placebo; the gold does not say so, but it does not misstate it.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G4",
+            "result": "pass",
+            "reason": "Each anchor supports its mapped fact.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "pass",
+            "reason": "Closing caveat on non-comparability is a legitimate synthesis statement.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G6",
+            "result": "pass",
+            "reason": "No conflicting values found for these figures.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "Fits cross-doc synthesis.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "Each article supplies facts the other lacks.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K2",
+            "result": "pass",
+            "reason": "Neither article alone answers.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K3",
+            "result": "pass",
+            "reason": "Reference states the comparison is not like-for-like.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K4",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "f1",
+            "supported": "yes",
+            "note": "Abstract and Results support 25 mg, 2 and 4 weeks, -33 vs -14 mmHg (p=0.024). Control was an alternative regimen."
+          },
+          {
+            "fact_id": "f2",
+            "supported": "yes",
+            "note": "Methods and Results text support empagliflozin 10 mg vs placebo, 2.4–3.3 mmHg at weeks 4–32, similar BP at weeks 52–172."
+          }
+        ],
+        "verdict": "valid",
+        "severity": "none",
+        "summary": "All figures are supported and attributed to the right study and population. The comparator in the Cameroon trial (alternative antihypertensives) is not named in the gold, which is a minor omission.",
+        "proposed_correction": ""
+      },
+      {
+        "id": "c022",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "Clear and answerable only if a ten-year externally validated hard-MACE estimate exists.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "not_applicable",
+            "reason": "No required facts.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G4",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "pass",
+            "reason": "Gold only states the evidence limit.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G6",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "Fits unanswerable.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "Searching ten-year, 10-year, hard MACE and Gao across all articles found no ten-year estimate for Gao's cohort. The only 10-year hit is an unrelated Framingham reference in the TyG paper.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K2",
+            "result": "pass",
+            "reason": "No arithmetic route: follow-up is one year, and the article itself notes events were mostly unstable-angina rehospitalizations rather than hard endpoints.",
+            "file": "cardio-cad-ct-angiography.txt",
+            "quote": "one-year follo w-up was short",
+            "quote_verified": true
+          },
+          {
+            "check": "K3",
+            "result": "pass",
+            "reason": "Search terms and scope are adequate. The external validation cohort (n=288) has only 1-year MACE, which is the trap the rubric forbids.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K4",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [],
+        "verdict": "valid",
+        "severity": "none",
+        "summary": "The Gao article has one-year follow-up and a composite dominated by unstable-angina rehospitalization. No ten-year hard-MACE risk appears in this topic's articles.",
+        "proposed_correction": ""
+      },
+      {
+        "id": "c012",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "Self-contained with a single reading.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "pass",
+            "reason": "The values 0.35 (0.19–0.67) and 1.78 (1.12–2.84) are in the abstract and text and bound to the right outcomes. Table 2 differs; see G6.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "pass",
+            "reason": "Adjusted HRs, SGLT2 users vs nonusers, CKD stages 3–5.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G4",
+            "result": "pass",
+            "reason": "Anchors support the mapped facts.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "pass",
+            "reason": "HFpEF study is retrospective case-control with GLS; it has no renal or infection endpoints.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G6",
+            "result": "fail",
+            "reason": "The article gives conflicting adjusted HRs. Text and abstract say GUTI 1.78 (1.12–2.84) and ESRD 0.35 (0.19–0.67); Table 2 says GUTI 1.80 (1.13–2.86) and ESRD 0.35 (0.19–0.66). The gold uses the text values silently.",
+            "file": "cardio-ckd-sglt2-acei-arb.txt",
+            "quote": "SGLT2 inhibitor users 12 318 3.78 (1.95–6.60) 0.58 (0.32–1.07)  0.35 (0.19–0.66)",
+            "quote_verified": true
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "Fits cross-doc synthesis.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "Each article contributes distinct information.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K2",
+            "result": "pass",
+            "reason": "One article alone cannot answer.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K3",
+            "result": "pass",
+            "reason": "Caveats on observational design and non-substitution are stated.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K4",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "f1",
+            "supported": "partly",
+            "note": "Text values match, but Table 2 shows a conflicting GUTI aHR 1.80 (1.13–2.86) and ESRD CI 0.19–0.66. The unmeasured-confounding statement is supported."
+          },
+          {
+            "fact_id": "f2",
+            "supported": "yes",
+            "note": "Retrospective single-centre case-control design and GLS endpoint are supported. The HFpEF study reports no renal or infection endpoints."
+          }
+        ],
+        "verdict": "defect_gold",
+        "severity": "non_blocking",
+        "summary": "The gold reports the narrative HRs and does not mention that Table 2 gives slightly different adjusted values for GUTI (1.80, 1.13–2.86) and ESRD (CI to 0.66). The rest of the case is sound.",
+        "proposed_correction": "Say that the text and abstract give GUTI aHR 1.78 (1.12–2.84) and ESRD aHR 0.35 (0.19–0.67), while Table 2 lists 1.80 (1.13–2.86) and 0.35 (0.19–0.66). Accept either set and add the Table 2 passage as an anchor."
+      },
+      {
+        "id": "q049",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "Clear direct lookup.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "pass",
+            "reason": "The list of seven risk factors and MLA as protective matches the conclusion and abstract.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "pass",
+            "reason": "One-year MACE, multivariable analysis.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G4",
+            "result": "pass",
+            "reason": "The anchor is the Conclusions passage.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "pass",
+            "reason": "No extra claims.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G6",
+            "result": "pass",
+            "reason": "The regression table's coefficients and ORs are consistent for MLA (-1.117 gives 0.327; -1.557 gives 0.211). The table has two models, which does not affect this list.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "A single passage suffices.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "The conclusion alone answers.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K2",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K3",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K4",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "f1",
+            "supported": "yes",
+            "note": "The Conclusions state stenosis severity, lesion length, fibrous plaque volume, PB, CACS, FAI and MAS as independent risk factors and a larger MLA as protective."
+          }
+        ],
+        "verdict": "valid",
+        "severity": "none",
+        "summary": "The conclusion lists exactly these variables, and the abstract repeats them. The case is a proper direct lookup.",
+        "proposed_correction": ""
+      },
+      {
+        "id": "c002",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "Self-contained; identifies the 2023 ECG AF study.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "pass",
+            "reason": "XGB ICI 0.008 is in Table 2 and the text. Qualitative RUS effect is in the text.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "pass",
+            "reason": "Five-year AF label, original event ratio, 150,000 ECGs. The gold does not mention the sample size.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G4",
+            "result": "pass",
+            "reason": "Each anchor supports its fact.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "pass",
+            "reason": "The 'assess separately' remark is an interpretive gloss. It is consistent with the finding that RUS did not improve AUC but worsened ICI.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G6",
+            "result": "pass",
+            "reason": "Slightly different ICI ranges appear for RUS (0.30–0.35 vs 0.01 to 0.3). The gold gives no numbers and so avoids the conflict.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "Fits multi_hop.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "Neither anchor alone answers both parts.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K2",
+            "result": "pass",
+            "reason": "The anchors are about 4,000 characters apart, in different Results passages.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K3",
+            "result": "pass",
+            "reason": "Both are needed.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K4",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "f1",
+            "supported": "yes",
+            "note": "XGB ICI 0.008 is the best. The authors say there were no substantial differences and the CIs touch, which the gold omits."
+          },
+          {
+            "fact_id": "f2",
+            "supported": "yes",
+            "note": "RUS raised ICI, with a stronger effect for XGB and LR than for the CNN."
+          }
+        ],
+        "verdict": "valid_minor",
+        "severity": "non_blocking",
+        "summary": "The figures and the RUS effect are supported. The gold omits the authors' remark that calibration differences at the original ratio were not substantial and that the CIs touch. The 'assess separately' sentence is an inference rather than a quoted claim.",
+        "proposed_correction": "Optionally add that the original-ratio calibration differences were small and CIs touched."
+      },
+      {
+        "id": "q129",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "Self-contained; names the cohort and size.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "pass",
+            "reason": "337 (52.7) of 640 normal flow, 48 (56.5) of 85 no-reflow, p=0.508; the header binds the columns.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "pass",
+            "reason": "Table 3 is an unadjusted univariate comparison. Multivariable hypertension results (p=0.128 and 0.652) exist elsewhere but are not what the gold claims.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G4",
+            "result": "pass",
+            "reason": "The two anchors give the header and the row.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "pass",
+            "reason": "Fully supported.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G6",
+            "result": "pass",
+            "reason": "No conflict. The text lists hypertension as significant for the CV-score split, not the flow split, and the gold addresses flow.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "Fits cross_doc_distractor.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "The decoy is a STEMI/no-reflow cohort that reports hypertension as significantly higher in no-reflow.",
+            "file": "cardio-stemi-vasc-fmd-no-reflow.txt",
+            "quote": "higher frequency of diabetes \nmellitus, hypertension, history of heart failure",
+            "quote_verified": true
+          },
+          {
+            "check": "K2",
+            "result": "pass",
+            "reason": "The decoy is a 150-patient cohort (39 no-reflow), not Sun's 725.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K3",
+            "result": "pass",
+            "reason": "The decoy does not answer for Sun's cohort.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K4",
+            "result": "pass",
+            "reason": "Answerable from Sun's Table 3 alone.",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "f1",
+            "supported": "yes",
+            "note": "Table 3 values and p=0.508 are correct, and the percentages are consistent with the counts."
+          }
+        ],
+        "verdict": "valid",
+        "severity": "none",
+        "summary": "Table 3 supports the numbers, with column headers N=640 and N=85. The decoy (Rashed, 150 patients) has a significant hypertension association, which makes it a plausible but inapplicable competitor.",
+        "proposed_correction": ""
+      }
+    ]
+  }
+}

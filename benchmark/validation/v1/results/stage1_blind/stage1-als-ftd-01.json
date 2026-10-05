@@ -1,0 +1,413 @@
+{
+  "batch_id": "stage1-als-ftd-01",
+  "stage": "stage1_blind",
+  "group": "stage1_blind",
+  "runner": {
+    "cli": "claude",
+    "model": "claude-sonnet-5-5",
+    "workspace": "jua-106-blind-ws"
+  },
+  "attempts": 1,
+  "earlier_problems": [],
+  "duration_s": 92.3,
+  "quotes": {
+    "verified": 36,
+    "total": 36
+  },
+  "usage": [
+    {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 6682,
+      "cache_read_input_tokens": 74919,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 6682
+      },
+      "output_tokens": 24,
+      "service_tier": "standard",
+      "inference_geo": "not_available"
+    },
+    {
+      "input_tokens": 20,
+      "cache_creation_input_tokens": 77110,
+      "cache_read_input_tokens": 292756,
+      "output_tokens": 14650,
+      "output_tokens_details": {
+        "thinking_tokens": 1111
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 77110,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 4,
+          "output_tokens": 5913,
+          "cache_read_input_tokens": 74919,
+          "cache_creation_input_tokens": 6682,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 6682
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    {
+      "claude-sonnet-5-5": {
+        "inputTokens": 20,
+        "outputTokens": 14650,
+        "cacheReadInputTokens": 292756,
+        "cacheCreationInputTokens": 77110,
+        "webSearchRequests": 0,
+        "costUSD": 0.5135312000000001,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 1111,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    }
+  ],
+  "transcript": "jua-106-runs/stage1_blind/stage1-als-ftd-01.attempt1.transcript",
+  "output": {
+    "batch_id": "stage1-als-ftd-01",
+    "cases": [
+      {
+        "id": "a009",
+        "answerability": "answerable",
+        "answer": "The LeBlanc et al. case report (a 42-year-old man) used genetic testing and family history. The brain SPECT scan was read as most in keeping with Alzheimer's disease and not FTLD, and the MRI showed no specific pattern of atrophy. His father had bulbar ALS, which raised the possibility of a genetic FTD-ALS disorder. Genetic testing then found a GGGGCC repeat expansion in C9orf72, which confirmed the diagnosis. The authors say that although the neuroimaging findings were not consistent with FTD, the history led them to pursue genetic testing, which confirmed it. Post-mortem autopsy later showed FTLD with TDP pathology (type C).",
+        "claims": [
+          {
+            "claim": "The SPECT scan pattern was read as Alzheimer's-like and not FTLD.",
+            "file": "als-ftd-pmc10802081.txt",
+            "quote": "The nuclear medicine radiologist concluded the distribution was most",
+            "quote_verified": true
+          },
+          {
+            "claim": "The father's bulbar ALS raised the possibility of a genetic FTD-ALS disorder.",
+            "file": "als-ftd-pmc10802081.txt",
+            "quote": "This raised the possibility of a FTD-",
+            "quote_verified": true
+          },
+          {
+            "claim": "Genetic testing identified a C9orf72 GGGGCC repeat expansion, confirming the diagnosis.",
+            "file": "als-ftd-pmc10802081.txt",
+            "quote": "genetic testing was",
+            "quote_verified": true
+          },
+          {
+            "claim": "The authors state that the history led to genetic testing despite neuroimaging that was not consistent with FTD.",
+            "file": "als-ftd-pmc10802081.txt",
+            "quote": "although the neuroimagingﬁndings were not consistent with",
+            "quote_verified": true
+          },
+          {
+            "claim": "The MRI showed no specific pattern of atrophy.",
+            "file": "als-ftd-pmc10802081.txt",
+            "quote": "ventricles but no speci ﬁc pattern of atrophy",
+            "quote_verified": true
+          },
+          {
+            "claim": "Autopsy later showed FTLD with TDP pathology.",
+            "file": "als-ftd-pmc10802081.txt",
+            "quote": "fronto-temporal lobar degeneration with transactive re-",
+            "quote_verified": true
+          }
+        ],
+        "other_candidates": [],
+        "ambiguity": "",
+        "confidence": "high",
+        "search_terms": [
+          "LeBlanc",
+          "discordant",
+          "SPECT",
+          "genetic testing",
+          "neuroimaging",
+          "family history"
+        ]
+      },
+      {
+        "id": "a005",
+        "answerability": "answerable",
+        "answer": "Note: the DNA-editing paper in the folder is by Sachdeva et al. (PNAS 2024), which I take to be the 'Sachdev' in the question.\n\nLiu et al. (2024), Cas13d RNA targeting:\n- Endpoints were molecular only: poly-GP and poly-GA dipeptide repeat levels (ELISA) and reporter signals.\n- In patient iPSCs, DPR knockdown was about 30–70%. In patient iPSC-derived motor neurons it was about 20–90%.\n- In C9-500 BAC mice (AAV9 given at P0, tissue collected at 13 months), poly-GP and poly-GA fell and poly-GA inclusions decreased.\n- Limits: in vitro, Cas13d cleavage fell as repeat length rose and it was nearly unable to degrade (GGGGCC)28. RNA foci were not reduced. Efficacy varied by line and cell type and correlated with Cas13d expression. The mice lack survival, motor and other behavioural or neurodegenerative phenotypes, so protective effects in patients 'require further evaluation'.\n\nSachdeva et al. (2024), DNA excision:\n- Endpoints were C9orf72 transcript and protein levels, DPRs (poly-GA and poly-GP), nuclear TDP-43 loss, and electrophysiology (MEA and patch clamp). All were measured in motor neurons induced from isogenic iPSC lines.\n- Excising the repeat expansion reverted these pathology readouts and improved electrophysiological function.\n- Limits: the insights come mainly from edits in a single patient cell line, and the authors say replication in other patients and repeat lengths is needed. Silencing sense expression alone did not remove all DPRs. Excising the WT allele more than doubled poly-GP.\n\nWhy neither is an established human treatment: both studies are preclinical (cell lines, iPSC-derived neurons, and in Liu et al. a transgenic mouse with no disease phenotype). Neither reports any human treatment or clinical efficacy. The authors themselves call them proof-of-concept or note that further evaluation is needed.",
+        "claims": [
+          {
+            "claim": "Liu: DPR knockdown in patient iPSCs was about 30–70%.",
+            "file": "als-ftd-pmc11527445.txt",
+            "quote": "The knockdown efficiency of GP and GA ranged from approximately 30% to 70% in differ-",
+            "quote_verified": true
+          },
+          {
+            "claim": "Liu: DPR knockdown in iMNs was about 20–90%.",
+            "file": "als-ftd-pmc11527445.txt",
+            "quote": "ly 20% to 90% among the different lines (Figure 3G )",
+            "quote_verified": true
+          },
+          {
+            "claim": "Liu: Cas13d was nearly unable to degrade (GGGGCC)28.",
+            "file": "als-ftd-pmc11527445.txt",
+            "quote": "we found that Cas13d was nearly incapable of degrading it",
+            "quote_verified": true
+          },
+          {
+            "claim": "Liu: RNA foci were not reduced.",
+            "file": "als-ftd-pmc11527445.txt",
+            "quote": "confirming the limited ability of the CRISPR/Cas13d",
+            "quote_verified": true
+          },
+          {
+            "claim": "Liu: mice received AAV9 at P0 and were analysed at 13 months for poly-GP and poly-GA.",
+            "file": "als-ftd-pmc11527445.txt",
+            "quote": "13 months of age, the mice were sacrificed, and brain tissues were",
+            "quote_verified": true
+          },
+          {
+            "claim": "Liu: the mouse model shows no survival or motor deficits.",
+            "file": "als-ftd-pmc11527445.txt",
+            "quote": "Although this mouse model has exhibited no survival or motor",
+            "quote_verified": true
+          },
+          {
+            "claim": "Liu: protective effects in patients need further evaluation because of the lack of behavioural phenotypes in animal models.",
+            "file": "als-ftd-pmc11527445.txt",
+            "quote": "owing to the lack of behavioral phenotypes and other neuro -",
+            "quote_verified": true
+          },
+          {
+            "claim": "Sachdeva: edits were made in iPSC lines and assessed in motor neurons; the excision removed repeat-related pathology and improved function.",
+            "file": "als-ftd-pmc11047104.txt",
+            "quote": "Excision of the mutant repeat expansion reverted",
+            "quote_verified": true
+          },
+          {
+            "claim": "Sachdeva: the study's insights come mainly from a single patient cell line.",
+            "file": "als-ftd-pmc11047104.txt",
+            "quote": "A limitation of this study is that our biological",
+            "quote_verified": true
+          },
+          {
+            "claim": "Sachdeva: silencing sense expression did not eliminate all DPRs.",
+            "file": "als-ftd-pmc11047104.txt",
+            "quote": "whereas silencing sense expression did not",
+            "quote_verified": true
+          },
+          {
+            "claim": "Sachdeva: WT-allele excision more than doubled poly-GP.",
+            "file": "als-ftd-pmc11047104.txt",
+            "quote": "more than doubled the amount of poly- GP expressed from the mutant allele",
+            "quote_verified": true
+          },
+          {
+            "claim": "Sachdeva: the authors describe the work as proof-of-concept.",
+            "file": "als-ftd-pmc11047104.txt",
+            "quote": "This type of proof- of- concept study is critical to the development",
+            "quote_verified": true
+          }
+        ],
+        "other_candidates": [],
+        "ambiguity": "The question says 'Sachdev'; the file contains Sachdeva et al. (PNAS 2024), which is the only matching DNA-editing study. 'Endpoints' could also mean the timepoints: Liu used 48 h for HEK293 cells, 10 days after lentivirus for iMNs and 13 months for mice. Sachdeva used 2–7 weeks of motor-neuron culture.",
+        "confidence": "medium",
+        "search_terms": [
+          "Cas13d",
+          "Sachdeva",
+          "excision",
+          "limitation",
+          "BAC",
+          "13 months",
+          "single patient cell line",
+          "proof-of-concept"
+        ]
+      },
+      {
+        "id": "a002",
+        "answerability": "premise_wrong",
+        "answer": "No, that conclusion is not supported. Liu et al. (2024) did not report improved survival or motor function in C9-500 BAC mice. They note that this model has no survival or motor deficits. The outcomes measured were poly-GP and poly-GA levels and poly-GA inclusions, which fell after AAV9-Cas13d-S24 or -S30 treatment. C9orf72 transcripts, protein and RNA foci were unchanged. The authors state that, because current C9orf72 animal models lack behavioural phenotypes, protective effects still need evaluation.",
+        "claims": [
+          {
+            "claim": "The C9-500 BAC mouse model has no survival or motor deficits.",
+            "file": "als-ftd-pmc11527445.txt",
+            "quote": "Although this mouse model has exhibited no survival or motor",
+            "quote_verified": true
+          },
+          {
+            "claim": "Treatment reduced poly-GP and poly-GA in C9-500 BAC mice.",
+            "file": "als-ftd-pmc11527445.txt",
+            "quote": "led to a significant reduction in poly-GP and poly-",
+            "quote_verified": true
+          },
+          {
+            "claim": "Protective effects need further evaluation because there are no behavioural phenotypes.",
+            "file": "als-ftd-pmc11527445.txt",
+            "quote": "owing to the lack of behavioral phenotypes and other neuro -",
+            "quote_verified": true
+          }
+        ],
+        "other_candidates": [],
+        "ambiguity": "",
+        "confidence": "high",
+        "search_terms": [
+          "survival",
+          "motor deficits",
+          "C9-500",
+          "behavioral phenotypes",
+          "BAC"
+        ]
+      },
+      {
+        "id": "a003",
+        "answerability": "answerable",
+        "answer": "iPSC line 2 and iMN line 2 came from the same individual, who carries a 2× GGGGCC non-expanded allele. The mild decrease in the repeat-containing C9-V1 and C9-V3 transcripts was seen only in the iMNs, not in the iPSCs. C9-V2, which lacks the repeat, was not affected. The authors read this as cell type or cellular environment influencing Cas13d targeting of structured repeat RNA. In lines 2–4 (iPSC) and iMN lines 3–5, poly-GP and poly-GA still decreased despite no significant transcript change.",
+        "claims": [
+          {
+            "claim": "iPSC line 2 and iMN line 2 came from the same individual, but the C9-V1/V3 decrease occurred only in iMNs.",
+            "file": "als-ftd-pmc11527445.txt",
+            "quote": "were derived from the same individual, yet the decrease in C9-V1",
+            "quote_verified": true
+          },
+          {
+            "claim": "The same-donor line has a 2× non-expanded allele and showed a mild decrease only in iMNs.",
+            "file": "als-ftd-pmc11527445.txt",
+            "quote": "exhibited a mild",
+            "quote_verified": true
+          },
+          {
+            "claim": "C9-V2, which lacks the repeat, was unaffected.",
+            "file": "als-ftd-pmc11527445.txt",
+            "quote": "RNA level of the C9-V2 transcript, which lacks the GGGGCC",
+            "quote_verified": true
+          },
+          {
+            "claim": "In lines 2–4 and iMN lines 3–5, transcripts were not significantly affected despite lower DPRs.",
+            "file": "als-ftd-pmc11527445.txt",
+            "quote": "despite a",
+            "quote_verified": true
+          }
+        ],
+        "other_candidates": [
+          {
+            "file": "als-ftd-pmc11527445.txt",
+            "quote": "C9-ALS iPSC line 1 (Supplemental Figure 2B ) and C9-ALS iMN",
+            "why_rejected": "Lines 1 are a different pair (5× non-expanded allele) with decreased transcripts in both cell types; not the same-donor pair asked about.",
+            "quote_verified": true
+          }
+        ],
+        "ambiguity": "",
+        "confidence": "high",
+        "search_terms": [
+          "iPSC line 2",
+          "iMN line 2",
+          "same individual",
+          "C9-V1",
+          "C9-V3",
+          "Supplemental Figure 2"
+        ]
+      },
+      {
+        "id": "a006",
+        "answerability": "answerable",
+        "answer": "In zebrafish embryos in Parameswaran et al. (2023), eif2ak2 (zebrafish PKR) knockdown with a morpholino rescued the antisense (C4G2)70 RNA phenotype but not the sense (G4C2)70 one. Co-injection of antisense (C4G2)70 RNA with the eif2ak2 splice-blocking morpholino significantly mitigated the abnormal axonal length and branching compared with a control morpholino. A translation-blocking morpholino also increased axonal length and ameliorated abnormal branching. No protective effect was seen when sense (G4C2)70 RNA was co-injected with the eif2ak2 splice-blocking morpholino. The authors conclude that PKR contributes to antisense but not sense repeat-RNA toxicity.",
+        "claims": [
+          {
+            "claim": "The eif2ak2 splice-blocking morpholino significantly mitigated antisense (C4G2)70 axonal abnormalities.",
+            "file": "als-ftd-pmc10188109.txt",
+            "quote": "eif2ak2 SB- MO significantly mitigates the abnormalities of axonal length and branching compared",
+            "quote_verified": true
+          },
+          {
+            "claim": "The translation-blocking morpholino increased axonal length and ameliorated branching defects.",
+            "file": "als-ftd-pmc10188109.txt",
+            "quote": "Eif2ak2 reduction with a translation- blocking morpholino increases axonal length",
+            "quote_verified": true
+          },
+          {
+            "claim": "No protective effect was seen with sense (G4C2)70 RNA.",
+            "file": "als-ftd-pmc10188109.txt",
+            "quote": "were observed when co- injecting sense (G4C2)70 RNAs with eif2ak2 SB- MO",
+            "quote_verified": true
+          },
+          {
+            "claim": "Authors conclude PKR contributes to antisense but not sense toxicity.",
+            "file": "als-ftd-pmc10188109.txt",
+            "quote": "these data indicate that PKR is an important player contributing to toxicity induced by antisense C4G2",
+            "quote_verified": true
+          }
+        ],
+        "other_candidates": [],
+        "ambiguity": "",
+        "confidence": "high",
+        "search_terms": [
+          "eif2ak2",
+          "zebrafish",
+          "morpholino",
+          "axonopathy",
+          "sense",
+          "antisense"
+        ]
+      },
+      {
+        "id": "a001",
+        "answerability": "answerable",
+        "answer": "Human frontal cortex: in post-mortem frontal cortex from C9FTD/ALS patients, phosphorylated PKR was increased by immunohistochemistry (especially in large pyramidal neurons, n = 4 per group). Phosphorylated eIF2α, normalised to total eIF2α, was also significantly increased by immunoblotting (6 controls vs 6 patients). The authors read this as activation of the PKR/eIF2α pathway in patients.\n\nPatient-derived motor neurons: in two C9ORF72 patient-derived motor neuron lines and their isogenic controls, there were no differences in phosphorylated PKR or phosphorylated eIF2α at 38 days.\n\nInterpretation: the authors suggest the PKR/eIF2α ISR pathway is possibly activated only at a later stage of disease pathogenesis. This explanation should be treated cautiously. It is speculative, as shown by the word 'possibly'. It rests on only two motor neuron lines at a single early culture age (38 days), and the study did not test late-stage motor neurons. Other explanations are not ruled out, such as the cell type (frontal cortex vs motor neurons) or differences between post-mortem tissue and cultured iPSC-derived cells.",
+        "claims": [
+          {
+            "claim": "Phosphorylated PKR was increased in patient frontal cortex, especially large pyramidal neurons.",
+            "file": "als-ftd-pmc10188109.txt",
+            "quote": "tochemistry staining showed that the level of phosphorylated PKR is increased in the frontal cortex,",
+            "quote_verified": true
+          },
+          {
+            "claim": "Phosphorylated eIF2α (normalised to total) was significantly increased in patients.",
+            "file": "als-ftd-pmc10188109.txt",
+            "quote": "phosphorylated eIF2α after normalizing to the total eIF2α level is also",
+            "quote_verified": true
+          },
+          {
+            "claim": "Patient-derived motor neurons showed no differences in phosphorylated PKR or eIF2α at 38 days.",
+            "file": "als-ftd-pmc10188109.txt",
+            "quote": "levels of either phosphorylated PKR or phosphorylated eIF2α of 38- day- old neurons",
+            "quote_verified": true
+          },
+          {
+            "claim": "The authors suggest the pathway is possibly activated in a later stage of pathogenesis.",
+            "file": "als-ftd-pmc10188109.txt",
+            "quote": "suggesting that PKR/ eIF2α-dependent ISR pathway possibly gets activated",
+            "quote_verified": true
+          },
+          {
+            "claim": "The immunoblot sample sizes were 6 controls and 6 patients.",
+            "file": "als-ftd-pmc10188109.txt",
+            "quote": "Error bars represent SD (control n = 6 and C9FTD/ALS n = 6)",
+            "quote_verified": true
+          },
+          {
+            "claim": "Two patient-derived motor neuron lines with isogenic controls were used.",
+            "file": "als-ftd-pmc10188109.txt",
+            "quote": "We also obtained protein extracts from two lines of C9ORF72 patient- derived motor neurons",
+            "quote_verified": true
+          }
+        ],
+        "other_candidates": [],
+        "ambiguity": "",
+        "confidence": "high",
+        "search_terms": [
+          "phosphorylated PKR",
+          "p-eIF2α",
+          "frontal cortex",
+          "motor neurons",
+          "38-day",
+          "later stage"
+        ]
+      }
+    ]
+  }
+}

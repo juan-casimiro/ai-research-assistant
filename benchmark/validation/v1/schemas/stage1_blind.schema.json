@@ -1,0 +1,109 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "batch_id",
+    "cases"
+  ],
+  "properties": {
+    "batch_id": {
+      "type": "string"
+    },
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "answerability",
+          "answer",
+          "claims",
+          "other_candidates",
+          "ambiguity",
+          "confidence",
+          "search_terms"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "answerability": {
+            "type": "string",
+            "enum": [
+              "answerable",
+              "not_in_articles",
+              "premise_wrong"
+            ]
+          },
+          "answer": {
+            "type": "string"
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "claim",
+                "file",
+                "quote"
+              ],
+              "properties": {
+                "claim": {
+                  "type": "string"
+                },
+                "file": {
+                  "type": "string"
+                },
+                "quote": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "other_candidates": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "file",
+                "quote",
+                "why_rejected"
+              ],
+              "properties": {
+                "file": {
+                  "type": "string"
+                },
+                "quote": {
+                  "type": "string"
+                },
+                "why_rejected": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "ambiguity": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "string",
+            "enum": [
+              "high",
+              "medium",
+              "low"
+            ]
+          },
+          "search_terms": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,257 @@
+{
+  "batch_id": "full4-11",
+  "stage": "stage4_compare",
+  "group": "full_stage4",
+  "runner": {
+    "cli": "claude",
+    "model": "claude-sonnet-5-5",
+    "workspace": "jua-106-gold-ws"
+  },
+  "attempts": 1,
+  "earlier_problems": [],
+  "duration_s": 21.0,
+  "quotes": {
+    "verified": 0,
+    "total": 0
+  },
+  "usage": [
+    {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 1849,
+      "cache_read_input_tokens": 19693,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 1849
+      },
+      "output_tokens": 24,
+      "service_tier": "standard",
+      "inference_geo": "not_available"
+    },
+    {
+      "input_tokens": 8,
+      "cache_creation_input_tokens": 18665,
+      "cache_read_input_tokens": 27000,
+      "output_tokens": 3171,
+      "output_tokens_details": {
+        "thinking_tokens": 593
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 18665,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 4,
+          "output_tokens": 1273,
+          "cache_read_input_tokens": 19693,
+          "cache_creation_input_tokens": 1849,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 1849
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    {
+      "claude-sonnet-5-5": {
+        "inputTokens": 8,
+        "outputTokens": 3171,
+        "cacheReadInputTokens": 27000,
+        "cacheCreationInputTokens": 18665,
+        "webSearchRequests": 0,
+        "costUSD": 0.11178600000000001,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 593,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    }
+  ],
+  "transcript": "jua-106-runs/full_stage4/full4-11.attempt1.transcript",
+  "output": {
+    "batch_id": "full4-11",
+    "cases": [
+      {
+        "id": "q019",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": ""
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q021",
+        "answerability_agrees": false,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "mismatch",
+            "note": "Blind says the review has no acute-adaptive vs chronic-overactivation distinction and presents HIF-1α as mainly protective. The key says chronic overactivation drives pathology. The blind quotes come from diabetes-hif-zinc-review.txt, not the key's source file."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": true,
+        "ambiguity_changes_answer": false,
+        "escalate": true,
+        "reasons": [
+          "Blind says not_in_articles but the key is answerable",
+          "f1 mismatch: blind denies the chronic-overactivation harm that the key states"
+        ]
+      },
+      {
+        "id": "q029",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": ""
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q030",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": ""
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q031",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": ""
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": true,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q032",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": ""
+          },
+          {
+            "fact_id": "f2",
+            "result": "match",
+            "note": ""
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q034",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": ""
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q035",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": ""
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q036",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": "The chunk-size quote is unverified, but the other quotes verify the same values."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q037",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": ""
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": true,
+        "ambiguity_changes_answer": true,
+        "escalate": true,
+        "reasons": [
+          "The blind ambiguity offers a per-dimension reading (0.495 to 1.062) that would give an answer different from the key's overall 0.782"
+        ]
+      }
+    ]
+  }
+}

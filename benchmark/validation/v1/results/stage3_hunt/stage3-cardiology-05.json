@@ -1,0 +1,293 @@
+{
+  "batch_id": "stage3-cardiology-05",
+  "stage": "stage3_hunt",
+  "group": "stage3_hunt",
+  "runner": {
+    "cli": "codex",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "workspace": "jua-106-gold-ws"
+  },
+  "attempts": 1,
+  "earlier_problems": [],
+  "duration_s": 180.8,
+  "quotes": {
+    "verified": 4,
+    "total": 4
+  },
+  "usage": [
+    {
+      "input_tokens": 508914,
+      "cached_input_tokens": 430336,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 4794,
+      "reasoning_output_tokens": 405
+    }
+  ],
+  "transcript": "jua-106-runs/stage3_hunt/stage3-cardiology-05.attempt1.transcript",
+  "output": {
+    "batch_id": "stage3-cardiology-05",
+    "cases": [
+      {
+        "id": "c020",
+        "findings": [],
+        "search_terms": [
+          "Cameroon",
+          "spiron",
+          "fourth.line",
+          "5.year",
+          "five.year",
+          "djoumessi",
+          "NCT02426099",
+          "yaound",
+          "Noubiap",
+          "cardiovascular.{0,12}(death|mortal)",
+          "cardiac.{0,12}(death|mortal)",
+          "mortality",
+          "death",
+          "fatal",
+          "survival",
+          "follow.up",
+          "five"
+        ],
+        "files_examined": [
+          "cardio-spironolactone-diabetes-trial.txt",
+          "cardio-emperor-preserved-resistant-hypertension.txt",
+          "cardio-resistant-hypertension-thai-consensus.txt",
+          "cardio-resistant-hypertension-korean-consensus.txt",
+          "cardio-hfpef-dapagliflozin-cost-analysis.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "q065",
+        "findings": [
+          {
+            "type": "H5",
+            "file": "cardio-stemi-vasc-fmd-no-reflow.txt",
+            "quote": "Results: This study included 150 patients who presented with acute STEMI, underwent primary PCI, and were \ndivided into two groups according to the flow result, reflow group and a no-reflow group.",
+            "explanation": "This undeclared competitor reports post-PCI no-reflow incidence and score discrimination in STEMI patients, making it a close retrieval competitor where no decoys are named. It is Rashed's 150-patient cohort using CHA2DS2-VASc and FMD, rather than Sun's 725-patient CHA2DS2-VA cohort; it does not supply Sun's sex-stratified results.",
+            "strength": "weak",
+            "quote_verified": true
+          }
+        ],
+        "search_terms": [
+          "no.reflow",
+          "noreflow",
+          "NRP",
+          "Rashed",
+          "CHA.{0,12}VA",
+          "cha2ds2-va",
+          "0.569",
+          "0.673",
+          "1.295",
+          "1.597",
+          "0.885",
+          "725",
+          "11.7",
+          "85/",
+          "Sun",
+          "78.1",
+          "47.6",
+          "1.098",
+          "2.149",
+          "0.800",
+          "brachial",
+          "flow.mediated",
+          "FMD"
+        ],
+        "files_examined": [
+          "cardio-stemi-vasc-fmd-no-reflow.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "q041",
+        "findings": [
+          {
+            "type": "H5",
+            "file": "cardio-af-incident-ecg-calibration.txt",
+            "quote": "ture of future AF developed within one month from ECG \nexamination (8.4% of the cohort). They obtained a very \naccurate model (AUC 0.90 [0.90–0.91]), but the sample",
+            "explanation": "The surrounding paragraph attributes this result to Attia and describes 649,931 ECGs. The matching author and AUC make this a close undeclared competitor. However, this article describes future AF within one month and does not provide the requested one-versus-multiple ECG comparison for documented paroxysmal AF history. It therefore does not establish an alternative answer or a same-endpoint numerical conflict.",
+            "strength": "weak",
+            "quote_verified": true
+          }
+        ],
+        "search_terms": [
+          "Attia",
+          "0.87",
+          "0.90",
+          "paroxysmal",
+          "sinus.rhythm"
+        ],
+        "files_examined": [
+          "cardio-af-incident-ecg-calibration.txt",
+          "cardio-af-lorenz-detection.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "q066",
+        "findings": [
+          {
+            "type": "H5",
+            "file": "cardio-stemi-vasc-fmd-no-reflow.txt",
+            "quote": "no-reflow, the multivariate regression analysis of differ -\nent independent factors showed significant value only \nas regards FMD% ≤ 11% (p = 0.000) (odds ratio 68.250)",
+            "explanation": "This undeclared competitor reports a multivariate association with post-PCI no-reflow in a STEMI score/FMD study. No decoys are named. Its adjusted result concerns FMD in Rashed's 150-patient cohort, rather than CHA2DS2-VA overall and in women in Sun's cohort. The different predictor and population prevent it from answering or contradicting the question.",
+            "strength": "weak",
+            "quote_verified": true
+          }
+        ],
+        "search_terms": [
+          "no.reflow",
+          "noreflow",
+          "NRP",
+          "Rashed",
+          "CHA.{0,12}VA",
+          "cha2ds2-va",
+          "0.569",
+          "0.673",
+          "1.295",
+          "1.597",
+          "0.885",
+          "725",
+          "Sun",
+          "1.098",
+          "2.149",
+          "brachial",
+          "flow.mediated",
+          "FMD"
+        ],
+        "files_examined": [
+          "cardio-stemi-vasc-fmd-no-reflow.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "c022",
+        "findings": [
+          {
+            "type": "H5",
+            "file": "cardio-cad-ct-angiography.txt",
+            "quote": "one-year follo w-up was short, and MA CE events wer e \npred ominantly rehospitaliza tions for unstable angina (65.2% in \nderivation, 72.5% in validation) r ather than hard endpoints (death \nor myocardial infarction).",
+            "explanation": "Gao's article contains a CCTA nomogram and external validation, so it is a close retrieval competitor for this absent-fact question. This passage explicitly limits the evidence to one-year MACE dominated by unstable-angina rehospitalization. It does not supply externally validated ten-year hard-MACE risk for the original cohort; the absence remains intact.",
+            "strength": "weak",
+            "quote_verified": true
+          }
+        ],
+        "search_terms": [
+          "Gao",
+          "nomogram",
+          "hard.MACE",
+          "hardmace",
+          "ten.year",
+          "ten-year",
+          "10.year",
+          "10-year",
+          "external.{0,15}valid",
+          "hard",
+          "year",
+          "month",
+          "follow",
+          "end.point",
+          "death",
+          "infarct"
+        ],
+        "files_examined": [
+          "cardio-cad-ct-angiography.txt",
+          "cardio-ccta-tyg-incremental-value.txt",
+          "diabetes-cardiovascular-outcomes.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "c011",
+        "findings": [],
+        "search_terms": [
+          "Nox",
+          "Nox.?2",
+          "nox2",
+          "nox-2",
+          "isoprost",
+          "70.41",
+          "65.67",
+          "oxidative",
+          "oxid",
+          "geriat",
+          "SGLT",
+          "dapag",
+          "empag",
+          "EMPEROR",
+          "resHTN",
+          "2.4.{0,10}3.3"
+        ],
+        "files_examined": [
+          "cardio-heartfailure-biomarkers.txt",
+          "diabetes-nephropathy-complications.txt",
+          "cardio-hfpef-dapagliflozin-cost-analysis.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "c010",
+        "findings": [],
+        "search_terms": [
+          "Cameroon",
+          "spiron",
+          "fourth.line",
+          "djoumessi",
+          "NCT02426099",
+          "yaound",
+          "EMPEROR",
+          "emperor-preserved",
+          "resHTN",
+          "2.4.{0,10}3.3",
+          "33vs",
+          "SGLT",
+          "dapag",
+          "empag"
+        ],
+        "files_examined": [
+          "cardio-resistant-hypertension-thai-consensus.txt",
+          "cardio-resistant-hypertension-korean-consensus.txt",
+          "cardio-heartfailure-biomarkers.txt",
+          "cardio-hfpef-dapagliflozin-cost-analysis.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "c023",
+        "findings": [],
+        "search_terms": [
+          "no.reflow",
+          "noreflow",
+          "NRP",
+          "Rashed",
+          "CHA.{0,12}VA",
+          "cha2ds2-va",
+          "0.800",
+          "0.885",
+          "brachial",
+          "flow.mediated",
+          "FMD",
+          "725",
+          "Sun",
+          "0.569",
+          "0.673",
+          "1.295",
+          "1.597",
+          "11.7",
+          "85/",
+          "78.1",
+          "47.6",
+          "1.098",
+          "2.149"
+        ],
+        "files_examined": [
+          "cardio-mi-risk-stratification.txt"
+        ],
+        "stable": true
+      }
+    ]
+  }
+}

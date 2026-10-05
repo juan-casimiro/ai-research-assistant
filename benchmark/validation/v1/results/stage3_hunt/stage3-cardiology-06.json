@@ -1,0 +1,203 @@
+{
+  "batch_id": "stage3-cardiology-06",
+  "stage": "stage3_hunt",
+  "group": "stage3_hunt",
+  "runner": {
+    "cli": "codex",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "workspace": "jua-106-gold-ws"
+  },
+  "attempts": 1,
+  "earlier_problems": [],
+  "duration_s": 154.8,
+  "quotes": {
+    "verified": 2,
+    "total": 2
+  },
+  "usage": [
+    {
+      "input_tokens": 504288,
+      "cached_input_tokens": 428032,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 3814,
+      "reasoning_output_tokens": 204
+    }
+  ],
+  "transcript": "jua-106-runs/stage3_hunt/stage3-cardiology-06.attempt1.transcript",
+  "output": {
+    "batch_id": "stage3-cardiology-06",
+    "cases": [
+      {
+        "id": "q050",
+        "findings": [
+          {
+            "type": "H5",
+            "file": "cardio-stemi-vasc-fmd-no-reflow.txt",
+            "quote": "And combining both cut-off values can \npredict no-reflow with a sensitivity of 76.92% and a speci-\nficity of 93.69% (area under ROC curve = 0.885)",
+            "explanation": "Rashed reports combined CHA2DS2-VASc/FMD discrimination for post-primary-PCI no-reflow in 150 STEMI patients. This closely resembles Sun's prediction task and supplies a competing combined AUC, but uses a different study, score and predictor combination and does not supply Sun's male subgroup result. Informational competitor only.",
+            "strength": "weak",
+            "quote_verified": true
+          }
+        ],
+        "search_terms": [
+          "0.936",
+          "0.932",
+          "0.689",
+          "0.721",
+          "Gao",
+          "Sun",
+          "CHA2DS2",
+          "CHA2DS2-VA",
+          "nomogram",
+          "Hosmer",
+          "recalibr",
+          "no-reflow",
+          "CCTA",
+          "CT-FFR",
+          "MACCE",
+          "31.6",
+          "16.4",
+          "0.382"
+        ],
+        "files_examined": [
+          "cardio-stemi-vasc-fmd-no-reflow.txt",
+          "cardio-ccta-tyg-incremental-value.txt",
+          "cardio-ai-af-management-review.txt",
+          "cardio-heartfailure-biomarkers.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "q048",
+        "findings": [],
+        "search_terms": [
+          "0.932",
+          "0.936",
+          "0.382",
+          "31.6",
+          "16.4",
+          "Gao",
+          "nomogram",
+          "Hosmer",
+          "recalibr",
+          "CCTA",
+          "0.689",
+          "0.721",
+          "CHA2DS2-VA",
+          "no-reflow"
+        ],
+        "files_examined": [
+          "cardio-ccta-tyg-incremental-value.txt",
+          "cardio-heartfailure-biomarkers.txt",
+          "diabetes-sleep-multimorbidity-cohorts.txt",
+          "cardio-ai-af-management-review.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "c013",
+        "findings": [],
+        "search_terms": [
+          "CNT",
+          "148.?547",
+          "245.?346",
+          "148547",
+          "245346",
+          "PARAGLIDE",
+          "PARAGON",
+          "DELIVER",
+          "2022 US",
+          "2022.*price",
+          "cost.effect",
+          "cost.per",
+          "cost needed",
+          "costneeded",
+          "dapag",
+          "sacub",
+          "cost",
+          "2022",
+          "HFpEF"
+        ],
+        "files_examined": [
+          "cardio-resistant-hypertension-thai-consensus.txt",
+          "cardio-emperor-preserved-resistant-hypertension.txt",
+          "cardio-cardiorenal-drug-network-meta-analysis.txt",
+          "cardio-heartfailure-biomarkers.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "c014",
+        "findings": [
+          {
+            "type": "H5",
+            "file": "cardio-ccta-tyg-incremental-value.txt",
+            "quote": "Clinical Model + CAD-RADS 2.0 0.731 0.046$\nClinical Model + CAD-RADS + TyG index 0.725 0.223#\nClinical Model + CAD-RADS 2.0 + TyG index 0.733 0.505&",
+            "explanation": "This undeclared study supplies discrimination values for coronary CTA models incorporating CT-FFR through CAD-RADS 2.0, making it a plausible additional competitor. Unlike the named Gao decoy, its reported model explicitly incorporates CT-FFR. However, it concerns 3,528 suspected or known CAD patients, MACE over median 50.4 months, and C-statistics rather than per-patient invasive-FFR diagnosis or three-year MACCE in T2D unstable angina. The claim that it is more confusable than Gao is weak.",
+            "strength": "weak",
+            "quote_verified": true
+          }
+        ],
+        "search_terms": [
+          "0.848",
+          "84.8",
+          "0.938",
+          "CT.?FFR",
+          "ct-ffr",
+          "MACCE",
+          "unstable angina",
+          "FFR",
+          "discrimin",
+          "AUC"
+        ],
+        "files_examined": [
+          "cardio-cad-ct-angiography.txt",
+          "cardio-ccta-tyg-incremental-value.txt",
+          "cardio-heartfailure-biomarkers.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "c002",
+        "findings": [],
+        "search_terms": [
+          "undersampl",
+          "under.sampl",
+          "calibrat",
+          "calib",
+          "ICI",
+          "0.008",
+          "future.AF",
+          "futureaf",
+          "incident.AF",
+          "incidentaf",
+          "XGB",
+          "XGBoost",
+          "integrated calibration",
+          "integratedcalibration",
+          "event ratio",
+          "eventratio",
+          "5.year",
+          "five.year",
+          "Noh",
+          "Baek",
+          "2023",
+          "predict",
+          "ECG",
+          "sampl",
+          "Brier",
+          "logistic",
+          "five"
+        ],
+        "files_examined": [
+          "cardio-ai-af-management-review.txt",
+          "cardio-ahre-echo-transformer.txt",
+          "cardio-af-lorenz-detection.txt",
+          "diabetes-sleep-multimorbidity-cohorts.txt"
+        ],
+        "stable": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,463 @@
+{
+  "batch_id": "stage2-outliers-02",
+  "stage": "stage2_audit",
+  "group": "stage2_audit",
+  "runner": {
+    "cli": "claude",
+    "model": "claude-sonnet-5-5",
+    "workspace": "jua-106-gold-ws"
+  },
+  "attempts": 1,
+  "earlier_problems": [],
+  "duration_s": 39.4,
+  "quotes": {
+    "verified": 4,
+    "total": 4
+  },
+  "usage": [
+    {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 2042,
+      "cache_read_input_tokens": 23093,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 2042
+      },
+      "output_tokens": 8,
+      "service_tier": "standard",
+      "inference_geo": "not_available"
+    },
+    {
+      "input_tokens": 10,
+      "cache_creation_input_tokens": 20479,
+      "cache_read_input_tokens": 67720,
+      "output_tokens": 5717,
+      "output_tokens_details": {
+        "thinking_tokens": 805
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 20479,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 3476,
+          "cache_read_input_tokens": 23093,
+          "cache_creation_input_tokens": 2042,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 2042
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    {
+      "claude-sonnet-5-5": {
+        "inputTokens": 10,
+        "outputTokens": 5717,
+        "cacheReadInputTokens": 67720,
+        "cacheCreationInputTokens": 20479,
+        "webSearchRequests": 0,
+        "costUSD": 0.15265,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 805,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    }
+  ],
+  "transcript": "jua-106-runs/stage2_audit/stage2-outliers-02.attempt1.transcript",
+  "output": {
+    "batch_id": "stage2-outliers-02",
+    "cases": [
+      {
+        "id": "x005",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "Self-contained, single reading.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "pass",
+            "reason": "87.08% (ANN, early-stage risk) and 97% (CNN, four-stage MRI) match the abstract.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "pass",
+            "reason": "Tasks and datasets (two separate Kaggle datasets: 1,200 clinical patients, 4,876 MRI images) match the source.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G4",
+            "result": "pass",
+            "reason": "Abstract sentence supports both values.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "pass",
+            "reason": "The 'not head-to-head' caveat follows from the separate datasets. The abstract calls the CNN 'superior', but the gold's caveat is reasonable.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G6",
+            "result": "pass",
+            "reason": "Values are the same in the abstract, highlights, results and discussion.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "A single abstract passage is enough.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "One local passage answers it.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K2",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K3",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K4",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "f1",
+            "supported": "yes",
+            "note": "Values and tasks are supported by the abstract."
+          }
+        ],
+        "verdict": "valid_minor",
+        "severity": "none",
+        "summary": "The gold is supported by the abstract and the methods. The only issue is that the rubric's forbidden_conflations text is boilerplate about ARG abundance and has nothing to do with this case.",
+        "proposed_correction": "Replace the irrelevant ARG forbidden-conflation text in the rubric."
+      },
+      {
+        "id": "x002",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "The question presupposes a probiotic intervention, which is the false premise. It is self-contained.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "pass",
+            "reason": "No numeric values are required.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "pass",
+            "reason": "Two-sample bidirectional MR using GWAS summary statistics matches the source.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G4",
+            "result": "pass",
+            "reason": "The anchor states the MR design and data sources. That the study did not administer a probiotic is a direct implication of this design, not silence alone.",
+            "file": "outlier-microbiome-tb-mr.txt",
+            "quote": "A bidirectional two-sample Mendelian randomization (MR) analysis was performed.",
+            "quote_verified": true
+          },
+          {
+            "check": "G5",
+            "result": "pass",
+            "reason": "The gold makes no unsupported claim. The article only mentions order Bacillales as having a protective genetic association.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G6",
+            "result": "pass",
+            "reason": "No conflict.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "The premise is false: the study did not administer probiotics or test a treatment.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "The article is a genetic MR study with no probiotic intervention.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K2",
+            "result": "pass",
+            "reason": "The correction rests on the stated design and data sources, so it is positive evidence.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K3",
+            "result": "pass",
+            "reason": "The Bacillales 'protective effect' is a genetic association, not an administered probiotic, so the premise is not partly true. Strictly, 'reduced TB incidence' is not claimed either.",
+            "file": "outlier-microbiome-tb-mr.txt",
+            "quote": "order.Bacillales showed a protective effect",
+            "quote_verified": true
+          },
+          {
+            "check": "ALT",
+            "result": "not_applicable",
+            "reason": "Single evidence set.",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "f1",
+            "supported": "yes",
+            "note": "The design is supported by the abstract. The statement that nothing was administered follows from the design."
+          }
+        ],
+        "verdict": "valid_minor",
+        "severity": "non_blocking",
+        "summary": "The false premise is supported by the MR design. The stage0 warning is correct that no offending premise is recorded. The anchor supports the design but never says 'no probiotic'.",
+        "proposed_correction": "Record the offending premise (that Yuan et al. administered a probiotic and showed reduced TB incidence). Optionally add the Bacillales 'protective effect' sentence as a clarifying anchor."
+      },
+      {
+        "id": "x007",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "The question is clear. 'Small PTB probiotic group' matches n=5.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "pass",
+            "reason": "n=5, a significant increase in alpha diversity and no notable change in beta diversity are all in the text.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "pass",
+            "reason": "The comparison is with PTB patients not receiving probiotics, as the gold states. The finding is cited from Mitsui 2022.",
+            "file": "outlier-microbiome-tuberculosis.txt",
+            "quote": "Patients with PTB who received\nprobiotics (n=5) showed a signi ﬁcant increase in gut microbiota\nalpha diversity",
+            "quote_verified": true
+          },
+          {
+            "check": "G4",
+            "result": "pass",
+            "reason": "The anchor contains the full statement.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "pass",
+            "reason": "The gold stays within the text.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G6",
+            "result": "pass",
+            "reason": "No conflicting values.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "One local passage is enough.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "A single passage answers it.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K2",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K3",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K4",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "f1",
+            "supported": "yes",
+            "note": "Supported verbatim by the review."
+          }
+        ],
+        "verdict": "valid",
+        "severity": "none",
+        "summary": "The review's sentence supports the gold exactly. The population, comparator and endpoint are correct.",
+        "proposed_correction": ""
+      },
+      {
+        "id": "x004",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "Self-contained. 'Garner et al.' and 12 WWTPs identify the study.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "pass",
+            "reason": "11 of 12 for relative abundance and all 12 for absolute abundance match the abstract and results.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "pass",
+            "reason": "The endpoint is total ARG abundance after treatment. Results confirm 'decreased at 11 of 12 WWTPs (p = 0.01)' and absolute abundance 'decreasing at all 12 WWTPs'.",
+            "file": "outlier-amr-international-wwtp.txt",
+            "quote": "decreased at 11 of 12 WWTPs (p =",
+            "quote_verified": true
+          },
+          {
+            "check": "G4",
+            "result": "pass",
+            "reason": "The abstract anchor supports both values.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "pass",
+            "reason": "The gold's qPCR caveat about four wastewater samples is supported by the decoy abstract.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G6",
+            "result": "pass",
+            "reason": "The exception (PHL-1) is not contradictory, and the numbers are consistent across the article.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "The case fits the distractor category.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "The decoy is also about wastewater ARG metagenomics, so it is a tempting source.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K2",
+            "result": "pass",
+            "reason": "The decoy covers four hospital, industrial, urban and rural samples and no treatment outcomes across 12 WWTPs.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K3",
+            "result": "pass",
+            "reason": "The decoy does not answer the question.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K4",
+            "result": "pass",
+            "reason": "The Garner abstract alone answers it.",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "f1",
+            "supported": "yes",
+            "note": "Both counts are correct and bound to the right metric."
+          }
+        ],
+        "verdict": "valid_minor",
+        "severity": "none",
+        "summary": "The gold is supported. The decoy anchor qPCR-summary is also listed with fact_ids f1, which is a mapping oddity because the decoy is not meant to support f1. This does not affect scoring.",
+        "proposed_correction": "Remove fact_ids f1 from the decoy anchor qPCR-summary."
+      }
+    ]
+  }
+}

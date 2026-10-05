@@ -1,0 +1,269 @@
+{
+  "batch_id": "pilotseed2-als-ftd-01",
+  "stage": "stage2_audit",
+  "group": "pilot_seeded_stage2",
+  "runner": {
+    "cli": "claude",
+    "model": "claude-sonnet-5-5",
+    "workspace": "jua-106-gold-ws"
+  },
+  "attempts": 1,
+  "earlier_problems": [],
+  "duration_s": 26.9,
+  "quotes": {
+    "verified": 0,
+    "total": 0
+  },
+  "usage": [
+    {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 503,
+      "cache_read_input_tokens": 46212,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 503
+      },
+      "output_tokens": 4,
+      "service_tier": "standard",
+      "inference_geo": "not_available"
+    },
+    {
+      "input_tokens": 10,
+      "cache_creation_input_tokens": 42059,
+      "cache_read_input_tokens": 107222,
+      "output_tokens": 3313,
+      "output_tokens_details": {
+        "thinking_tokens": 597
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 42059,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 2212,
+          "cache_read_input_tokens": 46212,
+          "cache_creation_input_tokens": 503,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 503
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    {
+      "claude-sonnet-5-5": {
+        "inputTokens": 10,
+        "outputTokens": 3313,
+        "cacheReadInputTokens": 107222,
+        "cacheCreationInputTokens": 42059,
+        "webSearchRequests": 0,
+        "costUSD": 0.2228304,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 597,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    }
+  ],
+  "transcript": "jua-106-runs/pilot_seeded_stage2/pilotseed2-als-ftd-01.attempt1.transcript",
+  "output": {
+    "batch_id": "pilotseed2-als-ftd-01",
+    "cases": [
+      {
+        "id": "a002",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "Self-contained, names the study and mouse model, one reading.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "pass",
+            "reason": "No numbers. The cited-prior-work attribution and the reduced poly-GP/poly-GA result match the text.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "pass",
+            "reason": "C9-500 BAC mice, DPR endpoint, and the clinical caveat are all scoped as in the source.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G4",
+            "result": "pass",
+            "reason": "Each anchor supports its mapped fact: the no-deficits statement with ref 42, the DPR reduction in BAC mice, and the clinical-evaluation sentence.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "pass",
+            "reason": "The reference answer stays within the text and credits the no-deficit statement to prior work. The Discussion also notes the lack of behavioral phenotypes in current C9orf72 animal models.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G6",
+            "result": "not_applicable",
+            "reason": "No conflicting values.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "False premise is properly framed as a category case.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "The article reports only DPR reduction in mice and no survival or motor outcomes, so the premise is false.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K2",
+            "result": "pass",
+            "reason": "Positive evidence: the model shows no survival or motor deficits, the measured endpoints are poly-GP/poly-GA, and efficacy there is said to need further evaluation.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K3",
+            "result": "pass",
+            "reason": "The premise is not partly true. Cas13d did reduce DPRs, but survival and motor improvement are not claimed.",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "a002:f1",
+            "supported": "yes",
+            "note": "Text: \"Although this mouse model has exhibited no survival or motor deficits (42)\" and poly-GP/GA were reduced."
+          },
+          {
+            "fact_id": "a002:f2",
+            "supported": "yes",
+            "note": "Text: \"the protective effects of the CRISPR/Cas13d system in C9-ALS/FTD patients require further evaluation.\""
+          }
+        ],
+        "verdict": "valid",
+        "severity": "none",
+        "summary": "The premise is false per the text. Liu measured DPR reduction in the BAC mice and no survival or motor outcomes. The no-deficit statement is attributed to cited prior work, and patient protection is left for future evaluation. The gold and its qualifiers are accurate.",
+        "proposed_correction": ""
+      },
+      {
+        "id": "a008",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "Both studies are named and the contrast asked for is clear. It is slightly leading but does not leak specifics.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "pass",
+            "reason": "No numeric values. The Parameswaran findings (increased p-PKR and normalized p-eIF2α in C9FTD/ALS frontal cortex vs controls) and the case facts (discordant SPECT, genetic diagnosis, autopsy confirmation) are all in the text.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "pass",
+            "reason": "Postmortem frontal cortex, C9FTD/ALS patients vs controls, and the single case match the sources.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G4",
+            "result": "pass",
+            "reason": "The tissue anchor supports f1. The SPECT, genetics and autopsy anchors together support f2.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "pass",
+            "reason": "The reference answer's caution about PKR as a diagnostic test is labeled authored interpretation, and the rest follows the text.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G6",
+            "result": "not_applicable",
+            "reason": "No conflicting values.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "Fits cross-doc synthesis.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "Parameswaran gives the molecular association and LeBlanc gives the diagnostic history. Neither article has the other's fact.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K2",
+            "result": "pass",
+            "reason": "Neither article alone can answer the contrast.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K3",
+            "result": "pass",
+            "reason": "The comparison is a legitimate contrast and the caveat that neither validates PKR testing is stated.",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "a008:f1",
+            "supported": "yes",
+            "note": "\"level of phosphorylated PKR is increased in the frontal cortex...\" and normalized p-eIF2α \"significantly increased\", with controls and patients n=6 each."
+          },
+          {
+            "fact_id": "a008:f2",
+            "supported": "yes",
+            "note": "SPECT favored Alzheimer's disease rather than FTLD. Genetic testing found the GGGGCC expansion, and autopsy confirmed FTLD-TDP type C."
+          }
+        ],
+        "verdict": "valid",
+        "severity": "none",
+        "summary": "Both required facts are supported by the anchors. The sources are complementary and the reference answer's caveat is marked as authored interpretation. One point to note: p-PKR is shown by IHC (n=4 per genotype) while p-eIF2α is shown by immunoblot (n=6). The gold does not misstate this.",
+        "proposed_correction": ""
+      }
+    ]
+  }
+}

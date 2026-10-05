@@ -1,0 +1,1508 @@
+{
+  "stage": 0,
+  "method": "mechanical checks; no model calls",
+  "corpus_text_files": 55,
+  "sets": {
+    "cardiology": {
+      "queries_file": "benchmark/cardiology/v1/queries.json",
+      "queries_sha256": "1da725cbbca276e554e344fd5d4d6f20418955905831873e52f3eeafcc29826d",
+      "cases": 45,
+      "anchors": 77,
+      "anchors_failing": 0,
+      "notes": []
+    },
+    "diabetes": {
+      "queries_file": "benchmark/diabetes/v1/queries.json",
+      "queries_sha256": "7a11bba086f50e4433eace7b51edb26281c11902dda2347f58864a87324d7e63",
+      "cases": 49,
+      "anchors": 55,
+      "anchors_failing": 0,
+      "notes": [
+        "questions and anchors identical to evaluated snapshot"
+      ]
+    },
+    "oncology": {
+      "queries_file": "benchmark/oncology/v1/queries.json",
+      "queries_sha256": "1d6542bb877befd9b8ae4963e204b56b32faf702e2093690dc5b9f7ef43b1d7a",
+      "cases": 44,
+      "anchors": 84,
+      "anchors_failing": 0,
+      "notes": []
+    },
+    "outliers": {
+      "queries_file": "benchmark/outliers/v1/queries.json",
+      "queries_sha256": "03865ffc8845de7cf13e8925921ab6bc1a45cd12ff7f3f2eabf98cb4e550e60d",
+      "cases": 10,
+      "anchors": 12,
+      "anchors_failing": 0,
+      "notes": []
+    },
+    "als-ftd": {
+      "queries_file": "benchmark/als-ftd/v1/queries.json",
+      "queries_sha256": "5c5c20793cdd64a356c4be66e9e1f7b9f3780a40549893f4ffd74e450128ed38",
+      "cases": 10,
+      "anchors": 19,
+      "anchors_failing": 0,
+      "notes": []
+    }
+  },
+  "totals": {
+    "pass": 143,
+    "warn": 15,
+    "fail": 0
+  },
+  "cases": [
+    {
+      "set": "cardiology",
+      "id": "q041",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "q042",
+      "revision": 2,
+      "category": "multi_hop",
+      "failures": [],
+      "warnings": [
+        "numbers shared by question and expected answer: ['12']"
+      ],
+      "status": "warn"
+    },
+    {
+      "set": "cardiology",
+      "id": "q044",
+      "revision": 2,
+      "category": "cross_doc_synthesis",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "q047",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "q048",
+      "revision": 2,
+      "category": "multi_hop",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "q049",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "q050",
+      "revision": 2,
+      "category": "cross_doc_synthesis",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "q051",
+      "revision": 2,
+      "category": "multi_hop",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "q053",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "q054",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "q055",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "q056",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "q058",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "q065",
+      "revision": 2,
+      "category": "multi_hop",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "q066",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "q067",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "q069",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "q124",
+      "revision": 2,
+      "category": "multi_hop",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "q126",
+      "revision": 2,
+      "category": "multi_hop",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "q128",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "q129",
+      "revision": 2,
+      "category": "cross_doc_distractor",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "c001",
+      "revision": 1,
+      "category": "cross_doc_distractor",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "c002",
+      "revision": 1,
+      "category": "multi_hop",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "c003",
+      "revision": 1,
+      "category": "multi_hop",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "c004",
+      "revision": 1,
+      "category": "cross_doc_synthesis",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "c005",
+      "revision": 1,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "c006",
+      "revision": 1,
+      "category": "cross_doc_distractor",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "c007",
+      "revision": 1,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "c008",
+      "revision": 1,
+      "category": "cross_doc_synthesis",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "c009",
+      "revision": 1,
+      "category": "cross_doc_distractor",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "c010",
+      "revision": 1,
+      "category": "cross_doc_synthesis",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "c011",
+      "revision": 1,
+      "category": "cross_doc_distractor",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "c012",
+      "revision": 1,
+      "category": "cross_doc_synthesis",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "c013",
+      "revision": 1,
+      "category": "multi_hop",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "c014",
+      "revision": 1,
+      "category": "cross_doc_distractor",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "c015",
+      "revision": 1,
+      "category": "cross_doc_synthesis",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "c016",
+      "revision": 1,
+      "category": "cross_doc_synthesis",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "c017",
+      "revision": 1,
+      "category": "false_premise",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "c018",
+      "revision": 1,
+      "category": "false_premise",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "c019",
+      "revision": 1,
+      "category": "false_premise",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "c020",
+      "revision": 1,
+      "category": "unanswerable",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "c021",
+      "revision": 1,
+      "category": "unanswerable",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "c022",
+      "revision": 1,
+      "category": "unanswerable",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "c023",
+      "revision": 1,
+      "category": "cross_doc_distractor",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "cardiology",
+      "id": "c024",
+      "revision": 1,
+      "category": "false_premise",
+      "failures": [],
+      "warnings": [
+        "numbers shared by question and expected answer: ['130', '80']"
+      ],
+      "status": "warn"
+    },
+    {
+      "set": "diabetes",
+      "id": "q001",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "q002",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "q003",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "q004",
+      "revision": 2,
+      "category": "multi_hop",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "q005",
+      "revision": 4,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "q006",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "q007",
+      "revision": 2,
+      "category": "unanswerable",
+      "failures": [],
+      "warnings": [
+        "search scope lacks searched terms or article list"
+      ],
+      "status": "warn"
+    },
+    {
+      "set": "diabetes",
+      "id": "q015",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "q016",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "q017",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "q018",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "q019",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "q021",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "q029",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "q030",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "q031",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "q032",
+      "revision": 2,
+      "category": "multi_hop",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "q034",
+      "revision": 2,
+      "category": "cross_doc_distractor",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "q035",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "q036",
+      "revision": 4,
+      "category": "multi_hop",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "q037",
+      "revision": 2,
+      "category": "cross_doc_distractor",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "q038",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "q039",
+      "revision": 2,
+      "category": "multi_hop",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "d001",
+      "revision": 1,
+      "category": "multi_hop",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "d002",
+      "revision": 1,
+      "category": "cross_doc_distractor",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "d003",
+      "revision": 1,
+      "category": "multi_hop",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "d004",
+      "revision": 1,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "d005",
+      "revision": 1,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [
+        "numbers shared by question and expected answer: ['4']"
+      ],
+      "status": "warn"
+    },
+    {
+      "set": "diabetes",
+      "id": "d006",
+      "revision": 1,
+      "category": "multi_hop",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "d007",
+      "revision": 1,
+      "category": "cross_doc_distractor",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "d008",
+      "revision": 1,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "d009",
+      "revision": 1,
+      "category": "cross_doc_synthesis",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "d010",
+      "revision": 1,
+      "category": "cross_doc_synthesis",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "d011",
+      "revision": 1,
+      "category": "cross_doc_synthesis",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "d012",
+      "revision": 1,
+      "category": "cross_doc_synthesis",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "d013",
+      "revision": 1,
+      "category": "cross_doc_synthesis",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "d014",
+      "revision": 3,
+      "category": "multi_hop",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "d015",
+      "revision": 3,
+      "category": "multi_hop",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "d016",
+      "revision": 3,
+      "category": "multi_hop",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "d017",
+      "revision": 1,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "d018",
+      "revision": 3,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "d019",
+      "revision": 1,
+      "category": "false_premise",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "d020",
+      "revision": 1,
+      "category": "false_premise",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "d021",
+      "revision": 1,
+      "category": "false_premise",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "d022",
+      "revision": 1,
+      "category": "unanswerable",
+      "failures": [],
+      "warnings": [
+        "search scope lacks searched terms or article list"
+      ],
+      "status": "warn"
+    },
+    {
+      "set": "diabetes",
+      "id": "d023",
+      "revision": 1,
+      "category": "unanswerable",
+      "failures": [],
+      "warnings": [
+        "search scope lacks searched terms or article list"
+      ],
+      "status": "warn"
+    },
+    {
+      "set": "diabetes",
+      "id": "d024",
+      "revision": 1,
+      "category": "unanswerable",
+      "failures": [],
+      "warnings": [
+        "search scope lacks searched terms or article list"
+      ],
+      "status": "warn"
+    },
+    {
+      "set": "diabetes",
+      "id": "d025",
+      "revision": 1,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "diabetes",
+      "id": "d026",
+      "revision": 1,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "q079",
+      "revision": 3,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "q080",
+      "revision": 3,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "q081",
+      "revision": 3,
+      "category": "false_premise",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "q095",
+      "revision": 3,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "q096",
+      "revision": 3,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "q102",
+      "revision": 3,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "o022",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "o029",
+      "revision": 3,
+      "category": "multi_hop",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "o028",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "o001",
+      "revision": 3,
+      "category": "false_premise",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "o002",
+      "revision": 3,
+      "category": "multi_hop",
+      "failures": [],
+      "warnings": [
+        "numbers shared by question and expected answer: ['2']"
+      ],
+      "status": "warn"
+    },
+    {
+      "set": "oncology",
+      "id": "o003",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "o004",
+      "revision": 2,
+      "category": "multi_hop",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "o005",
+      "revision": 2,
+      "category": "multi_hop",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "o027",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [
+        "numbers shared by question and expected answer: ['40']"
+      ],
+      "status": "warn"
+    },
+    {
+      "set": "oncology",
+      "id": "o006",
+      "revision": 2,
+      "category": "multi_hop",
+      "failures": [],
+      "warnings": [
+        "numbers shared by question and expected answer: ['2', '30', '40']"
+      ],
+      "status": "warn"
+    },
+    {
+      "set": "oncology",
+      "id": "q108",
+      "revision": 3,
+      "category": "false_premise",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "o007",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "o023",
+      "revision": 4,
+      "category": "multi_hop",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "o008",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "o009",
+      "revision": 5,
+      "category": "multi_hop",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "o010",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "o011",
+      "revision": 2,
+      "category": "false_premise",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "o026",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "o012",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "q085",
+      "revision": 3,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "o013",
+      "revision": 3,
+      "category": "false_premise",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "o014",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "o015",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "o016",
+      "revision": 2,
+      "category": "multi_hop",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "o030",
+      "revision": 3,
+      "category": "cross_doc_synthesis",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "o017",
+      "revision": 4,
+      "category": "cross_doc_synthesis",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "o018",
+      "revision": 2,
+      "category": "cross_doc_synthesis",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "o024",
+      "revision": 2,
+      "category": "cross_doc_distractor",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "o025",
+      "revision": 3,
+      "category": "cross_doc_distractor",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "o020",
+      "revision": 2,
+      "category": "unanswerable",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "o021",
+      "revision": 4,
+      "category": "false_premise",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "q083",
+      "revision": 2,
+      "category": "unanswerable",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "q100",
+      "revision": 2,
+      "category": "unanswerable",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "q101",
+      "revision": 3,
+      "category": "false_premise",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "q078",
+      "revision": 3,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "q097",
+      "revision": 3,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "q098",
+      "revision": 3,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "oncology",
+      "id": "q099",
+      "revision": 3,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "outliers",
+      "id": "x001",
+      "revision": 1,
+      "category": "multi_hop",
+      "failures": [],
+      "warnings": [
+        "numbers shared by question and expected answer: ['11', '195']"
+      ],
+      "status": "warn"
+    },
+    {
+      "set": "outliers",
+      "id": "x002",
+      "revision": 1,
+      "category": "false_premise",
+      "failures": [],
+      "warnings": [
+        "false premise without a recorded offending premise"
+      ],
+      "status": "warn"
+    },
+    {
+      "set": "outliers",
+      "id": "x003",
+      "revision": 1,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "outliers",
+      "id": "x004",
+      "revision": 1,
+      "category": "cross_doc_distractor",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "outliers",
+      "id": "x005",
+      "revision": 1,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "outliers",
+      "id": "x006",
+      "revision": 1,
+      "category": "false_premise",
+      "failures": [],
+      "warnings": [
+        "false premise without a recorded offending premise"
+      ],
+      "status": "warn"
+    },
+    {
+      "set": "outliers",
+      "id": "x007",
+      "revision": 1,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "outliers",
+      "id": "x008",
+      "revision": 1,
+      "category": "false_premise",
+      "failures": [],
+      "warnings": [
+        "false premise without a recorded offending premise"
+      ],
+      "status": "warn"
+    },
+    {
+      "set": "outliers",
+      "id": "x009",
+      "revision": 1,
+      "category": "unanswerable",
+      "failures": [],
+      "warnings": [
+        "search scope is free text, without searched terms or article list"
+      ],
+      "status": "warn"
+    },
+    {
+      "set": "outliers",
+      "id": "x010",
+      "revision": 1,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "als-ftd",
+      "id": "a001",
+      "revision": 2,
+      "category": "multi_hop",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "als-ftd",
+      "id": "a002",
+      "revision": 2,
+      "category": "false_premise",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "als-ftd",
+      "id": "a003",
+      "revision": 3,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "als-ftd",
+      "id": "a004",
+      "revision": 2,
+      "category": "multi_hop",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "als-ftd",
+      "id": "a005",
+      "revision": 2,
+      "category": "cross_doc_synthesis",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "als-ftd",
+      "id": "a006",
+      "revision": 2,
+      "category": "direct_lookup",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "als-ftd",
+      "id": "a007",
+      "revision": 2,
+      "category": "multi_hop",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "als-ftd",
+      "id": "a008",
+      "revision": 2,
+      "category": "cross_doc_synthesis",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "als-ftd",
+      "id": "a009",
+      "revision": 2,
+      "category": "cross_doc_distractor",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    },
+    {
+      "set": "als-ftd",
+      "id": "a010",
+      "revision": 2,
+      "category": "multi_hop",
+      "failures": [],
+      "warnings": [],
+      "status": "pass"
+    }
+  ]
+}

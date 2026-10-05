@@ -1,0 +1,279 @@
+{
+  "batch_id": "full4-12",
+  "stage": "stage4_compare",
+  "group": "full_stage4",
+  "runner": {
+    "cli": "claude",
+    "model": "claude-sonnet-5-5",
+    "workspace": "jua-106-gold-ws"
+  },
+  "attempts": 1,
+  "earlier_problems": [],
+  "duration_s": 20.9,
+  "quotes": {
+    "verified": 0,
+    "total": 0
+  },
+  "usage": [
+    {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 17711,
+      "cache_read_input_tokens": 4430,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 17711
+      },
+      "output_tokens": 3,
+      "service_tier": "standard",
+      "inference_geo": "not_available"
+    },
+    {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 19264,
+      "cache_read_input_tokens": 7307,
+      "output_tokens": 2097,
+      "output_tokens_details": {
+        "thinking_tokens": 759
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 19264,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 2008,
+          "cache_read_input_tokens": 4430,
+          "cache_creation_input_tokens": 17711,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 17711
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    {
+      "claude-sonnet-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 2097,
+        "cacheReadInputTokens": 7307,
+        "cacheCreationInputTokens": 19264,
+        "webSearchRequests": 0,
+        "costUSD": 0.09949540000000001,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 759,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    }
+  ],
+  "transcript": "jua-106-runs/full_stage4/full4-12.attempt1.transcript",
+  "output": {
+    "batch_id": "full4-12",
+    "cases": [
+      {
+        "id": "q038",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": ""
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q039",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": ""
+          },
+          {
+            "fact_id": "f2",
+            "result": "partial",
+            "note": "States source-masked but imperfectly blinded; does not say this fails to quantify causal source-label bias."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q041",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": ""
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q042",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": ""
+          },
+          {
+            "fact_id": "f2",
+            "result": "match",
+            "note": ""
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q044",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": ""
+          },
+          {
+            "fact_id": "f2",
+            "result": "match",
+            "note": ""
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": true,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q047",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": ""
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": true,
+        "ambiguity_changes_answer": true,
+        "escalate": true,
+        "reasons": [
+          "Blind's described alternate reading (external cohort: 0.932 vs 0.782) gives a different answer from the key's derivation values."
+        ]
+      },
+      {
+        "id": "q048",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": ""
+          },
+          {
+            "fact_id": "f2",
+            "result": "match",
+            "note": ""
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q049",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": ""
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q050",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": ""
+          },
+          {
+            "fact_id": "f2",
+            "result": "match",
+            "note": ""
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": true,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q051",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": ""
+          },
+          {
+            "fact_id": "f2",
+            "result": "match",
+            "note": ""
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": true,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      }
+    ]
+  }
+}

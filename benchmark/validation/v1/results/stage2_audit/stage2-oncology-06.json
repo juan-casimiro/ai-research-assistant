@@ -1,0 +1,635 @@
+{
+  "batch_id": "stage2-oncology-06",
+  "stage": "stage2_audit",
+  "group": "stage2_audit",
+  "runner": {
+    "cli": "claude",
+    "model": "claude-sonnet-5-5",
+    "workspace": "jua-106-gold-ws"
+  },
+  "attempts": 1,
+  "earlier_problems": [],
+  "duration_s": 61.2,
+  "quotes": {
+    "verified": 3,
+    "total": 3
+  },
+  "usage": [
+    {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 2697,
+      "cache_read_input_tokens": 29607,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 2697
+      },
+      "output_tokens": 4,
+      "service_tier": "standard",
+      "inference_geo": "not_available"
+    },
+    {
+      "input_tokens": 12,
+      "cache_creation_input_tokens": 27648,
+      "cache_read_input_tokens": 109524,
+      "output_tokens": 8178,
+      "output_tokens_details": {
+        "thinking_tokens": 1364
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 27648,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 5224,
+          "cache_read_input_tokens": 29607,
+          "cache_creation_input_tokens": 2697,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 2697
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    {
+      "claude-sonnet-5-5": {
+        "inputTokens": 12,
+        "outputTokens": 8178,
+        "cacheReadInputTokens": 109524,
+        "cacheCreationInputTokens": 27648,
+        "webSearchRequests": 0,
+        "costUSD": 0.2143008,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 1364,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    }
+  ],
+  "transcript": "jua-106-runs/stage2_audit/stage2-oncology-06.attempt1.transcript",
+  "output": {
+    "batch_id": "stage2-oncology-06",
+    "cases": [
+      {
+        "id": "q083",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "Self-contained; asks for an FDA-validated early-stage sensitivity for EarlyCDT-Lung.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "not_applicable",
+            "reason": "No required facts (unanswerable).",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "not_applicable",
+            "reason": "No facts.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G4",
+            "result": "not_applicable",
+            "reason": "No anchors.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "cannot_tell",
+            "reason": "The reference_answer is empty; only the rubric says to explain the limitation without inventing a number.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G6",
+            "result": "not_applicable",
+            "reason": "No conflicting values.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "Fits unanswerable.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "The only EarlyCDT-Lung content is in the liquid-biopsy review. It gives ~13–41% sensitivity (variable by setting), labelled investigational. It has no FDA-validated early-stage figure, and FDA appears only for other assays.",
+            "file": "onco-lung-liquidbiopsy.txt",
+            "quote": "~13–41% (variable \nby setting)",
+            "quote_verified": true
+          },
+          {
+            "check": "K2",
+            "result": "pass",
+            "reason": "The question asks for an FDA-validated early-stage value, so the general setting-dependent range is not that value and cannot be derived into it by arithmetic. A model should not present the range as FDA-validated.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K3",
+            "result": "pass",
+            "reason": "Search terms (EarlyCDT, FDA, autoantibod, validated) are adequate. My own grep found EarlyCDT only in the liquid-biopsy review.",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [],
+        "verdict": "valid_minor",
+        "severity": "non_blocking",
+        "summary": "The absence holds: no FDA-validated early-stage sensitivity for EarlyCDT-Lung exists in the topic articles. The review gives only a ~13–41% setting-dependent range and calls the panel investigational. The reference_answer and required_claims are empty, so the grader depends on the rubric text alone.",
+        "proposed_correction": "Add a short reference answer, for example: the corpus gives no FDA-validated early-stage sensitivity; the review lists only ~13–41% variable by setting, labelled investigational."
+      },
+      {
+        "id": "o028",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "The Hunan PD-1+chemo vs chemo MPR question is clear. Unadjusted means before PSM.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "pass",
+            "reason": "49.3% vs 19.0%, p<0.001 appear in the abstract, Results 3.3 and Table 2 (before-PSM columns).",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "pass",
+            "reason": "The before-PSM columns are N=69 vs N=121. The after-PSM values (48.4% vs 17.2%, p=0.001) are separate and not used.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G4",
+            "result": "pass",
+            "reason": "Every anchor shows the MPR values. The table anchors give the column binding.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "pass",
+            "reason": "The note that these are not two-year DFS is correct, since DFS was 79.3% vs 60.2%.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G6",
+            "result": "pass",
+            "reason": "No conflict in these values.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "One passage is enough.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "The abstract alone answers it.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K2",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K3",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K4",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "ALT",
+            "result": "pass",
+            "reason": "Each of the four evidence sets gives the same unadjusted MPR comparison.",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "f1",
+            "supported": "yes",
+            "note": "Matches the abstract, text and Table 2 MPR(CR) row before PSM."
+          }
+        ],
+        "verdict": "valid",
+        "severity": "none",
+        "summary": "The values and their before-PSM binding are confirmed in the abstract, Results and Table 2. The after-PSM figures are different and are not mixed in.",
+        "proposed_correction": ""
+      },
+      {
+        "id": "o015",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "Clear and self-contained.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "pass",
+            "reason": "The qualitative descriptions match the text.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "pass",
+            "reason": "The context is the review's cold tumor phenotypes.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G4",
+            "result": "pass",
+            "reason": "The anchor defines all three phenotypes.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "pass",
+            "reason": "The reference answer paraphrases the source without adding claims.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G6",
+            "result": "pass",
+            "reason": "No conflict.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "One passage answers it.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "One passage is enough.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K2",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K3",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K4",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "f1",
+            "supported": "yes",
+            "note": "Excluded: restricted at the periphery and failing to penetrate. Desert: lacking significant infiltration. Immunosuppressed: cells present but functionally restrained by dominant suppressive signals."
+          }
+        ],
+        "verdict": "valid",
+        "severity": "none",
+        "summary": "The anchor text directly supports all three distinctions.",
+        "proposed_correction": ""
+      },
+      {
+        "id": "q102",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "The question names the Appendix 1 flow diagram and asks for two printed counts.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "pass",
+            "reason": "Hysterectomy N=19,011 and Analysis Group N=40,511 are printed in the diagram.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "pass",
+            "reason": "Population and counts match the diagram.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G4",
+            "result": "pass",
+            "reason": "The anchor contains both counts.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "pass",
+            "reason": "The warning against silently correcting is warranted: 67,473−19,011−1−29−17−6=48,409, not the printed 48,209, and 48,209−7,898=40,311, not 40,511. The main text also says 40,511.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G6",
+            "result": "pass",
+            "reason": "The gold flags the arithmetic inconsistency without naming it. The diagram header says 50-65 while the text says 50–64, a trivial discrepancy.",
+            "file": "onco-colorectal-screening.txt",
+            "quote": "Women 50-65 years old:",
+            "quote_verified": true
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "One local figure answers it.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "One local figure answers it.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K2",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K3",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K4",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "f1",
+            "supported": "yes",
+            "note": "19,011 and 40,511 are verbatim in the diagram. 40,511 also appears in the Results text."
+          }
+        ],
+        "verdict": "valid",
+        "severity": "none",
+        "summary": "The printed counts are correct. The arithmetic inconsistency in the diagram is real, and the gold appropriately tells the answerer not to correct it silently.",
+        "proposed_correction": ""
+      },
+      {
+        "id": "o001",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "The premise is clear and it is a yes/no question that does not leak the answer.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "pass",
+            "reason": "MPR 65.3% vs 15.1%, pCR 34.6% vs 3.0% and DFS P=0.129 are in the abstract and Table 2.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "pass",
+            "reason": "The comparison is NICT (n=26) vs NCT (n=33). The article is a retrospective stage III cohort from Zhongshan City People's Hospital.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G4",
+            "result": "pass",
+            "reason": "Each anchor supports the response values or the non-significant DFS.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "pass",
+            "reason": "Claims are limited to the reported values and non-significance.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G6",
+            "result": "pass",
+            "reason": "The narrative says MPR in 19 of 26, while Table 2 and the abstract give 17 (65.3%). The rubric flags this as optional and says not to reconcile it silently.",
+            "file": "onco-nsclc-neoadjuvant-stageiii.txt",
+            "quote": "A major pathological response occurred in 19 of the 26",
+            "quote_verified": true
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "Fits false_premise.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "The text says there was no significant DFS difference between treatment groups.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K2",
+            "result": "pass",
+            "reason": "The correction rests on the explicit statement of non-significance.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K3",
+            "result": "pass",
+            "reason": "The premise is not partly true. MPR vs non-MPR DFS was significant (P=0.048), but the premise concerns the treatment-group DFS comparison.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "ALT",
+            "result": "pass",
+            "reason": "The alternative sets give the table values plus the non-significant DFS.",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "f1",
+            "supported": "yes",
+            "note": "Values match the abstract and Table 2, and DFS P=0.129."
+          }
+        ],
+        "verdict": "valid",
+        "severity": "none",
+        "summary": "The false premise is supported by positive text: no significant DFS difference between groups, P=0.129. The MPR 19/26 vs 17/26 conflict is acknowledged as optional.",
+        "proposed_correction": ""
+      },
+      {
+        "id": "o016",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "Clear.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "pass",
+            "reason": "The qualitative mechanisms match the text.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "pass",
+            "reason": "Mechanistic review claims, with no clinical-benefit claim.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G4",
+            "result": "pass",
+            "reason": "The stress anchor supports the ER stress to CALR link and autophagy sustaining ATP secretion. The DAMP anchor supports CALR phagocytosis and ATP/P2RX7/inflammasome.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "pass",
+            "reason": "Supported, and the caveat about clinical benefit is acceptable.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G6",
+            "result": "pass",
+            "reason": "No conflict.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "Needs both passages.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "The stress anchor lacks the CALR phagocytosis and P2RX7 details, and the DAMP anchor lacks the ER stress and autophagy links.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K2",
+            "result": "pass",
+            "reason": "The anchors are in different paragraphs, about 1,800 characters apart.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K3",
+            "result": "pass",
+            "reason": "Both anchors are needed.",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "f1",
+            "supported": "yes",
+            "note": "All elements are present across the two passages."
+          }
+        ],
+        "verdict": "valid",
+        "severity": "none",
+        "summary": "The two anchors jointly support the full mechanistic chain, and neither alone is enough.",
+        "proposed_correction": ""
+      }
+    ]
+  }
+}

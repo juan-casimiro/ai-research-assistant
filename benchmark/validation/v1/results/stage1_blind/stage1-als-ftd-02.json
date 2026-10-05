@@ -1,0 +1,259 @@
+{
+  "batch_id": "stage1-als-ftd-02",
+  "stage": "stage1_blind",
+  "group": "stage1_blind",
+  "runner": {
+    "cli": "claude",
+    "model": "claude-sonnet-5-5",
+    "workspace": "jua-106-blind-ws"
+  },
+  "attempts": 1,
+  "earlier_problems": [],
+  "duration_s": 45.8,
+  "quotes": {
+    "verified": 17,
+    "total": 17
+  },
+  "usage": [
+    {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 817,
+      "cache_read_input_tokens": 33161,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 817
+      },
+      "output_tokens": 50,
+      "service_tier": "standard",
+      "inference_geo": "not_available"
+    },
+    {
+      "input_tokens": 14,
+      "cache_creation_input_tokens": 29487,
+      "cache_read_input_tokens": 109625,
+      "output_tokens": 6825,
+      "output_tokens_details": {
+        "thinking_tokens": 295
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 29487,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 4060,
+          "cache_read_input_tokens": 33161,
+          "cache_creation_input_tokens": 817,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 817
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    {
+      "claude-sonnet-5-5": {
+        "inputTokens": 14,
+        "outputTokens": 6825,
+        "cacheReadInputTokens": 109625,
+        "cacheCreationInputTokens": 29487,
+        "webSearchRequests": 0,
+        "costUSD": 0.208151,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 295,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    }
+  ],
+  "transcript": "jua-106-runs/stage1_blind/stage1-als-ftd-02.attempt1.transcript",
+  "output": {
+    "batch_id": "stage1-als-ftd-02",
+    "cases": [
+      {
+        "id": "a008",
+        "answerability": "answerable",
+        "answer": "The two papers use human observations differently. Parameswaran et al. (2023) report a molecular association in C9ORF72 FTD/ALS postmortem tissue. Phosphorylated PKR is increased in frontal cortex (especially large pyramidal neurons) of patients carrying C9ORF72 repeat expansions compared with age-matched non-disease controls, and phosphorylated eIF2α (normalised to total eIF2α) is also significantly increased. They conclude this suggests the PKR/eIF2α pathway is activated in C9FTD/ALS patients. It is an association in patients already classed as C9FTD/ALS, not a diagnostic test. Patient-derived iPSC motor neurons (38 days old) showed no difference in p-PKR or p-eIF2α, which the authors interpret as possible later-stage activation. LeBlanc et al. is a single-patient case report in which diagnosis was made by genetic testing. A GGGGCC repeat expansion in C9orf72 was identified and 'confirmed a diagnosis of FTD-ALS'. Post-mortem autopsy then confirmed FTLD with TDP pathology (type C). The clinical workup and SPECT did not give the diagnosis. LeBlanc does not measure PKR or other molecular markers, and Parameswaran does not use PKR phosphorylation for diagnosis.",
+        "claims": [
+          {
+            "claim": "Parameswaran: p-PKR is increased in frontal cortex of C9ORF72 repeat carriers vs age-matched controls",
+            "file": "als-ftd-pmc10188109.txt",
+            "quote": "the level of phosphorylated PKR is increased in the frontal cortex, \nespecially in the large pyramidal neurons, of patients carrying C9ORF72 repeat expansions compared \nto age- matched non- disease controls",
+            "quote_verified": true
+          },
+          {
+            "claim": "Parameswaran: p-eIF2α also significantly increased; authors conclude pathway is activated in patients",
+            "file": "als-ftd-pmc10188109.txt",
+            "quote": "These results suggest that the PKR/eIF2α pathway is activated in C9FTD/ALS patients.",
+            "quote_verified": true
+          },
+          {
+            "claim": "Parameswaran: no difference in iPSC-derived motor neurons at 38 days",
+            "file": "als-ftd-pmc10188109.txt",
+            "quote": "levels of either phosphorylated PKR or phosphorylated eIF2α of 38- day- old neurons",
+            "quote_verified": true
+          },
+          {
+            "claim": "LeBlanc: genetic testing identified the repeat expansion and confirmed the diagnosis",
+            "file": "als-ftd-pmc10802081.txt",
+            "quote": "performed and identi ﬁed a repeat expansion of GGGGCC\nin C9orf72, thereby con ﬁrming a diagnosis of FTD-ALS.",
+            "quote_verified": true
+          },
+          {
+            "claim": "LeBlanc: autopsy confirmed FTLD-TDP type C",
+            "file": "als-ftd-pmc10802081.txt",
+            "quote": "post-mortem autopsy and the ﬁnal report con ﬁrmed a\nfronto-temporal lobar degeneration with transactive re-\nsponse DNA binding protein (TDP) pathology, interna-\ntional harmonized classi ﬁcation type C.",
+            "quote_verified": true
+          }
+        ],
+        "other_candidates": [
+          {
+            "file": "als-ftd-pmc10188109.txt",
+            "quote": "Mizielinska et  al., 2013 \nshowed that patients with more antisense RNA foci tend to have an earlier age of symptom onset",
+            "why_rejected": "Cited prior literature, not Parameswaran's own human observation.",
+            "quote_verified": true
+          }
+        ],
+        "ambiguity": "The question is loosely worded; neither paper explicitly contrasts 'molecular association' with 'diagnosis'. This answer is my synthesis of how each uses its human data.",
+        "confidence": "medium",
+        "search_terms": [
+          "patient",
+          "postmortem",
+          "diagnos",
+          "phosphorylated PKR",
+          "genetic testing",
+          "autopsy"
+        ]
+      },
+      {
+        "id": "a004",
+        "answerability": "answerable",
+        "answer": "No. In this PNAS 2024 study (the first author is spelled Sachdeva in the article text, not Sachdev), excising exon 1A (1Ax) silenced sense transcription and eliminated poly-GA, but some poly-GP remained, which must arise from antisense transcript; at least one-third to one-half of poly-GP derives from antisense transcription. Removing the repeat expansion (REx) or the mutant allele eliminated all poly-GP. For network bursting at 3 weeks, C9-unedited and 1Ax motor neurons showed no network bursts, whereas REx and HET(Mut)x neurons did. So exon 1A deletion reproduced repeat-excision effects on neither poly-GP elimination nor network bursting.",
+        "claims": [
+          {
+            "claim": "All poly-GP eliminated by repeat or mutant allele removal, but some remained after exon 1A excision",
+            "file": "als-ftd-pmc11047104.txt",
+            "quote": "all poly- GP was eliminated by removal of the repeat expansion or mutant allele. However, some poly- GP \nremained after excision of exon 1A (Fig. 3C, 1Ax).",
+            "quote_verified": true
+          },
+          {
+            "claim": "Network bursts absent in 1Ax and unedited, present in REx and HET(Mut)x at 3 wk",
+            "file": "als-ftd-pmc11047104.txt",
+            "quote": "The C9- unedited and 1Ax motor neurons showed no network \nburst activity at 3 wk of age; in contrast, both REx and HET(Mut)\nx motor neurons did demonstrate network burst activity (Fig. 5A)",
+            "quote_verified": true
+          },
+          {
+            "claim": "Authors state exon 1A excision did not eliminate antisense peptides or improve electrophysiology",
+            "file": "als-ftd-pmc11047104.txt",
+            "quote": "it did not \neliminate the production of toxic peptides from antisense tran-\nscripts and did not improve electrophysiologic measures.",
+            "quote_verified": true
+          }
+        ],
+        "other_candidates": [],
+        "ambiguity": "Poly-GA was eliminated by 1Ax, so if 'poly-GP elimination' were misread as DPRs generally, it would be partial; for poly-GP specifically the answer is no.",
+        "confidence": "high",
+        "search_terms": [
+          "exon 1A",
+          "1Ax",
+          "poly-GP",
+          "network burst",
+          "REx"
+        ]
+      },
+      {
+        "id": "a007",
+        "answerability": "answerable",
+        "answer": "The SPECT result did not agree with the genetic and pathology findings. SPECT showed moderately decreased perfusion in both parietal lobes (left greater than right) with some involvement of the posterior left frontal lobe. The radiologist judged the pattern most in keeping with Alzheimer's disease and not representative of frontotemporal lobar degeneration (FTLD). Genetic testing then found a GGGGCC repeat expansion in C9orf72, confirming FTD-ALS. Post-mortem autopsy confirmed FTLD with TDP pathology (international harmonized classification type C). So SPECT interpretation was contradicted by both.",
+        "claims": [
+          {
+            "claim": "SPECT findings and interpretation (Alzheimer's-like, not FTLD)",
+            "file": "als-ftd-pmc10802081.txt",
+            "quote": "The nuclear\nmedicine radiologist concluded the distribution was most\nin keeping with Alzheimer ’s disease and it was not felt to\nrepresent frontotemporal lobar degeneration (FTLD).",
+            "quote_verified": true
+          },
+          {
+            "claim": "Genetic testing identified C9orf72 repeat expansion, confirming FTD-ALS",
+            "file": "als-ftd-pmc10802081.txt",
+            "quote": "genetic testing was\nperformed and identi ﬁed a repeat expansion of GGGGCC\nin C9orf72, thereby con ﬁrming a diagnosis of FTD-ALS.",
+            "quote_verified": true
+          },
+          {
+            "claim": "Autopsy confirmed FTLD-TDP type C",
+            "file": "als-ftd-pmc10802081.txt",
+            "quote": "fronto-temporal lobar degeneration with transactive re-\nsponse DNA binding protein (TDP) pathology, interna-\ntional harmonized classi ﬁcation type C.",
+            "quote_verified": true
+          }
+        ],
+        "other_candidates": [],
+        "ambiguity": "",
+        "confidence": "high",
+        "search_terms": [
+          "SPECT",
+          "autopsy",
+          "genetic testing",
+          "FTLD"
+        ]
+      },
+      {
+        "id": "a010",
+        "answerability": "answerable",
+        "answer": "Parameswaran et al. suggest the difference may reflect the model organism. PKR is constitutively and ubiquitously expressed in vertebrate cells, including zebrafish, but is not found in plants, fungi, protists or invertebrates such as Drosophila. They say this may partially explain the differing toxicities of antisense C4G2 repeat RNAs in Drosophila, zebrafish and primary neurons. Drosophila expressing interrupted antisense repeats showed no deficits, whereas the same antisense interrupted (C4G2)108RO construct caused motor axonopathy in zebrafish and was toxic to primary cortical neurons. Experiments supporting the PKR interpretation: (1) PKR reduction partially rescued (C4G2)108RO toxicity in primary cortical neurons (PKR siRNA, Kaplan–Meier cell-death analysis); (2) in zebrafish, co-injecting antisense (C4G2)70 RNA with an eif2ak2 (PKR ortholog) splice-blocking morpholino significantly mitigated axonal length and branching abnormalities, as did a translation-blocking morpholino, whereas the morpholino gave no protection against sense (G4C2)70 RNA.",
+        "claims": [
+          {
+            "claim": "PKR absent in invertebrates like Drosophila; may partly explain differences",
+            "file": "als-ftd-pmc10188109.txt",
+            "quote": "PKR, constitutively and ubiquitously expressed in vertebrate cells including \nzebrafish, is not found in plants, fungi, protists, or invertebrates such as Drosophila (Martinez et al., \n2021). This may partially explain the difference in toxicities",
+            "quote_verified": true
+          },
+          {
+            "claim": "Drosophila interrupted antisense showed no deficits, but same construct toxic in zebrafish",
+            "file": "als-ftd-pmc10188109.txt",
+            "quote": "Drosophila expressing interrupted antisense repeat expanded \nRNAs do not show any deficits, suggesting that antisense C 4G2 RNAs are not toxic in this model \nsystem",
+            "quote_verified": true
+          },
+          {
+            "claim": "Primary neuron toxicity partially rescued by PKR reduction",
+            "file": "als-ftd-pmc10188109.txt",
+            "quote": "we show that (C4G2)108RO is toxic to primary cortical neurons, which is partially \nrescued by the reduction of PKR (Figure 4G).",
+            "quote_verified": true
+          },
+          {
+            "claim": "Zebrafish eif2ak2 splice-blocking morpholino mitigated antisense toxicity",
+            "file": "als-ftd-pmc10188109.txt",
+            "quote": "Co- injection of antisense (C 4G2)70 RNAs with \neif2ak2 SB- MO significantly mitigates the abnormalities of axonal length and branching",
+            "quote_verified": true
+          },
+          {
+            "claim": "No protection against sense RNA toxicity",
+            "file": "als-ftd-pmc10188109.txt",
+            "quote": "no protective effects \nwere observed when co- injecting sense (G4C2)70 RNAs with eif2ak2 SB- MO (Figure 7E and F).",
+            "quote_verified": true
+          }
+        ],
+        "other_candidates": [],
+        "ambiguity": "The 'experiment supporting PKR interpretation' could be read as the zebrafish morpholino knockdown (main answer) or the primary neuron PKR siRNA experiment; both are reported.",
+        "confidence": "high",
+        "search_terms": [
+          "Drosophila",
+          "PKR",
+          "zebrafish",
+          "morpholino",
+          "invertebrates",
+          "siRNA"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,276 @@
+{
+  "batch_id": "pilotseed2-cardiology-02",
+  "stage": "stage2_audit",
+  "group": "pilot_seeded_stage2",
+  "runner": {
+    "cli": "claude",
+    "model": "claude-sonnet-5-5",
+    "workspace": "jua-106-gold-ws"
+  },
+  "attempts": 1,
+  "earlier_problems": [],
+  "duration_s": 19.4,
+  "quotes": {
+    "verified": 3,
+    "total": 3
+  },
+  "usage": [
+    {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 709,
+      "cache_read_input_tokens": 14180,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 709
+      },
+      "output_tokens": 24,
+      "service_tier": "standard",
+      "inference_geo": "not_available"
+    },
+    {
+      "input_tokens": 8,
+      "cache_creation_input_tokens": 10233,
+      "cache_read_input_tokens": 37025,
+      "output_tokens": 2720,
+      "output_tokens_details": {
+        "thinking_tokens": 97
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 10233,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 1809,
+          "cache_read_input_tokens": 14180,
+          "cache_creation_input_tokens": 709,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 709
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    {
+      "claude-sonnet-5-5": {
+        "inputTokens": 8,
+        "outputTokens": 2720,
+        "cacheReadInputTokens": 37025,
+        "cacheCreationInputTokens": 10233,
+        "webSearchRequests": 0,
+        "costUSD": 0.07555300000000001,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 97,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    }
+  ],
+  "transcript": "jua-106-runs/pilot_seeded_stage2/pilotseed2-cardiology-02.attempt1.transcript",
+  "output": {
+    "batch_id": "pilotseed2-cardiology-02",
+    "cases": [
+      {
+        "id": "c007",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "Self-contained, single reading, doesn't leak the answer.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "pass",
+            "reason": "All four elements are in the text.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "pass",
+            "reason": "Scope is apparent treatment-RH work-up in the Thai consensus.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G4",
+            "result": "pass",
+            "reason": "The anchor lists the four required steps.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "pass",
+            "reason": "The reference answer restates the text with no extra claims.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G6",
+            "result": "pass",
+            "reason": "No conflicting values. The abstract says 'ambulatory or home BP monitoring', which is slightly looser than the body, but not contradictory.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "One local passage is enough.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "A single passage answers it.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K2",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K3",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K4",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "f1",
+            "supported": "yes",
+            "note": "Matches the diagnostic work-up passage: standardized office BP, adherence, drug/substance exclusion, 24-h ABPM or home BP to exclude the white-coat effect."
+          }
+        ],
+        "verdict": "valid",
+        "severity": "none",
+        "summary": "The Diagnostic work-up passage lists exactly the four required steps, and the reference answer matches it. The anchor also carries tag c008:f1, which is outside this case.",
+        "proposed_correction": ""
+      },
+      {
+        "id": "c030",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "Clear and specific question.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "pass",
+            "reason": "AUC values 0.87 and 0.90 are correct, but the stated endpoint and population are not.",
+            "file": "cardio-ai-af-management-review.txt",
+            "quote": "(area under the curve [AUC] of 0.87 \nfrom a single ECG, rising to 0.90 with multiple ECGs)",
+            "quote_verified": true
+          },
+          {
+            "check": "G3",
+            "result": "fail",
+            "reason": "The gold says the AUCs are for predicting new-onset AF in patients with no prior AF. The review says they are for identifying patients with a documented history of paroxysmal AF.",
+            "file": "cardio-ai-af-management-review.txt",
+            "quote": "in \nidentifying patients with a documented history of par -\noxysmal AF based solely on sinus rhythm ECG data.",
+            "quote_verified": true
+          },
+          {
+            "check": "G4",
+            "result": "pass",
+            "reason": "The anchor supports the numbers but contradicts the gold's endpoint.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "fail",
+            "reason": "The reference explicitly rejects the source's own framing ('rather than identifying an existing AF history'). The article does not say the AUCs predict incident AF.",
+            "file": "cardio-ai-af-management-review.txt",
+            "quote": "Identifies a latent electro-\ncardiographic signature \nof AF in patients during \nnormal sinus rhythm",
+            "quote_verified": true
+          },
+          {
+            "check": "G6",
+            "result": "pass",
+            "reason": "The text and Table 1 give consistent values.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "A direct lookup from one passage, with Table 1 as support.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "One passage is enough.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K2",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K3",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K4",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "f1",
+            "supported": "partly",
+            "note": "The numbers 0.87 (single ECG) and 0.90 (multiple ECGs) are correct. The endpoint is wrong: the text says identifying patients with a documented history of paroxysmal AF, not predicting new-onset AF in patients with no prior AF."
+          }
+        ],
+        "verdict": "defect_gold",
+        "severity": "blocking",
+        "summary": "The AUC values are right. The gold's qualifier reverses the source's endpoint: the review says identification of documented paroxysmal AF, while the gold says prediction of new-onset AF and denies identification of existing AF. A correct answer would be penalized, and one repeating the wrong framing would be rewarded.",
+        "proposed_correction": "Rewrite f1 and the reference answer: the review reports AUC 0.87 for a single sinus-rhythm ECG and 0.90 for multiple ECGs, for identifying patients with a documented history of paroxysmal AF from sinus-rhythm ECG data. Remove the claim about new-onset AF in patients with no prior AF."
+      }
+    ]
+  }
+}
