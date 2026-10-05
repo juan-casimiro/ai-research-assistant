@@ -1653,6 +1653,69 @@
         "c013:f2"
       ],
       "role": "support"
+    },
+    {
+      "id": "ckd_table2",
+      "article_id": "PMC11373557",
+      "filename": "cardio-ckd-sglt2-acei-arb.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "0c9c6285ea1c2ca4ab5988ee086381b216024bd83fc30fdb87b312f14e7573e2",
+      "text_sha256": "7f7028f9cb1faf7340e0a1332173ba45b6c49f2b5de9fd8cd0ce21228f39fcbc",
+      "page": 6,
+      "pages": [
+        6
+      ],
+      "section": "Results; Table 2 adjusted HRs for GUTIs and ESRD + dialysis",
+      "text_start": 27045,
+      "text_end": 27390,
+      "excerpt": "GUTIs     0.019  0.013 \nNonusers 70 1153 6.07 (4.73–7.67) 1.00 (Ref.)  1.00 (Ref.)  \nSGLT2 inhibitor users 29 281 10.33 (6.91–14.83) 1.68 (1.09–2.59)  1.80 (1.13–2.86)  \nESRD + dialysis     0.081  0.001 \nNonusers 77 1169 6.59 (5.20–8.23) 1.00 (Ref.)  1.00 (Ref.)  \nSGLT2 inhibitor users 12 318 3.78 (1.95–6.60) 0.58 (0.32–1.07)  0.35 (0.19–0.66)",
+      "excerpt_sha256": "45fa0b5c7e93e15d40db0d4bdee54209166ec52e9c24917906dbcadfb6c2d8a7",
+      "fact_ids": [
+        "c012:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "cost_methods_sources",
+      "article_id": "PMC10985250",
+      "filename": "cardio-hfpef-dapagliflozin-cost-analysis.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "da3f20ab88773c13ae08e73f8c18f0a6bb9ccb9000edc0aaf20231fe69fab042",
+      "text_sha256": "9540f1db4e82cd5c2b5317cc8e7c22bb9e574bedb8a482183059aa75079f83c2",
+      "page": 2,
+      "pages": [
+        2
+      ],
+      "section": "Methods; data sources for drug efficacy",
+      "text_start": 7731,
+      "text_end": 7901,
+      "excerpt": "Outcome data for dapagli ﬂozin and sacubitril –valsartan were\nextracted from the DELIVER trial and pooled analysis of the\nPARAGLIDE-HF and PARAGON-HF trials, respectively",
+      "excerpt_sha256": "5c0fe76e83036a0b71fc8557a483dbbf38fd03cb4c84e129e34cd4906b5a2ef8",
+      "fact_ids": [
+        "c013:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "cost_methods_nadac",
+      "article_id": "PMC10985250",
+      "filename": "cardio-hfpef-dapagliflozin-cost-analysis.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "da3f20ab88773c13ae08e73f8c18f0a6bb9ccb9000edc0aaf20231fe69fab042",
+      "text_sha256": "9540f1db4e82cd5c2b5317cc8e7c22bb9e574bedb8a482183059aa75079f83c2",
+      "page": 2,
+      "pages": [
+        2
+      ],
+      "section": "Methods; drug cost basis",
+      "text_start": 8886,
+      "text_end": 9000,
+      "excerpt": "Drug costs were calculated as 75%\nof the US National Average Drug Acquisition Cost (NADAC),\nextracted in July 2023",
+      "excerpt_sha256": "9531a285baa39f9f1032e89705e630f10085ad6d334ca40e45dbc96cab1c8a78",
+      "fact_ids": [
+        "c013:f1"
+      ],
+      "role": "support"
     }
   ],
   "queries": [
@@ -4872,17 +4935,17 @@
       "topics": [
         "cardiology"
       ],
-      "question": "What renal benefit and infection association does the advanced-CKD SGLT2 study’s abstract report, and how does its evidential design compare with the HFpEF GLS study?",
+      "question": "What renal benefit and infection association were reported in the advanced-CKD SGLT2 cohort, and how does its evidential design compare with the HFpEF GLS cohort?",
       "required_facts": [
         {
           "id": "f1",
-          "expected_text": "The advanced-CKD abstract reports ESRD/dialysis adjusted HR 0.35 (95% CI 0.19–0.67) and GUTI adjusted HR 1.78 (95% CI 1.12–2.84); the observational design cannot exclude unmeasured confounding.",
+          "expected_text": "The advanced-CKD study reports ESRD/dialysis adjusted HR 0.35 (95% CI 0.19–0.67) and GUTI adjusted HR 1.78 (95% CI 1.12–2.84) in its abstract and Results text; Table 2 reports 0.35 (95% CI 0.19–0.66) and 1.80 (95% CI 1.13–2.86) for the same outcomes. Either attributed pair is accepted. The authors cannot exclude unmeasured confounding.",
           "units": "adjusted HR",
           "population": "Advanced CKD cohort versus retrospective HFpEF cohort",
           "endpoint": "Renal/infection risk versus cardiac GLS",
           "timeframe": "Source-specific follow-up",
           "qualifiers": "Use the attributed source section and analysis population; preserve adjusted/unadjusted and association/causation distinctions.",
-          "tolerance": "Accept rounding stated in the reference; no cross-cohort substitution.",
+          "tolerance": "Accept either the abstract/Results-text pair or the Table 2 pair of adjusted estimates; do not mix the pairs or substitute another cohort.",
           "contradiction_rule": "Reject claims contradicting the scoped source or silently reconciling source conflicts."
         },
         {
@@ -4918,16 +4981,35 @@
               "hf_gls"
             ]
           }
+        },
+        {
+          "id": "table2",
+          "anchors": [
+            "ckd_table2",
+            "ckd_confounding",
+            "hf_observational",
+            "hf_gls"
+          ],
+          "fact_anchors": {
+            "f1": [
+              "ckd_table2",
+              "ckd_confounding"
+            ],
+            "f2": [
+              "hf_observational",
+              "hf_gls"
+            ]
+          }
         }
       ],
       "related_distractors": [],
-      "reference_answer": "The advanced-CKD abstract reports ESRD/dialysis adjusted HR 0.35 (95% CI 0.19–0.67) and GUTI adjusted HR 1.78 (95% CI 1.12–2.84); the observational design cannot exclude unmeasured confounding. The HFpEF biomarker study is retrospective observational and reports GLS changes, not these renal or infection endpoints. Neither observational comparison proves a causal treatment effect or supplies the other cohort’s endpoint estimates.",
+      "reference_answer": "The advanced-CKD study reports ESRD/dialysis adjusted HR 0.35 (95% CI 0.19–0.67) and GUTI adjusted HR 1.78 (95% CI 1.12–2.84) in its abstract and Results text; Table 2 reports 0.35 (95% CI 0.19–0.66) and 1.80 (95% CI 1.13–2.86) for the same outcomes. Either attributed pair is accepted. The authors cannot exclude unmeasured confounding. The HFpEF biomarker study is retrospective observational and reports GLS changes, not these renal or infection endpoints. Neither observational comparison proves a causal treatment effect or supplies the other cohort’s endpoint estimates.",
       "answer_rubric": {
         "required_claims": [
           "f1",
           "f2"
         ],
-        "acceptable_alternatives": "Require the explicitly requested abstract estimates. Optional Table 2 context reports ESRD/dialysis adjusted HR 0.35 (95% CI 0.19–0.66) and GUTI adjusted HR 1.80 (95% CI 1.13–2.86); attribute these differences rather than reconciling them. Accept retrospective observational, or attributed case-control (Methods) or cohort (abstract) descriptions of the HFpEF study. Discussing these source conflicts is optional.",
+        "acceptable_alternatives": "Any complete evidence set. Either source-reported pair of adjusted estimates is correct when stated consistently; noting the abstract/Table 2 difference is optional. Accept retrospective observational, or attributed case-control (Methods) or cohort (abstract) descriptions of the HFpEF study.",
         "forbidden_conflations": [
           "Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes."
         ],
@@ -4977,7 +5059,7 @@
         "correction_review": {
           "date": "2026-10-05",
           "method": "Source-grounded correction from PR 45 findings and pinned text; no retrieval outcomes used.",
-          "decision": "Scope numerical estimates to the abstract and accept attributed observational design labels without inventing reconciliation."
+          "decision": "Accept either source-reported pair of adjusted estimates (abstract/Results text or Table 2) and add Table 2 as alternative evidence; accept attributed observational design labels. Question wording unchanged."
         }
       },
       "selection_rationale": "Scoped evidence attribution and retrieval coverage; selected before evaluation."
@@ -4989,11 +5071,11 @@
       "topics": [
         "cardiology"
       ],
-      "question": "According to the abstract of the HFpEF cost-per-outcome analysis, what historical price basis and trial sources underlie the analysis, and what CNTs were reported for its composite outcome?",
+      "question": "What historical price basis and trial sources underlie the HFpEF cost-per-outcome analysis, and what CNTs were reported for its composite outcome?",
       "required_facts": [
         {
           "id": "f1",
-          "expected_text": "The abstract states 2022 US prices and separate DELIVER versus pooled PARAGLIDE-HF/PARAGON-HF trial data.",
+          "expected_text": "Costs are described as 2022 US prices in the abstract and as 75% of NADAC extracted in July 2023 in Methods; either attributed price basis is accepted. Efficacy data come from the DELIVER trial for dapagliflozin and a pooled analysis of PARAGLIDE-HF and PARAGON-HF for sacubitril–valsartan.",
           "units": "2022 US dollars",
           "population": "Separate HFmrEF/HFpEF trial populations",
           "endpoint": "Annualized cost needed to treat, composite outcome",
@@ -5043,16 +5125,33 @@
               "cost_abstract_complete"
             ]
           }
+        },
+        {
+          "id": "methods",
+          "anchors": [
+            "cost_methods_sources",
+            "cost_methods_nadac",
+            "cost_values"
+          ],
+          "fact_anchors": {
+            "f1": [
+              "cost_methods_sources",
+              "cost_methods_nadac"
+            ],
+            "f2": [
+              "cost_values"
+            ]
+          }
         }
       ],
       "related_distractors": [],
-      "reference_answer": "The abstract states 2022 US prices and separate DELIVER versus pooled PARAGLIDE-HF/PARAGON-HF trial data. Annualized cost needed to treat to prevent one total worsening-HF/CV-death composite event was $148,547.13 for dapagliflozin versus $245,346.77 for sacubitril–valsartan.",
+      "reference_answer": "Costs are described as 2022 US prices in the abstract and as 75% of NADAC extracted in July 2023 in Methods; either attributed price basis is accepted. Efficacy data come from the DELIVER trial for dapagliflozin and a pooled analysis of PARAGLIDE-HF and PARAGON-HF for sacubitril–valsartan. Annualized cost needed to treat to prevent one total worsening-HF/CV-death composite event was $148,547.13 for dapagliflozin versus $245,346.77 for sacubitril–valsartan.",
       "answer_rubric": {
         "required_claims": [
           "f1",
           "f2"
         ],
-        "acceptable_alternatives": "Any complete accepted evidence set. Methods additionally describes costs as 75% of NADAC extracted in July 2023; this correctly attributed context is optional and does not replace the requested abstract statement. No current-price or head-to-head discussion is required.",
+        "acceptable_alternatives": "Any complete accepted evidence set. Either source-stated price basis is correct; noting both is optional. No current-price or head-to-head discussion is required.",
         "forbidden_conflations": [
           "Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes."
         ],
@@ -5101,7 +5200,7 @@
         "correction_review": {
           "date": "2026-10-05",
           "method": "Source-grounded correction from PR 45 findings and pinned text; no retrieval outcomes used.",
-          "decision": "Scope price provenance to the abstract, accept its complete local passage and relabel direct_lookup."
+          "decision": "Relabel direct_lookup; accept either source-stated price basis (abstract 2022 US prices or Methods NADAC July 2023) with the abstract and Methods passages as alternative evidence. Question wording unchanged."
         }
       },
       "selection_rationale": "Scoped evidence attribution and retrieval coverage; selected before evaluation."

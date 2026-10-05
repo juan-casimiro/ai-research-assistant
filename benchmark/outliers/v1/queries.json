@@ -208,6 +208,57 @@
       "fact_ids": [
         "f1"
       ]
+    },
+    {
+      "id": "alzheimer-ann-binary",
+      "article_id": "PMC12823827",
+      "filename": "outlier-alzheimer-dual-model.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "22866337743e361ad24e69d905fc3bd10ae0d2b541808c82f8bf8be887e35e4b",
+      "text_sha256": "4fc104e32e46b97399b6ce80f51512ef4d8aa27f02da36400b0d064e5fc5ee74",
+      "page": 7,
+      "section": "Results: ANN binary classification",
+      "excerpt": "Confusion matrix summarizes ANN model performance of a \nbinary classification model designed to detect Alzheimer’s disease in \nFigure 10. The matrix outlines the relationship between the true and \npredicted labels. The rows correspond to the actual labels, where “0” \nrepresents cases without Alzheimer’s and “1” represents cases with \nAlzheimer’s.",
+      "text_start": 31716,
+      "text_end": 32064,
+      "excerpt_sha256": "6e93bdb104deb247513020502f1d97f8fb7ba3a8cee896e6191fc94750c4edfa",
+      "fact_ids": [
+        "f1"
+      ]
+    },
+    {
+      "id": "alzheimer-ann-accuracy",
+      "article_id": "PMC12823827",
+      "filename": "outlier-alzheimer-dual-model.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "22866337743e361ad24e69d905fc3bd10ae0d2b541808c82f8bf8be887e35e4b",
+      "text_sha256": "4fc104e32e46b97399b6ce80f51512ef4d8aa27f02da36400b0d064e5fc5ee74",
+      "page": 8,
+      "section": "Results: ANN overall accuracy",
+      "excerpt": "performance across both classes. With an overall accuracy of 87.08%, \nthe model demonstrates reliability, though there is room for \nimprovement in predicting “ Alzheimer’s” cases more accurately.",
+      "text_start": 33438,
+      "text_end": 33633,
+      "excerpt_sha256": "e4fcce43e69cde11ec7cbfb3db2777b24e269f7251275b84770828314052893c",
+      "fact_ids": [
+        "f1"
+      ]
+    },
+    {
+      "id": "alzheimer-cnn-stages",
+      "article_id": "PMC12823827",
+      "filename": "outlier-alzheimer-dual-model.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "22866337743e361ad24e69d905fc3bd10ae0d2b541808c82f8bf8be887e35e4b",
+      "text_sha256": "4fc104e32e46b97399b6ce80f51512ef4d8aa27f02da36400b0d064e5fc5ee74",
+      "page": 10,
+      "section": "Discussion: CNN stage classification accuracy",
+      "excerpt": "the CNN model excelled in its ability to classify Alzheimer’s \nstages using MRI images, achieving an impressive accuracy of 97%.",
+      "text_start": 38434,
+      "text_end": 38562,
+      "excerpt_sha256": "4a04739ab59e2c19d0cf432b6c891a0a04ae0ce8fd91da2e88b5ee8f8a9a1bc9",
+      "fact_ids": [
+        "f1"
+      ]
     }
   ],
   "queries": [
@@ -544,14 +595,14 @@
         "cognitive-diagnosis",
         "diagnostic-ai"
       ],
-      "question": "According to the abstract of Ciftci et al.’s dual-model Alzheimer paper, what accuracies are reported for the clinical ANN and MRI CNN, and what distinct tasks does the abstract assign to those figures?",
+      "question": "In Ciftci et al.’s dual-model Alzheimer paper, what accuracies are reported for the clinical ANN and MRI CNN, and what distinct tasks do those figures describe?",
       "required_facts": [
         {
           "id": "f1",
-          "expected_text": "The abstract reports ANN accuracy of 87.08% for early-stage risk prediction and CNN accuracy of 97% for disease staging.",
+          "expected_text": "The ANN reports 87.08% accuracy on clinical data; the abstract calls its task early-stage risk prediction, while the detailed results describe binary Alzheimer’s/no-Alzheimer’s classification, and either attributed description is accepted. The CNN reports 97% accuracy for classifying Alzheimer’s disease stages from MRI images.",
           "units": "Source-reported values and qualifiers",
           "population": "The paper’s public clinical dataset and MRI-image dataset",
-          "endpoint": "Abstract-reported clinical ANN risk prediction and MRI CNN disease staging accuracy",
+          "endpoint": "Clinical ANN accuracy (risk prediction or binary detection, as attributed) and MRI CNN disease-stage classification accuracy",
           "timeframe": "As reported in the cited study; no unreported horizon inferred.",
           "qualifiers": "Preserve the stated study design, population, endpoint and association/causation limits.",
           "tolerance": "Retain source rounding and all population/task qualifiers.",
@@ -569,15 +620,30 @@
               "alzheimer-summary"
             ]
           }
+        },
+        {
+          "id": "detailed",
+          "anchors": [
+            "alzheimer-ann-binary",
+            "alzheimer-ann-accuracy",
+            "alzheimer-cnn-stages"
+          ],
+          "fact_anchors": {
+            "f1": [
+              "alzheimer-ann-binary",
+              "alzheimer-ann-accuracy",
+              "alzheimer-cnn-stages"
+            ]
+          }
         }
       ],
       "related_distractors": [],
-      "reference_answer": "The abstract reports ANN accuracy of 87.08% for early-stage risk prediction and CNN accuracy of 97% for disease staging.",
+      "reference_answer": "The ANN reports 87.08% accuracy on clinical data; the abstract calls its task early-stage risk prediction, while the detailed results describe binary Alzheimer’s/no-Alzheimer’s classification, and either attributed description is accepted. The CNN reports 97% accuracy for classifying Alzheimer’s disease stages from MRI images.",
       "answer_rubric": {
         "required_claims": [
           "f1"
         ],
-        "acceptable_alternatives": "Faithful, attributed paraphrases of the abstract figures and task labels. Optional detailed-results context describes the ANN as binary Alzheimer/no-Alzheimer classification and the CNN as four-category MRI classification; acknowledge the ANN wording difference without inventing a reconciliation. No head-to-head or dataset caveat is required.",
+        "acceptable_alternatives": "Faithful paraphrases of both figures with either source description of the ANN task. Noting the wording difference is optional; no head-to-head or dataset caveat is required.",
         "forbidden_conflations": [
           "Do not treat the two models’ different datasets and tasks as a head-to-head clinical performance comparison.",
           "Do not treat the abstract’s early-stage risk label as proof of a prospective prediction endpoint."
@@ -612,7 +678,7 @@
         "correction_review": {
           "date": "2026-10-05",
           "method": "Source-grounded correction from PR 45 findings and pinned text; no retrieval outcomes used.",
-          "decision": "Scope reported task wording to the abstract and acknowledge the detailed binary-classification description as optional context."
+          "decision": "Accept either source description of the ANN task (abstract risk prediction or detailed binary classification) and add the detailed passages as alternative evidence. Question wording unchanged."
         }
       },
       "selection_rationale": "Separates two prominent percentages whose populations, inputs and outcomes differ."

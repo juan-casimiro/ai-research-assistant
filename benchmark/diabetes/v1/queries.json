@@ -1080,7 +1080,7 @@
       "excerpt": "with 95% CI with \nHK adjustment. Network diagrams were generated and \ntreatment effects relative to placebo were summarized \nin forest plots. Because all included trials were placebo-\ncontrolled, comparisons between treatment classes were \nderived through indirect evidence using placebo as the \ncommon comparator. All analyses were conducted in \nRStudio using the netmeta package [18].\nForest",
       "excerpt_sha256": "01c0089c349d2fa09033a250f63b7a00842838b94488b7afb392f7e3f65bb8a5",
       "fact_ids": [
-        "d016:f1"
+        "d016:f2"
       ],
       "role": "support"
     },
@@ -1122,7 +1122,7 @@
       "excerpt": "acknowledge several caveats in this work. The pathophysio-\nlogical mechanisms involved in both T2D and high BP are not fully\nexplained by genetics alone, and are inﬂuenced by a variety of external\nand environmental factors, such as salt consumption or western diet.\nMoreover, the heterogeneity in sample origins, study designs, and\nsample sizes across the diverse included",
       "excerpt_sha256": "6fd3f8a838c13a13b3ed0bffda547e9a0d3a649c41db67f56c4954cf539b8756",
       "fact_ids": [
-        "d015:f1"
+        "d015:f2"
       ],
       "role": "support"
     },
@@ -5205,10 +5205,21 @@
       "required_facts": [
         {
           "id": "f1",
-          "expected_text": "The inverse cluster associates higher T2D risk with lower BP, contradicting a uniformly positive risk axis. The authors state that genetics alone does not fully explain T2D/high-BP comorbidity and identify environmental influences such as salt consumption or western diet.",
+          "expected_text": "The inverse cluster associates higher T2D risk with lower BP, contradicting a uniformly positive risk axis.",
           "units": "source-specific values/qualifiers",
           "population": "Partitioned T2D/BP genetic association analysis",
-          "endpoint": "Inverse genetic association and limits of genetic explanation",
+          "endpoint": "Inverse genetic association",
+          "timeframe": "Genetic association analysis",
+          "qualifiers": "Preserve experimental design, adjusted/unadjusted estimates, reported source conflicts and association/causation distinctions.",
+          "tolerance": "Source-stated rounding only",
+          "contradiction_rule": "No invented reconciliation, causal treatment inference, or unsupported subgroup claim."
+        },
+        {
+          "id": "f2",
+          "expected_text": "The authors state that genetics alone does not fully explain T2D/high-BP comorbidity and identify environmental influences such as salt consumption or western diet.",
+          "units": "source-specific values/qualifiers",
+          "population": "Partitioned T2D/BP genetic association analysis",
+          "endpoint": "Limits of genetic explanation",
           "timeframe": "Genetic association analysis",
           "qualifiers": "Preserve experimental design, adjusted/unadjusted estimates, reported source conflicts and association/causation distinctions.",
           "tolerance": "Source-stated rounding only",
@@ -5224,7 +5235,9 @@
           ],
           "fact_anchors": {
             "f1": [
-              "shared_pgs_inverse",
+              "shared_pgs_inverse"
+            ],
+            "f2": [
               "shared_pgs_caveat"
             ]
           }
@@ -5243,7 +5256,7 @@
         "correction_review": {
           "date": "2026-10-05",
           "method": "Source-grounded correction from PR 45 findings and pinned text; no retrieval outcomes used.",
-          "decision": "Explicitly request the environmental limitation to preserve two-passage reasoning."
+          "decision": "Explicitly request the environmental limitation to preserve two-passage reasoning; score each requested part as its own fact."
         }
       },
       "selection_rationale": "Coverage and evidence distinction identified in legacy audit, before retrieval evaluation",
@@ -5292,7 +5305,8 @@
       },
       "answer_rubric": {
         "required_claims": [
-          "f1"
+          "f1",
+          "f2"
         ],
         "acceptable_alternatives": "Complete listed evidence sets; source conflicts explicitly attributed. Unlisted semantically valid paraphrases require manual review.",
         "forbidden_conflations": [
@@ -5315,10 +5329,21 @@
       "required_facts": [
         {
           "id": "f1",
-          "expected_text": "No significant drug-class differences in HFpEF CV mortality, all-cause mortality or HF hospitalization/event were reported. Between-class comparisons used indirect evidence with placebo as the common comparator, rather than randomized head-to-head comparisons.",
+          "expected_text": "No significant drug-class differences in HFpEF CV mortality, all-cause mortality or HF hospitalization/event were reported.",
           "units": "source-specific values/qualifiers",
           "population": "HFpEF trial populations in the network meta-analysis",
-          "endpoint": "CV mortality, all-cause mortality and HF hospitalization/event; comparison design",
+          "endpoint": "CV mortality, all-cause mortality and HF hospitalization/event",
+          "timeframe": "Trial-specific follow-up",
+          "qualifiers": "Preserve experimental design, adjusted/unadjusted estimates, reported source conflicts and association/causation distinctions.",
+          "tolerance": "Source-stated rounding only",
+          "contradiction_rule": "No invented reconciliation, causal treatment inference, or unsupported subgroup claim."
+        },
+        {
+          "id": "f2",
+          "expected_text": "Between-class comparisons used indirect evidence with placebo as the common comparator, rather than randomized head-to-head comparisons.",
+          "units": "source-specific values/qualifiers",
+          "population": "HFpEF trial populations in the network meta-analysis",
+          "endpoint": "Comparison design",
           "timeframe": "Trial-specific follow-up",
           "qualifiers": "Preserve experimental design, adjusted/unadjusted estimates, reported source conflicts and association/causation distinctions.",
           "tolerance": "Source-stated rounding only",
@@ -5334,7 +5359,9 @@
           ],
           "fact_anchors": {
             "f1": [
-              "shared_nma_hfpef",
+              "shared_nma_hfpef"
+            ],
+            "f2": [
               "shared_nma_indirect"
             ]
           }
@@ -5353,7 +5380,7 @@
         "correction_review": {
           "date": "2026-10-05",
           "method": "Source-grounded correction from PR 45 findings and pinned text; no retrieval outcomes used.",
-          "decision": "Explicitly request all three outcomes and the indirect comparison design to preserve two-passage reasoning."
+          "decision": "Explicitly request all three outcomes and the indirect comparison design to preserve two-passage reasoning; score each requested part as its own fact."
         }
       },
       "selection_rationale": "Coverage and evidence distinction identified in legacy audit, before retrieval evaluation",
@@ -5402,7 +5429,8 @@
       },
       "answer_rubric": {
         "required_claims": [
-          "f1"
+          "f1",
+          "f2"
         ],
         "acceptable_alternatives": "Complete listed evidence sets; source conflicts explicitly attributed. Unlisted semantically valid paraphrases require manual review.",
         "forbidden_conflations": [
