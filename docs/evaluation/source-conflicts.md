@@ -564,15 +564,15 @@ Commit 4d19bdc restores the original c012/c013/x005 wording, adds competing-sour
 
 Useful changes: both readings are explicit, their passages are identified, and omissions can be measured. Splitting d015/d016 avoids bundling distinct requested facts into one all-or-nothing fact.
 
-Outstanding review concerns:
+Accepted contract and remaining interpretation limits:
 
-1. **Question/key alignment — c012, c013, x005.** The unchanged questions do not explicitly say to compare inconsistent source sections or report both readings. Requiring every reading can again penalize a responsive, source-supported answer. Before freezing answer evaluation, explicitly request the discrepancy, or keep a separate source-conflict diagnostic with scoped answer alternatives. This report does not silently change the queries.
+1. **Accepted conflict-evaluation contract — c012, c013, x005.** The questions retain their original wording and are categorized as source_conflict. The accepted grading contract requires both source readings with attribution. Missing a reading or failing to surface the discrepancy is a legitimate evaluation failure, not a reason to narrow the question, discard conflicting evidence or relax grading to obtain a pass. The earlier recommendation to rewrite these questions is withdrawn following the user’s clarification; it is not a merge blocker. Questions, facts, evidence sets and recorded results remain unchanged.
 2. **Category consistency.** Only c012/c013/x005 use the new category. Existing explicit conflict tasks remain multi_hop, synthesis, lookup or false_premise. Consequently a source_conflict category aggregate is not an aggregate of all conflict cases in this inventory. A separate within-article/cross-article issue tag would preserve their retrieval structure; c012 still requires two articles despite losing its synthesis category label.
 3. **Validation strength.** The new validator checks two facts and two anchors, but does not enforce independent reading-to-anchor bindings or prove that the anchors actually contain incompatible readings. Schema acceptance alone is not semantic conflict certification.
 4. **Historical compatibility.** The scorer now recognizes an additional category while its version label remains pinned-span-coverage-v3. File fingerprints change, so old/new runs must still pass the existing compatibility checks; never merge their scores based solely on that unchanged label. Preserve revisions and source/gold hashes.
 5. **Evidence retention.** The later targeted rerun is described in PR 46 but has no committed result artifact. Keep it labelled reported/unverified unless a minimal immutable result summary is retained. The frozen metrics reproduced in this report are independently read from the saved outputs.
 
-All 206 existing offline tests pass on the late-commit snapshot. Those tests do not settle these authoring and semantic-contract concerns. No new model review, generation or paid run was launched to write this report.
+All 206 existing offline tests pass on the late-commit snapshot. Those tests verify offline behavior; they do not measure generated-answer conflict handling. No new model review, generation or paid run was launched to write this report.
 
 ## Article identity inventory
 
