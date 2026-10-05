@@ -1,0 +1,93 @@
+{
+  "collection_name": "documents",
+  "chunk_count": 288,
+  "per_source_chunks": {
+    "als-ftd-pmc10188109.pdf": 100,
+    "als-ftd-pmc10802081.pdf": 32,
+    "als-ftd-pmc11047104.pdf": 75,
+    "als-ftd-pmc11527445.pdf": 81
+  },
+  "chunks_sha256": "447987e3dd23131f70a18ebd285f78f0f88f4a196181c9fde4cf94917964bf48",
+  "status": "complete",
+  "condition": "C1",
+  "seed_on_empty": false,
+  "timestamp": "2026-10-05T21:39:07.315971+00:00",
+  "loaded_models": {
+    "embedding": {
+      "model_name": "BAAI/bge-small-en-v1.5",
+      "files": {
+        "config.json": "13582bcf2effc85b7bf3d3f5532e686bc1c9ce86bb009d10f0ec33cbe92299dd",
+        "model_optimized.onnx": "51f1bd0addd6e859e42c2c8021a5e5461385bb676a649f4b269aa445449f2431",
+        "special_tokens_map.json": "5d5b662e421ea9fac075174bb0688ee0d9431699900b90662acd44b2a350503a",
+        "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+        "tokenizer_config.json": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53"
+      },
+      "sha256": "d9e46143a9cabd7abdbe181fd67443a66089fd55d721db87b7b2964085ed0bff"
+    },
+    "reranker": {
+      "model_name": "Xenova/ms-marco-MiniLM-L-6-v2",
+      "files": {
+        "config.json": "d827779a72d27ae68cf878a6fc2e954542663fe21ca515d9f4783fc96be2d37e",
+        "onnx/model.onnx": "c623d0bcb99f4622beb413eaef00cfbe5db20df9f1dd982da4b4f26022881870",
+        "special_tokens_map.json": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+        "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+        "tokenizer_config.json": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53"
+      },
+      "sha256": "253fe4bae5a04bd859f462ffca4c1818e42725f6b14a55392b3ed9040728fb49"
+    }
+  },
+  "dependencies": {
+    "fastembed": "0.8.0",
+    "chromadb": "1.5.9",
+    "pypdf": "6.16.1",
+    "rank-bm25": "0.2.2",
+    "onnxruntime": "1.28.0"
+  },
+  "membership_sha256": "e536578827a71c14268a8ca1d89990b2d3b23d396444849086ab2b0310132f64",
+  "article_tuples": [
+    {
+      "article_id": "PMC10188109",
+      "pmc_version": 1,
+      "pdf_sha256": "9ac7d0a9c34b9eaac89db21fe1d0cc1963590de8c883bf7b0fbd41cb778dec43",
+      "text_sha256": "a82b8591a24b1bc20275e46e62189af34291a128d0b77f627b4c9a098c65d2ac"
+    },
+    {
+      "article_id": "PMC10802081",
+      "pmc_version": 1,
+      "pdf_sha256": "bbc9043b3787c90d5b2d4764ffcf455949abace5c9681234cf76f89d0cabe9a6",
+      "text_sha256": "83e181ac9dec8bd02f035bb526a4987965df39aece8cf3237902c88516168d55"
+    },
+    {
+      "article_id": "PMC11047104",
+      "pmc_version": 1,
+      "pdf_sha256": "f5208717e1e8b2e8a7443975665c0ddd1803a266b4a7af085ad7b08a887eea85",
+      "text_sha256": "0ba06505e30830ab48fe6191271c93b4eb9032678b3a09b823d7649816eed6ea"
+    },
+    {
+      "article_id": "PMC11527445",
+      "pmc_version": 1,
+      "pdf_sha256": "727d7a7b5b0e970861c4c67ffb549b9e6c1edae9e6437652a8892cbf986af415",
+      "text_sha256": "ce07184439306ce6f7f756e3a2500b5df10d7df389286faa249efa2af859adc7"
+    }
+  ],
+  "collection_path": "/Users/agentdev/development/.agent-tmp/JUA-114-final/chroma-als-ftd-C1",
+  "code_commit": "9bd621169fa35900395ee56b8dee48ca663327c1",
+  "ingestion": "verified copies of historical production embeddings; new sources via production main.ingest/embed/chunk_text",
+  "source_query_probes": {
+    "als-ftd-pmc10188109.pdf": "als-ftd-pmc10188109.pdf_0",
+    "als-ftd-pmc10802081.pdf": "als-ftd-pmc10802081.pdf_0",
+    "als-ftd-pmc11047104.pdf": "als-ftd-pmc11047104.pdf_0",
+    "als-ftd-pmc11527445.pdf": "als-ftd-pmc11527445.pdf_0"
+  },
+  "parent_receipt": "benchmark/combined/v1/runs/C3-ingestion.json",
+  "parent_receipt_sha256": "c34cda446bf394c987994bdc1d017d35fa40db4d55b44267262158717b9ff859",
+  "parent_chunks_sha256": "480269c66a77d5b839fcade3bfe7d9596006ca1295d9490d46e5e0cbf661ecda",
+  "reused_chunks": 0,
+  "new_chunks": 288,
+  "reused_embeddings_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "embeddings_sha256": "29a1d1c370b75b43eb80dded652828385323ad81ef025e4a7eafa67cb9c60536",
+  "limitations": [
+    "Original embedding provenance is inherited from the pinned production-ingestion receipt; historical vectors were not recomputed.",
+    "Per-source filtered vector probes prove index queryability, not unfiltered QA retrieval success."
+  ]
+}

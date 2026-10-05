@@ -169,3 +169,15 @@ success does not certify independent scientific review.
 ## Gold correction revision — 2026-10-05
 
 The active query set incorporates the [source-grounded correction ledger](../../corrections/2026-10-05/README.md). Prior runs retain their original questions and fingerprints; they are not runs of this corrected revision. The corpus and evaluation strategy are unchanged.
+
+## Corrected combined evaluation
+
+The preparation/review status and receipts above describe the original snapshot.
+The merged gold-validation findings and accepted corrections now supply the
+model-review basis for the [five-topic evaluation freeze](../../combined/v2/README.md).
+Its [current verification and reachability](../../combined/v2/reachability.json)
+regenerate this strand's query fingerprints, metadata checks and all accepted
+alternative witnesses. The old receipts are preserved as historical evidence.
+The [combined report](../../combined/v2/REPORT.md) verifies all ten cases in both
+the four-article baseline and 55-article corpus. It does not certify independent
+biomedical expert review or generated-answer correctness.

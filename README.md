@@ -38,18 +38,36 @@ adds 11 verified articles, 49 diabetes cases and a paired regression of all 45
 frozen cardiology cases. Its separate 32-article selection and local retrieval
 results preserve the historical corpus and query files.
 
-The [prepared ALS/FTD strand](benchmark/als-ftd/v1/README.md) adds four verified
+The [ALS/FTD strand](benchmark/als-ftd/v1/README.md) adds four verified
 C9ORF72 articles and ten evidence cases spanning human observations, cells and
-animal models. Independent review and freeze are pending; offline reachability
-checks do not measure retrieval or clinical efficacy.
+animal models. The merged model-review findings and accepted corrections are
+frozen in the combined evaluation below; biomedical expert certification remains
+outside that review. Offline reachability does not measure clinical efficacy.
 
-The [combined four-topic report](benchmark/combined/v1/REPORT.md) evaluates all
+The historical [combined four-topic report](benchmark/combined/v1/REPORT.md) evaluates all
 148 finalized cases on 51 unique articles / 3,350 chunks. At n=8, complete
 answerable document sets are retrieved for 108/120 cases, while complete pinned
 evidence is retrieved for 32/120. Source and passage regressions are reported
 per case; exact-span failures can still retain useful semantic evidence.
-ALS/FTD remains a pending extension. No generated answers or refusals were
+ALS/FTD was excluded from that snapshot. No generated answers or refusals were
 judged, and the historical headline metrics remain separate.
+
+The [corrected five-topic benchmark](benchmark/combined/v2/REPORT.md) verifies
+**55 unique articles / 3,638 chunks / all 158 queries** at n=3 and n=8, with
+production vector retrieval and reranking, BM25 and rewriting off. At n=8,
+complete document sets are retrieved for **115/129 answerable cases**, and
+complete pinned evidence for **37/129**. False-premise correction evidence is
+6/18; eleven absent-fact cases remain unscored. All failures are retained.
+Compatible current-gold topic baselines expose source/passage losses, including
+ALS/FTD a008. The accepted c012/c013/x005 source-conflict contracts are unchanged:
+c012/x005 fail at both depths; c013 covers both readings at n8. These are retrieval
+measurements, not generated-answer conflict handling or refusal accuracy.
+The 51/148 snapshot is not directly comparable because gold, scorer and corpus
+fingerprints differ. [Reproduction instructions](benchmark/combined/v2/README.md)
+and a [durable result summary](docs/evaluation/combined-benchmark-v2.json) preserve
+verified fingerprints. All 224 offline tests pass; 722 local retrieval calls
+incurred zero paid evaluation cost. Hosted CI remains pending during the GitHub
+Actions incident; the benchmark task remains open until required checks pass.
 
 ## Evaluation evidence relationships
 

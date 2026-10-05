@@ -1,0 +1,1613 @@
+{
+  "run_id": "20261005T213908Z-658a87cb",
+  "run_status": "complete",
+  "created_at": "2026-10-05T21:39:08.616845+00:00",
+  "code_commit": "9bd621169fa35900395ee56b8dee48ca663327c1",
+  "config_label": "vector-only-baseline",
+  "config": {
+    "use_bm25": false,
+    "use_query_rewriting": false,
+    "n_values": [
+      3,
+      8
+    ]
+  },
+  "provenance": {
+    "query_version": "als-ftd-prepared-queries-v1-gold-corrections-20261005-combined-envelope-v2",
+    "query_sha256": "75ffca04088992998e37672acc06fa04728e888b5bb2169effd1b54b00448103",
+    "subset_sha256": "215d6e3cd735ebc841bf0581124fdd1e9624c349c618ef09e1bc95533c4e5834",
+    "scorer_version": "pinned-span-coverage-v3",
+    "feasibility_version": "minimum-evidence-chunks-v3",
+    "feasibility_sha256": "c512afecece04ca9a71397c34f0cc49d0722763aa172c9a97470fdeeb7a0b0a3",
+    "scorer_sha256": "e0dc859ffa1fc4955e7d2e52eddd7d65b3488acb188df9d7c2dbc5842a9a8d6e",
+    "retrieval_sha256": "beeb5ea41bf4ff3b1943261c386e9cea23794fef4c15aaee136ba91ddbac6577",
+    "selection_sha256": "0d2e73508f9ddf42388d82b7e9bea4332624e2eeaf61106fc116809ab5c4d39d",
+    "conditions_sha256": "53f91790cd8340042914318f576686a082db5b6da6493ddbae9fff249343b7f3",
+    "condition": "C1",
+    "membership_sha256": "e536578827a71c14268a8ca1d89990b2d3b23d396444849086ab2b0310132f64",
+    "article_tuples": [
+      {
+        "article_id": "PMC10188109",
+        "pmc_version": 1,
+        "pdf_sha256": "9ac7d0a9c34b9eaac89db21fe1d0cc1963590de8c883bf7b0fbd41cb778dec43",
+        "text_sha256": "a82b8591a24b1bc20275e46e62189af34291a128d0b77f627b4c9a098c65d2ac"
+      },
+      {
+        "article_id": "PMC10802081",
+        "pmc_version": 1,
+        "pdf_sha256": "bbc9043b3787c90d5b2d4764ffcf455949abace5c9681234cf76f89d0cabe9a6",
+        "text_sha256": "83e181ac9dec8bd02f035bb526a4987965df39aece8cf3237902c88516168d55"
+      },
+      {
+        "article_id": "PMC11047104",
+        "pmc_version": 1,
+        "pdf_sha256": "f5208717e1e8b2e8a7443975665c0ddd1803a266b4a7af085ad7b08a887eea85",
+        "text_sha256": "0ba06505e30830ab48fe6191271c93b4eb9032678b3a09b823d7649816eed6ea"
+      },
+      {
+        "article_id": "PMC11527445",
+        "pmc_version": 1,
+        "pdf_sha256": "727d7a7b5b0e970861c4c67ffb549b9e6c1edae9e6437652a8892cbf986af415",
+        "text_sha256": "ce07184439306ce6f7f756e3a2500b5df10d7df389286faa249efa2af859adc7"
+      }
+    ],
+    "requested_ids": [
+      "a001",
+      "a002",
+      "a003",
+      "a004",
+      "a005",
+      "a006",
+      "a007",
+      "a008",
+      "a009",
+      "a010"
+    ],
+    "executed_ids": [
+      "a001",
+      "a002",
+      "a003",
+      "a004",
+      "a005",
+      "a006",
+      "a007",
+      "a008",
+      "a009",
+      "a010"
+    ],
+    "missing_ids": [],
+    "depths": [
+      3,
+      8
+    ],
+    "dependencies": {
+      "fastembed": "0.8.0",
+      "chromadb": "1.5.9",
+      "pypdf": "6.16.1",
+      "rank-bm25": "0.2.2",
+      "onnxruntime": "1.28.0"
+    },
+    "loaded_models": {
+      "embedding": {
+        "model_name": "BAAI/bge-small-en-v1.5",
+        "files": {
+          "config.json": "13582bcf2effc85b7bf3d3f5532e686bc1c9ce86bb009d10f0ec33cbe92299dd",
+          "model_optimized.onnx": "51f1bd0addd6e859e42c2c8021a5e5461385bb676a649f4b269aa445449f2431",
+          "special_tokens_map.json": "5d5b662e421ea9fac075174bb0688ee0d9431699900b90662acd44b2a350503a",
+          "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+          "tokenizer_config.json": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53"
+        },
+        "sha256": "d9e46143a9cabd7abdbe181fd67443a66089fd55d721db87b7b2964085ed0bff"
+      },
+      "reranker": {
+        "model_name": "Xenova/ms-marco-MiniLM-L-6-v2",
+        "files": {
+          "config.json": "d827779a72d27ae68cf878a6fc2e954542663fe21ca515d9f4783fc96be2d37e",
+          "onnx/model.onnx": "c623d0bcb99f4622beb413eaef00cfbe5db20df9f1dd982da4b4f26022881870",
+          "special_tokens_map.json": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+          "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+          "tokenizer_config.json": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53"
+        },
+        "sha256": "253fe4bae5a04bd859f462ffca4c1818e42725f6b14a55392b3ed9040728fb49"
+      }
+    },
+    "rewrite_identity": {
+      "provider": "ollama",
+      "model": "smollm2:1.7b-instruct-q4_K_M"
+    },
+    "ingestion_verification": {
+      "collection_name": "documents",
+      "chunk_count": 288,
+      "per_source_chunks": {
+        "als-ftd-pmc10188109.pdf": 100,
+        "als-ftd-pmc10802081.pdf": 32,
+        "als-ftd-pmc11047104.pdf": 75,
+        "als-ftd-pmc11527445.pdf": 81
+      },
+      "chunks_sha256": "447987e3dd23131f70a18ebd285f78f0f88f4a196181c9fde4cf94917964bf48",
+      "collection_path": "/Users/agentdev/development/.agent-tmp/JUA-114-final/chroma-als-ftd-C1"
+    }
+  },
+  "results": [
+    {
+      "id": "a001",
+      "revision": 3,
+      "question": "In Parameswaran et al. (2023), how did the PKR/eIF2α findings differ between human frontal-cortex samples and patient-derived motor neurons, and how cautiously should the authors’ explanation be interpreted?",
+      "query_sha256": "aa36abb20efdbe694cc39823d47ebb09f576197105df70d4de5c320991f3ee45",
+      "category": "direct_lookup",
+      "answerability": "answerable",
+      "evidence_feasibility": {
+        "minimum_chunks": 2,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "n3": {
+        "retrieved_sources": [
+          "als-ftd-pmc10188109.pdf",
+          "als-ftd-pmc10188109.pdf",
+          "als-ftd-pmc10188109.pdf"
+        ],
+        "retrieved_contexts": [
+          "ly increases \n Research article      \nNeuroscience\nParameswaran et al. eLife 2023;12:e85902. DOI: https://doi.org/10.7554/eLife.85902  4 of 27\nFigure 1. C9ORF72 antisense C4G2 expanded repeats activate PKR/eIF2α-dependent integrated stress response and cause neuronal toxicity. (A) \nSchematic illustration of the in_(C4G2)75 repeat construct including 6× stop codons, 450 bp of human intronic sequences at the N- terminus and 3× \nprotein tags at the C- terminus of the repeats to monitor the DPR proteins in each frame. (B) Representative images of antisense RNA foci in HEK293T \ncells and in primary cortical neurons expressing in_(C4G2)75 detected by RNA FISH. Red, foci; blue, DAPI; magenta, MAP2. (C) Kaplan–Meier curves \nFigure 1 continued on next page\n Research article      \nNeuroscience\nParameswaran et al. eLife 2023;12:e85902. DOI: https://doi.org/10.7554/eLife.85902  5 of 27\nthe phosphorylation of eIF2α without affecting its total level (Figure 1F and G). in_(C4G2)75 activates \neIF2α ma",
+          "cantly increased, despite the heterogeneity of eIF2α protein levels in patients (Figure 5B and \nC, Table 1). These results suggest that the PKR/eIF2α pathway is activated in C9FTD/ALS patients. \nWe also obtained protein extracts from two lines of C9ORF72 patient- derived motor neurons and \ntheir isogenic controls (Braems et al., 2022). However, we did not observe any differences in the \nlevels of either phosphorylated PKR or phosphorylated eIF2α of 38- day- old neurons (Figure 5—figure \nsupplement 1A and B), suggesting that PKR/ eIF2α-dependent ISR pathway possibly gets activated \nin C9ORF72 patients in a later stage of disease pathogenesis.\nSense G4C2 repeat expanded RNAs cannot activate the PKR/eIF2α \npathway\nRecently, Zu et al. showed that expressing a construct containing (G 4C2)120 also activates PKR and \nincreases DPR protein translation in HEK293T cells (Zu et al., 2020). However, it is not known whether \nthis activation is due to sense or antisense transcripts. Therefore, we ge",
+          " Kaplan–Meier curves showing the risk of cell death in (C4G2)108RO- expressing neurons compared with 2 repeats in the presence and \nabsence of PKR siRNA (replicated three times with similar results). Statistical analyses were performed using Mantel–Cox test (*p<0.05, **p<0.01). Scale \nbars, 20 µm.\nThe online version of this article includes the following source data for figure 4:\nSource data 1. Original western blot results for Figure 4D.\nFigure 4 continued\n Research article      \nNeuroscience\nParameswaran et al. eLife 2023;12:e85902. DOI: https://doi.org/10.7554/eLife.85902  12 of 27\nmay produce antisense C4G2 repeat expanded RNAs of different sizes and expression levels, we also \ndetected increased activation of PKR/eIF2α in patient frontal cortex. Consistent with our observa-\ntions, increased phosphorylation of PKR has also been reported in BAC transgenic mice expressing \n500 G4C2 repeats and in C9ORF72 patients by two other studies (Rodriguez et al., 2021; Zu et al., \n2020). Import"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.5,
+          "supported_facts": [
+            "a001:f2"
+          ],
+          "anchor_matches": {
+            "isr-tissue": [],
+            "isr-young": [
+              1
+            ]
+          },
+          "anchor_match_groups": {
+            "isr-tissue": [],
+            "isr-young": [
+              [
+                1
+              ]
+            ]
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "n8": {
+        "retrieved_sources": [
+          "als-ftd-pmc10188109.pdf",
+          "als-ftd-pmc10188109.pdf",
+          "als-ftd-pmc10188109.pdf",
+          "als-ftd-pmc10188109.pdf",
+          "als-ftd-pmc10188109.pdf",
+          "als-ftd-pmc10188109.pdf",
+          "als-ftd-pmc10188109.pdf",
+          "als-ftd-pmc10188109.pdf"
+        ],
+        "retrieved_contexts": [
+          "ly increases \n Research article      \nNeuroscience\nParameswaran et al. eLife 2023;12:e85902. DOI: https://doi.org/10.7554/eLife.85902  4 of 27\nFigure 1. C9ORF72 antisense C4G2 expanded repeats activate PKR/eIF2α-dependent integrated stress response and cause neuronal toxicity. (A) \nSchematic illustration of the in_(C4G2)75 repeat construct including 6× stop codons, 450 bp of human intronic sequences at the N- terminus and 3× \nprotein tags at the C- terminus of the repeats to monitor the DPR proteins in each frame. (B) Representative images of antisense RNA foci in HEK293T \ncells and in primary cortical neurons expressing in_(C4G2)75 detected by RNA FISH. Red, foci; blue, DAPI; magenta, MAP2. (C) Kaplan–Meier curves \nFigure 1 continued on next page\n Research article      \nNeuroscience\nParameswaran et al. eLife 2023;12:e85902. DOI: https://doi.org/10.7554/eLife.85902  5 of 27\nthe phosphorylation of eIF2α without affecting its total level (Figure 1F and G). in_(C4G2)75 activates \neIF2α ma",
+          "cantly increased, despite the heterogeneity of eIF2α protein levels in patients (Figure 5B and \nC, Table 1). These results suggest that the PKR/eIF2α pathway is activated in C9FTD/ALS patients. \nWe also obtained protein extracts from two lines of C9ORF72 patient- derived motor neurons and \ntheir isogenic controls (Braems et al., 2022). However, we did not observe any differences in the \nlevels of either phosphorylated PKR or phosphorylated eIF2α of 38- day- old neurons (Figure 5—figure \nsupplement 1A and B), suggesting that PKR/ eIF2α-dependent ISR pathway possibly gets activated \nin C9ORF72 patients in a later stage of disease pathogenesis.\nSense G4C2 repeat expanded RNAs cannot activate the PKR/eIF2α \npathway\nRecently, Zu et al. showed that expressing a construct containing (G 4C2)120 also activates PKR and \nincreases DPR protein translation in HEK293T cells (Zu et al., 2020). However, it is not known whether \nthis activation is due to sense or antisense transcripts. Therefore, we ge",
+          " Kaplan–Meier curves showing the risk of cell death in (C4G2)108RO- expressing neurons compared with 2 repeats in the presence and \nabsence of PKR siRNA (replicated three times with similar results). Statistical analyses were performed using Mantel–Cox test (*p<0.05, **p<0.01). Scale \nbars, 20 µm.\nThe online version of this article includes the following source data for figure 4:\nSource data 1. Original western blot results for Figure 4D.\nFigure 4 continued\n Research article      \nNeuroscience\nParameswaran et al. eLife 2023;12:e85902. DOI: https://doi.org/10.7554/eLife.85902  12 of 27\nmay produce antisense C4G2 repeat expanded RNAs of different sizes and expression levels, we also \ndetected increased activation of PKR/eIF2α in patient frontal cortex. Consistent with our observa-\ntions, increased phosphorylation of PKR has also been reported in BAC transgenic mice expressing \n500 G4C2 repeats and in C9ORF72 patients by two other studies (Rodriguez et al., 2021; Zu et al., \n2020). Import",
+          "ndent experiments). \nStatistical analyses were performed using one- way ANOVA with Tukey’s post hoc test. (F, G) Representative images (F) and quantitation (G) of p- eIF2α in \nprimary neurons expressing antisense (C4G2)108RO or 2 repeats in the presence and absence of PKR siRNA. Scale bars, 10 µm.\nThe online version of this article includes the following source data and figure supplement(s) for figure 3:\nSource data 1. Original western blot results for Figure 3B.\nSource data 2. Original western blot results for Figure 3D.\nFigure supplement 1. Antisense DPR proteins do not activate PKR/eIF2α-dependent integrated stress response.\nFigure supplement 1—source data 1. Original western blot results for Figure 3—figure supplement 1D.\nFigure supplement 1—source data 2. Original western blot results for Figure 3—figure supplement 1F.\nFigure 3 continued\n Research article      \nNeuroscience\nParameswaran et al. eLife 2023;12:e85902. DOI: https://doi.org/10.7554/eLife.85902  10 of 27\nFigure 4. Antis",
+          "ife.85902  9 of 27\nImportantly, knockdown of PKR partially rescues the (C 4G2)108RO- mediated toxicity (Figure  4G). \nThese data suggest that C9ORF72 antisense repeat expanded RNAs themselves are neurotoxic via \nPKR activation.\nIncreased levels of phosphorylated PKR and eIF2α in C9FTD/ALS \npatients\nTo study disease relevance, we next determined the levels of phosphorylated PKR and eIF2α in \nC9FTD/ALS patient postmortem tissues and in patient- derived iPSCs motor neurons. Immunohis-\ntochemistry staining showed that the level of phosphorylated PKR is increased in the frontal cortex, \nespecially in the large pyramidal neurons, of patients carrying C9ORF72 repeat expansions compared \nto age- matched non- disease controls (Figure  5A). This data is consistent with two recent studies \nshowing increased PKR phosphorylation in C9ORF72 patients (Rodriguez et  al., 2021; Zu et  al., \n2020). In addition, the level of phosphorylated eIF2α after normalizing to the total eIF2α level is also \nsignifi",
+          "arch article      \nNeuroscience\nParameswaran et al. eLife 2023;12:e85902. DOI: https://doi.org/10.7554/eLife.85902  22 of 27\nFunder Grant reference number Author\nNIH 5R21NS114908-02 Gary J Bassell\nJie Jiang\nThe funders had no role in study design, data collection and interpretation, or the \ndecision to submit the work for publication.\nAuthor contributions\nJanani Parameswaran, Conceptualization, Resources, Formal analysis, Validation, Investigation, Meth-\nodology, Writing - original draft, Project administration, Writing - review and editing; Nancy Zhang, \nData curation, Validation, Methodology; Elke Braems, Formal analysis, Methodology; Kedamawit \nTilahun, Formal analysis, Validation; Devesh C Pant, Emma Davis, Investigation; Keena Yin, Seneshaw \nAsress, Kara Heeren, Methodology; Anwesha Banerjee, Samantha L Schwartz, Graeme L Conn, Gary J \nBassell, Resources; Ludo Van Den Bosch, Resources, Supervision, Investigation; Jie Jiang, Resources, \nSupervision, Funding acquisition, Investigati",
+          "antly, using strand- specific ASOs we showed the previously reported increased phos-\nphorylation of PKR/eIF2α and stress granules when expressing G 4C2 repeats are mainly driven by \nFigure 5. Increased levels of phosphorylated PKR and eIF2α in C9FTD/ALS patients. (A) Representative immunohistochemistry images of \nphosphorylated PKR staining in control and C9FTD/ALS patient’s frontal cortex (FCX) using anti- p- PKR (T446) (n = 4 per genotype). (B, C) \nImmunoblotting of p- eIF2α in proteins extracted from control (C1–C6) and C9FTD/ALS patient’s frontal cortex (P1–P6). p- eIF2α (Ser51) was normalized \nto total eIF2α. GAPDH was used as a loading control. Error bars represent SD (control n = 6 and C9FTD/ALS n = 6). Statistical analyses were performed \nusing unpaired Student’s t- test. Scale bars, 10 µm.\nThe online version of this article includes the following source data and figure supplement(s) for figure 5:\nSource data 1. Original western blot results for Figure 5B.\nFigure supplement 1. ",
+          "nerated a sense repeat \nconstruct (G4C2)75 that has a similar repeat size as our antisense construct (Figure 6—figure supple-\nment 1A). Consistent with the earlier findings by Zu et al., expression of sense (G 4C2)75 in HEK293T \ncells significantly increases phosphorylation of both PKR and eIF2α (Figure 6A and Figure 6—figure \nsupplement 1B). However, we detected abundant accumulation of both sense and antisense RNA foci \nin cells expressing sense (G4C2)75 but not in those expressing 2 repeats (Figure 6—figure supplement \n1C). Interestingly, we also detected accumulation of sense foci in cells expressing antisense (C 4G2) \nexpanded repeats in such model system (Figure 6—figure supplement 1C). We therefore aimed to \ndetermine the relative contribution of sense G4C2 and antisense C4G2 repeat expanded RNAs in acti-\nvating the PKR/eIF2α pathway by focusing the expanded (G 4C2)75 repeats which resemble C9FTD/\nALS patients. We first used previously published ASOs that specifically degrade se"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "pass",
+          "fact_recall": 1.0,
+          "supported_facts": [
+            "a001:f1",
+            "a001:f2"
+          ],
+          "anchor_matches": {
+            "isr-tissue": [
+              1,
+              4
+            ],
+            "isr-young": [
+              1
+            ]
+          },
+          "anchor_match_groups": {
+            "isr-tissue": [
+              [
+                4,
+                1
+              ]
+            ],
+            "isr-young": [
+              [
+                1
+              ]
+            ]
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      }
+    },
+    {
+      "id": "a002",
+      "revision": 2,
+      "question": "Liu et al. (2024) proved that Cas13d improved survival and motor function in C9-500 BAC mice. Is that conclusion supported?",
+      "query_sha256": "839086b0ad04a72bc25dde81885fc5afc292393bda8a2b46471d4e9b722f4cc8",
+      "category": "false_premise",
+      "answerability": "false_premise",
+      "evidence_feasibility": {
+        "minimum_chunks": 3,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "n3": {
+        "retrieved_sources": [
+          "als-ftd-pmc11527445.pdf",
+          "als-ftd-pmc11527445.pdf",
+          "als-ftd-pmc11527445.pdf"
+        ],
+        "retrieved_contexts": [
+          "0168\n(Figure 5, B and C ). Importantly, the treatment with Cas13d-S24 \nor Cas13d-S30 led to a significant reduction in poly-GP and poly-\nGA levels in the C9-500 BAC mice, consistent with the findings \nobserved in C9orf72 repeat–associated ALS patient cells. In addi-\ntion, we conducted immunohistochemistry (IHC) staining on \nthe mouse brain to detect and quantify the poly-GA inclusion, \nthe most abundantly detected DPR species. The C9-500 BAC \nmice showed clear poly-GA inclusion signals, while the WT mice \nhad no detectable signals (Supplemental Figure 4A ), confirming \nthe specificity of our IHC staining. Moreover, treatment with \nCas13d-S24 and Cas13d-S30 resulted in a significant decrease \nof poly-GA inclusions compared with the non-targeting control, \nused as a pathological marker for C9orf72-associated ALS/FTD \n(4, 42), allowing us to use it to test the efficiency of our CRISPR/\nCas13d system in vivo. To deliver the system, we packaged it into \nadeno-associated virus serotype 9 (AA",
+          "V9) viral vectors and con-\nducted bilateral intracerebroventricular injection of the Cas13d-\nNT30, Cas13d-S24, or Cas13d-S30 into the lateral ventricles of \nC9-500 BAC and WT mice on postnatal day 0 (P0) (Figure 5A). At \n13 months of age, the mice were sacrificed, and brain tissues were \ncollected for poly-GP and poly-GA detection (Figure 5A ). The \nC9-500 BAC mice (NT30) exhibited significantly higher poly-\nGP and poly-GA levels than the WT mice (NT30), confirming the \nexpression of C9orf72 dipeptide proteins in the transgenic mice \nFigure 4. The CRISPR/Cas13d system degraded targetable short but not long GGGGCC repeat RNA. (A) Purified Cas13d showed a nearly 100% degradation \nefficiency of the target RNA r(NT24) with gRNA NT24 but not the other gRNAs, confirming the specificity and high cleavage activity of the Cas13d system. (B) \nThe target RNA r(GGGGCC)2 was too short to be degraded by Cas13d. (C–E) The purified Cas13d showed partial degradation of the target RNAs r(GGGGCC)5 (C), \n",
+          "levels of poly-GP (B) or poly-GA (C) in C9-500 BAC mice \nbut not in the WT mice, when the mice were treated with AAV9 expressing Cas13d-S24 or Cas13d-S30, compared with those treated with control AAV9 \nexpressing the non-targeting Cas13d-NT30. The number of dots in each group indicates the number of mice in the corresponding group. Data are present-\ned as means ± SD and were analyzed with unpaired 1-tailed Student’s t test. *P < 0.05, ****P < 0.0001.\nThe Journal of Clinical Investigation    RESEARCH ARTICLE\nJ Clin Invest. 2024;134(21):e179016  https://doi.org/10.1172/JCI17901610\nin patient cells in a short-repeat form that cannot be detected by \nRNA fluorescence in situ hybridization but can be degraded by \nthe CRISPR/Cas13d system. Intriguingly, a pair of iPSC and iMN \nlines, derived from the same individual, exhibited a decrease in \nrepeat RNA–containing transcripts only in the iMN line, but not \nin the iPSC line, suggesting that repeat RNA cleavage activities of \nCRISPR/Cas13d could"
+        ],
+        "verdict": "not_scored",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "cas13-clinical": [],
+            "cas13-dpr": [
+              0
+            ],
+            "cas13-mice": []
+          },
+          "anchor_match_groups": {
+            "cas13-clinical": [],
+            "cas13-dpr": [
+              [
+                0
+              ]
+            ],
+            "cas13-mice": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "n8": {
+        "retrieved_sources": [
+          "als-ftd-pmc11527445.pdf",
+          "als-ftd-pmc11527445.pdf",
+          "als-ftd-pmc11527445.pdf",
+          "als-ftd-pmc11527445.pdf",
+          "als-ftd-pmc11527445.pdf",
+          "als-ftd-pmc11527445.pdf",
+          "als-ftd-pmc11527445.pdf",
+          "als-ftd-pmc11527445.pdf"
+        ],
+        "retrieved_contexts": [
+          "0168\n(Figure 5, B and C ). Importantly, the treatment with Cas13d-S24 \nor Cas13d-S30 led to a significant reduction in poly-GP and poly-\nGA levels in the C9-500 BAC mice, consistent with the findings \nobserved in C9orf72 repeat–associated ALS patient cells. In addi-\ntion, we conducted immunohistochemistry (IHC) staining on \nthe mouse brain to detect and quantify the poly-GA inclusion, \nthe most abundantly detected DPR species. The C9-500 BAC \nmice showed clear poly-GA inclusion signals, while the WT mice \nhad no detectable signals (Supplemental Figure 4A ), confirming \nthe specificity of our IHC staining. Moreover, treatment with \nCas13d-S24 and Cas13d-S30 resulted in a significant decrease \nof poly-GA inclusions compared with the non-targeting control, \nused as a pathological marker for C9orf72-associated ALS/FTD \n(4, 42), allowing us to use it to test the efficiency of our CRISPR/\nCas13d system in vivo. To deliver the system, we packaged it into \nadeno-associated virus serotype 9 (AA",
+          "V9) viral vectors and con-\nducted bilateral intracerebroventricular injection of the Cas13d-\nNT30, Cas13d-S24, or Cas13d-S30 into the lateral ventricles of \nC9-500 BAC and WT mice on postnatal day 0 (P0) (Figure 5A). At \n13 months of age, the mice were sacrificed, and brain tissues were \ncollected for poly-GP and poly-GA detection (Figure 5A ). The \nC9-500 BAC mice (NT30) exhibited significantly higher poly-\nGP and poly-GA levels than the WT mice (NT30), confirming the \nexpression of C9orf72 dipeptide proteins in the transgenic mice \nFigure 4. The CRISPR/Cas13d system degraded targetable short but not long GGGGCC repeat RNA. (A) Purified Cas13d showed a nearly 100% degradation \nefficiency of the target RNA r(NT24) with gRNA NT24 but not the other gRNAs, confirming the specificity and high cleavage activity of the Cas13d system. (B) \nThe target RNA r(GGGGCC)2 was too short to be degraded by Cas13d. (C–E) The purified Cas13d showed partial degradation of the target RNAs r(GGGGCC)5 (C), \n",
+          "levels of poly-GP (B) or poly-GA (C) in C9-500 BAC mice \nbut not in the WT mice, when the mice were treated with AAV9 expressing Cas13d-S24 or Cas13d-S30, compared with those treated with control AAV9 \nexpressing the non-targeting Cas13d-NT30. The number of dots in each group indicates the number of mice in the corresponding group. Data are present-\ned as means ± SD and were analyzed with unpaired 1-tailed Student’s t test. *P < 0.05, ****P < 0.0001.\nThe Journal of Clinical Investigation    RESEARCH ARTICLE\nJ Clin Invest. 2024;134(21):e179016  https://doi.org/10.1172/JCI17901610\nin patient cells in a short-repeat form that cannot be detected by \nRNA fluorescence in situ hybridization but can be degraded by \nthe CRISPR/Cas13d system. Intriguingly, a pair of iPSC and iMN \nlines, derived from the same individual, exhibited a decrease in \nrepeat RNA–containing transcripts only in the iMN line, but not \nin the iPSC line, suggesting that repeat RNA cleavage activities of \nCRISPR/Cas13d could",
+          "s repeat expansion diseases is characterized by the presence of \ntandem repeats in the human genome (47) , with more than 50 \nof these disorders being neuromuscular diseases, including ALS, \nHuntington’s disease, fragile X syndrome, and several spinocer-\nCas13d-NT30, in the transgenic mice (Supplemental Figure 4A ). \nThese results confirm the efficacy of our CRISPR/Cas13d system \nin both in vitro and in vivo contexts.\nFurthermore, we conducted RT-qPCR analysis to quantify the \nhuman C9orf72 transcripts, including C9-V1, C9-V2, and C9-V3, \nin both WT and C9-500 BAC mice. The results showed that all 3 \ntranscripts were expressed at significantly higher expression lev-\nels in C9-500 BAC mice compared with WT mice (Supplemental \nFigure 4B), confirming the specificity of the primers as well as the \nmouse genotypes. In our analysis of C9-500 BAC mice treated with \ndifferent guided Cas13d variants, we found no significant differ-\nences in the levels of the three C9orf72 transcripts when compa",
+          "As that are trapped as \naggregates within the RNA foci. Collectively, given the significant \nand consistent knockdown of RAN translation products despite \nthe limited and variable cleavage activities of the CRISPR/Cas13d \nsystem against GGGGCC repeat RNAs, these results further sup -\nport the notion that the suppression of RAN translation by CRIS -\nPR/Cas13d involves a combination of RNA targeting and transla -\ntional repression mechanisms.\nCRISPR/Cas13d suppresses RAN translation in C9orf72 repeat \ntransgenic mice . To determine whether our approach works in \nvivo, we used a BAC transgenic mouse model that expresses the \nhuman C9orf72 gene with approximately 500 units of GGGG -\nCC repeat (C9-500) and substantial ﬂanking sequences (41) . \nAlthough this mouse model has exhibited no survival or motor \ndeficits (42), the mice still express C9orf72 DPRs that can be \nThe Journal of Clinical Investigation    RESEARCH ARTICLE\nJ Clin Invest. 2024;134(21):e179016  https://doi.org/10.1172/JCI179",
+          "The Journal of Clinical Investigation    RESEARCH ARTICLE\nJ Clin Invest. 2024;134(21):e179016  https://doi.org/10.1172/JCI1790164\nCRISPR/Cas13d suppresses RAN translation in cells derived from \nC9orf72-ALS patients. Next, we used the CRISPR/Cas13d system \nto target endogenous GGGGCC repeat RNAs in cells obtained \nfrom patients with C9orf72-associated ALS. Multiple distinct lines \ntion, we also evaluated the levels of C9orf72 RNA and protein in \nthe transfected HEK293 cells and observed no significant chang -\nes, consistent with results in the HeLa reporter cell lines (Figure 2F \nand Supplemental Figure 1F).\nFigure 2. Guided Cas13d specifically decreased translation associated with GGGGCC repeat–containing transcripts. ( A) Schematic of the inducible \nluciferase-based C9orf72 RAN translation reporter system in HeLa Flp-In cells. (B ) The reporter cells stably expressing Cas13d and gRNA S24 and \nS30 showed lower signals of NanoLuc and firefly luciferase signal from the (GGGGCC)70-contain",
+          "ion lev-\nel and the knockdown efficiency of both poly-GP and poly-GA \nacross the C9-ALS iPSC lines provided a clear validation of the \nspecificity of the designed CRISPR/Cas13 system. Lastly, we \napplied the system in a mouse model expressing the GGGGCC \nrepeats, and we found a significant and consistent reduction of \npoly-GP and poly-GA levels, confirming the efficiency of our \nCRISPR/Cas13d system to inhibit C9orf72 RAN translation to \nproduce toxic dipeptide proteins in vivo.\nIn analyzing the efficiency of the CRISPR/Cas13d treat -\nment, we observed that a subset of C9-ALS patient cell lines, \nwhich showed relatively high efficiency in knocking down RAN \ntranslation products, exhibited a decrease in repeat-containing \ntranscripts, whereas other cell lines with less efficient poly-di-\npeptide knockdown did not show a significant decrease in these \ntranscripts. This suggests that both RNA cleavage and transla -\ntion blocking contribute to the suppression of RAN translation \nby the Cas",
+          " be influenced by cell types. This may be \naffected by a range of factors such as thousands of RNA-binding \nproteins, helicases, and abundant post-transcriptional modifica -\ntions, which have been shown to remodel RNA secondary struc-\ntures and RNA stability (49, 50), thus highlighting the intricate \ninterplay between the CRISPR/Cas13d system and the cellular \nenvironment. These results suggest that the knockdown efficien-\ncy of RAN translation products by CRISPR/Cas13d is dependent \non genetic background or cellular environment. Importantly, \nour findings from various cell models, including C9orf72-ALS \npatient–derived iPSCs, motor neurons, and the repeat expansion \nmouse model, demonstrate that the reduction of RAN transla -\ntion products by treatment with the CRISPR/Cas13d system can \noccur independently of RNA degradation, indicating an underly-\ning mechanism involving translational suppression. Meanwhile, \nowing to the lack of behavioral phenotypes and other neuro -\ndegenerative f"
+        ],
+        "verdict": "not_scored",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.5,
+          "supported_facts": [
+            "a002:f1"
+          ],
+          "anchor_matches": {
+            "cas13-clinical": [],
+            "cas13-dpr": [
+              0
+            ],
+            "cas13-mice": [
+              4
+            ]
+          },
+          "anchor_match_groups": {
+            "cas13-clinical": [],
+            "cas13-dpr": [
+              [
+                0
+              ]
+            ],
+            "cas13-mice": [
+              [
+                4
+              ]
+            ]
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      }
+    },
+    {
+      "id": "a003",
+      "revision": 3,
+      "question": "How did C9-V1/V3 responses to Cas13d differ between the same-donor iPSC line 2 and motor-neuron line 2 in Liu et al. (2024)?",
+      "query_sha256": "bc3fcb5aae38909be283fa0040362a74aeed63fc823b7590bc237c5564a1f629",
+      "category": "direct_lookup",
+      "answerability": "answerable",
+      "evidence_feasibility": {
+        "minimum_chunks": 1,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "n3": {
+        "retrieved_sources": [
+          "als-ftd-pmc11527445.pdf",
+          "als-ftd-pmc11527445.pdf",
+          "als-ftd-pmc11527445.pdf"
+        ],
+        "retrieved_contexts": [
+          "-GA levels (Figure 3, B and G ). Con-\nsistently, immunoblotting analysis showed that C9orf72 protein \nlevels did not significantly change across all C9-ALS lines (Sup -\nplemental Figure 2, D –G). These data are in accordance with the \nnotion that C9-V2, the predominant transcript accounting for vast \nmajority of C9orf72 protein synthesis (5, 30, 31), is not targeted by \nthe CRISPR/Cas13d system. Notably, iPSC line 2 and iMN line 2 \nwere derived from the same individual, yet the decrease in C9-V1 \nand C9-V3 was only observed in the iMNs but not in the iPSCs, \nhighlighting the intricate interplay between the CRISPR/Cas13d \nsystem and the cellular environment in targeting RNA with high-\ner-order structures. These findings suggest that the knockdown \nof DPRs by CRISPR/Cas13d may vary depending on the cell type \nand genetic background, and could involve mechanisms beyond \nRNA cleavage, including a combination of other mechanisms such \nas translation repression. Indeed, it has been reported ",
+          "was particularly robust for Cas13d-S30 in the knockdown \nof poly-GP, with an R 2 of 0.9147 and a P value of 0.0436 (Figure \n3D). This positive dose-response relationship further substanti-\nates the specificity of the designed crRNAs.\nSince motor neurons are the primarily affected cells in ALS \npatients, we further assessed the CRISPR/Cas13d system in \niPSC-derived motor neurons (iMNs) originating from C9orf72-as-\nsociated ALS patients (Figure 3F). We differentiated multiple iPSC \nlines into mature iMNs using a previously established method (29). \nThe resulting mature iMNs were validated by immunofluorescence \nstaining of the mature motor neuron marker choline acetyltrans-\nferase (ChAT) (Supplemental Figure 2A ). Subsequently, mature \niMNs were treated with lentiviral particles expressing Cas13d \nand the corresponding crRNAs (NT30, S24, or S30) as described \nabove. Ten days after the lentiviral treatment, iMNs were collect -\ned for poly-GP and poly-GA quantifications. All iMN lines exhi",
+          "anslation, highlighting the importance of \noptimizing Cas13d expression levels to maximize the therapeutic \npotential of this approach for treating C9orf72-ALS/FTD.\nAdditionally, we conducted RT-qPCR to investigate the \npotential of the CRISPR/Cas13d system to target and cleave the \n3 C9orf72 transcripts in the C9-ALS iPSC and iMN lines. The \nresults demonstrated that the RNA levels of C9-V1 and C9-V3, \nwhich contain the expanded GGGGCC repeat, were significant -\nly decreased by Cas13d-S24 or S30 when compared with NT30 in \nC9-ALS iPSC line 1 (Supplemental Figure 2B ) and C9-ALS iMN \nline 1 and iMN line 2 (Supplemental Figure 2C ). Meanwhile, the \nRNA level of the C9-V2 transcript, which lacks the GGGGCC \nrepeat, remained unaffected. Interestingly, in the patient iPSC \nlines 2–4 and iMN lines 3–5, the RNA levels of C9-V1, C9-V2, and \nC9-V3 transcripts were not significantly affected by the CRIS -\nPR/Cas13d system (Supplemental Figure 2, B and C), despite a \ndecrease in poly-GP and poly"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "pass",
+          "fact_recall": 1.0,
+          "supported_facts": [
+            "a003:f1"
+          ],
+          "anchor_matches": {
+            "cas13-cell": [],
+            "cas13-cell-results": [
+              0
+            ]
+          },
+          "anchor_match_groups": {
+            "cas13-cell": [],
+            "cas13-cell-results": [
+              [
+                0
+              ]
+            ]
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "n8": {
+        "retrieved_sources": [
+          "als-ftd-pmc11527445.pdf",
+          "als-ftd-pmc11527445.pdf",
+          "als-ftd-pmc11527445.pdf",
+          "als-ftd-pmc11527445.pdf",
+          "als-ftd-pmc11527445.pdf",
+          "als-ftd-pmc11527445.pdf",
+          "als-ftd-pmc11527445.pdf",
+          "als-ftd-pmc11527445.pdf"
+        ],
+        "retrieved_contexts": [
+          "-GA levels (Figure 3, B and G ). Con-\nsistently, immunoblotting analysis showed that C9orf72 protein \nlevels did not significantly change across all C9-ALS lines (Sup -\nplemental Figure 2, D –G). These data are in accordance with the \nnotion that C9-V2, the predominant transcript accounting for vast \nmajority of C9orf72 protein synthesis (5, 30, 31), is not targeted by \nthe CRISPR/Cas13d system. Notably, iPSC line 2 and iMN line 2 \nwere derived from the same individual, yet the decrease in C9-V1 \nand C9-V3 was only observed in the iMNs but not in the iPSCs, \nhighlighting the intricate interplay between the CRISPR/Cas13d \nsystem and the cellular environment in targeting RNA with high-\ner-order structures. These findings suggest that the knockdown \nof DPRs by CRISPR/Cas13d may vary depending on the cell type \nand genetic background, and could involve mechanisms beyond \nRNA cleavage, including a combination of other mechanisms such \nas translation repression. Indeed, it has been reported ",
+          "was particularly robust for Cas13d-S30 in the knockdown \nof poly-GP, with an R 2 of 0.9147 and a P value of 0.0436 (Figure \n3D). This positive dose-response relationship further substanti-\nates the specificity of the designed crRNAs.\nSince motor neurons are the primarily affected cells in ALS \npatients, we further assessed the CRISPR/Cas13d system in \niPSC-derived motor neurons (iMNs) originating from C9orf72-as-\nsociated ALS patients (Figure 3F). We differentiated multiple iPSC \nlines into mature iMNs using a previously established method (29). \nThe resulting mature iMNs were validated by immunofluorescence \nstaining of the mature motor neuron marker choline acetyltrans-\nferase (ChAT) (Supplemental Figure 2A ). Subsequently, mature \niMNs were treated with lentiviral particles expressing Cas13d \nand the corresponding crRNAs (NT30, S24, or S30) as described \nabove. Ten days after the lentiviral treatment, iMNs were collect -\ned for poly-GP and poly-GA quantifications. All iMN lines exhi",
+          "anslation, highlighting the importance of \noptimizing Cas13d expression levels to maximize the therapeutic \npotential of this approach for treating C9orf72-ALS/FTD.\nAdditionally, we conducted RT-qPCR to investigate the \npotential of the CRISPR/Cas13d system to target and cleave the \n3 C9orf72 transcripts in the C9-ALS iPSC and iMN lines. The \nresults demonstrated that the RNA levels of C9-V1 and C9-V3, \nwhich contain the expanded GGGGCC repeat, were significant -\nly decreased by Cas13d-S24 or S30 when compared with NT30 in \nC9-ALS iPSC line 1 (Supplemental Figure 2B ) and C9-ALS iMN \nline 1 and iMN line 2 (Supplemental Figure 2C ). Meanwhile, the \nRNA level of the C9-V2 transcript, which lacks the GGGGCC \nrepeat, remained unaffected. Interestingly, in the patient iPSC \nlines 2–4 and iMN lines 3–5, the RNA levels of C9-V1, C9-V2, and \nC9-V3 transcripts were not significantly affected by the CRIS -\nPR/Cas13d system (Supplemental Figure 2, B and C), despite a \ndecrease in poly-GP and poly",
+          "b -\nited a significant decrease in poly-GP and poly-GA levels when \ntreated with Cas13d-S24 or Cas13d-S30, compared with Cas13d-\nNT30. The DPR knockdown efficiency ranged from approximate-\nly 20% to 90% among the different lines (Figure 3G ), confirming \nthe effectiveness of the CRISPR/Cas13d system in motor neurons \nderived from C9orf72 repeat–associated ALS patients. Moreover, \nwe performed linear regression and correlation analyses to exam-\nine the relationship between the Cas13d expression level and the \npoly-GP /poly-GA knockdown efficiency in the C9-ALS iMN lines. \nConsistent with the results in the iPSCs, positive correlations were \nobserved between the Cas13d level and the knockdown efficien-\ncy for both Cas13d-S24 and Cas13d-S30, as measured by poly-GP \nand poly-GA levels, in the iMNs (Figure 3, H–J). These results pro-\nvide compelling evidence that the expression level of the CRISPR/\nCas13d system is a critical determinant of its ability to effectively \ninhibit C9orf72 RAN tr",
+          "r-\ning the Cas13d-S24 and Cas13d-S30 groups with the Cas13d-NT30 \ncontrol group (Supplemental Figure 4B). Additionally, we analyzed \nthe C9orf72 protein level and found no significant differences when \ncomparing Cas13d-S24 and Cas13d-S30 with Cas13d-NT30 (Sup -\nplemental Figure 4C). These results are consistent with our obser-\nvations in the HeLa reporter cell lines, as well as the majority of \nC9-ALS iPSC and iMN lines studied. Moreover, we performed RNA \nFISH analysis to detect C9orf72 GGGGCC repeat RNA foci, and we \nfound no significant differences for the Cas13d-S24 or Cas13d-S30 \ngroups compared with the Cas13d-NT30 control group (Supple -\nmental Figure 4D), in accordance with the results in C9-ALS iPSCs \nand iMNs (Supplemental Figure 3, B–D).\nFigure 5. The CRISPR/Cas13d system suppressed RAN translation in C9orf72 repeat transgenic mice. (A) Schematic of poly-GP and poly-GA detection in \nmice treated with AAV9 expressing Cas13d and gRNA. (B and C) Quantification showed decreased ",
+          "s repeat expansion diseases is characterized by the presence of \ntandem repeats in the human genome (47) , with more than 50 \nof these disorders being neuromuscular diseases, including ALS, \nHuntington’s disease, fragile X syndrome, and several spinocer-\nCas13d-NT30, in the transgenic mice (Supplemental Figure 4A ). \nThese results confirm the efficacy of our CRISPR/Cas13d system \nin both in vitro and in vivo contexts.\nFurthermore, we conducted RT-qPCR analysis to quantify the \nhuman C9orf72 transcripts, including C9-V1, C9-V2, and C9-V3, \nin both WT and C9-500 BAC mice. The results showed that all 3 \ntranscripts were expressed at significantly higher expression lev-\nels in C9-500 BAC mice compared with WT mice (Supplemental \nFigure 4B), confirming the specificity of the primers as well as the \nmouse genotypes. In our analysis of C9-500 BAC mice treated with \ndifferent guided Cas13d variants, we found no significant differ-\nences in the levels of the three C9orf72 transcripts when compa",
+          "d Cas13d-S30 groups compared with the \nnon-targeting Cas13d-NT30 group in the 4 normal iPSC and \niMN cell lines (Supplemental Figure 2, B –G), indicating a high-\nly selective targeting by the CRISPR/Cas13d system against \nthe expanded alleles in C9-ALS patient cells.\nTaken together, our results demonstrate that the CRISPR/\nCas13d system effectively and selectively targets the expanded \nGGGGCC repeat RNA of C9orf72 and reduces the production of \npoly-GP and poly-GA resulting from C9orf72 RAN translation in \nThe Journal of Clinical Investigation    RESEARCH ARTICLE\n7J Clin Invest. 2024;134(21):e179016  https://doi.org/10.1172/JCI179016\niPSCs and iMNs derived from C9-ALS patients. This is achieved \nthrough both RNA cleavage and translational inhibition. Addition-\nally, the knockdown efficiency of the CRISPR/Cas13d system pos-\nitively correlates with its expression level.\nMultiple factors including repeat lengths influence degradation of \nGGGGCC repeat RNAs by CRISPR/Cas13d. To explore the",
+          "ion lev-\nel and the knockdown efficiency of both poly-GP and poly-GA \nacross the C9-ALS iPSC lines provided a clear validation of the \nspecificity of the designed CRISPR/Cas13 system. Lastly, we \napplied the system in a mouse model expressing the GGGGCC \nrepeats, and we found a significant and consistent reduction of \npoly-GP and poly-GA levels, confirming the efficiency of our \nCRISPR/Cas13d system to inhibit C9orf72 RAN translation to \nproduce toxic dipeptide proteins in vivo.\nIn analyzing the efficiency of the CRISPR/Cas13d treat -\nment, we observed that a subset of C9-ALS patient cell lines, \nwhich showed relatively high efficiency in knocking down RAN \ntranslation products, exhibited a decrease in repeat-containing \ntranscripts, whereas other cell lines with less efficient poly-di-\npeptide knockdown did not show a significant decrease in these \ntranscripts. This suggests that both RNA cleavage and transla -\ntion blocking contribute to the suppression of RAN translation \nby the Cas"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "pass",
+          "fact_recall": 1.0,
+          "supported_facts": [
+            "a003:f1"
+          ],
+          "anchor_matches": {
+            "cas13-cell": [],
+            "cas13-cell-results": [
+              0
+            ]
+          },
+          "anchor_match_groups": {
+            "cas13-cell": [],
+            "cas13-cell-results": [
+              [
+                0
+              ]
+            ]
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      }
+    },
+    {
+      "id": "a004",
+      "revision": 2,
+      "question": "In Sachdev et al. (2024), did deleting exon 1A reproduce repeat-excision effects on both poly-GP elimination and network bursting?",
+      "query_sha256": "d1284adde7ffa2726252148cef451e1e973fde47d218c286159810ae04a35279",
+      "category": "multi_hop",
+      "answerability": "answerable",
+      "evidence_feasibility": {
+        "minimum_chunks": 2,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "n3": {
+        "retrieved_sources": [
+          "als-ftd-pmc11047104.pdf",
+          "als-ftd-pmc11047104.pdf",
+          "als-ftd-pmc11047104.pdf"
+        ],
+        "retrieved_contexts": [
+          "allele (HET(Mut)x), or by elimination of \nsense transcription through excision of exon 1A (1Ax) (Fig. 3B). \nAlso as expected, all poly- GP was eliminated by removal of the \nrepeat expansion or mutant allele. However, some poly- GP \nremained after excision of exon 1A (Fig. 3C, 1Ax). Since we know \nthat sense 1A transcript is eliminated in the 1Ax line (Fig. 1 C, E, \nand G), the poly- GP we detect in this line must arise from antisense \nmutant transcript. We quantify DPR (poly- GP) expression specif-\nically from the anti- sense transcript in patient- derived motor neu-\nrons rather than in artificial expression systems. Our data indicate \nthat at least one- third to one- half of poly- GP derives from antisense \ntranscription, and confirm that eliminating toxic DPRs requires \nthe removal of the expanded repeat region. In total, these data also \nindicate that removal of the repeat expansion, rather than silencing \nsense expression, is required to completely eliminate DPRs.\nExcision of the W",
+          " at least 10- fold more active in the mutant than \nthe WT allele (Fig. 1E, C9- unedited). This is likely an underesti-\nmate since we cannot currently measure 1A- transcripts retaining \nthe repeat expansion.\nIn contrast to 1A transcripts, 1B transcripts came predomi-\nnantly (>68%) from the WT allele in C9- unedited motor neurons \n(Fig. 1 F and H). The balance between the two alleles was fully \nrestored by the allele- specific excision of the repeat expansion \n(REx), suggesting that the repeat expansion partially inhibits \n1B- transcription on the mutant allele. Biallelic excision of exon \n1A also restored equal production of 1B transcripts by the two \nalleles (Fig. 1F; 1Ax). However, it reduced expression from the \nWT allele (Fig. 1G; compare height of the purple bar (WT) \nbetween 1Ax and C9- unedited), suggesting a positive interaction \nbetween 1A and 1B on the WT allele.\nSense Transcription Is Controlled by Each Allele Independently. \nInterestingly, removal of the repeat expansion did",
+          " \nwhile exon 1A- containing transcripts represented only a small \nproportion of total transcripts (Fig. 1 C and D). However, the \nsum of 1A and 1B transcripts was inferior to the total amount of \nC9orf72 transcripts in lines containing the repeat expansion \n(Fig. 1C; C9- unedited, HET(WT)x). This discrepancy was not \nobserved in patient lines in which the mutation was excised (REx, \nHET(Mut)x) or silenced (1Ax) (Fig. 1C) or in any of the WT \nlines (Fig. 1D). We hypothesize the gap corresponds to sense 1A- \n transcripts that retain the repeat expansion instead of splicing it \nout; such transcripts cannot be detected by ddPCR, because the \nPNAS  2024  Vol. 121  No. 17  e2307814121 https://doi.org/10.1073/pnas.2307814121   3 of 11\n1A 231B 114\nExons 5-10\nIntronic SNP\nTranscription\nstart site\nExon\nExcision  \nWT Allele\nMutant Allele\n 1A 231B 114\n(GGGGCC)n\nHET(Mut)x\nREX\n1Ax\nHET(WT)x 1AV3 23 4-11T\nV2 1B 23 4-11T\n1AV3 23 4-11C\nV2 1B 23 4-11C\n1AV3 2 3 4-11C(GGGGCC)n\nC9orf72 gene with depiction o"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.5,
+          "supported_facts": [
+            "a004:f1"
+          ],
+          "anchor_matches": {
+            "excision-dpr": [
+              0
+            ],
+            "excision-dpr-caption": [],
+            "excision-network": [],
+            "excision-network-caption": []
+          },
+          "anchor_match_groups": {
+            "excision-dpr": [
+              [
+                0
+              ]
+            ],
+            "excision-dpr-caption": [],
+            "excision-network": [],
+            "excision-network-caption": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "n8": {
+        "retrieved_sources": [
+          "als-ftd-pmc11047104.pdf",
+          "als-ftd-pmc11047104.pdf",
+          "als-ftd-pmc11047104.pdf",
+          "als-ftd-pmc11047104.pdf",
+          "als-ftd-pmc11047104.pdf",
+          "als-ftd-pmc11047104.pdf",
+          "als-ftd-pmc11047104.pdf",
+          "als-ftd-pmc11047104.pdf"
+        ],
+        "retrieved_contexts": [
+          "allele (HET(Mut)x), or by elimination of \nsense transcription through excision of exon 1A (1Ax) (Fig. 3B). \nAlso as expected, all poly- GP was eliminated by removal of the \nrepeat expansion or mutant allele. However, some poly- GP \nremained after excision of exon 1A (Fig. 3C, 1Ax). Since we know \nthat sense 1A transcript is eliminated in the 1Ax line (Fig. 1 C, E, \nand G), the poly- GP we detect in this line must arise from antisense \nmutant transcript. We quantify DPR (poly- GP) expression specif-\nically from the anti- sense transcript in patient- derived motor neu-\nrons rather than in artificial expression systems. Our data indicate \nthat at least one- third to one- half of poly- GP derives from antisense \ntranscription, and confirm that eliminating toxic DPRs requires \nthe removal of the expanded repeat region. In total, these data also \nindicate that removal of the repeat expansion, rather than silencing \nsense expression, is required to completely eliminate DPRs.\nExcision of the W",
+          " at least 10- fold more active in the mutant than \nthe WT allele (Fig. 1E, C9- unedited). This is likely an underesti-\nmate since we cannot currently measure 1A- transcripts retaining \nthe repeat expansion.\nIn contrast to 1A transcripts, 1B transcripts came predomi-\nnantly (>68%) from the WT allele in C9- unedited motor neurons \n(Fig. 1 F and H). The balance between the two alleles was fully \nrestored by the allele- specific excision of the repeat expansion \n(REx), suggesting that the repeat expansion partially inhibits \n1B- transcription on the mutant allele. Biallelic excision of exon \n1A also restored equal production of 1B transcripts by the two \nalleles (Fig. 1F; 1Ax). However, it reduced expression from the \nWT allele (Fig. 1G; compare height of the purple bar (WT) \nbetween 1Ax and C9- unedited), suggesting a positive interaction \nbetween 1A and 1B on the WT allele.\nSense Transcription Is Controlled by Each Allele Independently. \nInterestingly, removal of the repeat expansion did",
+          " \nwhile exon 1A- containing transcripts represented only a small \nproportion of total transcripts (Fig. 1 C and D). However, the \nsum of 1A and 1B transcripts was inferior to the total amount of \nC9orf72 transcripts in lines containing the repeat expansion \n(Fig. 1C; C9- unedited, HET(WT)x). This discrepancy was not \nobserved in patient lines in which the mutation was excised (REx, \nHET(Mut)x) or silenced (1Ax) (Fig. 1C) or in any of the WT \nlines (Fig. 1D). We hypothesize the gap corresponds to sense 1A- \n transcripts that retain the repeat expansion instead of splicing it \nout; such transcripts cannot be detected by ddPCR, because the \nPNAS  2024  Vol. 121  No. 17  e2307814121 https://doi.org/10.1073/pnas.2307814121   3 of 11\n1A 231B 114\nExons 5-10\nIntronic SNP\nTranscription\nstart site\nExon\nExcision  \nWT Allele\nMutant Allele\n 1A 231B 114\n(GGGGCC)n\nHET(Mut)x\nREX\n1Ax\nHET(WT)x 1AV3 23 4-11T\nV2 1B 23 4-11T\n1AV3 23 4-11C\nV2 1B 23 4-11C\n1AV3 2 3 4-11C(GGGGCC)n\nC9orf72 gene with depiction o",
+          "Ax: 227 bp biallelic excision of exon 1A. HET(Mut)x: 21 kb excision of the mutant allele made by targeting SNPs (orange circles) in cis with the mutation. \nHET(WT)x: 22 kb excision of the WT allele only. KO was made via biallelic excision starting 5′ to exon 1A and extending through exon 3 (21 to 22 kb; C9- patient line) \nor exon 2 (7 kb, WT- control line). The schematics of KO lines are shown in SF5 and SF10 (B) Schematic of expected 1A and 1B allele- specific transcripts. ddPCR probes \nwere designed to distinguish mRNA transcripts starting at exon 1A (V3) vs. exon 1B (V2), and total C9orf72 mRNAs (probe spanning exons 2 to 3). A coding SNP allows \nthe quantification of RNA from the WT allele (carrying a T, purple) vs. the mutant allele (carrying a C, yellow). Exon 1A normally splices onto exon 2, but the repeat \nexpansion disrupts this splicing event. Exon 1A transcripts from the mutant (C- allele) are only detected if correctly spliced, due to amplification failure of the repeat \nre",
+          "SI Appendix, Figs. S6 and S8) (35).\nOur fourth edit, excision of exon 1A, was designed to determine \nthe impact of this exon on C9orf72 expression and to test the \nhypothesis that silencing the mutation would suffice to eliminate \nC9orf72 pathology. Exon 1A includes a transcriptional start site \nand controls the expression of the C9orf72 sense- transcript har-\nboring the mutation. We excised it on both alleles (1Ax) in both \nthe patient (Fig. 1 1Ax, SI Appendix, Fig. S4) and WT- control \nlines (SI Appendix, Fig. S9). As additional controls, we also created \nhomozygous knock- outs of the gene in our patient and WT lines, \nusing biallelic excisions starting 21 kb upstream of exon 1A and \nending in exon 3 (patient line; SI Appendix, Fig. S5) or 7 kb \nupstream of exon 1A and ending in exon 2 (WT line; SI Appendix, \nFig. S10). We found no detectable off- targets in the edited clonal \niPSC lines REx, HET(Mut)x, 1Ax by comparing Sanger sequenc-\ning across computationally predicted potential o",
+          " HET(Mut)x \nvs. C9- unedited P = 0.78; 1B- C- allele HET(Mut)x vs. C9- unedited P > 0.99). Excision of exon 1A eliminated expression of 1A- transcripts (G) and decreased expression \nof 1B transcripts from the WT (H: 1Ax, Sidak’s multiple comparison P < 0.05) but not mutant (H: 1Ax, Sidak’s multiple comparison P = 0.98) alleles. Homozygous KO \neliminated both the 1A and 1B transcripts as expected (G and H). *P < 0.01, **P < 0.001, ***P < 0.0001. Error bars = SEM.\n4 of 11   https://doi.org/10.1073/pnas.2307814121 pnas.org\nrepeat expansion disrupts the binding of the ddPCR exon- exon \nspanning probe and puts too much distance between the primers’ \nbinding sites for a successful PCR. If this hypothesis is correct, \nthe actual proportion of sense 1A- transcripts could reach 30% or \nmore of total C9orf72 transcripts in lines with the repeat expan-\nsion, up from <1% in corrected and WT motor neurons (Fig. 1 \nC and D). We report the amount of sense mutant transcript in \nhuman induced motor neu",
+          "We tested whether removing the repeat region could abrogate \nDPR production. We evaluated ten antibodies targeting each of \nthese DPRs using Meso Scale Discovery’s (MSD) enzyme- linked \nimmunosorbent assay (ELISA) immunoassay. We found two \nantibody combinations that could reliably detect the presence \nof poly- GA and poly- GP DPRs above the background level \ndefined by our knock- out (KO) line (28, 39). The other anti-\nbodies had comparable signal in the KO line and the unedited \nPNAS  2024  Vol. 121  No. 17  e2307814121 https://doi.org/10.1073/pnas.2307814121   5 of 11\nC9- patient line, suggesting they were not specific to the C9orf72 \nDPRs. Using these two combinations, we measured poly- GA \nand poly- GP DPRs in 2- wk- old neurons derived from our \nC9- isogenic series.\nThe poly- GA is encoded exclusively on the sense strand, whereas \nthe poly- GP can come from either strand (Fig. 3A). As expected, \nPoly- GA expression was eliminated by removal of the REx and \nexcision of the mutant ",
+          " not alter the \nproduction of 1A and 1B transcripts by the WT allele, and neither \ndid excision of the mutant allele (Fig. 1 G and H; compare the \nheight of purple bars between C9- unedited, REx and HET(Mut)\nx). Similarly, removal of the WT allele did not alter expression from \nthe mutant allele (Fig. 1 G and H, compare the height of yellow \nbars in HET(WT)x relative to C9- unedited). Thus, expression \nfrom either allele is independently regulated. As expected, excision \nof either allele resulted in elimination of any detectable transcript \nfrom that allele (HET(Mut)x and HET(WT)x, Fig. 1 E and H).\nIn total, these findings demonstrate that transcripts harboring \nthe repeat expansion can be correctly spliced (i.e., rid of the toxic \nrepeat), an exciting finding that could inspire an additional ther-\napeutic avenue. Second, the repeat expansion increases the activity \nof the 1A start site and decreases the activity of the 1B start site \non the mutant allele but not the WT allele. Finally"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.5,
+          "supported_facts": [
+            "a004:f1"
+          ],
+          "anchor_matches": {
+            "excision-dpr": [
+              0
+            ],
+            "excision-dpr-caption": [],
+            "excision-network": [],
+            "excision-network-caption": []
+          },
+          "anchor_match_groups": {
+            "excision-dpr": [
+              [
+                0
+              ]
+            ],
+            "excision-dpr-caption": [],
+            "excision-network": [],
+            "excision-network-caption": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      }
+    },
+    {
+      "id": "a005",
+      "revision": 2,
+      "question": "Compare the endpoints and limits of Cas13d RNA targeting in Liu et al. (2024) with DNA editing in Sachdev et al. (2024). Why should neither be described as an established human treatment?",
+      "query_sha256": "6d0cc002bd0c9731ab0dc9b1721049d96ea610b9d5bb54a2adfa98d4770a5367",
+      "category": "cross_doc_synthesis",
+      "answerability": "answerable",
+      "evidence_feasibility": {
+        "minimum_chunks": 6,
+        "by_depth": {
+          "n3": "infeasible",
+          "n8": "feasible"
+        }
+      },
+      "n3": {
+        "retrieved_sources": [
+          "als-ftd-pmc11527445.pdf",
+          "als-ftd-pmc11527445.pdf",
+          "als-ftd-pmc11527445.pdf"
+        ],
+        "retrieved_contexts": [
+          "3150) filed by Johns Hopkins University on technologies related to \nthis manuscript.\nCopyright: © 2024, Liu et al. This is an open access article published under the terms \nof the Creative Commons Attribution 4.0 International License.\nSubmitted: January 4, 2024; Accepted: September 11, 2024;  \nPublished: September 17 , 2024.\nReference information: J Clin Invest. 2024;134(21):e179016. \nhttps://doi.org/10.1172/JCI179016.\nThe Journal of Clinical Investigation    RESEARCH ARTICLE\nJ Clin Invest. 2024;134(21):e179016  https://doi.org/10.1172/JCI1790162\nRNAs. In summary, we developed CRISPR/Cas13 systems for tar-\ngeting GGGGCC repeat RNAs, with crRNA S24 and S30 in the \nCRISPR/Cas13d system demonstrating the most robust knock -\ndown efficiency.\nCRISPR/Cas13d suppresses C9orf72 RAN translation in dual- \nluciferase–based reporters. After confirming the effective targeting \ncapability of S24 and S30, we applied the CRISPR/Cas13d sys-\ntems to a previously established reporter cell line system th",
+          "ety of subtypes \nof Cas13 proteins, including Cas13a, Cas13b, Cas13c, and Cas13d, \nhave been identified and applied to gene knockdown (16) , RNA \nimaging and tracking (17) , viral RNA detection (18), and site- \ndirected RNA editing (19) . Particularly, Cas13b and Cas13d have \nrobust RNA cleavage abilities and minimal off-target activities \nin cells compared with other Cas13s (16, 19). However, previous \nstudies also showed that both Cas13b and Cas13d have sequence \npreference and not all RNAs could be efficiently targeted, espe -\ncially RNAs adopting strong secondary structure (20, 21). C9orf72 \nGGGGCC repeat RNAs are highly GC-rich RNAs that could form \nstable G-quadruplex structures, which have been validated by us \nand others (22–25), rendering targeting of C9orf72 repeat RNA \nby Cas13b and Cas13d potentially challenging. Additionally, the \nimpact of CRISPR/Cas13 on targeting of RNA-based translation \nhas not been explored.\nIn this study, we develop a strategy based on the CRISPR/\nC",
+          "d Cas13d-S30 groups compared with the \nnon-targeting Cas13d-NT30 group in the 4 normal iPSC and \niMN cell lines (Supplemental Figure 2, B –G), indicating a high-\nly selective targeting by the CRISPR/Cas13d system against \nthe expanded alleles in C9-ALS patient cells.\nTaken together, our results demonstrate that the CRISPR/\nCas13d system effectively and selectively targets the expanded \nGGGGCC repeat RNA of C9orf72 and reduces the production of \npoly-GP and poly-GA resulting from C9orf72 RAN translation in \nThe Journal of Clinical Investigation    RESEARCH ARTICLE\n7J Clin Invest. 2024;134(21):e179016  https://doi.org/10.1172/JCI179016\niPSCs and iMNs derived from C9-ALS patients. This is achieved \nthrough both RNA cleavage and translational inhibition. Addition-\nally, the knockdown efficiency of the CRISPR/Cas13d system pos-\nitively correlates with its expression level.\nMultiple factors including repeat lengths influence degradation of \nGGGGCC repeat RNAs by CRISPR/Cas13d. To explore the"
+        ],
+        "verdict": "fail",
+        "metrics": {
+          "document_coverage": "fail",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "cas13-clinical": [],
+            "cas13-dpr": [],
+            "cas13-mice": [],
+            "excision-limit": [],
+            "excision-network": [],
+            "excision-network-caption": []
+          },
+          "anchor_match_groups": {
+            "cas13-clinical": [],
+            "cas13-dpr": [],
+            "cas13-mice": [],
+            "excision-limit": [],
+            "excision-network": [],
+            "excision-network-caption": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "n8": {
+        "retrieved_sources": [
+          "als-ftd-pmc11527445.pdf",
+          "als-ftd-pmc11527445.pdf",
+          "als-ftd-pmc11527445.pdf",
+          "als-ftd-pmc11527445.pdf",
+          "als-ftd-pmc11527445.pdf",
+          "als-ftd-pmc11527445.pdf",
+          "als-ftd-pmc11527445.pdf",
+          "als-ftd-pmc11527445.pdf"
+        ],
+        "retrieved_contexts": [
+          "3150) filed by Johns Hopkins University on technologies related to \nthis manuscript.\nCopyright: © 2024, Liu et al. This is an open access article published under the terms \nof the Creative Commons Attribution 4.0 International License.\nSubmitted: January 4, 2024; Accepted: September 11, 2024;  \nPublished: September 17 , 2024.\nReference information: J Clin Invest. 2024;134(21):e179016. \nhttps://doi.org/10.1172/JCI179016.\nThe Journal of Clinical Investigation    RESEARCH ARTICLE\nJ Clin Invest. 2024;134(21):e179016  https://doi.org/10.1172/JCI1790162\nRNAs. In summary, we developed CRISPR/Cas13 systems for tar-\ngeting GGGGCC repeat RNAs, with crRNA S24 and S30 in the \nCRISPR/Cas13d system demonstrating the most robust knock -\ndown efficiency.\nCRISPR/Cas13d suppresses C9orf72 RAN translation in dual- \nluciferase–based reporters. After confirming the effective targeting \ncapability of S24 and S30, we applied the CRISPR/Cas13d sys-\ntems to a previously established reporter cell line system th",
+          "ety of subtypes \nof Cas13 proteins, including Cas13a, Cas13b, Cas13c, and Cas13d, \nhave been identified and applied to gene knockdown (16) , RNA \nimaging and tracking (17) , viral RNA detection (18), and site- \ndirected RNA editing (19) . Particularly, Cas13b and Cas13d have \nrobust RNA cleavage abilities and minimal off-target activities \nin cells compared with other Cas13s (16, 19). However, previous \nstudies also showed that both Cas13b and Cas13d have sequence \npreference and not all RNAs could be efficiently targeted, espe -\ncially RNAs adopting strong secondary structure (20, 21). C9orf72 \nGGGGCC repeat RNAs are highly GC-rich RNAs that could form \nstable G-quadruplex structures, which have been validated by us \nand others (22–25), rendering targeting of C9orf72 repeat RNA \nby Cas13b and Cas13d potentially challenging. Additionally, the \nimpact of CRISPR/Cas13 on targeting of RNA-based translation \nhas not been explored.\nIn this study, we develop a strategy based on the CRISPR/\nC",
+          "d Cas13d-S30 groups compared with the \nnon-targeting Cas13d-NT30 group in the 4 normal iPSC and \niMN cell lines (Supplemental Figure 2, B –G), indicating a high-\nly selective targeting by the CRISPR/Cas13d system against \nthe expanded alleles in C9-ALS patient cells.\nTaken together, our results demonstrate that the CRISPR/\nCas13d system effectively and selectively targets the expanded \nGGGGCC repeat RNA of C9orf72 and reduces the production of \npoly-GP and poly-GA resulting from C9orf72 RAN translation in \nThe Journal of Clinical Investigation    RESEARCH ARTICLE\n7J Clin Invest. 2024;134(21):e179016  https://doi.org/10.1172/JCI179016\niPSCs and iMNs derived from C9-ALS patients. This is achieved \nthrough both RNA cleavage and translational inhibition. Addition-\nally, the knockdown efficiency of the CRISPR/Cas13d system pos-\nitively correlates with its expression level.\nMultiple factors including repeat lengths influence degradation of \nGGGGCC repeat RNAs by CRISPR/Cas13d. To explore the",
+          "r(GGGGCC)8 (D), and r(GGGGCC)12 (E) with gRNA S24 or S30 but not the other gRNAs, indicating a compromised cleavage activity of Cas13d targeting GGGGCC \nrepeat RNAs and a trend of decreased cleavage efficiency with increased repeat lengths. (F) Cas13d was unable to degrade r(GGGGCC)28, demonstrating the \nlimited activity of Cas13d to target or cleave longer GGGGCC repeat RNAs. The cleavage assay was performed in a buffer containing 0.3 μM of gRNA, 0.6 μM \nof Cas13d protein, and 40 ng/μL of target RNA. Data are presented as means ± SD of 3 independent experiments and were analyzed with unpaired 2-tailed \nStudent’s t test (A) and ordinary 1-way ANOVA with Dunnett’s multiple-comparison test (B–F). *P < 0.05, **P < 0.01, ***P < 0.001, ****P < 0.001.\nThe Journal of Clinical Investigation    RESEARCH ARTICLE\n9J Clin Invest. 2024;134(21):e179016  https://doi.org/10.1172/JCI179016\nIn summary, the highly consistent results across multiple \nexperimental systems reinforced our conclusion that the",
+          " CRIS -\nPR/Cas13d system showed robust efficiency for selectively \ntargeting GGGGCC repeat RNAs in C9-ALS patient cells and \nthat the knockdown of RAN translation products was achieved \nthrough a combination of RNA cleavage and translational \nrepression mechanisms.\nDiscussion\nRNA-based approaches have long been proposed to be therapeutic \nstrategies for neurodegeneration diseases (43, 44), and the CRIS -\nPR/Cas13 system has emerged as a highly effective tool for editing \nRNA, enabling genetic engineering without modifications to the \ngenomic DNA of organisms. This technology has made an impact \nin the field of molecular biology and offers potential opportunities \nfor therapeutic applications in various diseases, including neuro -\nlogical disorders (45, 46). Despite the high efficiency of CRISPR/\nCas13d in targeting and degrading generic target RNA, it remains \na challenge to effectively target RNA molecules adopting high-\ner-order secondary structures (21). A group of diseases known \na",
+          "t RNAs with varied lengths, considering that the length of \nthe gRNA significantly influences Cas13d knockdown efficiency.  \nIt has been reported that Cas13d stable targeting binding requires \nat least 18 nucleotides (nt) of complementarity (35) , and 23–30 nt \nconfer the most pronounced target knockdown (21) . Indeed, for \nRNA r(GGGGCC)2, which contains 2× GGGGCC repeat found in \nmost normal individuals (36, 37), the gRNAs S24 and S30 showed \nno cleavage activity (Figure 4B). Therefore, the 2 units of GGGGCC \nrepeat in normal individuals are unlikely to be targeted by Cas13d, \nas its 12-nt-length binding site does not provide sufficient length \nfor Cas13d gRNA targeting. This observation aligns with our results \nin the cells that 14-nt- or 20-nt-length gRNA (S14 and S20) did not \ndemonstrate knockdown efficiency in the EGFP reporter assay (Fig-\nure 1C). Consistent with previous observation that gRNAs of 23–30 \nnt confer the most pronounced target knockdown by Cas13d (21) , \nwe found t",
+          "ers remained unaffected by S24- or S30-guided Cas13d \ncompared with the non-targeting control NT30-guided Cas13d, \nin both the (GGGGCC)70 reporter and No-G4C2-repeat control \ntion of GGGGCC repeat RNAs. Benefiting from the small size, \ngood efficiency, and specificity of Cas13d, our strategy provides \na new therapeutic option for ALS and FTD. Furthermore, our \ninvestigation provides fresh insights into the ability of the CRIS -\nPR/Cas13 system to target RNAs with higher-order structures at \nthe translation level.\nResults\nDevelopment of CRISPR/Cas13 systems targeting GGGGCC repeat \nRNAs. To employ the CRISPR/Cas13 system to target GGGGCC \nrepeat RNAs, we began by designing a one-vector system, using a \nlentiviral vector that incorporated both Cas13d or Cas13b protein \nand a corresponding crRNA. Additionally, a reporter construct \ncontaining 8× GGGGCC repeats followed by the EGFP gene was \ncreated to monitor the efficiency of the repeat-dependent knock -\ndown by the CRISPR/Cas13 system v",
+          "as13d (CasRx) system to directly target GGGGCC repeat RNAs, \nachieving significant reduction of toxic DPRs in ALS patient cells \nand a mouse model, even under conditions of limited degrada -\nA hexanucleotide GGGGCC repeat expansion in the non-coding region of the C9orf72 gene is the most common genetic \nmutation identified in patients with amyotrophic lateral sclerosis (ALS) and frontotemporal dementia (FTD). The resulting \nrepeat RNA and dipeptide repeat proteins from non-conventional repeat translation have been recognized as important \nmarkers associated with the diseases. CRISPR/Cas13d, a powerful RNA-targeting tool, has faced challenges in effectively \ntargeting RNA with stable secondary structures. Here we report that CRISPR/Cas13d can be optimized to specifically target \nGGGGCC repeat RNA. Our results demonstrate that the CRISPR/Cas13d system can be harnessed to significantly diminish the \ntranslation of poly-dipeptides originating from the GGGGCC repeat RNA. This efficacy has b"
+        ],
+        "verdict": "fail",
+        "metrics": {
+          "document_coverage": "fail",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "cas13-clinical": [],
+            "cas13-dpr": [],
+            "cas13-mice": [],
+            "excision-limit": [],
+            "excision-network": [],
+            "excision-network-caption": []
+          },
+          "anchor_match_groups": {
+            "cas13-clinical": [],
+            "cas13-dpr": [],
+            "cas13-mice": [],
+            "excision-limit": [],
+            "excision-network": [],
+            "excision-network-caption": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      }
+    },
+    {
+      "id": "a006",
+      "revision": 2,
+      "question": "In Parameswaran et al. (2023), how did eif2ak2 knockdown affect antisense versus sense repeat-RNA motor axonopathy in zebrafish?",
+      "query_sha256": "9fd01d370f45fa83f05b511be62e567dd313d5484767a46066e81064d5b32c89",
+      "category": "direct_lookup",
+      "answerability": "answerable",
+      "evidence_feasibility": {
+        "minimum_chunks": 1,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "n3": {
+        "retrieved_sources": [
+          "als-ftd-pmc10188109.pdf",
+          "als-ftd-pmc10188109.pdf",
+          "als-ftd-pmc10188109.pdf"
+        ],
+        "retrieved_contexts": [
+          "e      \nNeuroscience\nParameswaran et al. eLife 2023;12:e85902. DOI: https://doi.org/10.7554/eLife.85902  17 of 27\nin cells expressing sense (G4C2) expanded repeats. How such bidirectional transcription for C9ORF72- \nassociated expanded repeats initiates is not known. Of note, we also detected sense foci accumulation \nin HEK293T cells expressing antisense (C 4G2) expanded repeats. Nevertheless, using strand- specific \nASOs to selectively degrade sense/antisense RNAs (Figure 6) or by directly injecting sense/antisense \nRNAs in zebrafish (Figure 7), our data clearly show that antisense C 4G2, but not sense G 4C2, repeat \nexpanded RNAs activate the PKR/eIF2α pathway, leading to toxicity. It has been suggested the RAN \ntranslation of DPR proteins is increased explicitly by the integrated stress response via eIF2α phos-\nphorylation (Cheng et al., 2018; Green et al., 2017) and several DPR proteins such as GR, PR, and \nGA are toxic (Boeynaems et al., 2016; Choi et al., 2019; Freibaum et al., 2",
+          "Parameswaran et al. eLife 2023;12:e85902. DOI: https://doi.org/10.7554/eLife.85902  1 of 27\nAntisense, but not sense, repeat \nexpanded RNAs activate PKR/eIF2α-\ndependent ISR in C9ORF72 FTD/ALS\nJanani Parameswaran1, Nancy Zhang1, Elke Braems2,3, Kedamawit Tilahun1, \nDevesh C Pant1, Keena Yin1, Seneshaw Asress4, Kara Heeren2,3, \nAnwesha Banerjee1, Emma Davis1, Samantha L Schwartz5, Graeme L Conn5, \nGary J Bassell1, Ludo Van Den Bosch2,3, Jie Jiang1*\n1Department of Cell Biology, Emory University, Atlanta, United States; 2Department \nof Neurosciences, Experimental Neurology and Leuven Brain Institute, KU Leuven, \nLeuven, Belgium; 3Center for Brain & Disease Research, Laboratory of Neurobiology, \nVIB, Campus Gasthuisberg, Leuven, Belgium; 4Department of Neurology, Emory \nUniversity, Atlanta, United States; 5Department of Biochemistry, Emory University, \nAtlanta, United States\nAbstract GGGGCC (G4C2) hexanucleotide repeat expansion in the C9ORF72 gene is the most \ncommon genetic cause of fron",
+          "ults for Figure 6E.\nFigure supplement 1. Sense G4C2 repeat expanded RNAs cannot activate the PKR/eIF2α pathway.\nFigure supplement 1—source data 1. Original western blot results for Figure 6—figure supplement 1F.\nFigure 6 continued\n Research article      \nNeuroscience\nParameswaran et al. eLife 2023;12:e85902. DOI: https://doi.org/10.7554/eLife.85902  16 of 27\nFigure 7. Reduction of PKR mitigates antisense C4G2, but not sense G4C2, RNA- mediated toxicity in zebrafish. (A) Schematic illustration of splice- \nblocking morpholino (SB- MO) targeting the exon 3/intron 3 junction in zebrafish eif2ak2 pre- mRNA. The correctly spliced (wild type transcripts) and \nintron 3 retained transcripts are shown. The translation- blocking morpholino targets the AUG start codon in post- spliced eif2ak2 mRNA. (B) SV2 \nimmunostaining of motor axons in 30 hpf zebrafish embryos injected with GFP control mRNA and antisense (C4G2)70 RNAs. Scale bar = 50 µm. (C, D) \nFigure 7 continued on next page\n Research articl"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "zebrafish": [],
+            "zebrafish-caption-endpoints": [],
+            "zebrafish-caption-result": [
+              2
+            ]
+          },
+          "anchor_match_groups": {
+            "zebrafish": [],
+            "zebrafish-caption-endpoints": [],
+            "zebrafish-caption-result": [
+              [
+                2
+              ]
+            ]
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "n8": {
+        "retrieved_sources": [
+          "als-ftd-pmc10188109.pdf",
+          "als-ftd-pmc10188109.pdf",
+          "als-ftd-pmc10188109.pdf",
+          "als-ftd-pmc10188109.pdf",
+          "als-ftd-pmc10188109.pdf",
+          "als-ftd-pmc10188109.pdf",
+          "als-ftd-pmc10188109.pdf",
+          "als-ftd-pmc10188109.pdf"
+        ],
+        "retrieved_contexts": [
+          "e      \nNeuroscience\nParameswaran et al. eLife 2023;12:e85902. DOI: https://doi.org/10.7554/eLife.85902  17 of 27\nin cells expressing sense (G4C2) expanded repeats. How such bidirectional transcription for C9ORF72- \nassociated expanded repeats initiates is not known. Of note, we also detected sense foci accumulation \nin HEK293T cells expressing antisense (C 4G2) expanded repeats. Nevertheless, using strand- specific \nASOs to selectively degrade sense/antisense RNAs (Figure 6) or by directly injecting sense/antisense \nRNAs in zebrafish (Figure 7), our data clearly show that antisense C 4G2, but not sense G 4C2, repeat \nexpanded RNAs activate the PKR/eIF2α pathway, leading to toxicity. It has been suggested the RAN \ntranslation of DPR proteins is increased explicitly by the integrated stress response via eIF2α phos-\nphorylation (Cheng et al., 2018; Green et al., 2017) and several DPR proteins such as GR, PR, and \nGA are toxic (Boeynaems et al., 2016; Choi et al., 2019; Freibaum et al., 2",
+          "Parameswaran et al. eLife 2023;12:e85902. DOI: https://doi.org/10.7554/eLife.85902  1 of 27\nAntisense, but not sense, repeat \nexpanded RNAs activate PKR/eIF2α-\ndependent ISR in C9ORF72 FTD/ALS\nJanani Parameswaran1, Nancy Zhang1, Elke Braems2,3, Kedamawit Tilahun1, \nDevesh C Pant1, Keena Yin1, Seneshaw Asress4, Kara Heeren2,3, \nAnwesha Banerjee1, Emma Davis1, Samantha L Schwartz5, Graeme L Conn5, \nGary J Bassell1, Ludo Van Den Bosch2,3, Jie Jiang1*\n1Department of Cell Biology, Emory University, Atlanta, United States; 2Department \nof Neurosciences, Experimental Neurology and Leuven Brain Institute, KU Leuven, \nLeuven, Belgium; 3Center for Brain & Disease Research, Laboratory of Neurobiology, \nVIB, Campus Gasthuisberg, Leuven, Belgium; 4Department of Neurology, Emory \nUniversity, Atlanta, United States; 5Department of Biochemistry, Emory University, \nAtlanta, United States\nAbstract GGGGCC (G4C2) hexanucleotide repeat expansion in the C9ORF72 gene is the most \ncommon genetic cause of fron",
+          "ults for Figure 6E.\nFigure supplement 1. Sense G4C2 repeat expanded RNAs cannot activate the PKR/eIF2α pathway.\nFigure supplement 1—source data 1. Original western blot results for Figure 6—figure supplement 1F.\nFigure 6 continued\n Research article      \nNeuroscience\nParameswaran et al. eLife 2023;12:e85902. DOI: https://doi.org/10.7554/eLife.85902  16 of 27\nFigure 7. Reduction of PKR mitigates antisense C4G2, but not sense G4C2, RNA- mediated toxicity in zebrafish. (A) Schematic illustration of splice- \nblocking morpholino (SB- MO) targeting the exon 3/intron 3 junction in zebrafish eif2ak2 pre- mRNA. The correctly spliced (wild type transcripts) and \nintron 3 retained transcripts are shown. The translation- blocking morpholino targets the AUG start codon in post- spliced eif2ak2 mRNA. (B) SV2 \nimmunostaining of motor axons in 30 hpf zebrafish embryos injected with GFP control mRNA and antisense (C4G2)70 RNAs. Scale bar = 50 µm. (C, D) \nFigure 7 continued on next page\n Research articl",
+          "t al. eLife 2023;12:e85902. DOI: https://doi.org/10.7554/eLife.85902  14 of 27\nFigure 6. Sense G4C2 repeat expanded RNAs cannot activate the PKR/eIF2α pathway. (A) Immunoblotting of p- PKR and p- eIF2α in HEK293T cells \nexpressing (G4C2)75 or (G4C2)2 repeats. (B) Representative images of sense and antisense RNA foci in HEK293T expressing (G4C2)75 repeats together \nwith either control antisense oligonucleotides (ASOs), ASOs targeting sense G4C2RNAs or ASOs targeting antisense C4G2 repeat expanded RNAs. \nFoci were detected by RNA FISH. Red, foci; blue, DAPI. (C) Immunoblotting and (D) quantification of p- PKR and p- eIF2α in HEK293T cells expressing \nFigure 6 continued on next page\n Research article      \nNeuroscience\nParameswaran et al. eLife 2023;12:e85902. DOI: https://doi.org/10.7554/eLife.85902  15 of 27\nThese results highlight the disease relevance of antisense repeat expanded RNAs in C9FTD/ALS and \nthe significance of our work. Our study, however, does not differentiate antisense ",
+          "ly increases \n Research article      \nNeuroscience\nParameswaran et al. eLife 2023;12:e85902. DOI: https://doi.org/10.7554/eLife.85902  4 of 27\nFigure 1. C9ORF72 antisense C4G2 expanded repeats activate PKR/eIF2α-dependent integrated stress response and cause neuronal toxicity. (A) \nSchematic illustration of the in_(C4G2)75 repeat construct including 6× stop codons, 450 bp of human intronic sequences at the N- terminus and 3× \nprotein tags at the C- terminus of the repeats to monitor the DPR proteins in each frame. (B) Representative images of antisense RNA foci in HEK293T \ncells and in primary cortical neurons expressing in_(C4G2)75 detected by RNA FISH. Red, foci; blue, DAPI; magenta, MAP2. (C) Kaplan–Meier curves \nFigure 1 continued on next page\n Research article      \nNeuroscience\nParameswaran et al. eLife 2023;12:e85902. DOI: https://doi.org/10.7554/eLife.85902  5 of 27\nthe phosphorylation of eIF2α without affecting its total level (Figure 1F and G). in_(C4G2)75 activates \neIF2α ma",
+          "Phosphorylated PKR and eIF2α levels are unchanged in C9FTD/ALS iPSC- derived motor neurons.\nFigure supplement 1—source data 1. Original western blot results for Figure 5—figure supplement 1A.\n Research article      \nNeuroscience\nParameswaran et al. eLife 2023;12:e85902. DOI: https://doi.org/10.7554/eLife.85902  13 of 27\nthe antisense transcripts (Figures  6 and 7), highlighting the significance of antisense C 4G2 repeat \nexpanded RNAs in disease pathogenesis.\nSeveral studies argue against the toxicity from either sense G4C2 or antisense C4G2 repeat expanded \nRNAs and associated RNA foci. In one study, Drosophila expressing intronic (G 4C2)160 repeats show \nabundant sense RNA foci in the nucleus but have little DPR proteins and no neurodegeneration, \nsuggesting that sense RNA foci is insufficient to cause toxicity in this model (Tran et al., 2015). Two \nother elegant studies generated Drosophila expressing interrupted G 4C2 repeats by inserting stop \ncodons every 12 repeats in all readi",
+          " significantly inhibit the \nactivation of PKR and eIF2α by (G4C2)75 (Figure 6E and F). We further obtained an interrupted sense \n(G4C2)108RO construct that has the similar repeat size as the antisense (C 4G2)108RO (Moens et al., \n2018). Expression of sense (G 4C2)108RO also significantly increases the phosphorylation of PKR and \neIF2α, which is mitigated by ASOs targeting antisense RNAs, but not sense RNAs (Figure 6—figure \nsupplement 1F). These results suggest that antisense C 4G2, but not sense G 4C2, repeat expanded \nRNAs (either pure repeats or interrupted) activate the PKR/eIF2α-mediated ISR pathway. It has been \nshown previously that expressing sense repeats can induce stress granules (Green et al., 2017), but \nthe underlying molecular mechanisms are not explored. We observed a significant increase in the \naccumulation of FMRP and G3BP1 granules in (G 4C2)75 repeats expressing cells compared to those \nexpressing the control 2 repeats. Interestingly, such aberrant accumulation of ",
+          "tion of zebrafish eif2ak2. SB- MO caused the \nretention of intron 3 in a dose–response manner, resulting in a reduction of the WT eif2ak2 transcripts \n(Figure  7A and Figure  7—figure supplement 1A). Co- injection of antisense (C 4G2)70 RNAs with \neif2ak2 SB- MO significantly mitigates the abnormalities of axonal length and branching compared \nto zebrafish injected with (C 4G2)70 RNAs and a control morpholino (Figure 7B–D). Consistent with \nthis observation, Eif2ak2 reduction with a translation- blocking morpholino increases axonal length \n(Figure 7A and Figure 7—figure supplement 1B and C) and significantly ameliorates the abnormal \nbranching phenotype caused by antisense (C 4G2)70 RNAs. On the other hand, no protective effects \nwere observed when co- injecting sense (G4C2)70 RNAs with eif2ak2 SB- MO (Figure 7E and F). Overall, \nthese data indicate that PKR is an important player contributing to toxicity induced by antisense C4G2 \nbut not sense G4C2 repeat expanded RNAs.\nDiscussion\nIt"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "pass",
+          "fact_recall": 1.0,
+          "supported_facts": [
+            "a006:f1"
+          ],
+          "anchor_matches": {
+            "zebrafish": [
+              7
+            ],
+            "zebrafish-caption-endpoints": [],
+            "zebrafish-caption-result": [
+              2
+            ]
+          },
+          "anchor_match_groups": {
+            "zebrafish": [
+              [
+                7
+              ]
+            ],
+            "zebrafish-caption-endpoints": [],
+            "zebrafish-caption-result": [
+              [
+                2
+              ]
+            ]
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      }
+    },
+    {
+      "id": "a007",
+      "revision": 3,
+      "question": "In the LeBlanc et al. case report, how did SPECT interpretation compare with genetic testing and subsequent pathology?",
+      "query_sha256": "bc96f7a9cc8ff58aec63b893fd4e663dfab13269bb4d7b3d84eae5dbfbc885c4",
+      "category": "direct_lookup",
+      "answerability": "answerable",
+      "evidence_feasibility": {
+        "minimum_chunks": 3,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "n3": {
+        "retrieved_sources": [
+          "als-ftd-pmc10802081.pdf",
+          "als-ftd-pmc10802081.pdf",
+          "als-ftd-pmc10802081.pdf"
+        ],
+        "retrieved_contexts": [
+          "ecutive dysfunction and may include memory\ndisturbances and parietal lobe de ﬁcits.\n7,9 Useful diagnostic\ncriteria to aid in diagnosis include the revised Strong Criteria\nfor diagnosis of frontotemporal dysfunction in ALS\n21 as well\nas the Neary22 or Hodges23 criteria for FTD-ALS.\nLeBlanc et al. 159\nGenetic Testing\nTechnological advances in sequencing are allowing for\ngenetic testing to play a useful role in the con ﬁrmation of\ninherited neurodegenerative disorders. Finding a genetic\ncause can be helpful as it can remove diagnostic uncer-\ntainty and inform affected families of their risk. It is also\nbecoming increasingly useful to help qualify for precision\ntreatment and to allow for opportunities to enrol into\nclinical trials.\n24\nHowever, as C9orf72 mutations are repeat expansions,\nthey cannot always be accurately detected by the testing\nmethod employed for panels and whole exome sequenc-\ning. When investigating patients and choosing genetic\ntesting for FTD-ALS, it is imperative to en",
+          "er diagnosed given the overlap between psychiatric and\ndementia/neurodegenerative phenotypes. This presenta-\ntion highlights the need for genetic testing as part of this\ndiagnostic workup, especially in younger, treatment re-\nsistant individuals and in the context of a positive family\nhistory of early onset degenerative neurological disorders.\nFinally, this case report als o highlights several key\nlearning points related to making the diagnosis of FTD-ALS.\nFirstly, the importance of keeping a broad differential for\npresentations of atypical psychosis– in this case, with late age\nof onset, absence of family history, marked treatment re-\nsistance (to both antipsychotics and ECT), and signi ﬁcant\nfunctional decline beyond what would be expected in a\nprimary psychotic disorder such as schizophrenia. Secondly,\nthe important role of medical g enetics and testing in psy-\nchiatric diagnoses, particularly in the context of the relevant\nfamily history. Thirdly, returning to the initial history i",
+          "ania and bipolar disorder, major depressive\nepisodes with and without catatonic features, and\nobsessive-compulsive disorder.\n1Department of Psychiatry, Dalhousie University, Halifax, NS, Canada\n2Nova Scotia Health, Halifax, NS, Canada\n3IWK Maritime Medical Genetics, Halifax, NS, Canada\n*the two authors have contributed equally to this manuscript\n**the two authors have contributed equally to this manuscript\nCorresponding Author:\nMarissa A. LeBlanc, Department of Psychiatry, Dalhousie University,\nAbbie J. Lane, Building 5909 Veteran’s Memorial Lane, Halifax, NS B3H\n2E2, Canada.\nEmail: m.leblanc@dal.ca\nThe wide variability in presentations associated with\nC9orf72 pathogenic variants can make clinical diagnosis\nchallenging. Improving the awareness of clinical presen-\ntations and when to consider genetic testing will help\nprovide more timely diagnosis and ultimately improve\npatient care. In addition, attention to gene content is re-\nquired when arranging genetic testing for FTD-ALS as\ntesti"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "case-autopsy": [],
+            "case-genetics": [],
+            "case-imaging": []
+          },
+          "anchor_match_groups": {
+            "case-autopsy": [],
+            "case-genetics": [],
+            "case-imaging": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "n8": {
+        "retrieved_sources": [
+          "als-ftd-pmc10802081.pdf",
+          "als-ftd-pmc10802081.pdf",
+          "als-ftd-pmc10802081.pdf",
+          "als-ftd-pmc10802081.pdf",
+          "als-ftd-pmc11047104.pdf",
+          "als-ftd-pmc10802081.pdf",
+          "als-ftd-pmc10802081.pdf",
+          "als-ftd-pmc10802081.pdf"
+        ],
+        "retrieved_contexts": [
+          "ecutive dysfunction and may include memory\ndisturbances and parietal lobe de ﬁcits.\n7,9 Useful diagnostic\ncriteria to aid in diagnosis include the revised Strong Criteria\nfor diagnosis of frontotemporal dysfunction in ALS\n21 as well\nas the Neary22 or Hodges23 criteria for FTD-ALS.\nLeBlanc et al. 159\nGenetic Testing\nTechnological advances in sequencing are allowing for\ngenetic testing to play a useful role in the con ﬁrmation of\ninherited neurodegenerative disorders. Finding a genetic\ncause can be helpful as it can remove diagnostic uncer-\ntainty and inform affected families of their risk. It is also\nbecoming increasingly useful to help qualify for precision\ntreatment and to allow for opportunities to enrol into\nclinical trials.\n24\nHowever, as C9orf72 mutations are repeat expansions,\nthey cannot always be accurately detected by the testing\nmethod employed for panels and whole exome sequenc-\ning. When investigating patients and choosing genetic\ntesting for FTD-ALS, it is imperative to en",
+          "er diagnosed given the overlap between psychiatric and\ndementia/neurodegenerative phenotypes. This presenta-\ntion highlights the need for genetic testing as part of this\ndiagnostic workup, especially in younger, treatment re-\nsistant individuals and in the context of a positive family\nhistory of early onset degenerative neurological disorders.\nFinally, this case report als o highlights several key\nlearning points related to making the diagnosis of FTD-ALS.\nFirstly, the importance of keeping a broad differential for\npresentations of atypical psychosis– in this case, with late age\nof onset, absence of family history, marked treatment re-\nsistance (to both antipsychotics and ECT), and signi ﬁcant\nfunctional decline beyond what would be expected in a\nprimary psychotic disorder such as schizophrenia. Secondly,\nthe important role of medical g enetics and testing in psy-\nchiatric diagnoses, particularly in the context of the relevant\nfamily history. Thirdly, returning to the initial history i",
+          "ania and bipolar disorder, major depressive\nepisodes with and without catatonic features, and\nobsessive-compulsive disorder.\n1Department of Psychiatry, Dalhousie University, Halifax, NS, Canada\n2Nova Scotia Health, Halifax, NS, Canada\n3IWK Maritime Medical Genetics, Halifax, NS, Canada\n*the two authors have contributed equally to this manuscript\n**the two authors have contributed equally to this manuscript\nCorresponding Author:\nMarissa A. LeBlanc, Department of Psychiatry, Dalhousie University,\nAbbie J. Lane, Building 5909 Veteran’s Memorial Lane, Halifax, NS B3H\n2E2, Canada.\nEmail: m.leblanc@dal.ca\nThe wide variability in presentations associated with\nC9orf72 pathogenic variants can make clinical diagnosis\nchallenging. Improving the awareness of clinical presen-\ntations and when to consider genetic testing will help\nprovide more timely diagnosis and ultimately improve\npatient care. In addition, attention to gene content is re-\nquired when arranging genetic testing for FTD-ALS as\ntesti",
+          "n the\ncontext of diagnostic uncertainty, especially in the face of\nunexpected or non-con ﬁrmatory test results; in this case,\nalthough the neuroimagingﬁndings were not consistent with\nFTD, the history led to further pursuance of genetic testing\nwhich ultimately conﬁrmed the diagnosis. A diagnosis can\nprevent additional investigations, give the patient/family an\nexplanation of why this disease has occurred, and offer an\nopportunity for patients and their families to receive sup-\nportive care through medical genetic counselling services.\nAcknowledgements\nWe would like to thank Dr Sameh Hassan, geriatric psychiatrist, for\nhis input on the care of this patient and the manuscript. We would\nalso like to thank the patient and his family for their contribution\nand willingness to participate in the advancement of medical care.\nDeclaration of Con ﬂicting Interests\nThe author(s) declared no potential conﬂicts of interest with respect\nto the research, authorship, and/or publication of this article",
+          " have recently developed a series \nof analytical tools (28) that we deployed in the present study. Our \ngoal was to understand the effects of manipulating the C9orf72 \nlocus on gene expression and on pathology at the cellular level. \nThis type of proof- of- concept study is critical to the development \nof gene therapies, including gene editing and RNA targeting \napproaches. We engineered a series of excisions that targeted either \nthe mutant (expanded) allele, the normal (unexpanded) allele, or \nboth alleles in the same patient line. The resulting six isogenic \nlines allowed us to compare the effects of the genetic manipula-\ntions without the confounding effect of varying genetic back-\nground. We replicated the isogenic series (five additional cell lines) \nin a nondiseased control cell line to study the effects of the genetic \nchanges on normal gene function. Each line was made clonal and \nonly harbors one change to the genome.\nWe carried out these manipulations in human iPSCs and exam",
+          "scan was ordered and demonstrated\nmoderate decreased perfusion to the parietal lobes bilat-\nerally, left greater than right, with some involvement of the\nposterior aspect of the left frontal lobe. The nuclear\nmedicine radiologist concluded the distribution was most\nin keeping with Alzheimer ’s disease and it was not felt to\nrepresent frontotemporal lobar degeneration (FTLD).\nHowever, given ongoing clinical suspicion for a rapidly\nprogressive neurodegenerative cause, genetic testing was\nperformed and identi ﬁed a repeat expansion of GGGGCC\nin C9orf72, thereby con ﬁrming a diagnosis of FTD-ALS.\nThe patient’s substitute decision maker was informed and\ngoals of care were established given the progressive and\nultimately fatal outcome of this disease. The genetics team\nplayed a central role in providing psychoeducation,\ncounseling and support to the family.\nThe patient was transferred to a geriatric psychiatry\ninpatient unit for end-of-life care. Agitation and distress\nwere treated symptomat",
+          "2 expansion in a\nSwedish family: Clinical and neuropathological character-\nistics. Am J Neurodegener Dis . 2013;2(4):276-286.\n20. Proudfoot M, Gutowski NJ, Edbauer D, et al. Early di-\npeptide repeat pathology in a frontotemporal dementia\nkindred with C9ORF72 mutation and intellectual disability.\nActa Neuropathol . 2014;127(3):451-458.\n21. Strong MJ, Abrahams S, Goldstein LH, et al. Amyotrophic\nlateral sclerosis - frontotemporal spectrum disorder (ALS-\nFTSD): revised diagnostic criteria. Amyotroph Lateral Scler\nFrontotemporal Degener. 2017;18(3-4):153-174.\n22. Neary D, Snowden JS, Gustafson L, et al. Frontotemporal\nlobar degeneration: A consensus on clinical diagnostic\ncriteria. Neurology. 1998;51(6):1546-1554.\n23. Hodges JR, Miller B. The classi ﬁcation, genetics and\nneuropathology of frontotemporal dementia. Introduction to\nthe special topic papers: Part I. Neurocase. 2001;7(1):31-35.\n24. Huq AJ, Sexton A, Lacaze P , et al. Genetic testing in\ndementia-A medical genetics perspective. I",
+          "with internal medicine, neurology, and\ngeriatric psychiatry, multiple investigations were performed\nto assess for reversible causes of rapidly progressive de-\nmentia. Preliminary neuroimaging included a normal CT\nhead and normal MRI brain aside from moderately dilated\nventricles but no speci ﬁc pattern of atrophy; there was no\nevidence of intracranial lesion, mass, infarction or hemor-\nrhage. Routine blood work (CBC, electrolytes, extended\nelectrolytes, renal and liver function) was unremarkable,\nwith further tests demonstrating no evidence of systemic\nautoimmune or inﬂammatory (ANA, CRP , ESR), infectious\n( H I V ,H B V ,H C V ,l y m e ,s y p h i l i s– RPR and VDRL,\nWhipple’s disease), vasculitis (negative vasculitis panel),\ntoxic or heavy metal (lead, copper, iron and ceruloplasmin),\nendocrine (TSH, anti-TPO) or metabolic (plasma amino acid\nand urine amino and organic acid analysis) disease. Multiple\ncauses of encephalitis were ruled out given no evidence of\ninfection at any time, n"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "case-autopsy": [],
+            "case-genetics": [
+              5
+            ],
+            "case-imaging": []
+          },
+          "anchor_match_groups": {
+            "case-autopsy": [],
+            "case-genetics": [
+              [
+                5
+              ]
+            ],
+            "case-imaging": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      }
+    },
+    {
+      "id": "a008",
+      "revision": 2,
+      "question": "How do the human observations in Parameswaran et al. (2023) and LeBlanc et al. distinguish molecular association from diagnosis?",
+      "query_sha256": "eea32f71b143065a4746f58b9a17b13ddda31441ec1576a37c29c3486d2bc9eb",
+      "category": "cross_doc_synthesis",
+      "answerability": "answerable",
+      "evidence_feasibility": {
+        "minimum_chunks": 5,
+        "by_depth": {
+          "n3": "infeasible",
+          "n8": "feasible"
+        }
+      },
+      "n3": {
+        "retrieved_sources": [
+          "als-ftd-pmc10188109.pdf",
+          "als-ftd-pmc10188109.pdf",
+          "als-ftd-pmc10188109.pdf"
+        ],
+        "retrieved_contexts": [
+          "ses \nRESEARCH ARTICLE\n*For correspondence: \njie.jiang@emory.edu\nCompeting interest: The authors \ndeclare that no competing \ninterests exist.\nFunding: See page 21\nPreprinted: 06 June 2022\nReceived: 02 January 2023\nAccepted: 18 April 2023\nPublished: 19 April 2023\nReviewing Editor: Hugo J \nBellen, Baylor College of \nMedicine, United States\n   Copyright Parameswaran \net al. This article is distributed \nunder the terms of the Creative \nCommons Attribution License, \nwhich permits unrestricted use \nand redistribution provided that \nthe original author and source \nare credited.\n Research article      \nNeuroscience\nParameswaran et al. eLife 2023;12:e85902. DOI: https://doi.org/10.7554/eLife.85902  2 of 27\nthat are now believed to belong to a continuous disease spectrum with clinical, pathological, and \ngenetic overlaps (DeJesus- Hernandez et  al., 2011; Renton et  al., 2011). In normal populations, \nthe G4C2 repeat size is between 2 and 30, whereas it expands to hundreds or thousands in FTD/\nAL",
+          "arch article      \nNeuroscience\nParameswaran et al. eLife 2023;12:e85902. DOI: https://doi.org/10.7554/eLife.85902  22 of 27\nFunder Grant reference number Author\nNIH 5R21NS114908-02 Gary J Bassell\nJie Jiang\nThe funders had no role in study design, data collection and interpretation, or the \ndecision to submit the work for publication.\nAuthor contributions\nJanani Parameswaran, Conceptualization, Resources, Formal analysis, Validation, Investigation, Meth-\nodology, Writing - original draft, Project administration, Writing - review and editing; Nancy Zhang, \nData curation, Validation, Methodology; Elke Braems, Formal analysis, Methodology; Kedamawit \nTilahun, Formal analysis, Validation; Devesh C Pant, Emma Davis, Investigation; Keena Yin, Seneshaw \nAsress, Kara Heeren, Methodology; Anwesha Banerjee, Samantha L Schwartz, Graeme L Conn, Gary J \nBassell, Resources; Ludo Van Den Bosch, Resources, Supervision, Investigation; Jie Jiang, Resources, \nSupervision, Funding acquisition, Investigati",
+          "o correlate the abundance \nand distribution of antisense RNA foci with C9FTD/ALS clinical features. Mizielinska et  al., 2013 \nshowed that patients with more antisense RNA foci tend to have an earlier age of symptom onset and, \nmore intriguingly, antisense RNA foci are shown to be associated with nucleoli and mislocalization of \nTDP- 43 in two different studies (Aladesuyi Arogundade et al., 2019; Cooper- Knock et al., 2015). \nTable 1. List of controls (C1–C6) and C9FTD/ALS patients (P1–P6) postmortem tissues used in this \nstudy.\nID Primary neuropathological diagnosis\nAge at\nonset (years)\nAge at\ndeath (years) Sex\nC1 Control - 53 F\nC2 Control - 77 NA\nC3 Control - 43 F\nC4 Control - 57 M\nC5 Control - 72 F\nC6 Control - 57 F\nP1 FTLD (C9 expansion) 58 71 M\nP2 ALS (C9 expansion) 54 57 F\nP3 FTLD (C9 expansion) 57 66 M\nP4 FTLD (C9 expansion) 58 67 M\nP5 FTLD (C9 expansion) 62 66 M\nP6 ALS (C9 expansion) - 69 NA\nALS: amyotrophic lateral sclerosis.\n Research article      \nNeuroscience\nParameswaran e"
+        ],
+        "verdict": "fail",
+        "metrics": {
+          "document_coverage": "fail",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "case-autopsy": [],
+            "case-genetics": [],
+            "case-imaging": [],
+            "isr-tissue": []
+          },
+          "anchor_match_groups": {
+            "case-autopsy": [],
+            "case-genetics": [],
+            "case-imaging": [],
+            "isr-tissue": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "n8": {
+        "retrieved_sources": [
+          "als-ftd-pmc10188109.pdf",
+          "als-ftd-pmc10188109.pdf",
+          "als-ftd-pmc10188109.pdf",
+          "als-ftd-pmc10188109.pdf",
+          "als-ftd-pmc11047104.pdf",
+          "als-ftd-pmc10802081.pdf",
+          "als-ftd-pmc10802081.pdf",
+          "als-ftd-pmc10802081.pdf"
+        ],
+        "retrieved_contexts": [
+          "ses \nRESEARCH ARTICLE\n*For correspondence: \njie.jiang@emory.edu\nCompeting interest: The authors \ndeclare that no competing \ninterests exist.\nFunding: See page 21\nPreprinted: 06 June 2022\nReceived: 02 January 2023\nAccepted: 18 April 2023\nPublished: 19 April 2023\nReviewing Editor: Hugo J \nBellen, Baylor College of \nMedicine, United States\n   Copyright Parameswaran \net al. This article is distributed \nunder the terms of the Creative \nCommons Attribution License, \nwhich permits unrestricted use \nand redistribution provided that \nthe original author and source \nare credited.\n Research article      \nNeuroscience\nParameswaran et al. eLife 2023;12:e85902. DOI: https://doi.org/10.7554/eLife.85902  2 of 27\nthat are now believed to belong to a continuous disease spectrum with clinical, pathological, and \ngenetic overlaps (DeJesus- Hernandez et  al., 2011; Renton et  al., 2011). In normal populations, \nthe G4C2 repeat size is between 2 and 30, whereas it expands to hundreds or thousands in FTD/\nAL",
+          "arch article      \nNeuroscience\nParameswaran et al. eLife 2023;12:e85902. DOI: https://doi.org/10.7554/eLife.85902  22 of 27\nFunder Grant reference number Author\nNIH 5R21NS114908-02 Gary J Bassell\nJie Jiang\nThe funders had no role in study design, data collection and interpretation, or the \ndecision to submit the work for publication.\nAuthor contributions\nJanani Parameswaran, Conceptualization, Resources, Formal analysis, Validation, Investigation, Meth-\nodology, Writing - original draft, Project administration, Writing - review and editing; Nancy Zhang, \nData curation, Validation, Methodology; Elke Braems, Formal analysis, Methodology; Kedamawit \nTilahun, Formal analysis, Validation; Devesh C Pant, Emma Davis, Investigation; Keena Yin, Seneshaw \nAsress, Kara Heeren, Methodology; Anwesha Banerjee, Samantha L Schwartz, Graeme L Conn, Gary J \nBassell, Resources; Ludo Van Den Bosch, Resources, Supervision, Investigation; Jie Jiang, Resources, \nSupervision, Funding acquisition, Investigati",
+          "o correlate the abundance \nand distribution of antisense RNA foci with C9FTD/ALS clinical features. Mizielinska et  al., 2013 \nshowed that patients with more antisense RNA foci tend to have an earlier age of symptom onset and, \nmore intriguingly, antisense RNA foci are shown to be associated with nucleoli and mislocalization of \nTDP- 43 in two different studies (Aladesuyi Arogundade et al., 2019; Cooper- Knock et al., 2015). \nTable 1. List of controls (C1–C6) and C9FTD/ALS patients (P1–P6) postmortem tissues used in this \nstudy.\nID Primary neuropathological diagnosis\nAge at\nonset (years)\nAge at\ndeath (years) Sex\nC1 Control - 53 F\nC2 Control - 77 NA\nC3 Control - 43 F\nC4 Control - 57 M\nC5 Control - 72 F\nC6 Control - 57 F\nP1 FTLD (C9 expansion) 58 71 M\nP2 ALS (C9 expansion) 54 57 F\nP3 FTLD (C9 expansion) 57 66 M\nP4 FTLD (C9 expansion) 58 67 M\nP5 FTLD (C9 expansion) 62 66 M\nP6 ALS (C9 expansion) - 69 NA\nALS: amyotrophic lateral sclerosis.\n Research article      \nNeuroscience\nParameswaran e",
+          "on, Methodology, Writing - original draft, Project admin-\nistration, Writing - review and editing\nAuthor ORCIDs\nJanani Parameswaran  \n   http://orcid.org/0000-0001-9030-4953\nKedamawit Tilahun  \n   http://orcid.org/0000-0003-2107-1580\nDevesh C Pant  \n   http://orcid.org/0000-0003-4046-4195\nJie Jiang  \n   http://orcid.org/0000-0001-9519-4992\nDecision letter and Author response\nDecision letter https://doi.org/10.7554/eLife.85902.sa1\nAuthor response https://doi.org/10.7554/eLife.85902.sa2\nAdditional files\nSupplementary files\n•  MDAR checklist \nData availability\nAll data generated or analysed during this study are included in the manuscript.\nReferences\nAladesuyi Arogundade O, Stauffer JE, Saberi S, Diaz- Garcia S, Malik S, Basilim H, Rodriguez MJ, Ohkubo T, \nRavits J. 2019. Antisense RNA foci are associated with nucleoli and TDP- 43 mislocalization in c9orf72- ALS/FTD: \na quantitative study. Acta Neuropathologica 137:527–530. DOI: https://doi.org/10.1007/s00401-018-01955-0, \nPMID: 30666413\n",
+          "unctional phenotypes across multiple gene edited lines despite transcriptomic and \nsplicing discrepancies. Front. Cell Dev. Biol. 9, 728707 (2021).\n46. M. Chiappalone et al., Burst detection algorithms for the analysis of spatio- temporal patterns in \ncortical networks of neurons. Neurocomputing 65–66, 653–662 (2005).\n47. F. E. Kapucu et al., Burst analysis tool for developing neuronal networks exhibiting highly varying \naction potential dynamics. Front. Comput. Neurosci. 6, 38 (2012).\n48. A. S. T. Smith et al., HDAC6 inhibition corrects electrophysiological and axonal transport deficits in \na human stem cell- based model of charcot- marie- tooth disease (Type 2D). Adv. Biol. 6, e2101308 \n(2022).\n49. A.- C. Devlin et al., Human iPSC- derived motoneurons harbouring TARDBP or C9ORF72 ALS \nmutations are dysfunctional despite maintaining viability. Nat. Commun. 6, 5999 (2015).\n50. S. Yin et al., Evidence that C9ORF72 dipeptide repeat proteins associate with U2 snRNP to cause \nMis- splicing",
+          "terns of halluci-\nnation and delusion symptoms.Brain. 2021;144(3):999-1012.\n15. Devenney EM, Landin-Romero R, Irish M, et al. The neural\ncorrelates and clinical characteristics of psychosis in the\nfrontotemporal dementia continuum and the C9orf72 ex-\npansion. Neuroimage Clin . 2016;13:439-445.\n16. Woolley JD, Khan BK, Murthy NK, Miller BL, Rankin KP .\nThe diagnostic challenge of psychiatric symptoms in neu-\nrodegenerative disease: rates of and risk factors for prior\npsychiatric diagnosis in patients with early neurodegener-\native disease. J Clin Psychiatry . 2011;72(2):126-133.\n17. Devenney E, Hornberger M, Irish M, et al. Frontotemporal\ndementia associated with the C9ORF72 mutation: A unique\nclinical pro ﬁle. JAMA Neurol . 2014;71(3):331-339.\n18. Woollacott IOC, Mead S. The C9ORF72 expansion muta-\ntion: Gene structure, phenotypic and diagnostic issues. Acta\nNeuropathol. 2014;127(3):319-332.\n19. Landqvist Wald ¨o M, Gustafson L, Nilsson K, et al. Fron-\ntotemporal dementia with a C9ORF7",
+          "ania and bipolar disorder, major depressive\nepisodes with and without catatonic features, and\nobsessive-compulsive disorder.\n1Department of Psychiatry, Dalhousie University, Halifax, NS, Canada\n2Nova Scotia Health, Halifax, NS, Canada\n3IWK Maritime Medical Genetics, Halifax, NS, Canada\n*the two authors have contributed equally to this manuscript\n**the two authors have contributed equally to this manuscript\nCorresponding Author:\nMarissa A. LeBlanc, Department of Psychiatry, Dalhousie University,\nAbbie J. Lane, Building 5909 Veteran’s Memorial Lane, Halifax, NS B3H\n2E2, Canada.\nEmail: m.leblanc@dal.ca\nThe wide variability in presentations associated with\nC9orf72 pathogenic variants can make clinical diagnosis\nchallenging. Improving the awareness of clinical presen-\ntations and when to consider genetic testing will help\nprovide more timely diagnosis and ultimately improve\npatient care. In addition, attention to gene content is re-\nquired when arranging genetic testing for FTD-ALS as\ntesti",
+          "nt J Geriatr\nPsychiatry. 2021;36(8):1158-1170.\n25. Huq AJ, Thompson B, Bennett MF, et al. Clinical impact of\nwhole-genome sequencing in patients with early-onset\ndementia. J Neurol Neurosurg Psychiatry 2022;2021:\n328146.\n26. Ibañez K, Polke J, Hagelstrom RT, et al. Whole genome\nsequencing for the diagnosis of neurological repeat ex-\npansion disorders in the UK: A retrospective diagnostic\naccuracy and prospective clinical validation study. Lancet\nNeurol. 2022;21(3):234-245.\n27. Roberts JS, Patterson AK, Uh lmann WR. Genetic testing\nfor neurodegenerative diseases: Ethical and health\ncommunication challenges. Neurobiol Dis . 2020;141:\n104871.\n28. Goldman JS, Hahn SE, Catania JW, et al. Genetic counseling\nand testing for alzheimer disease: Joint practice guidelines of\nthe American college of medical genetics and the national\nsociety of genetic counselors. Genet Med . 2011;13(6):\n597-605.\n29. Dratch L, Owczarzak J, Mu W, et al. The lived experience of\nreconstructing identity in response to "
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "case-autopsy": [],
+            "case-genetics": [],
+            "case-imaging": [],
+            "isr-tissue": []
+          },
+          "anchor_match_groups": {
+            "case-autopsy": [],
+            "case-genetics": [],
+            "case-imaging": [],
+            "isr-tissue": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      }
+    },
+    {
+      "id": "a009",
+      "revision": 3,
+      "question": "What did the human case report by LeBlanc et al. use to support FTD-ALS after discordant brain imaging?",
+      "query_sha256": "cb6ef2a0858c53a93f9a71eee2753a8b662cbd47e6ff351cadccb4cf927be29c",
+      "category": "cross_doc_distractor",
+      "answerability": "answerable",
+      "evidence_feasibility": {
+        "minimum_chunks": 1,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "n3": {
+        "retrieved_sources": [
+          "als-ftd-pmc10802081.pdf",
+          "als-ftd-pmc10802081.pdf",
+          "als-ftd-pmc10802081.pdf"
+        ],
+        "retrieved_contexts": [
+          "Original Article\nJournal of Geriatric Psychiatry\nand Neurology\n2024, Vol. 37(2) 157 – 162\n© The Author(s) 2023\nArticle reuse guidelines:\nsagepub.com/journals-permissions\nDOI: 10.1177/08919887231195337\njournals.sagepub.com/home/jgp\nAtypical Neuropsychiatric Presentation of\nFTD-ALS Caused by a Pathogenic Repeat\nExpansion in C9orf72: A Case Report\nMarissa A. LeBlanc, MD, PhD 1,2,*, Amy Gough, MD 1,2,*,\nAndrea L. Rideout, MS, CGC, CCGC 3, Sarah Dyack, MD 2,3,\nKathleen Singh, MD 1,2,**, and Meagan MacNeil, MD 1,2,**\nAbstract\nThe case report describes the presentation of a 42-year-old male ultimately diagnosed with FTD-ALS caused by a genetic\nmutation, who initially presented with atypical psychiatric symptoms. Given that the initial clinical manifestations of FTD-\nALS can be quite variable, the diagnosis is often challenging; the case report aims to highlight several key considerations in\nthe diagnostic assessment, including genetic testing in order to guide clinicians in more timely diagn",
+          "ecutive dysfunction and may include memory\ndisturbances and parietal lobe de ﬁcits.\n7,9 Useful diagnostic\ncriteria to aid in diagnosis include the revised Strong Criteria\nfor diagnosis of frontotemporal dysfunction in ALS\n21 as well\nas the Neary22 or Hodges23 criteria for FTD-ALS.\nLeBlanc et al. 159\nGenetic Testing\nTechnological advances in sequencing are allowing for\ngenetic testing to play a useful role in the con ﬁrmation of\ninherited neurodegenerative disorders. Finding a genetic\ncause can be helpful as it can remove diagnostic uncer-\ntainty and inform affected families of their risk. It is also\nbecoming increasingly useful to help qualify for precision\ntreatment and to allow for opportunities to enrol into\nclinical trials.\n24\nHowever, as C9orf72 mutations are repeat expansions,\nthey cannot always be accurately detected by the testing\nmethod employed for panels and whole exome sequenc-\ning. When investigating patients and choosing genetic\ntesting for FTD-ALS, it is imperative to en",
+          "er diagnosed given the overlap between psychiatric and\ndementia/neurodegenerative phenotypes. This presenta-\ntion highlights the need for genetic testing as part of this\ndiagnostic workup, especially in younger, treatment re-\nsistant individuals and in the context of a positive family\nhistory of early onset degenerative neurological disorders.\nFinally, this case report als o highlights several key\nlearning points related to making the diagnosis of FTD-ALS.\nFirstly, the importance of keeping a broad differential for\npresentations of atypical psychosis– in this case, with late age\nof onset, absence of family history, marked treatment re-\nsistance (to both antipsychotics and ECT), and signi ﬁcant\nfunctional decline beyond what would be expected in a\nprimary psychotic disorder such as schizophrenia. Secondly,\nthe important role of medical g enetics and testing in psy-\nchiatric diagnoses, particularly in the context of the relevant\nfamily history. Thirdly, returning to the initial history i"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.0,
+          "supported_facts": [],
+          "anchor_matches": {
+            "case-genetics": []
+          },
+          "anchor_match_groups": {
+            "case-genetics": []
+          },
+          "distractor_ordering": "pass",
+          "present_distractors": []
+        }
+      },
+      "n8": {
+        "retrieved_sources": [
+          "als-ftd-pmc10802081.pdf",
+          "als-ftd-pmc10802081.pdf",
+          "als-ftd-pmc10802081.pdf",
+          "als-ftd-pmc10802081.pdf",
+          "als-ftd-pmc10802081.pdf",
+          "als-ftd-pmc10802081.pdf",
+          "als-ftd-pmc11047104.pdf",
+          "als-ftd-pmc10802081.pdf"
+        ],
+        "retrieved_contexts": [
+          "Original Article\nJournal of Geriatric Psychiatry\nand Neurology\n2024, Vol. 37(2) 157 – 162\n© The Author(s) 2023\nArticle reuse guidelines:\nsagepub.com/journals-permissions\nDOI: 10.1177/08919887231195337\njournals.sagepub.com/home/jgp\nAtypical Neuropsychiatric Presentation of\nFTD-ALS Caused by a Pathogenic Repeat\nExpansion in C9orf72: A Case Report\nMarissa A. LeBlanc, MD, PhD 1,2,*, Amy Gough, MD 1,2,*,\nAndrea L. Rideout, MS, CGC, CCGC 3, Sarah Dyack, MD 2,3,\nKathleen Singh, MD 1,2,**, and Meagan MacNeil, MD 1,2,**\nAbstract\nThe case report describes the presentation of a 42-year-old male ultimately diagnosed with FTD-ALS caused by a genetic\nmutation, who initially presented with atypical psychiatric symptoms. Given that the initial clinical manifestations of FTD-\nALS can be quite variable, the diagnosis is often challenging; the case report aims to highlight several key considerations in\nthe diagnostic assessment, including genetic testing in order to guide clinicians in more timely diagn",
+          "ecutive dysfunction and may include memory\ndisturbances and parietal lobe de ﬁcits.\n7,9 Useful diagnostic\ncriteria to aid in diagnosis include the revised Strong Criteria\nfor diagnosis of frontotemporal dysfunction in ALS\n21 as well\nas the Neary22 or Hodges23 criteria for FTD-ALS.\nLeBlanc et al. 159\nGenetic Testing\nTechnological advances in sequencing are allowing for\ngenetic testing to play a useful role in the con ﬁrmation of\ninherited neurodegenerative disorders. Finding a genetic\ncause can be helpful as it can remove diagnostic uncer-\ntainty and inform affected families of their risk. It is also\nbecoming increasingly useful to help qualify for precision\ntreatment and to allow for opportunities to enrol into\nclinical trials.\n24\nHowever, as C9orf72 mutations are repeat expansions,\nthey cannot always be accurately detected by the testing\nmethod employed for panels and whole exome sequenc-\ning. When investigating patients and choosing genetic\ntesting for FTD-ALS, it is imperative to en",
+          "er diagnosed given the overlap between psychiatric and\ndementia/neurodegenerative phenotypes. This presenta-\ntion highlights the need for genetic testing as part of this\ndiagnostic workup, especially in younger, treatment re-\nsistant individuals and in the context of a positive family\nhistory of early onset degenerative neurological disorders.\nFinally, this case report als o highlights several key\nlearning points related to making the diagnosis of FTD-ALS.\nFirstly, the importance of keeping a broad differential for\npresentations of atypical psychosis– in this case, with late age\nof onset, absence of family history, marked treatment re-\nsistance (to both antipsychotics and ECT), and signi ﬁcant\nfunctional decline beyond what would be expected in a\nprimary psychotic disorder such as schizophrenia. Secondly,\nthe important role of medical g enetics and testing in psy-\nchiatric diagnoses, particularly in the context of the relevant\nfamily history. Thirdly, returning to the initial history i",
+          "scan was ordered and demonstrated\nmoderate decreased perfusion to the parietal lobes bilat-\nerally, left greater than right, with some involvement of the\nposterior aspect of the left frontal lobe. The nuclear\nmedicine radiologist concluded the distribution was most\nin keeping with Alzheimer ’s disease and it was not felt to\nrepresent frontotemporal lobar degeneration (FTLD).\nHowever, given ongoing clinical suspicion for a rapidly\nprogressive neurodegenerative cause, genetic testing was\nperformed and identi ﬁed a repeat expansion of GGGGCC\nin C9orf72, thereby con ﬁrming a diagnosis of FTD-ALS.\nThe patient’s substitute decision maker was informed and\ngoals of care were established given the progressive and\nultimately fatal outcome of this disease. The genetics team\nplayed a central role in providing psychoeducation,\ncounseling and support to the family.\nThe patient was transferred to a geriatric psychiatry\ninpatient unit for end-of-life care. Agitation and distress\nwere treated symptomat",
+          "ng for C9orf72 expansions may need to be speci ﬁcally\nrequested in certain institutions. We present a case of FTD-\nALS due to a pathogenic GGGGCC repeat expansion in\nC9orf72 that ﬁrst came to clinical attention with atypical\npsychiatric symptoms.\nCase Report\nA 42-year-old previously healthy male with a remote\nhistory of mild depression presented to the local emer-\ngency department (ED) accompanied by concerned col-\nleagues due to reports of personality changes and bizarre\nbehaviour over the past several months. The initial unusual\nbehaviours included being more intrusive, verbally ag-\ngressive, ﬁxated on his mother ’s health, and somewhat\ndisinhibited with emotional lability (eg showing pictures of\nhis deceased father to strangers and expressing excessive\ngrief despite him dying more than 10 years prior). Due to\nthese concerns, he had recently been compassionately\nreleased from his professional line of work. In his personal\nlife, he was noted to be more erratic – eg dropping his\nchildr",
+          "ically with 1:1 care, olanzapine\nand lorazepam as needed, and a modi ﬁed diet for pro-\ngressive dysphagia. Ultimately, he died from complica-\ntions of aspiration pneumonia. His family consented to\npost-mortem autopsy and the ﬁnal report con ﬁrmed a\nfronto-temporal lobar degeneration with transactive re-\nsponse DNA binding protein (TDP) pathology, interna-\ntional harmonized classi ﬁcation type C.\nDiscussion\nThis is a case summary of a 42-year-old male with a rapidly\nprogressive FTD-ALS caused by a pathogenic repeat\nexpansion of GGGGCC in the C9orf72 gene, which\npresented with psychosis and disorganized behavior\nleading to admission to psychiatry. This was on the\nbackground of typical symptoms of bvFTD such as dis-\ninhibition, apathy, carbohydrate craving and personality\nchanges. Cognition and function rapidly declined over the\ncourse of several months. He died approximately two years\nafter symptom onset. There were several salient features of\nthis case that present learning opportunitie",
+          "ergo repeat- associated non- ATG translation in c9FTD/ALS.  \nActa Neuropathol. 126, 829–844 (2013).\n41. S. Mizielinska et al., C9orf72 frontotemporal lobar degeneration is characterised by frequent \nneuronal sense and antisense RNA foci. Acta Neuropathol. 126, 845–857 (2013).\n42. S. Al- Sarraj et al., p62 positive, TDP- 43 negative, neuronal cytoplasmic and intranuclear inclusions \nin the cerebellum and hippocampus define the pathology of C9orf72- linked FTLD and MND/ALS. \nActa Neuropathol. 122, 691–702 (2011).\n43. S. C. Vatsavayai, A. L. Nana, J. S. Yokoyama, W. W. Seeley, C9orf72- FTD/ALS pathogenesis: Evidence \nfrom human neuropathological studies. Acta Neuropathol. 137, 1–26 (2019).\n44. C. Valdez et al., Progranulin- mediated deficiency of cathepsin D results in FTD and NCL- like \nphenotypes in neurons derived from FTD patients. Hum. Mol. Genet. 26, 4861–4872 (2017).\n45. A. S. T. Smith et al., Human induced pluripotent stem cell- derived TDP- 43 mutant neurons exhibit \nconsistent f",
+          "osis and ultimately\nimprove patient care.\nKeywords\nc9orf72, frontotemporal dementia, psychosis\nIntroduction\nFrontotemporal dementia (FTD) and amyotrophic lateral\nsclerosis (ALS) are fatal neurodegenerative diseases that\ncause progressive morbidity for patients and personal\nburden for their families. As with other neurodegenerative\ndiseases, the underlying etiology remains poorly under-\nstood, and there is no disease-modifying treatment.\nHowever, within the last decade, the hexanucleotide\nGGGGCC repeat expansion in the C9orf72 gene was\nidentiﬁed as the most frequent cause of both ALS and FTD\nin Europe and North America,\n1,2 with up to 10% of cases\nidentiﬁed in the combined presentation of FTD-ALS. 3,4\nC9orf72 related FTD-ALS is an autosomal dominant\ndisorder, with a 50% recurrence risk in ﬁrst degree rela-\ntives. Although the speciﬁc molecular mechanisms leading\nto neurodegeneration in patients with pathogenic expan-\nsions in C9 orf72 have not been fully elucidated, there is\nevidence th"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "pass",
+          "fact_recall": 1.0,
+          "supported_facts": [
+            "a009:f1"
+          ],
+          "anchor_matches": {
+            "case-genetics": [
+              3
+            ]
+          },
+          "anchor_match_groups": {
+            "case-genetics": [
+              [
+                3
+              ]
+            ]
+          },
+          "distractor_ordering": "pass",
+          "present_distractors": []
+        }
+      }
+    },
+    {
+      "id": "a010",
+      "revision": 2,
+      "question": "What model-related explanation did Parameswaran et al. give for differences between Drosophila reports and their vertebrate repeat-RNA toxicity findings, and what experiment supported their PKR interpretation?",
+      "query_sha256": "1e8784e5d1bdbb2a00a8a5fe81e8b5aa984b26330cf2100b336231f8100eac3a",
+      "category": "multi_hop",
+      "answerability": "answerable",
+      "evidence_feasibility": {
+        "minimum_chunks": 3,
+        "by_depth": {
+          "n3": "feasible",
+          "n8": "feasible"
+        }
+      },
+      "n3": {
+        "retrieved_sources": [
+          "als-ftd-pmc10188109.pdf",
+          "als-ftd-pmc10188109.pdf",
+          "als-ftd-pmc10188109.pdf"
+        ],
+        "retrieved_contexts": [
+          "ng frames to prevent RAN translation. These Drosophila do not \nshow any toxicity, whereas those expressing pure G4C2 repeats of similar sizes do despite comparable \nsense RNA foci accumulation. Similarly, Drosophila expressing interrupted antisense repeat expanded \nRNAs do not show any deficits, suggesting that antisense C 4G2 RNAs are not toxic in this model \nsystem (Mizielinska et al., 2014; Moens et al., 2018). However, expressing the same antisense inter-\nrupted repeat construct (C4G2)108RO causes motor axonopathy in zebrafish (Swinnen et al., 2018). \nConsistent with this, we show that (C4G2)108RO is toxic to primary cortical neurons, which is partially \nrescued by the reduction of PKR (Figure 4G). The PKR- dependent toxicity is also observed in zebrafish \nexpressing antisense (C4G2)70 RNAs (Figure 7B–D and Figure 7—figure supplement 1B and C). It \nis interesting to note that PKR, constitutively and ubiquitously expressed in vertebrate cells including \nzebrafish, is not found in pl",
+          "ants, fungi, protists, or invertebrates such as Drosophila (Martinez et al., \n2021). This may partially explain the difference in toxicities caused by the antisense C 4G2 repeat \nexpanded RNAs in Drosophila, zebrafish, and primary neurons.\nThe contribution of antisense repeat expanded RNAs to C9FTD/ALS pathogenesis is understudied, \nalthough overexpression of PR DPR proteins as those RAN translated from the antisense RNAs has \nbeen shown to be toxic in various model systems (Jovičić et al., 2015; Wen et al., 2014; Zhang \net al., 2019). Aggregates of PR DPR proteins are rare in C9FTD/ALS postmortem tissues, whereas \nantisense RNA foci are as abundant as sense RNA foci in multiple CNS regions despite the scarcity \nof antisense RNA transcripts. One possibility of such discrepancy between RNA transcripts and foci \nlevels is that antisense RNA foci are extraordinarily stable and rarely turn over once formed along the \nlife span of patients. Several neuropathological studies have attempted t",
+          "Phosphorylated PKR and eIF2α levels are unchanged in C9FTD/ALS iPSC- derived motor neurons.\nFigure supplement 1—source data 1. Original western blot results for Figure 5—figure supplement 1A.\n Research article      \nNeuroscience\nParameswaran et al. eLife 2023;12:e85902. DOI: https://doi.org/10.7554/eLife.85902  13 of 27\nthe antisense transcripts (Figures  6 and 7), highlighting the significance of antisense C 4G2 repeat \nexpanded RNAs in disease pathogenesis.\nSeveral studies argue against the toxicity from either sense G4C2 or antisense C4G2 repeat expanded \nRNAs and associated RNA foci. In one study, Drosophila expressing intronic (G 4C2)160 repeats show \nabundant sense RNA foci in the nucleus but have little DPR proteins and no neurodegeneration, \nsuggesting that sense RNA foci is insufficient to cause toxicity in this model (Tran et al., 2015). Two \nother elegant studies generated Drosophila expressing interrupted G 4C2 repeats by inserting stop \ncodons every 12 repeats in all readi"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.5,
+          "supported_facts": [
+            "a010:f1"
+          ],
+          "anchor_matches": {
+            "model-pkr": [
+              0,
+              1
+            ],
+            "zebrafish": [],
+            "zebrafish-caption-endpoints": [],
+            "zebrafish-caption-result": []
+          },
+          "anchor_match_groups": {
+            "model-pkr": [
+              [
+                0,
+                1
+              ]
+            ],
+            "zebrafish": [],
+            "zebrafish-caption-endpoints": [],
+            "zebrafish-caption-result": []
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      },
+      "n8": {
+        "retrieved_sources": [
+          "als-ftd-pmc10188109.pdf",
+          "als-ftd-pmc10188109.pdf",
+          "als-ftd-pmc10188109.pdf",
+          "als-ftd-pmc10188109.pdf",
+          "als-ftd-pmc10188109.pdf",
+          "als-ftd-pmc10188109.pdf",
+          "als-ftd-pmc10188109.pdf",
+          "als-ftd-pmc10188109.pdf"
+        ],
+        "retrieved_contexts": [
+          "ng frames to prevent RAN translation. These Drosophila do not \nshow any toxicity, whereas those expressing pure G4C2 repeats of similar sizes do despite comparable \nsense RNA foci accumulation. Similarly, Drosophila expressing interrupted antisense repeat expanded \nRNAs do not show any deficits, suggesting that antisense C 4G2 RNAs are not toxic in this model \nsystem (Mizielinska et al., 2014; Moens et al., 2018). However, expressing the same antisense inter-\nrupted repeat construct (C4G2)108RO causes motor axonopathy in zebrafish (Swinnen et al., 2018). \nConsistent with this, we show that (C4G2)108RO is toxic to primary cortical neurons, which is partially \nrescued by the reduction of PKR (Figure 4G). The PKR- dependent toxicity is also observed in zebrafish \nexpressing antisense (C4G2)70 RNAs (Figure 7B–D and Figure 7—figure supplement 1B and C). It \nis interesting to note that PKR, constitutively and ubiquitously expressed in vertebrate cells including \nzebrafish, is not found in pl",
+          "ants, fungi, protists, or invertebrates such as Drosophila (Martinez et al., \n2021). This may partially explain the difference in toxicities caused by the antisense C 4G2 repeat \nexpanded RNAs in Drosophila, zebrafish, and primary neurons.\nThe contribution of antisense repeat expanded RNAs to C9FTD/ALS pathogenesis is understudied, \nalthough overexpression of PR DPR proteins as those RAN translated from the antisense RNAs has \nbeen shown to be toxic in various model systems (Jovičić et al., 2015; Wen et al., 2014; Zhang \net al., 2019). Aggregates of PR DPR proteins are rare in C9FTD/ALS postmortem tissues, whereas \nantisense RNA foci are as abundant as sense RNA foci in multiple CNS regions despite the scarcity \nof antisense RNA transcripts. One possibility of such discrepancy between RNA transcripts and foci \nlevels is that antisense RNA foci are extraordinarily stable and rarely turn over once formed along the \nlife span of patients. Several neuropathological studies have attempted t",
+          "Phosphorylated PKR and eIF2α levels are unchanged in C9FTD/ALS iPSC- derived motor neurons.\nFigure supplement 1—source data 1. Original western blot results for Figure 5—figure supplement 1A.\n Research article      \nNeuroscience\nParameswaran et al. eLife 2023;12:e85902. DOI: https://doi.org/10.7554/eLife.85902  13 of 27\nthe antisense transcripts (Figures  6 and 7), highlighting the significance of antisense C 4G2 repeat \nexpanded RNAs in disease pathogenesis.\nSeveral studies argue against the toxicity from either sense G4C2 or antisense C4G2 repeat expanded \nRNAs and associated RNA foci. In one study, Drosophila expressing intronic (G 4C2)160 repeats show \nabundant sense RNA foci in the nucleus but have little DPR proteins and no neurodegeneration, \nsuggesting that sense RNA foci is insufficient to cause toxicity in this model (Tran et al., 2015). Two \nother elegant studies generated Drosophila expressing interrupted G 4C2 repeats by inserting stop \ncodons every 12 repeats in all readi",
+          " \nless clear. Although PR translated from the antisense strand is extremely toxic in model systems, PR \n Research article      \nNeuroscience\nParameswaran et al. eLife 2023;12:e85902. DOI: https://doi.org/10.7554/eLife.85902  3 of 27\nor its aggregates are rare in postmortem tissues. Antisense RNA transcripts are also hard to detect. \nSurprisingly, several studies showed that antisense RNA foci are as abundant as sense RNA foci in \nmultiple brain regions (DeJesus- Hernandez et al., 2017; Mizielinska et al., 2013; Vatsavayai et al., \n2019), raising a possibility that antisense C 4G2 repeat expanded RNAs also contribute to C9FTD/\nALS (McEachin et al., 2020b). In this study, we show that antisense C9ORF72 C4G2 repeat expanded \nRNAs are neurotoxic independent of RAN translated DPR proteins. Antisense C 4G2, but not sense \nG4C2, repeat expanded RNAs activate PKR/eIF2α-dependent integrated stress response, leading to \nglobal protein synthesis inhibition and stress granules formation. Moreover,",
+          "uction and \nconcluded that neither sense or antisense repeat expanded RNAs are toxic in Drosophila (Moens \net al., 2018; Tran et al., 2015). This was challenged by another study showing both sense and anti-\nsense repeat expanded RNAs can cause motor axonopathy in zebrafish independent of DPR proteins \n(Swinnen et al., 2018). Irrespective of RNA foci and DPR proteins, studies using antisense oligonu-\ncleotide (ASOs) to selectively degrade sense G4C2 repeat expanded RNAs strongly support its role in \nC9FTD/ALS pathogenesis. These sense strand- specific ASOs not only mitigate toxicity from C9ORF72 \nrepeat expansions in both transgenic mice expressing G 4C2 repeats (Jiang et al., 2016) and patient \nIPSC- derived neurons (Donnelly et al., 2013), but also reverse downstream cellular and molecular \nalterations such as nucleocytoplasmic transport deficits (Zhang et al., 2015). However, whether anti-\nsense C4G2 repeat expanded RNAs contribute to C9FTD/ALS and thus are targets of intervention is",
+          " Kaplan–Meier curves showing the risk of cell death in (C4G2)108RO- expressing neurons compared with 2 repeats in the presence and \nabsence of PKR siRNA (replicated three times with similar results). Statistical analyses were performed using Mantel–Cox test (*p<0.05, **p<0.01). Scale \nbars, 20 µm.\nThe online version of this article includes the following source data for figure 4:\nSource data 1. Original western blot results for Figure 4D.\nFigure 4 continued\n Research article      \nNeuroscience\nParameswaran et al. eLife 2023;12:e85902. DOI: https://doi.org/10.7554/eLife.85902  12 of 27\nmay produce antisense C4G2 repeat expanded RNAs of different sizes and expression levels, we also \ndetected increased activation of PKR/eIF2α in patient frontal cortex. Consistent with our observa-\ntions, increased phosphorylation of PKR has also been reported in BAC transgenic mice expressing \n500 G4C2 repeats and in C9ORF72 patients by two other studies (Rodriguez et al., 2021; Zu et al., \n2020). Import",
+          "ly increases \n Research article      \nNeuroscience\nParameswaran et al. eLife 2023;12:e85902. DOI: https://doi.org/10.7554/eLife.85902  4 of 27\nFigure 1. C9ORF72 antisense C4G2 expanded repeats activate PKR/eIF2α-dependent integrated stress response and cause neuronal toxicity. (A) \nSchematic illustration of the in_(C4G2)75 repeat construct including 6× stop codons, 450 bp of human intronic sequences at the N- terminus and 3× \nprotein tags at the C- terminus of the repeats to monitor the DPR proteins in each frame. (B) Representative images of antisense RNA foci in HEK293T \ncells and in primary cortical neurons expressing in_(C4G2)75 detected by RNA FISH. Red, foci; blue, DAPI; magenta, MAP2. (C) Kaplan–Meier curves \nFigure 1 continued on next page\n Research article      \nNeuroscience\nParameswaran et al. eLife 2023;12:e85902. DOI: https://doi.org/10.7554/eLife.85902  5 of 27\nthe phosphorylation of eIF2α without affecting its total level (Figure 1F and G). in_(C4G2)75 activates \neIF2α ma",
+          "ults for Figure 6E.\nFigure supplement 1. Sense G4C2 repeat expanded RNAs cannot activate the PKR/eIF2α pathway.\nFigure supplement 1—source data 1. Original western blot results for Figure 6—figure supplement 1F.\nFigure 6 continued\n Research article      \nNeuroscience\nParameswaran et al. eLife 2023;12:e85902. DOI: https://doi.org/10.7554/eLife.85902  16 of 27\nFigure 7. Reduction of PKR mitigates antisense C4G2, but not sense G4C2, RNA- mediated toxicity in zebrafish. (A) Schematic illustration of splice- \nblocking morpholino (SB- MO) targeting the exon 3/intron 3 junction in zebrafish eif2ak2 pre- mRNA. The correctly spliced (wild type transcripts) and \nintron 3 retained transcripts are shown. The translation- blocking morpholino targets the AUG start codon in post- spliced eif2ak2 mRNA. (B) SV2 \nimmunostaining of motor axons in 30 hpf zebrafish embryos injected with GFP control mRNA and antisense (C4G2)70 RNAs. Scale bar = 50 µm. (C, D) \nFigure 7 continued on next page\n Research articl"
+        ],
+        "verdict": "pass",
+        "metrics": {
+          "document_coverage": "pass",
+          "evidence_coverage": "fail",
+          "fact_recall": 0.5,
+          "supported_facts": [
+            "a010:f1"
+          ],
+          "anchor_matches": {
+            "model-pkr": [
+              0,
+              1
+            ],
+            "zebrafish": [],
+            "zebrafish-caption-endpoints": [],
+            "zebrafish-caption-result": [
+              7
+            ]
+          },
+          "anchor_match_groups": {
+            "model-pkr": [
+              [
+                0,
+                1
+              ]
+            ],
+            "zebrafish": [],
+            "zebrafish-caption-endpoints": [],
+            "zebrafish-caption-result": [
+              [
+                7
+              ]
+            ]
+          },
+          "distractor_ordering": "not_scored",
+          "present_distractors": []
+        }
+      }
+    }
+  ],
+  "summary": {
+    "n3": {
+      "answerable": {
+        "executed": 9,
+        "answer_judged": 0,
+        "evidence_coverage": {
+          "full_set": {
+            "pass": 1,
+            "total": 9,
+            "rate": 0.1111111111111111
+          },
+          "feasible_only": {
+            "pass": 1,
+            "total": 7,
+            "rate": 0.14285714285714285
+          },
+          "structural_ceiling": {
+            "pass": 7,
+            "total": 9,
+            "rate": 0.7777777777777778
+          },
+          "infeasible_ids": [
+            "a005",
+            "a008"
+          ]
+        },
+        "document_coverage_pass": 7,
+        "pinned_evidence_complete": 1,
+        "macro_fact_recall": 0.2777777777777778
+      },
+      "false_premise": {
+        "executed": 1,
+        "answer_judged": 0,
+        "evidence_coverage": {
+          "full_set": {
+            "pass": 0,
+            "total": 1,
+            "rate": 0.0
+          },
+          "feasible_only": {
+            "pass": 0,
+            "total": 1,
+            "rate": 0.0
+          },
+          "structural_ceiling": {
+            "pass": 1,
+            "total": 1,
+            "rate": 1.0
+          },
+          "infeasible_ids": []
+        },
+        "document_coverage_pass": 1,
+        "pinned_evidence_complete": 0,
+        "macro_fact_recall": 0.0
+      },
+      "absent_fact": {
+        "executed": 0,
+        "answer_judged": 0,
+        "evidence_coverage": {
+          "full_set": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "feasible_only": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "structural_ceiling": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "infeasible_ids": []
+        }
+      },
+      "distractor_ordering": {
+        "total": 1,
+        "pass": 1,
+        "decoy_present": 0
+      },
+      "categories": {
+        "cross_doc_distractor": {
+          "executed": 1,
+          "document_scored": 1,
+          "document_pass": 1,
+          "evidence_scored": 1,
+          "evidence_pass": 0,
+          "evidence_coverage": {
+            "full_set": {
+              "pass": 0,
+              "total": 1,
+              "rate": 0.0
+            },
+            "feasible_only": {
+              "pass": 0,
+              "total": 1,
+              "rate": 0.0
+            },
+            "structural_ceiling": {
+              "pass": 1,
+              "total": 1,
+              "rate": 1.0
+            },
+            "infeasible_ids": []
+          }
+        },
+        "cross_doc_synthesis": {
+          "executed": 2,
+          "document_scored": 2,
+          "document_pass": 0,
+          "evidence_scored": 2,
+          "evidence_pass": 0,
+          "evidence_coverage": {
+            "full_set": {
+              "pass": 0,
+              "total": 2,
+              "rate": 0.0
+            },
+            "feasible_only": {
+              "pass": 0,
+              "total": 0,
+              "rate": null
+            },
+            "structural_ceiling": {
+              "pass": 0,
+              "total": 2,
+              "rate": 0.0
+            },
+            "infeasible_ids": [
+              "a005",
+              "a008"
+            ]
+          }
+        },
+        "direct_lookup": {
+          "executed": 4,
+          "document_scored": 4,
+          "document_pass": 4,
+          "evidence_scored": 4,
+          "evidence_pass": 1,
+          "evidence_coverage": {
+            "full_set": {
+              "pass": 1,
+              "total": 4,
+              "rate": 0.25
+            },
+            "feasible_only": {
+              "pass": 1,
+              "total": 4,
+              "rate": 0.25
+            },
+            "structural_ceiling": {
+              "pass": 4,
+              "total": 4,
+              "rate": 1.0
+            },
+            "infeasible_ids": []
+          }
+        },
+        "false_premise": {
+          "executed": 1,
+          "document_scored": 1,
+          "document_pass": 1,
+          "evidence_scored": 1,
+          "evidence_pass": 0,
+          "evidence_coverage": {
+            "full_set": {
+              "pass": 0,
+              "total": 1,
+              "rate": 0.0
+            },
+            "feasible_only": {
+              "pass": 0,
+              "total": 1,
+              "rate": 0.0
+            },
+            "structural_ceiling": {
+              "pass": 1,
+              "total": 1,
+              "rate": 1.0
+            },
+            "infeasible_ids": []
+          }
+        },
+        "multi_hop": {
+          "executed": 2,
+          "document_scored": 2,
+          "document_pass": 2,
+          "evidence_scored": 2,
+          "evidence_pass": 0,
+          "evidence_coverage": {
+            "full_set": {
+              "pass": 0,
+              "total": 2,
+              "rate": 0.0
+            },
+            "feasible_only": {
+              "pass": 0,
+              "total": 2,
+              "rate": 0.0
+            },
+            "structural_ceiling": {
+              "pass": 2,
+              "total": 2,
+              "rate": 1.0
+            },
+            "infeasible_ids": []
+          }
+        }
+      },
+      "evidence_coverage": {
+        "full_set": {
+          "pass": 1,
+          "total": 10,
+          "rate": 0.1
+        },
+        "feasible_only": {
+          "pass": 1,
+          "total": 8,
+          "rate": 0.125
+        },
+        "structural_ceiling": {
+          "pass": 8,
+          "total": 10,
+          "rate": 0.8
+        },
+        "infeasible_ids": [
+          "a005",
+          "a008"
+        ]
+      }
+    },
+    "n8": {
+      "answerable": {
+        "executed": 9,
+        "answer_judged": 0,
+        "evidence_coverage": {
+          "full_set": {
+            "pass": 4,
+            "total": 9,
+            "rate": 0.4444444444444444
+          },
+          "feasible_only": {
+            "pass": 4,
+            "total": 9,
+            "rate": 0.4444444444444444
+          },
+          "structural_ceiling": {
+            "pass": 9,
+            "total": 9,
+            "rate": 1.0
+          },
+          "infeasible_ids": []
+        },
+        "document_coverage_pass": 8,
+        "pinned_evidence_complete": 4,
+        "macro_fact_recall": 0.5555555555555556
+      },
+      "false_premise": {
+        "executed": 1,
+        "answer_judged": 0,
+        "evidence_coverage": {
+          "full_set": {
+            "pass": 0,
+            "total": 1,
+            "rate": 0.0
+          },
+          "feasible_only": {
+            "pass": 0,
+            "total": 1,
+            "rate": 0.0
+          },
+          "structural_ceiling": {
+            "pass": 1,
+            "total": 1,
+            "rate": 1.0
+          },
+          "infeasible_ids": []
+        },
+        "document_coverage_pass": 1,
+        "pinned_evidence_complete": 0,
+        "macro_fact_recall": 0.5
+      },
+      "absent_fact": {
+        "executed": 0,
+        "answer_judged": 0,
+        "evidence_coverage": {
+          "full_set": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "feasible_only": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "structural_ceiling": {
+            "pass": 0,
+            "total": 0,
+            "rate": null
+          },
+          "infeasible_ids": []
+        }
+      },
+      "distractor_ordering": {
+        "total": 1,
+        "pass": 1,
+        "decoy_present": 0
+      },
+      "categories": {
+        "cross_doc_distractor": {
+          "executed": 1,
+          "document_scored": 1,
+          "document_pass": 1,
+          "evidence_scored": 1,
+          "evidence_pass": 1,
+          "evidence_coverage": {
+            "full_set": {
+              "pass": 1,
+              "total": 1,
+              "rate": 1.0
+            },
+            "feasible_only": {
+              "pass": 1,
+              "total": 1,
+              "rate": 1.0
+            },
+            "structural_ceiling": {
+              "pass": 1,
+              "total": 1,
+              "rate": 1.0
+            },
+            "infeasible_ids": []
+          }
+        },
+        "cross_doc_synthesis": {
+          "executed": 2,
+          "document_scored": 2,
+          "document_pass": 1,
+          "evidence_scored": 2,
+          "evidence_pass": 0,
+          "evidence_coverage": {
+            "full_set": {
+              "pass": 0,
+              "total": 2,
+              "rate": 0.0
+            },
+            "feasible_only": {
+              "pass": 0,
+              "total": 2,
+              "rate": 0.0
+            },
+            "structural_ceiling": {
+              "pass": 2,
+              "total": 2,
+              "rate": 1.0
+            },
+            "infeasible_ids": []
+          }
+        },
+        "direct_lookup": {
+          "executed": 4,
+          "document_scored": 4,
+          "document_pass": 4,
+          "evidence_scored": 4,
+          "evidence_pass": 3,
+          "evidence_coverage": {
+            "full_set": {
+              "pass": 3,
+              "total": 4,
+              "rate": 0.75
+            },
+            "feasible_only": {
+              "pass": 3,
+              "total": 4,
+              "rate": 0.75
+            },
+            "structural_ceiling": {
+              "pass": 4,
+              "total": 4,
+              "rate": 1.0
+            },
+            "infeasible_ids": []
+          }
+        },
+        "false_premise": {
+          "executed": 1,
+          "document_scored": 1,
+          "document_pass": 1,
+          "evidence_scored": 1,
+          "evidence_pass": 0,
+          "evidence_coverage": {
+            "full_set": {
+              "pass": 0,
+              "total": 1,
+              "rate": 0.0
+            },
+            "feasible_only": {
+              "pass": 0,
+              "total": 1,
+              "rate": 0.0
+            },
+            "structural_ceiling": {
+              "pass": 1,
+              "total": 1,
+              "rate": 1.0
+            },
+            "infeasible_ids": []
+          }
+        },
+        "multi_hop": {
+          "executed": 2,
+          "document_scored": 2,
+          "document_pass": 2,
+          "evidence_scored": 2,
+          "evidence_pass": 0,
+          "evidence_coverage": {
+            "full_set": {
+              "pass": 0,
+              "total": 2,
+              "rate": 0.0
+            },
+            "feasible_only": {
+              "pass": 0,
+              "total": 2,
+              "rate": 0.0
+            },
+            "structural_ceiling": {
+              "pass": 2,
+              "total": 2,
+              "rate": 1.0
+            },
+            "infeasible_ids": []
+          }
+        }
+      },
+      "evidence_coverage": {
+        "full_set": {
+          "pass": 4,
+          "total": 10,
+          "rate": 0.4
+        },
+        "feasible_only": {
+          "pass": 4,
+          "total": 10,
+          "rate": 0.4
+        },
+        "structural_ceiling": {
+          "pass": 10,
+          "total": 10,
+          "rate": 1.0
+        },
+        "infeasible_ids": []
+      }
+    }
+  },
+  "limitations": [
+    "Exact pinned-excerpt coverage is conservative; a missed substring is not proof of absent semantic evidence.",
+    "Collection verification checks stored text/source chunks; it does not recompute stored embeddings to certify their original embedding model. Isolated ingestion provenance remains required for quality claims.",
+    "No generated answers, refusal judgments or premise-correction judgments.",
+    "Remote rewrite model aliases cannot establish immutable provider weight versions."
+  ]
+}
