@@ -1,0 +1,90 @@
+{
+  "batch_id": "kimi1-cardiology-07",
+  "stage": "stage1_blind",
+  "group": "stage1_kimi",
+  "runner": {
+    "cli": "kimi",
+    "model": "kimi-code/k3-256k",
+    "effort": "low (config default)",
+    "brief": "stage1_blind_kimi.md",
+    "agent_file": "kimi_blind_agent.md",
+    "workspace": "jua-106-blind-ws"
+  },
+  "attempts": 1,
+  "earlier_problems": [],
+  "duration_s": 70.3,
+  "quotes": {
+    "verified": 6,
+    "total": 6
+  },
+  "usage": [
+    {
+      "session_id": "session_f22343cf-0859-4536-8228-cec8f778abee",
+      "steps": 5,
+      "inputOther": 8530,
+      "output": 1514,
+      "inputCacheRead": 36096,
+      "inputCacheCreation": 0
+    }
+  ],
+  "transcript": "jua-106-runs/stage1_kimi/kimi1-cardiology-07.attempt1.transcript",
+  "output": {
+    "batch_id": "kimi1-cardiology-07",
+    "cases": [
+      {
+        "id": "c007",
+        "answerability": "answerable",
+        "answer": "According to the Thai consensus, evaluating apparent treatment-resistant hypertension to exclude pseudoresistance requires four diagnostic checks: (1) standardized office BP measurement (detailed in Table 2, e.g., seated with back support, feet on the floor, resting at least 5 minutes in a quiet room, and no caffeine, smoking, or exercise in the prior 30 minutes); (2) confirmation of adherence to antihypertensive therapy; (3) exclusion of drug- or substance-induced BP elevation (Table 3); and (4) 24-hour ambulatory BP monitoring — or home BP monitoring if ABPM is not available — to exclude the white-coat effect. These four checks are repeated in the article's abstract and its diagnostic algorithm figure.",
+        "claims": [
+          {
+            "claim": "Excluding pseudo-RH in apparent treatment-RH requires four checks: standardized office BP measurement, confirmation of adherence, exclusion of drug/substance-induced hypertension, and 24-h ABPM (or home BP monitoring) to exclude the white-coat effect.",
+            "file": "cardio-resistant-hypertension-thai-consensus.txt",
+            "quote": "requires (1) standardized of ﬁce BP measurement (Table 2)\n(2) con ﬁrmation of adherence to antihypertensive therapy\n(3) exclusion of drug- or substance-induced RH (Table 3)\n(4) data from 24-h ambulatory BP monitoring (if not\navailable, use home BP monitoring) to exclude the white-\ncoat effect.",
+            "quote_verified": true
+          },
+          {
+            "claim": "The abstract states these checks are mandatory to exclude pseudoresistance.",
+            "file": "cardio-resistant-hypertension-thai-consensus.txt",
+            "quote": "Standardized ofﬁce BP measurement, conﬁrmation of medical\nadherence, search for drug- or substance-induced BP elevation, and ambulatory or home BP monitoring are mandatory to exclude\npseudoresistance.",
+            "quote_verified": true
+          },
+          {
+            "claim": "The standardized office BP measurement protocol requires the patient to sit with back support, feet on the floor, rest at least 5 minutes in a quiet room, and avoid caffeine, smoking, or exercise in the last 30 minutes.",
+            "file": "cardio-resistant-hypertension-thai-consensus.txt",
+            "quote": "1. Patients should sit on a chair with back support, rest both feet on\nthe ﬂoor, and relax for at least 5 min in a quiet room with\ncomfortable temperature and an empty bladder. They should not\nhave consumed caffeine, smoked, or exercised in the last 30 min.",
+            "quote_verified": true
+          },
+          {
+            "claim": "The diagnostic algorithm repeats the same four steps for excluding pseudo-RH.",
+            "file": "cardio-resistant-hypertension-thai-consensus.txt",
+            "quote": "1. Standardized oﬃce BP measurement (Table 2)\n2. Conﬁrm adherence to an/g415hypertensive therapy \n3. Exclude drug/substance-induced hypertension (Table 3)\n4. Perform 24-hour ABPM*",
+            "quote_verified": true
+          }
+        ],
+        "other_candidates": [
+          {
+            "file": "cardio-resistant-hypertension-thai-consensus.txt",
+            "quote": "Pseudo-RH A falsely elevated BP in a patient on ≥3 antihypertensive agents caused by improper BP measurement technique,\nwhite-coat effect, undertitration of antihypertensive agents, clinical inertia, medication nonadherence, and other\nfactors.",
+            "why_rejected": "This defines the causes of pseudo-RH rather than listing the required diagnostic checks; the four-step work-up passage is the direct answer.",
+            "quote_verified": true
+          },
+          {
+            "file": "cardio-resistant-hypertension-thai-consensus.txt",
+            "quote": "Appropriate further investigations, guided by clinical data, should be pursued to exclude possible secondary causes\nof hypertension.",
+            "why_rejected": "Screening for secondary hypertension is a separate subsequent step after pseudoresistance is excluded, not one of the checks the question asks about.",
+            "quote_verified": true
+          }
+        ],
+        "ambiguity": "",
+        "confidence": "high",
+        "search_terms": [
+          "pseudoresist",
+          "pseudo-resist",
+          "white-coat",
+          "adherence",
+          "standardized"
+        ]
+      }
+    ]
+  }
+}

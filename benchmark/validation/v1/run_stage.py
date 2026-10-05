@@ -25,7 +25,10 @@ STAGES = {  # stage -> brief, schema, read tools for the Claude runner, blind
     "stage3_hunt": ("stage3_hunt.md", "stage3_hunt.schema.json", "Read Grep Glob", False),
     "stage4_compare": ("stage4_compare.md", "stage4_compare.schema.json", "Read", False),
     "stage5_adjudicate": ("stage5_adjudicate.md", "stage5_adjudicate.schema.json", "Read Grep Glob", False),
+    "stage7_final": ("stage7_final.md", "stage7_final.schema.json", "Read Grep Glob", False),
+    "stage6_review": ("stage6_review.md", "stage6_review.schema.json", "Read Grep Glob", False),
 }
+SINGLE_CASE = {"stage7_final": "own_verdict", "stage5_adjudicate": "verdict", "stage6_review": "own_verdict"}  # stage -> reply key
 # A blind run that names any of these has looked outside its workspace at gold.
 GOLD_MARKERS = ("benchmark/", "golden_qa", "jua-106-gold-ws", "jua-106-seeds",
                 "ai-research-assistant", "corpus/JUA-106", "queries.json")
@@ -158,7 +161,7 @@ def command(runner: dict, prompt: str, cwd: Path, schema_path: Path, tools: str,
         agent = ["--agent-file", str(cwd.parent / runner["agent_file"])] if "agent_file" in runner else []
         return [binary, "-m", runner["model"], *agent, "--output-format", "stream-json", "-p", prompt], None
     if cli == "codex":
-        return [binary, "exec", "-m", runner["model"],
+        return [binary, "exec", "-m", runner["model"], *runner.get("extra_args", []),
                 "-c", f'model_reasoning_effort="{runner["reasoning_effort"]}"',
                 "-s", "read-only", "-C", str(cwd), "--skip-git-repo-check", "--ephemeral", "--json",
                 "--output-schema", str(schema_path), "-o", str(reply_path), "-"], prompt
@@ -187,19 +190,33 @@ def check_quotes(reply, articles: Path) -> dict:
     return {"verified": verified, "total": total}
 
 
+def source_quote(quote: str, text: str) -> str | None:
+    """Recover source formatting only; never change words or punctuation."""
+    if quote and quote in text:
+        return quote
+    if not quote.strip():
+        return None
+    match = re.search(r"\s+".join(re.escape(word) for word in quote.split()), text)
+    return match.group(0) if match else None
+
+
 def run_batch(batch: dict, stage: str, runner: dict, args, schema: dict) -> dict:
+    if stage in SINGLE_CASE and len(batch["cases"]) != 1:
+        raise ValueError("single-case review refuses a multi-case batch before any model call")
+    runner = batch.get("runner", runner)
     brief, schema_name, tools, blind = STAGES[stage]
     brief = runner.get("brief", brief)
     batch_path = args.workspace_root / batch["batch_file"]
     cwd = batch_path.parent.parent
-    placeholder = "{case_file}" if stage == "stage5_adjudicate" else "{batch_file}"
+    placeholder = "{case_file}" if stage in SINGLE_CASE else "{batch_file}"
     prompt = (HERE / "briefs" / brief).read_text(encoding="utf-8").replace(
         placeholder, f"{batch_path.parent.name}/{batch_path.name}")
+    prompt += "\n" + runner.get("prompt_append", "")
     result_path = args.results_dir / f"{batch['batch_id']}.json"
     run_dir = args.workspace_root / "jua-106-runs" / args.group
     if result_path.exists():
         return {"batch_id": batch["batch_id"], "status": "kept"}
-    key = "verdict" if stage == "stage5_adjudicate" else "cases"
+    key = SINGLE_CASE.get(stage, "cases")
     problems = []
     for attempt in range(1, MAX_ATTEMPTS + 1):
         if halted.is_set() and args.execute:
@@ -228,25 +245,61 @@ def run_batch(batch: dict, stage: str, runner: dict, args, schema: dict) -> dict
             problems.append(f"attempt {attempt}: no JSON reply found")
             continue
         errors = schema_errors(reply, schema)
+        quote_adjustments = []
+        if stage == "stage7_final":
+            if len(batch["cases"]) != 1:
+                errors.append("final adjudication must contain exactly one case")
+            for item in reply.get("evidence", []):
+                name = item.get("file", "")
+                if Path(name).parts == ("articles", Path(name).name):
+                    quote_adjustments.append({"file_as_returned": name, "file": Path(name).name,
+                                              "reason": "local_articles_prefix_only"})
+                    name = item["file"] = Path(name).name
+                path = cwd / "articles" / name
+                if Path(name).name != name or not name.endswith(".txt") or not path.is_file():
+                    errors.append(f"evidence outside case article scope: {name}")
+                else:
+                    original = item.get("quote", "")
+                    exact = source_quote(original, path.read_text(encoding="utf-8"))
+                    if exact is None:
+                        errors.append(f"quote words/punctuation not in source: {name}")
+                    elif exact != original:
+                        quote_adjustments.append({"file": name, "model_quote": original,
+                                                  "source_quote": exact, "reason": "whitespace_only"})
+                        item["quote"] = exact
+            if not reply.get("evidence"):
+                errors.append("final decision requires source evidence")
+            for i, name in enumerate(reply.get("articles_read", [])):
+                if Path(name).parts == ("articles", Path(name).name):
+                    name = reply["articles_read"][i] = Path(name).name
+                if Path(name).name != name or not (cwd / "articles" / name).is_file():
+                    errors.append(f"read outside case article scope: {name}")
         expected = batch["cases"]
-        got = [reply.get("id")] if stage == "stage5_adjudicate" else [c.get("id") for c in reply.get("cases", []) if isinstance(c, dict)]
+        got = [reply.get("id")] if stage in SINGLE_CASE else [c.get("id") for c in reply.get("cases", []) if isinstance(c, dict)]
         if sorted(got) != sorted(expected):
             errors.append(f"case ids {sorted(got)} differ from batch {sorted(expected)}")
         leaked = sorted(m for m in GOLD_MARKERS if m in transcript) if blind else []
         if leaked:
             errors.append(f"blind run referenced gold locations: {leaked}")
         if errors:
+            prompt += "\nPrevious reply validation failed: " + "; ".join(errors[:8]) + "\nRe-read the relevant file and copy source quotes programmatically without changing words.\n"
             problems.append(f"attempt {attempt}: " + "; ".join(errors[:8]))
             continue
+        prior_gap = load(result_path.with_suffix(".gap.json")) if result_path.with_suffix(".gap.json").exists() else None
         record = {
+            "prior_gap": prior_gap,
             "batch_id": batch["batch_id"], "stage": stage, "group": args.group, "runner": runner,
-            "attempts": attempt, "earlier_problems": problems, "duration_s": round(time.time() - started, 1),
+            "attempts": attempt, "earlier_problems": problems, "quote_adjustments": quote_adjustments, "duration_s": round(time.time() - started, 1),
             "quotes": check_quotes(reply, cwd / "articles"), "usage": kimi_usage(transcript) if runner["cli"] == "kimi" else usage_records(transcript),
             "transcript": str(transcript_path.relative_to(args.workspace_root)), "output": reply,
         }
         args.results_dir.mkdir(parents=True, exist_ok=True)
         result_path.write_text(json.dumps(record, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-        result_path.with_suffix(".gap.json").unlink(missing_ok=True)
+        gap_path = result_path.with_suffix(".gap.json")
+        if gap_path.exists():
+            archive = args.results_dir.parent / "final_format_rejections"
+            archive.mkdir(exist_ok=True)
+            shutil.move(str(gap_path), str(archive / gap_path.name))
         return {"batch_id": batch["batch_id"], "status": "ok", "attempts": attempt, "quotes": record["quotes"]}
     gap = {"batch_id": batch["batch_id"], "stage": stage, "group": args.group, "cases": batch["cases"],
            "status": "unreviewed", "problems": problems}
@@ -280,11 +333,15 @@ def main() -> None:
     stage = "stage1_blind" if stage in ("stage1_double", "stage1_kimi") else stage
     if stage not in STAGES:
         raise SystemExit(f"cannot infer stage from group {args.group!r}; pass --stage")
-    batches = load(args.batch_list)[stage] if args.batch_list else manifest["batches"][args.group]
+    listed = load(args.batch_list) if args.batch_list else {}
+    batches = listed[stage] if args.batch_list else manifest["batches"][args.group]
     if args.only:
+        unknown = set(args.only) - {b["batch_id"] for b in batches}
+        if unknown:
+            raise SystemExit(f"unknown batch IDs: {sorted(unknown)}")
         batches = [b for b in batches if b["batch_id"] in args.only]
     runner_key = args.runner or (args.group if args.group in manifest["runners"] else stage)
-    runner = manifest["runners"][runner_key]
+    runner = listed.get("runner") or manifest["runners"][runner_key]
     schema = load(HERE / "schemas" / STAGES[stage][1])
 
     with ThreadPoolExecutor(max_workers=args.jobs) as pool:
