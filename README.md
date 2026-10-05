@@ -66,8 +66,8 @@ The 51/148 snapshot is not directly comparable because gold, scorer and corpus
 fingerprints differ. [Reproduction instructions](benchmark/combined/v2/README.md)
 and a [durable result summary](docs/evaluation/combined-benchmark-v2.json) preserve
 verified fingerprints. All 224 offline tests pass; 722 local retrieval calls
-incurred zero paid evaluation cost. Hosted CI remains pending during the GitHub
-Actions incident; the benchmark task remains open until required checks pass.
+incurred zero paid evaluation cost. Generated answers, refusals and semantic
+conflict handling remain unmeasured.
 
 ## Evaluation evidence relationships
 

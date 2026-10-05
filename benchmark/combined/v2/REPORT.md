@@ -170,10 +170,11 @@ rewriting, generation, judge call, extra model-review session or HTTP service.
 No corpus PDFs/full texts, secrets or disposable execution transcripts are
 committed. Downloaded source metadata checks do not incur model-provider charges.
 
-Required CI remains pending during an active GitHub Actions incident. Status was
-checked before delivery: the earlier major outage became degraded performance,
-but the incident remains investigating; no affected job was retried. The task remains open until
-required hosted checks and the normal review/merge procedure are verified. The
+At initial delivery, required CI was pending during an active GitHub Actions
+incident. The status check showed the earlier major outage had become degraded
+performance, with the incident still investigating; no affected job was retried.
+Current hosted-check and review readiness is recorded on the delivery PR.
+Required hosted checks and the normal review/merge procedure remain gates. The
 release-retention review must retain the source-conflict report, its README link,
 and minimal provenance, and decide which bulk envelopes/runs/helpers enter main.
 This task does not prune the epic or open its final integration PR. No PR is merged.
