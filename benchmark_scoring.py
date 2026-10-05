@@ -12,7 +12,7 @@ from itertools import product
 SCORER_VERSION = "pinned-span-coverage-v3"
 FEASIBILITY_VERSION = "minimum-evidence-chunks-v3"
 CATEGORIES = {"direct_lookup", "multi_hop", "cross_doc_distractor",
-              "cross_doc_synthesis", "unanswerable", "false_premise"}
+              "cross_doc_synthesis", "unanswerable", "false_premise", "source_conflict"}
 
 
 def canonical_hash(value) -> str:
@@ -77,6 +77,8 @@ def validate_benchmark(benchmark: dict) -> None:
                 raise ValueError(f"{qid}: synthesis needs multiple articles in every alternative")
             if category == "multi_hop" and (len(members) < 2 or len(docs) != 1 or not query.get("reasoning")):
                 raise ValueError(f"{qid}: multi-hop needs separated same-article evidence and rationale")
+            if category == "source_conflict" and (len(facts) < 2 or len(members) < 2):
+                raise ValueError(f"{qid}: source conflict needs each conflicting reading as its own fact and anchor")
             if category == "multi_hop" and not any(
                 by_id[a]["text_end"] <= by_id[b]["text_start"] or
                 by_id[b]["text_end"] <= by_id[a]["text_start"]

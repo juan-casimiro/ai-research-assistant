@@ -45,7 +45,7 @@
       "previous_query_version": "cardiology-queries-v1",
       "query_version": "cardiology-queries-v1-gold-corrections-20261005",
       "previous_query_sha256": "cef90c420cde6ef4f8d8c0f35aa6ae971591ca7d5a7c6e9ae64dc1321d0280f4",
-      "query_sha256": "358a6e91a71c15442a02fb901d603bdbd2309f4d5291d49a99b8b1d0585bb048",
+      "query_sha256": "d03139098abb9e38cc1362ff3432b1dd4a0e0e5fb6e5d17b9666f32b3f33a16f",
       "changed_cases": [
         {
           "id": "q058",
@@ -68,16 +68,16 @@
           "previous_revision": 1,
           "revision": 2,
           "previous_case_sha256": "6d9a8916e01ecf208bf268fba481c7b2bb5267ebba9eb3cede96a00bfab1f893",
-          "case_sha256": "c663895e7e8112f2f1fe82ec0ab793f77a87cee422bc0c9f16e01acadc6d841c",
-          "decision": "Accept either source-reported pair of adjusted estimates and add Table 2 as alternative evidence; accept attributed observational design labels."
+          "case_sha256": "b5cde0e924d939d9cda0889f064dccdd54ef644ff7ef3c2e6afcd92bfb4337b0",
+          "decision": "Mark as source_conflict: abstract/Results-text and Table 2 estimates differ and are unreconciled; a valid answer reports both with attribution."
         },
         {
           "id": "c013",
           "previous_revision": 1,
           "revision": 2,
           "previous_case_sha256": "5bce77969a1c53abbe0e4dd5d83ea741345a8ace2dbc0754a12edb99fd1e4c3e",
-          "case_sha256": "bbf5e92a781c2af0173259cca9fd188a1dcf521ff56fe9f6c0907d39703ba5c8",
-          "decision": "Accept either source-stated price basis with abstract and Methods passages as alternative evidence; relabel direct_lookup."
+          "case_sha256": "bda6c21e2218fdf77bcd5c7e9baeee1c5817856d264c4aaeb914fd4f1f7919ab",
+          "decision": "Mark as source_conflict: abstract and Methods price statements differ and are unreconciled; a valid answer reports both with attribution."
         },
         {
           "id": "c016",
@@ -129,7 +129,7 @@
       "previous_query_version": "outliers-v1",
       "query_version": "outliers-v1-gold-corrections-20261005",
       "previous_query_sha256": "20c1be5bb8f3e83b94cee0731698c02452ad5203f4e61c1c257c095b24baa1dd",
-      "query_sha256": "61483addc49174fb44c11a7a89a870a9469504fa0f97af8600290dc7f3d68bcb",
+      "query_sha256": "badd89bfebddcc152ca173cd102313be6813ceced3e03ada94b4606c2ec8bf3f",
       "changed_cases": [
         {
           "id": "x004",
@@ -144,8 +144,8 @@
           "previous_revision": 1,
           "revision": 2,
           "previous_case_sha256": "924385ba8a72fffe8a728ffd09b648fd538c747c42d5866bfae37e2ea22e4c8a",
-          "case_sha256": "0574bcd66c3a263bd0af665e2eac6a4101d9e7433205a3a4b199edc6cbbedcf9",
-          "decision": "Accept either source description of the ANN task and add the detailed passages as alternative evidence."
+          "case_sha256": "be19824f7b0c0450b6f0a7fa1049b728b0e1dbf2826cfa25aa54bae264c6ddeb",
+          "decision": "Mark as source_conflict: abstract and detailed results describe the ANN task differently; a valid answer reports both with attribution."
         }
       ]
     }

@@ -223,7 +223,7 @@
       "text_end": 32064,
       "excerpt_sha256": "6e93bdb104deb247513020502f1d97f8fb7ba3a8cee896e6191fc94750c4edfa",
       "fact_ids": [
-        "f1"
+        "f2"
       ]
     },
     {
@@ -240,24 +240,7 @@
       "text_end": 33633,
       "excerpt_sha256": "e4fcce43e69cde11ec7cbfb3db2777b24e269f7251275b84770828314052893c",
       "fact_ids": [
-        "f1"
-      ]
-    },
-    {
-      "id": "alzheimer-cnn-stages",
-      "article_id": "PMC12823827",
-      "filename": "outlier-alzheimer-dual-model.pdf",
-      "pmc_version": 1,
-      "pdf_sha256": "22866337743e361ad24e69d905fc3bd10ae0d2b541808c82f8bf8be887e35e4b",
-      "text_sha256": "4fc104e32e46b97399b6ce80f51512ef4d8aa27f02da36400b0d064e5fc5ee74",
-      "page": 10,
-      "section": "Discussion: CNN stage classification accuracy",
-      "excerpt": "the CNN model excelled in its ability to classify Alzheimer’s \nstages using MRI images, achieving an impressive accuracy of 97%.",
-      "text_start": 38434,
-      "text_end": 38562,
-      "excerpt_sha256": "4a04739ab59e2c19d0cf432b6c891a0a04ae0ce8fd91da2e88b5ee8f8a9a1bc9",
-      "fact_ids": [
-        "f1"
+        "f2"
       ]
     }
   ],
@@ -590,7 +573,7 @@
     {
       "id": "x005",
       "revision": 2,
-      "category": "direct_lookup",
+      "category": "source_conflict",
       "topics": [
         "cognitive-diagnosis",
         "diagnostic-ai"
@@ -599,10 +582,21 @@
       "required_facts": [
         {
           "id": "f1",
-          "expected_text": "The ANN reports 87.08% accuracy on clinical data; the abstract calls its task early-stage risk prediction, while the detailed results describe binary Alzheimer’s/no-Alzheimer’s classification, and either attributed description is accepted. The CNN reports 97% accuracy for classifying Alzheimer’s disease stages from MRI images.",
+          "expected_text": "The abstract reports ANN accuracy of 87.08% for early-stage risk prediction from clinical data and CNN accuracy of 97% for disease staging from MRI images.",
           "units": "Source-reported values and qualifiers",
           "population": "The paper’s public clinical dataset and MRI-image dataset",
-          "endpoint": "Clinical ANN accuracy (risk prediction or binary detection, as attributed) and MRI CNN disease-stage classification accuracy",
+          "endpoint": "Abstract-reported clinical ANN and MRI CNN accuracy and task labels",
+          "timeframe": "As reported in the cited study; no unreported horizon inferred.",
+          "qualifiers": "Preserve the stated study design, population, endpoint and association/causation limits.",
+          "tolerance": "Retain source rounding and all population/task qualifiers.",
+          "contradiction_rule": "Reject values from other populations or endpoints; do not turn observational or genetic associations into treatment effects."
+        },
+        {
+          "id": "f2",
+          "expected_text": "The detailed results instead describe the ANN as a binary classifier that detects Alzheimer’s versus no Alzheimer’s, with the same 87.08% accuracy. The article does not reconcile this with the early-stage risk-prediction label, so both descriptions are reported with their source location.",
+          "units": "Source-reported values and qualifiers",
+          "population": "The paper’s public clinical dataset and MRI-image dataset",
+          "endpoint": "Unreconciled abstract versus detailed-results description of the ANN task",
           "timeframe": "As reported in the cited study; no unreported horizon inferred.",
           "qualifiers": "Preserve the stated study design, population, endpoint and association/causation limits.",
           "tolerance": "Retain source rounding and all population/task qualifiers.",
@@ -613,40 +607,33 @@
         {
           "id": "primary",
           "anchors": [
-            "alzheimer-summary"
+            "alzheimer-summary",
+            "alzheimer-ann-binary",
+            "alzheimer-ann-accuracy"
           ],
           "fact_anchors": {
             "f1": [
               "alzheimer-summary"
-            ]
-          }
-        },
-        {
-          "id": "detailed",
-          "anchors": [
-            "alzheimer-ann-binary",
-            "alzheimer-ann-accuracy",
-            "alzheimer-cnn-stages"
-          ],
-          "fact_anchors": {
-            "f1": [
+            ],
+            "f2": [
               "alzheimer-ann-binary",
-              "alzheimer-ann-accuracy",
-              "alzheimer-cnn-stages"
+              "alzheimer-ann-accuracy"
             ]
           }
         }
       ],
       "related_distractors": [],
-      "reference_answer": "The ANN reports 87.08% accuracy on clinical data; the abstract calls its task early-stage risk prediction, while the detailed results describe binary Alzheimer’s/no-Alzheimer’s classification, and either attributed description is accepted. The CNN reports 97% accuracy for classifying Alzheimer’s disease stages from MRI images.",
+      "reference_answer": "The abstract reports ANN accuracy of 87.08% for early-stage risk prediction from clinical data and CNN accuracy of 97% for disease staging from MRI images. The detailed results instead describe the ANN as a binary classifier that detects Alzheimer’s versus no Alzheimer’s, with the same 87.08% accuracy. The article does not reconcile this with the early-stage risk-prediction label, so both descriptions are reported with their source location.",
       "answer_rubric": {
         "required_claims": [
-          "f1"
+          "f1",
+          "f2"
         ],
-        "acceptable_alternatives": "Faithful paraphrases of both figures with either source description of the ANN task. Noting the wording difference is optional; no head-to-head or dataset caveat is required.",
+        "acceptable_alternatives": "Both descriptions of the ANN task must appear with attribution; wording and order are free. No head-to-head or dataset caveat is required.",
         "forbidden_conflations": [
           "Do not treat the two models’ different datasets and tasks as a head-to-head clinical performance comparison.",
-          "Do not treat the abstract’s early-stage risk label as proof of a prospective prediction endpoint."
+          "Do not treat the abstract’s early-stage risk label as proof of a prospective prediction endpoint.",
+          "Do not report one reading as uncontested, and do not average or merge the two readings."
         ],
         "judging_status": "Manual evidence review only; no generated-answer or paid judge run."
       },
@@ -678,7 +665,7 @@
         "correction_review": {
           "date": "2026-10-05",
           "method": "Source-grounded correction from PR 45 findings and pinned text; no retrieval outcomes used.",
-          "decision": "Accept either source description of the ANN task (abstract risk prediction or detailed binary classification) and add the detailed passages as alternative evidence. Question wording unchanged."
+          "decision": "Mark as source_conflict: the abstract (early-stage risk prediction) and detailed results (binary classification) describe the ANN task differently and are unreconciled; a valid answer reports both with attribution. Question wording unchanged."
         }
       },
       "selection_rationale": "Separates two prominent percentages whose populations, inputs and outcomes differ."

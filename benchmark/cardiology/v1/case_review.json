@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "query_version": "cardiology-queries-v1-gold-corrections-20261005",
-  "query_sha256": "358a6e91a71c15442a02fb901d603bdbd2309f4d5291d49a99b8b1d0585bb048",
+  "query_sha256": "d03139098abb9e38cc1362ff3432b1dd4a0e0e5fb6e5d17b9666f32b3f33a16f",
   "selection_sha256": "e6e63604b1413f6042e43968b7ff83ae0eac763687f99e26006fae9776f19f7b",
   "state": "Author verified; independent PR review and freeze pending Juan",
   "author": "Codex",
@@ -10,10 +10,11 @@
   "no_paid_calls": true,
   "category_counts": {
     "cross_doc_distractor": 7,
-    "cross_doc_synthesis": 8,
-    "direct_lookup": 15,
+    "cross_doc_synthesis": 7,
+    "direct_lookup": 14,
     "false_premise": 4,
     "multi_hop": 8,
+    "source_conflict": 2,
     "unanswerable": 3
   },
   "legacy_review": [

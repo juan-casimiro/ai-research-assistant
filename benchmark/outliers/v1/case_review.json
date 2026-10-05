@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "query_sha256": "61483addc49174fb44c11a7a89a870a9469504fa0f97af8600290dc7f3d68bcb",
+  "query_sha256": "badd89bfebddcc152ca173cd102313be6813ceced3e03ada94b4606c2ec8bf3f",
   "status": "author review and Claude CLI review complete; Juan PR review pending; domain-expert review not performed",
   "reviewer": "Codex",
   "review_method": "Focused review of methods, results, limitations and topic overlap; searched complete extracted article text for exact values, alternatives and cross-topic terms; checked identity/licence and relevant passages against pinned JATS/PDF.",
@@ -123,9 +123,10 @@
   },
   "category_counts": {
     "cross_doc_distractor": 1,
-    "direct_lookup": 4,
+    "direct_lookup": 3,
     "false_premise": 3,
     "multi_hop": 1,
+    "source_conflict": 1,
     "unanswerable": 1
   },
   "correction_review": {
