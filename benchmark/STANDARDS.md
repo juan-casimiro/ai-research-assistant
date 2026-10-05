@@ -220,6 +220,7 @@ than inventing a reconciliation (as audited in q051/q062).
 | `cross_doc_synthesis` | Required claims span at least two articles; each contributes evidence needed for the synthesis |
 | `unanswerable` / absent_fact subtype | Requested fact absent across the entire frozen condition corpus; related text may exist |
 | `false_premise` | Corpus supports explicit rejection/correction of the presupposition; proposed new category for JUA-109 |
+| `source_conflict` | One article gives two unreconciled readings of the requested fact (for example abstract versus table); every evidence set contains both passages and each reading is its own required fact. A valid answer reports both with attribution; reporting one as uncontested, or merging them, fails |
 
 Do not supply the requested answer in the question (q067), rely on undefined
 “this study”, or call a single-paragraph answer multi-hop (q043). Identification

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "query_sha256": "20c1be5bb8f3e83b94cee0731698c02452ad5203f4e61c1c257c095b24baa1dd",
+  "query_sha256": "badd89bfebddcc152ca173cd102313be6813ceced3e03ada94b4606c2ec8bf3f",
   "status": "author review and Claude CLI review complete; Juan PR review pending; domain-expert review not performed",
   "reviewer": "Codex",
   "review_method": "Focused review of methods, results, limitations and topic overlap; searched complete extracted article text for exact values, alternatives and cross-topic terms; checked identity/licence and relevant passages against pinned JATS/PDF.",
@@ -120,5 +120,21 @@
     ],
     "scope": "Advisory cross-topic review only; original frozen query dependencies and negative-evidence scope unchanged. All ten cases retained; JUA-114 owns integrated freeze and retrieval.",
     "revision": 2
+  },
+  "category_counts": {
+    "cross_doc_distractor": 1,
+    "direct_lookup": 3,
+    "false_premise": 3,
+    "multi_hop": 1,
+    "source_conflict": 1,
+    "unanswerable": 1
+  },
+  "correction_review": {
+    "date": "2026-10-05",
+    "changed_cases": [
+      "x004",
+      "x005"
+    ],
+    "status": "Source-grounded author corrections; PR review pending. Historical run artifacts are unchanged."
   }
 }

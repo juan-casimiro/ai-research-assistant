@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "query_sha256": "cef90c420cde6ef4f8d8c0f35aa6ae971591ca7d5a7c6e9ae64dc1321d0280f4",
+  "query_sha256": "d03139098abb9e38cc1362ff3432b1dd4a0e0e5fb6e5d17b9666f32b3f33a16f",
   "selection_sha256": "e6e63604b1413f6042e43968b7ff83ae0eac763687f99e26006fae9776f19f7b",
   "usage": "On any source change, select the union of required, alternative, decoy, overlap_review and negative_evidence dependants; re-review labels before focused --ids execution. Broad overlap review intentionally makes source changes conservative. Never substitute automated passage scores for this review.",
   "cases": [
@@ -760,7 +760,7 @@
     },
     {
       "query_id": "q058",
-      "revision": 2,
+      "revision": 3,
       "category": "direct_lookup",
       "dependencies": {
         "required": [
@@ -1441,7 +1441,7 @@
     },
     {
       "query_id": "c003",
-      "revision": 1,
+      "revision": 2,
       "category": "multi_hop",
       "dependencies": {
         "required": [
@@ -1984,8 +1984,8 @@
     },
     {
       "query_id": "c012",
-      "revision": 1,
-      "category": "cross_doc_synthesis",
+      "revision": 2,
+      "category": "source_conflict",
       "dependencies": {
         "required": [
           "PMC11373557",
@@ -2072,8 +2072,8 @@
     },
     {
       "query_id": "c013",
-      "revision": 1,
-      "category": "multi_hop",
+      "revision": 2,
+      "category": "source_conflict",
       "dependencies": {
         "required": [
           "PMC10985250"
@@ -2270,7 +2270,7 @@
     },
     {
       "query_id": "c016",
-      "revision": 1,
+      "revision": 2,
       "category": "cross_doc_synthesis",
       "dependencies": {
         "required": [

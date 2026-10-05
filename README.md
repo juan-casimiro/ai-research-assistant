@@ -51,6 +51,16 @@ per case; exact-span failures can still retain useful semantic evidence.
 ALS/FTD remains a pending extension. No generated answers or refusals were
 judged, and the historical headline metrics remain separate.
 
+## Evaluation evidence relationships
+
+The [query-by-query source-conflict report](docs/evaluation/source-conflicts.md)
+explains which articles and passages contribute competing claims to each
+evaluation query, how the benchmark handles them, and what the saved retrieval
+runs actually demonstrated. It distinguishes unresolved source inconsistencies
+from differences in populations, endpoints, analyses and denominators.
+This report is durable release documentation and is retained independently of
+experimental benchmark run artifacts.
+
 ## Two ways to run this
 
 | | Docker | Host |

@@ -232,3 +232,7 @@ claim versus detailed BP thresholds/one uncontrolled patient; TAILORED-AF stage-
 specific cohort counts and rounded HR; malformed CT-FFR abstract sensitivity;
 TyG figure-caption label; and retained CCTA sample-count ambiguity. Reviews and
 indirect studies must not be presented as primary head-to-head evidence.
+
+## Gold correction revision — 2026-10-05
+
+The active query set incorporates the [source-grounded correction ledger](../../corrections/2026-10-05/README.md). Prior runs retain their original questions and fingerprints; they are not runs of this corrected revision. The corpus and evaluation strategy are unchanged.

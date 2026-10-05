@@ -164,3 +164,7 @@ PYTHONPATH=. .venv/bin/python benchmark/diabetes/v1/runs/rescore_saved.py \
 changed case-depth lists despite unchanged verdicts. Each focused-review context
 set identifies its exact original parent run. The q051 AF hit moves from rank 1
 to rank 0; its underlying candidate-pool mechanism remains unconfirmed.
+
+## Gold correction revision — 2026-10-05
+
+The active query set incorporates the [source-grounded correction ledger](../../corrections/2026-10-05/README.md). Prior runs retain their original questions and fingerprints; they are not runs of this corrected revision. The corpus and evaluation strategy are unchanged.
