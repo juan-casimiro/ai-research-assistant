@@ -1,0 +1,304 @@
+{
+  "batch_id": "stage3-oncology-05",
+  "stage": "stage3_hunt",
+  "group": "stage3_hunt",
+  "runner": {
+    "cli": "codex",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "workspace": "jua-106-gold-ws"
+  },
+  "attempts": 1,
+  "earlier_problems": [],
+  "duration_s": 294.8,
+  "quotes": {
+    "verified": 6,
+    "total": 6
+  },
+  "usage": [
+    {
+      "input_tokens": 621064,
+      "cached_input_tokens": 537856,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 8121,
+      "reasoning_output_tokens": 1551
+    }
+  ],
+  "transcript": "jua-106-runs/stage3_hunt/stage3-oncology-05.attempt1.transcript",
+  "output": {
+    "batch_id": "stage3-oncology-05",
+    "cases": [
+      {
+        "id": "q085",
+        "findings": [
+          {
+            "type": "H5",
+            "file": "onco-icd-cold-tumor-review.txt",
+            "quote": "“immune-excluded”, where immune cells are physically restricted \nat the periphery and fail to penetrate the tumor parenchyma, or as \nimmune-desert, completely lacking significant immune infiltration",
+            "explanation": "This undeclared review supplies closely matching spatial definitions of excluded and desert tumors. It does not fully answer the three-way distinction or the historical terminology qualification, and it was published in May 2026 rather than being the named March 2023 definition review. It is a plausible retrieval competitor, not a complete alternative answer.",
+            "strength": "weak",
+            "quote_verified": true
+          }
+        ],
+        "search_terms": [
+          "inflam",
+          "desert",
+          "exclu",
+          "parench",
+          "cold",
+          "immune-excluded",
+          "immune-desert",
+          "parenchyma",
+          "inflamed tumors",
+          "cold tumors",
+          "stroma",
+          "lymphocyt"
+        ],
+        "files_examined": [
+          "onco-icd-cold-tumor-review.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "o001",
+        "findings": [
+          {
+            "type": "H5",
+            "file": "onco-nsclc-neoadjuvant-hunan.txt",
+            "quote": "Overall, the 2-  year DFS rate was 79.3% in the \nPD- 1 + Chemo group, which was higher than that of \nChemo group (60.2%; p = 0.048; Figure 1A). After PSM, the \nstatistical significance disappeared (Figure 1B, p = 0.096);",
+            "explanation": "The Hunan retrospective cohort reports higher pathological responses and significant unadjusted two-year DFS with chemoimmunotherapy, creating a plausible competitor for the premise. However, it includes stage IB–IIIB patients rather than the Zhongshan stage III cohort, and significance disappears after matching. It neither establishes the named premise nor proves a causal survival benefit.",
+            "strength": "weak",
+            "quote_verified": true
+          }
+        ],
+        "search_terms": [
+          "Zhongshan",
+          "65.3",
+          "15.1",
+          "34.6",
+          "0.129",
+          "Hunan",
+          "neoadju",
+          "neoadjuvant",
+          "surgery",
+          "resect",
+          "disease.free",
+          "DFS",
+          "MPR"
+        ],
+        "files_examined": [
+          "onco-nsclc-neoadjuvant-hunan.txt",
+          "onco-driver-nonmetastatic-review.txt",
+          "onco-lung-liquidbiopsy.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "o004",
+        "findings": [
+          {
+            "type": "H5",
+            "file": "onco-ici-cv-observational.txt",
+            "quote": "Troponin T conversion\nn=13/129\nECG abnormalities\nn=14/129\nMyocarditis\nn=1/129\nHeart failure\nn=6/129",
+            "explanation": "The review's Isawa study table explicitly separates troponin conversion from myocarditis, closely resembling the requested diagnostic distinction. These are Japanese ICI-treated patients, with 107 NSCLC patients among 129 participants, rather than the 75 Helsinki TNBC patients. Its counts and event timing cannot replace Helsinki's counts or cycle-based surveillance.",
+            "strength": "weak",
+            "quote_verified": true
+          }
+        ],
+        "search_terms": [
+          "Helsinki",
+          "troponin",
+          "tropon",
+          "myocarditis",
+          "myocard",
+          "TNBC",
+          "triple.negative",
+          "pembrolizumab",
+          "14.7",
+          "23 patients",
+          "75 patients",
+          "major criteria",
+          "minor criteria",
+          "ECG"
+        ],
+        "files_examined": [
+          "onco-ici-cv-observational.txt",
+          "onco-ici-cardiac-rct-meta.txt",
+          "onco-pd1-cause-specific-mortality.txt",
+          "onco-nsclc-neoadjuvant-hunan.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "q098",
+        "findings": [],
+        "search_terms": [
+          "dual.screen",
+          "dual-screening",
+          "BRFSS",
+          "cervical",
+          "Hispanic",
+          "Pap",
+          "Pap test",
+          "1.62",
+          "3.13",
+          "2.34",
+          "1.73",
+          "2.25 (1.62",
+          "2.34 (1.72",
+          "race",
+          "screen",
+          "50–64"
+        ],
+        "files_examined": [
+          "onco-pd1-cause-specific-mortality.txt",
+          "diabetes-digital-education-cgm-trial.txt",
+          "onco-nsclc-neoadjuvant-hunan.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "o011",
+        "findings": [
+          {
+            "type": "H5",
+            "file": "onco-ici-cv-observational.txt",
+            "quote": "Two studies assessed heart failure\n(HR = 1.78 (1.17, 2.68); p = 0.007; I2 = 29%) ( 22, 25),",
+            "explanation": "This lung-cancer synthesis reports a significant heart-failure association and could be confused with the named RCT subgroup result. It pools observational studies and reports a hazard ratio, rather than the RCT risk ratio of 1.11. Its study designs, populations and follow-up do not match the named analysis, so it is not a same-scope conflict or evidence that the false premise holds.",
+            "strength": "weak",
+            "quote_verified": true
+          }
+        ],
+        "search_terms": [
+          "heart failure",
+          "cardiac.failure",
+          "ICI",
+          "ICIs",
+          "checkpoint",
+          "immune checkpoint",
+          "1.11",
+          "1.11 (",
+          "0.48",
+          "2.58",
+          "nonsignificant",
+          "nonsignif",
+          "meta.analysis",
+          "RCT",
+          "random",
+          "cardiac adverse"
+        ],
+        "files_examined": [
+          "onco-ici-cv-observational.txt",
+          "onco-pd1-cause-specific-mortality.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "o020",
+        "findings": [
+          {
+            "type": "H5",
+            "file": "onco-nsclc-neoadjuvant-hunan.txt",
+            "quote": "Moreover, one \npatient in each group underwent explorative surgery, and \nboth were abandoned because of advanced disease.",
+            "explanation": "This supplies a count and reason for two abandoned resections in the actual Hunan cohort, making it an especially plausible wrong answer. Both patients underwent exploratory surgery; they did not fail to undergo surgery. The article separately states that data on patients who never received surgery were absent. Thus this does not supply the requested preoperative attrition count and reasons.",
+            "strength": "weak",
+            "quote_verified": true
+          }
+        ],
+        "search_terms": [
+          "Hunan",
+          "neoadju",
+          "surgery",
+          "resect",
+          "failed to",
+          "failed to undergo",
+          "failed to receive",
+          "did not undergo",
+          "never underwent",
+          "cancel",
+          "unresect",
+          "unresectable",
+          "refus",
+          "refused",
+          "withdraw",
+          "progression",
+          "abandoned",
+          "1% to 7%",
+          "excluded",
+          "enroll"
+        ],
+        "files_examined": [
+          "onco-nsclc-neoadjuvant-hunan.txt",
+          "onco-nsclc-neoadjuvant-stageiii.txt",
+          "onco-driver-nonmetastatic-review.txt",
+          "onco-lung-liquidbiopsy.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "o018",
+        "findings": [
+          {
+            "type": "H5",
+            "file": "onco-ici-cv-observational.txt",
+            "quote": "Results: Twelve observational studies using Real world Data were included,\nencompassing 23,621 patients with NSCLC. Our ﬁndings indicated that patients\ntreated with ICIs exhibited a 3% prevalence of CV events and a signi ﬁcantly higher\nhazard (HR = 1.78 (95% CI: 1.46, 2.17); p < 0.00001; I2 = 72%) compared to\npatients treated with other drugs.",
+            "explanation": "This undeclared lung-cancer synthesis provides both absolute cardiovascular-event prevalence and comparator-relative risk, making it a plausible competitor for the comparison question. It uses observational data and an HR, not the named RCT broad cardiac-AE RRs. It also does not supply the Helsinki TNBC frequency or surveillance. Different endpoints and follow-up prevent treating these figures as a conflict or complete alternative answer.",
+            "strength": "weak",
+            "quote_verified": true
+          }
+        ],
+        "search_terms": [
+          "Helsinki",
+          "troponin",
+          "myocarditis",
+          "14.7",
+          "1.11",
+          "2.15",
+          "1.38",
+          "heart failure",
+          "cardiac adverse",
+          "meta.analysis",
+          "RCT",
+          "random",
+          "23,621"
+        ],
+        "files_examined": [
+          "onco-ici-cv-observational.txt",
+          "onco-pd1-cause-specific-mortality.txt",
+          "onco-nsclc-neoadjuvant-hunan.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "o027",
+        "findings": [],
+        "search_terms": [
+          "afatinib",
+          "afatin",
+          "Vietnam",
+          "Viet",
+          "mTTF",
+          "TTF",
+          "ORR",
+          "16.7",
+          "16.9",
+          "83.9",
+          "74.3",
+          "0.755",
+          "0.034",
+          "starting dose",
+          "initial dose",
+          "treatment failure",
+          "time to treatment failure",
+          "40 mg"
+        ],
+        "files_examined": [
+          "onco-polmol-testing.txt",
+          "onco-driver-nonmetastatic-review.txt",
+          "diabetes-semaglutide-size-dm-trial.txt"
+        ],
+        "stable": true
+      }
+    ]
+  }
+}

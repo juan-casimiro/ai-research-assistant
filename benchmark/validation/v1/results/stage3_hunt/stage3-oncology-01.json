@@ -1,0 +1,285 @@
+{
+  "batch_id": "stage3-oncology-01",
+  "stage": "stage3_hunt",
+  "group": "stage3_hunt",
+  "runner": {
+    "cli": "codex",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "workspace": "jua-106-gold-ws"
+  },
+  "attempts": 1,
+  "earlier_problems": [],
+  "duration_s": 189.8,
+  "quotes": {
+    "verified": 5,
+    "total": 5
+  },
+  "usage": [
+    {
+      "input_tokens": 539218,
+      "cached_input_tokens": 453504,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 5080,
+      "reasoning_output_tokens": 551
+    }
+  ],
+  "transcript": "jua-106-runs/stage3_hunt/stage3-oncology-01.attempt1.transcript",
+  "output": {
+    "batch_id": "stage3-oncology-01",
+    "cases": [
+      {
+        "id": "o014",
+        "findings": [],
+        "search_terms": [
+          "CALR",
+          "calretic",
+          "calreticulin",
+          "HMGB",
+          "HMGB1",
+          "P2RX",
+          "P2RX7",
+          "inflammas",
+          "dendritic",
+          "dangerassociated",
+          "purinergic",
+          "TLR4",
+          "eat-me",
+          "IL.1",
+          "ATP"
+        ],
+        "files_examined": [
+          "outlier-microbiome-tuberculosis.txt",
+          "diabetes-hif-zinc-review.txt",
+          "diabetes-cardiovascular-outcomes.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "q083",
+        "findings": [
+          {
+            "type": "H5",
+            "file": "onco-lung-liquidbiopsy.txt",
+            "quote": "ECLS trial \n(EarlyCDT-Lung), \nLUSI trial evaluation \n( Sullivan et al., 2021 ; \nGonzález et al., \n2021 )\n~13–41% (variable \nby setting)\n~88–91%",
+            "explanation": "The screening table supplies an early-stage sensitivity range for the EarlyCDT-Lung/ECLS and LUSI autoantibody-panel entry. This is a close numerical competitor, but the entry is classified as investigational and commercially available in limited settings. It does not supply an FDA-validated sensitivity value, so it does not break the absence claim.",
+            "strength": "weak",
+            "quote_verified": true
+          }
+        ],
+        "search_terms": [
+          "EarlyCDT",
+          "CDT.Lung",
+          "autoantib",
+          "FDA",
+          "sensitiv",
+          "Early",
+          "CDT",
+          "ECLS",
+          "Sullivan",
+          "validated",
+          "regulat",
+          "earlycdt",
+          "cdt-lung",
+          "lusi",
+          "foodanddrug",
+          "sensitivity",
+          "specificity",
+          "stagei",
+          "screening"
+        ],
+        "files_examined": [
+          "onco-lung-liquidbiopsy.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "o013",
+        "findings": [],
+        "search_terms": [
+          "immune.excl",
+          "cutoff",
+          "cut-off",
+          "threshold",
+          "cut.?off",
+          "immuneexcl",
+          "immune-excl",
+          "immunoscore",
+          "universally",
+          "consensus",
+          "tumorinfiltrat"
+        ],
+        "files_examined": [
+          "onco-icd-cold-tumor-review.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "o005",
+        "findings": [],
+        "search_terms": [
+          "pembrolizumab",
+          "Helsinki",
+          "10\\.7",
+          "23\\.5",
+          "discontinu",
+          "KEYNOTE.522",
+          "keynote-522",
+          "postoperativepembrolizumab",
+          "10.7%",
+          "23.5%"
+        ],
+        "files_examined": [
+          "onco-driver-nonmetastatic-review.txt",
+          "onco-ici-cardiac-rct-meta.txt",
+          "onco-ici-cv-observational.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "q099",
+        "findings": [],
+        "search_terms": [
+          "BRFSS",
+          "speculum",
+          "Medicare",
+          "gynec",
+          "cervical",
+          "colorectal",
+          "mailed FIT",
+          "dual-screen",
+          "gynecologist",
+          "menopause",
+          "fitscreen",
+          "fecalimmunochemical",
+          "menopaus"
+        ],
+        "files_examined": [
+          "onco-lung-liquidbiopsy.txt",
+          "diabetes-gene-sex-hormone-interactions.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "o008",
+        "findings": [
+          {
+            "type": "H5",
+            "file": "onco-driver-nonmetastatic-review.txt",
+            "quote": "Several trials are ongoing to establish the optimal adjuvant TKI treatment duration, as\nwell as neoadjuvant TKI strategies in EGFR- and ALK-positive disease, and (neo)adjuvant targeted\ntreatments in patients with actionable gene alterations other than EGFR or ALK.",
+            "explanation": "This review discusses ADAURA, emerging neoadjuvant EGFR-targeted treatments, and the need for upfront molecular testing in early-stage NSCLC. It is a close competitor for the therapeutic rationale. However, it is a separate 2024 review and does not establish what the named 2023 reflex-testing consensus says about resected tissue versus an available presurgical specimen; therefore it does not fully answer the attributed question.",
+            "strength": "weak",
+            "quote_verified": true
+          },
+          {
+            "type": "H5",
+            "file": "onco-polmol-testing.txt",
+            "quote": "Currently, the EGFR mutation is the only biomarker\nthat should be tested in early NSCLC [32]. However, the introduction of comprehensive\ntesting for stage I–III disease has recently been proposed.",
+            "explanation": "This separate molecular-testing article explicitly extends EGFR testing to early NSCLC and discusses adjuvant treatment selection and reflex testing elsewhere. It could be mistaken for the requested consensus rationale, but it does not provide the complete ADAURA/neoadjuvant argument or the requested specimen-timing distinction.",
+            "strength": "weak",
+            "quote_verified": true
+          }
+        ],
+        "search_terms": [
+          "ADAURA",
+          "EGFR",
+          "presurgical",
+          "resectable",
+          "NeoADAURA",
+          "molecular testing",
+          "biomarker testing",
+          "early.*test",
+          "neoadjuvant",
+          "pre-surgical",
+          "reflextest",
+          "egfrtest"
+        ],
+        "files_examined": [
+          "onco-driver-nonmetastatic-review.txt",
+          "onco-polmol-testing.txt",
+          "onco-lung-liquidbiopsy.txt",
+          "onco-nsclc-neoadjuvant-stageiii.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "o029",
+        "findings": [
+          {
+            "type": "H5",
+            "file": "onco-nsclc-neoadjuvant-stageiii.txt",
+            "quote": "The neoadjuvant\nchemoimmunotherapy group included four cases of postoperative\nrecurrence, whereas the neoadjuvant chemotherapy group recorded\n14 cases. No statistical difference was observed in DFS between these\ngroups postoperatively (P = 0.129; Figure 3B).",
+            "explanation": "This is another retrospective comparison of neoadjuvant chemoimmunotherapy against chemotherapy in resectable NSCLC, with a nonsignificant DFS result. It concerns 59 patients in Zhongshan, rather than the Hunan cohort, and does not supply the Hunan two-year estimates, before/after matching comparison, or OS analysis-label conflict. It is a plausible competitor, not conflicting evidence.",
+            "strength": "weak",
+            "quote_verified": true
+          }
+        ],
+        "search_terms": [
+          "Hunan",
+          "79\\.3",
+          "60\\.2",
+          "0\\.096",
+          "93\\.8",
+          "87\\.1",
+          "propensity",
+          "2.year.*DFS",
+          "two.year.*DFS",
+          "0\\.048",
+          "0\\.038",
+          "79.3%",
+          "60.2%",
+          "94.1%",
+          "85.7%",
+          "93.8%",
+          "87.1%",
+          "weightedpopulation"
+        ],
+        "files_examined": [
+          "onco-nsclc-neoadjuvant-stageiii.txt",
+          "onco-driver-nonmetastatic-review.txt",
+          "onco-ici-cv-observational.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "o026",
+        "findings": [
+          {
+            "type": "H5",
+            "file": "onco-ici-cv-observational.txt",
+            "quote": "Results: Twelve observational studies using Real world Data were included,\nencompassing 23,621 patients with NSCLC. Our ﬁndings indicated that patients\ntreated with ICIs exhibited a 3% prevalence of CV events",
+            "explanation": "The approximately 3% cardiovascular figure in ICI-treated NSCLC is numerically close to the requested 2.80%. However, it measures CV-event prevalence across 23,621 patients in twelve studies, rather than the share of deaths attributable to CVD in the older 5,076-patient PD-1 cohort. It supplies neither the requested cause-of-death denominator nor the CHF and Medicaid mortality associations.",
+            "strength": "weak",
+            "quote_verified": true
+          }
+        ],
+        "search_terms": [
+          "85\\.34",
+          "2\\.80",
+          "3,746",
+          "3746",
+          "5,076",
+          "5076",
+          "Medicaid",
+          "CVD mortality",
+          "cause.spec",
+          "cardiovascular.*mortal",
+          "CVD",
+          "SEER",
+          "CHF",
+          "85.34",
+          "2.80%",
+          "subdistribution",
+          "cause-specific",
+          "cvdmortality"
+        ],
+        "files_examined": [
+          "onco-ici-cv-observational.txt",
+          "onco-ici-cardiac-rct-meta.txt",
+          "onco-lung-liquidbiopsy.txt"
+        ],
+        "stable": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "batch_id": "review6-q078",
+  "stage": "stage6_review",
+  "group": "review6",
+  "runner": {
+    "cli": "codex",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "extra_args": [
+      "--ignore-user-config"
+    ],
+    "workspace": "jua-106-gold-ws"
+  },
+  "attempts": 1,
+  "earlier_problems": [],
+  "duration_s": 27.7,
+  "quotes": {
+    "verified": 1,
+    "total": 1
+  },
+  "usage": [
+    {
+      "input_tokens": 51939,
+      "cached_input_tokens": 45568,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 478,
+      "reasoning_output_tokens": 19
+    }
+  ],
+  "transcript": "jua-106-runs/review6/review6-q078.attempt1.transcript",
+  "output": {
+    "id": "q078",
+    "agreement": "agree",
+    "own_verdict": "valid",
+    "own_severity": "none",
+    "gold_stands": true,
+    "evidence": [
+      {
+        "file": "onco-lung-liquidbiopsy.txt",
+        "quote": "ctRNA enhances detection of actionable gene fusions and splice \nvariants that may be missed by DNA-based assays, with combined \nctDNA/ctRNA approaches increasing fusion detection yield by \napproximately 28%–37% compared with ctDNA alone ( Giménez- \nCapitán et al., 2023 ; Hasegawa et al., 2021 ; Heeke et al., 2025 ; Samol \net al., 2025 ; Poh et al., 2025 ); accordingly, current NCCN NSCLC \nGuidelines recommend RNA-based testing when DNA-based \nprofiling does not identify a driver oncogene ( National \nComprehensive Cancer Network, 2026 ).",
+        "point": "Directly supports the approximate increase, ctDNA-alone comparator, attribution to cited studies, and conditional NCCN RNA-testing recommendation.",
+        "quote_verified": true
+      }
+    ],
+    "rationale": "The article explicitly gives the approximately 28%–37% increase in fusion detection yield and connects it to RNA-based testing when DNA profiling identifies no driver oncogene. The key preserves the comparator and recommendation without converting the increase into percentage points or a relative ratio. Both requested facts occur in the same passage, supporting the direct_lookup category. I agree with the first reviewer's verdict and severity.",
+    "correction_assessment": ""
+  }
+}

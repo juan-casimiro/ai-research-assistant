@@ -1,0 +1,104 @@
+{
+  "batch_id": "kimi1-cardiology-05",
+  "stage": "stage1_blind",
+  "group": "stage1_kimi",
+  "runner": {
+    "cli": "kimi",
+    "model": "kimi-code/k3-256k",
+    "effort": "low (config default)",
+    "brief": "stage1_blind_kimi.md",
+    "agent_file": "kimi_blind_agent.md",
+    "workspace": "jua-106-blind-ws"
+  },
+  "attempts": 1,
+  "earlier_problems": [],
+  "duration_s": 159.5,
+  "quotes": {
+    "verified": 8,
+    "total": 8
+  },
+  "usage": [
+    {
+      "session_id": "session_2c736194-f0ec-4316-b883-84ba57f82855",
+      "steps": 17,
+      "inputOther": 30170,
+      "output": 3304,
+      "inputCacheRead": 156672,
+      "inputCacheCreation": 0
+    }
+  ],
+  "transcript": "jua-106-runs/stage1_kimi/kimi1-cardiology-05.attempt1.transcript",
+  "output": {
+    "batch_id": "kimi1-cardiology-05",
+    "cases": [
+      {
+        "id": "c005",
+        "answerability": "answerable",
+        "answer": "TAILORED-AF (multicenter RCT, 370 patients with drug-refractory persistent/long-standing persistent AF) reported that the tailored AI-guided ablation (targeting spatio-temporal dispersion areas plus PVI, n=187) took roughly twice as long as the anatomical PVI-only procedure (n=183): mean total procedure time 178±60 min vs 92±36 min, and total radiofrequency (RF) delivery time 42±17 min vs 20±11 min (both P<0.001; Table 2 also gives P<2.2×10⁻¹⁶). Initial mapping time was also longer (31±22 vs 10±5 min) and fluoroscopy time slightly longer (9±10 vs 5±4 min). The trade-off was that this additional procedural time bought superior efficacy — freedom from AF at 12 months after a single procedure was 88% in the tailored arm vs 70% in the anatomical arm (log-rank P<0.0001) — with no difference in the composite safety endpoint (death, cerebrovascular events, or treatment-related serious adverse events; 4% vs 3%, P>0.05).",
+        "claims": [
+          {
+            "claim": "Procedure and ablation times were twice as long in the tailored arm, with no difference in the safety endpoint.",
+            "file": "articles/cardio-tailored-af-randomized-trial.txt",
+            "quote": "The safety \nendpoint did not differ between arms, with procedure and ablation times \nbeing twice as long in the tailored arm.",
+            "quote_verified": true
+          },
+          {
+            "claim": "Total procedure time was 178±60 min in the tailored arm vs 92±36 min in the anatomical arm, and RF delivery time was 42±17 vs 20±11 min (P<0.001).",
+            "file": "articles/cardio-tailored-af-randomized-trial.txt",
+            "quote": "anatomical arm (178 ± 60 min versus 92 ± 36 min for procedure duration \nand 42 ± 17 min versus 20 ± 11 min for RF duration, respectively; P < 0.001).",
+            "quote_verified": true
+          },
+          {
+            "claim": "Table 2 confirms procedure time 178±60 vs 92±36 min (P<2.2×10⁻¹⁶), initial mapping time 31±22 vs 10±5 min, fluoroscopy 9±10 vs 5±4 min, and total RF time 42±17 vs 20±11 min.",
+            "file": "articles/cardio-tailored-af-randomized-trial.txt",
+            "quote": "Procedure time (min) 178 ± 60 92 ± 36 <2.2 × \n10",
+            "quote_verified": true
+          },
+          {
+            "claim": "The longer tailored procedure achieved superior efficacy: 88% vs 70% freedom from AF at 12 months (log-rank P<0.0001).",
+            "file": "articles/cardio-tailored-af-randomized-trial.txt",
+            "quote": "which was achieved in 88% of patients in the tailored arm compared with \n70% of patients in the anatomical arm (log-rank P < 0.0001 for superiority).",
+            "quote_verified": true
+          },
+          {
+            "claim": "The composite safety endpoint occurred in 4% (tailored) vs 3% (anatomical), with no significant difference.",
+            "file": "articles/cardio-tailored-af-randomized-trial.txt",
+            "quote": "events (composite safety endpoint) occurred in 8/187 (4%) patients who \nunderwent a tailored cardiac ablation procedure and 5/183 (3%) patients \nwho underwent PVI only (P > 0.05 for all comparisons; Table 3).",
+            "quote_verified": true
+          },
+          {
+            "claim": "The tailored procedures required additional procedural steps and were associated with significantly longer procedure and ablation time compared with PVI-only ablation.",
+            "file": "articles/cardio-tailored-af-randomized-trial.txt",
+            "quote": "Procedures in the tailored arm required additional procedural \nsteps and were associated with a significantly longer procedure and \nablation time (Table 2 and Extended Data Fig. 2) compared with PVI-only \nablation.",
+            "quote_verified": true
+          }
+        ],
+        "other_candidates": [
+          {
+            "file": "articles/cardio-tailored-af-randomized-trial.txt",
+            "quote": "New abla-\ntion tools might decrease the need for AT repeat ablations and reduce \nthe procedure time.",
+            "why_rejected": "This is a limitation/outlook statement about future tools reducing procedure time, not the reported procedure-time comparison between arms.",
+            "quote_verified": true
+          },
+          {
+            "file": "articles/cardio-tailored-af-randomized-trial.txt",
+            "quote": "a total of 88 patients (50/180 versus 38/177 in the \ntailored and anatomical arms, respectively; P = 0.18) underwent a repeat \ncatheter ablation procedure",
+            "why_rejected": "Repeat-procedure counts relate to the number of procedures over follow-up, not to the index procedure-time trade-off the question asks about.",
+            "quote_verified": true
+          }
+        ],
+        "ambiguity": "",
+        "confidence": "high",
+        "search_terms": [
+          "procedure duration",
+          "procedural time",
+          "ablation duration",
+          "procedure time",
+          "fluoroscopy",
+          "RF duration",
+          "TAILORED-AF"
+        ]
+      }
+    ]
+  }
+}

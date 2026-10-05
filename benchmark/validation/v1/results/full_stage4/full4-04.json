@@ -1,0 +1,257 @@
+{
+  "batch_id": "full4-04",
+  "stage": "stage4_compare",
+  "group": "full_stage4",
+  "runner": {
+    "cli": "claude",
+    "model": "claude-sonnet-5-5",
+    "workspace": "jua-106-gold-ws"
+  },
+  "attempts": 1,
+  "earlier_problems": [],
+  "duration_s": 24.5,
+  "quotes": {
+    "verified": 0,
+    "total": 0
+  },
+  "usage": [
+    {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 2150,
+      "cache_read_input_tokens": 19696,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 2150
+      },
+      "output_tokens": 24,
+      "service_tier": "standard",
+      "inference_geo": "not_available"
+    },
+    {
+      "input_tokens": 8,
+      "cache_creation_input_tokens": 21846,
+      "cache_read_input_tokens": 24123,
+      "output_tokens": 3653,
+      "output_tokens_details": {
+        "thinking_tokens": 710
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 21846,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 4,
+          "output_tokens": 1454,
+          "cache_read_input_tokens": 19696,
+          "cache_creation_input_tokens": 2150,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 2150
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    {
+      "claude-sonnet-5-5": {
+        "inputTokens": 8,
+        "outputTokens": 3653,
+        "cacheReadInputTokens": 24123,
+        "cacheCreationInputTokens": 21846,
+        "webSearchRequests": 0,
+        "costUSD": 0.1287546,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 710,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    }
+  ],
+  "transcript": "jua-106-runs/full_stage4/full4-04.attempt1.transcript",
+  "output": {
+    "batch_id": "full4-04",
+    "cases": [
+      {
+        "id": "c021",
+        "answerability_agrees": true,
+        "facts": [],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "c022",
+        "answerability_agrees": true,
+        "facts": [],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "c023",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": ""
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "c024",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": ""
+          },
+          {
+            "fact_id": "f2",
+            "result": "match",
+            "note": "Blind says self-measured target <135/85 was reached by all in the spironolactone group."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": true,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "d001",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "not_addressed",
+            "note": "Blind answer does not state that IDF requires central obesity plus two risk factors."
+          },
+          {
+            "fact_id": "f2",
+            "result": "match",
+            "note": "64.0% IDF vs 56.8% NCEP-ATP III."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": true,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "d002",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "partial",
+            "note": "OR 0.88, CI 0.85-0.90 and UK Biobank women are stated. 'White European' is missing and the disease-risk vs sulfonylurea-response distinction is not stated."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": true,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "d003",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": ""
+          },
+          {
+            "fact_id": "f2",
+            "result": "match",
+            "note": ""
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": true,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "d004",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": "17.5% in cases and 6.0% in controls are given as the primary answer. The blind answer also offers genotype-based figures."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": true,
+        "ambiguity_changes_answer": true,
+        "escalate": true,
+        "reasons": [
+          "The blind ambiguity says 'carriage' could mean genotype frequencies (about 17% vs 9.5% combined), which would differ from the key's 17.5% vs 6.0%."
+        ]
+      },
+      {
+        "id": "d005",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": "OR 0.102, CI 0.08-3.08, crude P 0.021 and adjusted P 0.031 are given. The blind answer flags the line as incoherent without repairing it. Its OR of about 3.4 is labelled as its own calculation."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": true,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "d006",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": ""
+          },
+          {
+            "fact_id": "f2",
+            "result": "match",
+            "note": "The blind answer does not say 'not superiority', but the values and the non-inferiority conclusion match."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "batch_id": "stage1-diabetes-09",
+  "stage": "stage1_blind",
+  "group": "stage1_blind",
+  "runner": {
+    "cli": "claude",
+    "model": "claude-sonnet-5-5",
+    "workspace": "jua-106-blind-ws"
+  },
+  "attempts": 1,
+  "earlier_problems": [],
+  "duration_s": 15.6,
+  "quotes": {
+    "verified": 4,
+    "total": 4
+  },
+  "usage": [
+    {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 1698,
+      "cache_read_input_tokens": 8232,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 1698
+      },
+      "output_tokens": 24,
+      "service_tier": "standard",
+      "inference_geo": "not_available"
+    },
+    {
+      "input_tokens": 8,
+      "cache_creation_input_tokens": 5439,
+      "cache_read_input_tokens": 25845,
+      "output_tokens": 1374,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 5439,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 915,
+          "cache_read_input_tokens": 8232,
+          "cache_creation_input_tokens": 1698,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 1698
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    {
+      "claude-sonnet-5-5": {
+        "inputTokens": 8,
+        "outputTokens": 1374,
+        "cacheReadInputTokens": 25845,
+        "cacheCreationInputTokens": 5439,
+        "webSearchRequests": 0,
+        "costUSD": 0.040681,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    }
+  ],
+  "transcript": "jua-106-runs/stage1_blind/stage1-diabetes-09.attempt1.transcript",
+  "output": {
+    "batch_id": "stage1-diabetes-09",
+    "cases": [
+      {
+        "id": "q035",
+        "answerability": "answerable",
+        "answer": "In the review's account of Sadhu and colleagues' hospital-record analysis, the MI associations were day-specific: the day after the spring DST transition (1 h sleep lost) MIs rose 24% (RR 1.24, 95% CI 1.05–1.46; P = 0.011), and the day after the fall transition (1 h sleep gained) MIs fell 21% (RR 0.79, 95% CI 0.62–0.99; P = 0.044). The review contrasts these with the weekly PCI result: no change in the total weekly number of PCIs for MI during the first week after DST transitions. So effects appeared on the single day after each transition but not in weekly PCI-for-MI totals.",
+        "claims": [
+          {
+            "claim": "Spring transition: 24% increase in MIs the day after (RR 1.24).",
+            "file": "diabetes-cardiovascular-outcomes.txt",
+            "quote": "loss of sleep was associated with a significant, 24%, increase \nin MIs the day following the spring DST transition (RR1.24, \n95% CI 1.05–1.46; P = 0.011)",
+            "quote_verified": true
+          },
+          {
+            "claim": "Fall transition: 21% decrease the day after (RR 0.79).",
+            "file": "diabetes-cardiovascular-outcomes.txt",
+            "quote": "heart attack rates fell significantly by \n21% the day following the fall transition (RR 0.79, 95% CI \n0.62–0.99; P = 0.044) [28]",
+            "quote_verified": true
+          },
+          {
+            "claim": "No change in total weekly PCIs for MI in the first week after DST transitions, contrasted with the day-specific effects.",
+            "file": "diabetes-cardiovascular-outcomes.txt",
+            "quote": "In contrast to these day‑specific \neffects, no change was observed in the total weekly number \nof percutaneous coronary interventions (PCIs) for MI dur ‑\ning the first week following DST transitions.",
+            "quote_verified": true
+          }
+        ],
+        "other_candidates": [
+          {
+            "file": "diabetes-cardiovascular-outcomes.txt",
+            "quote": "reported no significant differences in MI incidence during \nDST transition weeks compared to adjacent weeks, nor any \ndifferences in in‑hospital outcomes [35, 36].",
+            "why_rejected": "Describes later Ireland/US studies, not the Sadhu day-specific vs weekly PCI contrast.",
+            "quote_verified": true
+          }
+        ],
+        "ambiguity": "",
+        "confidence": "high",
+        "search_terms": [
+          "Ghanem",
+          "DST",
+          "daylight",
+          "PCI",
+          "weekly",
+          "RR"
+        ]
+      }
+    ]
+  }
+}

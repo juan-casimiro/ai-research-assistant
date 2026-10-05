@@ -1,0 +1,498 @@
+{
+  "batch_id": "stage2-als-ftd-02",
+  "stage": "stage2_audit",
+  "group": "stage2_audit",
+  "runner": {
+    "cli": "claude",
+    "model": "claude-sonnet-5-5",
+    "workspace": "jua-106-gold-ws"
+  },
+  "attempts": 1,
+  "earlier_problems": [],
+  "duration_s": 49.0,
+  "quotes": {
+    "verified": 3,
+    "total": 3
+  },
+  "usage": [
+    {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 773,
+      "cache_read_input_tokens": 30532,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 773
+      },
+      "output_tokens": 3,
+      "service_tier": "standard",
+      "inference_geo": "not_available"
+    },
+    {
+      "input_tokens": 12,
+      "cache_creation_input_tokens": 26649,
+      "cache_read_input_tokens": 109930,
+      "output_tokens": 5981,
+      "output_tokens_details": {
+        "thinking_tokens": 1051
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 26649,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 3530,
+          "cache_read_input_tokens": 30532,
+          "cache_creation_input_tokens": 773,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 773
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    {
+      "claude-sonnet-5-5": {
+        "inputTokens": 12,
+        "outputTokens": 5981,
+        "cacheReadInputTokens": 109930,
+        "cacheCreationInputTokens": 26649,
+        "webSearchRequests": 0,
+        "costUSD": 0.18841599999999997,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 1051,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    }
+  ],
+  "transcript": "jua-106-runs/stage2_audit/stage2-als-ftd-02.attempt1.transcript",
+  "output": {
+    "batch_id": "stage2-als-ftd-02",
+    "cases": [
+      {
+        "id": "a010",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "Self-contained, names the study, and asks for two separable things.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "pass",
+            "reason": "No numeric values. Both facts match the text.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "pass",
+            "reason": "Discussion hypothesis and the zebrafish embryo experiment are scoped correctly.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G4",
+            "result": "pass",
+            "reason": "model-pkr supports f1. The zebrafish results text and the Figure 7 captions support f2.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "pass",
+            "reason": "The reference answer is hedged as 'partial' and says the Drosophila data are cited, not new. This matches the text.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G6",
+            "result": "not_applicable",
+            "reason": "No conflicting values.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "Two facts from different sections are needed.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "Neither the Discussion passage nor the Results passage answers the whole question alone.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K2",
+            "result": "pass",
+            "reason": "Discussion and Results are separate places.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K3",
+            "result": "pass",
+            "reason": "Both anchors are needed.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K4",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "ALT",
+            "result": "pass",
+            "reason": "Set2 replaces the Results text with the Figure 7 legend title and endpoints. The title gives the strand-specific result, so it covers f2.",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "a010:f1",
+            "supported": "yes",
+            "note": "The text says PKR is not found in invertebrates such as Drosophila and 'may partially explain' the toxicity differences."
+          },
+          {
+            "fact_id": "a010:f2",
+            "supported": "yes",
+            "note": "eif2ak2 morpholino mitigated antisense but gave no protective effect on sense."
+          }
+        ],
+        "verdict": "valid",
+        "severity": "none",
+        "summary": "Both facts are supported and hedged correctly. The anchors are in separate sections and the alternative evidence set is acceptable.",
+        "proposed_correction": ""
+      },
+      {
+        "id": "a004",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "Yes/no question with a clear reading. It misspells the first author as 'Sachdev'; the article lists 'Sachdeva'. The study is still identifiable.",
+            "file": "als-ftd-pmc11047104.txt",
+            "quote": "Aradhana Sachdeva",
+            "quote_verified": true
+          },
+          {
+            "check": "G2",
+            "result": "pass",
+            "reason": "No numbers. The groups are bound correctly: REx and HET(Mut)x show bursting; C9-unedited and 1Ax do not.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "pass",
+            "reason": "DPRs were measured at 2 weeks and bursting at 3 weeks, as the gold states.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G4",
+            "result": "pass",
+            "reason": "Each anchor supports its fact.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "pass",
+            "reason": "The remark that no wild-type electrophysiology comparison was made is consistent with the text. The text does not suggest otherwise.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G6",
+            "result": "pass",
+            "reason": "The Results text says 'no' bursting and the legend says 'minimal to no'. The gold covers this with 'no or minimal'.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "Fits multi_hop.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "The poly-GP and network bursting passages are separate and neither answers alone.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K2",
+            "result": "pass",
+            "reason": "Results on Figure 3 and Figure 5 are in different places.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K3",
+            "result": "pass",
+            "reason": "Both are needed.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K4",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "ALT",
+            "result": "pass",
+            "reason": "The caption and Results variants each state the same findings for the same populations and timepoints.",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "a004:f1",
+            "supported": "yes",
+            "note": "'all poly- GP was eliminated by removal of the repeat expansion or mutant allele. However, some poly- GP remained after excision of exon 1A'."
+          },
+          {
+            "fact_id": "a004:f2",
+            "supported": "yes",
+            "note": "At 3 weeks, C9-unedited and 1Ax show none or minimal bursting; REx and HET(Mut)x show it."
+          }
+        ],
+        "verdict": "valid_minor",
+        "severity": "non_blocking",
+        "summary": "The content is fully supported. The only issue is that the question says 'Sachdev' where the author list reads 'Sachdeva'.",
+        "proposed_correction": "Change 'Sachdev et al.' to 'Sachdeva et al.' in the question."
+      },
+      {
+        "id": "a002",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "The false premise is stated clearly and the question is self-contained.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "pass",
+            "reason": "No numbers. The phenotype limitation is attributed to the cited reference (42).",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "pass",
+            "reason": "C9-500 BAC mice and the DPR endpoints are scoped correctly.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G4",
+            "result": "pass",
+            "reason": "The anchors support the cited-model limitation, the DPR reduction and the need for further evaluation.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "pass",
+            "reason": "The reference answer correctly attributes the phenotype statement to prior work.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G6",
+            "result": "not_applicable",
+            "reason": "No conflicting values.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "Fits false_premise.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "The article reports no survival or motor measurement in the mice, so the premise has no support.",
+            "file": "als-ftd-pmc11527445.txt",
+            "quote": "Although this mouse model has exhibited no survival or motor",
+            "quote_verified": true
+          },
+          {
+            "check": "K2",
+            "result": "pass",
+            "reason": "The correction rests on positive statements: the model has no deficits, the measured result was reduced DPRs, and clinical protection needs further evaluation.",
+            "file": "als-ftd-pmc11527445.txt",
+            "quote": "the protective effects of the CRISPR/Cas13d system in C9-ALS/FTD",
+            "quote_verified": true
+          },
+          {
+            "check": "K3",
+            "result": "pass",
+            "reason": "The premise is not partly true; no survival or motor improvement is claimed.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K4",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "a002:f1",
+            "supported": "yes",
+            "note": "The 'no survival or motor deficits' remark cites ref 42, and the measured result is a significant reduction in poly-GP and poly-GA."
+          },
+          {
+            "fact_id": "a002:f2",
+            "supported": "yes",
+            "note": "The Discussion says protective effects in patients 'require further evaluation'."
+          }
+        ],
+        "verdict": "valid",
+        "severity": "none",
+        "summary": "The false premise is refuted by positive text. The gold attributes the phenotype claim to cited work and separates DPR lowering from rescue.",
+        "proposed_correction": ""
+      },
+      {
+        "id": "a003",
+        "checks": [
+          {
+            "check": "G1",
+            "result": "pass",
+            "reason": "Specific and self-contained.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G2",
+            "result": "pass",
+            "reason": "No numbers. The iMN and iPSC binding is correct.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G3",
+            "result": "pass",
+            "reason": "Same-donor line 2 cell experiments, RNA levels.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G4",
+            "result": "pass",
+            "reason": "Both anchors support the finding that the decrease was seen only in iMNs. The Results passage supports the cellular-environment interplay and the Discussion-style passage supports 'presumably'.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G5",
+            "result": "pass",
+            "reason": "'Mild' is in the second anchor only. The gold uses it and the rubric allows it. The gold's cellular-environment explanation is a suggestion, not a proven mechanism, which matches the text.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G6",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "G7",
+            "result": "pass",
+            "reason": "One local passage is enough.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K1",
+            "result": "pass",
+            "reason": "Either passage alone answers the question.",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K2",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K3",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "K4",
+            "result": "not_applicable",
+            "reason": "",
+            "file": "",
+            "quote": ""
+          },
+          {
+            "check": "ALT",
+            "result": "pass",
+            "reason": "Each passage independently gives the finding and the cellular-environment suggestion.",
+            "file": "",
+            "quote": ""
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "a003:f1",
+            "supported": "yes",
+            "note": "'the decrease in C9-V1 and C9-V3 was only observed in the iMNs but not in the iPSCs'; the cellular-environment interplay is the authors' interpretation."
+          }
+        ],
+        "verdict": "valid",
+        "severity": "none",
+        "summary": "The answer is supported by two independent passages. The wording is appropriately hedged.",
+        "proposed_correction": ""
+      }
+    ]
+  }
+}

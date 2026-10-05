@@ -1,0 +1,2582 @@
+{
+  "label": "pilot",
+  "cases_in_scope": 12,
+  "verdicts": {
+    "valid": 6,
+    "valid_minor": 6
+  },
+  "escalated": 9,
+  "coverage_gaps": [],
+  "runs": {
+    "pilot_stage1_blind": {
+      "batches_ok": 5,
+      "batches_gap": 0,
+      "duration_s": 634.3,
+      "quotes_verified": 73,
+      "quotes_total": 74,
+      "usage": [
+        {
+          "batch_id": "pilot1-als-ftd-01",
+          "attempts": 1,
+          "usage": [
+            {
+              "input_tokens": 4,
+              "cache_creation_input_tokens": 2435,
+              "cache_read_input_tokens": 28349,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 2435
+              },
+              "output_tokens": 25,
+              "service_tier": "standard",
+              "inference_geo": "not_available"
+            },
+            {
+              "input_tokens": 18,
+              "cache_creation_input_tokens": 26293,
+              "cache_read_input_tokens": 102409,
+              "output_tokens": 7359,
+              "output_tokens_details": {
+                "thinking_tokens": 405
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 26293,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "not_available",
+              "iterations": [
+                {
+                  "input_tokens": 4,
+                  "output_tokens": 2429,
+                  "cache_read_input_tokens": 28349,
+                  "cache_creation_input_tokens": 2435,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 2435
+                  },
+                  "type": "message"
+                }
+              ],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            {
+              "claude-sonnet-5-5": {
+                "inputTokens": 18,
+                "outputTokens": 7359,
+                "cacheReadInputTokens": 102409,
+                "cacheCreationInputTokens": 26293,
+                "webSearchRequests": 0,
+                "costUSD": 0.1992798,
+                "contextWindow": 1000000,
+                "maxOutputTokens": 128000,
+                "thinkingTokens": 405,
+                "canonicalModel": "claude-sonnet-5-5",
+                "provider": "firstParty",
+                "costBasis": "list"
+              }
+            }
+          ]
+        },
+        {
+          "batch_id": "pilot1-cardiology-01",
+          "attempts": 1,
+          "usage": [
+            {
+              "input_tokens": 2,
+              "cache_creation_input_tokens": 975,
+              "cache_read_input_tokens": 31834,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 975
+              },
+              "output_tokens": 24,
+              "service_tier": "standard",
+              "inference_geo": "not_available"
+            },
+            {
+              "input_tokens": 18,
+              "cache_creation_input_tokens": 32809,
+              "cache_read_input_tokens": 125504,
+              "output_tokens": 11073,
+              "output_tokens_details": {
+                "thinking_tokens": 1463
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 32809,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "not_available",
+              "iterations": [
+                {
+                  "input_tokens": 2,
+                  "output_tokens": 2971,
+                  "cache_read_input_tokens": 31834,
+                  "cache_creation_input_tokens": 975,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 975
+                  },
+                  "type": "message"
+                }
+              ],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            {
+              "claude-sonnet-5-5": {
+                "inputTokens": 18,
+                "outputTokens": 11073,
+                "cacheReadInputTokens": 125504,
+                "cacheCreationInputTokens": 32809,
+                "webSearchRequests": 0,
+                "costUSD": 0.2671028,
+                "contextWindow": 1000000,
+                "maxOutputTokens": 128000,
+                "thinkingTokens": 1463,
+                "canonicalModel": "claude-sonnet-5-5",
+                "provider": "firstParty",
+                "costBasis": "list"
+              }
+            }
+          ]
+        },
+        {
+          "batch_id": "pilot1-diabetes-01",
+          "attempts": 1,
+          "usage": []
+        },
+        {
+          "batch_id": "pilot1-oncology-01",
+          "attempts": 1,
+          "usage": [
+            {
+              "input_tokens": 2,
+              "cache_creation_input_tokens": 2024,
+              "cache_read_input_tokens": 41465,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 2024
+              },
+              "output_tokens": 24,
+              "service_tier": "standard",
+              "inference_geo": "not_available"
+            },
+            {
+              "input_tokens": 16,
+              "cache_creation_input_tokens": 43489,
+              "cache_read_input_tokens": 169666,
+              "output_tokens": 7642,
+              "output_tokens_details": {
+                "thinking_tokens": 0
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 43489,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "not_available",
+              "iterations": [
+                {
+                  "input_tokens": 2,
+                  "output_tokens": 1925,
+                  "cache_read_input_tokens": 41465,
+                  "cache_creation_input_tokens": 2024,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 2024
+                  },
+                  "type": "message"
+                }
+              ],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            {
+              "claude-sonnet-5-5": {
+                "inputTokens": 16,
+                "outputTokens": 7642,
+                "cacheReadInputTokens": 169666,
+                "cacheCreationInputTokens": 43489,
+                "webSearchRequests": 0,
+                "costUSD": 0.28434119999999996,
+                "contextWindow": 1000000,
+                "maxOutputTokens": 128000,
+                "thinkingTokens": 0,
+                "canonicalModel": "claude-sonnet-5-5",
+                "provider": "firstParty",
+                "costBasis": "list"
+              }
+            }
+          ]
+        },
+        {
+          "batch_id": "pilot1-outliers-01",
+          "attempts": 1,
+          "usage": []
+        }
+      ]
+    },
+    "pilot_seeded_stage2": {
+      "batches_ok": 6,
+      "batches_gap": 0,
+      "duration_s": 210.9,
+      "quotes_verified": 29,
+      "quotes_total": 30,
+      "usage": [
+        {
+          "batch_id": "pilotseed2-als-ftd-01",
+          "attempts": 1,
+          "usage": [
+            {
+              "input_tokens": 2,
+              "cache_creation_input_tokens": 503,
+              "cache_read_input_tokens": 46212,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 503
+              },
+              "output_tokens": 4,
+              "service_tier": "standard",
+              "inference_geo": "not_available"
+            },
+            {
+              "input_tokens": 10,
+              "cache_creation_input_tokens": 42059,
+              "cache_read_input_tokens": 107222,
+              "output_tokens": 3313,
+              "output_tokens_details": {
+                "thinking_tokens": 597
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 42059,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "not_available",
+              "iterations": [
+                {
+                  "input_tokens": 2,
+                  "output_tokens": 2212,
+                  "cache_read_input_tokens": 46212,
+                  "cache_creation_input_tokens": 503,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 503
+                  },
+                  "type": "message"
+                }
+              ],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            {
+              "claude-sonnet-5-5": {
+                "inputTokens": 10,
+                "outputTokens": 3313,
+                "cacheReadInputTokens": 107222,
+                "cacheCreationInputTokens": 42059,
+                "webSearchRequests": 0,
+                "costUSD": 0.2228304,
+                "contextWindow": 1000000,
+                "maxOutputTokens": 128000,
+                "thinkingTokens": 597,
+                "canonicalModel": "claude-sonnet-5-5",
+                "provider": "firstParty",
+                "costBasis": "list"
+              }
+            }
+          ]
+        },
+        {
+          "batch_id": "pilotseed2-cardiology-01",
+          "attempts": 1,
+          "usage": [
+            {
+              "input_tokens": 2,
+              "cache_creation_input_tokens": 2514,
+              "cache_read_input_tokens": 27619,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 2514
+              },
+              "output_tokens": 7,
+              "service_tier": "standard",
+              "inference_geo": "not_available"
+            },
+            {
+              "input_tokens": 10,
+              "cache_creation_input_tokens": 25477,
+              "cache_read_input_tokens": 79222,
+              "output_tokens": 7754,
+              "output_tokens_details": {
+                "thinking_tokens": 885
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 25477,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "not_available",
+              "iterations": [
+                {
+                  "input_tokens": 2,
+                  "output_tokens": 5591,
+                  "cache_read_input_tokens": 27619,
+                  "cache_creation_input_tokens": 2514,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 2514
+                  },
+                  "type": "message"
+                }
+              ],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            {
+              "claude-sonnet-5-5": {
+                "inputTokens": 10,
+                "outputTokens": 7754,
+                "cacheReadInputTokens": 79222,
+                "cacheCreationInputTokens": 25477,
+                "webSearchRequests": 0,
+                "costUSD": 0.1953124,
+                "contextWindow": 1000000,
+                "maxOutputTokens": 128000,
+                "thinkingTokens": 885,
+                "canonicalModel": "claude-sonnet-5-5",
+                "provider": "firstParty",
+                "costBasis": "list"
+              }
+            }
+          ]
+        },
+        {
+          "batch_id": "pilotseed2-cardiology-02",
+          "attempts": 1,
+          "usage": [
+            {
+              "input_tokens": 2,
+              "cache_creation_input_tokens": 709,
+              "cache_read_input_tokens": 14180,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 709
+              },
+              "output_tokens": 24,
+              "service_tier": "standard",
+              "inference_geo": "not_available"
+            },
+            {
+              "input_tokens": 8,
+              "cache_creation_input_tokens": 10233,
+              "cache_read_input_tokens": 37025,
+              "output_tokens": 2720,
+              "output_tokens_details": {
+                "thinking_tokens": 97
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 10233,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "not_available",
+              "iterations": [
+                {
+                  "input_tokens": 2,
+                  "output_tokens": 1809,
+                  "cache_read_input_tokens": 14180,
+                  "cache_creation_input_tokens": 709,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 709
+                  },
+                  "type": "message"
+                }
+              ],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            {
+              "claude-sonnet-5-5": {
+                "inputTokens": 8,
+                "outputTokens": 2720,
+                "cacheReadInputTokens": 37025,
+                "cacheCreationInputTokens": 10233,
+                "webSearchRequests": 0,
+                "costUSD": 0.07555300000000001,
+                "contextWindow": 1000000,
+                "maxOutputTokens": 128000,
+                "thinkingTokens": 97,
+                "canonicalModel": "claude-sonnet-5-5",
+                "provider": "firstParty",
+                "costBasis": "list"
+              }
+            }
+          ]
+        },
+        {
+          "batch_id": "pilotseed2-diabetes-01",
+          "attempts": 1,
+          "usage": [
+            {
+              "input_tokens": 2,
+              "cache_creation_input_tokens": 1513,
+              "cache_read_input_tokens": 37911,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 1513
+              },
+              "output_tokens": 8,
+              "service_tier": "standard",
+              "inference_geo": "not_available"
+            },
+            {
+              "input_tokens": 18,
+              "cache_creation_input_tokens": 34768,
+              "cache_read_input_tokens": 202174,
+              "output_tokens": 7450,
+              "output_tokens_details": {
+                "thinking_tokens": 1401
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 34768,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "not_available",
+              "iterations": [
+                {
+                  "input_tokens": 2,
+                  "output_tokens": 3886,
+                  "cache_read_input_tokens": 37911,
+                  "cache_creation_input_tokens": 1513,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 1513
+                  },
+                  "type": "message"
+                }
+              ],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            {
+              "claude-sonnet-5-5": {
+                "inputTokens": 18,
+                "outputTokens": 7450,
+                "cacheReadInputTokens": 202174,
+                "cacheCreationInputTokens": 34768,
+                "webSearchRequests": 0,
+                "costUSD": 0.2540428,
+                "contextWindow": 1000000,
+                "maxOutputTokens": 128000,
+                "thinkingTokens": 1401,
+                "canonicalModel": "claude-sonnet-5-5",
+                "provider": "firstParty",
+                "costBasis": "list"
+              }
+            }
+          ]
+        },
+        {
+          "batch_id": "pilotseed2-oncology-01",
+          "attempts": 1,
+          "usage": [
+            {
+              "input_tokens": 2,
+              "cache_creation_input_tokens": 9294,
+              "cache_read_input_tokens": 15402,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 9294
+              },
+              "output_tokens": 8,
+              "service_tier": "standard",
+              "inference_geo": "not_available"
+            },
+            {
+              "input_tokens": 6,
+              "cache_creation_input_tokens": 20040,
+              "cache_read_input_tokens": 27415,
+              "output_tokens": 5001,
+              "output_tokens_details": {
+                "thinking_tokens": 684
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 20040,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "not_available",
+              "iterations": [
+                {
+                  "input_tokens": 2,
+                  "output_tokens": 4084,
+                  "cache_read_input_tokens": 15402,
+                  "cache_creation_input_tokens": 9294,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 9294
+                  },
+                  "type": "message"
+                }
+              ],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            {
+              "claude-sonnet-5-5": {
+                "inputTokens": 6,
+                "outputTokens": 5001,
+                "cacheReadInputTokens": 27415,
+                "cacheCreationInputTokens": 20040,
+                "webSearchRequests": 0,
+                "costUSD": 0.135665,
+                "contextWindow": 1000000,
+                "maxOutputTokens": 128000,
+                "thinkingTokens": 684,
+                "canonicalModel": "claude-sonnet-5-5",
+                "provider": "firstParty",
+                "costBasis": "list"
+              }
+            }
+          ]
+        },
+        {
+          "batch_id": "pilotseed2-outliers-01",
+          "attempts": 1,
+          "usage": [
+            {
+              "input_tokens": 2,
+              "cache_creation_input_tokens": 1552,
+              "cache_read_input_tokens": 22966,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 1552
+              },
+              "output_tokens": 5,
+              "service_tier": "standard",
+              "inference_geo": "not_available"
+            },
+            {
+              "input_tokens": 10,
+              "cache_creation_input_tokens": 24518,
+              "cache_read_input_tokens": 64059,
+              "output_tokens": 3009,
+              "output_tokens_details": {
+                "thinking_tokens": 487
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 24518,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "not_available",
+              "iterations": [
+                {
+                  "input_tokens": 2,
+                  "output_tokens": 2015,
+                  "cache_read_input_tokens": 22966,
+                  "cache_creation_input_tokens": 1552,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 1552
+                  },
+                  "type": "message"
+                }
+              ],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            {
+              "claude-sonnet-5-5": {
+                "inputTokens": 10,
+                "outputTokens": 3009,
+                "cacheReadInputTokens": 64059,
+                "cacheCreationInputTokens": 24518,
+                "webSearchRequests": 0,
+                "costUSD": 0.1409938,
+                "contextWindow": 1000000,
+                "maxOutputTokens": 128000,
+                "thinkingTokens": 487,
+                "canonicalModel": "claude-sonnet-5-5",
+                "provider": "firstParty",
+                "costBasis": "list"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "pilot_seeded_stage3": {
+      "batches_ok": 3,
+      "batches_gap": 0,
+      "duration_s": 645.2,
+      "quotes_verified": 13,
+      "quotes_total": 13,
+      "usage": [
+        {
+          "batch_id": "pilotseed3-01",
+          "attempts": 1,
+          "usage": [
+            {
+              "input_tokens": 573410,
+              "cached_input_tokens": 484224,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 5350,
+              "reasoning_output_tokens": 860
+            }
+          ]
+        },
+        {
+          "batch_id": "pilotseed3-02",
+          "attempts": 1,
+          "usage": [
+            {
+              "input_tokens": 639822,
+              "cached_input_tokens": 552448,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 5491,
+              "reasoning_output_tokens": 819
+            }
+          ]
+        },
+        {
+          "batch_id": "pilotseed3-03",
+          "attempts": 1,
+          "usage": [
+            {
+              "input_tokens": 516277,
+              "cached_input_tokens": 438784,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 6007,
+              "reasoning_output_tokens": 786
+            }
+          ]
+        }
+      ]
+    },
+    "pilot_stage4": {
+      "batches_ok": 2,
+      "batches_gap": 0,
+      "duration_s": 38.3,
+      "quotes_verified": 0,
+      "quotes_total": 0,
+      "usage": [
+        {
+          "batch_id": "pilot4-01",
+          "attempts": 1,
+          "usage": [
+            {
+              "input_tokens": 4,
+              "cache_creation_input_tokens": 2769,
+              "cache_read_input_tokens": 25413,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 2769
+              },
+              "output_tokens": 24,
+              "service_tier": "standard",
+              "inference_geo": "not_available"
+            },
+            {
+              "input_tokens": 8,
+              "cache_creation_input_tokens": 28182,
+              "cache_read_input_tokens": 29620,
+              "output_tokens": 4884,
+              "output_tokens_details": {
+                "thinking_tokens": 724
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 28182,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "not_available",
+              "iterations": [
+                {
+                  "input_tokens": 4,
+                  "output_tokens": 2064,
+                  "cache_read_input_tokens": 25413,
+                  "cache_creation_input_tokens": 2769,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 2769
+                  },
+                  "type": "message"
+                }
+              ],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            {
+              "claude-sonnet-5-5": {
+                "inputTokens": 8,
+                "outputTokens": 4884,
+                "cacheReadInputTokens": 29620,
+                "cacheCreationInputTokens": 28182,
+                "webSearchRequests": 0,
+                "costUSD": 0.167508,
+                "contextWindow": 1000000,
+                "maxOutputTokens": 128000,
+                "thinkingTokens": 724,
+                "canonicalModel": "claude-sonnet-5-5",
+                "provider": "firstParty",
+                "costBasis": "list"
+              }
+            }
+          ]
+        },
+        {
+          "batch_id": "pilot4-02",
+          "attempts": 1,
+          "usage": [
+            {
+              "input_tokens": 2,
+              "cache_creation_input_tokens": 5567,
+              "cache_read_input_tokens": 4211,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 5567
+              },
+              "output_tokens": 5,
+              "service_tier": "standard",
+              "inference_geo": "not_available"
+            },
+            {
+              "input_tokens": 4,
+              "cache_creation_input_tokens": 9778,
+              "cache_read_input_tokens": 4211,
+              "output_tokens": 747,
+              "output_tokens_details": {
+                "thinking_tokens": 250
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 9778,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "not_available",
+              "iterations": [
+                {
+                  "input_tokens": 2,
+                  "output_tokens": 656,
+                  "cache_read_input_tokens": 4211,
+                  "cache_creation_input_tokens": 5567,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 5567
+                  },
+                  "type": "message"
+                }
+              ],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            {
+              "claude-sonnet-5-5": {
+                "inputTokens": 4,
+                "outputTokens": 747,
+                "cacheReadInputTokens": 4211,
+                "cacheCreationInputTokens": 9778,
+                "webSearchRequests": 0,
+                "costUSD": 0.0474322,
+                "contextWindow": 1000000,
+                "maxOutputTokens": 128000,
+                "thinkingTokens": 250,
+                "canonicalModel": "claude-sonnet-5-5",
+                "provider": "firstParty",
+                "costBasis": "list"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "pilot_stage5": {
+      "batches_ok": 9,
+      "batches_gap": 0,
+      "duration_s": 335.79999999999995,
+      "quotes_verified": 72,
+      "quotes_total": 72,
+      "usage": [
+        {
+          "batch_id": "pilot5-a008",
+          "attempts": 1,
+          "usage": [
+            {
+              "input_tokens": 2,
+              "cache_creation_input_tokens": 6978,
+              "cache_read_input_tokens": 14058,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 6978
+              },
+              "output_tokens": 3,
+              "service_tier": "standard",
+              "inference_geo": "not_available"
+            },
+            {
+              "input_tokens": 6,
+              "cache_creation_input_tokens": 21036,
+              "cache_read_input_tokens": 21184,
+              "output_tokens": 3146,
+              "output_tokens_details": {
+                "thinking_tokens": 372
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 21036,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "not_available",
+              "iterations": [
+                {
+                  "input_tokens": 2,
+                  "output_tokens": 2485,
+                  "cache_read_input_tokens": 14058,
+                  "cache_creation_input_tokens": 6978,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 6978
+                  },
+                  "type": "message"
+                }
+              ],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            {
+              "claude-opus-5-5": {
+                "inputTokens": 6,
+                "outputTokens": 3146,
+                "cacheReadInputTokens": 21184,
+                "cacheCreationInputTokens": 21036,
+                "webSearchRequests": 0,
+                "costUSD": 0.23546879999999998,
+                "contextWindow": 1000000,
+                "maxOutputTokens": 128000,
+                "thinkingTokens": 372,
+                "canonicalModel": "claude-opus-5-5",
+                "provider": "firstParty",
+                "costBasis": "list"
+              }
+            }
+          ]
+        },
+        {
+          "batch_id": "pilot5-c010",
+          "attempts": 1,
+          "usage": [
+            {
+              "input_tokens": 2,
+              "cache_creation_input_tokens": 3236,
+              "cache_read_input_tokens": 22168,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 3236
+              },
+              "output_tokens": 4,
+              "service_tier": "standard",
+              "inference_geo": "not_available"
+            },
+            {
+              "input_tokens": 8,
+              "cache_creation_input_tokens": 25404,
+              "cache_read_input_tokens": 45316,
+              "output_tokens": 4413,
+              "output_tokens_details": {
+                "thinking_tokens": 493
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 25404,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "not_available",
+              "iterations": [
+                {
+                  "input_tokens": 2,
+                  "output_tokens": 3070,
+                  "cache_read_input_tokens": 22168,
+                  "cache_creation_input_tokens": 3236,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 3236
+                  },
+                  "type": "message"
+                }
+              ],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            {
+              "claude-opus-5-5": {
+                "inputTokens": 8,
+                "outputTokens": 4413,
+                "cacheReadInputTokens": 45316,
+                "cacheCreationInputTokens": 25404,
+                "webSearchRequests": 0,
+                "costUSD": 0.3005872,
+                "contextWindow": 1000000,
+                "maxOutputTokens": 128000,
+                "thinkingTokens": 493,
+                "canonicalModel": "claude-opus-5-5",
+                "provider": "firstParty",
+                "costBasis": "list"
+              }
+            }
+          ]
+        },
+        {
+          "batch_id": "pilot5-c022",
+          "attempts": 1,
+          "usage": [
+            {
+              "input_tokens": 2,
+              "cache_creation_input_tokens": 7457,
+              "cache_read_input_tokens": 11144,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 7457
+              },
+              "output_tokens": 9,
+              "service_tier": "standard",
+              "inference_geo": "not_available"
+            },
+            {
+              "input_tokens": 6,
+              "cache_creation_input_tokens": 21247,
+              "cache_read_input_tokens": 14697,
+              "output_tokens": 3132,
+              "output_tokens_details": {
+                "thinking_tokens": 582
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 21247,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "not_available",
+              "iterations": [
+                {
+                  "input_tokens": 2,
+                  "output_tokens": 2406,
+                  "cache_read_input_tokens": 11144,
+                  "cache_creation_input_tokens": 7457,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 7457
+                  },
+                  "type": "message"
+                }
+              ],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            {
+              "claude-opus-5-5": {
+                "inputTokens": 6,
+                "outputTokens": 3132,
+                "cacheReadInputTokens": 14697,
+                "cacheCreationInputTokens": 21247,
+                "webSearchRequests": 0,
+                "costUSD": 0.2355794,
+                "contextWindow": 1000000,
+                "maxOutputTokens": 128000,
+                "thinkingTokens": 582,
+                "canonicalModel": "claude-opus-5-5",
+                "provider": "firstParty",
+                "costBasis": "list"
+              }
+            }
+          ]
+        },
+        {
+          "batch_id": "pilot5-d002",
+          "attempts": 1,
+          "usage": [
+            {
+              "input_tokens": 2,
+              "cache_creation_input_tokens": 4370,
+              "cache_read_input_tokens": 19183,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 4370
+              },
+              "output_tokens": 3,
+              "service_tier": "standard",
+              "inference_geo": "not_available"
+            },
+            {
+              "input_tokens": 8,
+              "cache_creation_input_tokens": 18123,
+              "cache_read_input_tokens": 46915,
+              "output_tokens": 3869,
+              "output_tokens_details": {
+                "thinking_tokens": 454
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 18123,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "not_available",
+              "iterations": [
+                {
+                  "input_tokens": 2,
+                  "output_tokens": 2751,
+                  "cache_read_input_tokens": 19183,
+                  "cache_creation_input_tokens": 4370,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 4370
+                  },
+                  "type": "message"
+                }
+              ],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            {
+              "claude-opus-5-5": {
+                "inputTokens": 8,
+                "outputTokens": 3869,
+                "cacheReadInputTokens": 46915,
+                "cacheCreationInputTokens": 18123,
+                "webSearchRequests": 0,
+                "costUSD": 0.23177899999999999,
+                "contextWindow": 1000000,
+                "maxOutputTokens": 128000,
+                "thinkingTokens": 454,
+                "canonicalModel": "claude-opus-5-5",
+                "provider": "firstParty",
+                "costBasis": "list"
+              }
+            }
+          ]
+        },
+        {
+          "batch_id": "pilot5-d005",
+          "attempts": 1,
+          "usage": [
+            {
+              "input_tokens": 2,
+              "cache_creation_input_tokens": 6870,
+              "cache_read_input_tokens": 13774,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 6870
+              },
+              "output_tokens": 3,
+              "service_tier": "standard",
+              "inference_geo": "not_available"
+            },
+            {
+              "input_tokens": 6,
+              "cache_creation_input_tokens": 15214,
+              "cache_read_input_tokens": 26326,
+              "output_tokens": 2759,
+              "output_tokens_details": {
+                "thinking_tokens": 348
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 15214,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "not_available",
+              "iterations": [
+                {
+                  "input_tokens": 2,
+                  "output_tokens": 2242,
+                  "cache_read_input_tokens": 13774,
+                  "cache_creation_input_tokens": 6870,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 6870
+                  },
+                  "type": "message"
+                }
+              ],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            {
+              "claude-opus-5-5": {
+                "inputTokens": 6,
+                "outputTokens": 2759,
+                "cacheReadInputTokens": 26326,
+                "cacheCreationInputTokens": 15214,
+                "webSearchRequests": 0,
+                "costUSD": 0.18218120000000002,
+                "contextWindow": 1000000,
+                "maxOutputTokens": 128000,
+                "thinkingTokens": 348,
+                "canonicalModel": "claude-opus-5-5",
+                "provider": "firstParty",
+                "costBasis": "list"
+              }
+            }
+          ]
+        },
+        {
+          "batch_id": "pilot5-d023",
+          "attempts": 1,
+          "usage": [
+            {
+              "input_tokens": 2,
+              "cache_creation_input_tokens": 8773,
+              "cache_read_input_tokens": 14008,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 8773
+              },
+              "output_tokens": 4,
+              "service_tier": "standard",
+              "inference_geo": "not_available"
+            },
+            {
+              "input_tokens": 6,
+              "cache_creation_input_tokens": 17351,
+              "cache_read_input_tokens": 26560,
+              "output_tokens": 3448,
+              "output_tokens_details": {
+                "thinking_tokens": 752
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 17351,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "not_available",
+              "iterations": [
+                {
+                  "input_tokens": 2,
+                  "output_tokens": 2852,
+                  "cache_read_input_tokens": 14008,
+                  "cache_creation_input_tokens": 8773,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 8773
+                  },
+                  "type": "message"
+                }
+              ],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            {
+              "claude-opus-5-5": {
+                "inputTokens": 6,
+                "outputTokens": 3448,
+                "cacheReadInputTokens": 26560,
+                "cacheCreationInputTokens": 17351,
+                "webSearchRequests": 0,
+                "costUSD": 0.21310400000000002,
+                "contextWindow": 1000000,
+                "maxOutputTokens": 128000,
+                "thinkingTokens": 752,
+                "canonicalModel": "claude-opus-5-5",
+                "provider": "firstParty",
+                "costBasis": "list"
+              }
+            }
+          ]
+        },
+        {
+          "batch_id": "pilot5-o009",
+          "attempts": 1,
+          "usage": [
+            {
+              "input_tokens": 2,
+              "cache_creation_input_tokens": 29349,
+              "cache_read_input_tokens": 15645,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 29349
+              },
+              "output_tokens": 2,
+              "service_tier": "standard",
+              "inference_geo": "not_available"
+            },
+            {
+              "input_tokens": 6,
+              "cache_creation_input_tokens": 39564,
+              "cache_read_input_tokens": 28196,
+              "output_tokens": 3677,
+              "output_tokens_details": {
+                "thinking_tokens": 740
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 39564,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "not_available",
+              "iterations": [
+                {
+                  "input_tokens": 2,
+                  "output_tokens": 3085,
+                  "cache_read_input_tokens": 15645,
+                  "cache_creation_input_tokens": 29349,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 29349
+                  },
+                  "type": "message"
+                }
+              ],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            {
+              "claude-opus-5-5": {
+                "inputTokens": 6,
+                "outputTokens": 3677,
+                "cacheReadInputTokens": 28196,
+                "cacheCreationInputTokens": 39564,
+                "webSearchRequests": 0,
+                "costUSD": 0.39571520000000004,
+                "contextWindow": 1000000,
+                "maxOutputTokens": 128000,
+                "thinkingTokens": 740,
+                "canonicalModel": "claude-opus-5-5",
+                "provider": "firstParty",
+                "costBasis": "list"
+              }
+            }
+          ]
+        },
+        {
+          "batch_id": "pilot5-x001",
+          "attempts": 1,
+          "usage": [
+            {
+              "input_tokens": 2,
+              "cache_creation_input_tokens": 1692,
+              "cache_read_input_tokens": 23496,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 1692
+              },
+              "output_tokens": 3,
+              "service_tier": "standard",
+              "inference_geo": "not_available"
+            },
+            {
+              "input_tokens": 10,
+              "cache_creation_input_tokens": 19758,
+              "cache_read_input_tokens": 73354,
+              "output_tokens": 4618,
+              "output_tokens_details": {
+                "thinking_tokens": 672
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 19758,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "not_available",
+              "iterations": [
+                {
+                  "input_tokens": 2,
+                  "output_tokens": 3365,
+                  "cache_read_input_tokens": 23496,
+                  "cache_creation_input_tokens": 1692,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 1692
+                  },
+                  "type": "message"
+                }
+              ],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            {
+              "claude-opus-5-5": {
+                "inputTokens": 10,
+                "outputTokens": 4618,
+                "cacheReadInputTokens": 73354,
+                "cacheCreationInputTokens": 19758,
+                "webSearchRequests": 0,
+                "costUSD": 0.2651348,
+                "contextWindow": 1000000,
+                "maxOutputTokens": 128000,
+                "thinkingTokens": 672,
+                "canonicalModel": "claude-opus-5-5",
+                "provider": "firstParty",
+                "costBasis": "list"
+              }
+            }
+          ]
+        },
+        {
+          "batch_id": "pilot5-x002",
+          "attempts": 1,
+          "usage": [
+            {
+              "input_tokens": 2,
+              "cache_creation_input_tokens": 1999,
+              "cache_read_input_tokens": 26244,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 1999
+              },
+              "output_tokens": 3,
+              "service_tier": "standard",
+              "inference_geo": "not_available"
+            },
+            {
+              "input_tokens": 8,
+              "cache_creation_input_tokens": 22813,
+              "cache_read_input_tokens": 52565,
+              "output_tokens": 3868,
+              "output_tokens_details": {
+                "thinking_tokens": 293
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 22813,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "not_available",
+              "iterations": [
+                {
+                  "input_tokens": 2,
+                  "output_tokens": 2639,
+                  "cache_read_input_tokens": 26244,
+                  "cache_creation_input_tokens": 1999,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 1999
+                  },
+                  "type": "message"
+                }
+              ],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            {
+              "claude-opus-5-5": {
+                "inputTokens": 8,
+                "outputTokens": 3868,
+                "cacheReadInputTokens": 52565,
+                "cacheCreationInputTokens": 22813,
+                "webSearchRequests": 0,
+                "costUSD": 0.270409,
+                "contextWindow": 1000000,
+                "maxOutputTokens": 128000,
+                "thinkingTokens": 293,
+                "canonicalModel": "claude-opus-5-5",
+                "provider": "firstParty",
+                "costBasis": "list"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "calibration": {
+    "audit_detected": "7/7",
+    "hunt_detected": "3/3",
+    "seeds": [
+      {
+        "seed": "o041",
+        "set": "oncology",
+        "defect": "Stage II–IIIA osimertinib OS changed from 85% to 83%.",
+        "audit_verdict": "defect_gold",
+        "audit_detected": true,
+        "audit_verdict_as_expected": true
+      },
+      {
+        "seed": "c026",
+        "set": "cardiology",
+        "defect": "Tailored and anatomical arm times swapped; conclusion reversed.",
+        "audit_verdict": "defect_gold",
+        "audit_detected": true,
+        "audit_verdict_as_expected": true
+      },
+      {
+        "seed": "c027",
+        "set": "cardiology",
+        "defect": "Incidence fact bound to the male platelet-predictor anchor.",
+        "audit_verdict": "defect_anchor",
+        "audit_detected": true,
+        "audit_verdict_as_expected": true
+      },
+      {
+        "seed": "o042",
+        "set": "oncology",
+        "defect": "NILE turnaround is reported in the liquid-biopsy review but labelled absent.",
+        "audit_verdict": "absence_violated",
+        "audit_detected": true,
+        "audit_verdict_as_expected": true,
+        "hunt_detected": true,
+        "hunt_findings": [
+          "H3 definite onco-lung-liquidbiopsy.txt"
+        ]
+      },
+      {
+        "seed": "c028",
+        "set": "cardiology",
+        "defect": "Question asks for the review's c-statistic, yet the review is named as an inapplicable decoy.",
+        "audit_verdict": "defect_category",
+        "audit_detected": true,
+        "audit_verdict_as_expected": true,
+        "hunt_detected": true,
+        "hunt_findings": [
+          "H6 definite cardio-af-stroke-mechanisms-review.txt",
+          "H5 probable cardio-stemi-vasc-fmd-no-reflow.txt"
+        ]
+      },
+      {
+        "seed": "c029",
+        "set": "cardiology",
+        "defect": "Premise is true (platelet AOR 0.993, P=0.033 in men) but labelled false.",
+        "audit_verdict": "premise_not_false",
+        "audit_detected": true,
+        "audit_verdict_as_expected": true
+      },
+      {
+        "seed": "d027",
+        "set": "diabetes",
+        "defect": "Accepted alternative source in the second zinc/HIF review removed.",
+        "hunt_detected": true,
+        "hunt_findings": [
+          "H1 definite diabetes-hif-zinc-review.txt"
+        ]
+      },
+      {
+        "seed": "c030",
+        "set": "cardiology",
+        "defect": "Endpoint changed from detecting AF history to predicting new-onset AF.",
+        "audit_verdict": "defect_gold",
+        "audit_detected": true,
+        "audit_verdict_as_expected": true
+      }
+    ]
+  },
+  "cases": [
+    {
+      "set": "als-ftd",
+      "id": "a002",
+      "category": "false_premise",
+      "verdict": "valid",
+      "severity": "none",
+      "stages_missing": [],
+      "stage0": "pass",
+      "blind": {
+        "answerability": "premise_wrong",
+        "confidence": "high",
+        "ambiguity": ""
+      },
+      "compare": {
+        "answerability_agrees": true,
+        "facts": {
+          "a002:f1": "match",
+          "a002:f2": "not_addressed"
+        },
+        "different_source": false
+      },
+      "audit": {
+        "verdict": "valid",
+        "severity": "none",
+        "summary": "The premise is false per the text. Liu measured DPR reduction in the BAC mice and no survival or motor outcomes. The no-deficit statement is attributed to cited prior work, and patient protection is left for future evaluation. The gold and its qualifiers are accurate.",
+        "failed_checks": [],
+        "proposed_correction": ""
+      },
+      "hunt": {
+        "stable": true,
+        "findings": [
+          {
+            "type": "H5",
+            "strength": "weak",
+            "file": "als-ftd-pmc10188109.txt",
+            "condition": "C1",
+            "quote_verified": true,
+            "explanation": "A close competitor reports DPR reduction together with behavioral improvement in repeat-expressing BAC mice. However, it attributes this to metformin and Zu et al. (2020), not Liu's Cas13d experiment, and does not establish survival improvement. It does not make the named study's premise true."
+          }
+        ]
+      },
+      "escalation_reasons": [],
+      "adjudication": null
+    },
+    {
+      "set": "als-ftd",
+      "id": "a008",
+      "category": "cross_doc_synthesis",
+      "verdict": "valid",
+      "severity": "none",
+      "stages_missing": [],
+      "stage0": "pass",
+      "blind": {
+        "answerability": "answerable",
+        "confidence": "medium",
+        "ambiguity": "The question does not say which human observations are meant. I took them to be the postmortem and iPSC data in Parameswaran et al. and the genetic diagnosis in the LeBlanc case report."
+      },
+      "compare": {
+        "answerability_agrees": true,
+        "facts": {
+          "a008:f1": "match",
+          "a008:f2": "partial"
+        },
+        "different_source": false
+      },
+      "audit": {
+        "verdict": "valid",
+        "severity": "none",
+        "summary": "Both required facts are supported by the anchors. The sources are complementary and the reference answer's caveat is marked as authored interpretation. One point to note: p-PKR is shown by IHC (n=4 per genotype) while p-eIF2α is shown by immunoblot (n=6). The gold does not misstate this.",
+        "failed_checks": [],
+        "proposed_correction": ""
+      },
+      "hunt": {
+        "stable": true,
+        "findings": []
+      },
+      "escalation_reasons": [
+        "compare: Blind answer reported ambiguity about which human observations were meant."
+      ],
+      "adjudication": {
+        "id": "a008",
+        "verdict": "valid",
+        "severity": "none",
+        "condition_first_affected": "none",
+        "gold_stands": true,
+        "evidence": [
+          {
+            "file": "als-ftd-pmc10188109.txt",
+            "quote": "tochemistry staining showed that the level of phosphorylated PKR is increased in the frontal cortex, ",
+            "point": "f1: phosphorylated PKR is increased in frontal cortex of C9ORF72 expansion carriers versus age-matched controls, as the key states.",
+            "quote_verified": true
+          },
+          {
+            "file": "als-ftd-pmc10188109.txt",
+            "quote": "2020). In addition, the level of phosphorylated eIF2α after normalizing to the total eIF2α level is also ",
+            "point": "f1: the eIF2α finding is the normalized phosphorylated level, matching the key's wording 'normalized phosphorylated eIF2α'.",
+            "quote_verified": true
+          },
+          {
+            "file": "als-ftd-pmc10188109.txt",
+            "quote": "C, Table 1). These results suggest that the PKR/eIF2α pathway is activated in C9FTD/ALS patients. ",
+            "point": "The authors frame the tissue result as pathway activation (an association), not as a diagnostic test, which supports the key's contrast.",
+            "quote_verified": true
+          },
+          {
+            "file": "als-ftd-pmc10188109.txt",
+            "quote": "Postmortem brain tissues from C9FTD/ALS patients (n = 6) and controls (n = 6) were obtained from ",
+            "point": "The human tissue is a postmortem patient-versus-control series, matching the key's population and timeframe.",
+            "quote_verified": true
+          },
+          {
+            "file": "als-ftd-pmc10188109.txt",
+            "quote": "levels of either phosphorylated PKR or phosphorylated eIF2α of 38- day- old neurons (Figure 5—figure ",
+            "point": "The only other human-derived observation in this article (iPSC motor neurons, no difference) sits in the same paragraph and does not contradict f1; it is an optional addition, not a competing answer.",
+            "quote_verified": true
+          },
+          {
+            "file": "als-ftd-pmc10802081.txt",
+            "quote": "in keeping with Alzheimer ’s disease and it was not felt to",
+            "point": "f2: the SPECT reading pointed to Alzheimer's disease rather than FTLD, i.e. it was discordant with the final diagnosis.",
+            "quote_verified": true
+          },
+          {
+            "file": "als-ftd-pmc10802081.txt",
+            "quote": "in C9orf72, thereby con ﬁrming a diagnosis of FTD-ALS.",
+            "point": "f2: the diagnosis was confirmed by genetic testing that found the C9orf72 repeat expansion.",
+            "quote_verified": true
+          },
+          {
+            "file": "als-ftd-pmc10802081.txt",
+            "quote": "post-mortem autopsy and the ﬁnal report con ﬁrmed a",
+            "point": "f2: autopsy confirmed FTLD with TDP pathology, i.e. pathology confirmation.",
+            "quote_verified": true
+          },
+          {
+            "file": "als-ftd-pmc10802081.txt",
+            "quote": "although the neuroimagingﬁndings were not consistent with",
+            "point": "The case report's own discussion restates that imaging was non-confirmatory and genetics settled the diagnosis, corroborating f2 outside the anchor passages.",
+            "quote_verified": true
+          }
+        ],
+        "rationale": "The only escalation reason is that the blind answer reported ambiguity about which \"human observations\" were meant. I read the relevant sections of both named articles and the ambiguity does not affect scoring.\n\nIn Parameswaran et al. the human material is confined to one Results subsection (\"Increased levels of phosphorylated PKR and eIF2α in C9FTD/ALS patients\"). It contains the postmortem frontal cortex comparison (the key's f1) and a brief negative result in patient-derived iPSC motor neurons. The postmortem finding is the headline of that subsection and of Figure 5, and the iPSC result is a compatible addition rather than a rival answer. A responder who reads \"human observations\" either way will state f1. In LeBlanc et al. the whole article is one patient's case, so there is no alternative reading. The blind answer in fact resolved the ambiguity the same way the key does.\n\nBoth required facts are supported by their anchors as written. f1: p-PKR increased by immunohistochemistry and normalized p-eIF2α significantly increased by immunoblot in C9FTD/ALS frontal cortex versus controls. The key does not misstate the assay or sample sizes (it gives none). f2: SPECT read as Alzheimer's rather than FTLD, genetic testing confirmed FTD-ALS, autopsy confirmed FTLD-TDP. The reference answer's statement that neither study validates PKR as a diagnostic test is marked as authored interpretation and is not scored as a source fact.\n\nNo evidence outside the two source articles bears on the case. A corpus search for PKR, SPECT and the author names found only isolated single hits in three unrelated articles (cardiology and diabetes), and the question names both studies, so nothing outside can substitute or contradict.\n\nOne observation that is not a defect: the compare record marks the blind answer's f2 as partial because it omitted the discordant SPECT. That reflects the blind answer's completeness, not a problem with the key; the SPECT detail is clearly in the text and is a reasonable part of a 'diagnostic history'.",
+        "proposed_correction": "",
+        "blind_answer_assessment": "The blind answer was substantively right: it found both source articles, stated f1 in full, and gave the genetic diagnosis and autopsy confirmation, missing only the discordant SPECT. Its flagged ambiguity is mild and it resolved it the same way as the key; its one unverified quote is real text that fails exact matching only because the source breaks 'uncer-/tainty' across a line.",
+        "hunter_assessment": "The hunter was right to report no findings. My own search found PKR, SPECT and author-name hits outside the two source articles only as single isolated mentions in three unrelated cardiology and diabetes articles, which I did not open because the question names both studies."
+      }
+    },
+    {
+      "set": "cardiology",
+      "id": "c007",
+      "category": "direct_lookup",
+      "verdict": "valid",
+      "severity": "none",
+      "stages_missing": [],
+      "stage0": "pass",
+      "blind": {
+        "answerability": "answerable",
+        "confidence": "high",
+        "ambiguity": ""
+      },
+      "compare": {
+        "answerability_agrees": true,
+        "facts": {
+          "f1": "match"
+        },
+        "different_source": false
+      },
+      "audit": {
+        "verdict": "valid",
+        "severity": "none",
+        "summary": "The Diagnostic work-up passage lists exactly the four required steps, and the reference answer matches it. The anchor also carries tag c008:f1, which is outside this case.",
+        "failed_checks": [],
+        "proposed_correction": ""
+      },
+      "hunt": {
+        "stable": true,
+        "findings": [
+          {
+            "type": "H5",
+            "strength": "weak",
+            "file": "cardio-resistant-hypertension-korean-consensus.txt",
+            "condition": "C2",
+            "quote_verified": true,
+            "explanation": "This consensus addresses the same apparent-resistant-hypertension diagnostic work-up, including measurement, adherence and out-of-office monitoring. It is the Korean consensus, not the Thai consensus, and this passage does not supply the complete requested drug/substance check or the stated monitoring fallback. It is a close retrieval competitor rather than an attributed alternative answer."
+          }
+        ]
+      },
+      "escalation_reasons": [],
+      "adjudication": null
+    },
+    {
+      "set": "cardiology",
+      "id": "c010",
+      "category": "cross_doc_synthesis",
+      "verdict": "valid_minor",
+      "severity": "non_blocking",
+      "stages_missing": [],
+      "stage0": "pass",
+      "blind": {
+        "answerability": "answerable",
+        "confidence": "medium",
+        "ambiguity": "EMPEROR-Preserved follow-up could mean the BP-analysis window (up to Week 172) or the trial's median follow-up, which I did not find in the text. Reported BP change in EMPEROR is a between-arm (empagliflozin vs placebo) difference, whereas Cameroon reports within-arm change for each group."
+      },
+      "compare": {
+        "answerability_agrees": true,
+        "facts": {
+          "f1": "match",
+          "f2": "partial"
+        },
+        "different_source": false
+      },
+      "audit": {
+        "verdict": "valid",
+        "severity": "none",
+        "summary": "All values are present in the text and bound to the correct study. The caveat about non-comparability is appropriate.",
+        "failed_checks": [],
+        "proposed_correction": ""
+      },
+      "hunt": {
+        "stable": true,
+        "findings": [
+          {
+            "type": "H5",
+            "strength": "weak",
+            "file": "cardio-resistant-hypertension-thai-consensus.txt",
+            "condition": "C1",
+            "quote_verified": true,
+            "explanation": "The surrounding passage attributes this to PARAGON-HF patients with HFpEF and apparent resistant hypertension. It offers another HFpEF resistant-hypertension drug comparison with follow-up and SBP effects, making it a plausible undeclared competitor. It concerns sacubitril/valsartan versus valsartan at one and four months, not EMPEROR-Preserved empagliflozin or the Cameroon spironolactone trial; it supplies neither requested numerical BP comparison."
+          }
+        ]
+      },
+      "escalation_reasons": [
+        "compare: Blind answer reported ambiguity about EMPEROR-Preserved follow-up and between-arm vs within-arm BP change."
+      ],
+      "adjudication": {
+        "id": "c010",
+        "verdict": "valid_minor",
+        "severity": "non_blocking",
+        "condition_first_affected": "none",
+        "gold_stands": true,
+        "evidence": [
+          {
+            "file": "cardio-spironolactone-diabetes-trial.txt",
+            "quote": "daily 25 mg of spironolactone (n = 9) or to an alternative antihypertensive regimen (n = 8), on top of any ongoing",
+            "point": "Cameroon added drug is spironolactone 25 mg daily, on top of the ongoing regimen, against an active alternative regimen (f1).",
+            "quote_verified": true
+          },
+          {
+            "file": "cardio-spironolactone-diabetes-trial.txt",
+            "quote": "They were seen at the start of the treatment, then 2 and 4 weeks later.",
+            "point": "Cameroon follow-up is visits at two and four weeks in a four-week trial (f1).",
+            "quote_verified": true
+          },
+          {
+            "file": "cardio-spironolactone-diabetes-trial.txt",
+            "quote": "office systolic BP (−33 vs. −14 mmHg; p = 0.024), and in diastolic BP (−14 vs. −5 mmHg; p = 0.006). After 1 month of",
+            "point": "Office SBP fell 33 vs 14 mmHg, spironolactone vs alternative regimen, at the end of the one-month trial; these are within-arm changes from baseline reported for each group (f1).",
+            "quote_verified": true
+          },
+          {
+            "file": "cardio-spironolactone-diabetes-trial.txt",
+            "quote": "tively decreasing by 33 vs. 14 mmHg (p  = 0.024) and by",
+            "point": "The Results section repeats the same 33 vs 14 mmHg office SBP figures as the abstract; there is no internal conflict.",
+            "quote_verified": true
+          },
+          {
+            "file": "cardio-emperor-preserved-resistant-hypertension.txt",
+            "quote": "or empagliflozin 10 mg in addition to the usual drug therapy as defined at",
+            "point": "EMPEROR-Preserved added empagliflozin 10 mg or placebo to usual therapy (f2).",
+            "quote_verified": true
+          },
+          {
+            "file": "cardio-emperor-preserved-resistant-hypertension.txt",
+            "quote": "NCT03057951. Patients with heart failure and ejection fraction > 40%",
+            "point": "The EMPEROR-Preserved population is heart failure with EF > 40% (f2).",
+            "quote_verified": true
+          },
+          {
+            "file": "cardio-emperor-preserved-resistant-hypertension.txt",
+            "quote": "point. The effects of empagliflozin on SBP were determined over 172",
+            "point": "The article states its own BP follow-up window as 172 weeks, which is the follow-up the key uses; this settles the blind answer's follow-up ambiguity.",
+            "quote_verified": true
+          },
+          {
+            "file": "cardio-emperor-preserved-resistant-hypertension.txt",
+            "quote": "tween 2.4 and 3.3 mmHg, while later from Weeks 52–172, BP values",
+            "point": "The resHTN SBP treatment difference was 2.4–3.3 mmHg at weeks 4–32, with similar values at weeks 52–172 (f2).",
+            "quote_verified": true
+          },
+          {
+            "file": "cardio-emperor-preserved-resistant-hypertension.txt",
+            "quote": ".15 and .92. In resHTN at Weeks 4–32, there was a significant",
+            "point": "The 2.4–3.3 mmHg figure is a between-treatment (empagliflozin vs placebo) difference, as the key words it, not a within-arm change.",
+            "quote_verified": true
+          },
+          {
+            "file": "cardio-resistant-hypertension-thai-consensus.txt",
+            "quote": "The post hoc analysis of the PARAGON-HF (the Pro-",
+            "point": "The hunt finding concerns PARAGON-HF (sacubitril/valsartan vs valsartan), a different trial and drug from either study named in the question, so it is not a competing source.",
+            "quote_verified": true
+          }
+        ],
+        "rationale": "I read both source articles around every anchor, and every number in the key is in the text and bound to the correct study, arm and timeframe.\n\n**Escalation reason: EMPEROR-Preserved follow-up ambiguity.** The blind answer wondered whether \"follow-up\" meant the BP-analysis window or the trial's median follow-up. The article text contains no median follow-up for the trial; the only uses of \"median\" are generic descriptions of how data are presented. The Methods state that the effects of empagliflozin on SBP were determined over 172 weeks, and the Results give weeks 4–32 and 52–172. The key's weeks 4–172 framing is therefore the only follow-up the article supports, and the blind answer reached the same figures. The question is not ambiguous in a way that changes scoring.\n\n**Escalation reason: between-arm vs within-arm BP change.** This is a real difference between the two studies, not a defect. Cameroon reports the within-arm fall in each group (33 vs 14 mmHg), and EMPEROR reports a between-treatment difference (2.4–3.3 mmHg). The key words each one correctly (\"reductions were 33 versus 14\" and \"between-treatment differences\") and adds that they are not comparable measures. The blind answer's observation agrees with the key.\n\n**Hunt finding (C1, weak).** The Thai consensus passage is about PARAGON-HF, sacubitril/valsartan vs valsartan. The question names the Cameroon spironolactone trial and the EMPEROR-Preserved resHTN analysis, so this is neither an alternative source nor counter-evidence. Other corpus files mentioning EMPEROR or empagliflozin were only counted, not read in full; the hunt had already examined them and reported no competing resHTN BP figures.\n\n**Minor defect in the key itself.** Fact f2 bundles two things the question does not ask for: the EF>40% inclusion criterion, and the editorial sentence \"These are not comparable measures of fourth-line efficacy in the same cohort\". The phrase \"fourth-line\" appears in neither article. The compare step scored the blind answer \"partial\" on f2 only for omitting these and the 10 mg dose, although it had the drug, comparator, follow-up and BP figures right. A strict grader could under-credit a substantively correct answer, so I rate this non-blocking rather than none. The key's facts are accurate and it can be used unchanged, provided the caveat is judged leniently.\n\nThe shared metadata fields (population, timeframe) are identical on both facts, which is cosmetic.",
+        "proposed_correction": "Optional, non-blocking. In f2, keep as required content only: empagliflozin 10 mg vs placebo, the resHTN SBP between-treatment difference of 2.4–3.3 mmHg at weeks 4–32, and similar BP at weeks 52–172. Move the EF>40% criterion and the sentence \"These are not comparable measures of fourth-line efficacy in the same cohort\" out of the required claim into a qualifier or rubric note, or reword it to the text-grounded point that Cameroon reports within-arm reductions while EMPEROR reports a placebo-controlled between-arm difference. Drop the phrase \"fourth-line\", which neither article uses.",
+        "blind_answer_assessment": "The blind answer was substantively correct on drug, follow-up and BP figures for both studies, and matches the key. Its flagged ambiguity is not a real one: the article gives no median follow-up and states the 172-week BP window, and its within-arm vs between-arm remark is the same point the key's caveat makes.",
+        "hunter_assessment": "The hunter was right to rate the finding weak. The PARAGON-HF passage is a different trial and drug in a similar population, and it does not compete with or contradict the key."
+      }
+    },
+    {
+      "set": "cardiology",
+      "id": "c022",
+      "category": "unanswerable",
+      "verdict": "valid",
+      "severity": "none",
+      "stages_missing": [],
+      "stage0": "pass",
+      "blind": {
+        "answerability": "premise_wrong",
+        "confidence": "high",
+        "ambiguity": "If the question meant the 1-year MACE risk, the external validation cohort rate was 31.60% and the derivation cohort rate was 16.43%."
+      },
+      "compare": {
+        "answerability_agrees": false,
+        "facts": {},
+        "different_source": true
+      },
+      "audit": {
+        "verdict": "valid",
+        "severity": "none",
+        "summary": "I searched the articles for ten-year, 10-year, hard MACE and nomogram. The Gao article reports only a one-year MACE composite, which includes unstable angina, with an external cohort of 288 patients. No ten-year hard-MACE estimate appears in any article. The only 10-year mentions are in the TyG article, which concerns Framingham risk.",
+        "failed_checks": [],
+        "proposed_correction": ""
+      },
+      "hunt": {
+        "stable": true,
+        "findings": [
+          {
+            "type": "H5",
+            "strength": "weak",
+            "file": "cardio-cad-ct-angiography.txt",
+            "condition": "C1",
+            "quote_verified": true,
+            "explanation": "The named Gao study supplies an original-cohort event rate and externally validates its nomogram, making this a particularly tempting substitute. However, 16.43% is observed one-year composite incidence, not an assigned ten-year hard-MACE risk. The endpoint includes unstable-angina revascularization and rehospitalization; the limitations explicitly require longer follow-up and harder outcomes. This does not supply the absent fact."
+          }
+        ]
+      },
+      "escalation_reasons": [
+        "compare: Blind answered premise_wrong while the key status is absent_fact (not_in_articles).",
+        "compare: Verified quotes cite cardio-cad-ct-angiography.txt, but the key lists no source files.",
+        "compare: Blind answer reported ambiguity (1-year MACE reading)."
+      ],
+      "adjudication": {
+        "id": "c022",
+        "verdict": "valid",
+        "severity": "none",
+        "condition_first_affected": "none",
+        "gold_stands": true,
+        "evidence": [
+          {
+            "file": "cardio-cad-ct-angiography.txt",
+            "quote": "w er e r etr ospectiv ely analyzed. Based on 1-y ear follo w-up, pa tients w er e",
+            "point": "The Gao nomogram study defines its outcome groups on one-year follow-up, not ten years.",
+            "quote_verified": true
+          },
+          {
+            "file": "cardio-cad-ct-angiography.txt",
+            "quote": "expe rienced MA CE within 1 ye ar of follo w-up, corre sponding to",
+            "point": "The only original-cohort figure (16.43%) is an observed one-year composite MACE incidence, not a ten-year hard-MACE risk assigned by the nomogram.",
+            "quote_verified": true
+          },
+          {
+            "file": "cardio-cad-ct-angiography.txt",
+            "quote": "one-year follo w-up was short, and MA CE events wer e",
+            "point": "The authors themselves state follow-up was one year and events were mainly unstable-angina rehospitalisations rather than hard endpoints.",
+            "quote_verified": true
+          },
+          {
+            "file": "cardio-cad-ct-angiography.txt",
+            "quote": "validatio n with longer follow-u p and harder outcomes.",
+            "point": "Validation with longer follow-up and harder outcomes is stated as still required, so no such validated estimate exists in the paper.",
+            "quote_verified": true
+          },
+          {
+            "file": "cardio-cad-ct-angiography.txt",
+            "quote": "hard endpoint events (n = 5 in the deriva tion cohort).",
+            "point": "A hard-endpoint-only model could not even be fitted in the original cohort, so no hard-MACE risk is reported at any horizon.",
+            "quote_verified": true
+          },
+          {
+            "file": "cardio-cad-ct-angiography.txt",
+            "quote": "extern al validation cohort, 91 patients (31.60%) developed MA CE.",
+            "point": "The external validation figure is a one-year composite MACE rate in a different cohort, not a ten-year hard-MACE risk for the original cohort.",
+            "quote_verified": true
+          },
+          {
+            "file": "cardio-ccta-tyg-incremental-value.txt",
+            "quote": "predictive value of TyG index to Framingham risk score model among participants at intermediate 10-year",
+            "point": "The only cardiology '10-year' mention in the corpus concerns Framingham risk strata in a cited TyG-index study, unrelated to Gao's CCTA nomogram.",
+            "quote_verified": true
+          }
+        ],
+        "rationale": "The key stands: no article reports an externally validated ten-year hard-MACE risk for the Gao CCTA nomogram's original cohort.\n\nI searched all 55 articles for \"10-year\", \"ten-year\", \"hard\" and \"nomogram\". \"Nomogram\" appears only in the Gao article and once in an unrelated tuberculosis outlier. The only cardiology \"10-year\" hit is the TyG article's reference to Framingham risk strata. The Gao article reports a one-year composite MACE that is mostly unstable-angina rehospitalisation, and says a hard-endpoint sensitivity analysis failed to converge.\n\nEscalation reasons:\n\n1. **Blind said premise_wrong, key says absent_fact.** This is a labelling difference, not a substantive one. Both conclude that the requested figure does not exist in the corpus and that nothing should be substituted. The key's own rationale (\"horizon is one year and composite includes unstable-angina utilization\") is the same reasoning the blind answer gave. A system that says the fact is not reported, and explains that the model is one-year and soft-endpoint, satisfies the reference answer.\n\n2. **Blind quotes cite cardio-cad-ct-angiography.txt, key lists no source files.** This is expected for an unanswerable case with no anchors. The Gao article is in the key's search scope, and the cited passages show the fact is absent rather than supply it.\n\n3. **Blind reported ambiguity (one-year reading).** The question explicitly says \"ten-year hard-MACE\", so it is not ambiguous. The blind answer offered the one-year rates (16.43% and 31.60%) only as a clearly labelled conditional, not as the answer. That does not breach the forbidden conflation.\n\nThe audit's G3 quote was flagged unverified only because it spans a line break in the extraction; the text is present at lines 322–323.\n\nOne incidental point: the article gives the derivation cohort as n = 131 in the introduction and discussion but n = 280 in the abstract and results. This does not bear on the absent fact.",
+        "proposed_correction": "",
+        "blind_answer_assessment": "Correct in substance: it found that the nomogram is a one-year, mostly soft-endpoint model and declined to give a ten-year hard-MACE figure. Its \"premise_wrong\" label and conditional mention of the one-year rates are consistent with the key's absent-fact answer.",
+        "hunter_assessment": "Correct: the single finding (16.43% one-year composite incidence) is a tempting substitute with a different horizon and endpoint, and the hunter rightly rated it weak and non-breaking. My own corpus-wide search found no other counter-evidence."
+      }
+    },
+    {
+      "set": "diabetes",
+      "id": "d002",
+      "category": "cross_doc_distractor",
+      "verdict": "valid_minor",
+      "severity": "non_blocking",
+      "stages_missing": [],
+      "stage0": "pass",
+      "blind": {
+        "answerability": "answerable",
+        "confidence": "high",
+        "ambiguity": "'PRS-by-SHBG interaction estimate' could be misread as the female marginal SHBG effect, which is OR 0.45 (95% CI 0.44–0.46); the interaction-term estimate, which the question names, is OR 0.88 (0.85–0.90). The p-value is also printed two ways (1.09E-18 in abstract/Table 2; p < 2 × 10-16 in the text), both reported above."
+      },
+      "compare": {
+        "answerability_agrees": true,
+        "facts": {
+          "f1": "match"
+        },
+        "different_source": false
+      },
+      "audit": {
+        "verdict": "valid",
+        "severity": "none",
+        "summary": "Gold matches the abstract, the results text and Table 2. The decoy is plausible and the stated reason is correct.",
+        "failed_checks": [],
+        "proposed_correction": ""
+      },
+      "hunt": {
+        "stable": true,
+        "findings": [
+          {
+            "type": "H5",
+            "strength": "weak",
+            "file": "cardio-diabetes-hypertension-polygenic.txt",
+            "condition": "C1",
+            "quote_verified": true,
+            "explanation": "This article combines polygenic disease-risk research, T2D and SHBG, making it closer to the requested hormone/genetic-risk topic than the named CYP2C9 sulphonylurea-response decoy. However, it concerns variant clusters and T2D–blood-pressure comorbidity, not Dabbs-Brown's female PRS-by-SHBG interaction. It supplies neither the requested female OR nor its confidence interval. The named decoy's abstract confirms its distinct Pashtun hypoglycaemia population and endpoint."
+          }
+        ]
+      },
+      "escalation_reasons": [
+        "compare: Blind answer reported ambiguity (marginal SHBG OR vs interaction term; two printed p-value formats)."
+      ],
+      "adjudication": {
+        "id": "d002",
+        "verdict": "valid_minor",
+        "severity": "non_blocking",
+        "condition_first_affected": "none",
+        "gold_stands": true,
+        "evidence": [
+          {
+            "file": "diabetes-gene-sex-hormone-interactions.txt",
+            "quote": "The study population consisted of white European UK Biobank participants. Individ-",
+            "point": "The population in the key (white European UK Biobank participants) is stated verbatim in the abstract methods.",
+            "quote_verified": true
+          },
+          {
+            "file": "diabetes-gene-sex-hormone-interactions.txt",
+            "quote": "women (OR 0.88; 95% CI: 0.85-0.90; P = 1.09E-18).",
+            "point": "The abstract gives the female PRS-by-SHBG interaction as OR 0.88, CI 0.85-0.90, matching the key.",
+            "quote_verified": true
+          },
+          {
+            "file": "diabetes-gene-sex-hormone-interactions.txt",
+            "quote": "significant interaction being between PRST2D and SHBG in women (OR 0.88, 95% C.I. 0.85-0.90, p < 2 × 10-16). A closer",
+            "point": "The results text gives the same estimate and interval for women and explicitly calls it the interaction term; only the p-value format differs from the abstract.",
+            "quote_verified": true
+          },
+          {
+            "file": "diabetes-gene-sex-hormone-interactions.txt",
+            "quote": "PRST2D x SHBG 0.88 (0.85-0.90) 1.09E-18 0.97 (0.95-0.99) 2.17E-03",
+            "point": "Table 2 interaction row: the first (Women) column is 0.88 (0.85-0.90), the second (Men) is 0.97. The binding agrees with the abstract and results prose, so no PDF check is needed.",
+            "quote_verified": true
+          },
+          {
+            "file": "diabetes-gene-sex-hormone-interactions.txt",
+            "quote": "Higher SHBG level was protective in both women (OR 0.45 C.I. 0.44-0.46) and men (OR 0.67, C.I.",
+            "point": "OR 0.45 is the marginal effect of SHBG level, a separate quantity that the article clearly distinguishes from the PRS-by-SHBG interaction term; it is not a competing answer.",
+            "quote_verified": true
+          },
+          {
+            "file": "diabetes-gene-sex-hormone-interactions.txt",
+            "quote": "ratios shown are per increase in standard deviation. Age and principal components 1–10 were covariates in all models.",
+            "point": "The estimate is an odds ratio of T2D (disease risk) from an adjusted logistic model, supporting the key's 'disease-risk interaction' framing.",
+            "quote_verified": true
+          },
+          {
+            "file": "diabetes-cyp2c9-hypoglycaemia.txt",
+            "quote": "Pashtun ethnicity were recruited from 10 different districts of Khyber Pakhtunkhwa, Pakistan to",
+            "point": "The decoy concerns a Pashtun sulphonylurea-hypoglycaemia cohort, so the key's reason for its inapplicability is correct.",
+            "quote_verified": true
+          },
+          {
+            "file": "cardio-diabetes-hypertension-polygenic.txt",
+            "quote": "hormones (testosterone and SHBG), higher TG along with lower HDL-",
+            "point": "The only other corpus mention of SHBG is a variant-cluster description with no PRS-by-SHBG interaction estimate, so it does not compete with the key.",
+            "quote_verified": true
+          }
+        ],
+        "rationale": "The key's answer is correct and can be used for scoring unchanged; the only defects are cosmetic metadata issues.\n\n**Escalation reason: marginal SHBG OR vs interaction term.** This is not a real ambiguity. The question asks for the \"PRS-by-SHBG interaction estimate\" in women. The article separates the two quantities in adjacent sentences and in separate Table 2 rows: the marginal SHBG effect is OR 0.45 (0.44-0.46), and the PRST2D x SHBG interaction term is OR 0.88 (0.85-0.90). The abstract, results prose and Table 2 all give 0.88 (0.85-0.90) for women. The blind answer raised the alternative reading only to reject it.\n\n**Escalation reason: two printed p-value formats.** The abstract and Table 2 print P = 1.09E-18; the results text prints p < 2 × 10-16. These are consistent (1.09E-18 is below 2E-16), not a source conflict. The key says only \"significant\", which both support, so neither form would be scored wrong.\n\n**Table binding.** In the flattened Table 2 row, the women's values come first and the men's (0.97, 0.95-0.99) second, matching the \"Women Men\" header order. The prose independently attributes 0.88 to women, so the text settles it.\n\n**Rest of corpus.** A search for SHBG, Dabbs and sex-hormone-binding terms finds only the source article and one passing mention in the cardio polygenic paper, which has no interaction estimate. There is no alternative source and the decoy is correctly inapplicable.\n\n**Minor defects, none affecting scoring:**\n- f1's `population` field contains a copy of the question text instead of a population.\n- The `endpoint`, `timeframe` and `qualifiers` fields are generic boilerplate.\n- The decoy anchor `drug_frequency` is tagged role \"support\" with a fact id from another case (d004:f1).\n- The `gene_shbg` excerpt stops before the closing parenthesis of the p-value.",
+        "proposed_correction": "No change to the reference answer or expected text. Optional clean-up: set f1's population field to \"white European UK Biobank participants (type 1 diabetes excluded), women\"; set the endpoint to \"PRS-for-T2D x SHBG interaction term, odds ratio of type 2 diabetes, adjusted for age and PC1-10\"; note in the rubric that either printed p-value (P = 1.09E-18 or p < 2 × 10-16) is acceptable and that the marginal SHBG OR 0.45 is not the requested estimate; relabel the drug_frequency anchor's role as decoy rather than support.",
+        "blind_answer_assessment": "The blind answer was right: it gave the same population and OR 0.88 (0.85-0.90) as the key, with verified quotes from the abstract, results text and Table 2. The ambiguity it flagged was a precautionary note it resolved correctly itself, not a real defect in the question.",
+        "hunter_assessment": "The hunter was right that nothing in the rest of the corpus breaks the case. Its single weak finding in the cardio polygenic paper mentions SHBG only as a variant-cluster trait, with a different endpoint and no interaction estimate, and my own search confirmed no other article mentions SHBG or Dabbs-Brown."
+      }
+    },
+    {
+      "set": "diabetes",
+      "id": "d005",
+      "category": "direct_lookup",
+      "verdict": "valid",
+      "severity": "none",
+      "stages_missing": [],
+      "stage0": "warn",
+      "blind": {
+        "answerability": "answerable",
+        "confidence": "high",
+        "ambiguity": "If 'CYP2C9*2 line' were read as the *2-carrying genotypes rather than the allele row, Table 5 gives *1/*2: OR 1.21 (1.81–3.02), crude p 0.036, adjusted p 0.039, and *2/*2: OR 2.83 (1.69–3.00), crude p 0.028, adjusted p 0.031 — but Table 4, which the question names, contains the allele row quoted above."
+      },
+      "compare": {
+        "answerability_agrees": true,
+        "facts": {
+          "f1": "match"
+        },
+        "different_source": false
+      },
+      "audit": {
+        "verdict": "valid",
+        "severity": "none",
+        "summary": "Table 4 values and the incoherence claim are verified. Binding is clear from the column headers.",
+        "failed_checks": [],
+        "proposed_correction": ""
+      },
+      "hunt": {
+        "stable": true,
+        "findings": []
+      },
+      "escalation_reasons": [
+        "compare: Blind answer reported ambiguity (Table 4 allele row vs Table 5 genotype rows)."
+      ],
+      "adjudication": {
+        "id": "d005",
+        "verdict": "valid",
+        "severity": "none",
+        "condition_first_affected": "none",
+        "gold_stands": true,
+        "evidence": [
+          {
+            "file": "diabetes-cyp2c9-hypoglycaemia.txt",
+            "quote": "CYP2C9*2 Decreases enzyme activity 35 (17.5%) 12 (6.0%) 0.102 (0.08–3.08) 0.021 0.031",
+            "point": "The Table 4 CYP2C9*2 allele row prints exactly the values in the key: OR 0.102, CI 0.08–3.08, then 0.021 and 0.031.",
+            "quote_verified": true
+          },
+          {
+            "file": "diabetes-cyp2c9-hypoglycaemia.txt",
+            "quote": "CYP2C9 Alleles Phenotypes Cases n (f) Controls n (f) OR (95%Cl) Crude p-Value Adjusted p-Value",
+            "point": "The header on the line directly above fixes the column order, so 0.021 is the crude P and 0.031 the adjusted P. The row is intact on one line, with no column interleaving.",
+            "quote_verified": true
+          },
+          {
+            "file": "diabetes-cyp2c9-hypoglycaemia.txt",
+            "quote": "Table 4. Allelic distribution/frequencies of CYPC19*2 and CYPC19*3 in cases and controls.",
+            "point": "Table 4 is the allele table. It has only one CYP2C9*2 row, so the question's 'Table 4 ... CYP2C9*2' has a single referent.",
+            "quote_verified": true
+          },
+          {
+            "file": "diabetes-cyp2c9-hypoglycaemia.txt",
+            "quote": "Table 5. Genotype frequencies of CYPC19*2 and CYPC19*3 in cases and controls.",
+            "point": "The genotype rows (*1/*2, *2/*2) that the blind answer raised as an alternative reading are in a separate table, Table 5, which the question does not name.",
+            "quote_verified": true
+          },
+          {
+            "file": "diabetes-cyp2c9-hypoglycaemia.txt",
+            "quote": "activity allele was more frequent in the diabetic patients with SIH compared to the control\ngroup (17.5% vs. 6.0%).",
+            "point": "The allele is more frequent in cases, which conflicts with a printed OR below 1. This supports the key's statement that the direction is anomalous.",
+            "quote_verified": true
+          },
+          {
+            "file": "diabetes-cyp2c9-hypoglycaemia.txt",
+            "quote": "group compared to the control (OR = 0.102, 95% conﬁdence interval (CI): 0.08–3.08,p = 0.021,",
+            "point": "The running text repeats the same OR, CI and crude P and cites Table 4, so the values are not an extraction artefact. It also shows a CI spanning 1 printed alongside P<0.05.",
+            "quote_verified": true
+          }
+        ],
+        "rationale": "The only escalation reason is that the blind answer reported an ambiguity between the Table 4 allele row and the Table 5 genotype rows. I read the Results sections 3.2–3.4 around both tables and the ambiguity is not real.\n\nThe question names Table 4 and CYP2C9*2. In the article, Table 4 is the allele table and contains exactly one CYP2C9*2 row. The *1/*2 and *2/*2 genotype rows are in Table 5 under a different title. The blind answer itself said the question names Table 4 and answered from the Table 4 row; its ambiguity note was a hypothetical, not a competing reading.\n\nThe key's values match the row exactly: OR 0.102, CI 0.08–3.08, crude P 0.021, adjusted P 0.031. The column header sits on the line immediately above the row and the row is on a single line, so the binding is settled by the text and no PDF check is needed. Section 3.4 repeats OR 0.102, CI 0.08–3.08 and p = 0.021 with a pointer to Table 4.\n\nThe key's incoherence claim is also supported by the article. The CI spans 1 while both P values are below 0.05, and an OR below 1 contradicts the allele being more frequent in cases (17.5% vs 6.0%) and the text's 'higher carriage rate' in cases.\n\nNo other article is involved. My search of all 55 articles for CYP2C9, the CI string and sulphonylurea-induced hypoglycaemia matched only this article, consistent with the empty hunt.\n\nTwo points do not affect scoring. The stage0 warning (the shared number '4') is just the table number. The key's 'population' field is filled with the question text and its 'endpoint' field is boilerplate; this is untidy metadata, but the expected text, anchor and rubric are correct.",
+        "proposed_correction": "",
+        "blind_answer_assessment": "The blind answer is correct and matches the key on every value and on the incoherence judgement (wrong direction, CI spanning 1 with significant P values), without repairing the estimate. Its ambiguity flag was over-cautious: it identified Table 4 as the named table, and the Table 5 genotype rows are not a plausible reading of the question.",
+        "hunter_assessment": "The hunter's empty result is right. My own search of the whole corpus found CYP2C9 and sulphonylurea-induced hypoglycaemia only in the source article, so there is no competing or contradicting evidence in any condition."
+      }
+    },
+    {
+      "set": "diabetes",
+      "id": "d023",
+      "category": "unanswerable",
+      "verdict": "valid_minor",
+      "severity": "non_blocking",
+      "stages_missing": [],
+      "stage0": "warn",
+      "blind": {
+        "answerability": "premise_wrong",
+        "confidence": "high",
+        "ambiguity": "If 'original Berthoumieux cohort' is read as the earlier retrospective 'Long-term results' study (reference 26, published 2024) rather than the randomized trial, the question becomes unanswerable from these articles: that study is only cited in the reference list and none of its 12-month HbA1c results are reproduced (answerability would be not_in_articles under that reading)."
+      },
+      "compare": {
+        "answerability_agrees": false,
+        "facts": {},
+        "different_source": true
+      },
+      "audit": {
+        "verdict": "valid_minor",
+        "severity": "non_blocking",
+        "summary": "The article reports only 3- and 6-month HbA1c, and a 12-month result is absent from this topic's articles. The follow-up paper is only cited. The case is sound, but the search scope lacks recorded terms.",
+        "failed_checks": [],
+        "proposed_correction": "Add the searched terms to search_scope, for example 12-month, twelve months, long-term, Berthoumieux, and Omada. Optionally clarify 'original' as the 6-month RCT."
+      },
+      "hunt": {
+        "stable": true,
+        "findings": []
+      },
+      "escalation_reasons": [
+        "compare: Blind answered premise_wrong while the key status is absent_fact (not_in_articles).",
+        "compare: Verified quotes cite diabetes-digital-education-cgm-trial.txt, but the key lists no source files.",
+        "compare: Blind answer reported ambiguity (original cohort could mean the earlier retrospective study).",
+        "audit: valid_minor (non_blocking) — The article reports only 3- and 6-month HbA1c, and a 12-month result is absent from this topic's articles. The follow-up paper is only cited. The case is sound, but the search scope lacks recorded terms."
+      ],
+      "adjudication": {
+        "id": "d023",
+        "verdict": "valid_minor",
+        "severity": "non_blocking",
+        "condition_first_affected": "none",
+        "gold_stands": true,
+        "evidence": [
+          {
+            "file": "diabetes-digital-education-cgm-trial.txt",
+            "quote": "(HbA1c) and CGM-derived glycemic measures compared to usual care for adults with type 2 diabetes over 6 months.",
+            "point": "The trial's stated objective covers 6 months only; no 12-month evaluation was planned.",
+            "quote_verified": true
+          },
+          {
+            "file": "diabetes-digital-education-cgm-trial.txt",
+            "quote": "a digital DSMES+CGM integrated solution (n=51) or usual care (n=49) for 6 months. The primary outcome was HbA 1c. The",
+            "point": "The randomized cohort (51 vs 49) was followed for 6 months, with HbA1c as primary outcome.",
+            "quote_verified": true
+          },
+          {
+            "file": "diabetes-digital-education-cgm-trial.txt",
+            "quote": "Interim and poststudy follow-up visits occurred 3 and 6",
+            "point": "The only assessment timepoints are 3 and 6 months; the 6-month visit is the poststudy visit.",
+            "quote_verified": true
+          },
+          {
+            "file": "diabetes-digital-education-cgm-trial.txt",
+            "quote": "mmol/mol, 95% CI −15.7 to 1.9 mmol/mol; P=.12).",
+            "point": "The latest HbA1c between-group difference reported is the 6-month one (−0.6%, P=.12); this is the near-miss value that must not be substituted for a 12-month result.",
+            "quote_verified": true
+          },
+          {
+            "file": "diabetes-digital-education-cgm-trial.txt",
+            "quote": "a life expectancy <12 months, renal impairment, alcohol",
+            "point": "The only occurrence of '12 months' in the article is an exclusion criterion, not an outcome timepoint.",
+            "quote_verified": true
+          },
+          {
+            "file": "diabetes-digital-education-cgm-trial.txt",
+            "quote": "26. Berthoumieux A, Linke S, Merry M, Megliola A, Juusola J, Napoleone J. Long-term results of a digital diabetes self-",
+            "point": "The earlier Berthoumieux retrospective cohort appears only as a reference-list citation; none of its results are reproduced, and it is neither randomized nor a DSMES+CGM study by its title.",
+            "quote_verified": true
+          },
+          {
+            "file": "diabetes-digital-education-cgm-trial.txt",
+            "quote": "longer and larger-scale trials are warranted to assess the",
+            "point": "The authors themselves call for longer trials, confirming no longer follow-up of this cohort is reported.",
+            "quote_verified": true
+          }
+        ],
+        "rationale": "The key stands: no article in the corpus reports a twelve-month HbA1c difference for the Berthoumieux digital DSMES+CGM randomized cohort. A corpus-wide search for Berthoumieux, Omada and DSMES matches only diabetes-digital-education-cgm-trial.txt, and that article is a 6-month trial with assessments at 3 and 6 months only.\n\nEscalation reasons, in turn:\n\n1. Blind said premise_wrong, key says absent_fact. These are two labels for the same textual fact. The blind answer explains why the value is missing (the trial ended at 6 months); the key records that it is missing. The reference answer asks the system to state the evidence limit and not invent a result, and the blind answer does exactly that, so it would be scored correct. The question does not assert a false fact about the study beyond presupposing a timepoint, which is the usual near-miss-timepoint construction for an unanswerable case. I do not treat this as a category defect.\n\n2. Blind quotes cite the trial article while the key lists no source files. This is expected for an absent-fact case: there are no anchors because there is nothing to anchor. The trial article is in the key's search scope, so nothing is inconsistent.\n\n3. Ambiguity over \"original cohort\". The question specifies \"digital DSMES+CGM randomized cohort\". The 2024 paper in reference 26 is described as a retrospective cohort study, so it is not randomized and does not fit. Even under that reading, the paper is only cited and none of its results appear in the corpus, so the answer is still \"not reported\". The ambiguity cannot change the scoring outcome.\n\n4. Audit valid_minor. I agree. The one real defect is clerical: the search scope records no search terms (the stage0 warning). Two smaller points: the key's forbidden-conflation line about \"observational/vignette findings\" is boilerplate that does not fit this RCT, and the word \"original\" in the question is slightly odd. Neither affects scoring.\n\nThe key's search scope lists 32 cardiology and diabetes files; I also checked the remaining corpus files for the study's name and intervention terms and found nothing, so no condition is affected.",
+        "proposed_correction": "Add the searched terms to the search scope (for example: Berthoumieux, Omada, DSMES, 12-month, twelve, long-term, NCT05368454). Optionally add to the reference answer that the trial ran for 6 months with HbA1c assessed at 3 and 6 months only, and that an answer saying the premise of a 12-month timepoint is wrong is acceptable. Optionally replace the boilerplate \"observational/vignette\" conflation line with one forbidding substitution of the 3- or 6-month difference (−0.7% / −0.6%) or of the cited 2024 retrospective cohort. No change to the answer itself.",
+        "blind_answer_assessment": "The blind answer is factually right and compatible with the key: it correctly found that the trial stops at 6 months, reported no 12-month value, and flagged the 6-month figures as not the requested timepoint. Its premise_wrong label differs from the key's absent_fact only in naming, not in substance.",
+        "hunter_assessment": "The hunter was right to report no findings. My own corpus-wide search confirms that only the trial article mentions Berthoumieux, Omada or DSMES, and it contains no 12-month outcome."
+      }
+    },
+    {
+      "set": "oncology",
+      "id": "o009",
+      "category": "multi_hop",
+      "verdict": "valid_minor",
+      "severity": "non_blocking",
+      "stages_missing": [],
+      "stage0": "pass",
+      "blind": {
+        "answerability": "answerable",
+        "confidence": "high",
+        "ambiguity": "The text gives conflicting numbers of studies for the HR analysis: the limitations say 4 studies, while the subtype HRs cite up to 2 studies each."
+      },
+      "compare": {
+        "answerability_agrees": true,
+        "facts": {
+          "f1": "match"
+        },
+        "different_source": false
+      },
+      "audit": {
+        "verdict": "valid_minor",
+        "severity": "non_blocking",
+        "summary": "The numbers and the four-study HR scope are supported and bound correctly. The only issue is that the 'not proof of causation or CVD mortality' sentence is not in the source.",
+        "failed_checks": [],
+        "proposed_correction": "Optionally label the causation caveat as a reviewer note, or drop it from the reference answer."
+      },
+      "hunt": {
+        "stable": true,
+        "findings": [
+          {
+            "type": "H5",
+            "strength": "weak",
+            "file": "onco-ici-cardiac-rct-meta.txt",
+            "condition": "C1",
+            "quote_verified": true,
+            "explanation": "This is another lung-cancer ICI cardiac-event meta-analysis with readily confusable pooled estimates. Its methods include randomized trials and both SCLC and NSCLC; its estimates are risk ratios, with chemotherapy comparators and a search through May 2023. It does not answer or contradict the specified observational NSCLC meta-analysis."
+          }
+        ]
+      },
+      "escalation_reasons": [
+        "compare: Blind answer reported ambiguity about the number of studies in the HR analysis.",
+        "audit: valid_minor (non_blocking) — The numbers and the four-study HR scope are supported and bound correctly. The only issue is that the 'not proof of causation or CVD mortality' sentence is not in the source."
+      ],
+      "adjudication": {
+        "id": "o009",
+        "verdict": "valid_minor",
+        "severity": "non_blocking",
+        "condition_first_affected": "none",
+        "gold_stands": true,
+        "evidence": [
+          {
+            "file": "onco-ici-cv-observational.txt",
+            "quote": "Results: Twelve observational studies using Real world Data were included,",
+            "point": "Study design and count of included studies match the key.",
+            "quote_verified": true
+          },
+          {
+            "file": "onco-ici-cv-observational.txt",
+            "quote": "hazard (HR = 1.78 (95% CI: 1.46, 2.17); p < 0.00001; I2 = 72%) compared to",
+            "point": "Pooled HR, CI and I2 match the key, and the HR is the comparative measure against non-ICI treatment.",
+            "quote_verified": true
+          },
+          {
+            "file": "onco-ici-cv-observational.txt",
+            "quote": "population of these twelve studies was 23,621 and their mean age of",
+            "point": "The 23,621 patient total is confirmed in Results 3.2.",
+            "quote_verified": true
+          },
+          {
+            "file": "onco-ici-cv-observational.txt",
+            "quote": "undergo ICI treatment (prevalence = 3% (95% CI: 3%-4%); p <",
+            "point": "Overall prevalence is 3%, reported separately from the HR; the source words it comparatively, which the key's qualifiers already handle.",
+            "quote_verified": true
+          },
+          {
+            "file": "onco-ici-cv-observational.txt",
+            "quote": "4 studies were used in analyzing HR. Nonetheless, these studies were",
+            "point": "The limitations state that only four studies were used for the HR analysis, as the key says.",
+            "quote_verified": true
+          },
+          {
+            "file": "onco-ici-cv-observational.txt",
+            "quote": "(HR = 1.78 (1.17, 2.68); p = 0.007; I2 = 29%) ( 22, 25), venous",
+            "point": "The heart-failure subtype HR draws on references 22 and 25, two of the four HR studies.",
+            "quote_verified": true
+          },
+          {
+            "file": "onco-ici-cv-observational.txt",
+            "quote": "thromboembolism (HR = 1.17 (1, 1.37); p = 0.05; I2 = 0%) ( 9, 26),",
+            "point": "The VTE subtype HR draws on references 9 and 26. Across section 3.4.2 the only references cited are 9, 22, 25 and 26, i.e. four distinct studies, so the per-subtype counts do not conflict with the four-study limitation.",
+            "quote_verified": true
+          },
+          {
+            "file": "onco-ici-cv-observational.txt",
+            "quote": "Conclusions: The treatment with ICIs caused a higher rate of CV events",
+            "point": "The authors use causal wording; the key's 'not proof of causation' sentence is not a source statement.",
+            "quote_verified": true
+          },
+          {
+            "file": "onco-ici-cv-observational.txt",
+            "quote": "(HR = 0.96 (0.67, 1.38); p = 0.82) ( 26), CV death (HR = 3.44 (2.15,",
+            "point": "The source does report a CV-death HR (one study), so the key's 'or CVD mortality' caveat is editorial and loosely worded.",
+            "quote_verified": true
+          },
+          {
+            "file": "onco-ici-cardiac-rct-meta.txt",
+            "quote": "Results A total of 30 studies including 16,331 patients, were included in the analysis. Pooled results showed that ",
+            "point": "The hunt's only finding is a different meta-analysis (30 studies, 16,331 patients, risk ratios versus chemotherapy), not a competing answer. Quote taken from the hunt record as verified there; I did not open this file.",
+            "quote_verified": true
+          }
+        ],
+        "rationale": "I read the whole source article; every number in the key is supported and bound to the right measure.\n\nEscalation 1 (blind answer's ambiguity about the number of HR studies): this is not a real conflict. The limitations say only 4 studies were used for the HR. Section 3.4.2 lists subtype HRs that each draw on one or two studies, and the references cited there are only 9, 22, 25 and 26. That is four distinct studies in total, so the per-subtype counts and the four-study limitation agree. The key's \"only four studies contributed to the pooled HR\" is correct.\n\nEscalation 2 (audit's valid_minor over the causation caveat): the audit is right that the sentence \"Observational association is not proof of causation or CVD mortality\" is not in the article. The authors say only that observational studies were included as a limitation, and their Conclusions actually use causal wording (\"caused a higher rate of CV events\"). The \"or CVD mortality\" part is also loose, because the article does report a single-study CV-death HR of 3.44. The sentence is an editorial gloss, and it sits inside the required fact's expected text. It is non-blocking: the question asks only for estimates and study design, the compare step scored the blind answer as a match without the caveat, and nothing in the rubric lists it as a separately required claim. A judge reading \"complete scoped meaning\" strictly could still penalise its absence, so it should be removed or relabelled.\n\nOther checks: the 3% prevalence is kept distinct from the HR, and the qualifiers handle the source's odd comparative wording for it. The multi_hop category is defensible because the four-study scope is in the Discussion, away from the estimates. The hunt finding is a different meta-analysis with a different design, population and effect measure, so no outside evidence affects the case. I did not open the other articles beyond term counts, which showed no other file with comparable hits.",
+        "proposed_correction": "Remove the sentence \"Observational association is not proof of causation or CVD mortality\" from the f1 expected text and the reference answer, or move it to a non-scored reviewer note. If a design caveat is wanted, use the source's own limitations instead: only observational studies were included, heterogeneity was moderate for the HR and high for prevalence, and only 4 studies were used for the HR. Optionally add to the acceptable alternatives that answers reporting the subtype HRs (for example CV death HR 3.44, peri- or myocarditis HR 5.51) or the 3 prospective / 9 retrospective split are acceptable and not contradictions.",
+        "blind_answer_assessment": "The blind answer is correct and complete on every source-supported element of the key: 12 studies, 23,621 patients, 3% prevalence, HR 1.78 (1.46–2.17), I2 72%, and four studies for the HR. Its reported ambiguity is mistaken, because the subtype HRs cite references 9, 22, 25 and 26, which are exactly four distinct studies.",
+        "hunter_assessment": "The hunter was right: its one finding is a different meta-analysis (30 studies, 16,331 patients, risk ratios versus chemotherapy) and it correctly rated it weak and non-contradicting. No other article in the corpus competes for this question."
+      }
+    },
+    {
+      "set": "oncology",
+      "id": "o025",
+      "category": "cross_doc_distractor",
+      "verdict": "valid",
+      "severity": "none",
+      "stages_missing": [],
+      "stage0": "pass",
+      "blind": {
+        "answerability": "answerable",
+        "confidence": "high",
+        "ambiguity": ""
+      },
+      "compare": {
+        "answerability_agrees": true,
+        "facts": {
+          "f1": "match"
+        },
+        "different_source": false
+      },
+      "audit": {
+        "verdict": "valid",
+        "severity": "none",
+        "summary": "The gold matches the source passage exactly and the decoy is reasonable and correctly dismissed.",
+        "failed_checks": [],
+        "proposed_correction": ""
+      },
+      "hunt": {
+        "stable": true,
+        "findings": []
+      },
+      "escalation_reasons": [],
+      "adjudication": null
+    },
+    {
+      "set": "outliers",
+      "id": "x001",
+      "category": "multi_hop",
+      "verdict": "valid_minor",
+      "severity": "non_blocking",
+      "stages_missing": [],
+      "stage0": "warn",
+      "blind": {
+        "answerability": "answerable",
+        "confidence": "high",
+        "ambiguity": "The phrase 'later common-taxa section' could be read as either the Results subsection 'Common bacterial taxa between UK Biobank database and FinnGen database' (which calls the three shared taxa significantly causally associated) or the Discussion paragraph (which says the 11 UK taxa were suggestive risk factors with 3 validated). Both readings are reported in the answer; they are consistent in substance."
+      },
+      "compare": {
+        "answerability_agrees": true,
+        "facts": {
+          "f1": "partial"
+        },
+        "different_source": false
+      },
+      "audit": {
+        "verdict": "valid",
+        "severity": "none",
+        "summary": "The gold is supported by the text. The UK section calls the associations suggestive and not significant after Bonferroni correction, while the later section claims significant causal associations for three taxa in both databases. The case is a legitimate multi-hop with an internal inconsistency.",
+        "failed_checks": [],
+        "proposed_correction": ""
+      },
+      "hunt": {
+        "stable": true,
+        "findings": []
+      },
+      "escalation_reasons": [
+        "compare: Blind answer reported ambiguity (which 'later common-taxa section' was meant)."
+      ],
+      "adjudication": {
+        "id": "x001",
+        "verdict": "valid_minor",
+        "severity": "non_blocking",
+        "condition_first_affected": "none",
+        "gold_stands": true,
+        "evidence": [
+          {
+            "file": "articles/outlier-microbiome-tb-mr.txt",
+            "quote": "Results In the UK Biobank database, we found that 11 bacterial taxa had potential causal effects on TB. Three \nbacterial taxa genus.Akkermansia, family.Verrucomicrobiacea, order.Verrucomicrobiales were validated in the FinnGen \ndatabase.",
+            "point": "The abstract gives the 11 UK Biobank taxa with 'potential causal effects' and the three FinnGen-validated taxa, as the key states.",
+            "quote_verified": true
+          },
+          {
+            "file": "articles/outlier-microbiome-tb-mr.txt",
+            "quote": "nary tuberculosis (EPTB)] were retrieved from the UK Biobank and the FinnGen consortium. And 195 bacterial taxa \nfrom phylum to genus were analyzed.",
+            "point": "The abstract gives the 195 taxa count.",
+            "quote_verified": true
+          },
+          {
+            "file": "articles/outlier-microbiome-tb-mr.txt",
+            "quote": "were suggestive associated with the increased risks of \nTB.",
+            "point": "The UK Biobank results section labels the eight risk-increasing taxa (including family Verrucomicrobiaceae, genus Akkermansia and order Verrucomicrobiales, listed just above at P = 0.028) as only suggestive.",
+            "quote_verified": true
+          },
+          {
+            "file": "articles/outlier-microbiome-tb-mr.txt",
+            "quote": "0.998–1.000, P = 0.027) exhibited suggestive protective \neffects against TB. Similar results were also obtained in \nML analyses. Nevertheless, these associations were no \nlonger significant after the Bonferroni correction.",
+            "point": "The UK Biobank section says the listed associations, risk and protective alike, were no longer significant after Bonferroni correction.",
+            "quote_verified": true
+          },
+          {
+            "file": "articles/outlier-microbiome-tb-mr.txt",
+            "quote": "ily: 0.05/32, and genus: 0.05/119). A significant causal \nrelationship existed when the IVW method produced a \nP value lower than the adjusted P value. Otherwise, it was \nconsidered suggestive evidence of a potential association.",
+            "point": "The paper's own Methods reserve 'significant causal relationship' for results passing the Bonferroni threshold, so the later 'significant' wording is a real internal inconsistency.",
+            "quote_verified": true
+          },
+          {
+            "file": "articles/outlier-microbiome-tb-mr.txt",
+            "quote": "Common bacterial taxa between UK Biobank database \nand FinnGen database\nThree bacterial taxa, including genus.Akkermansia, fam-\nily. Verrucomicrobiacea, and order. Verrucomicrobiales, \nhad a significant causal association with TB commonly in \nboth databases.",
+            "point": "There is a Results subsection literally headed 'Common bacterial taxa', after the UK section, and it makes the 'significant causal association ... in both databases' claim. This is the only reasonable referent of 'the later common-taxa section'.",
+            "quote_verified": true
+          },
+          {
+            "file": "articles/outlier-microbiome-tb-mr.txt",
+            "quote": "Concerning the UK Biobank database, our results indi -\ncated that 11 bacterial taxa had suggestive risk factors \nwith TB and 3 of them were validated in the FinnGen \ndatabase.",
+            "point": "The Discussion paragraph the blind answer offered as an alternative reading is not headed as a common-taxa section, and it does not contradict the key.",
+            "quote_verified": true
+          },
+          {
+            "file": "articles/outlier-microbiome-tb-mr.txt",
+            "quote": "and weighted mode methods. Nevertheless, these asso -\nciations were no longer significant after the Bonferroni \ncorrection.",
+            "point": "The FinnGen TB section carries the same Bonferroni caveat, which strengthens the inconsistency the key describes and does not conflict with it.",
+            "quote_verified": true
+          },
+          {
+            "file": "articles/outlier-microbiome-tuberculosis.txt",
+            "quote": "indirect evidence that the GM may play a causal role in TB\ndevelopment ( Yuan et al., 2024 ).",
+            "point": "The only other corpus article that cites Yuan et al. does so generically, with no taxa counts or Bonferroni statements, so there is no counter-evidence outside the source article.",
+            "quote_verified": true
+          }
+        ],
+        "rationale": "The key stands: every element of the reference answer is supported by the source article, and the one escalation reason does not hold up.\n\n**Escalation reason (blind answer reported ambiguity over which \"later common-taxa section\" was meant):** not a real ambiguity. The article has a Results subsection headed \"Common bacterial taxa between UK Biobank database and FinnGen database\", placed after the UK Biobank section, and it contains the anchored sentence. The Discussion paragraph the blind answer offered as a second reading is not a common-taxa section, and the blind answer itself said the two readings are consistent in substance. Its primary reading matched the key.\n\n**Key against the text:** I read the abstract, the UK Biobank results, the FinnGen results, the common-taxa subsection and the Discussion. The abstract gives 195 taxa, 11 UK Biobank taxa with \"potential causal effects\" and the three FinnGen-validated taxa. The UK section calls the associations suggestive and not significant after Bonferroni correction. The common-taxa subsection then says the three taxa \"had a significant causal association with TB commonly in both databases\". The Methods define \"significant\" as passing the Bonferroni threshold, so the inconsistency the key describes is real. All four anchors sit where the key says they do.\n\n**Stage0 warning (11 and 195 shared by question and answer):** these are premise numbers the question supplies, not a leak of the answer. The part being tested (suggestive, Bonferroni, the later \"significant\" claim) is not in the question.\n\n**Minor defects, none blocking:**\n- `forbidden_conflations` reads \"Do not equate environmental ARG abundance with patient infection incidence or clinical treatment outcomes.\" That is boilerplate from an antimicrobial-resistance case and has nothing to do with this Mendelian randomisation paper. It is unlikely to change a score.\n- The single fact f1 bundles a restatement of the abstract counts (195, 11, three taxa) with the substantive answer. The compare step marked the blind answer \"partial\" only because it did not repeat 195, a number the question already gives. A strict judge could under-score a correct answer for the same reason.\n- The `mr-uk-correction` anchor covers only the risk-increasing \"suggestive\" sentence, not the protective one. This is immaterial.\n- The abstract and common-taxa section spell the family \"Verrucomicrobiacea\" while the UK results spell it \"Verrucomicrobiaceae\". This is the source's own inconsistency and either spelling should be accepted.\n\n**Hunt:** I checked the other corpus articles mentioning Akkermansia, Verrucomicrobi- or Mendelian randomisation. Only the TB microbiome review cites Yuan et al., and only generically, so no defect arises outside the case's own source.",
+        "proposed_correction": "The reference answer and anchors need no change. Two optional clean-ups: replace the irrelevant ARG-abundance entry in forbidden_conflations with one relevant to this case (for example, do not present the three taxa as Bonferroni-significant findings, and do not treat the genetic associations as intervention effects). Either split the restated abstract counts out of f1 or note in the rubric that repeating the question-supplied numbers (195, 11) is not required for full credit.",
+        "blind_answer_assessment": "The blind answer was substantively correct and matched the key on the suggestive label, the Bonferroni statement, the later \"significant causal association in both databases\" claim and the inconsistency. The ambiguity it reported is not real, because the article has a subsection literally headed \"Common bacterial taxa\", and omitting the question-supplied 195 count is not a real miss.",
+        "hunter_assessment": "The hunter was right to report no findings. The only other article that cites Yuan et al. is the TB microbiome review, which mentions it generically with no taxa counts or multiplicity statements, and the remaining hits are unrelated Mendelian randomisation or Akkermansia mentions."
+      }
+    },
+    {
+      "set": "outliers",
+      "id": "x002",
+      "category": "false_premise",
+      "verdict": "valid_minor",
+      "severity": "non_blocking",
+      "stages_missing": [],
+      "stage0": "warn",
+      "blind": {
+        "answerability": "premise_wrong",
+        "confidence": "high",
+        "ambiguity": ""
+      },
+      "compare": {
+        "answerability_agrees": true,
+        "facts": {
+          "f1": "match"
+        },
+        "different_source": false
+      },
+      "audit": {
+        "verdict": "valid_minor",
+        "severity": "non_blocking",
+        "summary": "The false premise is supported: the study is a two-sample MR analysis of GWAS summary data, with no probiotic dosing and no patient treatment. The only issue is that the pre-check found no recorded offending premise, which is an annotation gap.",
+        "failed_checks": [],
+        "proposed_correction": "Record the offending premise explicitly: that Yuan et al. administered a probiotic treatment and dose and showed reduced TB incidence in patients."
+      },
+      "hunt": {
+        "stable": true,
+        "findings": [
+          {
+            "type": "H5",
+            "strength": "weak",
+            "file": "outlier-microbiome-tuberculosis.txt",
+            "condition": "C1",
+            "quote_verified": true,
+            "explanation": "This review describes actual probiotic supplementation in TB patients, making it a plausible treatment-related competitor. However, it attributes the observation to Baral, concerns adverse effects and microbiota during anti-TB treatment, and does not demonstrate reduced TB incidence or provide a Yuan treatment dose. Its separate discussion of Yuan explicitly identifies Mendelian randomization, so it does not establish the question’s premise."
+          }
+        ]
+      },
+      "escalation_reasons": [
+        "audit: valid_minor (non_blocking) — The false premise is supported: the study is a two-sample MR analysis of GWAS summary data, with no probiotic dosing and no patient treatment. The only issue is that the pre-check found no recorded offending premise, which is an annotation gap."
+      ],
+      "adjudication": {
+        "id": "x002",
+        "verdict": "valid_minor",
+        "severity": "non_blocking",
+        "condition_first_affected": "none",
+        "gold_stands": true,
+        "evidence": [
+          {
+            "file": "articles/outlier-microbiome-tb-mr.txt",
+            "quote": "Methods A bidirectional two-sample Mendelian randomization (MR) analysis was performed. The genome-wide \nassociation study (GWAS) summary statistics of gut microbiota were obtained from the MiBioGen consortium,",
+            "point": "Yuan et al. is a genetic MR analysis of GWAS summary statistics, not an interventional study. This is the passage the key's anchor cites, and the excerpt matches the text.",
+            "quote_verified": true
+          },
+          {
+            "file": "articles/outlier-microbiome-tb-mr.txt",
+            "quote": "The study was conducted entirely using published research and consortia pro-\nviding publicly available summary statistics, which have been approved by the \ncorresponding ethical review board and informed consent of the participants. \nTherefore, no new ethical approval was required.",
+            "point": "Positive statement that the study used only published summary statistics, so no patients were treated and no probiotic or dose was administered.",
+            "quote_verified": true
+          },
+          {
+            "file": "articles/outlier-microbiome-tb-mr.txt",
+            "quote": "Our results supported \nOrder.Bacillales as a probiotic with a potential beneficial \nrole in TB treatment and immunization strategies.",
+            "point": "The only occurrence of 'probiotic' in the Yuan article. It is a discussion-level interpretation of an MR association, not an administered treatment, a dose, or a measured fall in TB incidence, so the premise is not partly true.",
+            "quote_verified": true
+          },
+          {
+            "file": "articles/outlier-microbiome-tuberculosis.txt",
+            "quote": "However, genetic studies using Mendelian Randomization\n(MR) suggest that, at the molecular genetic level, the GM’si nﬂuence",
+            "point": "The only other corpus article that cites Yuan et al. 2024 (the Sun et al. review) describes it as an MR genetic study, which agrees with the key.",
+            "quote_verified": true
+          },
+          {
+            "file": "articles/outlier-microbiome-tuberculosis.txt",
+            "quote": "Research on the relationship between probiotics and TB shows\nthat probiotic supplementation can help reduce gastrointestinal side\neffects caused by anti-TB medications in patients and may also help\ncounteract antibiotic-induced disturbances in gut microbiota ( Baral\net al., 2026 ).",
+            "point": "The hunt finding. Real probiotic use in TB patients, but attributed to Baral et al., with the endpoint being gastrointestinal side effects and microbiota disturbance rather than TB incidence, and no dose. Different authors and endpoint, so it does not rescue the premise.",
+            "quote_verified": true
+          },
+          {
+            "file": "articles/outlier-microbiome-tuberculosis.txt",
+            "quote": "multi-center randomized controlled trials (RCTs) in humans to\nrobustly assess the impact of GM interventions (such as probiotics\nor FMT) on TB clinical outcomes; second, the bidirectional regu-",
+            "point": "The review itself lists the lack of large human RCTs of probiotics on TB clinical outcomes as a limitation of the field, which confirms that no article in the corpus supplies the trial the question presupposes.",
+            "quote_verified": true
+          }
+        ],
+        "rationale": "The key stands. I read the Yuan et al. article's abstract, discussion and declarations, and the two relevant sections of the Sun et al. review.\n\nEscalation reason (audit: valid_minor, non_blocking, no recorded offending premise): the audit is right on both counts.\n- The premise is false. Yuan et al. is a bidirectional two-sample MR analysis built entirely on published GWAS summary statistics (MiBioGen, UK Biobank, FinnGen). Nothing was administered to patients, there is no dose, and no TB incidence reduction was measured.\n- The correction rests on a positive description of the design (abstract Methods plus the ethics declaration), not on silence.\n- The premise is not partly true. The word 'probiotic' appears once in the Yuan article, as a speculative reading of the protective MR association for order Bacillales.\n- The stage0 warning is a real but cosmetic gap: the case has no field recording the offending premise. It does not change scoring.\n\nRest of the corpus: 'probiotic' occurs in only two articles, the Yuan paper (once) and the Sun et al. review (45 times). The review cites Yuan et al. 2024 once, as an MR study. Its probiotic studies in TB patients belong to Baral, Lin and Mitsui, with endpoints of gastrointestinal side effects, IFN-γ and alpha diversity; none reports a dose or reduced TB incidence. Other 'Yuan' hits in the corpus are unrelated reference-list authors. No alternative answer and no violation of the false-premise status, so condition_first_affected is none.\n\nOne further minor defect that no reviewer flagged: the rubric's forbidden_conflations line ('Do not equate environmental ARG abundance with patient infection incidence or clinical treatment outcomes') belongs to the wastewater AMR cases and has nothing to do with this one. The f1 'units' and 'tolerance' fields are similarly generic boilerplate. Neither would cause a correct answer to be scored wrong, so severity stays non_blocking.\n\nThe anchor excerpt matches the article text at lines 22-25. I could not verify the character offsets (1804-2212) with the tools available; the anchor content is correct.",
+        "proposed_correction": "Record the offending premise explicitly: the question assumes Yuan et al. administered a probiotic at a stated dose to patients and showed reduced TB incidence, whereas the study is a Mendelian randomization analysis of GWAS summary statistics with no intervention. Replace the unrelated forbidden-conflation line about environmental ARG abundance with one that fits this case, for example: do not present the MR association for order Bacillales, or the discussion's 'probiotic' remark, as an administered probiotic treatment effect, and do not attribute the probiotic studies summarized in the Sun et al. review (Baral, Lin, Mitsui) to Yuan et al. The reference answer and f1 expected text need no change.",
+        "blind_answer_assessment": "The blind answer was right: it identified the false premise, described the MR design accurately, and correctly treated the Bacillales 'probiotic' sentence as speculation. Its rejection of the review's probiotic studies as belonging to other authors and other endpoints holds up against the text.",
+        "hunter_assessment": "The hunter was right to rate the finding weak. The Baral passage is real probiotic supplementation in TB patients, but it has different authors, a side-effect and microbiota endpoint, and no dose or incidence result, and the same review describes Yuan et al. as an MR study."
+      }
+    }
+  ]
+}

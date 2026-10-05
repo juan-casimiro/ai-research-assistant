@@ -1,0 +1,240 @@
+{
+  "batch_id": "stage3-cardiology-03",
+  "stage": "stage3_hunt",
+  "group": "stage3_hunt",
+  "runner": {
+    "cli": "codex",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "workspace": "jua-106-gold-ws"
+  },
+  "attempts": 1,
+  "earlier_problems": [],
+  "duration_s": 174.3,
+  "quotes": {
+    "verified": 3,
+    "total": 3
+  },
+  "usage": [
+    {
+      "input_tokens": 459424,
+      "cached_input_tokens": 376448,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 4013,
+      "reasoning_output_tokens": 401
+    }
+  ],
+  "transcript": "jua-106-runs/stage3_hunt/stage3-cardiology-03.attempt1.transcript",
+  "output": {
+    "batch_id": "stage3-cardiology-03",
+    "cases": [
+      {
+        "id": "q055",
+        "findings": [],
+        "search_terms": [
+          "PIIINP",
+          "procollagen",
+          "GLS",
+          "longitudinal",
+          "fibrosi",
+          "0.554",
+          "0.013",
+          "0.896",
+          "0.365",
+          "HFpEF",
+          "piiinp (whitespace removed)",
+          "gls (whitespace removed)"
+        ],
+        "files_examined": [
+          "cardio-hfpef-geriatric-biomarkers.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "c018",
+        "findings": [],
+        "search_terms": [
+          "TyG",
+          "triglyceride.glucose",
+          "triglycer",
+          "glucose index",
+          "CAD.RADS",
+          "C A D.R",
+          "0.733",
+          "0.731",
+          "0.505",
+          "tyg (whitespace removed)",
+          "cadrads (whitespace removed)"
+        ],
+        "files_examined": [
+          "cardio-cad-ct-angiography.txt",
+          "cardio-ctffr-diabetes-unstable-angina.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "q053",
+        "findings": [
+          {
+            "type": "H5",
+            "file": "cardio-hfpef-geriatric-biomarkers.txt",
+            "quote": "Table 3. Echocardiographic characteristics of the study population at baseline and follow-up. \nAll Population (n. 150) Baseline Follow-Up p * ",
+            "explanation": "An undeclared competitor reports six-month GLS improvement with SGLT2 inhibitors, with GLS means −12.01% and −14.57%. Its 150 elderly diabetic HFpEF patients all received treatment; it does not provide the requested retrospective user-versus-control comparison. The matching treatment, timeframe, biomarker framing and GLS endpoint make it a plausible retrieval competitor, not a conflicting result.",
+            "strength": "weak",
+            "quote_verified": true
+          }
+        ],
+        "search_terms": [
+          "GLS",
+          "longitudinal",
+          "2.49",
+          "18.57",
+          "HFpEF",
+          "preserved ejection",
+          "dapagli",
+          "empagli",
+          "gls (whitespace removed)",
+          "hfpef (whitespace removed)"
+        ],
+        "files_examined": [
+          "cardio-hfpef-geriatric-biomarkers.txt",
+          "cardio-emperor-preserved-resistant-hypertension.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "c017",
+        "findings": [],
+        "search_terms": [
+          "PARAGLIDE",
+          "PARAGON",
+          "DELIVER",
+          "QALY",
+          "cost.effect",
+          "head.to.head",
+          "sacubitr",
+          "dapagli",
+          "HFpEF",
+          "preserved ejection",
+          "paraglide (whitespace removed)",
+          "qaly (whitespace removed)",
+          "costeffect (whitespace removed)",
+          "headtohead (whitespace removed)",
+          "dapagliflozin (whitespace removed)",
+          "sacubitril (whitespace removed)"
+        ],
+        "files_examined": [
+          "cardio-cardiorenal-drug-network-meta-analysis.txt",
+          "cardio-emperor-preserved-resistant-hypertension.txt",
+          "cardio-resistant-hypertension-thai-consensus.txt",
+          "cardio-hfpef-geriatric-biomarkers.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "q124",
+        "findings": [
+          {
+            "type": "H5",
+            "file": "cardio-ctffr-diabetes-unstable-angina.txt",
+            "quote": "For CACS, \nsensitivity was 68.7%, specificity was 43.7%, and the AUC \nwas 0.566. CT-FFR demonstrates superior diagnostic \naccuracy compared to the degree of stenosis and CACS \nin predicting MACCE.",
+            "explanation": "This undeclared article supplies both CACS prognostic discrimination and a multivariable CACS odds ratio, making it a close competitor to the requested combination. However, it studies Zhao’s T2DM/unstable-angina cohort and three-year MACCE, not Gao’s derivation cohort and one-year MACE. Its AUC 0.566 and adjusted OR 0.998 cannot replace or contradict the scoped answer.",
+            "strength": "weak",
+            "quote_verified": true
+          }
+        ],
+        "search_terms": [
+          "Gao",
+          "CACS",
+          "C A CS",
+          "calcium score",
+          "0.808",
+          "2.563",
+          "cacs (whitespace removed)"
+        ],
+        "files_examined": [
+          "cardio-ctffr-diabetes-unstable-angina.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "q044",
+        "findings": [
+          {
+            "type": "H5",
+            "file": "cardio-stemi-vasc-fmd-no-reflow.txt",
+            "quote": "CHA2DS VAS score 0.800  > 3 58.97 92.79 74.2 86.6\nFMD% 0.878  ≤ 11 76.92 95.5 85.7 92.2",
+            "explanation": "This undeclared competitor reports CHA2DS2-VASc ROC discrimination for post-primary-PCI no-reflow in STEMI, closely matching one arm of the question. It is Rashed’s 150-patient cohort, uses the VASc variant, and reports AUC 0.800 without the requested sex subgroups. It neither answers the full comparison nor conflicts with Sun’s CHA2DS2-VA results.",
+            "strength": "weak",
+            "quote_verified": true
+          }
+        ],
+        "search_terms": [
+          "CHA.{0,8}VAS",
+          "CHA.{0,8}VA",
+          "CHA.{0,10}VA",
+          "0.578",
+          "0.613",
+          "0.569",
+          "0.673",
+          "thromboemb",
+          "no.reflow",
+          "noreflow (whitespace removed)",
+          "0578 (punctuation and whitespace removed)",
+          "0613 (punctuation and whitespace removed)"
+        ],
+        "files_examined": [
+          "cardio-stemi-vasc-fmd-no-reflow.txt",
+          "cardio-ai-af-management-review.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "c019",
+        "findings": [],
+        "search_terms": [
+          "network meta",
+          "network meta|head.to.head",
+          "indirect compar",
+          "superiority",
+          "HFpEF",
+          "preserved ejection",
+          "DELIVER",
+          "PARAGON",
+          "dapagli",
+          "empagli",
+          "headtohead (whitespace removed)",
+          "networkmeta (whitespace removed)",
+          "hfpef (whitespace removed)",
+          "dapagliflozin (whitespace removed)"
+        ],
+        "files_examined": [
+          "cardio-emperor-preserved-resistant-hypertension.txt",
+          "cardio-hfpef-dapagliflozin-cost-analysis.txt",
+          "cardio-resistant-hypertension-thai-consensus.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "q129",
+        "findings": [],
+        "search_terms": [
+          "Sun",
+          "725",
+          "no.reflow",
+          "52.7",
+          "56.5",
+          "337",
+          "640",
+          "noreflow (whitespace removed)",
+          "CHA.{0,10}VA"
+        ],
+        "files_examined": [
+          "cardio-stemi-vasc-fmd-no-reflow.txt",
+          "cardio-cad-ct-angiography.txt"
+        ],
+        "stable": true
+      }
+    ]
+  }
+}

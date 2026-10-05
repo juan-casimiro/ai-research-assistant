@@ -1,0 +1,106 @@
+{
+  "batch_id": "stage3-outliers-02",
+  "stage": "stage3_hunt",
+  "group": "stage3_hunt",
+  "runner": {
+    "cli": "codex",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "workspace": "jua-106-gold-ws"
+  },
+  "attempts": 1,
+  "earlier_problems": [],
+  "duration_s": 102.0,
+  "quotes": {
+    "verified": 1,
+    "total": 1
+  },
+  "usage": [
+    {
+      "input_tokens": 330251,
+      "cached_input_tokens": 281728,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 2331,
+      "reasoning_output_tokens": 231
+    }
+  ],
+  "transcript": "jua-106-runs/stage3_hunt/stage3-outliers-02.attempt1.transcript",
+  "output": {
+    "batch_id": "stage3-outliers-02",
+    "cases": [
+      {
+        "id": "x004",
+        "findings": [],
+        "search_terms": [
+          "Garner",
+          "WWTP",
+          "wastewater",
+          "ARG",
+          "ARGs",
+          "16S",
+          "metagenom",
+          "12",
+          "eleven",
+          "declin",
+          "decreas",
+          "absolute",
+          "relative",
+          "treatment",
+          "resistome",
+          "antibioticresistance",
+          "16srrna",
+          "perml",
+          "11of12",
+          "elevenoftwelve"
+        ],
+        "files_examined": [
+          "outlier-amr-method-comparison.txt",
+          "outlier-microbiome-tuberculosis.txt",
+          "outlier-microbiome-tb-mr.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "x010",
+        "findings": [
+          {
+            "type": "H5",
+            "file": "diabetes-sleep-multimorbidity-cohorts.txt",
+            "quote": "In the SHAP analysis, systolic blood pressure, waist\ncircumference, and body mass index were among the\nleading predictors of incident CMM. Age, activities of daily\nliving, sleep quality, and nighttime sleep duration also\ncontributed to prediction, but their relative importance\nwas smaller",
+            "explanation": "An undeclared competitor reports clinical feature importance, including systolic blood pressure and age, alongside five-fold model validation. However, its population comprises national aging cohorts, its endpoint is incident cardiometabolic multimorbidity, and its interpretation uses SHAP for XGBoost rather than the Alzheimer ANN's five training runs. It does not answer or contradict the scoped question; confusion potential is limited.",
+            "strength": "weak",
+            "quote_verified": true
+          }
+        ],
+        "search_terms": [
+          "Alzheimer",
+          "MMSE",
+          "mini.?mental",
+          "five runs",
+          "training runs",
+          "feature importance",
+          "family history",
+          "ANN",
+          "neural network",
+          "systolic blood pressure",
+          "total cholesterol",
+          "cogniti",
+          "dementia",
+          "SHAP",
+          "minimental",
+          "trainingruns",
+          "fiveruns",
+          "featureimportance",
+          "artificialneural",
+          "familyhistory"
+        ],
+        "files_examined": [
+          "diabetes-sleep-multimorbidity-cohorts.txt",
+          "cardio-hfpef-geriatric-biomarkers.txt",
+          "als-ftd-pmc10802081.txt"
+        ],
+        "stable": true
+      }
+    ]
+  }
+}

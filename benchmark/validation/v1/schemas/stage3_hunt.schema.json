@@ -1,0 +1,91 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "batch_id",
+    "cases"
+  ],
+  "properties": {
+    "batch_id": {
+      "type": "string"
+    },
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "findings",
+          "search_terms",
+          "files_examined",
+          "stable"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "findings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "type",
+                "file",
+                "quote",
+                "explanation",
+                "strength"
+              ],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "H1",
+                    "H2",
+                    "H3",
+                    "H4",
+                    "H5",
+                    "H6"
+                  ]
+                },
+                "file": {
+                  "type": "string"
+                },
+                "quote": {
+                  "type": "string"
+                },
+                "explanation": {
+                  "type": "string"
+                },
+                "strength": {
+                  "type": "string",
+                  "enum": [
+                    "definite",
+                    "probable",
+                    "weak"
+                  ]
+                }
+              }
+            }
+          },
+          "search_terms": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "files_examined": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "stable": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

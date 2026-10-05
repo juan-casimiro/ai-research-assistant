@@ -1,0 +1,250 @@
+{
+  "batch_id": "full4-10",
+  "stage": "stage4_compare",
+  "group": "full_stage4",
+  "runner": {
+    "cli": "claude",
+    "model": "claude-sonnet-5-5",
+    "workspace": "jua-106-gold-ws"
+  },
+  "attempts": 1,
+  "earlier_problems": [],
+  "duration_s": 17.4,
+  "quotes": {
+    "verified": 0,
+    "total": 0
+  },
+  "usage": [
+    {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 15173,
+      "cache_read_input_tokens": 4428,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 15173
+      },
+      "output_tokens": 8,
+      "service_tier": "standard",
+      "inference_geo": "not_available"
+    },
+    {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 16724,
+      "cache_read_input_tokens": 7305,
+      "output_tokens": 2337,
+      "output_tokens_details": {
+        "thinking_tokens": 650
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 16724,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 2248,
+          "cache_read_input_tokens": 4428,
+          "cache_creation_input_tokens": 15173,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 15173
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    {
+      "claude-sonnet-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 2337,
+        "cacheReadInputTokens": 7305,
+        "cacheCreationInputTokens": 16724,
+        "webSearchRequests": 0,
+        "costUSD": 0.091735,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 650,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    }
+  ],
+  "transcript": "jua-106-runs/full_stage4/full4-10.attempt1.transcript",
+  "output": {
+    "batch_id": "full4-10",
+    "cases": [
+      {
+        "id": "q002",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": "Eight RCTs, 725 participants; notes primary analysis used only 2 trials."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q003",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": "MD -1.92, CI -4.43 to 0.59, P=0.13, 2 trials/196 participants, not significant."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q004",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "not_addressed",
+            "note": "Does not give the primary MD -1.92, CI -4.43 to 0.59, P=.13; the I² 91-99% cited is for the all-study analyses, not the primary one."
+          },
+          {
+            "fact_id": "f2",
+            "result": "partial",
+            "note": "Gives MD -1.21, CI -1.99 to -0.43, plus heterogeneity and bias reasons for not overriding; P=.002 missing."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q005",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": "Very low for all three; HbA1c and FPG/2hPG downgrade reasons match."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q006",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": "No; all trials high risk; S1-S3 random-number tables, allocation concealment not described."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": true,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q007",
+        "answerability_agrees": true,
+        "facts": [],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q015",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "mismatch",
+            "note": "Blind gives 21.8% (DKD in China) and 27% (global CKD) from diabetes-hif-zinc-review.txt; key is approximately 30-40%."
+          }
+        ],
+        "different_source": true,
+        "blind_reported_ambiguity": true,
+        "ambiguity_changes_answer": true,
+        "escalate": true,
+        "reasons": [
+          "Fact f1 mismatch: 21.8%/27% vs key 30-40%",
+          "Answer rests on verified quotes from diabetes-hif-zinc-review.txt, not the key's diabetes-nephropathy-complications.txt",
+          "Alternative reading (global 27% CKD) also differs from key's 30-40%"
+        ]
+      },
+      {
+        "id": "q016",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": "Renal hypoxia as fundamental pathogenetic mechanism."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q017",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": "Dense insulin granule membrane, zinc accumulation/storage/insulin preparation, expression largely restricted to islets."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      },
+      {
+        "id": "q018",
+        "answerability_agrees": true,
+        "facts": [
+          {
+            "fact_id": "f1",
+            "result": "match",
+            "note": "Proteasomal degradation, nuclear translocation inhibition, animal DKD fibrosis/EMT via PI3K/AKT/GSK-3β with decreased HIF-1α, not a dosing recommendation."
+          }
+        ],
+        "different_source": false,
+        "blind_reported_ambiguity": false,
+        "ambiguity_changes_answer": false,
+        "escalate": false,
+        "reasons": []
+      }
+    ]
+  }
+}

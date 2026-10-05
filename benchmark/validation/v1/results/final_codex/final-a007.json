@@ -1,0 +1,67 @@
+{
+  "batch_id": "final-a007",
+  "stage": "stage7_final",
+  "group": "final_codex",
+  "runner": {
+    "cli": "codex",
+    "model": "gpt-6-sol",
+    "reasoning_effort": "low",
+    "extra_args": [
+      "--ignore-user-config"
+    ],
+    "workspace": "jua-106-final-ws",
+    "cli_version": "0.157.0"
+  },
+  "attempts": 1,
+  "earlier_problems": [],
+  "quote_adjustments": [],
+  "duration_s": 49.4,
+  "quotes": {
+    "verified": 3,
+    "total": 3
+  },
+  "usage": [
+    {
+      "input_tokens": 67836,
+      "cached_input_tokens": 48512,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1010,
+      "reasoning_output_tokens": 59
+    }
+  ],
+  "transcript": "jua-106-runs/final_codex/final-a007.attempt1.transcript",
+  "output": {
+    "id": "a007",
+    "agreement": "partly_agree",
+    "own_verdict": "defect_category",
+    "own_severity": "blocking",
+    "gold_stands": true,
+    "evidence": [
+      {
+        "file": "als-ftd-pmc10802081.txt",
+        "quote": "A 42-year-old previously healthy male with a remote",
+        "point": "Line 90: identifies the single patient in the case report.",
+        "quote_verified": true
+      },
+      {
+        "file": "als-ftd-pmc10802081.txt",
+        "quote": "A brain SPECT scan was ordered and demonstrated\nmoderate decreased perfusion to the parietal lobes bilat-\nerally, left greater than right, with some involvement of the\nposterior aspect of the left frontal lobe. The nuclear\nmedicine radiologist concluded the distribution was most\nin keeping with Alzheimer ’s disease and it was not felt to\nrepresent frontotemporal lobar degeneration (FTLD).\nHowever, given ongoing clinical suspicion for a rapidly\nprogressive neurodegenerative cause, genetic testing was\nperformed and identi ﬁed a repeat expansion of GGGGCC\nin C9orf72, thereby con ﬁrming a diagnosis of FTD-ALS.",
+        "point": "Lines 191–201: the SPECT interpretation and genetic result appear consecutively in one local passage.",
+        "quote_verified": true
+      },
+      {
+        "file": "als-ftd-pmc10802081.txt",
+        "quote": "Ultimately, he died from complica-\ntions of aspiration pneumonia. His family consented to\npost-mortem autopsy and the ﬁnal report con ﬁrmed a\nfronto-temporal lobar degeneration with transactive re-\nsponse DNA binding protein (TDP) pathology, interna-\ntional harmonized classi ﬁcation type C.",
+        "point": "Lines 211–216: the same case account supplies the subsequent autopsy finding.",
+        "quote_verified": true
+      }
+    ],
+    "rationale": "The source supports the gold answer for this one patient. SPECT favored Alzheimer disease over FTLD; genetic testing confirmed FTD-ALS; autopsy confirmed FTLD with TDP pathology type C. The category fails admission: all required findings are available in one short, continuous case account at lines 191–216, so answering does not require connecting separated evidence passages. No material source conflict or unresolved text-extraction issue remains.",
+    "correction_assessment": "Relabel the case as direct_lookup, or the benchmark’s equivalent single-passage category. Retain the facts, answer and source anchors; record a new query revision for the category change.",
+    "severity_basis": "The supplied blocking rule expressly makes a violation of a category admission criterion blocking, even if document-only scoring would accept the answer. The first review identified the category defect but assigned non_blocking severity; that is the point of disagreement.",
+    "standards_checks": "Factual support and conflicts: lines 191–201 and 211–216 support both required facts for the same patient; no conflicting value appears in the full source. Question clarity: LeBlanc et al. and the three evidence types identify a clear task without giving away the answer. Anchors and alternatives: the declared anchors accurately identify the findings, but the complete lines 191–216 form a single local answer passage; the abstract at lines 16–21 and discussion at lines 217–229 do not independently supply all three findings. No alternative article is declared or available. Category admission: multi_hop requires separated anchors whose connection is necessary; this account fits direct_lookup. Answerability and decoy scope: the question is answerable from the declared source; no decoy or competing article is declared. Scoring impact: the answer key can score factual answers, but category-based benchmark scoring is affected, making the category defect blocking under the supplied rule.",
+    "articles_read": [
+      "als-ftd-pmc10802081.txt"
+    ]
+  }
+}

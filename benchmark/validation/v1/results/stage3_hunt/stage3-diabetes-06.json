@@ -1,0 +1,281 @@
+{
+  "batch_id": "stage3-diabetes-06",
+  "stage": "stage3_hunt",
+  "group": "stage3_hunt",
+  "runner": {
+    "cli": "codex",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "workspace": "jua-106-gold-ws"
+  },
+  "attempts": 1,
+  "earlier_problems": [],
+  "duration_s": 176.7,
+  "quotes": {
+    "verified": 1,
+    "total": 1
+  },
+  "usage": [
+    {
+      "input_tokens": 450469,
+      "cached_input_tokens": 373760,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 4903,
+      "reasoning_output_tokens": 706
+    }
+  ],
+  "transcript": "jua-106-runs/stage3_hunt/stage3-diabetes-06.attempt1.transcript",
+  "output": {
+    "batch_id": "stage3-diabetes-06",
+    "cases": [
+      {
+        "id": "d026",
+        "findings": [],
+        "search_terms": [
+          "Wang",
+          "harmon",
+          "sleep",
+          "cohort",
+          "CHARLS",
+          "ELSA",
+          "HRS",
+          "multimorb",
+          "harmoniz",
+          "harmonis",
+          "sleep.qual",
+          "comparab",
+          "heterogen",
+          "questionnaire",
+          "measure"
+        ],
+        "files_examined": [
+          "diabetes-cardiovascular-outcomes.txt",
+          "outlier-alzheimer-dual-model.txt",
+          "cardio-resistant-hypertension-korean-consensus.txt",
+          "cardio-cardiorenal-drug-network-meta-analysis.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "d003",
+        "findings": [],
+        "search_terms": [
+          "Dabbs",
+          "Brown",
+          "SNP.by",
+          "sex.hormone",
+          "fourteen",
+          "interaction loci",
+          "SHBG",
+          "testosterone",
+          "estradiol",
+          "genome.wide.*interact",
+          "dabbsbrown",
+          "snpbyhormone",
+          "genehormone"
+        ],
+        "files_examined": [
+          "cardio-diabetes-hypertension-polygenic.txt",
+          "diabetes-metabolic-syndrome-cameroon.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "q006",
+        "findings": [],
+        "search_terms": [
+          "GQD",
+          "Gegen",
+          "Ge.gen",
+          "He et",
+          "random.number",
+          "G.?Q.?D",
+          "qinlian",
+          "decoction",
+          "herbal",
+          "metformin",
+          "GRADE",
+          "very.low",
+          "allocation",
+          "conceal",
+          "gqd",
+          "randomnumber"
+        ],
+        "files_examined": [
+          "onco-ici-cardiac-rct-meta.txt",
+          "cardio-cardiorenal-drug-network-meta-analysis.txt",
+          "diabetes-semaglutide-size-dm-trial.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "q005",
+        "findings": [],
+        "search_terms": [
+          "GQD",
+          "Gegen",
+          "Ge.gen",
+          "He et",
+          "G.?Q.?D",
+          "qinlian",
+          "decoction",
+          "herbal",
+          "metformin",
+          "GRADE",
+          "very.low",
+          "HbA1c",
+          "FPG",
+          "2hPG",
+          "gqd"
+        ],
+        "files_examined": [
+          "onco-ici-cardiac-rct-meta.txt",
+          "cardio-cardiorenal-drug-network-meta-analysis.txt",
+          "diabetes-semaglutide-size-dm-trial.txt",
+          "diabetes-digital-education-cgm-trial.txt",
+          "diabetes-nephropathy-complications.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "q004",
+        "findings": [],
+        "search_terms": [
+          "GQD",
+          "Gegen",
+          "Ge.gen",
+          "He et",
+          "1\\.92",
+          "4\\.43",
+          "1\\.21",
+          "change.score",
+          "G.?Q.?D",
+          "qinlian",
+          "decoction",
+          "herbal",
+          "metformin",
+          "HbA1c",
+          "GRADE",
+          "very.low",
+          "gqd",
+          "changescore"
+        ],
+        "files_examined": [
+          "diabetes-semaglutide-size-dm-trial.txt",
+          "diabetes-digital-education-cgm-trial.txt",
+          "cardio-cardiorenal-drug-network-meta-analysis.txt",
+          "onco-ici-cardiac-rct-meta.txt",
+          "diabetes-nephropathy-complications.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "q003",
+        "findings": [],
+        "search_terms": [
+          "GQD",
+          "Gegen",
+          "Ge.gen",
+          "He et",
+          "1\\.92",
+          "4\\.43",
+          "1\\.21",
+          "change.score",
+          "G.?Q.?D",
+          "qinlian",
+          "decoction",
+          "herbal",
+          "metformin",
+          "HbA1c",
+          "gqd",
+          "changescore"
+        ],
+        "files_examined": [
+          "diabetes-semaglutide-size-dm-trial.txt",
+          "diabetes-digital-education-cgm-trial.txt",
+          "cardio-cardiorenal-drug-network-meta-analysis.txt",
+          "diabetes-nephropathy-complications.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "d009",
+        "findings": [],
+        "search_terms": [
+          "GQD",
+          "Gegen",
+          "Ge.gen",
+          "He et",
+          "1\\.92",
+          "4\\.43",
+          "1\\.21",
+          "change.score",
+          "SIZE.DM",
+          "G.?Q.?D",
+          "qinlian",
+          "decoction",
+          "herbal",
+          "metformin",
+          "semaglutide",
+          "non.inferior",
+          "HbA1c",
+          "gqd",
+          "changescore",
+          "sizedm"
+        ],
+        "files_examined": [
+          "cardio-cardiorenal-drug-network-meta-analysis.txt",
+          "diabetes-digital-education-cgm-trial.txt",
+          "onco-ici-cardiac-rct-meta.txt",
+          "diabetes-nephropathy-complications.txt"
+        ],
+        "stable": true
+      },
+      {
+        "id": "d024",
+        "findings": [
+          {
+            "type": "H5",
+            "file": "diabetes-hif-zinc-review.txt",
+            "quote": "In a study, researchers\nadministered zinc oxide nanoparticles at a dosage of 10 mg/kg/\nday orally to diabetic rats over a period of four consecutive weeks.",
+            "explanation": "This supplies an exact zinc formulation, dose, route and duration in a review discussing diabetic kidney disease, making it a concrete undeclared competitor; no decoys were named. However, it describes diabetic rats and is attributed to Abd El-Baset et al., not a Lebedeva recommendation for adults with stage-3 DKD. It does not break the absence claim.",
+            "strength": "weak",
+            "quote_verified": true
+          }
+        ],
+        "search_terms": [
+          "Lebedeva",
+          "zinc",
+          "stage.?3",
+          "stage III",
+          "formulation",
+          "ZnSO",
+          "sulfate",
+          "sulphate",
+          "gluconate",
+          "acetate",
+          "picolinate",
+          "supplement",
+          "dose",
+          "dosage",
+          "mg/d",
+          "mg.day",
+          "stage",
+          "mg",
+          "duration",
+          "recommend",
+          "clinical trial",
+          "lebedeva",
+          "stage3dkd",
+          "stageiiidkd"
+        ],
+        "files_examined": [
+          "diabetes-nephropathy-complications.txt",
+          "diabetes-hif-zinc-review.txt",
+          "cardio-ctffr-diabetes-unstable-angina.txt"
+        ],
+        "stable": true
+      }
+    ]
+  }
+}

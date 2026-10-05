@@ -1,0 +1,79 @@
+{
+  "batch_id": "double1-outliers-01",
+  "stage": "stage1_blind",
+  "group": "stage1_double",
+  "runner": {
+    "cli": "codex",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "workspace": "jua-106-blind-ws"
+  },
+  "attempts": 1,
+  "earlier_problems": [],
+  "duration_s": 38.1,
+  "quotes": {
+    "verified": 4,
+    "total": 4
+  },
+  "usage": [
+    {
+      "input_tokens": 80148,
+      "cached_input_tokens": 57344,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 643,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "transcript": "jua-106-runs/stage1_double/double1-outliers-01.attempt1.transcript",
+  "output": {
+    "batch_id": "double1-outliers-01",
+    "cases": [
+      {
+        "id": "x006",
+        "answerability": "premise_wrong",
+        "answer": "No independent ADNI or OASIS-3 cohort confirmed the Alzheimer models’ reported performance. The article explicitly states that external validation was absent and identifies validation with ADNI or OASIS-3 as a future step.",
+        "claims": [
+          {
+            "claim": "The study lacked external validation using independent ADNI or OASIS-3 repositories.",
+            "file": "outlier-alzheimer-dual-model.txt",
+            "quote": "Another limitation is the absence of \nexternal validation using independent repositories such as ADNI or \nOASIS-3, which restricts the generalizability of the findings.",
+            "quote_verified": true
+          },
+          {
+            "claim": "Validation with independent ADNI or OASIS-3 datasets was proposed as a future step.",
+            "file": "outlier-alzheimer-dual-model.txt",
+            "quote": "External validation with independent datasets such as ADNI or \nOASIS-3 represents an essential next step for strengthening \ngeneralizability and clinical applicability.",
+            "quote_verified": true
+          }
+        ],
+        "other_candidates": [
+          {
+            "file": "outlier-alzheimer-dual-model.txt",
+            "quote": "The dataset \nincludes augmented samples originally derived from the OASIS \nrepository, enhancing class balance and increasing training robustness.",
+            "why_rejected": "This describes the provenance of the MRI dataset, not an independent OASIS-3 validation cohort.",
+            "quote_verified": true
+          },
+          {
+            "file": "outlier-alzheimer-dual-model.txt",
+            "quote": "The dataset was divided using an 80% training / 20% validation \nsplit, ensuring stratification across AD categories.",
+            "why_rejected": "This is an internal split of the study dataset, not validation in an independent ADNI or OASIS-3 cohort.",
+            "quote_verified": true
+          }
+        ],
+        "ambiguity": "",
+        "confidence": "high",
+        "search_terms": [
+          "ADNI",
+          "OASIS",
+          "valid",
+          "cohort",
+          "external",
+          "independent",
+          "performance",
+          "limitation",
+          "dataset"
+        ]
+      }
+    ]
+  }
+}
