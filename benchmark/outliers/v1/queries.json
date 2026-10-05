@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "query_version": "outliers-v1",
-  "status": "author reviewed; Claude CLI reviewed; domain review pending",
+  "query_version": "outliers-v1-gold-corrections-20261005",
+  "status": "Source-grounded corrections; PR review pending; prior evaluation results retain their original revision and fingerprints.",
   "authored_for": "JUA-113; no retrieval results used to choose questions or gold facts",
   "selection_sha256": "87aabf643b06a6234355326c060dac6db2f4f8e69cfc22e5acd35282476f150e",
   "anchors": [
@@ -448,7 +448,7 @@
     },
     {
       "id": "x004",
-      "revision": 1,
+      "revision": 2,
       "category": "cross_doc_distractor",
       "topics": [
         "environmental-amr",
@@ -458,7 +458,7 @@
       "required_facts": [
         {
           "id": "f1",
-          "expected_text": "Total ARG relative abundance (per 16S rRNA gene) decreased at 11 of 12 WWTPs, while absolute abundance (per mL) decreased at all 12. The separate qPCR-versus-metagenomic comparison sampled four wastewater settings and is not the 12-plant result.",
+          "expected_text": "Total ARG relative abundance (per 16S rRNA gene) decreased at 11 of 12 WWTPs, while absolute abundance (per mL) decreased at all 12.",
           "units": "Source-reported values and qualifiers",
           "population": "Twelve internationally sourced WWTPs",
           "endpoint": "Aggregate relative and absolute ARG abundance after treatment",
@@ -490,12 +490,12 @@
           "reason_inapplicable": "The four-site qPCR comparison does not report treatment outcomes across Garner et al.’s 12 internationally sourced WWTPs."
         }
       ],
-      "reference_answer": "Total ARG relative abundance (per 16S rRNA gene) decreased at 11 of 12 WWTPs, while absolute abundance (per mL) decreased at all 12. The separate qPCR-versus-metagenomic comparison sampled four wastewater settings and is not the 12-plant result.",
+      "reference_answer": "Total ARG relative abundance (per 16S rRNA gene) decreased at 11 of 12 WWTPs, while absolute abundance (per mL) decreased at all 12.",
       "answer_rubric": {
         "required_claims": [
           "f1"
         ],
-        "acceptable_alternatives": "Faithful, fully scoped paraphrase with source attribution; no unsupported clinical inference.",
+        "acceptable_alternatives": "Faithful, scoped paraphrases of the two counts are complete. Discussion of the four-setting methods-comparison decoy is optional.",
         "forbidden_conflations": [
           "Do not equate environmental ARG abundance with patient infection incidence or clinical treatment outcomes."
         ],
@@ -527,26 +527,31 @@
         "independent_review": "Claude CLI read-only review completed; Juan PR review pending. This is not independent clinical or domain-expert validation.",
         "duplicate_leakage_check": "The target values and denominators are not present in the question; the qPCR article is a plausible study-level competitor.",
         "tuning_exposure": "Authored before any retrieval result for this release.",
-        "alternative_evidence_check": "The 11/12 and 12/12 totals are specific to Garner et al.; Daw Elbait et al. studies four different wastewater samples and method agreement."
+        "alternative_evidence_check": "The 11/12 and 12/12 totals are specific to Garner et al.; Daw Elbait et al. studies four different wastewater samples and method agreement.",
+        "correction_review": {
+          "date": "2026-10-05",
+          "method": "Source-grounded correction from PR 45 findings and pinned text; no retrieval outcomes used.",
+          "decision": "Remove the mandatory decoy-study claim; retain the decoy as competition only."
+        }
       },
       "selection_rationale": "A named competitor distinguishes a 12-plant treatment study from a four-sample methods comparison."
     },
     {
       "id": "x005",
-      "revision": 1,
+      "revision": 2,
       "category": "direct_lookup",
       "topics": [
         "cognitive-diagnosis",
         "diagnostic-ai"
       ],
-      "question": "In Ciftci et al.’s dual-model Alzheimer paper, what accuracies are reported for the clinical ANN and MRI CNN, and what distinct tasks do those figures describe?",
+      "question": "According to the abstract of Ciftci et al.’s dual-model Alzheimer paper, what accuracies are reported for the clinical ANN and MRI CNN, and what distinct tasks does the abstract assign to those figures?",
       "required_facts": [
         {
           "id": "f1",
-          "expected_text": "The ANN reports 87.08% accuracy for early-stage risk prediction using clinical data; the CNN reports 97% accuracy for classifying Alzheimer disease into four stages from MRI images. These are different datasets and tasks, not a head-to-head comparison of clinical diagnostic performance.",
+          "expected_text": "The abstract reports ANN accuracy of 87.08% for early-stage risk prediction and CNN accuracy of 97% for disease staging.",
           "units": "Source-reported values and qualifiers",
           "population": "The paper’s public clinical dataset and MRI-image dataset",
-          "endpoint": "Accuracy for clinical early-stage risk prediction versus MRI-based four-stage classification",
+          "endpoint": "Abstract-reported clinical ANN risk prediction and MRI CNN disease staging accuracy",
           "timeframe": "As reported in the cited study; no unreported horizon inferred.",
           "qualifiers": "Preserve the stated study design, population, endpoint and association/causation limits.",
           "tolerance": "Retain source rounding and all population/task qualifiers.",
@@ -567,14 +572,15 @@
         }
       ],
       "related_distractors": [],
-      "reference_answer": "The ANN reports 87.08% accuracy for early-stage risk prediction using clinical data; the CNN reports 97% accuracy for classifying Alzheimer disease into four stages from MRI images. These are different datasets and tasks, not a head-to-head comparison of clinical diagnostic performance.",
+      "reference_answer": "The abstract reports ANN accuracy of 87.08% for early-stage risk prediction and CNN accuracy of 97% for disease staging.",
       "answer_rubric": {
         "required_claims": [
           "f1"
         ],
-        "acceptable_alternatives": "Faithful, fully scoped paraphrase with source attribution; no unsupported clinical inference.",
+        "acceptable_alternatives": "Faithful, attributed paraphrases of the abstract figures and task labels. Optional detailed-results context describes the ANN as binary Alzheimer/no-Alzheimer classification and the CNN as four-category MRI classification; acknowledge the ANN wording difference without inventing a reconciliation. No head-to-head or dataset caveat is required.",
         "forbidden_conflations": [
-          "Do not equate environmental ARG abundance with patient infection incidence or clinical treatment outcomes."
+          "Do not treat the two models’ different datasets and tasks as a head-to-head clinical performance comparison.",
+          "Do not treat the abstract’s early-stage risk label as proof of a prospective prediction endpoint."
         ],
         "judging_status": "Manual evidence review only; no generated-answer or paid judge run."
       },
@@ -602,7 +608,12 @@
         "independent_review": "Claude CLI read-only review completed; Juan PR review pending. This is not independent clinical or domain-expert validation.",
         "duplicate_leakage_check": "The abstract states both accuracies with their separate model tasks; the question does not give target values.",
         "tuning_exposure": "Authored before any retrieval result for this release.",
-        "alternative_evidence_check": "No other selected article reports these two Alzheimer-model results."
+        "alternative_evidence_check": "No other selected article reports these two Alzheimer-model results.",
+        "correction_review": {
+          "date": "2026-10-05",
+          "method": "Source-grounded correction from PR 45 findings and pinned text; no retrieval outcomes used.",
+          "decision": "Scope reported task wording to the abstract and acknowledge the detailed binary-classification description as optional context."
+        }
       },
       "selection_rationale": "Separates two prominent percentages whose populations, inputs and outcomes differ."
     },

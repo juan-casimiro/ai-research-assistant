@@ -56,8 +56,8 @@ The actual discovery queries are retained; later PMCID lookups are not discoveri
 
 ## Prepared cases and review
 
-[queries.json](queries.json) contains a001–a010: four same-article multi-hop cases,
-two direct lookups, two cross-document synthesis cases, one false-premise case,
+[queries.json](queries.json) contains a001–a010: two same-article multi-hop cases,
+four direct lookups, two cross-document synthesis cases, one false-premise case,
 and one named-distractor case. Nineteen physical-page anchors bind exact extraction
 spans and hashes to facts and evidence sets. [case_dependencies.json](case_dependencies.json)
 records source/overlap/decoy dependencies. There are no absent-fact cases, so this
@@ -165,3 +165,7 @@ Four corruption checks reject a re-signed incorrect title, incorrect evidence
 offset, omitted correction review and omitted offending premise.
 All 206 offline regression tests passed. Mechanical
 success does not certify independent scientific review.
+
+## Gold correction revision — 2026-10-05
+
+The active query set incorporates the [source-grounded correction ledger](../../corrections/2026-10-05/README.md). Prior runs retain their original questions and fingerprints; they are not runs of this corrected revision. The corpus and evaluation strategy are unchanged.

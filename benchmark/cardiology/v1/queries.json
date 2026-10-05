@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "query_version": "cardiology-queries-v1",
-  "status": "review_ready; freeze on approved PR before retrieval comparisons",
+  "query_version": "cardiology-queries-v1-gold-corrections-20261005",
+  "status": "Source-grounded corrections; PR review pending; prior evaluation results retain their original revision and fingerprints.",
   "selection_sha256": "e6e63604b1413f6042e43968b7ff83ae0eac763687f99e26006fae9776f19f7b",
   "authored_for": "JUA-109",
   "anchors": [
@@ -1631,6 +1631,28 @@
         "q047:f1"
       ],
       "role": "support"
+    },
+    {
+      "id": "cost_abstract_complete",
+      "article_id": "PMC10985250",
+      "filename": "cardio-hfpef-dapagliflozin-cost-analysis.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "da3f20ab88773c13ae08e73f8c18f0a6bb9ccb9000edc0aaf20231fe69fab042",
+      "text_sha256": "9540f1db4e82cd5c2b5317cc8e7c22bb9e574bedb8a482183059aa75079f83c2",
+      "page": 1,
+      "pages": [
+        1
+      ],
+      "section": "Abstract; Methods and Results",
+      "text_start": 1268,
+      "text_end": 2362,
+      "excerpt": "Methods: We compared the annualized cost needed to treat (CNT) to prevent the\ncomposite outcome of total HF hospitalizations and CVD with dapagli ﬂozin or\nsacubitril– valsartan. The CNT was estimated by multiplying the annualized\nnumber needed to treat (aNNT) by the annual cost of therapy. The aNNT was\ncalculated based on data collected from the DELIVER trial for dapagli ﬂozin and a\npooled analysis of the PARAGLIDE-HF and PARAGON-HF trials for\nsacubitril– valsartan. Costs were based on 2022 US prices. Scenario analyses\nwere performed to attenuate the differences in the studies ’ populations.\nResults: The aNNT with dapagliﬂozin in DELIVER was 30 (95% conﬁdence interval\n[CI]: 21-62) versus 44 (95% CI: 25-311) with sacubitril – valsartan in a pooled\nanalysis of PARAGLIDE-HF and PARAGON-HF, with an annual cost of $4,951 and\n$5,576, respectively. The corresponding CNTs were $148,547.13 (95% CI:\n$103,982.99– $306,997.39) for dapagli ﬂozin and $245,346.77 (95% CI:\n$139,401.58– 1,734,155.60) for sacubitril – valsartan for preventing the\ncomposite outcome of CVD and HF hospitalizations.",
+      "excerpt_sha256": "f6655208fbb41fbb0db99676201c7beb3a7d8a296bc4d514ccd069103a456f35",
+      "fact_ids": [
+        "c013:f1",
+        "c013:f2"
+      ],
+      "role": "support"
     }
   ],
   "queries": [
@@ -2814,7 +2836,7 @@
     },
     {
       "id": "q058",
-      "revision": 2,
+      "revision": 3,
       "category": "direct_lookup",
       "topics": [
         "cardiology"
@@ -2823,11 +2845,11 @@
       "required_facts": [
         {
           "id": "f1",
-          "expected_text": "Reported diabetes-status interaction P values exceeded 0.05 for GLS, the three biomarkers and HF rehospitalization. Lack of detected diabetes-status interaction does not establish independence from glycemic change or causal mediation.",
+          "expected_text": "The study reported no significant diabetes-status interaction (all interaction P values >0.05) for ΔGLS, ΔE/e’, ΔLAVI, ΔNT-proBNP and ΔPIIINP. Lack of detected diabetes-status interaction does not establish independence from glycemic change or causal mediation.",
           "units": null,
           "population": "HFpEF patients with versus without diabetes",
-          "endpoint": "Diabetes-status effect modification",
-          "timeframe": "Six-month markers and follow-up HF rehospitalization",
+          "endpoint": "Diabetes-status interaction for the five reported marker changes",
+          "timeframe": "Six-month marker changes",
           "qualifiers": "Use the attributed source section and analysis population; preserve adjusted/unadjusted and association/causation distinctions.",
           "tolerance": "Accept rounding stated in the reference; no cross-cohort substitution.",
           "contradiction_rule": "Reject claims contradicting the scoped source or silently reconciling source conflicts."
@@ -2847,14 +2869,15 @@
         }
       ],
       "related_distractors": [],
-      "reference_answer": "Reported diabetes-status interaction P values exceeded 0.05 for GLS, the three biomarkers and HF rehospitalization. Lack of detected diabetes-status interaction does not establish independence from glycemic change or causal mediation.",
+      "reference_answer": "The study reported no significant diabetes-status interaction (all interaction P values >0.05) for ΔGLS, ΔE/e’, ΔLAVI, ΔNT-proBNP and ΔPIIINP. Lack of detected diabetes-status interaction does not establish independence from glycemic change or causal mediation.",
       "answer_rubric": {
         "required_claims": [
           "f1"
         ],
         "acceptable_alternatives": "Any complete evidence set; accurately attributed source conflicts must remain explicit.",
         "forbidden_conflations": [
-          "Do not equate absence of diabetes-status interaction with proof of glycemic independence."
+          "Do not equate absence of diabetes-status interaction with proof of glycemic independence.",
+          "Do not extend the interaction finding to GDF-15 or HF rehospitalization, which have no reported diabetes-status interaction result."
         ],
         "judging_status": "No automated answer judge; review these claims manually or in separately approved answer judging."
       },
@@ -2897,7 +2920,12 @@
         "method": "Full-text methods/results/limitations and relevant competing evidence; pinned PDF extraction and JATS cross-check.",
         "independent_review": "Pending PR review by Juan; author verification is not independent clinical review.",
         "duplicate_leakage_check": "Question contains no requested target values; shared anchors retained only for distinct tasks.",
-        "tuning_exposure": "No retrieval runs used to author or choose gold labels."
+        "tuning_exposure": "No retrieval runs used to author or choose gold labels.",
+        "correction_review": {
+          "date": "2026-10-05",
+          "method": "Source-grounded correction from PR 45 findings and pinned text; no retrieval outcomes used.",
+          "decision": "Limit diabetes-status interaction to the five reported outcomes; remove unsupported GDF-15 and rehospitalization claims."
+        }
       },
       "selection_rationale": "Scoped evidence attribution and retrieval coverage; selected before evaluation."
     },
@@ -3930,19 +3958,19 @@
     },
     {
       "id": "c003",
-      "revision": 1,
+      "revision": 2,
       "category": "multi_hop",
       "topics": [
         "cardiology"
       ],
-      "question": "What external AF-detection performance did the Lorenz-plot CNN report, and what limitation applies to its external paroxysmal-AF sample?",
+      "question": "What Lorenz-scattergram-level external AF-detection sensitivity, specificity and accuracy did the Lorenz-plot CNN report, and what limitation applies to its external paroxysmal-AF patient sample?",
       "required_facts": [
         {
           "id": "f1",
-          "expected_text": "External sensitivity, specificity and accuracy were 0.989, 0.956 and 0.967, respectively.",
+          "expected_text": "External Lorenz-scattergram-level sensitivity, specificity and accuracy were 0.989, 0.956 and 0.967, respectively.",
           "units": "proportion",
           "population": "Lorenz CNN external MS-AF validation",
-          "endpoint": "Record-level AF detection and subgroup representativeness",
+          "endpoint": "Lorenz-scattergram-level AF detection",
           "timeframe": "External validation",
           "qualifiers": "Use the attributed source section and analysis population; preserve adjusted/unadjusted and association/causation distinctions.",
           "tolerance": "Accept rounding stated in the reference; no cross-cohort substitution.",
@@ -3953,7 +3981,7 @@
           "expected_text": "The external MS-AF dataset contained only five paroxysmal-AF patients; the authors warn that this small number and proportion may affect test results.",
           "units": "patients",
           "population": "Lorenz CNN external MS-AF validation",
-          "endpoint": "Record-level AF detection and subgroup representativeness",
+          "endpoint": "External paroxysmal-AF patient representativeness",
           "timeframe": "External validation",
           "qualifiers": "Use the attributed source section and analysis population; preserve adjusted/unadjusted and association/causation distinctions.",
           "tolerance": "Accept rounding stated in the reference; no cross-cohort substitution.",
@@ -3978,7 +4006,7 @@
         }
       ],
       "related_distractors": [],
-      "reference_answer": "External sensitivity, specificity and accuracy were 0.989, 0.956 and 0.967, respectively. The external MS-AF dataset contained only five paroxysmal-AF patients; the authors warn that this small number and proportion may affect test results.",
+      "reference_answer": "External Lorenz-scattergram-level sensitivity, specificity and accuracy were 0.989, 0.956 and 0.967, respectively. The external MS-AF dataset contained only five paroxysmal-AF patients; the authors warn that this small number and proportion may affect test results.",
       "answer_rubric": {
         "required_claims": [
           "f1",
@@ -3986,7 +4014,8 @@
         ],
         "acceptable_alternatives": "Any complete evidence set; accurately attributed source conflicts must remain explicit.",
         "forbidden_conflations": [
-          "Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes."
+          "Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes.",
+          "Do not label scattergram-level estimates as ECG-record-level performance."
         ],
         "judging_status": "No automated answer judge; review these claims manually or in separately approved answer judging."
       },
@@ -4029,7 +4058,12 @@
         "method": "Full-text methods/results/limitations and relevant competing evidence; pinned PDF extraction and JATS cross-check.",
         "independent_review": "Pending PR review by Juan; author verification is not independent clinical review.",
         "duplicate_leakage_check": "Question contains no requested target values; shared anchors retained only for distinct tasks.",
-        "tuning_exposure": "No retrieval runs used to author or choose gold labels."
+        "tuning_exposure": "No retrieval runs used to author or choose gold labels.",
+        "correction_review": {
+          "date": "2026-10-05",
+          "method": "Source-grounded correction from PR 45 findings and pinned text; no retrieval outcomes used.",
+          "decision": "Specify scattergram-level external validation rather than ECG-record performance."
+        }
       },
       "selection_rationale": "Scoped evidence attribution and retrieval coverage; selected before evaluation.",
       "reasoning": "Join performance estimates with the separately located subgroup limitation; high overall sensitivity is not precise paroxysmal validation."
@@ -4833,16 +4867,16 @@
     },
     {
       "id": "c012",
-      "revision": 1,
+      "revision": 2,
       "category": "cross_doc_synthesis",
       "topics": [
         "cardiology"
       ],
-      "question": "What renal benefit and infection association were reported in the advanced-CKD SGLT2 cohort, and how does its evidential design compare with the HFpEF GLS cohort?",
+      "question": "What renal benefit and infection association does the advanced-CKD SGLT2 study’s abstract report, and how does its evidential design compare with the HFpEF GLS study?",
       "required_facts": [
         {
           "id": "f1",
-          "expected_text": "The advanced-CKD study reports ESRD/dialysis adjusted HR 0.35 (95% CI 0.19–0.67) and GUTI adjusted HR 1.78 (95% CI 1.12–2.84); the authors cannot exclude unmeasured confounding.",
+          "expected_text": "The advanced-CKD abstract reports ESRD/dialysis adjusted HR 0.35 (95% CI 0.19–0.67) and GUTI adjusted HR 1.78 (95% CI 1.12–2.84); the observational design cannot exclude unmeasured confounding.",
           "units": "adjusted HR",
           "population": "Advanced CKD cohort versus retrospective HFpEF cohort",
           "endpoint": "Renal/infection risk versus cardiac GLS",
@@ -4853,7 +4887,7 @@
         },
         {
           "id": "f2",
-          "expected_text": "The HFpEF biomarker study is retrospective case-control and reports GLS changes, not these renal or infection endpoints. Neither observational comparison proves a causal treatment effect or supplies the other cohort’s endpoint estimates.",
+          "expected_text": "The HFpEF biomarker study is retrospective observational and reports GLS changes, not these renal or infection endpoints. Neither observational comparison proves a causal treatment effect or supplies the other cohort’s endpoint estimates.",
           "units": null,
           "population": "Advanced CKD cohort versus retrospective HFpEF cohort",
           "endpoint": "Renal/infection risk versus cardiac GLS",
@@ -4887,13 +4921,13 @@
         }
       ],
       "related_distractors": [],
-      "reference_answer": "The advanced-CKD study reports ESRD/dialysis adjusted HR 0.35 (95% CI 0.19–0.67) and GUTI adjusted HR 1.78 (95% CI 1.12–2.84); the authors cannot exclude unmeasured confounding. The HFpEF biomarker study is retrospective case-control and reports GLS changes, not these renal or infection endpoints. Neither observational comparison proves a causal treatment effect or supplies the other cohort’s endpoint estimates.",
+      "reference_answer": "The advanced-CKD abstract reports ESRD/dialysis adjusted HR 0.35 (95% CI 0.19–0.67) and GUTI adjusted HR 1.78 (95% CI 1.12–2.84); the observational design cannot exclude unmeasured confounding. The HFpEF biomarker study is retrospective observational and reports GLS changes, not these renal or infection endpoints. Neither observational comparison proves a causal treatment effect or supplies the other cohort’s endpoint estimates.",
       "answer_rubric": {
         "required_claims": [
           "f1",
           "f2"
         ],
-        "acceptable_alternatives": "Any complete evidence set; accurately attributed source conflicts must remain explicit.",
+        "acceptable_alternatives": "Require the explicitly requested abstract estimates. Optional Table 2 context reports ESRD/dialysis adjusted HR 0.35 (95% CI 0.19–0.66) and GUTI adjusted HR 1.80 (95% CI 1.13–2.86); attribute these differences rather than reconciling them. Accept retrospective observational, or attributed case-control (Methods) or cohort (abstract) descriptions of the HFpEF study. Discussing these source conflicts is optional.",
         "forbidden_conflations": [
           "Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes."
         ],
@@ -4939,22 +4973,27 @@
         "method": "Full-text methods/results/limitations and relevant competing evidence; pinned PDF extraction and JATS cross-check.",
         "independent_review": "Pending PR review by Juan; author verification is not independent clinical review.",
         "duplicate_leakage_check": "Question contains no requested target values; shared anchors retained only for distinct tasks.",
-        "tuning_exposure": "No retrieval runs used to author or choose gold labels."
+        "tuning_exposure": "No retrieval runs used to author or choose gold labels.",
+        "correction_review": {
+          "date": "2026-10-05",
+          "method": "Source-grounded correction from PR 45 findings and pinned text; no retrieval outcomes used.",
+          "decision": "Scope numerical estimates to the abstract and accept attributed observational design labels without inventing reconciliation."
+        }
       },
       "selection_rationale": "Scoped evidence attribution and retrieval coverage; selected before evaluation."
     },
     {
       "id": "c013",
-      "revision": 1,
-      "category": "multi_hop",
+      "revision": 2,
+      "category": "direct_lookup",
       "topics": [
         "cardiology"
       ],
-      "question": "What historical price basis and trial sources underlie the HFpEF cost-per-outcome analysis, and what CNTs were reported for its composite outcome?",
+      "question": "According to the abstract of the HFpEF cost-per-outcome analysis, what historical price basis and trial sources underlie the analysis, and what CNTs were reported for its composite outcome?",
       "required_facts": [
         {
           "id": "f1",
-          "expected_text": "The analysis uses 2022 US prices and separate DELIVER versus pooled PARAGLIDE-HF/PARAGON-HF trial data.",
+          "expected_text": "The abstract states 2022 US prices and separate DELIVER versus pooled PARAGLIDE-HF/PARAGON-HF trial data.",
           "units": "2022 US dollars",
           "population": "Separate HFmrEF/HFpEF trial populations",
           "endpoint": "Annualized cost needed to treat, composite outcome",
@@ -4965,7 +5004,7 @@
         },
         {
           "id": "f2",
-          "expected_text": "Annualized cost needed to treat to prevent one total worsening-HF/CV-death composite event was $148,547.13 for dapagliflozin versus $245,346.77 for sacubitril–valsartan. This is cost per outcome, not a current price quote or head-to-head effect estimate.",
+          "expected_text": "Annualized cost needed to treat to prevent one total worsening-HF/CV-death composite event was $148,547.13 for dapagliflozin versus $245,346.77 for sacubitril–valsartan.",
           "units": "2022 US dollars per event",
           "population": "Separate HFmrEF/HFpEF trial populations",
           "endpoint": "Annualized cost needed to treat, composite outcome",
@@ -4990,16 +5029,30 @@
               "cost_values"
             ]
           }
+        },
+        {
+          "id": "abstract",
+          "anchors": [
+            "cost_abstract_complete"
+          ],
+          "fact_anchors": {
+            "f1": [
+              "cost_abstract_complete"
+            ],
+            "f2": [
+              "cost_abstract_complete"
+            ]
+          }
         }
       ],
       "related_distractors": [],
-      "reference_answer": "The analysis uses 2022 US prices and separate DELIVER versus pooled PARAGLIDE-HF/PARAGON-HF trial data. Annualized cost needed to treat to prevent one total worsening-HF/CV-death composite event was $148,547.13 for dapagliflozin versus $245,346.77 for sacubitril–valsartan. This is cost per outcome, not a current price quote or head-to-head effect estimate.",
+      "reference_answer": "The abstract states 2022 US prices and separate DELIVER versus pooled PARAGLIDE-HF/PARAGON-HF trial data. Annualized cost needed to treat to prevent one total worsening-HF/CV-death composite event was $148,547.13 for dapagliflozin versus $245,346.77 for sacubitril–valsartan.",
       "answer_rubric": {
         "required_claims": [
           "f1",
           "f2"
         ],
-        "acceptable_alternatives": "Any complete evidence set; accurately attributed source conflicts must remain explicit.",
+        "acceptable_alternatives": "Any complete accepted evidence set. Methods additionally describes costs as 75% of NADAC extracted in July 2023; this correctly attributed context is optional and does not replace the requested abstract statement. No current-price or head-to-head discussion is required.",
         "forbidden_conflations": [
           "Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes."
         ],
@@ -5044,10 +5097,14 @@
         "method": "Full-text methods/results/limitations and relevant competing evidence; pinned PDF extraction and JATS cross-check.",
         "independent_review": "Pending PR review by Juan; author verification is not independent clinical review.",
         "duplicate_leakage_check": "Question contains no requested target values; shared anchors retained only for distinct tasks.",
-        "tuning_exposure": "No retrieval runs used to author or choose gold labels."
+        "tuning_exposure": "No retrieval runs used to author or choose gold labels.",
+        "correction_review": {
+          "date": "2026-10-05",
+          "method": "Source-grounded correction from PR 45 findings and pinned text; no retrieval outcomes used.",
+          "decision": "Scope price provenance to the abstract, accept its complete local passage and relabel direct_lookup."
+        }
       },
-      "selection_rationale": "Scoped evidence attribution and retrieval coverage; selected before evaluation.",
-      "reasoning": "Bind methods price/trial provenance to the separately located CNT result."
+      "selection_rationale": "Scoped evidence attribution and retrieval coverage; selected before evaluation."
     },
     {
       "id": "c014",
@@ -5260,12 +5317,12 @@
     },
     {
       "id": "c016",
-      "revision": 1,
+      "revision": 2,
       "category": "cross_doc_synthesis",
       "topics": [
         "cardiology"
       ],
-      "question": "How does the genetic inverse T2D–BP cluster relate to cardiometabolic risk, and why should it not be read as a drug-response result?",
+      "question": "How does the genetic inverse T2D–BP cluster relate to cardiometabolic risk, what environmental limitation do its authors identify, and how does this evidence differ from the advanced-CKD SGLT2 cohort’s renal and infection findings when interpreting drug response?",
       "required_facts": [
         {
           "id": "f1",
@@ -5280,7 +5337,7 @@
         },
         {
           "id": "f2",
-          "expected_text": "The authors emphasize that T2D/high-BP mechanisms also depend on environmental factors. The SGLT2 advanced-CKD cohort instead reports treatment-exposure associations with renal and infection outcomes; it supplies no validation that the genetic cluster predicts SGLT2 or sulfonylurea response.",
+          "expected_text": "The genetic study’s authors state that environmental factors also influence T2D/high-BP mechanisms. The advanced-CKD SGLT2 cohort instead reports treatment-exposure associations with renal and infection outcomes; these different analyses do not establish that the inverse genetic cluster predicts SGLT2 response.",
           "units": null,
           "population": "Partitioned genetic analysis versus advanced-CKD exposure cohort",
           "endpoint": "Genetic trait clustering versus treatment-associated outcomes",
@@ -5312,7 +5369,7 @@
         }
       ],
       "related_distractors": [],
-      "reference_answer": "The inverse cluster has 353 SNVs whose T2D-risk alleles associate with lower BP and lower AF, CAD, stroke and HF risk; it represents genetic associations. The authors emphasize that T2D/high-BP mechanisms also depend on environmental factors. The SGLT2 advanced-CKD cohort instead reports treatment-exposure associations with renal and infection outcomes; it supplies no validation that the genetic cluster predicts SGLT2 or sulfonylurea response.",
+      "reference_answer": "The inverse cluster has 353 SNVs whose T2D-risk alleles associate with lower BP and lower AF, CAD, stroke and HF risk; it represents genetic associations. The genetic study’s authors state that environmental factors also influence T2D/high-BP mechanisms. The advanced-CKD SGLT2 cohort instead reports treatment-exposure associations with renal and infection outcomes; these different analyses do not establish that the inverse genetic cluster predicts SGLT2 response.",
       "answer_rubric": {
         "required_claims": [
           "f1",
@@ -5364,9 +5421,15 @@
         "method": "Full-text methods/results/limitations and relevant competing evidence; pinned PDF extraction and JATS cross-check.",
         "independent_review": "Pending PR review by Juan; author verification is not independent clinical review.",
         "duplicate_leakage_check": "Question contains no requested target values; shared anchors retained only for distinct tasks.",
-        "tuning_exposure": "No retrieval runs used to author or choose gold labels."
+        "tuning_exposure": "No retrieval runs used to author or choose gold labels.",
+        "correction_review": {
+          "date": "2026-10-05",
+          "method": "Source-grounded correction from PR 45 findings and pinned text; no retrieval outcomes used.",
+          "decision": "Explicitly request the advanced-CKD comparison and environmental limitation to preserve cross-document synthesis."
+        }
       },
-      "selection_rationale": "Scoped evidence attribution and retrieval coverage; selected before evaluation."
+      "selection_rationale": "Scoped evidence attribution and retrieval coverage; selected before evaluation.",
+      "reasoning": "Connect the genetic-cluster result and limitation with the separate advanced-CKD treatment-exposure study; neither article alone supplies this requested comparison."
     },
     {
       "id": "c017",

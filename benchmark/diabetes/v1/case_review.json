@@ -4,7 +4,7 @@
   "reviewer": "Codex GPT-6 (author review)",
   "independent_review": "Pending Juan PR review; no independent clinical adjudication claimed",
   "selection_sha256": "1f3380e8df6021193924fb0eec692114dedd2b931a79bb81a67f35a236ee2ca9",
-  "query_sha256": "38d3ad95fbcd3d38d0bdfd4b2d9388524a889aa572c14c5a3f09762cce4c3d44",
+  "query_sha256": "6792a0c8215c2a2aea36510dc328150fd3ad80d6f7a5f44991eff8d848132c3b",
   "status": "Author-reviewed final annotations; initial frozen retrieval questions/anchors unchanged",
   "source_selection": "32 pinned articles: original 21 retained unchanged, 11 verified diabetes additions; CC BY 4.0/CC0 1.0 only",
   "legacy_audit": "35 full legacy records with findings/actions in legacy_audit.json; 23 revised IDs, 12 retired IDs, 26 new IDs",
@@ -296,5 +296,22 @@
       "page": 3
     }
   ],
-  "gold_pdf_visual_findings": "Inspected all 12 rendered gold pages for drug Table 4 anomaly, gene abstract/Results conflict, quality ratings/identification, non-inferiority margin/CI, syndrome prevalence and renal/sleep mechanisms."
+  "gold_pdf_visual_findings": "Inspected all 12 rendered gold pages for drug Table 4 anomaly, gene abstract/Results conflict, quality ratings/identification, non-inferiority margin/CI, syndrome prevalence and renal/sleep mechanisms.",
+  "category_counts": {
+    "cross_doc_distractor": 4,
+    "cross_doc_synthesis": 5,
+    "direct_lookup": 23,
+    "false_premise": 3,
+    "multi_hop": 10,
+    "unanswerable": 4
+  },
+  "correction_review": {
+    "date": "2026-10-05",
+    "changed_cases": [
+      "d015",
+      "d016",
+      "d020"
+    ],
+    "status": "Source-grounded author corrections; PR review pending. Historical run artifacts are unchanged."
+  }
 }

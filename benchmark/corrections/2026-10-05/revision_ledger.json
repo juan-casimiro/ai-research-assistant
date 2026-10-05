@@ -1,0 +1,153 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-05",
+  "parent_commit": "732319b",
+  "findings_pr": "https://github.com/juan-casimiro/ai-research-assistant/pull/45",
+  "scope": "Source-grounded benchmark corrections; strategy, corpus, scorer and historical runs preserved. No retrieval scores used to select changes.",
+  "sets": [
+    {
+      "set": "als-ftd",
+      "path": "benchmark/als-ftd/v1/queries.json",
+      "previous_query_version": "als-ftd-prepared-queries-v1",
+      "query_version": "als-ftd-prepared-queries-v1-gold-corrections-20261005",
+      "previous_query_sha256": "2325d611943896f7eebf04caae2169fea18210ed0361a8f2c167823bdc51cef8",
+      "query_sha256": "7569153b0ebc72cc90b422a2a8d04a4b32b719768c7b868fca665abc48319509",
+      "changed_cases": [
+        {
+          "id": "a001",
+          "previous_revision": 2,
+          "revision": 3,
+          "previous_case_sha256": "3690fe1ae5dbe7bbd74411bf41c4fb5fffccc82e8c61af619054c66fe20135c2",
+          "case_sha256": "aa36abb20efdbe694cc39823d47ebb09f576197105df70d4de5c320991f3ee45",
+          "decision": "Relabel a single continuous Results passage as direct_lookup; facts unchanged."
+        },
+        {
+          "id": "a007",
+          "previous_revision": 2,
+          "revision": 3,
+          "previous_case_sha256": "cf70be8dc740d0a713212b189216a3f273c63bc45ddd4ffeb2c38f3068e77468",
+          "case_sha256": "bc96f7a9cc8ff58aec63b893fd4e663dfab13269bb4d7b3d84eae5dbfbc885c4",
+          "decision": "Relabel a single continuous case account as direct_lookup; facts unchanged."
+        },
+        {
+          "id": "a009",
+          "previous_revision": 2,
+          "revision": 3,
+          "previous_case_sha256": "fd651c3d98aaa1a50867c91ab5058d4fe56734eb0c68aade58f82d7eacc12420",
+          "case_sha256": "cb6ef2a0858c53a93f9a71eee2753a8b662cbd47e6ff351cadccb4cf927be29c",
+          "decision": "Require only diagnostic genetic evidence; later autopsy and decoy discussion are optional."
+        }
+      ]
+    },
+    {
+      "set": "cardiology",
+      "path": "benchmark/cardiology/v1/queries.json",
+      "previous_query_version": "cardiology-queries-v1",
+      "query_version": "cardiology-queries-v1-gold-corrections-20261005",
+      "previous_query_sha256": "cef90c420cde6ef4f8d8c0f35aa6ae971591ca7d5a7c6e9ae64dc1321d0280f4",
+      "query_sha256": "6b85da7e9a368943e2a52a300453858f1a21972c72afab499d4f1d6c9cf49fe6",
+      "changed_cases": [
+        {
+          "id": "q058",
+          "previous_revision": 2,
+          "revision": 3,
+          "previous_case_sha256": "df7b414e724df2daae1671084cd627827ec98d740059920492a97b7ef8fc29f2",
+          "case_sha256": "d3b0a813f5bfd6fa1e4d4ee72cbb9441e4064c929755327d458c61f28850ad6e",
+          "decision": "Limit diabetes-status interaction to the five reported outcomes; remove unsupported GDF-15 and rehospitalization claims."
+        },
+        {
+          "id": "c003",
+          "previous_revision": 1,
+          "revision": 2,
+          "previous_case_sha256": "4ebd80f824572d72d8aa095e4d0c5b98db4a5201e02d06cd7a8f64b6583e3bd0",
+          "case_sha256": "ce4f20ee94566e551f1dbffca582e920324fe739529c20db3e96d86f529337ce",
+          "decision": "Specify scattergram-level external validation rather than ECG-record performance."
+        },
+        {
+          "id": "c012",
+          "previous_revision": 1,
+          "revision": 2,
+          "previous_case_sha256": "6d9a8916e01ecf208bf268fba481c7b2bb5267ebba9eb3cede96a00bfab1f893",
+          "case_sha256": "9e34986ce1dace6af18456da59886ef6208e2b2a45b9088c1495143d3a98cf88",
+          "decision": "Scope numerical estimates to the abstract and accept attributed observational design labels without inventing reconciliation."
+        },
+        {
+          "id": "c013",
+          "previous_revision": 1,
+          "revision": 2,
+          "previous_case_sha256": "5bce77969a1c53abbe0e4dd5d83ea741345a8ace2dbc0754a12edb99fd1e4c3e",
+          "case_sha256": "08d6459c7dfe378ffd1bab7d01bb2caab55786be92d49271d21e499423072fe3",
+          "decision": "Scope price provenance to the abstract, accept its complete local passage and relabel direct_lookup."
+        },
+        {
+          "id": "c016",
+          "previous_revision": 1,
+          "revision": 2,
+          "previous_case_sha256": "6b83b4d82d383cf578eb590bebd7cc5bb175904a63cb12dd4fcb1fcece8111c2",
+          "case_sha256": "8e1aded4b5b50bb4ae82199d68b56efaeff992a3f7e4084a414cea69561fae98",
+          "decision": "Explicitly request the advanced-CKD comparison and environmental limitation to preserve cross-document synthesis."
+        }
+      ]
+    },
+    {
+      "set": "diabetes",
+      "path": "benchmark/diabetes/v1/queries.json",
+      "previous_query_version": "diabetes-queries-v1",
+      "query_version": "diabetes-queries-v1-gold-corrections-20261005",
+      "previous_query_sha256": "38d3ad95fbcd3d38d0bdfd4b2d9388524a889aa572c14c5a3f09762cce4c3d44",
+      "query_sha256": "6792a0c8215c2a2aea36510dc328150fd3ad80d6f7a5f44991eff8d848132c3b",
+      "changed_cases": [
+        {
+          "id": "d015",
+          "previous_revision": 3,
+          "revision": 4,
+          "previous_case_sha256": "e626ef0d35777eca7a2766c68b4f496899fb73492d7437f75a2a3098899ebaec",
+          "case_sha256": "35ecb24e6672a7a9a4fefda497545b2c859d8dd2e005727d05c73519797062b8",
+          "decision": "Explicitly request the environmental limitation to preserve two-passage reasoning."
+        },
+        {
+          "id": "d016",
+          "previous_revision": 3,
+          "revision": 4,
+          "previous_case_sha256": "28ed22a4ffe689ae50d865db2a942ae43dab45ab8837623f76d013a2106ee578",
+          "case_sha256": "4a51c9a97dc55aa0ddd820bdbe8af3b1806b7ec9781d21238fa956b0a2fa290e",
+          "decision": "Explicitly request all three outcomes and the indirect comparison design to preserve two-passage reasoning."
+        },
+        {
+          "id": "d020",
+          "previous_revision": 1,
+          "revision": 2,
+          "previous_case_sha256": "978e8e7e1b555ed4fa6e82205c29cf92c3d154bbce0e356cc85a0af05fe02a16",
+          "case_sha256": "143ba3144e75e99ecef98a1aaa1585108f0b6b3452e79584bf6a2660e2d88f0a",
+          "decision": "Scope the false premise to the primary intention-to-treat analysis."
+        }
+      ]
+    },
+    {
+      "set": "outliers",
+      "path": "benchmark/outliers/v1/queries.json",
+      "previous_query_version": "outliers-v1",
+      "query_version": "outliers-v1-gold-corrections-20261005",
+      "previous_query_sha256": "20c1be5bb8f3e83b94cee0731698c02452ad5203f4e61c1c257c095b24baa1dd",
+      "query_sha256": "4aa12ff3987416e1dc69af667152b77c6893100ebdad8cbbeaaf645574b62263",
+      "changed_cases": [
+        {
+          "id": "x004",
+          "previous_revision": 1,
+          "revision": 2,
+          "previous_case_sha256": "10903eb0ccdb23d73e82a8fbcee965836d1ef5deac461375322e31ff1ce6d5e0",
+          "case_sha256": "76617d7ed49adc81f32045be51a38f9598b442ff78eb52e6390a2fb8c7809676",
+          "decision": "Remove the mandatory decoy-study claim; retain the decoy as competition only."
+        },
+        {
+          "id": "x005",
+          "previous_revision": 1,
+          "revision": 2,
+          "previous_case_sha256": "924385ba8a72fffe8a728ffd09b648fd538c747c42d5866bfae37e2ea22e4c8a",
+          "case_sha256": "13bdc43bf1835eb6d955dec123583f20baf12e63b647884720380229037687b3",
+          "decision": "Scope reported task wording to the abstract and acknowledge the detailed binary-classification description as optional context."
+        }
+      ]
+    }
+  ]
+}

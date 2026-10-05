@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "query_version": "als-ftd-prepared-queries-v1",
-  "status": "prepared; independent full-text review and freeze pending",
+  "query_version": "als-ftd-prepared-queries-v1-gold-corrections-20261005",
+  "status": "Source-grounded corrections; PR review pending; prior evaluation results retain their original revision and fingerprints.",
   "selection_sha256": "c8a1c6ec743b665503fb75ee428d07873c924537a61263802b7d8efcbe1467e9",
   "anchors": [
     {
@@ -282,8 +282,7 @@
       "excerpt_sha256": "27468bacbe542da08632525253480bb23d4771536905edf96821b9665f539d57",
       "fact_ids": [
         "a007:f2",
-        "a008:f2",
-        "a009:f1"
+        "a008:f2"
       ],
       "role": "support"
     },
@@ -421,9 +420,9 @@
   "queries": [
     {
       "id": "a001",
-      "revision": 2,
+      "revision": 3,
       "question": "In Parameswaran et al. (2023), how did the PKR/eIF2α findings differ between human frontal-cortex samples and patient-derived motor neurons, and how cautiously should the authors’ explanation be interpreted?",
-      "category": "multi_hop",
+      "category": "direct_lookup",
       "topics": [
         "als",
         "ftd",
@@ -521,9 +520,13 @@
               "reason": "These summaries do not explicitly supply all qualifiers of the pinned fact: normalized phosphorylated eIF2α, control comparison and postmortem scope. They can contribute context; an answer with the full Results anchor remains accepted. Independent review may revise fact granularity before freeze."
             }
           ]
+        },
+        "correction_review": {
+          "date": "2026-10-05",
+          "method": "Source-grounded correction from PR 45 findings and pinned text; no retrieval outcomes used.",
+          "decision": "Relabel a single continuous Results passage as direct_lookup; facts unchanged."
         }
-      },
-      "reasoning": "Connect separated tissue and young-neuron results; neither alone supplies the contrast."
+      }
     },
     {
       "id": "a002",
@@ -1083,9 +1086,9 @@
     },
     {
       "id": "a007",
-      "revision": 2,
+      "revision": 3,
       "question": "In the LeBlanc et al. case report, how did SPECT interpretation compare with genetic testing and subsequent pathology?",
-      "category": "multi_hop",
+      "category": "direct_lookup",
       "topics": [
         "als",
         "ftd",
@@ -1175,9 +1178,13 @@
           "reviewed_at": "2026-10-03T15:42:39.356347+00:00",
           "scope": "Author review of the pinned anchors and candidate alternative passages in main-PDF Results, Discussion and relevant legends; this does not attest exhaustive section coverage. Supplements and unselected papers are not accepted sources.",
           "status": "author_revision; independent completeness review pending"
+        },
+        "correction_review": {
+          "date": "2026-10-05",
+          "method": "Source-grounded correction from PR 45 findings and pinned text; no retrieval outcomes used.",
+          "decision": "Relabel a single continuous case account as direct_lookup; facts unchanged."
         }
-      },
-      "reasoning": "Connect imaging, genetics and pathology; do not infer diagnostic accuracy from one case."
+      }
     },
     {
       "id": "a008",
@@ -1293,7 +1300,7 @@
     },
     {
       "id": "a009",
-      "revision": 2,
+      "revision": 3,
       "question": "What did the human case report by LeBlanc et al. use to support FTD-ALS after discordant brain imaging?",
       "category": "cross_doc_distractor",
       "topics": [
@@ -1304,10 +1311,10 @@
       "required_facts": [
         {
           "id": "a009:f1",
-          "expected": "A C9orf72 expansion was identified on genetic testing, and autopsy later confirmed FTLD with TDP pathology type C.",
+          "expected": "Genetic testing identified a C9orf72 GGGGCC repeat expansion, confirming FTD-ALS after discordant SPECT imaging.",
           "population": "Single clinical case",
-          "endpoint": "Genetic/pathological diagnosis",
-          "timeframe": "Work-up and postmortem",
+          "endpoint": "Genetic diagnosis",
+          "timeframe": "Diagnostic work-up",
           "units": null,
           "tolerance": null,
           "qualifiers": "Attribute to the named study and evidence type; do not extrapolate across models or clinical endpoints.",
@@ -1318,13 +1325,11 @@
         {
           "id": "a009:set1",
           "anchors": [
-            "case-genetics",
-            "case-autopsy"
+            "case-genetics"
           ],
           "fact_anchors": {
             "a009:f1": [
-              "case-genetics",
-              "case-autopsy"
+              "case-genetics"
             ]
           }
         }
@@ -1338,12 +1343,12 @@
           "reason_inapplicable": "These are cultured iPSC/iMN line responses to Cas13d, not diagnostic observations in the case-report patient."
         }
       ],
-      "reference_answer": "C9orf72 expansion testing supported the diagnosis; later autopsy showed FTLD-TDP type C. Patient-derived-cell experiments in the Cas13d paper are not this patient’s diagnostic evidence.",
+      "reference_answer": "Genetic testing identified a C9orf72 GGGGCC repeat expansion, confirming FTD-ALS after discordant SPECT imaging.",
       "answer_rubric": {
         "required_claims": [
-          "A C9orf72 expansion was identified on genetic testing, and autopsy later confirmed FTLD with TDP pathology type C."
+          "Genetic testing identified a C9orf72 GGGGCC repeat expansion, confirming FTD-ALS after discordant SPECT imaging."
         ],
-        "acceptable_alternatives": "Equivalent scope-preserving paraphrases; accepted complete passage alternatives are enumerated in evidence_sets. Independent full-text and cross-topic alternative review remains pending before freeze.",
+        "acceptable_alternatives": "A genetics-only answer is complete. Correctly attributed later FTLD-TDP type C autopsy confirmation is optional; no decoy-study discussion is required.",
         "forbidden_conflations": [
           "Do not use Cas13d-treated cultured patient-derived cells as this patient’s diagnostic evidence.",
           "Do not equate SPECT interpretation with genetic/pathological findings."
@@ -1378,6 +1383,11 @@
           "reviewed_at": "2026-10-03T15:42:39.356347+00:00",
           "scope": "Author review of the pinned anchors and candidate alternative passages in main-PDF Results, Discussion and relevant legends; this does not attest exhaustive section coverage. Supplements and unselected papers are not accepted sources.",
           "status": "author_revision; independent completeness review pending"
+        },
+        "correction_review": {
+          "date": "2026-10-05",
+          "method": "Source-grounded correction from PR 45 findings and pinned text; no retrieval outcomes used.",
+          "decision": "Require only diagnostic genetic evidence; later autopsy and decoy discussion are optional."
         }
       }
     },

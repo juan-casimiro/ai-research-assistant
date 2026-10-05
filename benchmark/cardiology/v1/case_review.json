@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "query_version": "cardiology-queries-v1",
-  "query_sha256": "cef90c420cde6ef4f8d8c0f35aa6ae971591ca7d5a7c6e9ae64dc1321d0280f4",
+  "query_version": "cardiology-queries-v1-gold-corrections-20261005",
+  "query_sha256": "6b85da7e9a368943e2a52a300453858f1a21972c72afab499d4f1d6c9cf49fe6",
   "selection_sha256": "e6e63604b1413f6042e43968b7ff83ae0eac763687f99e26006fae9776f19f7b",
   "state": "Author verified; independent PR review and freeze pending Juan",
   "author": "Codex",
@@ -11,9 +11,9 @@
   "category_counts": {
     "cross_doc_distractor": 7,
     "cross_doc_synthesis": 8,
-    "direct_lookup": 14,
+    "direct_lookup": 15,
     "false_premise": 4,
-    "multi_hop": 9,
+    "multi_hop": 8,
     "unanswerable": 3
   },
   "legacy_review": [
@@ -450,5 +450,16 @@
   ],
   "duplicate_policy": "q067 is an intentional simple incidence floor alongside composed q065. q043/q046 replaced with new tasks, q068/q121/q123 retired for duplication/leakage. Shared facts elsewhere assess distinct scopes or confusions; never supply requested target values in answerable questions.",
   "BM25_policy": "Lexical performance is a hypothesis; no case labelled BM25-dependent and no query wording chosen from retrieval failures. Freeze on approved PR before identical flag comparisons.",
-  "judge_coordination": "JUA-40 receives rubrics/facts/evidence from this release only after its separately agreed Spring Boot/Java-AI sequencing gate. No judge implementation or external model evaluation here."
+  "judge_coordination": "JUA-40 receives rubrics/facts/evidence from this release only after its separately agreed Spring Boot/Java-AI sequencing gate. No judge implementation or external model evaluation here.",
+  "correction_review": {
+    "date": "2026-10-05",
+    "changed_cases": [
+      "q058",
+      "c003",
+      "c012",
+      "c013",
+      "c016"
+    ],
+    "status": "Source-grounded author corrections; PR review pending. Historical run artifacts are unchanged."
+  }
 }

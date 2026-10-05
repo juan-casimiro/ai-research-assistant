@@ -68,3 +68,7 @@ query rewriting, BM25, or an answer judge. Read `REPORT.md` for observed scores,
 limits, and exact run records. Document/evidence retrieval metrics are not
 answer correctness or refusal accuracy. Complete combined-corpus absence review
 and full topic evaluation remain JUA-114 work.
+
+## Gold correction revision — 2026-10-05
+
+The active query set incorporates the [source-grounded correction ledger](../../corrections/2026-10-05/README.md). Prior runs retain their original questions and fingerprints; they are not runs of this corrected revision. The corpus and evaluation strategy are unchanged.

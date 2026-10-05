@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "query_version": "diabetes-queries-v1",
-  "status": "author_reviewed; source-based category/reference clarification after initial retrieval; independent_PR_review_pending",
+  "query_version": "diabetes-queries-v1-gold-corrections-20261005",
+  "status": "Source-grounded corrections; PR review pending; prior evaluation results retain their original revision and fingerprints.",
   "selection_sha256": "1f3380e8df6021193924fb0eec692114dedd2b931a79bb81a67f35a236ee2ca9",
   "authored_for": "JUA-111",
   "anchors": [
@@ -5196,20 +5196,20 @@
     },
     {
       "id": "d015",
-      "revision": 3,
+      "revision": 4,
       "category": "multi_hop",
       "topics": [
         "diabetes"
       ],
-      "question": "What do partitioned T2DM/BP polygenic associations imply about treating diabetes-risk mechanisms as a uniformly positive BP-risk axis?",
+      "question": "What do partitioned T2DM/BP polygenic associations imply about treating diabetes-risk mechanisms as a uniformly positive BP-risk axis, and what environmental limitation do the authors identify for explaining T2D/high-BP comorbidity?",
       "required_facts": [
         {
           "id": "f1",
-          "expected_text": "An inverse cluster associates higher T2DM risk with lower BP; genetics does not fully explain the comorbidity and environmental factors remain. Do not infer a universal positive axis or a causal treatment effect.",
+          "expected_text": "The inverse cluster associates higher T2D risk with lower BP, contradicting a uniformly positive risk axis. The authors state that genetics alone does not fully explain T2D/high-BP comorbidity and identify environmental influences such as salt consumption or western diet.",
           "units": "source-specific values/qualifiers",
-          "population": "What do partitioned T2DM/BP polygenic associations imply about treating diabetes-risk mechanisms as a uniformly positive BP-risk axis?",
-          "endpoint": "Named source-specific endpoint; no cross-population substitution",
-          "timeframe": "As specified in question and evidence",
+          "population": "Partitioned T2D/BP genetic association analysis",
+          "endpoint": "Inverse genetic association and limits of genetic explanation",
+          "timeframe": "Genetic association analysis",
           "qualifiers": "Preserve experimental design, adjusted/unadjusted estimates, reported source conflicts and association/causation distinctions.",
           "tolerance": "Source-stated rounding only",
           "contradiction_rule": "No invented reconciliation, causal treatment inference, or unsupported subgroup claim."
@@ -5239,10 +5239,15 @@
         "method": "Main-PDF full-text methods/results/limitations; pinned extraction and relevant JATS/table cross-check",
         "independent_review": "Pending Juan PR review; author review is not independent clinical review",
         "duplicate_leakage_check": "No requested gold values in question; shared anchors serve different scope/comparison tasks",
-        "tuning_exposure": "Questions and evidence anchors frozen before retrieval; category/reference annotations corrected afterward by source/standards review; this revision clarifies that chronology. No score-driven tuning."
+        "tuning_exposure": "Questions and evidence anchors frozen before retrieval; category/reference annotations corrected afterward by source/standards review; this revision clarifies that chronology. No score-driven tuning.",
+        "correction_review": {
+          "date": "2026-10-05",
+          "method": "Source-grounded correction from PR 45 findings and pinned text; no retrieval outcomes used.",
+          "decision": "Explicitly request the environmental limitation to preserve two-passage reasoning."
+        }
       },
       "selection_rationale": "Coverage and evidence distinction identified in legacy audit, before retrieval evaluation",
-      "reference_answer": "An inverse cluster associates higher T2DM risk with lower BP; genetics does not fully explain the comorbidity and environmental factors remain. Do not infer a universal positive axis or a causal treatment effect.",
+      "reference_answer": "The inverse cluster associates higher T2D risk with lower BP, contradicting a uniformly positive risk axis. The authors state that genetics alone does not fully explain T2D/high-BP comorbidity and identify environmental influences such as salt consumption or western diet.",
       "dependencies": {
         "required": [
           "PMC12886974"
@@ -5292,28 +5297,29 @@
         "acceptable_alternatives": "Complete listed evidence sets; source conflicts explicitly attributed. Unlisted semantically valid paraphrases require manual review.",
         "forbidden_conflations": [
           "Do not substitute another study/cohort/endpoint/timepoint",
-          "Do not imply source consistency or clinical superiority from reported observational/vignette findings"
+          "Do not imply source consistency or clinical superiority from reported observational/vignette findings",
+          "Do not turn the inverse genetic association into a causal treatment effect."
         ],
         "judging_status": "No generated answer or paid judge run; rubric is for manual or separately approved future evaluation."
       },
-      "reasoning": "Connect the inverse genetic-cluster Results with separately located scope/environmental limitations."
+      "reasoning": "Connect the inverse-cluster Results with the separate environmental-limitations passage; neither alone answers both requested parts."
     },
     {
       "id": "d016",
-      "revision": 3,
+      "revision": 4,
       "category": "multi_hop",
       "topics": [
         "diabetes"
       ],
-      "question": "In the cardiorenal network meta-analysis, did HFpEF comparisons establish a significant drug-class difference in cardiovascular mortality?",
+      "question": "In the cardiorenal network meta-analysis, what did HFpEF comparisons report for drug-class differences in cardiovascular mortality, all-cause mortality and HF hospitalization/event, and how were the between-class comparisons derived?",
       "required_facts": [
         {
           "id": "f1",
-          "expected_text": "No significant drug-class differences in HFpEF CV mortality, all-cause mortality or HF events were reported; comparisons were placebo-anchored indirect evidence, not randomized head-to-head superiority.",
+          "expected_text": "No significant drug-class differences in HFpEF CV mortality, all-cause mortality or HF hospitalization/event were reported. Between-class comparisons used indirect evidence with placebo as the common comparator, rather than randomized head-to-head comparisons.",
           "units": "source-specific values/qualifiers",
-          "population": "In the cardiorenal network meta-analysis, did HFpEF comparisons establish a significant drug-class difference in cardiovascular mortality?",
-          "endpoint": "Named source-specific endpoint; no cross-population substitution",
-          "timeframe": "As specified in question and evidence",
+          "population": "HFpEF trial populations in the network meta-analysis",
+          "endpoint": "CV mortality, all-cause mortality and HF hospitalization/event; comparison design",
+          "timeframe": "Trial-specific follow-up",
           "qualifiers": "Preserve experimental design, adjusted/unadjusted estimates, reported source conflicts and association/causation distinctions.",
           "tolerance": "Source-stated rounding only",
           "contradiction_rule": "No invented reconciliation, causal treatment inference, or unsupported subgroup claim."
@@ -5343,10 +5349,15 @@
         "method": "Main-PDF full-text methods/results/limitations; pinned extraction and relevant JATS/table cross-check",
         "independent_review": "Pending Juan PR review; author review is not independent clinical review",
         "duplicate_leakage_check": "No requested gold values in question; shared anchors serve different scope/comparison tasks",
-        "tuning_exposure": "Questions and evidence anchors frozen before retrieval; category/reference annotations corrected afterward by source/standards review; this revision clarifies that chronology. No score-driven tuning."
+        "tuning_exposure": "Questions and evidence anchors frozen before retrieval; category/reference annotations corrected afterward by source/standards review; this revision clarifies that chronology. No score-driven tuning.",
+        "correction_review": {
+          "date": "2026-10-05",
+          "method": "Source-grounded correction from PR 45 findings and pinned text; no retrieval outcomes used.",
+          "decision": "Explicitly request all three outcomes and the indirect comparison design to preserve two-passage reasoning."
+        }
       },
       "selection_rationale": "Coverage and evidence distinction identified in legacy audit, before retrieval evaluation",
-      "reference_answer": "No significant drug-class differences in HFpEF CV mortality, all-cause mortality or HF events were reported; comparisons were placebo-anchored indirect evidence, not randomized head-to-head superiority.",
+      "reference_answer": "No significant drug-class differences in HFpEF CV mortality, all-cause mortality or HF hospitalization/event were reported. Between-class comparisons used indirect evidence with placebo as the common comparator, rather than randomized head-to-head comparisons.",
       "dependencies": {
         "required": [
           "PMC12683810"
@@ -5400,7 +5411,7 @@
         ],
         "judging_status": "No generated answer or paid judge run; rubric is for manual or separately approved future evaluation."
       },
-      "reasoning": "Connect the HFpEF result comparison with the separate placebo-anchored network Methods."
+      "reasoning": "Connect the HFpEF outcomes passage with the separate placebo-anchored comparison Methods; neither alone answers both requested parts."
     },
     {
       "id": "d017",
@@ -5709,20 +5720,20 @@
     },
     {
       "id": "d020",
-      "revision": 1,
+      "revision": 2,
       "category": "false_premise",
       "topics": [
         "diabetes"
       ],
-      "question": "Since Berthoumieux’s DSMES+CGM trial showed statistically significant HbA1c improvement at both follow-up visits, what was the later benefit?",
+      "question": "Since the primary intention-to-treat analysis of Berthoumieux’s DSMES+CGM trial showed statistically significant HbA1c improvement at both follow-up visits, what was the later benefit?",
       "required_facts": [
         {
           "id": "f1",
-          "expected_text": "Reject significant at both visits: three months P=.03, six months P=.12 with CI crossing zero; preserve timepoint distinction.",
-          "units": "source-specific values/qualifiers",
-          "population": "Since Berthoumieux’s DSMES+CGM trial showed statistically significant HbA1c improvement at both follow-up visits, what was the later benefit?",
-          "endpoint": "Named source-specific endpoint; no cross-population substitution",
-          "timeframe": "As specified in question and evidence",
+          "expected_text": "Reject the premise for the primary intention-to-treat analysis: the three-month difference was −0.7 percentage points (P=.03), while the six-month difference was −0.6 percentage points (95% CI −1.4 to 0.2; P=.12), not statistically significant.",
+          "units": "HbA1c percentage points; P value",
+          "population": "Randomized DSMES+CGM versus usual-care groups, primary intention-to-treat analysis",
+          "endpoint": "Between-group HbA1c difference",
+          "timeframe": "Three and six months",
           "qualifiers": "Preserve experimental design, adjusted/unadjusted estimates, reported source conflicts and association/causation distinctions.",
           "tolerance": "Source-stated rounding only",
           "contradiction_rule": "No invented reconciliation, causal treatment inference, or unsupported subgroup claim."
@@ -5744,17 +5755,22 @@
       "related_distractors": [],
       "answerability": {
         "status": "false_premise",
-        "offending_premise": "Since Berthoumieux’s DSMES+CGM trial showed statistically significant HbA1c improvement at both follow-up visits, what was the later benefit?"
+        "offending_premise": "The primary intention-to-treat analysis found statistically significant HbA1c improvement at both three and six months."
       },
       "review": {
         "author": "Codex GPT-6",
         "method": "Main-PDF full-text methods/results/limitations; pinned extraction and relevant JATS/table cross-check",
         "independent_review": "Pending Juan PR review; author review is not independent clinical review",
         "duplicate_leakage_check": "No requested gold values in question; shared anchors serve different scope/comparison tasks",
-        "tuning_exposure": "Authored and frozen before retrieval scores"
+        "tuning_exposure": "Authored and frozen before retrieval scores",
+        "correction_review": {
+          "date": "2026-10-05",
+          "method": "Source-grounded correction from PR 45 findings and pinned text; no retrieval outcomes used.",
+          "decision": "Scope the false premise to the primary intention-to-treat analysis."
+        }
       },
       "selection_rationale": "Coverage and evidence distinction identified in legacy audit, before retrieval evaluation",
-      "reference_answer": "Reject significant at both visits: three months P=.03, six months P=.12 with CI crossing zero; preserve timepoint distinction.",
+      "reference_answer": "Reject the premise for the primary intention-to-treat analysis: the three-month difference was −0.7 percentage points (P=.03), while the six-month difference was −0.6 percentage points (95% CI −1.4 to 0.2; P=.12), not statistically significant.",
       "dependencies": {
         "required": [
           "PMC13175446"
@@ -5804,7 +5820,8 @@
         "acceptable_alternatives": "Complete listed evidence sets; source conflicts explicitly attributed. Unlisted semantically valid paraphrases require manual review.",
         "forbidden_conflations": [
           "Do not substitute another study/cohort/endpoint/timepoint",
-          "Do not imply source consistency or clinical superiority from reported observational/vignette findings"
+          "Do not imply source consistency or clinical superiority from reported observational/vignette findings",
+          "Do not substitute the sensitivity analysis excluding intervention nonparticipants for the primary intention-to-treat analysis."
         ],
         "judging_status": "No generated answer or paid judge run; rubric is for manual or separately approved future evaluation.",
         "required_premise_rejection": true
