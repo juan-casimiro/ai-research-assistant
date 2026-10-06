@@ -40,6 +40,10 @@ Docker seed corpus is a separate runnable demonstration.
 
 ## Evaluation evidence relationships
 
+The [case index](benchmark/cases/README.md) connects all 158 questions to their
+expected responses, required and alternative articles, evidence locations and
+recorded distractors. It provides direct links for reviewing the sources.
+
 The [query-by-query source-conflict report](docs/evaluation/source-conflicts.md)
 explains which articles and passages contribute competing claims to each
 evaluation query, how the benchmark handles them, and what the saved retrieval

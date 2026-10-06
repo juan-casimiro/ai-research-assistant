@@ -20,6 +20,11 @@ correctly explains those findings, handles conflicts or refuses unsupported clai
 
 ## Questions, articles and evidence
 
+Browse the [readable case index](cases/README.md) for every question, expected
+response, article role, evidence location and recorded distractor explanation.
+These pages are generated from the current inputs; update the source JSON and
+run `python render_case_index.py` to regenerate them.
+
 Each topic in `combined/v2/` supplies `queries.json` with questions, categories,
 required claims, expected responses and evidence anchors; `conditions.json`
 defines its topic and combined-corpus membership. The
