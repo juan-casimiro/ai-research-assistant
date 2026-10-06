@@ -1,0 +1,1514 @@
+{
+  "schema_version": "1.0",
+  "query_version": "als-ftd-prepared-queries-v1-gold-corrections-20261005-combined-envelope-v2",
+  "status": "corrected-gold evaluation snapshot; model-reviewed, not expert-certified",
+  "selection_sha256": "0d2e73508f9ddf42388d82b7e9bea4332624e2eeaf61106fc116809ab5c4d39d",
+  "parent": {
+    "queries": "benchmark/als-ftd/v1/queries.json",
+    "query_sha256": "7569153b0ebc72cc90b422a2a8d04a4b32b719768c7b868fca665abc48319509",
+    "manifest": "benchmark/als-ftd/v1/manifest.json",
+    "manifest_sha256": "fb2c5edea59a33cc205ef16866d5e93f6d9449e5a3d3a685f1714966f4eb3d52"
+  },
+  "queries": [
+    {
+      "id": "a001",
+      "revision": 3,
+      "question": "In Parameswaran et al. (2023), how did the PKR/eIF2α findings differ between human frontal-cortex samples and patient-derived motor neurons, and how cautiously should the authors’ explanation be interpreted?",
+      "category": "direct_lookup",
+      "topics": [
+        "als",
+        "ftd",
+        "c9orf72"
+      ],
+      "required_facts": [
+        {
+          "id": "a001:f1",
+          "expected": "Frontal-cortex phosphorylated PKR and normalized phosphorylated eIF2α increased in C9FTD/ALS tissue.",
+          "population": "Human postmortem C9FTD/ALS versus controls",
+          "endpoint": "PKR/eIF2α phosphorylation",
+          "timeframe": "Postmortem",
+          "units": null,
+          "tolerance": null,
+          "qualifiers": "Attribute to the named study and evidence type; do not extrapolate across models or clinical endpoints.",
+          "contradiction_rule": "Preserve scope differences and hypotheses; no invented reconciliation."
+        },
+        {
+          "id": "a001:f2",
+          "expected": "No phosphorylation difference was observed in two patient-derived lines versus isogenic controls at 38 days; later disease-stage activation was suggested, not demonstrated longitudinally.",
+          "population": "Two patient-derived motor-neuron lines and isogenic controls",
+          "endpoint": "PKR/eIF2α phosphorylation",
+          "timeframe": "38 days",
+          "units": null,
+          "tolerance": null,
+          "qualifiers": "Attribute to the named study and evidence type; do not extrapolate across models or clinical endpoints.",
+          "contradiction_rule": "Preserve scope differences and hypotheses; no invented reconciliation."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "a001:set1",
+          "anchors": [
+            "isr-tissue",
+            "isr-young"
+          ],
+          "fact_anchors": {
+            "a001:f1": [
+              "isr-tissue"
+            ],
+            "a001:f2": [
+              "isr-young"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [],
+      "reference_answer": "The human postmortem tissue showed increased pathway phosphorylation, whereas 38-day cultured motor neurons did not. Later activation is the authors’ possible explanation; different systems and times prevent a proved temporal or causal conclusion.",
+      "answer_rubric": {
+        "required_claims": [
+          "Frontal-cortex phosphorylated PKR and normalized phosphorylated eIF2α increased in C9FTD/ALS tissue.",
+          "No phosphorylation difference was observed in two patient-derived lines versus isogenic controls at 38 days; later disease-stage activation was suggested, not demonstrated longitudinally."
+        ],
+        "acceptable_alternatives": "Equivalent scope-preserving paraphrases; accepted complete passage alternatives are enumerated in evidence_sets. Independent full-text and cross-topic alternative review remains pending before freeze.",
+        "forbidden_conflations": [
+          "Do not turn the later-stage explanation into a demonstrated longitudinal human result.",
+          "Do not equate tissue immunohistochemistry and cultured-neuron protein extracts as identical assays."
+        ]
+      },
+      "answerability": {
+        "status": "answerable"
+      },
+      "dependencies": {
+        "required_articles": [
+          "PMC10188109"
+        ],
+        "alternative_articles": [],
+        "decoy_articles": [],
+        "overlap_articles": [
+          "PMC10802081",
+          "PMC11047104",
+          "PMC11527445"
+        ],
+        "negative_evidence_scope": null
+      },
+      "review": {
+        "author": "Codex",
+        "status": "prepared_for_independent_full_text_review",
+        "independent_full_text_review": null,
+        "duplicate_leakage_check": "Authored without retrieval outputs; distinct evidence task specified in reasoning.",
+        "freeze_status": "pending",
+        "alternative_evidence_review": {
+          "reviewer": "Codex",
+          "reviewed_at": "2026-10-03T15:42:39.356347+00:00",
+          "scope": "Author review of the pinned anchors and candidate alternative passages in main-PDF Results, Discussion and relevant legends; this does not attest exhaustive section coverage. Supplements and unselected papers are not accepted sources.",
+          "status": "author_revision; independent completeness review pending",
+          "candidate_decisions": [
+            {
+              "article_id": "PMC10188109",
+              "locations": [
+                "Abstract: increased phosphorylation in frontal cortex",
+                "Discussion: increased activation in patient frontal cortex"
+              ],
+              "decision": "not accepted as standalone complete replacements for isr-tissue",
+              "reason": "These summaries do not explicitly supply all qualifiers of the pinned fact: normalized phosphorylated eIF2α, control comparison and postmortem scope. They can contribute context; an answer with the full Results anchor remains accepted. Independent review may revise fact granularity before freeze."
+            }
+          ]
+        },
+        "correction_review": {
+          "date": "2026-10-05",
+          "method": "Source-grounded correction from PR 45 findings and pinned text; no retrieval outcomes used.",
+          "decision": "Relabel a single continuous Results passage as direct_lookup; facts unchanged."
+        }
+      }
+    },
+    {
+      "id": "a002",
+      "revision": 2,
+      "question": "Liu et al. (2024) proved that Cas13d improved survival and motor function in C9-500 BAC mice. Is that conclusion supported?",
+      "category": "false_premise",
+      "topics": [
+        "als",
+        "ftd",
+        "c9orf72"
+      ],
+      "required_facts": [
+        {
+          "id": "a002:f1",
+          "expected": "No: Liu cites prior work reporting no survival or motor deficits in this BAC model; the reported Cas13d result was reduced poly-GP/poly-GA, rather than demonstrated survival or motor rescue.",
+          "population": "C9-500 BAC mice",
+          "endpoint": "Survival/motor phenotype limitation",
+          "timeframe": "Mouse experiment",
+          "units": null,
+          "tolerance": null,
+          "qualifiers": "The phenotype limitation is attributed to cited prior work (reference 42), not a new survival/motor measurement by Liu; distinguish it from Liu’s measured DPR endpoints.",
+          "contradiction_rule": "Preserve scope differences and hypotheses; no invented reconciliation."
+        },
+        {
+          "id": "a002:f2",
+          "expected": "Clinical protective effects still require evaluation.",
+          "population": "C9-ALS/FTD patients",
+          "endpoint": "Clinical protection",
+          "timeframe": "Future evaluation",
+          "units": null,
+          "tolerance": null,
+          "qualifiers": "Attribute to the named study and evidence type; do not extrapolate across models or clinical endpoints.",
+          "contradiction_rule": "Preserve scope differences and hypotheses; no invented reconciliation."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "a002:set1",
+          "anchors": [
+            "cas13-mice",
+            "cas13-clinical",
+            "cas13-dpr"
+          ],
+          "fact_anchors": {
+            "a002:f1": [
+              "cas13-mice",
+              "cas13-dpr"
+            ],
+            "a002:f2": [
+              "cas13-clinical"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [],
+      "reference_answer": "No. Liu cites prior work reporting no survival/motor deficits in this BAC model and reports reduced DPR levels after Cas13d treatment. DPR lowering does not demonstrate survival or motor rescue. The authors leave patient protection for future evaluation.",
+      "answer_rubric": {
+        "required_claims": [
+          "No: Liu cites prior work reporting no survival or motor deficits in this BAC model; the reported Cas13d result was reduced poly-GP/poly-GA, rather than demonstrated survival or motor rescue.",
+          "Clinical protective effects still require evaluation."
+        ],
+        "acceptable_alternatives": "Equivalent scope-preserving paraphrases; accepted complete passage alternatives are enumerated in evidence_sets. Independent full-text and cross-topic alternative review remains pending before freeze.",
+        "forbidden_conflations": [
+          "Do not equate DPR lowering with demonstrated survival or motor rescue.",
+          "Do not attribute the cited BAC phenotype report to a new Liu survival experiment.",
+          "Do not infer demonstrated patient protection."
+        ]
+      },
+      "answerability": {
+        "status": "false_premise",
+        "offending_premise": "Liu et al. proved Cas13d improved survival and motor function in C9-500 BAC mice.",
+        "correction_anchors": [
+          "cas13-mice",
+          "cas13-dpr",
+          "cas13-clinical"
+        ]
+      },
+      "dependencies": {
+        "required_articles": [
+          "PMC11527445"
+        ],
+        "alternative_articles": [],
+        "decoy_articles": [],
+        "overlap_articles": [
+          "PMC10188109",
+          "PMC10802081",
+          "PMC11047104"
+        ],
+        "negative_evidence_scope": null
+      },
+      "review": {
+        "author": "Codex",
+        "status": "prepared_for_independent_full_text_review",
+        "independent_full_text_review": null,
+        "duplicate_leakage_check": "Authored without retrieval outputs; distinct evidence task specified in reasoning.",
+        "freeze_status": "pending",
+        "alternative_evidence_review": {
+          "reviewer": "Codex",
+          "reviewed_at": "2026-10-03T15:42:39.356347+00:00",
+          "scope": "Author review of the pinned anchors and candidate alternative passages in main-PDF Results, Discussion and relevant legends; this does not attest exhaustive section coverage. Supplements and unselected papers are not accepted sources.",
+          "status": "author_revision; independent completeness review pending"
+        }
+      }
+    },
+    {
+      "id": "a003",
+      "revision": 3,
+      "question": "How did C9-V1/V3 responses to Cas13d differ between the same-donor iPSC line 2 and motor-neuron line 2 in Liu et al. (2024)?",
+      "category": "direct_lookup",
+      "topics": [
+        "als",
+        "ftd",
+        "c9orf72"
+      ],
+      "required_facts": [
+        {
+          "id": "a003:f1",
+          "expected": "A C9-V1/V3 decrease was observed only in iMNs, not in same-donor iPSCs; the authors suggest that cellular environment may influence targeting.",
+          "population": "Same-donor C9-ALS iPSC line 2/iMN line 2",
+          "endpoint": "C9-V1/V3 RNA levels",
+          "timeframe": "Cell experiments",
+          "units": null,
+          "tolerance": null,
+          "qualifiers": "Attribute to the named study and evidence type; do not extrapolate across models or clinical endpoints.",
+          "contradiction_rule": "Preserve scope differences and hypotheses; no invented reconciliation."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "a003:set1",
+          "anchors": [
+            "cas13-cell"
+          ],
+          "fact_anchors": {
+            "a003:f1": [
+              "cas13-cell"
+            ]
+          }
+        },
+        {
+          "id": "a003:set2",
+          "anchors": [
+            "cas13-cell-results"
+          ],
+          "fact_anchors": {
+            "a003:f1": [
+              "cas13-cell-results"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [],
+      "reference_answer": "A mild C9-V1/V3 decrease was seen only in the induced motor neurons. A shared donor does not make cell states interchangeable; the authors suggest a cellular-environment effect.",
+      "answer_rubric": {
+        "required_claims": [
+          "A C9-V1/V3 decrease was observed only in iMNs, not in same-donor iPSCs; the authors suggest that cellular environment may influence targeting."
+        ],
+        "acceptable_alternatives": "Equivalent scope-preserving paraphrases; accepted complete passage alternatives are enumerated in evidence_sets. Independent full-text and cross-topic alternative review remains pending before freeze. The Discussion calls the decrease mild; this adjective is acceptable but is not required because the accepted Results passage omits it.",
+        "forbidden_conflations": [
+          "Do not generalize the same-donor line-2 response to every patient line or cell state.",
+          "Do not report the proposed cellular-environment explanation as a demonstrated mechanism or a mild decrease as necessarily statistically significant."
+        ]
+      },
+      "answerability": {
+        "status": "answerable"
+      },
+      "dependencies": {
+        "required_articles": [
+          "PMC11527445"
+        ],
+        "alternative_articles": [],
+        "decoy_articles": [],
+        "overlap_articles": [
+          "PMC10188109",
+          "PMC10802081",
+          "PMC11047104"
+        ],
+        "negative_evidence_scope": null
+      },
+      "review": {
+        "author": "Codex",
+        "status": "prepared_for_independent_full_text_review",
+        "independent_full_text_review": null,
+        "duplicate_leakage_check": "Authored without retrieval outputs; distinct evidence task specified in reasoning.",
+        "freeze_status": "pending",
+        "alternative_evidence_review": {
+          "reviewer": "Codex",
+          "reviewed_at": "2026-10-03T15:42:39.356347+00:00",
+          "scope": "Author review of the pinned anchors and candidate alternative passages in main-PDF Results, Discussion and relevant legends; this does not attest exhaustive section coverage. Supplements and unselected papers are not accepted sources.",
+          "status": "author_revision; independent completeness review pending"
+        }
+      }
+    },
+    {
+      "id": "a004",
+      "revision": 2,
+      "question": "In Sachdev et al. (2024), did deleting exon 1A reproduce repeat-excision effects on both poly-GP elimination and network bursting?",
+      "category": "multi_hop",
+      "topics": [
+        "als",
+        "ftd",
+        "c9orf72"
+      ],
+      "required_facts": [
+        {
+          "id": "a004:f1",
+          "expected": "No: repeat-expansion or mutant-allele removal eliminated poly-GP, whereas some poly-GP remained after exon 1A excision.",
+          "population": "Patient-derived edited motor neurons",
+          "endpoint": "Residual poly-GP",
+          "timeframe": "Two-week DPR assay",
+          "units": null,
+          "tolerance": null,
+          "qualifiers": "Attribute to the named study and evidence type; do not extrapolate across models or clinical endpoints.",
+          "contradiction_rule": "Preserve scope differences and hypotheses; no invented reconciliation."
+        },
+        {
+          "id": "a004:f2",
+          "expected": "At 3 weeks, REx and HET(Mut)x neurons showed network bursting; C9-unedited and 1Ax neurons showed no or minimal network bursting.",
+          "population": "Isogenic motor-neuron cultures",
+          "endpoint": "Network bursting",
+          "timeframe": "Three weeks",
+          "units": null,
+          "tolerance": null,
+          "qualifiers": "Attribute to the named study and evidence type; do not extrapolate across models or clinical endpoints.",
+          "contradiction_rule": "Preserve scope differences and hypotheses; no invented reconciliation."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "a004:set1",
+          "anchors": [
+            "excision-dpr",
+            "excision-network"
+          ],
+          "fact_anchors": {
+            "a004:f1": [
+              "excision-dpr"
+            ],
+            "a004:f2": [
+              "excision-network"
+            ]
+          }
+        },
+        {
+          "id": "a004:set2",
+          "anchors": [
+            "excision-dpr-caption",
+            "excision-network"
+          ],
+          "fact_anchors": {
+            "a004:f1": [
+              "excision-dpr-caption"
+            ],
+            "a004:f2": [
+              "excision-network"
+            ]
+          }
+        },
+        {
+          "id": "a004:set3",
+          "anchors": [
+            "excision-dpr",
+            "excision-network-caption"
+          ],
+          "fact_anchors": {
+            "a004:f1": [
+              "excision-dpr"
+            ],
+            "a004:f2": [
+              "excision-network-caption"
+            ]
+          }
+        },
+        {
+          "id": "a004:set4",
+          "anchors": [
+            "excision-dpr-caption",
+            "excision-network-caption"
+          ],
+          "fact_anchors": {
+            "a004:f1": [
+              "excision-dpr-caption"
+            ],
+            "a004:f2": [
+              "excision-network-caption"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [],
+      "reference_answer": "No. Repeat or mutant-allele removal eliminated poly-GP; exon 1A excision left some poly-GP. At 3 weeks, REx and HET(Mut)x neurons showed network bursting, whereas C9-unedited and 1Ax showed no or minimal bursting. This establishes an edited-versus-unedited contrast, without a wild-type electrophysiology comparison.",
+      "answer_rubric": {
+        "required_claims": [
+          "No: repeat-expansion or mutant-allele removal eliminated poly-GP, whereas some poly-GP remained after exon 1A excision.",
+          "At 3 weeks, REx and HET(Mut)x neurons showed network bursting; C9-unedited and 1Ax neurons showed no or minimal network bursting."
+        ],
+        "acceptable_alternatives": "Equivalent scope-preserving paraphrases; accepted complete passage alternatives are enumerated in evidence_sets. Independent full-text and cross-topic alternative review remains pending before freeze.",
+        "forbidden_conflations": [
+          "Do not claim exon 1A excision eliminated poly-GP.",
+          "Do not claim network bursting was normalized to wild type: no WT electrophysiology comparison was performed."
+        ]
+      },
+      "answerability": {
+        "status": "answerable"
+      },
+      "dependencies": {
+        "required_articles": [
+          "PMC11047104"
+        ],
+        "alternative_articles": [],
+        "decoy_articles": [],
+        "overlap_articles": [
+          "PMC10188109",
+          "PMC10802081",
+          "PMC11527445"
+        ],
+        "negative_evidence_scope": null
+      },
+      "review": {
+        "author": "Codex",
+        "status": "prepared_for_independent_full_text_review",
+        "independent_full_text_review": null,
+        "duplicate_leakage_check": "Authored without retrieval outputs; distinct evidence task specified in reasoning.",
+        "freeze_status": "pending",
+        "alternative_evidence_review": {
+          "reviewer": "Codex",
+          "reviewed_at": "2026-10-03T15:42:39.356347+00:00",
+          "scope": "Author review of the pinned anchors and candidate alternative passages in main-PDF Results, Discussion and relevant legends; this does not attest exhaustive section coverage. Supplements and unselected papers are not accepted sources.",
+          "status": "author_revision; independent completeness review pending",
+          "candidate_decisions": [
+            {
+              "article_id": "PMC11047104",
+              "locations": [
+                "Abstract: editing versus sense silencing",
+                "Discussion: electrophysiologic summary and therapeutic implications"
+              ],
+              "decision": "not accepted as standalone complete evidence sets",
+              "reason": "General electrophysiologic improvement or its absence does not state the required 3-week network-burst comparison by REx/HET(Mut)x versus C9-unedited/1Ax. Poly-GP-specific Results and Figure 3 plus the explicit network-burst Results/Figure 5 are accepted. These broad summaries must not substitute for the endpoint-specific f2."
+            }
+          ]
+        }
+      },
+      "reasoning": "Connect DPR and electrophysiological endpoints from separated Results sections."
+    },
+    {
+      "id": "a005",
+      "revision": 2,
+      "question": "Compare the endpoints and limits of Cas13d RNA targeting in Liu et al. (2024) with DNA editing in Sachdev et al. (2024). Why should neither be described as an established human treatment?",
+      "category": "cross_doc_synthesis",
+      "topics": [
+        "als",
+        "ftd",
+        "c9orf72"
+      ],
+      "required_facts": [
+        {
+          "id": "a005:f1",
+          "expected": "Liu reported reduced poly-GP/poly-GA in BAC mice, cited prior work reporting no survival/motor deficits in this model, and left clinical protection for future evaluation.",
+          "population": "BAC mouse and C9-ALS/FTD patients",
+          "endpoint": "Molecular target engagement versus clinical protection",
+          "timeframe": "Preclinical",
+          "units": null,
+          "tolerance": null,
+          "qualifiers": "Attribute to the named study and evidence type; do not extrapolate across models or clinical endpoints.",
+          "contradiction_rule": "Preserve scope differences and hypotheses; no invented reconciliation."
+        },
+        {
+          "id": "a005:f2",
+          "expected": "At 3 weeks, REx and HET(Mut)x cultured neurons showed network bursting while C9-unedited and 1Ax neurons showed no or minimal bursting; the biological insight came primarily from one donor line.",
+          "population": "Single patient-derived isogenic series",
+          "endpoint": "Network activity and donor limitation",
+          "timeframe": "Preclinical cell experiment",
+          "units": null,
+          "tolerance": null,
+          "qualifiers": "Attribute to the named study and evidence type; do not extrapolate across models or clinical endpoints.",
+          "contradiction_rule": "Preserve scope differences and hypotheses; no invented reconciliation."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "a005:set1",
+          "anchors": [
+            "cas13-mice",
+            "cas13-clinical",
+            "cas13-dpr",
+            "excision-network",
+            "excision-limit"
+          ],
+          "fact_anchors": {
+            "a005:f1": [
+              "cas13-mice",
+              "cas13-clinical",
+              "cas13-dpr"
+            ],
+            "a005:f2": [
+              "excision-network",
+              "excision-limit"
+            ]
+          }
+        },
+        {
+          "id": "a005:set2",
+          "anchors": [
+            "cas13-mice",
+            "cas13-clinical",
+            "cas13-dpr",
+            "excision-network-caption",
+            "excision-limit"
+          ],
+          "fact_anchors": {
+            "a005:f1": [
+              "cas13-mice",
+              "cas13-clinical",
+              "cas13-dpr"
+            ],
+            "a005:f2": [
+              "excision-network-caption",
+              "excision-limit"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [],
+      "reference_answer": "Cas13d supports molecular target engagement in cells/mice; DNA excision supports cultured-neuron functional improvement. These are distinct preclinical endpoints, with model and donor limitations; neither demonstrates clinical efficacy.",
+      "answer_rubric": {
+        "required_claims": [
+          "Liu reported reduced poly-GP/poly-GA in BAC mice, cited prior work reporting no survival/motor deficits in this model, and left clinical protection for future evaluation.",
+          "At 3 weeks, REx and HET(Mut)x cultured neurons showed network bursting while C9-unedited and 1Ax neurons showed no or minimal bursting; the biological insight came primarily from one donor line."
+        ],
+        "acceptable_alternatives": "Equivalent scope-preserving paraphrases; accepted complete passage alternatives are enumerated in evidence_sets. Independent full-text and cross-topic alternative review remains pending before freeze.",
+        "forbidden_conflations": [
+          "Do not equate mouse DPR lowering with motor or survival benefit.",
+          "Do not turn cultured-neuron bursting into demonstrated clinical efficacy or normalization to wild type.",
+          "Do not generalize primarily single-donor findings to all patients."
+        ]
+      },
+      "answerability": {
+        "status": "answerable"
+      },
+      "dependencies": {
+        "required_articles": [
+          "PMC11047104",
+          "PMC11527445"
+        ],
+        "alternative_articles": [],
+        "decoy_articles": [],
+        "overlap_articles": [
+          "PMC10188109",
+          "PMC10802081"
+        ],
+        "negative_evidence_scope": null
+      },
+      "review": {
+        "author": "Codex",
+        "status": "prepared_for_independent_full_text_review",
+        "independent_full_text_review": null,
+        "duplicate_leakage_check": "Authored without retrieval outputs; distinct evidence task specified in reasoning.",
+        "freeze_status": "pending",
+        "alternative_evidence_review": {
+          "reviewer": "Codex",
+          "reviewed_at": "2026-10-03T15:42:39.356347+00:00",
+          "scope": "Author review of the pinned anchors and candidate alternative passages in main-PDF Results, Discussion and relevant legends; this does not attest exhaustive section coverage. Supplements and unselected papers are not accepted sources.",
+          "status": "author_revision; independent completeness review pending"
+        }
+      }
+    },
+    {
+      "id": "a006",
+      "revision": 2,
+      "question": "In Parameswaran et al. (2023), how did eif2ak2 knockdown affect antisense versus sense repeat-RNA motor axonopathy in zebrafish?",
+      "category": "direct_lookup",
+      "topics": [
+        "als",
+        "ftd",
+        "c9orf72"
+      ],
+      "required_facts": [
+        {
+          "id": "a006:f1",
+          "expected": "It mitigated antisense-induced axonal-length/branching abnormalities; no protective effect was observed for the sense-RNA condition.",
+          "population": "Injected zebrafish embryos",
+          "endpoint": "Motor axon length and branching",
+          "timeframe": "Embryonic model",
+          "units": null,
+          "tolerance": null,
+          "qualifiers": "Attribute to the named study and evidence type; do not extrapolate across models or clinical endpoints.",
+          "contradiction_rule": "Preserve scope differences and hypotheses; no invented reconciliation."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "a006:set1",
+          "anchors": [
+            "zebrafish"
+          ],
+          "fact_anchors": {
+            "a006:f1": [
+              "zebrafish"
+            ]
+          }
+        },
+        {
+          "id": "a006:set2",
+          "anchors": [
+            "zebrafish-caption-result",
+            "zebrafish-caption-endpoints"
+          ],
+          "fact_anchors": {
+            "a006:f1": [
+              "zebrafish-caption-result",
+              "zebrafish-caption-endpoints"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [],
+      "reference_answer": "PKR-ortholog reduction protected the antisense condition, whereas sense-induced abnormalities were not protected. This is an embryonic zebrafish result, not a clinical trial.",
+      "answer_rubric": {
+        "required_claims": [
+          "It mitigated antisense-induced axonal-length/branching abnormalities; no protective effect was observed for the sense-RNA condition."
+        ],
+        "acceptable_alternatives": "Equivalent scope-preserving paraphrases; accepted complete passage alternatives are enumerated in evidence_sets. Independent full-text and cross-topic alternative review remains pending before freeze.",
+        "forbidden_conflations": [
+          "Do not swap the sense and antisense rescue results.",
+          "Do not infer clinical efficacy from embryonic zebrafish axon endpoints."
+        ]
+      },
+      "answerability": {
+        "status": "answerable"
+      },
+      "dependencies": {
+        "required_articles": [
+          "PMC10188109"
+        ],
+        "alternative_articles": [],
+        "decoy_articles": [],
+        "overlap_articles": [
+          "PMC10802081",
+          "PMC11047104",
+          "PMC11527445"
+        ],
+        "negative_evidence_scope": null
+      },
+      "review": {
+        "author": "Codex",
+        "status": "prepared_for_independent_full_text_review",
+        "independent_full_text_review": null,
+        "duplicate_leakage_check": "Authored without retrieval outputs; distinct evidence task specified in reasoning.",
+        "freeze_status": "pending",
+        "alternative_evidence_review": {
+          "reviewer": "Codex",
+          "reviewed_at": "2026-10-03T15:42:39.356347+00:00",
+          "scope": "Author review of the pinned anchors and candidate alternative passages in main-PDF Results, Discussion and relevant legends; this does not attest exhaustive section coverage. Supplements and unselected papers are not accepted sources.",
+          "status": "author_revision; independent completeness review pending"
+        }
+      }
+    },
+    {
+      "id": "a007",
+      "revision": 3,
+      "question": "In the LeBlanc et al. case report, how did SPECT interpretation compare with genetic testing and subsequent pathology?",
+      "category": "direct_lookup",
+      "topics": [
+        "als",
+        "ftd",
+        "c9orf72"
+      ],
+      "required_facts": [
+        {
+          "id": "a007:f1",
+          "expected": "SPECT was interpreted as most consistent with Alzheimer disease rather than FTLD.",
+          "population": "One 42-year-old patient",
+          "endpoint": "SPECT interpretation",
+          "timeframe": "Diagnostic work-up",
+          "units": null,
+          "tolerance": null,
+          "qualifiers": "Attribute to the named study and evidence type; do not extrapolate across models or clinical endpoints.",
+          "contradiction_rule": "Preserve scope differences and hypotheses; no invented reconciliation."
+        },
+        {
+          "id": "a007:f2",
+          "expected": "Testing found a C9orf72 GGGGCC expansion supporting FTD-ALS; autopsy confirmed FTLD with TDP pathology type C.",
+          "population": "Same patient",
+          "endpoint": "Genetic and pathological diagnosis",
+          "timeframe": "Work-up and postmortem",
+          "units": null,
+          "tolerance": null,
+          "qualifiers": "Attribute to the named study and evidence type; do not extrapolate across models or clinical endpoints.",
+          "contradiction_rule": "Preserve scope differences and hypotheses; no invented reconciliation."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "a007:set1",
+          "anchors": [
+            "case-imaging",
+            "case-genetics",
+            "case-autopsy"
+          ],
+          "fact_anchors": {
+            "a007:f1": [
+              "case-imaging"
+            ],
+            "a007:f2": [
+              "case-genetics",
+              "case-autopsy"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [],
+      "reference_answer": "SPECT suggested Alzheimer disease, but genetic testing identified the C9orf72 expansion and the autopsy confirmed FTLD-TDP type C. The single case supports diagnostic discordance, not a population accuracy estimate.",
+      "answer_rubric": {
+        "required_claims": [
+          "SPECT was interpreted as most consistent with Alzheimer disease rather than FTLD.",
+          "Testing found a C9orf72 GGGGCC expansion supporting FTD-ALS; autopsy confirmed FTLD with TDP pathology type C."
+        ],
+        "acceptable_alternatives": "Equivalent scope-preserving paraphrases; accepted complete passage alternatives are enumerated in evidence_sets. Independent full-text and cross-topic alternative review remains pending before freeze.",
+        "forbidden_conflations": [
+          "Do not treat the SPECT interpretation as the final pathological diagnosis.",
+          "Do not infer population diagnostic accuracy from one patient.",
+          "Do not substitute another TDP subtype for reported type C."
+        ]
+      },
+      "answerability": {
+        "status": "answerable"
+      },
+      "dependencies": {
+        "required_articles": [
+          "PMC10802081"
+        ],
+        "alternative_articles": [],
+        "decoy_articles": [],
+        "overlap_articles": [
+          "PMC10188109",
+          "PMC11047104",
+          "PMC11527445"
+        ],
+        "negative_evidence_scope": null
+      },
+      "review": {
+        "author": "Codex",
+        "status": "prepared_for_independent_full_text_review",
+        "independent_full_text_review": null,
+        "duplicate_leakage_check": "Authored without retrieval outputs; distinct evidence task specified in reasoning.",
+        "freeze_status": "pending",
+        "alternative_evidence_review": {
+          "reviewer": "Codex",
+          "reviewed_at": "2026-10-03T15:42:39.356347+00:00",
+          "scope": "Author review of the pinned anchors and candidate alternative passages in main-PDF Results, Discussion and relevant legends; this does not attest exhaustive section coverage. Supplements and unselected papers are not accepted sources.",
+          "status": "author_revision; independent completeness review pending"
+        },
+        "correction_review": {
+          "date": "2026-10-05",
+          "method": "Source-grounded correction from PR 45 findings and pinned text; no retrieval outcomes used.",
+          "decision": "Relabel a single continuous case account as direct_lookup; facts unchanged."
+        }
+      }
+    },
+    {
+      "id": "a008",
+      "revision": 2,
+      "question": "How do the human observations in Parameswaran et al. (2023) and LeBlanc et al. distinguish molecular association from diagnosis?",
+      "category": "cross_doc_synthesis",
+      "topics": [
+        "als",
+        "ftd",
+        "c9orf72"
+      ],
+      "required_facts": [
+        {
+          "id": "a008:f1",
+          "expected": "In human postmortem frontal cortex, phosphorylated PKR and normalized phosphorylated eIF2α were increased in C9FTD/ALS samples versus controls.",
+          "population": "Postmortem C9FTD/ALS series",
+          "endpoint": "Phosphorylation association",
+          "timeframe": "Postmortem",
+          "units": null,
+          "tolerance": null,
+          "qualifiers": "Attribute to the named study and evidence type; do not extrapolate across models or clinical endpoints.",
+          "contradiction_rule": "Preserve scope differences and hypotheses; no invented reconciliation."
+        },
+        {
+          "id": "a008:f2",
+          "expected": "The individual case was diagnosed through genetic evidence despite discordant SPECT, with pathology confirmation.",
+          "population": "One clinical patient",
+          "endpoint": "Diagnostic evidence",
+          "timeframe": "Clinical and postmortem",
+          "units": null,
+          "tolerance": null,
+          "qualifiers": "Attribute to the named study and evidence type; do not extrapolate across models or clinical endpoints.",
+          "contradiction_rule": "Preserve scope differences and hypotheses; no invented reconciliation."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "a008:set1",
+          "anchors": [
+            "isr-tissue",
+            "case-imaging",
+            "case-genetics",
+            "case-autopsy"
+          ],
+          "fact_anchors": {
+            "a008:f1": [
+              "isr-tissue"
+            ],
+            "a008:f2": [
+              "case-imaging",
+              "case-genetics",
+              "case-autopsy"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [],
+      "reference_answer": "The postmortem series offers a pathway association; the case offers a diagnostic history grounded in genetics and pathology. Neither establishes PKR testing as a validated diagnostic test or a therapy.",
+      "answer_rubric": {
+        "required_claims": [
+          "In human postmortem frontal cortex, phosphorylated PKR and normalized phosphorylated eIF2α were increased in C9FTD/ALS samples versus controls.",
+          "The individual case was diagnosed through genetic evidence despite discordant SPECT, with pathology confirmation."
+        ],
+        "acceptable_alternatives": "Equivalent scope-preserving paraphrases; accepted complete passage alternatives are enumerated in evidence_sets. Independent full-text and cross-topic alternative review remains pending before freeze.",
+        "forbidden_conflations": [
+          "Do not equate postmortem pathway association with diagnostic validation or a causal treatment effect.",
+          "Do not conflate the tissue series with the single case or attribute PKR diagnostic testing to the case."
+        ],
+        "methodological_cautions": [
+          "Authored interpretation: the postmortem association and single-case diagnostic history do not by themselves validate a PKR diagnostic assay or establish a causal treatment effect. This caution is not scored as a literal source fact."
+        ]
+      },
+      "answerability": {
+        "status": "answerable"
+      },
+      "dependencies": {
+        "required_articles": [
+          "PMC10188109",
+          "PMC10802081"
+        ],
+        "alternative_articles": [],
+        "decoy_articles": [],
+        "overlap_articles": [
+          "PMC11047104",
+          "PMC11527445"
+        ],
+        "negative_evidence_scope": null
+      },
+      "review": {
+        "author": "Codex",
+        "status": "prepared_for_independent_full_text_review",
+        "independent_full_text_review": null,
+        "duplicate_leakage_check": "Authored without retrieval outputs; distinct evidence task specified in reasoning.",
+        "freeze_status": "pending",
+        "alternative_evidence_review": {
+          "reviewer": "Codex",
+          "reviewed_at": "2026-10-03T15:42:39.356347+00:00",
+          "scope": "Author review of the pinned anchors and candidate alternative passages in main-PDF Results, Discussion and relevant legends; this does not attest exhaustive section coverage. Supplements and unselected papers are not accepted sources.",
+          "status": "author_revision; independent completeness review pending",
+          "candidate_decisions": [
+            {
+              "article_id": "PMC10188109",
+              "locations": [
+                "Abstract: increased phosphorylation in frontal cortex",
+                "Discussion: increased activation in patient frontal cortex"
+              ],
+              "decision": "not accepted as standalone complete replacements for isr-tissue",
+              "reason": "These summaries do not explicitly supply all qualifiers of the pinned fact: normalized phosphorylated eIF2α, control comparison and postmortem scope. They can contribute context; an answer with the full Results anchor remains accepted. Independent review may revise fact granularity before freeze."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "a009",
+      "revision": 3,
+      "question": "What did the human case report by LeBlanc et al. use to support FTD-ALS after discordant brain imaging?",
+      "category": "cross_doc_distractor",
+      "topics": [
+        "als",
+        "ftd",
+        "c9orf72"
+      ],
+      "required_facts": [
+        {
+          "id": "a009:f1",
+          "expected": "Genetic testing identified a C9orf72 GGGGCC repeat expansion, confirming FTD-ALS after discordant SPECT imaging.",
+          "population": "Single clinical case",
+          "endpoint": "Genetic diagnosis",
+          "timeframe": "Diagnostic work-up",
+          "units": null,
+          "tolerance": null,
+          "qualifiers": "Attribute to the named study and evidence type; do not extrapolate across models or clinical endpoints.",
+          "contradiction_rule": "Preserve scope differences and hypotheses; no invented reconciliation."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "a009:set1",
+          "anchors": [
+            "case-genetics"
+          ],
+          "fact_anchors": {
+            "a009:f1": [
+              "case-genetics"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [
+        {
+          "anchor_id": "cas13-cell",
+          "article_id": "PMC11527445",
+          "filename": "als-ftd-pmc11527445.pdf",
+          "plausible_confusion": "Human/patient language and C9orf72 genetics resemble clinical evidence.",
+          "reason_inapplicable": "These are cultured iPSC/iMN line responses to Cas13d, not diagnostic observations in the case-report patient."
+        }
+      ],
+      "reference_answer": "Genetic testing identified a C9orf72 GGGGCC repeat expansion, confirming FTD-ALS after discordant SPECT imaging.",
+      "answer_rubric": {
+        "required_claims": [
+          "Genetic testing identified a C9orf72 GGGGCC repeat expansion, confirming FTD-ALS after discordant SPECT imaging."
+        ],
+        "acceptable_alternatives": "A genetics-only answer is complete. Correctly attributed later FTLD-TDP type C autopsy confirmation is optional; no decoy-study discussion is required.",
+        "forbidden_conflations": [
+          "Do not use Cas13d-treated cultured patient-derived cells as this patient’s diagnostic evidence.",
+          "Do not equate SPECT interpretation with genetic/pathological findings."
+        ]
+      },
+      "answerability": {
+        "status": "answerable"
+      },
+      "dependencies": {
+        "required_articles": [
+          "PMC10802081"
+        ],
+        "alternative_articles": [],
+        "decoy_articles": [
+          "PMC11527445"
+        ],
+        "overlap_articles": [
+          "PMC10188109",
+          "PMC11047104",
+          "PMC11527445"
+        ],
+        "negative_evidence_scope": null
+      },
+      "review": {
+        "author": "Codex",
+        "status": "prepared_for_independent_full_text_review",
+        "independent_full_text_review": null,
+        "duplicate_leakage_check": "Authored without retrieval outputs; distinct evidence task specified in reasoning.",
+        "freeze_status": "pending",
+        "alternative_evidence_review": {
+          "reviewer": "Codex",
+          "reviewed_at": "2026-10-03T15:42:39.356347+00:00",
+          "scope": "Author review of the pinned anchors and candidate alternative passages in main-PDF Results, Discussion and relevant legends; this does not attest exhaustive section coverage. Supplements and unselected papers are not accepted sources.",
+          "status": "author_revision; independent completeness review pending"
+        },
+        "correction_review": {
+          "date": "2026-10-05",
+          "method": "Source-grounded correction from PR 45 findings and pinned text; no retrieval outcomes used.",
+          "decision": "Require only diagnostic genetic evidence; later autopsy and decoy discussion are optional."
+        }
+      }
+    },
+    {
+      "id": "a010",
+      "revision": 2,
+      "question": "What model-related explanation did Parameswaran et al. give for differences between Drosophila reports and their vertebrate repeat-RNA toxicity findings, and what experiment supported their PKR interpretation?",
+      "category": "multi_hop",
+      "topics": [
+        "als",
+        "ftd",
+        "c9orf72"
+      ],
+      "required_facts": [
+        {
+          "id": "a010:f1",
+          "expected": "PKR is present in vertebrates and absent in Drosophila; the authors offer this as a partial explanation, not proof that every model discrepancy is resolved.",
+          "population": "Vertebrate models versus cited Drosophila experiments",
+          "endpoint": "PKR expression and model scope",
+          "timeframe": "Discussion hypothesis",
+          "units": null,
+          "tolerance": null,
+          "qualifiers": "Attribute to the named study and evidence type; do not extrapolate across models or clinical endpoints.",
+          "contradiction_rule": "Preserve scope differences and hypotheses; no invented reconciliation."
+        },
+        {
+          "id": "a010:f2",
+          "expected": "Reducing eif2ak2 mitigated antisense but not sense axonopathy in zebrafish.",
+          "population": "Zebrafish embryos",
+          "endpoint": "Strand-specific axonopathy rescue",
+          "timeframe": "Embryonic experiment",
+          "units": null,
+          "tolerance": null,
+          "qualifiers": "Attribute to the named study and evidence type; do not extrapolate across models or clinical endpoints.",
+          "contradiction_rule": "Preserve scope differences and hypotheses; no invented reconciliation."
+        }
+      ],
+      "evidence_sets": [
+        {
+          "id": "a010:set1",
+          "anchors": [
+            "model-pkr",
+            "zebrafish"
+          ],
+          "fact_anchors": {
+            "a010:f1": [
+              "model-pkr"
+            ],
+            "a010:f2": [
+              "zebrafish"
+            ]
+          }
+        },
+        {
+          "id": "a010:set2",
+          "anchors": [
+            "model-pkr",
+            "zebrafish-caption-result",
+            "zebrafish-caption-endpoints"
+          ],
+          "fact_anchors": {
+            "a010:f1": [
+              "model-pkr"
+            ],
+            "a010:f2": [
+              "zebrafish-caption-result",
+              "zebrafish-caption-endpoints"
+            ]
+          }
+        }
+      ],
+      "related_distractors": [],
+      "reference_answer": "The authors propose vertebrate PKR availability as a partial model explanation and show strand-specific rescue by PKR-ortholog knockdown in zebrafish. The Drosophila observations are cited secondary evidence, not newly performed experiments here.",
+      "answer_rubric": {
+        "required_claims": [
+          "PKR is present in vertebrates and absent in Drosophila; the authors offer this as a partial explanation, not proof that every model discrepancy is resolved.",
+          "Reducing eif2ak2 mitigated antisense but not sense axonopathy in zebrafish."
+        ],
+        "acceptable_alternatives": "Equivalent scope-preserving paraphrases; accepted complete passage alternatives are enumerated in evidence_sets. Independent full-text and cross-topic alternative review remains pending before freeze.",
+        "forbidden_conflations": [
+          "Do not present cited Drosophila observations as experiments performed in this paper.",
+          "Do not treat PKR distribution as a proven complete explanation of model differences.",
+          "Do not claim sense axonopathy was rescued by eif2ak2 knockdown."
+        ]
+      },
+      "answerability": {
+        "status": "answerable"
+      },
+      "dependencies": {
+        "required_articles": [
+          "PMC10188109"
+        ],
+        "alternative_articles": [],
+        "decoy_articles": [],
+        "overlap_articles": [
+          "PMC10802081",
+          "PMC11047104",
+          "PMC11527445"
+        ],
+        "negative_evidence_scope": null
+      },
+      "review": {
+        "author": "Codex",
+        "status": "prepared_for_independent_full_text_review",
+        "independent_full_text_review": null,
+        "duplicate_leakage_check": "Authored without retrieval outputs; distinct evidence task specified in reasoning.",
+        "freeze_status": "pending",
+        "alternative_evidence_review": {
+          "reviewer": "Codex",
+          "reviewed_at": "2026-10-03T15:42:39.356347+00:00",
+          "scope": "Author review of the pinned anchors and candidate alternative passages in main-PDF Results, Discussion and relevant legends; this does not attest exhaustive section coverage. Supplements and unselected papers are not accepted sources.",
+          "status": "author_revision; independent completeness review pending"
+        }
+      },
+      "reasoning": "Connect the Discussion hypothesis with the earlier vertebrate intervention result."
+    }
+  ],
+  "anchors": [
+    {
+      "id": "isr-tissue",
+      "article_id": "PMC10188109",
+      "filename": "als-ftd-pmc10188109.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "9ac7d0a9c34b9eaac89db21fe1d0cc1963590de8c883bf7b0fbd41cb778dec43",
+      "text_sha256": "a82b8591a24b1bc20275e46e62189af34291a128d0b77f627b4c9a098c65d2ac",
+      "page": 9,
+      "pages": [
+        9
+      ],
+      "section": "Results: human tissue PKR/eIF2α",
+      "text_start": 27476,
+      "text_end": 28193,
+      "excerpt": "Immunohis-\ntochemistry staining showed that the level of phosphorylated PKR is increased in the frontal cortex, \nespecially in the large pyramidal neurons, of patients carrying C9ORF72 repeat expansions compared \nto age- matched non- disease controls (Figure  5A). This data is consistent with two recent studies \nshowing increased PKR phosphorylation in C9ORF72 patients (Rodriguez et  al., 2021; Zu et  al., \n2020). In addition, the level of phosphorylated eIF2α after normalizing to the total eIF2α level is also \nsignificantly increased, despite the heterogeneity of eIF2α protein levels in patients (Figure 5B and \nC, Table 1). These results suggest that the PKR/eIF2α pathway is activated in C9FTD/ALS patients.",
+      "excerpt_sha256": "9a0b19203c2c88e1ec2074bf7d29026c50c272125761b0bd172d860e7e32a143",
+      "fact_ids": [
+        "a001:f1",
+        "a008:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "isr-young",
+      "article_id": "PMC10188109",
+      "filename": "als-ftd-pmc10188109.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "9ac7d0a9c34b9eaac89db21fe1d0cc1963590de8c883bf7b0fbd41cb778dec43",
+      "text_sha256": "a82b8591a24b1bc20275e46e62189af34291a128d0b77f627b4c9a098c65d2ac",
+      "page": 9,
+      "pages": [
+        9
+      ],
+      "section": "Results: 38-day induced motor neurons",
+      "text_start": 28195,
+      "text_end": 28649,
+      "excerpt": "We also obtained protein extracts from two lines of C9ORF72 patient- derived motor neurons and \ntheir isogenic controls (Braems et al., 2022). However, we did not observe any differences in the \nlevels of either phosphorylated PKR or phosphorylated eIF2α of 38- day- old neurons (Figure 5—figure \nsupplement 1A and B), suggesting that PKR/ eIF2α-dependent ISR pathway possibly gets activated \nin C9ORF72 patients in a later stage of disease pathogenesis.",
+      "excerpt_sha256": "f9ca16ba9d76ac8411eda4539a7ada956906f5ac246e72e64530d0a7990f4f45",
+      "fact_ids": [
+        "a001:f2"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "zebrafish",
+      "article_id": "PMC10188109",
+      "filename": "als-ftd-pmc10188109.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "9ac7d0a9c34b9eaac89db21fe1d0cc1963590de8c883bf7b0fbd41cb778dec43",
+      "text_sha256": "a82b8591a24b1bc20275e46e62189af34291a128d0b77f627b4c9a098c65d2ac",
+      "page": 11,
+      "pages": [
+        11
+      ],
+      "section": "Results: eif2ak2 knockdown",
+      "text_start": 35200,
+      "text_end": 35986,
+      "excerpt": "Co- injection of antisense (C 4G2)70 RNAs with \neif2ak2 SB- MO significantly mitigates the abnormalities of axonal length and branching compared \nto zebrafish injected with (C 4G2)70 RNAs and a control morpholino (Figure 7B–D). Consistent with \nthis observation, Eif2ak2 reduction with a translation- blocking morpholino increases axonal length \n(Figure 7A and Figure 7—figure supplement 1B and C) and significantly ameliorates the abnormal \nbranching phenotype caused by antisense (C 4G2)70 RNAs. On the other hand, no protective effects \nwere observed when co- injecting sense (G4C2)70 RNAs with eif2ak2 SB- MO (Figure 7E and F). Overall, \nthese data indicate that PKR is an important player contributing to toxicity induced by antisense C4G2 \nbut not sense G4C2 repeat expanded RNAs.",
+      "excerpt_sha256": "d54dbe5af65bd7ec2167312ab0d4cd20c5ec86a2c09546eab64fa8a7e429fcbb",
+      "fact_ids": [
+        "a006:f1",
+        "a010:f2"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "model-pkr",
+      "article_id": "PMC10188109",
+      "filename": "als-ftd-pmc10188109.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "9ac7d0a9c34b9eaac89db21fe1d0cc1963590de8c883bf7b0fbd41cb778dec43",
+      "text_sha256": "a82b8591a24b1bc20275e46e62189af34291a128d0b77f627b4c9a098c65d2ac",
+      "page": 13,
+      "pages": [
+        13
+      ],
+      "section": "Discussion: model-specific PKR expression",
+      "text_start": 40865,
+      "text_end": 41239,
+      "excerpt": "is interesting to note that PKR, constitutively and ubiquitously expressed in vertebrate cells including \nzebrafish, is not found in plants, fungi, protists, or invertebrates such as Drosophila (Martinez et al., \n2021). This may partially explain the difference in toxicities caused by the antisense C 4G2 repeat \nexpanded RNAs in Drosophila, zebrafish, and primary neurons.",
+      "excerpt_sha256": "5558ab8a02d9514decfd6d175b1559fdc8c4d723cf6e78171e4497d347315613",
+      "fact_ids": [
+        "a010:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "cas13-mice",
+      "article_id": "PMC11527445",
+      "filename": "als-ftd-pmc11527445.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "727d7a7b5b0e970861c4c67ffb549b9e6c1edae9e6437652a8892cbf986af415",
+      "text_sha256": "ce07184439306ce6f7f756e3a2500b5df10d7df389286faa249efa2af859adc7",
+      "page": 7,
+      "pages": [
+        7
+      ],
+      "section": "Results: BAC mouse model limitations",
+      "text_start": 35843,
+      "text_end": 35918,
+      "excerpt": "Although this mouse model has exhibited no survival or motor \ndeficits (42)",
+      "excerpt_sha256": "eb4dd7cd80826dc85c2f0dcbfc96c7c193fa5275fbe11d3e6e1afb1f9c83f263",
+      "fact_ids": [
+        "a002:f1",
+        "a005:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "cas13-clinical",
+      "article_id": "PMC11527445",
+      "filename": "als-ftd-pmc11527445.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "727d7a7b5b0e970861c4c67ffb549b9e6c1edae9e6437652a8892cbf986af415",
+      "text_sha256": "ce07184439306ce6f7f756e3a2500b5df10d7df389286faa249efa2af859adc7",
+      "page": 10,
+      "pages": [
+        10
+      ],
+      "section": "Discussion: clinical protection remains untested",
+      "text_start": 44145,
+      "text_end": 44243,
+      "excerpt": "protective effects of the CRISPR/Cas13d system in C9-ALS/FTD \npatients require further evaluation.",
+      "excerpt_sha256": "a9e7076bf32efaf4bac308e6c0fe987069e69ec7fe1e6b2a1e73b05217899450",
+      "fact_ids": [
+        "a002:f2",
+        "a005:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "cas13-cell",
+      "article_id": "PMC11527445",
+      "filename": "als-ftd-pmc11527445.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "727d7a7b5b0e970861c4c67ffb549b9e6c1edae9e6437652a8892cbf986af415",
+      "text_sha256": "ce07184439306ce6f7f756e3a2500b5df10d7df389286faa249efa2af859adc7",
+      "page": 7,
+      "pages": [
+        7
+      ],
+      "section": "Results: same-donor iPSC versus iMN",
+      "text_start": 33922,
+      "text_end": 34358,
+      "excerpt": "Intriguingly, the \nC9-ALS iPSC line 2 and iMN line 2, derived from the same indi-\nvidual with a 2× GGGGCC non-expanded allele, exhibited a mild \ndecrease in C9-V1 and C9-V3 only in the iMNs, suggesting that the \nexpanded allele with hundreds to thousands of repeats can still be \npartially degraded by the Cas13d system, presumably when local \nregions of the repeats adopt cleavable conformations under spe -\ncific cellular environment.",
+      "excerpt_sha256": "b57aca8547f63b097ea049de0532e66df044dc00eb8e2a887d2f21f946337274",
+      "fact_ids": [
+        "a003:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "excision-dpr",
+      "article_id": "PMC11047104",
+      "filename": "als-ftd-pmc11047104.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "f5208717e1e8b2e8a7443975665c0ddd1803a266b4a7af085ad7b08a887eea85",
+      "text_sha256": "0ba06505e30830ab48fe6191271c93b4eb9032678b3a09b823d7649816eed6ea",
+      "page": 5,
+      "pages": [
+        5
+      ],
+      "section": "Results: repeat excision versus exon 1A poly-GP",
+      "text_start": 29108,
+      "text_end": 29282,
+      "excerpt": "Also as expected, all poly- GP was eliminated by removal of the \nrepeat expansion or mutant allele. However, some poly- GP \nremained after excision of exon 1A (Fig. 3C, 1Ax).",
+      "excerpt_sha256": "e223065c86e3f53b0d650de40678999c3e68c04e2f38e3293b84800ba40157eb",
+      "fact_ids": [
+        "a004:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "excision-network",
+      "article_id": "PMC11047104",
+      "filename": "als-ftd-pmc11047104.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "f5208717e1e8b2e8a7443975665c0ddd1803a266b4a7af085ad7b08a887eea85",
+      "text_sha256": "0ba06505e30830ab48fe6191271c93b4eb9032678b3a09b823d7649816eed6ea",
+      "page": 7,
+      "pages": [
+        7
+      ],
+      "section": "Results: network burst activity",
+      "text_start": 39498,
+      "text_end": 39687,
+      "excerpt": "The C9- unedited and 1Ax motor neurons showed no network \nburst activity at 3 wk of age; in contrast, both REx and HET(Mut)\nx motor neurons did demonstrate network burst activity (Fig. 5A),",
+      "excerpt_sha256": "44a39dbbc3b64bc7455034808e8e793529d346ee5a8d2743817c81bb7dfdd1f5",
+      "fact_ids": [
+        "a004:f2",
+        "a005:f2"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "excision-limit",
+      "article_id": "PMC11047104",
+      "filename": "als-ftd-pmc11047104.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "f5208717e1e8b2e8a7443975665c0ddd1803a266b4a7af085ad7b08a887eea85",
+      "text_sha256": "0ba06505e30830ab48fe6191271c93b4eb9032678b3a09b823d7649816eed6ea",
+      "page": 9,
+      "pages": [
+        9
+      ],
+      "section": "Discussion: donor scope",
+      "text_start": 51873,
+      "text_end": 52008,
+      "excerpt": "A limitation of this study is that our biological \ninsight result primarily from a series of edits made in a single \npatient cell line.",
+      "excerpt_sha256": "927782f99a3b338187ec84193f1d7d993ab0fcbe6cb359dabd6d176c89e29631",
+      "fact_ids": [
+        "a005:f2"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "case-imaging",
+      "article_id": "PMC10802081",
+      "filename": "als-ftd-pmc10802081.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "bbc9043b3787c90d5b2d4764ffcf455949abace5c9681234cf76f89d0cabe9a6",
+      "text_sha256": "83e181ac9dec8bd02f035bb526a4987965df39aece8cf3237902c88516168d55",
+      "page": 3,
+      "pages": [
+        3
+      ],
+      "section": "Case report: imaging interpretation",
+      "text_start": 9986,
+      "text_end": 10377,
+      "excerpt": "A brain SPECT scan was ordered and demonstrated\nmoderate decreased perfusion to the parietal lobes bilat-\nerally, left greater than right, with some involvement of the\nposterior aspect of the left frontal lobe. The nuclear\nmedicine radiologist concluded the distribution was most\nin keeping with Alzheimer ’s disease and it was not felt to\nrepresent frontotemporal lobar degeneration (FTLD).",
+      "excerpt_sha256": "c759bc0109b3e744c24707dd0ae57e42962d3f37aee93e716f2d9ac91af0fdf1",
+      "fact_ids": [
+        "a007:f1",
+        "a008:f2"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "case-genetics",
+      "article_id": "PMC10802081",
+      "filename": "als-ftd-pmc10802081.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "bbc9043b3787c90d5b2d4764ffcf455949abace5c9681234cf76f89d0cabe9a6",
+      "text_sha256": "83e181ac9dec8bd02f035bb526a4987965df39aece8cf3237902c88516168d55",
+      "page": 3,
+      "pages": [
+        3
+      ],
+      "section": "Case report: genetic diagnosis",
+      "text_start": 10378,
+      "text_end": 10599,
+      "excerpt": "However, given ongoing clinical suspicion for a rapidly\nprogressive neurodegenerative cause, genetic testing was\nperformed and identi ﬁed a repeat expansion of GGGGCC\nin C9orf72, thereby con ﬁrming a diagnosis of FTD-ALS.",
+      "excerpt_sha256": "fa5fd0a3731c958ac2d88b7215813654611b4656627b2bdf053e9616aac26385",
+      "fact_ids": [
+        "a007:f2",
+        "a008:f2",
+        "a009:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "case-autopsy",
+      "article_id": "PMC10802081",
+      "filename": "als-ftd-pmc10802081.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "bbc9043b3787c90d5b2d4764ffcf455949abace5c9681234cf76f89d0cabe9a6",
+      "text_sha256": "83e181ac9dec8bd02f035bb526a4987965df39aece8cf3237902c88516168d55",
+      "page": 3,
+      "pages": [
+        3
+      ],
+      "section": "Case report: autopsy",
+      "text_start": 11173,
+      "text_end": 11398,
+      "excerpt": "His family consented to\npost-mortem autopsy and the ﬁnal report con ﬁrmed a\nfronto-temporal lobar degeneration with transactive re-\nsponse DNA binding protein (TDP) pathology, interna-\ntional harmonized classi ﬁcation type C.",
+      "excerpt_sha256": "27468bacbe542da08632525253480bb23d4771536905edf96821b9665f539d57",
+      "fact_ids": [
+        "a007:f2",
+        "a008:f2"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "cas13-dpr",
+      "article_id": "PMC11527445",
+      "filename": "als-ftd-pmc11527445.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "727d7a7b5b0e970861c4c67ffb549b9e6c1edae9e6437652a8892cbf986af415",
+      "text_sha256": "ce07184439306ce6f7f756e3a2500b5df10d7df389286faa249efa2af859adc7",
+      "page": 8,
+      "pages": [
+        8
+      ],
+      "section": "Results: BAC mouse model limitations",
+      "text_start": 36134,
+      "text_end": 36351,
+      "excerpt": "the treatment with Cas13d-S24 \nor Cas13d-S30 led to a significant reduction in poly-GP and poly-\nGA levels in the C9-500 BAC mice, consistent with the findings \nobserved in C9orf72 repeat–associated ALS patient cells.",
+      "excerpt_sha256": "7d9982390cd9d05fc38dae738b8f06e6dd287a1ae4429489ae40ed590bbeffd2",
+      "fact_ids": [
+        "a002:f1",
+        "a005:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "excision-dpr-caption",
+      "article_id": "PMC11047104",
+      "filename": "als-ftd-pmc11047104.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "f5208717e1e8b2e8a7443975665c0ddd1803a266b4a7af085ad7b08a887eea85",
+      "text_sha256": "0ba06505e30830ab48fe6191271c93b4eb9032678b3a09b823d7649816eed6ea",
+      "page": 6,
+      "pages": [
+        6
+      ],
+      "section": "Figure 3 legend: repeat removal versus sense silencing",
+      "text_start": 38346,
+      "text_end": 38681,
+      "excerpt": "Only excision of the repeat expansion or the mutant allele abolishes production of both Poly- GA (1- way ANOVA F(4,10) = 10.12, P < 0.001) and Poly- GP peptides \n(1- way ANOVA F(4,10) = 19.66, P < 0.0001). Excision of exon 1A only abolishes expression of Poly- GA, consistent with silencing of sense but not anti- sense \ntranscription.",
+      "excerpt_sha256": "0d8ee2de363376d89b46858a1b43af63e7b0c16ebe96a2a5fd1408e01cada785",
+      "fact_ids": [
+        "a004:f1"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "excision-network-caption",
+      "article_id": "PMC11047104",
+      "filename": "als-ftd-pmc11047104.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "f5208717e1e8b2e8a7443975665c0ddd1803a266b4a7af085ad7b08a887eea85",
+      "text_sha256": "0ba06505e30830ab48fe6191271c93b4eb9032678b3a09b823d7649816eed6ea",
+      "page": 9,
+      "pages": [
+        9
+      ],
+      "section": "Figure 5A legend: network bursting",
+      "text_start": 52981,
+      "text_end": 53318,
+      "excerpt": "(A) C9- unedited and 1Ax 3- wk- old \ninduced neurons showed minimal \nto no network bursting activity on \nMEAs (defined as burst events de-\ntected simultaneously from multi-\nple electrodes within a single array). \nREx and HET(Mut)x showed network \nburst activity, with HET(Mut)x activity \nsignificantly increased compared to \nC9- unedited",
+      "excerpt_sha256": "6c0eae5eef754ec8e2718ed361832f7cdee79bedde7e0ac5636f4626f96128ea",
+      "fact_ids": [
+        "a004:f2",
+        "a005:f2"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "zebrafish-caption-result",
+      "article_id": "PMC10188109",
+      "filename": "als-ftd-pmc10188109.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "9ac7d0a9c34b9eaac89db21fe1d0cc1963590de8c883bf7b0fbd41cb778dec43",
+      "text_sha256": "a82b8591a24b1bc20275e46e62189af34291a128d0b77f627b4c9a098c65d2ac",
+      "page": 16,
+      "pages": [
+        16
+      ],
+      "section": "Figure 7 legend: strand-specific toxicity result",
+      "text_start": 49361,
+      "text_end": 49470,
+      "excerpt": "Figure 7. Reduction of PKR mitigates antisense C4G2, but not sense G4C2, RNA- mediated toxicity in zebrafish.",
+      "excerpt_sha256": "2c2175fdfdc1d15cf34891e4e1ed6d7434039e443300375839840be80127b83d",
+      "fact_ids": [
+        "a006:f1",
+        "a010:f2"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "zebrafish-caption-endpoints",
+      "article_id": "PMC10188109",
+      "filename": "als-ftd-pmc10188109.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "9ac7d0a9c34b9eaac89db21fe1d0cc1963590de8c883bf7b0fbd41cb778dec43",
+      "text_sha256": "a82b8591a24b1bc20275e46e62189af34291a128d0b77f627b4c9a098c65d2ac",
+      "page": 17,
+      "pages": [
+        17
+      ],
+      "section": "Figure 7C-F legend: motor axon endpoints",
+      "text_start": 53881,
+      "text_end": 54447,
+      "excerpt": "Effects of SB- MO on axonal length (C) and branching (D) of zebrafish expressing antisense (C4G2)70 RNAs. Embryos were injected with 0.844 µM GFP \nmRNA, 0.844 µM antisense (C4G2)70 RNAs, 0.844 µM antisense (C4G2)70 RNAs plus 0.25 mM control morpholino, or 0.844 µM antisense (C4G2)70 RNAs \nplus 0.25 mM eif2ak2 morpholino. Error bars represent SD (n = 4 independent experiments). Statistical analyses were performed using one- way ANOVA \nwith Tukey’s post hoc test. (E, F) Effects of SB- MO on axonal length and branching of zebrafish expressing sense (G4C2)70 RNAs.",
+      "excerpt_sha256": "b46ca4e4eb23eb39eab6e80f71642e19bb912c8403d220625376e62a48196c9c",
+      "fact_ids": [
+        "a006:f1",
+        "a010:f2"
+      ],
+      "role": "support"
+    },
+    {
+      "id": "cas13-cell-results",
+      "article_id": "PMC11527445",
+      "filename": "als-ftd-pmc11527445.pdf",
+      "pmc_version": 1,
+      "pdf_sha256": "727d7a7b5b0e970861c4c67ffb549b9e6c1edae9e6437652a8892cbf986af415",
+      "text_sha256": "ce07184439306ce6f7f756e3a2500b5df10d7df389286faa249efa2af859adc7",
+      "page": 6,
+      "pages": [
+        6
+      ],
+      "section": "Results: same-donor line-2 transcript response",
+      "text_start": 26493,
+      "text_end": 26807,
+      "excerpt": "Notably, iPSC line 2 and iMN line 2 \nwere derived from the same individual, yet the decrease in C9-V1 \nand C9-V3 was only observed in the iMNs but not in the iPSCs, \nhighlighting the intricate interplay between the CRISPR/Cas13d \nsystem and the cellular environment in targeting RNA with high-\ner-order structures.",
+      "excerpt_sha256": "db5e000e792184050572de52c07f3b751451ba3f19771b9255062fdf5ff206b0",
+      "fact_ids": [
+        "a003:f1"
+      ],
+      "role": "support"
+    }
+  ]
+}

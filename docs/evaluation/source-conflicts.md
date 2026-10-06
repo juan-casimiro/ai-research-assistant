@@ -6,39 +6,39 @@ Conflicting resources do not always reach opposite scientific conclusions. This 
 
 ## Scope and retained evidence
 
-- Query/category snapshot: [57b23ff](https://github.com/juan-casimiro/ai-research-assistant/commit/57b23ffc2812b2a4bc346d39571c312f3e7fc2c2) on PR 46. This includes Claude’s follow-up commits 4d19bdc and 57b23ff.
+- Gold correction record: [57b23ff](https://github.com/juan-casimiro/ai-research-assistant/commit/57b23ffc2812b2a4bc346d39571c312f3e7fc2c2) on PR 46. This includes Claude’s follow-up commits 4d19bdc and 57b23ff.
 - Historical retrieval snapshot: [bc0594e](https://github.com/juan-casimiro/ai-research-assistant/commit/bc0594e6c845116e4203a9467eb27f23c57ab621), the four-topic 51-article, 148-query combined run. Vector retrieval, production reranker, BM25 off, rewriting off; n3/n8 mean returned chunk depths.
 - The report covers the conflict-bearing queries identified through the active gold and retained source-review notes, plus selected scope controls. It is not an exhaustive re-reading of every article or a clinical certification.
 - Source locations below are physical PDF pages from pinned version-1 article anchors, with readable section/table names. Public article links and DOI identifiers identify the resources even if benchmark files are omitted from main. No PDFs are redistributed.
 - Document coverage means accepted source articles were returned. Complete evidence means all required pinned passages of an accepted set matched. An exact-span failure can coexist with useful partial prose; neither metric judges generated answers.
 - No generated answers, refusals or conflict explanations were judged in these runs. There is no measured conflict-resolution answer accuracy.
-- Claude’s three later targeted retrieval observations are separately labelled PR-reported, uncommitted and unverified. They must not be combined with the frozen baseline as one compatible performance series.
+- Verified corrected-gold retrieval snapshot: 55 articles / 3,638 chunks, all 158 queries at n3/n8, vector retrieval with production reranking, BM25 and rewriting off. The [retained summary and fingerprints](combined-benchmark-v2.json) pin every topic run, query set, scorer and retrieval configuration. New results below supersede the uncommitted targeted observations; they do not certify those earlier observations. Historical and current results are not directly compatible.
 
 ## Inventory
 
-| Query | Issue | Current category | Historical complete evidence n3 / n8 |
-| --- | --- | --- | --- |
-| [c004](#c004) | Cross-article numerical disagreement | `cross_doc_synthesis` | fail / fail |
-| [q051](#q051) | Within-article sample-size inconsistency | `multi_hop` | fail / fail |
-| [c012](#c012) | Within-article adjusted-estimate and design-label conflicts | `source_conflict` | fail / fail |
-| [c013](#c013) | Within-article price-provenance discrepancy | `source_conflict` | fail / fail |
-| [c024](#c024) | Within-article universal-control claim and target conflict | `false_premise` | fail / pass |
-| [d003](#d003) | Within-article interaction-count discrepancy | `multi_hop` | fail / pass |
-| [d005](#d005) | Within-table statistical reporting anomaly | `direct_lookup` | pass / pass |
-| [x001](#x001) | Within-article significance-language conflict | `multi_hop` | fail / fail |
-| [x005](#x005) | Within-article model-task conflict | `source_conflict` | fail / fail |
-| [o002](#o002) | Within-article pathological-response count conflict | `multi_hop` | fail / fail |
-| [o006](#o006) | Within-article reversed dose assignment | `multi_hop` | fail / fail |
-| [o029](#o029) | Within-article analysis-label conflict | `multi_hop` | fail / fail |
-| [q102](#q102) | Within-article flow-diagram arithmetic and age-label discrepancy | `direct_lookup` | fail / fail |
-| [q097](#q097) | Associated within-article analysis-denominator discrepancy | `direct_lookup` | fail / pass |
-| [q098](#q098) | Associated within-article analysis-denominator discrepancy | `direct_lookup` | fail / pass |
-| [o011](#o011) | Ancillary within-article comparator-direction reversal | `false_premise` | fail / fail |
-| [o012](#o012) | Comparator-orientation clarification, not an established biological contradiction | `direct_lookup` | fail / fail |
-| [o005](#o005) | Explained denominator difference; not source conflict | `multi_hop` | fail / pass |
-| [o017](#o017) | Different endpoints/populations/comparators; not source conflict | `cross_doc_synthesis` | fail / fail |
-| [d020](#d020) | Primary versus sensitivity analysis; not source conflict | `false_premise` | fail / fail |
-| [a010](#a010) | Different biological models and strands; not resolved source conflict | `multi_hop` | not run |
+| Query | Issue | Current category | Historical complete evidence n3 / n8 | Corrected 55-article evidence n3 / n8 |
+| --- | --- | --- | --- | --- |
+| [c004](#c004) | Cross-article numerical disagreement | `cross_doc_synthesis` | fail / fail | fail / fail |
+| [q051](#q051) | Within-article sample-size inconsistency | `multi_hop` | fail / fail | fail / fail |
+| [c012](#c012) | Within-article adjusted-estimate and design-label conflicts | `source_conflict` | fail / fail | fail / fail |
+| [c013](#c013) | Within-article price-provenance discrepancy | `source_conflict` | fail / fail | fail / pass |
+| [c024](#c024) | Within-article universal-control claim and target conflict | `false_premise` | fail / pass | fail / pass |
+| [d003](#d003) | Within-article interaction-count discrepancy | `multi_hop` | fail / pass | fail / pass |
+| [d005](#d005) | Within-table statistical reporting anomaly | `direct_lookup` | pass / pass | pass / pass |
+| [x001](#x001) | Within-article significance-language conflict | `multi_hop` | fail / fail | fail / fail |
+| [x005](#x005) | Within-article model-task conflict | `source_conflict` | fail / fail | fail / fail |
+| [o002](#o002) | Within-article pathological-response count conflict | `multi_hop` | fail / fail | fail / fail |
+| [o006](#o006) | Within-article reversed dose assignment | `multi_hop` | fail / fail | fail / fail |
+| [o029](#o029) | Within-article analysis-label conflict | `multi_hop` | fail / fail | fail / fail |
+| [q102](#q102) | Within-article flow-diagram arithmetic and age-label discrepancy | `direct_lookup` | fail / fail | fail / fail |
+| [q097](#q097) | Associated within-article analysis-denominator discrepancy | `direct_lookup` | fail / pass | fail / pass |
+| [q098](#q098) | Associated within-article analysis-denominator discrepancy | `direct_lookup` | fail / pass | fail / pass |
+| [o011](#o011) | Ancillary within-article comparator-direction reversal | `false_premise` | fail / fail | fail / fail |
+| [o012](#o012) | Comparator-orientation clarification, not an established biological contradiction | `direct_lookup` | fail / fail | fail / fail |
+| [o005](#o005) | Explained denominator difference; not source conflict | `multi_hop` | fail / pass | fail / pass |
+| [o017](#o017) | Different endpoints/populations/comparators; not source conflict | `cross_doc_synthesis` | fail / fail | fail / fail |
+| [d020](#d020) | Primary versus sensitivity analysis; not source conflict | `false_premise` | fail / fail | fail / fail |
+| [a010](#a010) | Different biological models and strands; not resolved source conflict | `multi_hop` | not run | fail / fail |
 
 These historical scores use the historical gold contract. In particular c012, c013 and x005 were not evaluated as source_conflict in the frozen run. d020’s historical question also predates its primary-analysis clarification. The category column records the newer snapshot, not the historical run’s category.
 
@@ -66,6 +66,15 @@ These historical scores use the historical gold contract. In particular c012, c0
 
 At n3 both source documents were returned, but the review passage was introductory management text. At n8 the primary numerical evidence matched; the review numerical evidence still did not. Document presence therefore overstates conflict coverage.
 
+**Corrected-gold retrieval (55 articles):**
+
+| Depth | Accepted documents | Complete pinned evidence | Supported required facts |
+| --- | --- | --- | --- |
+| n3 | pass | fail | 0; fact recall 0.0% |
+| n8 | pass | fail | 1; fact recall 50.0% |
+
+This is saved-context evidence coverage under the current question and key, not generated-answer accuracy.
+
 **Generated-answer handling:** Not evaluated.
 
 ### q051
@@ -90,6 +99,15 @@ At n3 both source documents were returned, but the review passage was introducto
 | n8 | fail | fail | 0; fact recall 0% |
 
 The required CCTA article disappeared at both depths in the 51-article run. Earlier source presence already lacked the complete evidence set; the new source loss must not be hidden by an unchanged evidence-fail score.
+
+**Corrected-gold retrieval (55 articles):**
+
+| Depth | Accepted documents | Complete pinned evidence | Supported required facts |
+| --- | --- | --- | --- |
+| n3 | fail | fail | 0; fact recall 0.0% |
+| n8 | fail | fail | 0; fact recall 0.0% |
+
+This is saved-context evidence coverage under the current question and key, not generated-answer accuracy.
 
 **Generated-answer handling:** Not evaluated.
 
@@ -118,7 +136,16 @@ The required CCTA article disappeared at both depths in the 51-article run. Earl
 | n3 | fail | fail | 0; fact recall 0% |
 | n8 | fail | fail | 0; fact recall 0% |
 
-Claude’s PR 46 follow-up reports that its later targeted n8 retrieval returned only the abstract reading, never Table 2. That run is not committed, so this is a reported observation, not independently reproducible evidence. The historical metrics below predate the source_conflict contract.
+The historical metrics above predate the source_conflict contract. The verified corrected-gold run below matches the CKD abstract renal span but misses Table 2, the complete infection/confounding spans and the required HFpEF evidence. It fails legitimately at both depths; no question or expectation is narrowed.
+
+**Corrected-gold retrieval (55 articles):**
+
+| Depth | Accepted documents | Complete pinned evidence | Supported required facts |
+| --- | --- | --- | --- |
+| n3 | fail | fail | 0; fact recall 0.0% |
+| n8 | fail | fail | 0; fact recall 0.0% |
+
+This is saved-context evidence coverage under the current question and key, not generated-answer accuracy.
 
 **Generated-answer handling:** Not evaluated.
 
@@ -144,7 +171,16 @@ Claude’s PR 46 follow-up reports that its later targeted n8 retrieval returned
 | n3 | pass | fail | 1; fact recall 50% |
 | n8 | pass | fail | 1; fact recall 50% |
 
-Claude’s uncommitted targeted rerun is reported in PR 46 as n3 missing the Methods reading and n8 retrieving both readings. This has not been independently verified from a saved artifact.
+The verified corrected-gold run below retrieves the complete abstract at n3 but misses the Methods reading. At n8 the Methods NADAC passage also matches (zero-based rank 7), so both attributed readings are covered. This evidence pass does not judge whether an answer explained the discrepancy.
+
+**Corrected-gold retrieval (55 articles):**
+
+| Depth | Accepted documents | Complete pinned evidence | Supported required facts |
+| --- | --- | --- | --- |
+| n3 | pass | fail | 2; fact recall 66.7% |
+| n8 | pass | pass | 3; fact recall 100.0% |
+
+This is saved-context evidence coverage under the current question and key, not generated-answer accuracy.
 
 **Generated-answer handling:** Not evaluated.
 
@@ -170,6 +206,15 @@ Claude’s uncommitted targeted rerun is reported in PR 46 as n3 missing the Met
 
 At n8 the abstract claim appeared at zero-based rank 6 and the exception at rank 2: both sides were available. At n3 only the exception fact met the pinned evidence test. No generated correction was judged.
 
+**Corrected-gold retrieval (55 articles):**
+
+| Depth | Accepted documents | Complete pinned evidence | Supported required facts |
+| --- | --- | --- | --- |
+| n3 | pass | fail | 1; fact recall 50.0% |
+| n8 | pass | pass | 2; fact recall 100.0% |
+
+This is saved-context evidence coverage under the current question and key, not generated-answer accuracy.
+
 **Generated-answer handling:** Not evaluated.
 
 ### d003
@@ -194,6 +239,15 @@ At n8 the abstract claim appeared at zero-based rank 6 and the exception at rank
 
 At n8 both pinned passages matched (abstract at rank 6, Results at rank 5). Neither complete fact matched at n3. This is a retrieval success at n8, not evidence that an answer described the discrepancy correctly.
 
+**Corrected-gold retrieval (55 articles):**
+
+| Depth | Accepted documents | Complete pinned evidence | Supported required facts |
+| --- | --- | --- | --- |
+| n3 | pass | fail | 0; fact recall 0.0% |
+| n8 | pass | pass | 2; fact recall 100.0% |
+
+This is saved-context evidence coverage under the current question and key, not generated-answer accuracy.
+
 **Generated-answer handling:** Not evaluated.
 
 ### d005
@@ -214,6 +268,15 @@ At n8 both pinned passages matched (abstract at rank 6, Results at rank 5). Neit
 | --- | --- | --- | --- |
 | n3 | pass | pass | 1; fact recall 100% |
 | n8 | pass | pass | 1; fact recall 100% |
+
+**Corrected-gold retrieval (55 articles):**
+
+| Depth | Accepted documents | Complete pinned evidence | Supported required facts |
+| --- | --- | --- | --- |
+| n3 | pass | pass | 1; fact recall 100.0% |
+| n8 | pass | pass | 1; fact recall 100.0% |
+
+This is saved-context evidence coverage under the current question and key, not generated-answer accuracy.
 
 **Generated-answer handling:** Not evaluated.
 
@@ -241,6 +304,15 @@ At n8 both pinned passages matched (abstract at rank 6, Results at rank 5). Neit
 
 At n8 the summary, common-taxa assertion and Bonferroni sentence matched, but the separate UK suggestive-qualification anchor did not. Complete pinned evidence failed even though useful opposing language was present.
 
+**Corrected-gold retrieval (55 articles):**
+
+| Depth | Accepted documents | Complete pinned evidence | Supported required facts |
+| --- | --- | --- | --- |
+| n3 | pass | fail | 0; fact recall 0.0% |
+| n8 | pass | fail | 0; fact recall 0.0% |
+
+This is saved-context evidence coverage under the current question and key, not generated-answer accuracy.
+
 **Generated-answer handling:** Not evaluated.
 
 ### x005
@@ -264,7 +336,16 @@ At n8 the summary, common-taxa assertion and Bonferroni sentence matched, but th
 | n3 | pass | fail | 0; fact recall 0% |
 | n8 | pass | fail | 0; fact recall 0% |
 
-Claude reports that its uncommitted targeted rerun returned the right article but neither complete conflict passage at n8. The historical n3/n8 scores below used the older abstract-only evidence contract and cannot measure the new requirement.
+The historical n3/n8 scores above used the older abstract-only evidence contract. The verified corrected-gold run below returns the right article but neither complete required conflict reading at either depth. Its failures are retained without changing the question or grading requirement.
+
+**Corrected-gold retrieval (55 articles):**
+
+| Depth | Accepted documents | Complete pinned evidence | Supported required facts |
+| --- | --- | --- | --- |
+| n3 | pass | fail | 0; fact recall 0.0% |
+| n8 | pass | fail | 0; fact recall 0.0% |
+
+This is saved-context evidence coverage under the current question and key, not generated-answer accuracy.
 
 **Generated-answer handling:** Not evaluated.
 
@@ -288,6 +369,15 @@ Claude reports that its uncommitted targeted rerun returned the right article bu
 | n3 | pass | fail | 0; fact recall 0% |
 | n8 | pass | fail | 0; fact recall 0% |
 
+**Corrected-gold retrieval (55 articles):**
+
+| Depth | Accepted documents | Complete pinned evidence | Supported required facts |
+| --- | --- | --- | --- |
+| n3 | pass | fail | 0; fact recall 0.0% |
+| n8 | pass | fail | 0; fact recall 0.0% |
+
+This is saved-context evidence coverage under the current question and key, not generated-answer accuracy.
+
 **Generated-answer handling:** Not evaluated.
 
 ### o006
@@ -309,6 +399,15 @@ Claude reports that its uncommitted targeted rerun returned the right article bu
 | --- | --- | --- | --- |
 | n3 | pass | fail | 0; fact recall 0% |
 | n8 | pass | fail | 0; fact recall 0% |
+
+**Corrected-gold retrieval (55 articles):**
+
+| Depth | Accepted documents | Complete pinned evidence | Supported required facts |
+| --- | --- | --- | --- |
+| n3 | pass | fail | 0; fact recall 0.0% |
+| n8 | pass | fail | 0; fact recall 0.0% |
+
+This is saved-context evidence coverage under the current question and key, not generated-answer accuracy.
 
 **Generated-answer handling:** Not evaluated.
 
@@ -337,6 +436,15 @@ Claude reports that its uncommitted targeted rerun returned the right article bu
 
 The Hunan source was absent at both depths in the combined run; unrelated CKD/HFpEF propensity-method passages cannot replace its outcomes. o030 reuses this source in a synthesis task but does not separately test the competing OS labels.
 
+**Corrected-gold retrieval (55 articles):**
+
+| Depth | Accepted documents | Complete pinned evidence | Supported required facts |
+| --- | --- | --- | --- |
+| n3 | fail | fail | 0; fact recall 0.0% |
+| n8 | fail | fail | 0; fact recall 0.0% |
+
+This is saved-context evidence coverage under the current question and key, not generated-answer accuracy.
+
 **Generated-answer handling:** Not evaluated.
 
 ### q102
@@ -357,6 +465,15 @@ The Hunan source was absent at both depths in the combined run; unrelated CKD/HF
 | --- | --- | --- | --- |
 | n3 | pass | fail | 0; fact recall 0% |
 | n8 | pass | fail | 0; fact recall 0% |
+
+**Corrected-gold retrieval (55 articles):**
+
+| Depth | Accepted documents | Complete pinned evidence | Supported required facts |
+| --- | --- | --- | --- |
+| n3 | pass | fail | 0; fact recall 0.0% |
+| n8 | pass | fail | 0; fact recall 0.0% |
+
+This is saved-context evidence coverage under the current question and key, not generated-answer accuracy.
 
 **Generated-answer handling:** Not evaluated.
 
@@ -381,6 +498,15 @@ The Hunan source was absent at both depths in the combined run; unrelated CKD/HF
 | n3 | pass | fail | 0; fact recall 0% |
 | n8 | pass | pass | 1; fact recall 100% |
 
+**Corrected-gold retrieval (55 articles):**
+
+| Depth | Accepted documents | Complete pinned evidence | Supported required facts |
+| --- | --- | --- | --- |
+| n3 | pass | fail | 0; fact recall 0.0% |
+| n8 | pass | pass | 1; fact recall 100.0% |
+
+This is saved-context evidence coverage under the current question and key, not generated-answer accuracy.
+
 **Generated-answer handling:** Not evaluated.
 
 ### q098
@@ -404,6 +530,15 @@ The Hunan source was absent at both depths in the combined run; unrelated CKD/HF
 | --- | --- | --- | --- |
 | n3 | pass | fail | 1; fact recall 50% |
 | n8 | pass | pass | 2; fact recall 100% |
+
+**Corrected-gold retrieval (55 articles):**
+
+| Depth | Accepted documents | Complete pinned evidence | Supported required facts |
+| --- | --- | --- | --- |
+| n3 | pass | fail | 1; fact recall 50.0% |
+| n8 | pass | pass | 2; fact recall 100.0% |
+
+This is saved-context evidence coverage under the current question and key, not generated-answer accuracy.
 
 **Generated-answer handling:** Not evaluated.
 
@@ -431,6 +566,15 @@ The Hunan source was absent at both depths in the combined run; unrelated CKD/HF
 
 This direction issue comes from the retained validation note; it is not separately anchored or scored as conflict handling by this query.
 
+**Corrected-gold retrieval (55 articles):**
+
+| Depth | Accepted documents | Complete pinned evidence | Supported required facts |
+| --- | --- | --- | --- |
+| n3 | pass | fail | 0; fact recall 0.0% |
+| n8 | pass | fail | 0; fact recall 0.0% |
+
+This is saved-context evidence coverage under the current question and key, not generated-answer accuracy.
+
 **Generated-answer handling:** Not evaluated.
 
 ### o012
@@ -456,6 +600,15 @@ This direction issue comes from the retained validation note; it is not separate
 
 The orientation issue is a retained annotation note; a retrieval evidence pass is not a judged demonstration that the answer preserved ratio direction.
 
+**Corrected-gold retrieval (55 articles):**
+
+| Depth | Accepted documents | Complete pinned evidence | Supported required facts |
+| --- | --- | --- | --- |
+| n3 | pass | fail | 0; fact recall 0.0% |
+| n8 | pass | fail | 0; fact recall 0.0% |
+
+This is saved-context evidence coverage under the current question and key, not generated-answer accuracy.
+
 **Generated-answer handling:** Not evaluated.
 
 ### o005
@@ -478,6 +631,15 @@ The orientation issue is a retained annotation note; a retrieval evidence pass i
 | --- | --- | --- | --- |
 | n3 | pass | fail | 0; fact recall 0% |
 | n8 | pass | pass | 1; fact recall 100% |
+
+**Corrected-gold retrieval (55 articles):**
+
+| Depth | Accepted documents | Complete pinned evidence | Supported required facts |
+| --- | --- | --- | --- |
+| n3 | pass | fail | 0; fact recall 0.0% |
+| n8 | pass | pass | 1; fact recall 100.0% |
+
+This is saved-context evidence coverage under the current question and key, not generated-answer accuracy.
 
 **Generated-answer handling:** Not evaluated.
 
@@ -506,6 +668,15 @@ The orientation issue is a retained annotation note; a retrieval evidence pass i
 | n3 | fail | fail | 0; fact recall 0% |
 | n8 | fail | fail | 0; fact recall 0% |
 
+**Corrected-gold retrieval (55 articles):**
+
+| Depth | Accepted documents | Complete pinned evidence | Supported required facts |
+| --- | --- | --- | --- |
+| n3 | fail | fail | 0; fact recall 0.0% |
+| n8 | fail | fail | 0; fact recall 0.0% |
+
+This is saved-context evidence coverage under the current question and key, not generated-answer accuracy.
+
 **Generated-answer handling:** Not evaluated.
 
 ### d020
@@ -528,6 +699,15 @@ The orientation issue is a retained annotation note; a retrieval evidence pass i
 | n3 | pass | fail | 0; fact recall 0% |
 | n8 | pass | fail | 0; fact recall 0% |
 
+**Corrected-gold retrieval (55 articles):**
+
+| Depth | Accepted documents | Complete pinned evidence | Supported required facts |
+| --- | --- | --- | --- |
+| n3 | pass | fail | 0; fact recall 0.0% |
+| n8 | pass | fail | 0; fact recall 0.0% |
+
+This is saved-context evidence coverage under the current question and key, not generated-answer accuracy.
+
 **Generated-answer handling:** Not evaluated.
 
 ### a010
@@ -548,6 +728,15 @@ The orientation issue is a retained annotation note; a retrieval evidence pass i
 **Historical retrieval:** Not executed in the 51-article combined run.
 
 ALS/FTD was excluded from the 51-article baseline; there is no retrieval result for a010 in that run.
+
+**Corrected-gold retrieval (55 articles):**
+
+| Depth | Accepted documents | Complete pinned evidence | Supported required facts |
+| --- | --- | --- | --- |
+| n3 | pass | fail | 1; fact recall 50.0% |
+| n8 | pass | fail | 1; fact recall 50.0% |
+
+This is saved-context evidence coverage under the current question and key, not generated-answer accuracy.
 
 **Generated-answer handling:** Not evaluated.
 
@@ -570,9 +759,9 @@ Accepted contract and remaining interpretation limits:
 2. **Category consistency.** Only c012/c013/x005 use the new category. Existing explicit conflict tasks remain multi_hop, synthesis, lookup or false_premise. Consequently a source_conflict category aggregate is not an aggregate of all conflict cases in this inventory. A separate within-article/cross-article issue tag would preserve their retrieval structure; c012 still requires two articles despite losing its synthesis category label.
 3. **Validation strength.** The new validator checks two facts and two anchors, but does not enforce independent reading-to-anchor bindings or prove that the anchors actually contain incompatible readings. Schema acceptance alone is not semantic conflict certification.
 4. **Historical compatibility.** The scorer now recognizes an additional category while its version label remains pinned-span-coverage-v3. File fingerprints change, so old/new runs must still pass the existing compatibility checks; never merge their scores based solely on that unchanged label. Preserve revisions and source/gold hashes.
-5. **Evidence retention.** The later targeted rerun is described in PR 46 but has no committed result artifact. Keep it labelled reported/unverified unless a minimal immutable result summary is retained. The frozen metrics reproduced in this report are independently read from the saved outputs.
+5. **Evidence retention.** The corrected 55-article results have a retained immutable summary with run hashes, query/revision/category hashes, source identities, evidence matches and scorer/model/dependency fingerprints. The historical 51-article metrics remain separately labelled. Unsupported earlier targeted observations are superseded, not retroactively verified.
 
-All 206 existing offline tests pass on the late-commit snapshot. Those tests verify offline behavior; they do not measure generated-answer conflict handling. No new model review, generation or paid run was launched to write this report.
+All 224 offline tests pass, including saved-context corruption and copied-embedding checks. All 158 corrected-gold combined cases execute and their saved metrics and fingerprints are recomputed. Those checks do not measure generated-answer conflict handling. No new model-review session, generation or paid evaluation was launched.
 
 ## Article identity inventory
 

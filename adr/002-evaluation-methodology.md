@@ -1,5 +1,12 @@
 # ADR-002: Evaluation Methodology
 
+The current benchmark is the [five-topic combined v2 release](../benchmark/README.md).
+Its [report](../benchmark/combined/v2/REPORT.md) and
+[reproduction guide](../benchmark/combined/v2/README.md) are the starting points
+for current results and execution. The original golden QA design and earlier
+experiments below describe the methodology's history; they are not the current
+benchmark's input set.
+
 ## Context
 
 ADR-001 covers chunking and retrieval architecture decisions. This
@@ -246,3 +253,34 @@ to answer. Answer correctness requires a separate evaluation.
 The [combined report](../benchmark/combined/v1/REPORT.md) records the historical
 four-topic experiment's corpus, results and limitations. Its results remain
 separate from the original benchmark and Docker demo.
+
+## Corrected five-topic snapshot
+
+The [corrected combined report](../benchmark/combined/v2/REPORT.md) freezes the
+current model-reviewed gold and accepted correction ledger for all 158 cases in
+a 55-article / 3,638-chunk corpus, including ALS/FTD. Its canonical source query
+objects and anchors are preserved; the comparison envelope, conditions and
+dependency map receive new fingerprints. The original 51/148 runs remain
+historical. Changed questions, categories, scorer fingerprint and corpus prevent
+a direct historical performance comparison, despite an unchanged scorer version
+label. New complete nested runs pass the existing compatibility guard.
+
+One local vector-only configuration with production reranking evaluates every
+case at n3/n8 and six complete topic baselines (722 retrieval calls, zero paid
+provider calls). Existing production embeddings are reused only after checking
+the original model/dependency/code/source/chunk provenance; new source chunks
+use production ingestion. Fresh stores disable seeding, verify exact source/chunk
+multiplicities, hash copied and final vectors, and record per-source filtered
+query probes. Those probes prove queryability, not unfiltered QA success.
+
+Saved contexts, metrics, summaries, gold and all provenance joins are independently
+recomputed. Offline replay reproduces envelopes/dependency metadata and analysis;
+fresh approximate-index inference is not promised to be byte-identical. At n8,
+answerable document coverage is 115/129 and pinned evidence 37/129; correction
+evidence is 6/18 and eleven absent-fact cases are unscored. c012/c013/x005 retain
+both attributed readings, with valid failures preserved. No answer/refusal or
+conflict-handling accuracy is inferred from retrieval. The durable
+[source-conflict report](../docs/evaluation/source-conflicts.md) and
+[minimal provenance summary](../docs/evaluation/combined-benchmark-v2.json) are
+intended for retention independently of bulk experiment files. Biomedical expert
+review, semantic adjudication and answer judging remain separate limitations.

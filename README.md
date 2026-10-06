@@ -4,54 +4,45 @@ Research Assistant (RAG)
 
 A FastAPI service for semantic search and question-answering over ingested documents, using local embeddings, Chroma for vector storage, and an LLM (via LangChain) for grounded generation.
 
-The test corpus is 19 open-access biomedical research articles (PubMed Central Open Access subset and equivalent open-access journals), spanning diabetes, cardiology, oncology, and an outlier cluster covering antimicrobial resistance, gut microbiome/tuberculosis, and AI-assisted diagnosis — see corpus_manifest.json for full per-article metadata, licenses, and sourcing notes. The RAG pipeline itself is domain-agnostic; biomedical literature was chosen as a corpus with genuinely dense, citation-heavy, and terminology-specific text, useful for stress-testing retrieval precision.
+The current evaluation benchmark contains **55 articles and 158 questions** across
+cardiology, diabetes, oncology, outliers and ALS/FTD. Biomedical literature provides
+dense, citation-heavy evidence for testing the domain-agnostic RAG pipeline.
+Start with the [benchmark guide](benchmark/README.md) for the current inputs,
+results and reproduction instructions.
 
-**Historical document/category-ranking pass rate: 96.4% @ n=3, 98.2% @ n=8** on a 133-query golden QA set (111 scored), spanning direct lookup, multi-hop, cross-document distractor, and cross-document synthesis cases. BM25 hybrid search and LLM query rewriting were implemented and evaluated as opt-in additions but measured no net benefit on this corpus — see [ADR-001](./adr/001-chunking-and-retrieval.md) for the full evaluation, including one attributable regression from BM25 alone.
+Questions and expected answers were authored and reviewed by advanced LLMs against
+the articles. They cover evidence lookup, reasoning, distractors, synthesis,
+conflicting findings, false premises and missing facts. This is model-reviewed
+reference material, not biomedical expert certification. Current automated scores
+measure retrieved articles and evidence; generated-response correctness remains
+a separate evaluation step.
 
 CI runs unit tests, builds the Docker image, and smoke-tests `/health` on every pull request and push to `main`. The golden QA evaluation remains manual because it is non-deterministic and calls a paid API. Successful `main` builds publish commit-SHA and `latest` images to `ghcr.io/juan-casimiro/ai-research-assistant`; nothing is deployed automatically. See [ADR-003](./adr/003-deployment-and-containerisation.md).
 
-## Corpus rebuild standards
+## Current benchmark
 
-The planned permissive-corpus rebuild follows the [shared corpus and benchmark
-standards](benchmark/STANDARDS.md): verified CC BY 4.0/CC0, validated PMCID and
-automated readable-PDF retrieval, query-specific evidence roles, and versioned
-nested-corpus comparisons. These requirements govern new selections; the legacy
-manifest and manual-download instructions below have not yet been migrated.
-The figures above remain historical host-corpus results.
+The [five-topic report](benchmark/combined/v2/REPORT.md) records the finalized
+55-article, 158-question retrieval evaluation. At n=8, complete article sets were
+found for **115/129 answerable questions** and complete pinned evidence for
+**37/129**. False-premise and missing-fact cases are reported separately; failures
+remain visible. These figures do not score generated answers.
 
-The first rebuilt topic selection is the [verified 21-article cardiology
-snapshot](benchmark/cardiology/v1/README.md), with a separate manifest, full
-PubMed abstracts, discovery queries, pinned PMC licences, attribution and
-PDF/text verification receipts. `fetch_article_metadata.py` retrieves draft
-metadata from a PMCID through the PMC ID Converter, PubMed and the chosen PMC
-deposit; `verify_cardiology_selection.py` checks the selected local bytes and
-preserved baseline. Its [45-case query release and passage scorer](benchmark/cardiology/v1/BENCHMARK.md)
-are authored for independent review; its [local C1/C2 retrieval baseline](benchmark/cardiology/v1/REPORT.md)
-reports separate document and pinned-evidence coverage. Follow the snapshot
-instructions to acquire its PDFs separately from the original host corpus below.
-The offline reachability oracle distinguishes unlimited coverage from the
-n=3/n=8 chunk budgets; versioned results report full-set and feasible-only
-evidence coverage with explicit ceilings and infeasible case IDs.
+The [benchmark guide](benchmark/README.md) links the question/article dependencies,
+selection records, results and reproduction instructions. The
+[corpus and benchmark standards](benchmark/STANDARDS.md) describe selection and
+authoring rules. Topic directories hold source selections and question contracts;
+the combined v2 directories define the current evaluation conditions.
 
-The [diabetes release and cardiology interference report](benchmark/diabetes/v1/README.md)
-adds 11 verified articles, 49 diabetes cases and a paired regression of all 45
-frozen cardiology cases. Its separate 32-article selection and local retrieval
-results preserve the historical corpus and query files.
-
-The [prepared ALS/FTD strand](benchmark/als-ftd/v1/README.md) adds four verified
-C9ORF72 articles and ten evidence cases spanning human observations, cells and
-animal models. Independent review and freeze are pending; offline reachability
-checks do not measure retrieval or clinical efficacy.
-
-The [combined four-topic report](benchmark/combined/v1/REPORT.md) evaluates all
-148 finalized cases on 51 unique articles / 3,350 chunks. At n=8, complete
-answerable document sets are retrieved for 108/120 cases, while complete pinned
-evidence is retrieved for 32/120. Source and passage regressions are reported
-per case; exact-span failures can still retain useful semantic evidence.
-ALS/FTD remains a pending extension. No generated answers or refusals were
-judged, and the historical headline metrics remain separate.
+The original 19-article / 133-question benchmark and the earlier four-topic
+combined run are historical. Their questions, scoring and corpus differ from the
+current benchmark, so their headline scores are not directly comparable. The
+Docker seed corpus is a separate runnable demonstration.
 
 ## Evaluation evidence relationships
+
+The [case index](benchmark/cases/README.md) connects all 158 questions to their
+expected responses, required and alternative articles, evidence locations and
+recorded distractors. It provides direct links for reviewing the sources.
 
 The [query-by-query source-conflict report](docs/evaluation/source-conflicts.md)
 explains which articles and passages contribute competing claims to each
@@ -196,11 +187,16 @@ python ingest_corpus.py       # ingests every PDF listed in the manifest
    Expect one `INGESTED` line per file; `SKIP (file not found)` means
    that PDF hasn't been downloaded yet.
 
-### Retrieval evaluation
+### Current benchmark evaluation
 
-The commands below use the historical 133-case set. For the separate versioned
-cardiology release, metrics and compatibility rules, follow
-[the cardiology benchmark instructions](benchmark/cardiology/v1/BENCHMARK.md).
+Follow the [five-topic reproduction instructions](benchmark/combined/v2/README.md)
+for pinned corpus preparation, verification and evaluation. The historical
+19-document host setup above does not prepare that benchmark's collection.
+
+### Historical retrieval evaluation
+
+The commands below use the original 133-case set and the historical host corpus.
+They do not run the current five-topic benchmark.
 
 ```bash
 python eval_golden.py [--bm25] [--rewrite]
@@ -328,12 +324,11 @@ and LLM-based query rewriting — including a full evaluation of BM25 and
 rewriting against the golden QA set, with results and the decision to
 keep both opt-in rather than default-on.
 
-See [ADR-002](./adr/002-evaluation-methodology.md) for the golden QA
-category design (what each of the five categories tests, and the
-scoring logic behind them) and the evaluation harness's known
-limitations.
+See [ADR-002](./adr/002-evaluation-methodology.md) for evaluation methodology
+and its historical development. The [benchmark guide](benchmark/README.md)
+identifies the current inputs and measured results.
  
-In short: two-stage retrieval (embeddings + reranking) scores 96.4%
+Historically, two-stage retrieval (embeddings + reranking) scored 96.4%
 (n=3) / 98.2% (n=8) on the golden QA set (133 queries, 111 scored). BM25
 and query rewriting were implemented and evaluated as opt-in additions
 but did not improve retrieval on this corpus — see ADR-001 for the full

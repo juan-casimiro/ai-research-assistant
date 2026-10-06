@@ -1,0 +1,101 @@
+{
+  "collection_name": "documents",
+  "chunk_count": 423,
+  "per_source_chunks": {
+    "outlier-alzheimer-dual-model.pdf": 60,
+    "outlier-amr-international-wwtp.pdf": 71,
+    "outlier-amr-method-comparison.pdf": 69,
+    "outlier-microbiome-tb-mr.pdf": 60,
+    "outlier-microbiome-tuberculosis.pdf": 163
+  },
+  "chunks_sha256": "1b27eb05599e7d15ae3c3d3ef87d2df9b575ec9c947e07270d9188b1c0b18a29",
+  "status": "complete",
+  "condition": "C1",
+  "seed_on_empty": false,
+  "timestamp": "2026-10-05T21:38:50.694575+00:00",
+  "loaded_models": {
+    "embedding": {
+      "model_name": "BAAI/bge-small-en-v1.5",
+      "files": {
+        "config.json": "13582bcf2effc85b7bf3d3f5532e686bc1c9ce86bb009d10f0ec33cbe92299dd",
+        "model_optimized.onnx": "51f1bd0addd6e859e42c2c8021a5e5461385bb676a649f4b269aa445449f2431",
+        "special_tokens_map.json": "5d5b662e421ea9fac075174bb0688ee0d9431699900b90662acd44b2a350503a",
+        "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+        "tokenizer_config.json": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53"
+      },
+      "sha256": "d9e46143a9cabd7abdbe181fd67443a66089fd55d721db87b7b2964085ed0bff"
+    },
+    "reranker": {
+      "model_name": "Xenova/ms-marco-MiniLM-L-6-v2",
+      "files": {
+        "config.json": "d827779a72d27ae68cf878a6fc2e954542663fe21ca515d9f4783fc96be2d37e",
+        "onnx/model.onnx": "c623d0bcb99f4622beb413eaef00cfbe5db20df9f1dd982da4b4f26022881870",
+        "special_tokens_map.json": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+        "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+        "tokenizer_config.json": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53"
+      },
+      "sha256": "253fe4bae5a04bd859f462ffca4c1818e42725f6b14a55392b3ed9040728fb49"
+    }
+  },
+  "dependencies": {
+    "fastembed": "0.8.0",
+    "chromadb": "1.5.9",
+    "pypdf": "6.16.1",
+    "rank-bm25": "0.2.2",
+    "onnxruntime": "1.28.0"
+  },
+  "membership_sha256": "3188841aad66ce0979a30f47f7cbe5dcfb8d9d2bcdade1931c64ad309cac4d70",
+  "article_tuples": [
+    {
+      "article_id": "PMC10765819",
+      "pmc_version": 1,
+      "pdf_sha256": "b84edcd99fa0718c9d3a09436bf6630753e58b76242627950a95062bbf1c3ff8",
+      "text_sha256": "32fd5a8b7b6aed7bef9d0b549c46a24794341b3fd65cfc8aa11b62c8558d3452"
+    },
+    {
+      "article_id": "PMC10997137",
+      "pmc_version": 1,
+      "pdf_sha256": "da6eed455d3c5bb168b1d479a6a4bb91da44f04e4ca3c49ab3da6e071c744a7a",
+      "text_sha256": "99626756dd68014d3cff69314d24433c1b4ba68dddedede8640c5a2d1c1a9f71"
+    },
+    {
+      "article_id": "PMC11411718",
+      "pmc_version": 1,
+      "pdf_sha256": "ac7199ca586a309cc471d35f36e09a24708320b6f0e9e75536ffcb0d5f5c983e",
+      "text_sha256": "78dfa58d912a6feeea8a5f16e20c949694f586cd043f16f3fba50e93f51eb85e"
+    },
+    {
+      "article_id": "PMC12823827",
+      "pmc_version": 1,
+      "pdf_sha256": "22866337743e361ad24e69d905fc3bd10ae0d2b541808c82f8bf8be887e35e4b",
+      "text_sha256": "4fc104e32e46b97399b6ce80f51512ef4d8aa27f02da36400b0d064e5fc5ee74"
+    },
+    {
+      "article_id": "PMC13328407",
+      "pmc_version": 1,
+      "pdf_sha256": "3a11a3ecb40e48c359731f9059657690d3b0a83fe34550c576e93c85d1890141",
+      "text_sha256": "7d5dc6d4c487c524916aca28a6d0dcb0b5efb0c50b2732749ad3bbb8e48b36e3"
+    }
+  ],
+  "collection_path": "/Users/agentdev/development/.agent-tmp/JUA-114-final/chroma-outliers-C1",
+  "code_commit": "9bd621169fa35900395ee56b8dee48ca663327c1",
+  "ingestion": "verified copies of historical production embeddings; new sources via production main.ingest/embed/chunk_text",
+  "source_query_probes": {
+    "outlier-microbiome-tb-mr.pdf": "outlier-microbiome-tb-mr.pdf_0",
+    "outlier-amr-method-comparison.pdf": "outlier-amr-method-comparison.pdf_0",
+    "outlier-amr-international-wwtp.pdf": "outlier-amr-international-wwtp.pdf_0",
+    "outlier-alzheimer-dual-model.pdf": "outlier-alzheimer-dual-model.pdf_0",
+    "outlier-microbiome-tuberculosis.pdf": "outlier-microbiome-tuberculosis.pdf_0"
+  },
+  "parent_receipt": "benchmark/combined/v1/runs/C3-ingestion.json",
+  "parent_receipt_sha256": "c34cda446bf394c987994bdc1d017d35fa40db4d55b44267262158717b9ff859",
+  "parent_chunks_sha256": "480269c66a77d5b839fcade3bfe7d9596006ca1295d9490d46e5e0cbf661ecda",
+  "reused_chunks": 423,
+  "new_chunks": 0,
+  "reused_embeddings_sha256": "99beff37feaba7387aed5a9452146ac9a5bdc68dab64a7121e50618e27d39d22",
+  "embeddings_sha256": "99beff37feaba7387aed5a9452146ac9a5bdc68dab64a7121e50618e27d39d22",
+  "limitations": [
+    "Original embedding provenance is inherited from the pinned production-ingestion receipt; historical vectors were not recomputed.",
+    "Per-source filtered vector probes prove index queryability, not unfiltered QA retrieval success."
+  ]
+}
