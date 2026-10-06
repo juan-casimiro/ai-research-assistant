@@ -241,40 +241,18 @@ reranking are run; complete final coverage is justified by corpus expansion,
 with no four-configuration sweep or paid calls. See the release report for
 source-aware context review, feasibility ceilings and evidence limitations.
 
-## Combined four-topic comparison
+## Combined-corpus evaluation
 
-The [combined report](../benchmark/combined/v1/REPORT.md) evaluates the frozen
-cardiology, diabetes, oncology and outlier releases against 51 unique articles
-and 3,350 chunks. All 148 IDs execute at both depths; 120 answerable cases,
-17 false-premise cases and 11 absent-fact cases keep separate denominators.
-The prepared ALS/FTD strand was excluded from this historical snapshot.
-Question-specific original source/topic scopes remain explicit for negatives;
-an integrated collection does not broaden a named-study question automatically.
+We evaluate whether adding articles from other topics changes retrieval quality.
+Comparisons use the same questions, scoring rules, system settings and versions
+of shared articles so that differences can be attributed to the corpus change.
 
-The common comparison envelopes preserve per-query objects, anchors and common
-article tuples. Compatible historical baselines can be retained without new
-retrieval through a verified derivation: complete ID coverage, identical query
-hashes, scorer and feasibility, pinned source versions, actual production chunks
-and recomputed metrics must agree. Derived artifacts retain their parent hash,
-run ID, timestamp, commit and original provenance and explicitly record zero
-retrieval calls. They are not fresh executions. New C3 runs also require model,
-retrieval, configuration and ingestion fingerprints compatible with the parents.
+We report finding the right articles separately from finding the evidence needed
+to answer. Answer correctness requires a separate evaluation.
 
-Per-topic/category and minimum-evidence-chunk groups distinguish source loss,
-passage loss, infeasible budgets and conservative whole-span misses. Unique
-source/anchor unions count retrieval only in cases that use those sources or
-anchors; their breadth is not per-case completeness, and optional alternatives
-remain optional. Context changes and competitor exposure are reported even when
-scores do not change. No outlier chunks appeared in the other three topics'
-returned contexts, so this run does not establish resistance to outlier
-interference. Pre-rerank candidates were not recorded; mechanism claims remain
-unverified. Positive document changes can still lack complete evidence, and
-literal-span losses can still retain substantive answer content.
-
-This is one local vector-only corpus comparison, with BM25/rewriting off and
-zero answer/refusal judgments. Answer-judge work retains its separate sequencing;
-paid rewriting/generation/judge runs require explicit run approval. The original
-96.4%/98.2% host-corpus metrics and Docker demo remain separate from rebuilt gold.
+The [combined report](../benchmark/combined/v1/REPORT.md) records the historical
+four-topic experiment's corpus, results and limitations. Its results remain
+separate from the original benchmark and Docker demo.
 
 ## Corrected five-topic snapshot
 
