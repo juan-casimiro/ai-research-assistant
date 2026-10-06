@@ -7,8 +7,8 @@ import tempfile
 import unittest
 from unittest.mock import AsyncMock, patch
 
-import eval_golden as golden
-import eval_context_sufficient as sufficiency
+from tools.evaluation import eval_golden as golden
+from tools.evaluation import eval_context_sufficient as sufficiency
 
 
 class ScoringTests(unittest.TestCase):

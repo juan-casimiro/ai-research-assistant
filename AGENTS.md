@@ -17,8 +17,11 @@ unavailable, report that and stop before task work.
 ## Project map
 
 - `main.py`: startup, ingestion, retrieval and endpoints; `llm_client.py`: provider configuration and bounded LLM calls.
-- `download_corpus.py`: PMC PDF downloads and browser instructions for the two Ovid exceptions; see [host setup](README.md#develop-and-evaluate-host). Missing manual downloads return nonzero status.
-- `eval_golden.py`: production-path retrieval evaluation; `compare_evals.py`: result comparison.
+- `tools/corpus/download_corpus.py`: PMC PDF downloads and browser instructions for the two Ovid exceptions; see [host setup](README.md#develop-and-evaluate-host). Missing manual downloads return nonzero status.
+- `tools/evaluation/eval_golden.py`: production-path retrieval evaluation; `tools/evaluation/compare_evals.py`: result comparison.
+
+- `data/`: current manifest, benchmark, evaluations and findings; original V1 assets are under `data/archive/v1/`.
+- `tools/README.md`: module entry points and preserved historical replay. Run utilities from the repository root.
 
 ## Constraints
 

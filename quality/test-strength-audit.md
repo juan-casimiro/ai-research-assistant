@@ -64,9 +64,9 @@ utility scripts. Tests, `.venv`, and audit tooling are excluded, explicitly in
 | `main.py` | 133/222 (59.91%) | 221/222 (99.55%) | 15/52 (28.85%) | 51/52 (98.08%) | 54.01% → 99.27% |
 | All eight files | 133/576 (23.09%) | 526/576 (91.32%) | 15/158 (9.49%) | 134/158 (84.81%) | 20.16% → 89.92% |
 
-Final combined coverage: `eval_golden.py` 97%, `eval_context_sufficient.py` 94%,
-`compare_evals.py` 96%, `ingest_corpus.py` 80%. `reset_collection.py`,
-`show_failures.py`, and `debug_bm25.py` remain 0%, visibly included in the denominator.
+Final combined coverage: `tools/evaluation/eval_golden.py` 97%, `tools/evaluation/eval_context_sufficient.py` 94%,
+`tools/evaluation/compare_evals.py` 96%, `tools/corpus/ingest_corpus.py` 80%. `tools/corpus/reset_collection.py`,
+`tools/evaluation/show_failures.py`, and `tools/evaluation/debug_bm25.py` remain 0%, visibly included in the denominator.
 
 The sole uncovered service statement is the second empty-fusion return. With the
 current RRF implementation, nonempty ranked lists necessarily produce nonempty
@@ -198,7 +198,7 @@ python -m coverage run --data-file="$AUDIT_DIR/final.coverage" -m unittest disco
 python -m coverage report --data-file="$AUDIT_DIR/final.coverage"
 python -m coverage json --data-file="$AUDIT_DIR/final.coverage" -o "$AUDIT_DIR/final.json"
 python quality/quality_hotspots.py "$AUDIT_DIR/final.json" > "$AUDIT_DIR/final-hotspots.json"
-python -m radon cc main.py eval_golden.py eval_context_sufficient.py ingest_corpus.py compare_evals.py -s -a
+python -m radon cc main.py tools/evaluation/eval_golden.py tools/evaluation/eval_context_sufficient.py tools/corpus/ingest_corpus.py tools/evaluation/compare_evals.py -s -a
 python quality/verify_test_strength.py --output-dir "$AUDIT_DIR/mutations"
 python -m pip check
 git diff --check

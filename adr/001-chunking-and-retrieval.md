@@ -75,9 +75,9 @@ in retrieved context, not just any one) to avoid an earlier, overly
 lenient version of this check that produced misleadingly high scores.
 
 (**Superseded**: this early 8-query harness, `eval_retrieval.py`, was
-later replaced by the category-aware `eval_golden.py` harness against
-`golden_qa.json` — see the Hybrid Search Evaluation section below and
-[ADR-002](./002-evaluation-methodology.md) for the current, much larger
+later replaced by the category-aware `tools/evaluation/eval_golden.py` harness against
+`data/archive/v1/golden_qa.json` — see the Hybrid Search Evaluation section below and
+[ADR-002](002-evaluation-methodology.md) for the current, much larger
 evaluation set and its scoring logic. `eval_retrieval.py` has been
 removed from the repo; kept here only as a historical record of how
 evaluation started.)
@@ -232,7 +232,7 @@ They were evaluated against the golden QA set (103 scored queries, 4
 categories) in isolation and combined, to measure their actual effect
 rather than assume a hybrid approach would outperform vector-only search.
 
-New `cross_doc_distractor` queries were added to `golden_qa.json`
+New `cross_doc_distractor` queries were added to `data/archive/v1/golden_qa.json`
 specifically to exercise exact-term matching (model names, biomarkers,
 numeric thresholds) where BM25 should have a structural advantage over
 dense embeddings.
@@ -258,7 +258,7 @@ at any point.
 | BM25 + rewrite         | 99/103 (96.1%)  | 101/103 (98.1%)  | 0             |
 
 Full per-query results for all four configurations are committed under
-`eval_results/` for inspection.
+`data/archive/v1/evaluations/` for inspection.
 
 ### Findings
 
@@ -403,7 +403,7 @@ miss.
 
 Measured: "What is the capital of Peru?" returns a correct refusal
 alongside `sources: ["outlier-amr-surveillance.pdf"]`. Corroborated by
-`eval_results/eval_results_baseline.json`, where `unanswerable` queries
+`data/archive/v1/evaluations/eval_results_baseline.json`, where `unanswerable` queries
 return fully-populated `retrieved_sources`.
 
 **The failure mode is low-relevance results, not zero results.**
@@ -441,7 +441,7 @@ judgement follows the answer rather than preceding it.
    answer.
 
 3. **The flag depended on LLM self-assessment; this has now been
-   measured and one failure mode fixed (see `eval_context_sufficient.py`).** Measured against
+   measured and one failure mode fixed (see `tools/evaluation/eval_context_sufficient.py`).** Measured against
    golden QA ground truth (21 unanswerable queries, excluding the
    false-premise case above, plus 29 randomly-sampled n=8-passing
    queries), with LLM temperature pinned to 0 for reproducibility:
@@ -474,7 +474,7 @@ judgement follows the answer rather than preceding it.
      BIOMED corpus, that asymmetry makes false positives the higher-
      priority failure mode.
    - Retrieval accuracy (96.4%/98.2%) confirmed unaffected —
-     `eval_golden.py` unchanged, zero per-query verdict flips.
+     `tools/evaluation/eval_golden.py` unchanged, zero per-query verdict flips.
 
    Caveat: this measures agreement with the golden QA labels, which
    are themselves LLM-generated (see limitation 2 above, `q083`) —

@@ -10,7 +10,7 @@ from unittest.mock import patch
 
 from pypdf import PdfWriter
 
-import download_corpus
+from tools.corpus import download_corpus
 
 
 def pdf_bytes():

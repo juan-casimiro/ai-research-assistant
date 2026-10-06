@@ -13,8 +13,8 @@ import sys
 
 from radon.complexity import cc_visit
 
-FILES = ("main.py", "eval_golden.py", "eval_context_sufficient.py", "ingest_corpus.py",
-         "compare_evals.py", "reset_collection.py", "debug_bm25.py", "show_failures.py")
+FILES = ("main.py", "tools/evaluation/eval_golden.py", "tools/evaluation/eval_context_sufficient.py", "tools/corpus/ingest_corpus.py",
+         "tools/evaluation/compare_evals.py", "tools/corpus/reset_collection.py", "tools/evaluation/debug_bm25.py", "tools/evaluation/show_failures.py")
 DECISIONS = (ast.If, ast.For, ast.AsyncFor, ast.While, ast.Try, ast.IfExp, ast.Match)
 
 

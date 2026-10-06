@@ -6,16 +6,16 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from benchmark_scoring import canonical_hash
-from fetch_article_metadata import parse_record
-from verify_oncology_release import (ROOT, digest, verify, verify_attribution, verify_decision_record, verify_ledger, verify_linkage,
+from tools.evaluation.benchmark_scoring import canonical_hash
+from tools.corpus.fetch_article_metadata import parse_record
+from tools.corpus.verify_oncology_release import (ROOT, digest, verify, verify_attribution, verify_decision_record, verify_ledger, verify_linkage,
                                      verify_metadata, verify_migration, verify_production_oracle, verify_query_roles)
 
 
 class ProductionOracleTests(unittest.TestCase):
     def test_self_consistent_false_ceiling_is_rejected_by_recomputation(self):
         from main import chunk_text
-        from verify_benchmark_reachability import verify_reachability
+        from tools.corpus.verify_benchmark_reachability import verify_reachability
         text = "A synthetic source reports a measured value of 7."
         benchmark = {"anchors": [{"id": "some_span", "article_id": "PMC123", "filename": "some-source.pdf",
                                    "text_start": 0, "text_end": len(text), "excerpt": text}],
@@ -161,7 +161,7 @@ class CorpusMembershipTests(unittest.TestCase):
             (corpus / "selected.pdf").write_bytes(b"selected")
             (corpus / "deferred.pdf").write_bytes(b"deferred")
             manifest = {"articles": [{"article_id": "PMC123", "filename": "selected.pdf"}]}
-            with patch("verify_oncology_release.read_release", return_value=({}, manifest, {}, None, None, None)):
+            with patch("tools.corpus.verify_oncology_release.read_release", return_value=({}, manifest, {}, None, None, None)):
                 with self.assertRaisesRegex(ValueError, "unselected PDFs"):
                     verify(corpus / "release", corpus)
 
@@ -169,7 +169,7 @@ class CorpusMembershipTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             corpus = Path(directory)
             manifest = {"articles": [{"article_id": "PMC123", "filename": "selected.pdf"}]}
-            with patch("verify_oncology_release.read_release", return_value=({}, manifest, {}, None, None, None)):
+            with patch("tools.corpus.verify_oncology_release.read_release", return_value=({}, manifest, {}, None, None, None)):
                 with self.assertRaisesRegex(ValueError, "missing or unselected"):
                     verify(corpus / "release", corpus)
 

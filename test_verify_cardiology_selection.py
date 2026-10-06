@@ -11,7 +11,7 @@ from pypdf import PdfWriter
 from pypdf.errors import PdfReadError
 from pypdf.generic import DecodedStreamObject, DictionaryObject, NameObject
 
-import verify_cardiology_selection as selection_verifier
+from tools.corpus import verify_cardiology_selection as selection_verifier
 
 
 def synthetic_pdf(text):
