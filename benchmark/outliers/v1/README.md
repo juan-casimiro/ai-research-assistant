@@ -56,11 +56,19 @@ corpora are available:
 ```sh
 .venv/bin/python verify_benchmark_reachability.py --benchmark benchmark/outliers/v1 --corpus-dir corpus/outliers-v1 --condition C1
 .venv/bin/python benchmark/outliers/v1/runs/build_topic_regression.py
-.venv/bin/python benchmark/outliers/v1/runs/prepare_regression_corpus.py
+.venv/bin/python benchmark/combined/prepare_corpus.py \
+  --benchmark benchmark/outliers/v1/regression \
+  --corpus-dir corpus/outliers-v1/topic-regression \
+  --sources corpus/cardiology-v1 corpus/diabetes-v1 corpus/oncology-v1 corpus/outliers-v1
 .venv/bin/python verify_benchmark_reachability.py --benchmark benchmark/outliers/v1/regression --corpus-dir corpus/outliers-v1/topic-regression --condition C1
 .venv/bin/python verify_benchmark_reachability.py --benchmark benchmark/outliers/v1/regression --corpus-dir corpus/outliers-v1/topic-regression --condition C2
 .venv/bin/python -m unittest discover -v
 ```
+
+The original `runs/prepare_regression_corpus.py` recipe remains unchanged for
+historical reproduction. The generic preparation command above verifies the
+same pinned PDF/text hashes. Use the [tool guide](../../TOOLS.md) for fresh
+isolated ingestion.
 
 The saved vector-only retrieval artifacts are under `runs/`. They call the
 production `retrieve()` path with reranking, but do not run answer generation,

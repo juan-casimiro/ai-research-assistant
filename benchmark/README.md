@@ -18,6 +18,9 @@ Current automated scores measure whether the relevant articles and supporting
 passages were retrieved. They do not yet judge whether the generated response
 correctly explains those findings, handles conflicts or refuses unsupported claims.
 
+See the [tool guide](TOOLS.md) for current acquisition, preparation, ingestion
+and verification commands, and the role of retained historical helpers.
+
 ## Questions, articles and evidence
 
 Browse the [readable case index](cases/README.md) for every question, expected
