@@ -1,5 +1,12 @@
 # ADR-002: Evaluation Methodology
 
+The current benchmark is the [five-topic combined v2 release](../benchmark/README.md).
+Its [report](../benchmark/combined/v2/REPORT.md) and
+[reproduction guide](../benchmark/combined/v2/README.md) are the starting points
+for current results and execution. The original golden QA design and earlier
+experiments below describe the methodology's history; they are not the current
+benchmark's input set.
+
 ## Context
 
 ADR-001 covers chunking and retrieval architecture decisions. This
