@@ -77,8 +77,9 @@ lenient version of this check that produced misleadingly high scores.
 (**Superseded**: this early 8-query harness, `eval_retrieval.py`, was
 later replaced by the category-aware `tools/evaluation/eval_golden.py` harness against
 `data/archive/v1/golden_qa.json` — see the Hybrid Search Evaluation section below and
-[ADR-002](002-evaluation-methodology.md) for the current, much larger
-evaluation set and its scoring logic. `eval_retrieval.py` has been
+[historical methodology](../docs/historical-evaluation-methodology.md) for
+that category design. [ADR-002](002-evaluation-methodology.md) describes the
+current V2 evidence-based methodology. `eval_retrieval.py` has been
 removed from the repo; kept here only as a historical record of how
 evaluation started.)
 

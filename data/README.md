@@ -16,7 +16,8 @@ or prepared locally under the ignored `corpus/` directory.
 
 Generic development utilities live separately in [tools/](../tools/README.md).
 Repository decisions remain under [adr/](../adr/); the
-[benchmark standards](../docs/benchmark-standards.md) apply across versions.
+[benchmark standards](../docs/benchmark-standards.md) apply across versions. The [release scope and file inventory](../docs/release-scope.md)
+explain which current and historical evidence is retained and why.
 
 When a new corpus is frozen, move the current manifest, benchmark, evaluations
 and findings together into `archive/v2/` and put the new current version here. Update the destination paths in

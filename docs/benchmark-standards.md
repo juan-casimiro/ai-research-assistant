@@ -16,10 +16,12 @@ including plausible competing evidence and acceptable alternative answers.
 Select cases for coverage and realistic difficulty, not desired flag outcomes.
 
 Freeze reviewed questions, expected answers, evidence and scoring rules before
-running experiments. Then compare BM25 and query rewriting on/off under the
-same benchmark and declared nested corpus conditions, with explicit approval
-for paid runs. Focused subsets support iteration; a final four-configuration
-comparison needs complete declared coverage, not automatic repeated sweeps.
+running experiments. Compare declared retrieval configurations under the same
+benchmark and nested corpus conditions, with explicit approval for paid runs. BM25 and query
+rewriting on/off are supported comparison dimensions; the current saved V2
+experiment is vector-only and does not claim a four-configuration comparison.
+Focused subsets support iteration; a final four-configuration comparison needs
+complete declared coverage, not automatic repeated sweeps.
 Report improvements, regressions and unchanged results equally. Never rewrite
 questions or expectations to favour a configuration after seeing its scores.
 A genuine source or benchmark defect may be corrected with a recorded revision
@@ -27,12 +29,12 @@ and matching reruns; preserve the original result and explain the correction.
 
 ## Scope and selection rubric
 
-| Topic membership | Evidence relationships to seek | Planned scope |
+| Topic membership | Evidence relationships to seek | Selection scope |
 | --- | --- | --- |
-| cardiology | AF detection/stroke, CCTA/MACE, HFpEF/SGLT2, resistant hypertension, STEMI/no-reflow; same score with different endpoints, primary/secondary endpoints, overall/subgroup estimates | Approximately 20 closely related articles, selected in the article selection audit |
-| diabetes | Glycaemic treatment, drug response, genetic risk and cardiovascular outcomes | Size decided after the diabetes audit audit |
-| oncology | Detection, biomarkers, precision treatment and clinical outcomes | Size decided after the oncology audit audit; actual topic overrides misleading filenames |
-| other topics | AMR/environment, microbiome/TB, cognition/AI diagnosis if retained; expand distinct topics after audit | Size decided in the outlier audit |
+| cardiology | AF detection/stroke, CCTA/MACE, HFpEF/SGLT2, resistant hypertension, STEMI/no-reflow; same score with different endpoints, primary/secondary endpoints, overall/subgroup estimates | Evidence-driven selection; current topic selection has 21 articles |
+| diabetes | Glycaemic treatment, drug response, genetic risk and cardiovascular outcomes | Evidence-driven selection; current selection envelope has 32 articles, including cardiology overlap |
+| oncology | Detection, biomarkers, precision treatment and clinical outcomes | Evidence-driven selection; current topic selection has 14 articles; actual topic overrides misleading filenames |
+| other topics | AMR/environment, microbiome/TB, cognition/AI diagnosis if retained; expand distinct topics after audit | Evidence-driven selection; current outlier selection has five articles and ALS/FTD has a separate four-article selection |
 
 Topic membership is an article-level, possibly multi-valued classification with
 an explicit rationale. Filenames and legacy `cluster` values are hints only.
@@ -143,22 +145,21 @@ Missing metadata needs an explicit absence reason, not an inferred value.
 | `attribution_id`, `selection_rationale`, `eligibility` | Inventory reference, evidence/competition purpose, and eligible/pending/excluded with gate reasons |
 
 Keep selection failures in `selection_log` with candidate ID, failed gates,
-review date, owner issue and decision. The attribution inventory records each
+review date, reviewer and decision. The attribution inventory records each
 article's full citation, DOI/PMCID/version, source URL, exact licence link,
 copyright/credit/disclaimer notices, third-party review and modifications
 (including derived text). Verify inventory-to-manifest completeness before
 publication. PDFs remain untracked; public PDF publication is a separate decision.
 
-### Mandatory legacy exclusions and ownership
+### Legacy exclusions and migration
 
-The article selection audit owns replacement of `cardio-hypertension-guidelines.pdf` (DOI
-10.4103/singaporemedj.SMJ-2025-248) and removal/replacement of
+The selected V2 corpus excludes `cardio-hypertension-guidelines.pdf` (DOI
+10.4103/singaporemedj.SMJ-2025-248) and
 `outlier-gpt5-tau217-diagnosis.pdf` (DOI 10.4103/singaporemedj.SMJ-2025-289)
-from the selected cardiology experiment, including its full-corpus condition.
+from every current V2 condition.
 Both lack recorded PMCIDs and already have restrictive licences in the legacy licence audit.
-They cannot pass by retaining a manual Ovid route. If cognition/AI diagnosis is
-retained, choose an eligible replacement; the outlier audit reuses the article selection audit's decision
-rather than replacing it independently. Together they are two of the existing
+They cannot pass by retaining a manual Ovid route. Any replacement must meet
+the same eligibility gates and preserve its question/source migration record. Together they are two of the existing
 seven restrictive candidates, not two extra papers. Other legacy papers still
 need exact-version rights and download verification; no grandfathering.
 
@@ -321,21 +322,26 @@ extraction, article identity, chunk counts and queryability before any run.
 `--ids` neither ingests nor isolates a collection. Never reset another task's
 collection.
 
-Use `.venv/bin/python -m tools.evaluation.eval_golden --ids <comma-separated-IDs>` from repository
-root; add `--bm25` only for a justified configuration comparison. Confirm every
-requested ID exists first: partial matches can return success today. Choose IDs
-from direct source, alternative, decoy, synthesis and overlap dependencies.
-Article replacements also need a justified small regression sample because
-rankings may change outside direct references. Reference-only edits need evidence
-review, not retrieval reruns when the scorer does not consume those edits.
+For a current versioned subset, pass the benchmark and condition explicitly:
 
-The current output names are `eval_results_subset_vector-only-baseline.json`,
-`eval_results_subset_vector-bm25.json`, `eval_results_subset_vector-rewrite.json`
-and `eval_results_subset_vector-bm25-rewrite.json`; full runs use
-`eval_results.json`. Copy each relevant artifact and run record to an immutable
-run-ID location before another same-config run overwrites it. Never present a
-subset percentage as whole-suite coverage. Record omitted IDs/configurations
-and the reason. No automatic four-configuration sweep.
+```sh
+.venv/bin/python -m tools.evaluation.eval_golden --benchmark data/benchmark/cardiology \
+  --condition C3 --corpus-dir corpus/combined-v2 --ids <comma-separated-IDs> \
+  --output data/evaluations/local/<unique-run-ID>.json
+```
+
+Choose IDs from direct source, alternative, decoy, synthesis and overlap
+relationships; confirm all requested IDs executed. Article replacements also
+need a justified regression sample because rankings may change outside direct
+references. Reference-only edits need evidence review, not retrieval reruns when
+the scorer does not consume those edits. Versioned runs require explicit output
+and refuse overwrites. Without `--benchmark`, the utility evaluates archived V1
+gold and writes legacy output; that is not a current-benchmark invocation.
+
+Never present a subset percentage as whole-suite coverage. Record omitted
+IDs/configurations and the reason. Add `--bm25` or `--rewrite` only for a justified
+comparison, with paid-run approval where applicable. No automatic
+four-configuration sweep.
 
 Broaden for global retrieval/scorer changes, broad expansion, unexplained
 regressions or complete benchmark claims. Final baseline/comparison reporting

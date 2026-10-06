@@ -173,7 +173,7 @@ documented-and-deliberate reads as judgement.
   reviewer's own machine is the deliverable; it doesn't need a public
   URL to prove the point.
 - **CI/CD stops at the artifact, not deployment.** CI runs unit tests and a
-  Docker `/health` smoke test on pull requests and pushes to `main`
+  Docker `/health` smoke test on pull requests and pushes to `main` and the active benchmark epic
   (`.github/workflows/ci.yml`). Successful `main` builds publish commit-SHA
   and `latest` images to `ghcr.io/juan-casimiro/ai-research-assistant`
   (`.github/workflows/publish.yml`). Nothing deploys
@@ -196,10 +196,11 @@ documented-and-deliberate reads as judgement.
   bigger one (an open API key) untouched.
 - **No evaluation tooling shipped in the image.** `tools/evaluation/eval_golden.py`,
   `data/archive/v1/golden_qa.json`, and `data/archive/v1/corpus_manifest.json` are not copied into the
-  container. Evaluation is, and remains, a host-side workflow run
-  against the full 19-document corpus — the seed corpus baked into the
-  image is a demo aid, not something ever run through the eval harness
-  (see "Consequences" below).
+  container. Evaluation remains a host-side workflow. The current V2 benchmark has 55
+  articles; the original 19-article corpus and its results are historical.
+  The current manifest, benchmark and saved evidence under `data/` are also
+  excluded from the image. The seed corpus is a demo aid with no benchmark
+  quality claim (see "Consequences" below).
 
 ## Consequences
 
@@ -211,10 +212,9 @@ documented-and-deliberate reads as judgement.
   so the container isn't empty on first run. It has never been run
   through `tools/evaluation/eval_golden.py` and is not represented in the 96.4% (n=3) /
   98.2% (n=8) figures reported elsewhere in this repo — those numbers
-  belong to the full 19-document corpus, loaded separately via
+  belong to the historical full 19-document corpus, loaded separately via
   `tools/corpus/ingest_corpus.py` against a host-run (non-Docker) instance. The
-  README quickstart states this explicitly so the two corpora are never
-  conflated.
+  README separates the seed demo, historical V1 and current V2 benchmark.
 - **`docker-compose.yml` pins `SEED_ON_EMPTY` and `CHROMA_PATH` via
   `environment:`, which Compose resolves with higher precedence than
   `env_file:`.** Originally both values reached the container only

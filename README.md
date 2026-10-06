@@ -1,4 +1,4 @@
-Research Assistant (RAG)
+# Research Assistant (RAG)
 
 [![CI](https://github.com/juan-casimiro/ai-research-assistant/actions/workflows/ci.yml/badge.svg)](https://github.com/juan-casimiro/ai-research-assistant/actions/workflows/ci.yml)
 
@@ -17,7 +17,34 @@ reference material, not biomedical expert certification. Current automated score
 measure retrieved articles and evidence; generated-response correctness remains
 a separate evaluation step.
 
-CI runs unit tests, builds the Docker image, and smoke-tests `/health` on every pull request and push to `main`. The golden QA evaluation remains manual because it is non-deterministic and calls a paid API. Successful `main` builds publish commit-SHA and `latest` images to `ghcr.io/juan-casimiro/ai-research-assistant`; nothing is deployed automatically. See [ADR-003](adr/003-deployment-and-containerisation.md).
+CI runs offline unit tests, builds the Docker image, and smoke-tests `/health`
+on pull requests and pushes to `main` and the active benchmark epic. Fresh
+retrieval experiments remain manual; inference can vary and optional rewriting
+or answer generation makes provider calls. Saved-evidence replay is an offline
+check. Successful `main` builds publish commit-SHA and `latest` images to
+`ghcr.io/juan-casimiro/ai-research-assistant`; nothing is deployed automatically.
+See [ADR-003](adr/003-deployment-and-containerisation.md).
+
+## What this project demonstrates
+
+This portfolio connects a working RAG API to controlled retrieval experiments
+and inspectable evidence. The engineering questions are whether the pipeline
+finds the right sources, retrieves the passages needed to answer, and remains
+consistent when unrelated or competing articles are added.
+
+Read it in three layers:
+
+- **Run and understand the service:** the Docker demo, API contract, architecture
+  and [retrieval decisions](adr/001-chunking-and-retrieval.md).
+- **Assess the methodology and findings:** the [evaluation methodology](adr/002-evaluation-methodology.md),
+  [benchmark guide](data/benchmark/README.md) and [retrieval findings](data/findings/retrieval.md).
+- **Inspect and verify the evidence:** the [case index](data/benchmark/cases/README.md),
+  [saved evaluations](data/evaluations/) and [offline replay](data/README.md#verify-the-retained-experiment).
+
+The current results expose a substantial gap between retrieving source articles
+and assembling complete pinned evidence. Difficult synthesis and source-conflict
+cases remain visible; the benchmark preserves their questions and requirements.
+Generated-answer judging is a future evaluation layer.
 
 ## Current benchmark
 
@@ -59,9 +86,9 @@ experimental benchmark run artifacts.
 | | Docker | Host |
 |---|---|---|
 | For | Reviewers — one command, bring your own Anthropic API key | Development & evaluation |
-| Corpus | [Bundled seed corpus](adr/003-deployment-and-containerisation.md) (CC BY) | Full 19-document corpus (downloaded manually) |
+| Corpus | [Bundled seed corpus](adr/003-deployment-and-containerisation.md) (CC BY) | Current 55-article V2 corpus, downloaded or prepared locally |
 | Command | `docker compose up --build` (no API key? see the [Ollama appendix](#appendix-local-llm-with-ollama)) | see below |
-| Reproduces 96.4% / 98.2%? | No — the seed corpus has never been run through `tools/evaluation/eval_golden.py` | Yes — this is how those figures were measured |
+| Evaluation scope | Readiness smoke test; no benchmark quality claim | New V2 experiments or offline replay of pinned saved evidence |
 
 ## Run it (Docker)
 
@@ -93,14 +120,10 @@ curl -X POST localhost:8000/query \
 `docker compose restart` reuses the same named volume — seeding is
 skipped and existing data persists.
 
-**The [seed corpus](adr/003-deployment-and-containerisation.md)
-bundled in the image is a demo convenience only.** The retrieval
-accuracy figures above (96.4% @ n=3,
-98.2% @ n=8) were measured against the full 19-document corpus loaded
-via the manual process below, run outside Docker — not against the
-seed corpus. See [ADR-003](adr/003-deployment-and-containerisation.md)
-for the full reasoning behind the Docker setup, including what was
-deliberately left out of it.
+**The [seed corpus](adr/003-deployment-and-containerisation.md) bundled in the
+image is a demo convenience.** It does not reproduce the current V2 results or
+the original V1 scores. See [ADR-003](adr/003-deployment-and-containerisation.md)
+for the Docker scope and startup decisions.
 
 No Anthropic API key? See the [Ollama appendix](#appendix-local-llm-with-ollama)
 for a Docker-based alternative that runs entirely locally, no credentials
@@ -108,10 +131,8 @@ required.
 
 ## Develop and evaluate (host)
 
-This is the path the headline retrieval figures (96.4% @ n=3, 98.2% @
-n=8) were measured on. It runs against the full 19-document corpus,
-not the [bundled Docker seed
-corpus](adr/003-deployment-and-containerisation.md).
+Use Python 3.12 for development, the current V2 benchmark and offline verification.
+The [original V1 setup](docs/historical-benchmark.md) is preserved separately.
 
 ```bash
 python -m venv .venv
@@ -131,9 +152,8 @@ targets the Docker profile instead (see the
 `docker-compose.yml`), but nothing overrides it on the host. Leaving it
 unset or `true` here will auto-ingest the [bundled seed
 corpus](adr/003-deployment-and-containerisation.md)
-alongside the full corpus you're about to load below — not instead of
-it — silently duplicating articles under two filenames and skewing
-retrieval results.
+alongside the full corpus, duplicating overlapping articles under different
+filenames and skewing retrieval results.
 
 Start the server:
 
@@ -141,94 +161,47 @@ Start the server:
 uvicorn main:app --reload
 ```
 
-In a separate terminal, populate the full corpus. PDFs remain untracked
-(see `.gitignore`); per-article license terms are recorded in `data/archive/v1/corpus_manifest.json`.
+In a separate terminal, download and ingest the current V2 selection:
 
 ```bash
-python -m tools.corpus.download_corpus --manifest data/archive/v1/corpus_manifest.json
+python -m tools.corpus.download_corpus --manifest data/manifest.json --corpus-dir corpus/combined-v2
+python -m tools.corpus.ingest_corpus --manifest data/manifest.json --corpus-dir corpus/combined-v2
 ```
 
-The downloader fetches the 17 PMC articles through the public
-[PMC AWS dataset](https://pmc.ncbi.nlm.nih.gov/tools/pmcaws/), verifies the
-metadata DOI and available MD5 checksum, and validates PDF structure before
-saving. It skips readable existing PDFs and removes failed partial downloads.
-The manifest pins version 1 for these articles; versions are distinct deposits,
-so the downloader does not guess a replacement version when a source fails.
+Use a fresh, dedicated `CHROMA_PATH` with `SEED_ON_EMPTY=false`. The ingestion
+utility reports each file's outcome; its exit status alone does not prove full
+membership. Before evaluating, check the ingestion output and use the benchmark
+evaluator's exact membership and pinned PDF/text checks. PDFs and extracted text
+remain local, ignored build artifacts.
 
-Two articles have no recorded PMC ID and need a browser download. Run
-`python -m tools.corpus.download_corpus --manifest data/archive/v1/corpus_manifest.json --open-manual` to open only the missing publisher
-pages. On each Ovid page, select **Download PDF**, then the download icon in
-the PDF viewer toolbar, and save into `./corpus/` with the exact name below:
-
-| Article page | Save as |
-| --- | --- |
-| [Resistant hypertension survey](https://www.ovid.com/10.4103/singaporemedj.SMJ-2025-248) | `cardio-hypertension-guidelines.pdf` |
-| [GPT-5 / plasma tau 217 study](https://www.ovid.com/10.4103/singaporemedj.SMJ-2025-289) | `outlier-gpt5-tau217-diagnosis.pdf` |
-
-This browser workflow was reported successful in the initial manifest notes on
-30 September 2026. On 1 October, both DOI redirects to Ovid were confirmed,
-but Ovid returned HTTP 403 to scripted requests; browser verification was
-unavailable. No direct automated PDF route has been verified for these two.
-
-Rerun the downloader after saving them. Missing manual files or failed downloads
-produce exit status 1; success means all selected files are readable PDFs.
-Existing files are checked for readability, not article identity: when saving
-manually, check the first-page title against the manifest. Use `--filename NAME`
-(repeatable) for selected articles, and `--corpus-dir PATH` for another output
-folder. Default paths are rooted at the repository, independent of your current
-directory. The CLI uses Python and the existing `pypdf` dependency; no curl,
-AWS credentials or additional browser automation dependency is needed.
-
-Ingest everything:
-
-```bash
-python -m tools.corpus.reset_collection    # resets the vector store (safe on a fresh clone)
-python -m tools.corpus.ingest_corpus --manifest data/archive/v1/corpus_manifest.json  # ingests every PDF listed in the manifest
-```
-
-   Expect one `INGESTED` line per file; `SKIP (file not found)` means
-   that PDF hasn't been downloaded yet.
+The [data guide](data/README.md#download-ingest-and-evaluate) explains current
+benchmark commands and the difference between a new experiment and replay of
+saved evidence. Downloaded PMC bytes may differ from the historically pinned
+bytes even for the same deposit version. The [historical replay guide](data/README.md#verify-the-retained-experiment)
+verifies the saved experiment offline when the pinned local inputs are available.
 
 ### Current benchmark evaluation
 
-Follow the [five-topic reproduction instructions](data/README.md)
-for pinned corpus preparation, verification and evaluation. The historical
-19-document host setup above does not prepare that benchmark's collection.
+A current-topic evaluation against the full 55-article condition is:
+
+```bash
+python -m tools.evaluation.eval_golden --benchmark data/benchmark/cardiology \
+  --corpus-dir corpus/combined-v2 --condition C3 --output data/evaluations/local/cardio.json
+```
+
+The harness calls production `retrieve()` in its own process; it does not need
+Uvicorn for evaluation. The configured collection must already contain the exact
+condition membership. Choose a fresh output path: versioned runs refuse overwrites.
+Repeat with the other topic inputs only when a new experiment is intended.
+BM25 and query rewriting are optional; rewriting makes provider calls and
+requires explicit approval of that run. Saved-evidence verification needs neither
+new retrieval inference nor paid calls.
 
 ### Historical retrieval evaluation
 
-The commands below use the original 133-case set and the historical host corpus.
-They do not run the current five-topic benchmark.
-
-```bash
-python -m tools.evaluation.eval_golden [--bm25] [--rewrite]
-```
-
-Runs the golden QA evaluation harness (`data/archive/v1/golden_qa.json`, 133 queries,
-111 scored across 4 categories plus unanswerable) against the production
-`retrieve()` pipeline. The script imports `retrieve()` and
-`_load_models_and_index()` from `main.py`, loads the models and existing
-Chroma collection in its own process, and does not require a separate
-Uvicorn server. The full corpus must already be ingested at the configured
-`CHROMA_PATH`; this script does not run startup seeding. Configure the
-selected LLM provider as described above (`ANTHROPIC_API_KEY` is required
-for the default Anthropic provider). The `--rewrite` option makes LLM
-requests and may incur provider usage. Results are written to
-`eval_results.json` with a config label and per-query verdicts. See
-[ADR-002](adr/002-evaluation-methodology.md) for the category design
-and scoring logic.
-
-```bash
-python -m tools.evaluation.compare_evals <baseline.json> <experiment.json> --allow-legacy
-```
-
-Diffs two result files and prints per-query pass/fail flips, for
-isolating the effect of a single change.
-
-Raw per-query results for all four tested configurations are committed
-under `data/archive/v1/evaluations/` for inspection: `eval_results_baseline.json`,
-`eval_results_bm25.json`, `eval_results_rewrite.json`, and
-`eval_results_bm25_rewrite.json`.
+The [original V1 guide](docs/historical-benchmark.md) contains the 19-article
+setup, manual-download exceptions, legacy scorer commands and committed results.
+It is separate from the current benchmark and Docker demo.
 
 
 ## Features

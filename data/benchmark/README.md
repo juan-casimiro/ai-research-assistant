@@ -47,14 +47,14 @@ combined evaluation rather than earlier topic-only placeholders.
 
 The [source-conflict report](../findings/source-conflicts.md) gives readable
 question-by-question examples of competing claims, article identities, evidence
-locations and expected handling. [STANDARDS.md](../../docs/benchmark-standards.md) explains the
+locations and expected handling. [Benchmark standards](../../docs/benchmark-standards.md) explains the
 selection, authoring and comparison rules.
 
 ## Historical results and Docker demo
 
 - **Original host benchmark:** `data/archive/v1/golden_qa.json` and `data/archive/v1/corpus_manifest.json`,
   133 questions against 19 articles. Its 96.4%/98.2% document/category-ranking
-  figures belong to that experiment. The root README labels its legacy commands.
+  figures belong to that experiment. The [historical V1 guide](../../docs/historical-benchmark.md) documents its commands.
 - **Earlier combined experiment:** [combined/v1 report](../archive/development/combined-v1/REPORT.md),
   51 articles and 148 questions across four topics, excluding ALS/FTD. Changed
   gold, scorer and corpus prevent direct comparison with combined v2.
