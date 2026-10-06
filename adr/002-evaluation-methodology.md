@@ -12,9 +12,10 @@ The current [V2 benchmark](../data/benchmark/README.md) contains 55 articles and
 158 questions across five topics. Its references were LLM-authored and
 model-reviewed against the articles; they are inspectable judgments, not
 biomedical expert certification. The [standards](../docs/benchmark-standards.md)
-define selection and authoring rules. The [historical methodology](../docs/historical-evaluation-methodology.md)
-preserves the original V1 category design and the sequence of topic/combined
-experiments; those inputs and results retain their original schemas.
+define selection and authoring rules. The [V1 methodology](../data/archive/v1/methodology.md) preserves the original
+category design; [later methodology history](../data/archive/development/methodology-history.md)
+records topic rebuilds and combined experiments. Archived inputs and results
+retain their original schemas.
 
 ## Decision: measure sources, evidence and answers separately
 

@@ -18,8 +18,9 @@ retrieval behavior is unchanged by the release consolidation.
 The selection retains current scientific inputs/results and necessary historical
 dependencies. Presentation is consolidated without changing those records:
 V2 is the default host path; original V1 reproduction is in the
-[historical benchmark guide](historical-benchmark.md), and the earlier methodology
-is in the [historical methodology](historical-evaluation-methodology.md).
+[historical benchmark guide](../data/archive/v1/README.md), with its [original methodology](../data/archive/v1/methodology.md).
+[Later methodology history](../data/archive/development/methodology-history.md)
+sits beside the archived development experiments.
 The deleted root comparator is replaced by the maintained utility under tools/.
 
 | Retained group | Why it belongs | Dependency consequence |

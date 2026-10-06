@@ -5,11 +5,11 @@ benchmark. Its 96.4% at n=3 and 98.2% at n=8 are legacy document/category-rankin
 scores on 111 scored questions. They are not current V2 evidence-coverage scores,
 answer-correctness scores or Docker-demo results.
 
-Use the [host environment setup](../README.md#develop-and-evaluate-host), then
+Use the [host environment setup](../../../README.md#develop-and-evaluate-host), then
 configure a separate fresh CHROMA_PATH with SEED_ON_EMPTY=false for this corpus.
 Run commands from the repository root. Preserve the archived manifest, gold and
 results with their original schemas; do not extend them with new authoring.
-Current work starts from the [V2 benchmark guide](../data/benchmark/README.md).
+Current work starts from the [V2 benchmark guide](../../benchmark/README.md).
 
 In a separate terminal, populate the full corpus. PDFs remain untracked
 (see `.gitignore`); per-article license terms are recorded in `data/archive/v1/corpus_manifest.json`.
@@ -79,7 +79,7 @@ selected LLM provider as described above (`ANTHROPIC_API_KEY` is required
 for the default Anthropic provider). The `--rewrite` option makes LLM
 requests and may incur provider usage. Results are written to
 `eval_results.json` with a config label and per-query verdicts. See
-[ADR-002](../adr/002-evaluation-methodology.md) for the category design
+[V1 methodology](methodology.md) for the category design
 and scoring logic.
 
 ```bash

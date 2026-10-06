@@ -54,7 +54,7 @@ selection, authoring and comparison rules.
 
 - **Original host benchmark:** `data/archive/v1/golden_qa.json` and `data/archive/v1/corpus_manifest.json`,
   133 questions against 19 articles. Its 96.4%/98.2% document/category-ranking
-  figures belong to that experiment. The [historical V1 guide](../../docs/historical-benchmark.md) documents its commands.
+  figures belong to that experiment. The [historical V1 guide](../archive/v1/README.md) documents its commands.
 - **Earlier combined experiment:** [combined/v1 report](../archive/development/combined-v1/REPORT.md),
   51 articles and 148 questions across four topics, excluding ALS/FTD. Changed
   gold, scorer and corpus prevent direct comparison with combined v2.

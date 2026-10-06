@@ -132,7 +132,7 @@ required.
 ## Develop and evaluate (host)
 
 Use Python 3.12 for development, the current V2 benchmark and offline verification.
-The [original V1 setup](docs/historical-benchmark.md) is preserved separately.
+The [original V1 setup](data/archive/v1/README.md) is preserved separately.
 
 ```bash
 python -m venv .venv
@@ -199,7 +199,7 @@ new retrieval inference nor paid calls.
 
 ### Historical retrieval evaluation
 
-The [original V1 guide](docs/historical-benchmark.md) contains the 19-article
+The [original V1 guide](data/archive/v1/README.md) contains the 19-article
 setup, manual-download exceptions, legacy scorer commands and committed results.
 It is separate from the current benchmark and Docker demo.
 
