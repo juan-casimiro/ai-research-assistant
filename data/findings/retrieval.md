@@ -20,7 +20,7 @@ scorer and evaluation adapter are unchanged by this task. Inference and reranker
 score consumption remain inside `asyncio.to_thread()`; deduplication retains
 reranked source order. This is one snapshot, not a repeat-run stability estimate.
 
-The [51-article / 148-query baseline](../v1/REPORT.md) and its raw/derived runs
+The [51-article / 148-query baseline](../archive/development/combined-v1/REPORT.md) and its raw/derived runs
 remain historical evidence, unchanged. That baseline excluded ALS/FTD and used
 older gold/category/scorer fingerprints (and a preserved diabetes snapshot).
 Direct performance comparability with it is rejected; the different denominators
@@ -29,13 +29,13 @@ or loss. The table below compares only complete current-gold nested runs whose
 compatibility is checked. The historical 19-article / 133-query headline and the
 Docker seed demo are also separate.
 
-[Pre-run review](PRE_RUN_REVIEW.md) records the scope decision, source/negative
+[Pre-run review](../benchmark/PRE_RUN_REVIEW.md) records the scope decision, source/negative
 boundaries, existing model-review basis and integration inspection. The merged
 validation/correction records now cover ALS/FTD; freezing the current corrected
 objects for this experiment does not imply fresh independent biomedical review.
 Earlier preparation receipts remain historical. Current source verification,
 all 17 ALS/FTD alternatives, and five reachability oracles are recorded in
-[reachability.json](reachability.json), with current fingerprints.
+[reachability.json](../benchmark/reachability.json), with current fingerprints.
 
 ## Compatible topic and nested-corpus results
 
@@ -97,7 +97,7 @@ Unions count a source/anchor only in a case that accepts it. They include option
 alternatives and are breadth diagnostics, not per-case completeness. Full
 per-topic/category/answerability summaries, minimum-chunk groups, missed-source/
 anchor lists, context changes, named-decoy ordering and new-source exposures are
-in [analysis.json](analysis.json). Named-decoy ordering passes 14/15 cases at both
+in [analysis.json](../evaluations/analysis.json). Named-decoy ordering passes 14/15 cases at both
 depths; absent decoy exposure is not proof of rejection.
 
 ## Failures and representative saved-context inspection
@@ -127,10 +127,10 @@ other four topics' returned contexts. Low/no exposure does not establish
 resistance to interference. No pre-rerank candidate trace was recorded, so
 candidate displacement is a hypothesis, not a demonstrated mechanism.
 
-The [durable source-conflict report](../../../docs/evaluation/source-conflicts.md)
+The [durable source-conflict report](source-conflicts.md)
 contains exact questions, article roles, source locations, current gold contracts,
 historical/current retrieval tables and unmeasured answer limits for 21 cases.
-A [retained summary](../../../docs/evaluation/combined-benchmark-v2.json) embeds
+A [retained summary](combined-benchmark-v2.json) embeds
 source identities, case/run/query/configuration fingerprints and measured results
 so the report can survive release selection without bulk experiment artifacts.
 

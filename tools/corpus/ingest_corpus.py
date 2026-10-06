@@ -5,7 +5,7 @@ See "Develop and evaluate (host)" in the README for the full setup
 (venv, SEED_ON_EMPTY=false, corpus download). Once that's done:
 
 Usage:
-    1. Run `python reset_collection.py` to reset the collection when
+    1. Run `python -m tools.corpus.reset_collection` to reset the collection when
        ingesting the corpus from scratch.
     2. Start the FastAPI server:
        `uvicorn main:app --reload`
@@ -21,7 +21,7 @@ from pypdf import PdfReader
 
 INGEST_URL = "http://localhost:8000/ingest"
 HEALTH_URL = "http://localhost:8000/health"
-DEFAULT_MANIFEST = Path("./corpus_manifest.json")
+DEFAULT_MANIFEST = Path(__file__).resolve().parents[2] / "data/manifest.json"
 DEFAULT_CORPUS_DIR = Path("./corpus")
 
 def check_existing_chunks(client: httpx.Client) -> int:
@@ -76,7 +76,7 @@ def main() -> int:
         "--manifest",
         type=Path,
         default=DEFAULT_MANIFEST,
-        help="Path to corpus_manifest.json (default: ./corpus_manifest.json)",
+        help="Path to corpus_manifest.json (default: data/manifest.json)",
     )
     args = parser.parse_args()
 

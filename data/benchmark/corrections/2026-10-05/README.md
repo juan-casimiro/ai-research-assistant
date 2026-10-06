@@ -22,7 +22,7 @@ This applies the clear benchmark mismatches recorded in [PR 45](https://github.c
 
 The ten question/key/scope issues can affect answer or evidence grading. The two category-only issues (a001, a007) are inexpensive label repairs, not evidence that the factual answers or retrieval system failed. Calling every item “blocking” follows the validation rule but can exaggerate their practical similarity. Minor authoring preferences do not warrant another full review cycle.
 
-The article conflicts in c012, c013 and x005 use the new `source_conflict` category defined in [STANDARDS.md](../../STANDARDS.md): each reading is its own required fact with its own passage, and an answer that reports only one reading, or merges them, fails. These cases are expected to fail until the system surfaces such conflicts.
+The article conflicts in c012, c013 and x005 use the new `source_conflict` category defined in [STANDARDS.md](../../../../docs/benchmark-standards.md): each reading is its own required fact with its own passage, and an answer that reports only one reading, or merges them, fails. These cases are expected to fail until the system surfaces such conflicts.
 
 ## Revision and verification
 

@@ -2,12 +2,12 @@
 """Category-aware retrieval evaluation harness against golden_qa.json.
 
 Usage:
-    python eval_golden.py                  # vector-only baseline
-    python eval_golden.py --bm25           # enable BM25 hybrid fusion
-    python eval_golden.py --rewrite        # enable LLM query rewriting
-    python eval_golden.py --bm25 --rewrite # both strategies on
-    python eval_golden.py --ids q139,q140  # only these query ids
-    python eval_golden.py --rewrite --ids q139,q140
+    python -m tools.evaluation.eval_golden                  # vector-only baseline
+    python -m tools.evaluation.eval_golden --bm25           # enable BM25 hybrid fusion
+    python -m tools.evaluation.eval_golden --rewrite        # enable LLM query rewriting
+    python -m tools.evaluation.eval_golden --bm25 --rewrite # both strategies on
+    python -m tools.evaluation.eval_golden --ids q139,q140  # only these query ids
+    python -m tools.evaluation.eval_golden --rewrite --ids q139,q140
 """
 import argparse
 import asyncio
@@ -16,7 +16,7 @@ from pathlib import Path
 
 from main import retrieve, _load_models_and_index
 
-GOLDEN_QA_PATH = Path("./golden_qa.json")
+GOLDEN_QA_PATH = Path(__file__).resolve().parents[2] / "data/archive/v1/golden_qa.json"
 RESULTS_PATH = Path("./eval_results.json")
 N_VALUES = [3, 8]
 
@@ -94,7 +94,7 @@ async def main() -> int:
     parser.add_argument("--output", type=Path, help="Explicit output path; versioned runs refuse overwrites")
     args = parser.parse_args()
     if args.benchmark:
-        from eval_benchmark import run_benchmark
+        from tools.evaluation.eval_benchmark import run_benchmark
         return await run_benchmark(args, retrieve, _load_models_and_index)
 
     use_bm25: bool = args.bm25

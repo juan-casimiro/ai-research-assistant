@@ -12,7 +12,7 @@ retrieval baseline, not answer accuracy, a BM25 comparison or a full-corpus clai
 
 Both historical experiments ran against commit `9910c2f` plus the
 then-uncommitted ingestion helper, preserved as
-[`ingest_isolated_20261002.py`](runs/ingest_isolated_20261002.py) and bound by
+[`ingest_isolated_20261002.py`](../../../../../tools/evaluation/historical/benchmark/cardiology/v1/runs/ingest_isolated_20261002.py) and bound by
 its original SHA-256 in `artifacts.json`. The production evaluation code was
 unchanged. The current reproduction helper adds explicit safety guards and atomic
 receipt finalization; it was not used for these saved runs. Both experiments use
@@ -23,7 +23,7 @@ the unchanged
 C1 is the 19-article union of required/accepted alternative answer sources. C2 is
 that identical union plus `PMC10619268` (Korean resistant-hypertension consensus,
 117 chunks) and `PMC12436478` (echo/AHRE prediction, 40 chunks). Membership, exact
-PDF/text tuples and per-source counts are preserved in [ingestion receipts](runs/).
+PDF/text tuples and per-source counts are preserved in [ingestion receipts](runs).
 C1 contains 1,113 chunks; C2 contains 1,270. Query-relative decoys already in C1
 are not removed: for example both STEMI score papers answer their own cases.
 
@@ -78,7 +78,7 @@ cases ran but contribute to neither denominator. There were zero answer judgment
 Competitor ordering passes 6/7 in both conditions/depths. A competitor is actually
 present in C1 for 1/7 at n=3 and 4/7 at n=8; C2 increases that to 2/7 and 5/7.
 Ordering passes without a retrieved competitor are not demonstrations of rejection.
-The category-ranking headline from `compare_evals.py` is therefore different from
+The category-ranking headline from `tools/evaluation/compare_evals.py` is therefore different from
 pure document coverage: 24/38 → 23/38 at n=3 and 30/38 → 30/38 at n=8.
 
 All released topic labels are cardiology. Clinical scope includes AF detection/
@@ -135,10 +135,10 @@ SEED_ON_EMPTY=false OTEL_TRACES_EXPORTER=none PYTHONPATH=. \
  CHROMA_PATH=./chroma_db/<fresh-C1> .venv/bin/python \
  benchmark/cardiology/v1/runs/ingest_isolated.py --condition C1 --receipt <new-C1-receipt.json>
 SEED_ON_EMPTY=false OTEL_TRACES_EXPORTER=none CHROMA_PATH=./chroma_db/<fresh-C1> \
- .venv/bin/python eval_golden.py --benchmark benchmark/cardiology/v1 \
+ .venv/bin/python -m tools.evaluation.eval_golden --benchmark data/benchmark/sources/cardiology/v1 \
  --condition C1 --output <new-C1-vector.json>
 # Repeat for C2 using a different fresh directory, condition and output names.
-.venv/bin/python compare_evals.py <new-C1-vector.json> <new-C2-vector.json> --nested-corpus
+.venv/bin/python -m tools.evaluation.compare_evals <new-C1-vector.json> <new-C2-vector.json> --nested-corpus
 ```
 
 The ingestion helper refuses existing paths and receipt overwrites. It uses the

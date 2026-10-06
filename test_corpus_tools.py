@@ -9,8 +9,8 @@ from unittest.mock import MagicMock, patch
 
 import httpx
 
-import compare_evals
-import ingest_corpus
+from tools.evaluation import compare_evals
+from tools.corpus import ingest_corpus
 
 
 class CorpusIngestionTests(unittest.TestCase):

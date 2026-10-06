@@ -2,7 +2,7 @@
 from copy import deepcopy
 import unittest
 
-from render_case_index import canonical_hash, render_topic
+from tools.evaluation.render_case_index import canonical_hash, render_topic
 
 
 class CaseIndexRelationshipTests(unittest.TestCase):

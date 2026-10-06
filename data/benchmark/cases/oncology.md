@@ -1,11 +1,11 @@
 # Oncology evaluation cases
 
 Generated from the current combined v2 inputs. Regenerate with
-`python render_case_index.py`; do not edit this page by hand.
+`python -m tools.evaluation.render_case_index`; do not edit this page by hand.
 
 [All topics](README.md) · [Article catalogue](articles.md) ·
-[Authoritative questions](../combined/v2/oncology/queries.json) ·
-[Dependency map](../combined/v2/case_dependencies.json)
+[Authoritative questions](../oncology/queries.json) ·
+[Dependency map](../case_dependencies.json)
 
 Expected responses are model-reviewed references, not biomedical expert
 certification or observed RAG responses. No new scoring is performed here.
@@ -93,7 +93,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not substitute another population or endpoint for Cited CNS/NSCLC pooled evidence: Detection, sensitivity and specificity.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -132,7 +132,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not substitute another population or endpoint for 282 untreated metastatic NSCLC patients: Genotyping yield and turnaround.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -176,7 +176,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 **Premise to correct:** Does the liquid-biopsy review establish that blood-based MCED has the same demonstrated lung-cancer mortality benefit as LDCT?
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -217,7 +217,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not substitute another population or endpoint for US women aged 50–64: Screening categories.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -261,7 +261,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not substitute another population or endpoint for US women aged 50–64: Single-screen prevalence.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -300,7 +300,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not substitute another population or endpoint for Appendix flow diagram and main study population: Exclusion and analysis counts.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -339,7 +339,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not substitute another population or endpoint for Hunan retrospective resected cohort: Eligibility and cohort composition.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -389,7 +389,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not describe a separate weighting method: the Methods describe PSM only, and the Results/Figure 1D labels conflict.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -434,7 +434,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not substitute another population or endpoint for Hunan PD-1 plus chemotherapy versus chemotherapy: MPR.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -479,7 +479,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 **Premise to correct:** Did the Zhongshan stage III neoadjuvant cohort demonstrate statistically significant DFS improvement because its pathological responses were higher?
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -519,7 +519,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not substitute another population or endpoint for Stage III NICT versus NCT: MPR count conflict.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -562,7 +562,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not substitute another population or endpoint for Helsinki TNBC cohorts: pCR and comparator design.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -608,7 +608,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not substitute another population or endpoint for Helsinki pembrolizumab cohort: Surveillance and diagnostic criteria.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -650,7 +650,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not substitute another population or endpoint for All treated versus postoperative starters: Adverse-event discontinuation.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -698,7 +698,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not substitute another population or endpoint for 40 mg versus below 40 mg: mTTF by initial dose.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -738,7 +738,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not substitute another population or endpoint for 343 Vietnam first-line afatinib patients: Starting-dose distribution conflict.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -779,7 +779,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 **Premise to correct:** Are the ADAURA hazard ratios in the nonmetastatic driver review outcomes measured by the review’s own newly enrolled cohort?
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -818,7 +818,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not substitute another population or endpoint for Cited ADAURA stage II–IIIA versus IB–IIIA populations: Five-year OS.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -859,7 +859,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not attribute the Gosney MDT-agreement, no-formal-request or delay details to POL-MOL; its reflex passage is partial support only.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -898,7 +898,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not substitute another population or endpoint for Early-stage resectable NSCLC: Timing and rationale for EGFR testing.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -942,7 +942,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not substitute another population or endpoint for Observational NSCLC cohorts: CV-event prevalence and hazard.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -983,7 +983,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not substitute another population or endpoint for Lung-cancer RCT meta-analysis: Cardiac adverse-event risk.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1026,7 +1026,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 **Premise to correct:** Does the RCT meta-analysis prove ICIs cannot cause heart failure because that subgroup result was nonsignificant?
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1068,7 +1068,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not substitute another population or endpoint for Older advanced-NSCLC PD-1 cohort: Cause-of-death shares and CVD mortality associations.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1108,7 +1108,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not substitute another population or endpoint for Older advanced-NSCLC pembrolizumab versus nivolumab cohort: Cause-specific mortality.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1147,7 +1147,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not substitute another population or endpoint for Tumor immune spatial phenotypes: Immune cell distribution.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1193,7 +1193,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 **Premise to correct:** Does the immune-exclusion review establish a universal clinically validated numeric cutoff for every tumor?
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1232,7 +1232,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not substitute another population or endpoint for Mechanistic ICD review: DAMP–dendritic cell pathways.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1271,7 +1271,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not substitute another population or endpoint for Reviewed cold tumor phenotypes: Spatial versus functional immune barriers.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1311,7 +1311,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not substitute another population or endpoint for Mechanistic ICD pathways: Stress, DAMP release and dendritic-cell activation.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1373,7 +1373,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not describe a separate weighting method: the Methods describe PSM only, and the Results/Figure 1D labels conflict.
 
 **Overlap review:** 53 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1429,7 +1429,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not substitute another population or endpoint for Older PD-1-treated advanced NSCLC: CVD mortality.
 
 **Overlap review:** 53 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1483,7 +1483,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not substitute another population or endpoint for Lung-cancer RCT synthesis: Broad cardiac adverse-event relative risk.
 
 **Overlap review:** 53 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1529,7 +1529,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not substitute another population or endpoint for Cited ADAURA trial: Five-year OS.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1574,7 +1574,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not substitute another population or endpoint for Cited NSCLC MRD assay studies: Sensitivity and specificity.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1611,7 +1611,7 @@ The cohort excludes those failing surgery, and discussion explicitly says their 
 Recorded search terms: failed to undergo, failed to receive surgery, excluded, surgery
 
 **Overlap review:** 55 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1655,7 +1655,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 **Premise to correct:** The Helsinki study measured a randomized five-year OS treatment effect of pembrolizumab versus chemotherapy.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1692,7 +1692,7 @@ No selected source reports an FDA-validated early-stage sensitivity for EarlyCDT
 Recorded search terms: EarlyCDT, FDA, autoantibod, validated
 
 **Overlap review:** 55 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1729,7 +1729,7 @@ No selected article reports the requested Basque-programme dual-screening rate. 
 Recorded search terms: Basque, FIT, dual-screen, Spain
 
 **Overlap review:** 55 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1770,7 +1770,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 **Premise to correct:** Cited population targets are study-achieved rates.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1809,7 +1809,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not present the range as a single pooled estimate, as percentage points, or as the review's own measurement.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1849,7 +1849,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not substitute the cervical-only aORs (college 2.02, income 2.19) or CRC-only aORs for the dual-versus-neither contrast.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1891,7 +1891,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not present a direct Black-versus-Hispanic test; both are compared with White women.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1930,7 +1930,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not present the hypothesised decision levels as tested study results.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)

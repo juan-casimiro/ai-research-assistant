@@ -1,8 +1,8 @@
 # ADR-002: Evaluation Methodology
 
-The current benchmark is the [five-topic combined v2 release](../benchmark/README.md).
-Its [report](../benchmark/combined/v2/REPORT.md) and
-[reproduction guide](../benchmark/combined/v2/README.md) are the starting points
+The current benchmark is the [five-topic combined v2 release](../data/benchmark/README.md).
+Its [report](../data/findings/retrieval.md) and
+[reproduction guide](../data/README.md) are the starting points
 for current results and execution. The original golden QA design and earlier
 experiments below describe the methodology's history; they are not the current
 benchmark's input set.
@@ -22,9 +22,9 @@ README.
 
 ## Category design
 
-The golden QA set (`golden_qa.json`) uses five categories, each
+The golden QA set (`data/archive/v1/golden_qa.json`) uses five categories, each
 targeting a distinct retrieval failure mode. Four are scored by
-`eval_golden.py`; `unanswerable` is logged but not scored.
+`tools/evaluation/eval_golden.py`; `unanswerable` is logged but not scored.
 
 ### `direct_lookup`
 
@@ -178,7 +178,7 @@ re-labelling existing entries.
 
   ## Update: `abstract_summary` field for golden QA authoring
 
-`corpus_manifest.json` entries include an `abstract_summary` field to
+`data/archive/v1/corpus_manifest.json` entries include an `abstract_summary` field to
 support drafting new golden QA cases without opening full text for
 every candidate query. It's sufficient for `direct_lookup` and
 `cross_doc_distractor` first drafts (top-line findings, primary
@@ -188,17 +188,17 @@ table-level figures — e.g. `q128`/`q129`
 since the abstract didn't name the specific lab marker or mention
 hypertension at all. Use the abstract for a first draft; verify
 against full text before adding table/subgroup-dependent cases to
-`golden_qa.json`.
+`data/archive/v1/golden_qa.json`.
 
 ## Versioned cardiology benchmark rebuild
 
-[Corpus and benchmark standards v1](../benchmark/STANDARDS.md) governs the corpus and benchmark expansion.
-The versioned scorer supports the separate [45-case cardiology query release](../benchmark/cardiology/v1/BENCHMARK.md),
+[Corpus and benchmark standards v1](../docs/benchmark-standards.md) governs the corpus and benchmark expansion.
+The versioned scorer supports the separate [45-case cardiology query release](../data/benchmark/sources/cardiology/v1/BENCHMARK.md),
 with reviewed and frozen inputs for recorded experiments. The historical
-schema/scoring above remains unchanged for `golden_qa.json`; it is not a measure
+schema/scoring above remains unchanged for `data/archive/v1/golden_qa.json`; it is not a measure
 of passage sufficiency or answer correctness.
 
-In versioned mode, `eval_golden.py` still calls production `retrieve()` and records
+In versioned mode, `tools/evaluation/eval_golden.py` still calls production `retrieve()` and records
 reranked chunks/sources at depths 3 and 8. Document coverage, conservative pinned
 excerpt coverage, fact recall and competitor ordering are distinct. Complete
 alternatives use OR; each set requires all its anchors. An excerpt spanning chunks
@@ -214,7 +214,7 @@ false-premise correction evidence is reported separately from judging generated
 corrections. Exact matching cannot exclude valid paraphrases, so failures require
 context inspection. The separate generated-answer evaluation follow-up retains separately sequenced answer-judge work.
 
-`compare_evals.py` now rejects changed queries/revisions, scorer/retrieval/corpus
+`tools/evaluation/compare_evals.py` now rejects changed queries/revisions, scorer/retrieval/corpus
 fingerprints, depths, changed/missing feasibility and incomplete executed-ID sets.
 Explicit nested comparisons
 hold retrieval flags fixed and preserve common article tuples. Historical pairs
@@ -224,7 +224,7 @@ as an improvement to the old benchmark. No new quality results are claimed.
 
 ## Diabetes expansion and frozen cardiology interference
 
-The diabetes audit adds the [versioned diabetes release](../benchmark/diabetes/v1/README.md):
+The diabetes audit adds the [versioned diabetes release](../data/benchmark/sources/diabetes/v1/README.md):
 16 topic/overlap sources, 49 cases and 55 pinned anchors, with the original
 21-article cardiology selection extended by 11 verified permissive articles.
 Legacy sources/cases are audited and migrated explicitly; new cohorts cannot
@@ -250,13 +250,13 @@ of shared articles so that differences can be attributed to the corpus change.
 We report finding the right articles separately from finding the evidence needed
 to answer. Answer correctness requires a separate evaluation.
 
-The [combined report](../benchmark/combined/v1/REPORT.md) records the historical
+The [combined report](../data/archive/development/combined-v1/REPORT.md) records the historical
 four-topic experiment's corpus, results and limitations. Its results remain
 separate from the original benchmark and Docker demo.
 
 ## Corrected five-topic snapshot
 
-The [corrected combined report](../benchmark/combined/v2/REPORT.md) freezes the
+The [corrected combined report](../data/findings/retrieval.md) freezes the
 current model-reviewed gold and accepted correction ledger for all 158 cases in
 a 55-article / 3,638-chunk corpus, including ALS/FTD. Its canonical source query
 objects and anchors are preserved; the comparison envelope, conditions and
@@ -280,7 +280,7 @@ answerable document coverage is 115/129 and pinned evidence 37/129; correction
 evidence is 6/18 and eleven absent-fact cases are unscored. c012/c013/x005 retain
 both attributed readings, with valid failures preserved. No answer/refusal or
 conflict-handling accuracy is inferred from retrieval. The durable
-[source-conflict report](../docs/evaluation/source-conflicts.md) and
-[minimal provenance summary](../docs/evaluation/combined-benchmark-v2.json) are
+[source-conflict report](../data/findings/source-conflicts.md) and
+[minimal provenance summary](../data/findings/combined-benchmark-v2.json) are
 intended for retention independently of bulk experiment files. Biomedical expert
 review, semantic adjudication and answer judging remain separate limitations.

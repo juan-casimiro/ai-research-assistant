@@ -1,11 +1,11 @@
 # Outliers evaluation cases
 
 Generated from the current combined v2 inputs. Regenerate with
-`python render_case_index.py`; do not edit this page by hand.
+`python -m tools.evaluation.render_case_index`; do not edit this page by hand.
 
 [All topics](README.md) · [Article catalogue](articles.md) ·
-[Authoritative questions](../combined/v2/outliers/queries.json) ·
-[Dependency map](../combined/v2/case_dependencies.json)
+[Authoritative questions](../outliers/queries.json) ·
+[Dependency map](../case_dependencies.json)
 
 Expected responses are model-reviewed references, not biomedical expert
 certification or observed RAG responses. No new scoring is performed here.
@@ -62,7 +62,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not equate environmental ARG abundance with patient infection incidence or clinical treatment outcomes.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -101,7 +101,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not equate environmental ARG abundance with patient infection incidence or clinical treatment outcomes.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -140,7 +140,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not equate environmental ARG abundance with patient infection incidence or clinical treatment outcomes.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -185,7 +185,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not equate environmental ARG abundance with patient infection incidence or clinical treatment outcomes.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -229,7 +229,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not report one reading as uncontested, and do not average or merge the two readings.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -268,7 +268,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not equate environmental ARG abundance with patient infection incidence or clinical treatment outcomes.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -307,7 +307,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not equate environmental ARG abundance with patient infection incidence or clinical treatment outcomes.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -346,7 +346,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not equate environmental ARG abundance with patient infection incidence or clinical treatment outcomes.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -379,7 +379,7 @@ expected refusal and the recorded search scope below.
 All five selected outlier articles in outliers-v1; both wastewater papers were checked in full for patient-linked infection outcomes, then the other three selected articles were reviewed for the same relation.
 
 **Overlap review:** 55 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -418,7 +418,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not equate environmental ARG abundance with patient infection incidence or clinical treatment outcomes.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)

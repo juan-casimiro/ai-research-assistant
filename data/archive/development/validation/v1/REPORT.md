@@ -21,11 +21,11 @@ review. Their relative packet, reply and transcript references resolve in the
 Intermediate orchestration, prompts, replies, execution gaps and superseded
 findings are archived there rather than shipped with the release.
 
-The [correction ledger](../../corrections/2026-10-05/README.md) explains what was
+The [correction ledger](../../../../benchmark/corrections/2026-10-05/README.md) explains what was
 accepted and changed afterward. Historical proposals are not the current grading
 contract. In particular, c012, c013 and x005 retain their original questions and
 require both attributed readings; their retrieval failures remain valid findings.
-The [current case index](../../cases/README.md) reflects authoritative current gold.
+The [current case index](../../../../benchmark/cases/README.md) reflects authoritative current gold.
 
 Gold is LLM-authored and model-reviewed, not expert-certified. Minor notes retained
 by the historical review and later explicit corrections remain legitimate limits.

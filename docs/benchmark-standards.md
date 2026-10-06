@@ -79,7 +79,7 @@ Every included article, including competition and outliers, must pass all gates:
    do not silently strip material and call it the original verified PDF.
 4. Retrieve the actual PDF automatically through a currently supported PMC
    route. The repository's supported route is PMC Cloud's
-   `pmc-oa-opendata` metadata/PDF service, used by `download_corpus.py`.
+   `pmc-oa-opendata` metadata/PDF service, used by `tools/corpus/download_corpus.py`.
    Resolve the pinned metadata record and its PDF object, retaining both URLs
    and provider checksum. No browser-only/publisher/manual exception qualifies.
    Missing PDF, HTML masquerading as PDF or XML-only availability fails.
@@ -116,7 +116,7 @@ All fields below are required for eligible entries unless explicitly nullable.
 No placeholder values qualify as verified metadata.
 
 Every topic selection must also preserve the applicable fields already present
-in `corpus_manifest.json`, including `cluster`, `search_query`, `year`, `license`,
+in `data/archive/v1/corpus_manifest.json`, including `cluster`, `search_query`, `year`, `license`,
 `page_count`, `has_structured_sections`, `notes` and `license_notes`; richer fields
 extend these records rather than replacing their metadata. Preserve the complete
 source abstract separately from an authored summary. Starting from a PMCID,
@@ -165,7 +165,7 @@ need exact-version rights and download verification; no grandfathering.
 Maintain a migration ledger with old article/query ID, action (replace, retire,
 rebuild or retain after verification), new ID/version, rationale, owner and all
 source/distractor/synthesis/overlap dependencies. Retired cases remain traceable.
-Current direct dependencies in `golden_qa.json` are hypertension: q059,q060,
+Current direct dependencies in `data/archive/v1/golden_qa.json` are hypertension: q059,q060,
 q061,q062,q122,q125,q127,q129; GPT-5: q130,q131,q132,q133. Recompute from the
 active query revision rather than treating this list as permanent. Extend the
 dependency map beyond filename references to indirect topic/evidence overlap.
@@ -303,7 +303,7 @@ and exact requested/executed IDs and depths. For nested-corpus comparisons only
 the declared corpus membership may vary; common article versions/extraction and
 all other fingerprints must match. Reject incompatible comparisons; explicitly
 label legacy artifacts without fingerprints as historical, unverifiable pairs.
-`compare_evals.py` enforces these guards for versioned benchmark runs. Legacy
+`tools/evaluation/compare_evals.py` enforces these guards for versioned benchmark runs. Legacy
 artifacts remain explicitly unverifiable and require the legacy opt-in. No cross-version percentage delta is evidence of
 retrieval improvement.
 
@@ -321,7 +321,7 @@ extraction, article identity, chunk counts and queryability before any run.
 `--ids` neither ingests nor isolates a collection. Never reset another task's
 collection.
 
-Use `.venv/bin/python eval_golden.py --ids <comma-separated-IDs>` from repository
+Use `.venv/bin/python -m tools.evaluation.eval_golden --ids <comma-separated-IDs>` from repository
 root; add `--bm25` only for a justified configuration comparison. Confirm every
 requested ID exists first: partial matches can return success today. Choose IDs
 from direct source, alternative, decoy, synthesis and overlap dependencies.

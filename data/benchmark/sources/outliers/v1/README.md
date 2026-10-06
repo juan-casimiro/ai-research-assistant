@@ -54,13 +54,19 @@ From the repository root, after the five ignored PDFs/texts and existing topic
 corpora are available:
 
 ```sh
-.venv/bin/python verify_benchmark_reachability.py --benchmark benchmark/outliers/v1 --corpus-dir corpus/outliers-v1 --condition C1
-.venv/bin/python benchmark/outliers/v1/runs/build_topic_regression.py
-.venv/bin/python benchmark/outliers/v1/runs/prepare_regression_corpus.py
-.venv/bin/python verify_benchmark_reachability.py --benchmark benchmark/outliers/v1/regression --corpus-dir corpus/outliers-v1/topic-regression --condition C1
-.venv/bin/python verify_benchmark_reachability.py --benchmark benchmark/outliers/v1/regression --corpus-dir corpus/outliers-v1/topic-regression --condition C2
+.venv/bin/python -m tools.corpus.verify_benchmark_reachability --benchmark data/benchmark/sources/outliers/v1 --corpus-dir corpus/outliers-v1 --condition C1
+.venv/bin/python -m tools.corpus.prepare_corpus \
+  --benchmark data/benchmark/sources/outliers/v1/regression \
+  --corpus-dir corpus/outliers-v1/topic-regression \
+  --sources corpus/cardiology-v1 corpus/diabetes-v1 corpus/oncology-v1 corpus/outliers-v1
+.venv/bin/python -m tools.corpus.verify_benchmark_reachability --benchmark data/benchmark/sources/outliers/v1/regression --corpus-dir corpus/outliers-v1/topic-regression --condition C1
+.venv/bin/python -m tools.corpus.verify_benchmark_reachability --benchmark data/benchmark/sources/outliers/v1/regression --corpus-dir corpus/outliers-v1/topic-regression --condition C2
 .venv/bin/python -m unittest discover -v
 ```
+
+The original regression builder and preparer are preserved under
+`tools/evaluation/historical/` for [historical replay](../../../../../tools/README.md#preserved-historical-tools).
+The command above prepares the retained manifest with the reusable utility.
 
 The saved vector-only retrieval artifacts are under `runs/`. They call the
 production `retrieve()` path with reranking, but do not run answer generation,
@@ -71,4 +77,4 @@ and full topic evaluation are recorded in the current combined benchmark.
 
 ## Gold correction revision — 2026-10-05
 
-The active query set incorporates the [source-grounded correction ledger](../../corrections/2026-10-05/README.md). Prior runs retain their original questions and fingerprints; they are not runs of this corrected revision. The corpus and evaluation strategy are unchanged.
+The active query set incorporates the [source-grounded correction ledger](../../../corrections/2026-10-05/README.md). Prior runs retain their original questions and fingerprints; they are not runs of this corrected revision. The corpus and evaluation strategy are unchanged.

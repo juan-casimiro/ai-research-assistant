@@ -1,11 +1,11 @@
 # Diabetes evaluation cases
 
 Generated from the current combined v2 inputs. Regenerate with
-`python render_case_index.py`; do not edit this page by hand.
+`python -m tools.evaluation.render_case_index`; do not edit this page by hand.
 
 [All topics](README.md) · [Article catalogue](articles.md) ·
-[Authoritative questions](../combined/v2/diabetes/queries.json) ·
-[Dependency map](../combined/v2/case_dependencies.json)
+[Authoritative questions](../diabetes/queries.json) ·
+[Dependency map](../case_dependencies.json)
 
 Expected responses are model-reviewed references, not biomedical expert
 certification or observed RAG responses. No new scoring is performed here.
@@ -99,7 +99,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -139,7 +139,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -179,7 +179,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -221,7 +221,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -261,7 +261,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -301,7 +301,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -337,7 +337,7 @@ Reviewed named original cohort/report follow-up; no selected article supplies th
 [PMC10363301](https://pmc.ncbi.nlm.nih.gov/articles/PMC10363301.1/), [PMC10452755](https://pmc.ncbi.nlm.nih.gov/articles/PMC10452755.1/), [PMC10607686](https://pmc.ncbi.nlm.nih.gov/articles/PMC10607686.1/), [PMC10619268](https://pmc.ncbi.nlm.nih.gov/articles/PMC10619268.1/), [PMC10985250](https://pmc.ncbi.nlm.nih.gov/articles/PMC10985250.1/), [PMC11265054](https://pmc.ncbi.nlm.nih.gov/articles/PMC11265054.1/), [PMC11354916](https://pmc.ncbi.nlm.nih.gov/articles/PMC11354916.1/), [PMC11373557](https://pmc.ncbi.nlm.nih.gov/articles/PMC11373557.1/), [PMC11374717](https://pmc.ncbi.nlm.nih.gov/articles/PMC11374717.1/), [PMC11514186](https://pmc.ncbi.nlm.nih.gov/articles/PMC11514186.1/), [PMC11549774](https://pmc.ncbi.nlm.nih.gov/articles/PMC11549774.1/), [PMC11847805](https://pmc.ncbi.nlm.nih.gov/articles/PMC11847805.1/), [PMC11973566](https://pmc.ncbi.nlm.nih.gov/articles/PMC11973566.1/), [PMC12003177](https://pmc.ncbi.nlm.nih.gov/articles/PMC12003177.1/), [PMC12419643](https://pmc.ncbi.nlm.nih.gov/articles/PMC12419643.1/), [PMC12436478](https://pmc.ncbi.nlm.nih.gov/articles/PMC12436478.1/), [PMC12683810](https://pmc.ncbi.nlm.nih.gov/articles/PMC12683810.1/), [PMC12880197](https://pmc.ncbi.nlm.nih.gov/articles/PMC12880197.1/), [PMC12886974](https://pmc.ncbi.nlm.nih.gov/articles/PMC12886974.1/), [PMC13107781](https://pmc.ncbi.nlm.nih.gov/articles/PMC13107781.1/), [PMC13175446](https://pmc.ncbi.nlm.nih.gov/articles/PMC13175446.1/), [PMC13311226](https://pmc.ncbi.nlm.nih.gov/articles/PMC13311226.1/), [PMC13423648](https://pmc.ncbi.nlm.nih.gov/articles/PMC13423648.1/), [PMC13430954](https://pmc.ncbi.nlm.nih.gov/articles/PMC13430954.1/), [PMC13433181](https://pmc.ncbi.nlm.nih.gov/articles/PMC13433181.1/), [PMC13433218](https://pmc.ncbi.nlm.nih.gov/articles/PMC13433218.1/), [PMC13433680](https://pmc.ncbi.nlm.nih.gov/articles/PMC13433680.1/), [PMC13433862](https://pmc.ncbi.nlm.nih.gov/articles/PMC13433862.1/), [PMC13439631](https://pmc.ncbi.nlm.nih.gov/articles/PMC13439631.1/), [PMC13472562](https://pmc.ncbi.nlm.nih.gov/articles/PMC13472562.1/), [PMC4804513](https://pmc.ncbi.nlm.nih.gov/articles/PMC4804513.1/), [PMC8866621](https://pmc.ncbi.nlm.nih.gov/articles/PMC8866621.1/)
 
 **Overlap review:** 55 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -377,7 +377,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -417,7 +417,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -457,7 +457,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -497,7 +497,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -537,7 +537,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -577,7 +577,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -617,7 +617,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -657,7 +657,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -697,7 +697,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -739,7 +739,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -785,7 +785,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -825,7 +825,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -866,7 +866,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -912,7 +912,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -952,7 +952,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -994,7 +994,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1036,7 +1036,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1083,7 +1083,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1125,7 +1125,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1165,7 +1165,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1205,7 +1205,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1247,7 +1247,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1293,7 +1293,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1333,7 +1333,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1376,7 +1376,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 53 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1420,7 +1420,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 53 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1462,7 +1462,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 53 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1505,7 +1505,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 53 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1547,7 +1547,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 53 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1588,7 +1588,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1631,7 +1631,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not turn the inverse genetic association into a causal treatment effect.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1673,7 +1673,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1713,7 +1713,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1753,7 +1753,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1795,7 +1795,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 **Premise to correct:** Since He et al.’s primary GQD change-score analysis included all reviewed trials, how robust was its significant HbA1c benefit?
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1838,7 +1838,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 **Premise to correct:** The primary intention-to-treat analysis found statistically significant HbA1c improvement at both three and six months.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1880,7 +1880,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 **Premise to correct:** Since Guo’s CGM counseling evaluation was a randomized clinical trial proving patient glycemic improvement, what supports that clinical benefit?
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1916,7 +1916,7 @@ Reviewed named original cohort/report follow-up; no selected article supplies th
 [PMC10363301](https://pmc.ncbi.nlm.nih.gov/articles/PMC10363301.1/), [PMC10452755](https://pmc.ncbi.nlm.nih.gov/articles/PMC10452755.1/), [PMC10607686](https://pmc.ncbi.nlm.nih.gov/articles/PMC10607686.1/), [PMC10619268](https://pmc.ncbi.nlm.nih.gov/articles/PMC10619268.1/), [PMC10985250](https://pmc.ncbi.nlm.nih.gov/articles/PMC10985250.1/), [PMC11265054](https://pmc.ncbi.nlm.nih.gov/articles/PMC11265054.1/), [PMC11354916](https://pmc.ncbi.nlm.nih.gov/articles/PMC11354916.1/), [PMC11373557](https://pmc.ncbi.nlm.nih.gov/articles/PMC11373557.1/), [PMC11374717](https://pmc.ncbi.nlm.nih.gov/articles/PMC11374717.1/), [PMC11514186](https://pmc.ncbi.nlm.nih.gov/articles/PMC11514186.1/), [PMC11549774](https://pmc.ncbi.nlm.nih.gov/articles/PMC11549774.1/), [PMC11847805](https://pmc.ncbi.nlm.nih.gov/articles/PMC11847805.1/), [PMC11973566](https://pmc.ncbi.nlm.nih.gov/articles/PMC11973566.1/), [PMC12003177](https://pmc.ncbi.nlm.nih.gov/articles/PMC12003177.1/), [PMC12419643](https://pmc.ncbi.nlm.nih.gov/articles/PMC12419643.1/), [PMC12436478](https://pmc.ncbi.nlm.nih.gov/articles/PMC12436478.1/), [PMC12683810](https://pmc.ncbi.nlm.nih.gov/articles/PMC12683810.1/), [PMC12880197](https://pmc.ncbi.nlm.nih.gov/articles/PMC12880197.1/), [PMC12886974](https://pmc.ncbi.nlm.nih.gov/articles/PMC12886974.1/), [PMC13107781](https://pmc.ncbi.nlm.nih.gov/articles/PMC13107781.1/), [PMC13175446](https://pmc.ncbi.nlm.nih.gov/articles/PMC13175446.1/), [PMC13311226](https://pmc.ncbi.nlm.nih.gov/articles/PMC13311226.1/), [PMC13423648](https://pmc.ncbi.nlm.nih.gov/articles/PMC13423648.1/), [PMC13430954](https://pmc.ncbi.nlm.nih.gov/articles/PMC13430954.1/), [PMC13433181](https://pmc.ncbi.nlm.nih.gov/articles/PMC13433181.1/), [PMC13433218](https://pmc.ncbi.nlm.nih.gov/articles/PMC13433218.1/), [PMC13433680](https://pmc.ncbi.nlm.nih.gov/articles/PMC13433680.1/), [PMC13433862](https://pmc.ncbi.nlm.nih.gov/articles/PMC13433862.1/), [PMC13439631](https://pmc.ncbi.nlm.nih.gov/articles/PMC13439631.1/), [PMC13472562](https://pmc.ncbi.nlm.nih.gov/articles/PMC13472562.1/), [PMC4804513](https://pmc.ncbi.nlm.nih.gov/articles/PMC4804513.1/), [PMC8866621](https://pmc.ncbi.nlm.nih.gov/articles/PMC8866621.1/)
 
 **Overlap review:** 55 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1952,7 +1952,7 @@ Reviewed named original cohort/report follow-up; no selected article supplies th
 [PMC10363301](https://pmc.ncbi.nlm.nih.gov/articles/PMC10363301.1/), [PMC10452755](https://pmc.ncbi.nlm.nih.gov/articles/PMC10452755.1/), [PMC10607686](https://pmc.ncbi.nlm.nih.gov/articles/PMC10607686.1/), [PMC10619268](https://pmc.ncbi.nlm.nih.gov/articles/PMC10619268.1/), [PMC10985250](https://pmc.ncbi.nlm.nih.gov/articles/PMC10985250.1/), [PMC11265054](https://pmc.ncbi.nlm.nih.gov/articles/PMC11265054.1/), [PMC11354916](https://pmc.ncbi.nlm.nih.gov/articles/PMC11354916.1/), [PMC11373557](https://pmc.ncbi.nlm.nih.gov/articles/PMC11373557.1/), [PMC11374717](https://pmc.ncbi.nlm.nih.gov/articles/PMC11374717.1/), [PMC11514186](https://pmc.ncbi.nlm.nih.gov/articles/PMC11514186.1/), [PMC11549774](https://pmc.ncbi.nlm.nih.gov/articles/PMC11549774.1/), [PMC11847805](https://pmc.ncbi.nlm.nih.gov/articles/PMC11847805.1/), [PMC11973566](https://pmc.ncbi.nlm.nih.gov/articles/PMC11973566.1/), [PMC12003177](https://pmc.ncbi.nlm.nih.gov/articles/PMC12003177.1/), [PMC12419643](https://pmc.ncbi.nlm.nih.gov/articles/PMC12419643.1/), [PMC12436478](https://pmc.ncbi.nlm.nih.gov/articles/PMC12436478.1/), [PMC12683810](https://pmc.ncbi.nlm.nih.gov/articles/PMC12683810.1/), [PMC12880197](https://pmc.ncbi.nlm.nih.gov/articles/PMC12880197.1/), [PMC12886974](https://pmc.ncbi.nlm.nih.gov/articles/PMC12886974.1/), [PMC13107781](https://pmc.ncbi.nlm.nih.gov/articles/PMC13107781.1/), [PMC13175446](https://pmc.ncbi.nlm.nih.gov/articles/PMC13175446.1/), [PMC13311226](https://pmc.ncbi.nlm.nih.gov/articles/PMC13311226.1/), [PMC13423648](https://pmc.ncbi.nlm.nih.gov/articles/PMC13423648.1/), [PMC13430954](https://pmc.ncbi.nlm.nih.gov/articles/PMC13430954.1/), [PMC13433181](https://pmc.ncbi.nlm.nih.gov/articles/PMC13433181.1/), [PMC13433218](https://pmc.ncbi.nlm.nih.gov/articles/PMC13433218.1/), [PMC13433680](https://pmc.ncbi.nlm.nih.gov/articles/PMC13433680.1/), [PMC13433862](https://pmc.ncbi.nlm.nih.gov/articles/PMC13433862.1/), [PMC13439631](https://pmc.ncbi.nlm.nih.gov/articles/PMC13439631.1/), [PMC13472562](https://pmc.ncbi.nlm.nih.gov/articles/PMC13472562.1/), [PMC4804513](https://pmc.ncbi.nlm.nih.gov/articles/PMC4804513.1/), [PMC8866621](https://pmc.ncbi.nlm.nih.gov/articles/PMC8866621.1/)
 
 **Overlap review:** 55 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1988,7 +1988,7 @@ Reviewed named original cohort/report follow-up; no selected article supplies th
 [PMC10363301](https://pmc.ncbi.nlm.nih.gov/articles/PMC10363301.1/), [PMC10452755](https://pmc.ncbi.nlm.nih.gov/articles/PMC10452755.1/), [PMC10607686](https://pmc.ncbi.nlm.nih.gov/articles/PMC10607686.1/), [PMC10619268](https://pmc.ncbi.nlm.nih.gov/articles/PMC10619268.1/), [PMC10985250](https://pmc.ncbi.nlm.nih.gov/articles/PMC10985250.1/), [PMC11265054](https://pmc.ncbi.nlm.nih.gov/articles/PMC11265054.1/), [PMC11354916](https://pmc.ncbi.nlm.nih.gov/articles/PMC11354916.1/), [PMC11373557](https://pmc.ncbi.nlm.nih.gov/articles/PMC11373557.1/), [PMC11374717](https://pmc.ncbi.nlm.nih.gov/articles/PMC11374717.1/), [PMC11514186](https://pmc.ncbi.nlm.nih.gov/articles/PMC11514186.1/), [PMC11549774](https://pmc.ncbi.nlm.nih.gov/articles/PMC11549774.1/), [PMC11847805](https://pmc.ncbi.nlm.nih.gov/articles/PMC11847805.1/), [PMC11973566](https://pmc.ncbi.nlm.nih.gov/articles/PMC11973566.1/), [PMC12003177](https://pmc.ncbi.nlm.nih.gov/articles/PMC12003177.1/), [PMC12419643](https://pmc.ncbi.nlm.nih.gov/articles/PMC12419643.1/), [PMC12436478](https://pmc.ncbi.nlm.nih.gov/articles/PMC12436478.1/), [PMC12683810](https://pmc.ncbi.nlm.nih.gov/articles/PMC12683810.1/), [PMC12880197](https://pmc.ncbi.nlm.nih.gov/articles/PMC12880197.1/), [PMC12886974](https://pmc.ncbi.nlm.nih.gov/articles/PMC12886974.1/), [PMC13107781](https://pmc.ncbi.nlm.nih.gov/articles/PMC13107781.1/), [PMC13175446](https://pmc.ncbi.nlm.nih.gov/articles/PMC13175446.1/), [PMC13311226](https://pmc.ncbi.nlm.nih.gov/articles/PMC13311226.1/), [PMC13423648](https://pmc.ncbi.nlm.nih.gov/articles/PMC13423648.1/), [PMC13430954](https://pmc.ncbi.nlm.nih.gov/articles/PMC13430954.1/), [PMC13433181](https://pmc.ncbi.nlm.nih.gov/articles/PMC13433181.1/), [PMC13433218](https://pmc.ncbi.nlm.nih.gov/articles/PMC13433218.1/), [PMC13433680](https://pmc.ncbi.nlm.nih.gov/articles/PMC13433680.1/), [PMC13433862](https://pmc.ncbi.nlm.nih.gov/articles/PMC13433862.1/), [PMC13439631](https://pmc.ncbi.nlm.nih.gov/articles/PMC13439631.1/), [PMC13472562](https://pmc.ncbi.nlm.nih.gov/articles/PMC13472562.1/), [PMC4804513](https://pmc.ncbi.nlm.nih.gov/articles/PMC4804513.1/), [PMC8866621](https://pmc.ncbi.nlm.nih.gov/articles/PMC8866621.1/)
 
 **Overlap review:** 55 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -2029,7 +2029,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 53 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -2069,7 +2069,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not imply source consistency or clinical superiority from reported observational/vignette findings
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)

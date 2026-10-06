@@ -6,9 +6,9 @@ import copy
 import json
 from pathlib import Path
 
-from benchmark_scoring import canonical_hash
-from eval_benchmark import read_release
-from verify_benchmark_reachability import verify_reachability
+from tools.evaluation.benchmark_scoring import canonical_hash
+from tools.evaluation.eval_benchmark import read_release
+from tools.corpus.verify_benchmark_reachability import verify_reachability
 
 
 def verify_alternatives(directory: Path, corpus: Path) -> dict:
@@ -27,9 +27,9 @@ def verify_alternatives(directory: Path, corpus: Path) -> dict:
     return {"sets": count, "all_reachable_and_minimum_witnesses_pass": True,
             "query_sha256": canonical_hash(benchmark),
             "method": "Each accepted OR alternative checked separately with production chunker and scorer",
-            "command": "python verify_als_ftd_alternatives.py"}
+            "command": "python -m tools.corpus.verify_als_ftd_alternatives"}
 
 
 if __name__ == "__main__":
-    print(json.dumps(verify_alternatives(Path("benchmark/als-ftd/v1"),
+    print(json.dumps(verify_alternatives(Path("data/benchmark/sources/als-ftd/v1"),
                                        Path("corpus/als-ftd-v1")), indent=2))

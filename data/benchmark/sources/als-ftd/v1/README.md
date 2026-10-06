@@ -49,7 +49,7 @@ deposit/PDF/text bytes remain pinned; notices are assessed separately and are
 not added as corpus answer sources.
 
 [ATTRIBUTION.md](ATTRIBUTION.md) preserves ordered citations, notices and licence
-links. [metadata/](metadata/) contains unchanged Cloud JSON, PubMed XML and
+links. [metadata/](metadata) contains unchanged Cloud JSON, PubMed XML and
 converter responses. PDFs, complete JATS, extracted text, restricted candidates
 and rendered pages remain ignored under `corpus/als-ftd-v1/`. No PDFs are committed
 or publicly uploaded. Full PubMed abstracts remain separate from authored summaries.
@@ -99,7 +99,7 @@ Revision 3 records acceptance of a003’s Results passage without requiring the
 Discussion-only adjective "mild", and explains why broad tissue/electrophysiology
 summaries alone do not supply all pinned fact qualifiers. Author review covers
 identified candidate passages; exhaustive expert completeness review is not established.
-The per-alternative receipt is reproducible with `verify_als_ftd_alternatives.py`.
+The per-alternative receipt is reproducible with `tools/corpus/verify_als_ftd_alternatives.py`.
 No retrieval output, paid rewriting or judge result was used to choose them.
 Before freeze, an independent reviewer should read the four full texts, verify
 fact/anchor sufficiency and alternatives, check overlap/duplicates and assess
@@ -139,7 +139,7 @@ Use Python 3.12 and the repository environment (pypdf 6.16.1), from the repo roo
 In a worktree without `.venv`, use the main checkout's environment by absolute path.
 
 ```sh
-.venv/bin/python download_corpus.py --manifest benchmark/als-ftd/v1/manifest.json --corpus-dir corpus/als-ftd-v1
+.venv/bin/python -m tools.corpus.download_corpus --manifest data/benchmark/sources/als-ftd/v1/manifest.json --corpus-dir corpus/als-ftd-v1
 .venv/bin/python - <<'PY'
 import json
 from pathlib import Path
@@ -153,9 +153,9 @@ for article in json.loads((release / 'manifest.json').read_text())['articles']:
     cloud = json.loads((release / article['metadata_sources']['cloud.json']['archive']).read_text())
     (corpus / f"{article['article_id']}.{article['pmc_version']}.article.xml").write_bytes(read_pmc_xml(cloud['xml_url']))
 PY
-.venv/bin/python verify_als_ftd_release.py
-.venv/bin/python verify_als_ftd_alternatives.py
-.venv/bin/python verify_benchmark_reachability.py --benchmark benchmark/als-ftd/v1 --corpus-dir corpus/als-ftd-v1 --condition C2
+.venv/bin/python -m tools.corpus.verify_als_ftd_release
+.venv/bin/python -m tools.corpus.verify_als_ftd_alternatives
+.venv/bin/python -m tools.corpus.verify_benchmark_reachability --benchmark data/benchmark/sources/als-ftd/v1 --corpus-dir corpus/als-ftd-v1 --condition C2
 .venv/bin/python -m unittest discover -v
 ```
 
@@ -169,16 +169,16 @@ success does not certify independent scientific review.
 
 ## Gold correction revision — 2026-10-05
 
-The active query set incorporates the [source-grounded correction ledger](../../corrections/2026-10-05/README.md). Prior runs retain their original questions and fingerprints; they are not runs of this corrected revision. The corpus and evaluation strategy are unchanged.
+The active query set incorporates the [source-grounded correction ledger](../../../corrections/2026-10-05/README.md). Prior runs retain their original questions and fingerprints; they are not runs of this corrected revision. The corpus and evaluation strategy are unchanged.
 
 ## Corrected combined evaluation
 
 The preparation/review status and receipts above describe the original snapshot.
 The merged gold-validation findings and accepted corrections now supply the
-model-review basis for the [five-topic evaluation freeze](../../combined/v2/README.md).
-Its [current verification and reachability](../../combined/v2/reachability.json)
+model-review basis for the [five-topic evaluation freeze](../../../../README.md).
+Its [current verification and reachability](../../../reachability.json)
 regenerate this strand's query fingerprints, metadata checks and all accepted
 alternative witnesses. The old receipts are preserved as historical evidence.
-The [combined report](../../combined/v2/REPORT.md) verifies all ten cases in both
+The [combined report](../../../../findings/retrieval.md) verifies all ten cases in both
 the four-article baseline and 55-article corpus. It does not certify independent
 biomedical expert review or generated-answer correctness.

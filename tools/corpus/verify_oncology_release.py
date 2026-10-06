@@ -6,19 +6,20 @@ import json
 import re
 import xml.etree.ElementTree as ET
 from pathlib import Path
+from tools.layout import recorded_path
 
 from pypdf import PdfReader
 
-from benchmark_scoring import canonical_hash
-from eval_benchmark import read_release
-from fetch_article_metadata import element_text, parse_record
+from tools.evaluation.benchmark_scoring import canonical_hash
+from tools.evaluation.eval_benchmark import read_release
+from tools.corpus.fetch_article_metadata import element_text, parse_record
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[2]
 
 
 def render_decision_record(release: Path, benchmark: dict, manifest: dict, conditions: dict,
                            audit: dict, candidates: dict, ledger: dict) -> str:
-    spec = importlib.util.spec_from_file_location("oncology_decisions", release / "render_decisions.py")
+    spec = importlib.util.spec_from_file_location("oncology_decisions", ROOT / "tools/evaluation/historical/benchmark/oncology/v1/render_decisions.py")
     renderer = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(renderer)
     return renderer.render_decisions(manifest, benchmark, audit, candidates, ledger, conditions)
@@ -26,7 +27,7 @@ def render_decision_record(release: Path, benchmark: dict, manifest: dict, condi
 
 def verify_production_oracle(benchmark: dict, source_text: dict, actual: dict) -> None:
     from main import chunk_text
-    from verify_benchmark_reachability import verify_reachability
+    from tools.corpus.verify_benchmark_reachability import verify_reachability
     if actual != verify_reachability(benchmark, source_text, chunk_text):
         raise ValueError("oracle differs from production-chunker recomputation")
 
@@ -334,9 +335,9 @@ def verify(release: Path, corpus: Path) -> dict:
             raise ValueError(f"{name}: invalid nested membership or fingerprint")
         previous = set(ids)
     audit = json.loads((release / "legacy_audit.json").read_text())
-    root = release.resolve().parents[2]
+    root = ROOT
     active = {q["id"]: q for q in benchmark["queries"]}
-    legacy = {q["id"]: q for q in json.loads((root / "golden_qa.json").read_text())["queries"]}
+    legacy = {q["id"]: q for q in json.loads(recorded_path("golden_qa.json", root).read_text())["queries"]}
     verify_migration(audit, active, legacy)
     ledger = json.loads((release / "revision_ledger.json").read_text())
     verify_ledger(ledger, active, audit)
@@ -344,7 +345,7 @@ def verify(release: Path, corpus: Path) -> dict:
     expected_record = render_decision_record(release, benchmark, manifest, conditions, audit, candidates, ledger)
     verify_decision_record((release / "DECISIONS.md").read_text(), benchmark, audit, candidates, ledger, expected_record)
     for name, expected in audit["baseline_hashes"].items():
-        if digest((root / name).read_bytes()) != expected:
+        if digest(recorded_path(name, root).read_bytes()) != expected:
             raise ValueError(f"Preserved legacy baseline changed: {name}")
     verify_linkage(release, benchmark, manifest, conditions)
     for name in ["C1", "C2"]:
@@ -358,7 +359,7 @@ def verify(release: Path, corpus: Path) -> dict:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--release", type=Path, default=Path("benchmark/oncology/v1"))
+    parser.add_argument("--release", type=Path, default=Path("data/benchmark/sources/oncology/v1"))
     parser.add_argument("--corpus-dir", type=Path, default=Path("corpus/oncology-v1"))
     args = parser.parse_args()
     try:

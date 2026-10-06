@@ -2,7 +2,7 @@
 
 The four documents in this directory are extracted-text versions of open-access
 articles from the main `ai-research-assistant` corpus. They're the only entries
-in the full 19-document corpus (see `corpus_manifest.json`) licensed plain
+in the full 19-document corpus (see `data/archive/v1/corpus_manifest.json`) licensed plain
 CC BY 4.0 — no NC (non-commercial) or ND (no-derivatives) restriction — which
 is what makes them safe to commit directly to this repo, unlike the rest of
 the corpus, which carries mixed licensing and must be downloaded individually
@@ -11,7 +11,7 @@ per the main README.
 These four are ingested automatically on first run against an empty
 collection (see `_seed_if_empty()` in `main.py`), giving a working demo with
 zero manual setup. Set `SEED_ON_EMPTY=false` to disable this — e.g. when
-ingesting the full 19-document corpus locally via `ingest_corpus.py` instead.
+ingesting the full 19-document corpus locally via `tools/corpus/ingest_corpus.py` instead.
 
 Text extracted and added to this repo: 2026-08-18.
 

@@ -12,7 +12,7 @@ All 148 IDs executed once at n=3 and n=8 (296 local retrieval calls), zero missi
 
 Production `main.ingest`, `embed`, `chunk_text` and `retrieve()` were used, with `SEED_ON_EMPTY=false`, reranking, BM25 off and rewriting off. The isolated store source/text multiset equals production chunks exactly. Ingestion and all four runs match model file fingerprints; all nested comparisons pass `check_compatible`. Production retrieval/reranker threading was unchanged. No HTTP server, shared collection or paid call was started.
 
-Compatible saved baselines are explicit derived comparison artifacts, not new retrieval executions. [The derivation helper](../derive_baseline.py) rejects incomplete/duplicate IDs, revised per-query hashes, altered source tuples, changed scorer/feasibility, fabricated chunks and inconsistent metrics. It records the unchanged original timestamp/commit, parent path/hash/run ID/provenance and zero retrieval calls. This avoids 386 repeated baseline calls (two 45-case cardio conditions plus 49 diabetes, 44 oncology and ten outlier cases, at both depths). Raw parents remain unchanged in their topic releases.
+Compatible saved baselines are explicit derived comparison artifacts, not new retrieval executions. [The derivation helper](../../../../tools/evaluation/historical/benchmark/combined/derive_baseline.py) rejects incomplete/duplicate IDs, revised per-query hashes, altered source tuples, changed scorer/feasibility, fabricated chunks and inconsistent metrics. It records the unchanged original timestamp/commit, parent path/hash/run ID/provenance and zero retrieval calls. This avoids 386 repeated baseline calls (two 45-case cardio conditions plus 49 diabetes, 44 oncology and ten outlier cases, at both depths). Raw parents remain unchanged in their topic releases.
 
 ## Topic and nested-corpus results
 
@@ -105,7 +105,7 @@ The change review identifies true scoped-source losses, pinned-passage losses, c
 
 ## Unresolved work and claims
 
-The later [five-topic evaluation](../v2/REPORT.md) completed ALS/FTD integration.
+The later [five-topic evaluation](../../../findings/retrieval.md) completed ALS/FTD integration.
 The historical plan was to: independently review/freeze a001–a010, review cross-topic alternatives/negative scope across 55 articles, then use the 20 x/a cases and original 18-topic sample plus justified controls for iteration; complete declared coverage is needed for final 55-article claims. This report does not certify that extension.
 
 Required-source losses q051/o029 and passage losses q006/o004/x006 remain diagnostic follow-ups tracked in this report and the combined evaluation. Target those IDs and dependency/control families first for a justified later retrieval experiment. Global retriever/scorer changes would justify broader runs. No additional issue or scope expansion is silently created.

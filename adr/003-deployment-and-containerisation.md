@@ -148,7 +148,7 @@ on GitHub rather than worked around.** The advisory is a pre-auth RCE in
 Chroma's own FastAPI server component, reachable via
 `POST /api/v2/tenants/{tenant}/databases/{db}/collections` with a malicious
 HuggingFace model reference. This deployment never runs that component:
-`main.py` and `reset_collection.py` both construct
+`main.py` and `tools/corpus/reset_collection.py` both construct
 `chromadb.PersistentClient(path=CHROMA_PATH)`, the embedded, in-process mode.
 There is no `chroma run` server, no `chromadb[server]` extra installed, and
 no Chroma REST API exposed anywhere in this stack — the only HTTP surface is
@@ -194,8 +194,8 @@ documented-and-deliberate reads as judgement.
   this epic, and revisiting user/permissions here without also
   addressing auth would fix the smaller problem while leaving the
   bigger one (an open API key) untouched.
-- **No evaluation tooling shipped in the image.** `eval_golden.py`,
-  `golden_qa.json`, and `corpus_manifest.json` are not copied into the
+- **No evaluation tooling shipped in the image.** `tools/evaluation/eval_golden.py`,
+  `data/archive/v1/golden_qa.json`, and `data/archive/v1/corpus_manifest.json` are not copied into the
   container. Evaluation is, and remains, a host-side workflow run
   against the full 19-document corpus — the seed corpus baked into the
   image is a demo aid, not something ever run through the eval harness
@@ -209,10 +209,10 @@ documented-and-deliberate reads as judgement.
   volume; seeding is skipped once the collection is non-empty).
 - The seed corpus (4 CC-BY-licensed articles, 429 chunks) exists purely
   so the container isn't empty on first run. It has never been run
-  through `eval_golden.py` and is not represented in the 96.4% (n=3) /
+  through `tools/evaluation/eval_golden.py` and is not represented in the 96.4% (n=3) /
   98.2% (n=8) figures reported elsewhere in this repo — those numbers
   belong to the full 19-document corpus, loaded separately via
-  `ingest_corpus.py` against a host-run (non-Docker) instance. The
+  `tools/corpus/ingest_corpus.py` against a host-run (non-Docker) instance. The
   README quickstart states this explicitly so the two corpora are never
   conflated.
 - **`docker-compose.yml` pins `SEED_ON_EMPTY` and `CHROMA_PATH` via
@@ -232,9 +232,9 @@ documented-and-deliberate reads as judgement.
   `SEED_ON_EMPTY=false`.** The seed corpus and the full 19-document
   corpus share four overlapping articles (see
   `seed_corpus/ATTRIBUTION.md`) — if the host server auto-seeds before
-  `ingest_corpus.py` runs, those four end up ingested twice under
+  `tools/corpus/ingest_corpus.py` runs, those four end up ingested twice under
   different filenames (`.txt` from the seed corpus, `.pdf`-derived from
-  the full corpus). `eval_golden.py`'s document-name matching can't
+  the full corpus). `tools/evaluation/eval_golden.py`'s document-name matching can't
   deduplicate that, so it would silently corrupt retrieval evaluation.
   Previously this was documented only in `seed_corpus/ATTRIBUTION.md`;
   it's now stated directly in the README's host section.

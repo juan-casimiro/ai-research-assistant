@@ -38,18 +38,18 @@ be imperfect; corrections belong in the authoritative benchmark inputs.
 This index does not generate responses, judge answers or change gold.
 
 [Article catalogue](articles.md) · [Benchmark guide](../README.md) ·
-[Source-conflict examples](../../docs/evaluation/source-conflicts.md)
+[Source-conflict examples](../../findings/source-conflicts.md)
 
 ## Regenerate
 
 From the repository root:
 
 ```sh
-python render_case_index.py
-python render_case_index.py --check
+python -m tools.evaluation.render_case_index
+python -m tools.evaluation.render_case_index --check
 ```
 
-These pages are generated from `benchmark/combined/v2/manifest.json`, the five
+These pages are generated from `data/manifest.json`, the five
 topic query files and `case_dependencies.json`. The check fails if the pages
 are stale or question/article/evidence joins are broken. It uses no models,
 network access or downloaded corpus files. Detailed qualifiers, rubric rules

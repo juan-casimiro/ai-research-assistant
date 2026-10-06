@@ -4,11 +4,12 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+from tools.layout import recorded_path
 
 from pypdf import PdfReader
 
-ROOT = Path(__file__).resolve().parent
-DEFAULT_SELECTION = ROOT / "benchmark/cardiology/v1"
+ROOT = Path(__file__).resolve().parents[2]
+DEFAULT_SELECTION = ROOT / "data/benchmark/sources/cardiology/v1"
 
 
 def digest(data: bytes) -> str:
@@ -112,7 +113,7 @@ def verify(selection_dir: Path, corpus_dir: Path) -> int:
         raise ValueError("conditions are not nested or do not cover selection")
     migration = json.loads((selection_dir / "migration.json").read_text())
     for path, expected in migration["baseline"]["files"].items():
-        if digest((ROOT / path).read_bytes()) != expected:
+        if digest(recorded_path(path, ROOT).read_bytes()) != expected:
             raise ValueError(f"preserved baseline changed: {path}")
     return len(articles)
 

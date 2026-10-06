@@ -7,9 +7,9 @@ import argparse
 import json
 from pathlib import Path
 
-from benchmark_scoring import (compile_anchor_spans, compile_query_feasibility,
+from tools.evaluation.benchmark_scoring import (compile_anchor_spans, compile_query_feasibility,
                                minimum_evidence_witness, normalize_excerpt, score_evidence)
-from eval_benchmark import read_release
+from tools.evaluation.eval_benchmark import read_release
 
 
 def verify_reachability(benchmark: dict, source_text: dict, chunker) -> dict:
@@ -62,7 +62,7 @@ def verify_reachability(benchmark: dict, source_text: dict, chunker) -> dict:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--benchmark", type=Path, default=Path("benchmark/cardiology/v1"))
+    parser.add_argument("--benchmark", type=Path, default=Path("data/benchmark/sources/cardiology/v1"))
     parser.add_argument("--corpus-dir", type=Path, default=Path("corpus/cardiology-v1"))
     parser.add_argument("--condition", choices=["C1", "C2", "C3"], default="C2")
     args = parser.parse_args()

@@ -8,7 +8,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from fetch_article_metadata import fetch_metadata, main, parse_record
+from tools.corpus.fetch_article_metadata import fetch_metadata, main, parse_record
 
 
 class ArticleMetadataTests(unittest.TestCase):
@@ -91,7 +91,7 @@ class ArticleMetadataTests(unittest.TestCase):
     def xml_service(self, checksum):
         metadata = dict(self.cloud_metadata, xml_url=f"s3://pmc-oa-opendata/PMC123456.2/test-article.xml?md5={checksum}")
         responses = [json.dumps(metadata).encode(), json.dumps(self.identifiers).encode(), self.pubmed, self.jats]
-        return patch("fetch_article_metadata.read_bytes", side_effect=responses)
+        return patch("tools.corpus.fetch_article_metadata.read_bytes", side_effect=responses)
 
     def test_xml_checksum_match_allows_parsing_and_archival(self):
         with tempfile.TemporaryDirectory() as directory, self.xml_service(hashlib.md5(self.jats).hexdigest()):
@@ -125,7 +125,7 @@ class ArticleMetadataTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "PubMed reports a retraction"):
             parse_record(self.cloud_metadata, self.jats, pubmed, self.identifiers)
 
-    @patch("fetch_article_metadata.read_bytes")
+    @patch("tools.corpus.fetch_article_metadata.read_bytes")
     def test_invalid_input_and_wrong_deposit_version_fail_before_join(self, source_reader):
         with self.assertRaises(ValueError):
             fetch_metadata("123456", 2, "a search", "test.pdf", "cardiology")

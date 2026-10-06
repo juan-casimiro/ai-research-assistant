@@ -13,7 +13,7 @@ import re
 from urllib.parse import parse_qs, urlencode, urlsplit
 import xml.etree.ElementTree as ET
 
-from download_corpus import BUCKET, open_url
+from tools.corpus.download_corpus import BUCKET, open_url
 
 ID_CONVERTER = "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/"
 EFETCH = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"

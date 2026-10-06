@@ -10,9 +10,9 @@ import json
 from pathlib import Path
 import xml.etree.ElementTree as ET
 
-from benchmark_scoring import canonical_hash
-from eval_benchmark import read_release
-from fetch_article_metadata import parse_record
+from tools.evaluation.benchmark_scoring import canonical_hash
+from tools.evaluation.eval_benchmark import read_release
+from tools.corpus.fetch_article_metadata import parse_record
 from pypdf import PdfReader
 
 
@@ -111,7 +111,7 @@ def verify(directory: Path, corpus: Path) -> dict:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--benchmark", type=Path, default=Path("benchmark/als-ftd/v1"))
+    parser.add_argument("--benchmark", type=Path, default=Path("data/benchmark/sources/als-ftd/v1"))
     parser.add_argument("--corpus-dir", type=Path, default=Path("corpus/als-ftd-v1"))
     args = parser.parse_args()
     try:

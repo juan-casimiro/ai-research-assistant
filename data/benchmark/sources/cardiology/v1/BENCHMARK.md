@@ -30,7 +30,7 @@ summary and comparison denominators consistent.
 All 34 legacy cardiology cases were reviewed, including the 17 directly dependent
 on the removed AF review or hypertension survey. **21 are revised at revision 2;
 13 are retired**, with successor tasks and rationale in `migration.json`.
-`golden_qa.json`, its 133 cases, original article manifest and historical results
+`data/archive/v1/golden_qa.json`, its 133 cases, original article manifest and historical results
 remain byte-identical. Similar IDs do not mean comparable questions or scores.
 
 Examples of resolved authoring problems:
@@ -149,7 +149,7 @@ ingestion/model provenance before making quality claims. Remote rewrite aliases
 also cannot prove immutable provider weights. Keep these limits with results.
 
 The source identifier is the manifest's `.pdf` filename. Host ingestion through
-`ingest_corpus.py` saves a `.txt` extraction sidecar but posts the `.pdf` name to
+`tools/corpus/ingest_corpus.py` saves a `.txt` extraction sidecar but posts the `.pdf` name to
 `/ingest`, which preserves it. Demo seeding stores `.txt` names and is deliberately
 incompatible with these conditions; disable it for isolated benchmark ingestion.
 Chroma errors are reported as named errors with a nonzero exit status.
@@ -165,8 +165,8 @@ Offline validation is available now:
 
 ```bash
 .venv/bin/python -m unittest discover -v
-.venv/bin/python verify_cardiology_selection.py
-.venv/bin/python verify_benchmark_reachability.py --condition C2
+.venv/bin/python -m tools.corpus.verify_cardiology_selection
+.venv/bin/python -m tools.corpus.verify_benchmark_reachability --condition C2
 ```
 
 The reachability check needs the pinned local PDFs/text but loads no models,
@@ -189,7 +189,7 @@ For example, **only after C2 is ingested**:
 
 ```bash
 SEED_ON_EMPTY=false CHROMA_PATH=./chroma_db/cardio-C2 \
-  .venv/bin/python eval_golden.py --benchmark benchmark/cardiology/v1 \
+  .venv/bin/python -m tools.evaluation.eval_golden --benchmark data/benchmark/sources/cardiology/v1 \
   --condition C2 --ids q047,q050 --output eval_results/runs/example-vector.json
 ```
 
@@ -217,9 +217,9 @@ all-selection overlap review intentionally makes source changes conservative.
 The dependency map is query-hash bound; regenerate it when gold changes.
 
 ```bash
-.venv/bin/python compare_evals.py <vector-run.json> <bm25-run.json>
-.venv/bin/python compare_evals.py <C1-run.json> <C2-run.json> --nested-corpus
-.venv/bin/python compare_evals.py <historical-baseline.json> <historical-bm25.json> --allow-legacy
+.venv/bin/python -m tools.evaluation.compare_evals <vector-run.json> <bm25-run.json>
+.venv/bin/python -m tools.evaluation.compare_evals <C1-run.json> <C2-run.json> --nested-corpus
+.venv/bin/python -m tools.evaluation.compare_evals <historical-baseline.json> <historical-bm25.json> --allow-legacy
 ```
 
 Normal comparisons reject changed gold/scorer/retrieval pins, changed corpus,

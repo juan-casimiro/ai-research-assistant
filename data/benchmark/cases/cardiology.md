@@ -1,11 +1,11 @@
 # Cardiology evaluation cases
 
 Generated from the current combined v2 inputs. Regenerate with
-`python render_case_index.py`; do not edit this page by hand.
+`python -m tools.evaluation.render_case_index`; do not edit this page by hand.
 
 [All topics](README.md) · [Article catalogue](articles.md) ·
-[Authoritative questions](../combined/v2/cardiology/queries.json) ·
-[Dependency map](../combined/v2/case_dependencies.json)
+[Authoritative questions](../cardiology/queries.json) ·
+[Dependency map](../case_dependencies.json)
 
 Expected responses are model-reviewed references, not biomedical expert
 certification or observed RAG responses. No new scoring is performed here.
@@ -94,7 +94,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -136,7 +136,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -178,7 +178,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not treat CHA2DS2-VASc and CHA2DS2-VA as the same score or assert a universal score ceiling.
 
 **Overlap review:** 53 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -219,7 +219,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -261,7 +261,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -300,7 +300,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not reinterpret observational associations as causal effects or silently correct inconsistent coefficient/OR rows.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -341,7 +341,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not accept the legacy premise that both combined models exceeded 0.93.
 
 **Overlap review:** 53 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -383,7 +383,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not assert that n=131 is an imaging subgroup or complete-case subset of n=280.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -422,7 +422,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -461,7 +461,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -500,7 +500,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -540,7 +540,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -580,7 +580,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not extend the interaction finding to GDF-15 or HF rehospitalization, which have no reported diabetes-status interaction result.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -621,7 +621,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -662,7 +662,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -701,7 +701,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -740,7 +740,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -782,7 +782,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -824,7 +824,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -864,7 +864,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -910,7 +910,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -960,7 +960,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1001,7 +1001,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1043,7 +1043,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not label scattergram-level estimates as ECG-record-level performance.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1084,7 +1084,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes.
 
 **Overlap review:** 53 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1123,7 +1123,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1168,7 +1168,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1207,7 +1207,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1248,7 +1248,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes.
 
 **Overlap review:** 53 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1293,7 +1293,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1336,7 +1336,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes.
 
 **Overlap review:** 53 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1381,7 +1381,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1428,7 +1428,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not report one reading as uncontested, and do not average or merge the two readings.
 
 **Overlap review:** 53 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1474,7 +1474,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not report one reading as uncontested, and do not average or merge the two readings.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1520,7 +1520,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1562,7 +1562,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes.
 
 **Overlap review:** 53 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1605,7 +1605,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes.
 
 **Overlap review:** 53 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1648,7 +1648,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 **Premise to correct:** Direct head-to-head randomization and comprehensive QALY assessment were performed.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1690,7 +1690,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 **Premise to correct:** The incremental discrimination improvement was statistically significant.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1733,7 +1733,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 **Premise to correct:** Randomized head-to-head evidence established mortality superiority in HFpEF.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1770,7 +1770,7 @@ The selected trial reports four-week BP outcomes; no selected paper supplies fiv
 Recorded search terms: Cameroon, Djoumessi, spironolactone, mortality, five-year
 
 **Overlap review:** 55 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1807,7 +1807,7 @@ The primary and review report 12-month outcomes; the other AF studies concern de
 Recorded search terms: TAILORED-AF, five-year, long-term follow-up, freedom from AF
 
 **Overlap review:** 55 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1844,7 +1844,7 @@ The source’s horizon is one year and composite includes unstable-angina utiliz
 Recorded search terms: Gao, 1884303, ten-year, hard MACE, external validation
 
 **Overlap review:** 55 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1889,7 +1889,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not generalize a source-specific estimate to other cohorts, endpoints or timeframes.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -1932,7 +1932,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 **Premise to correct:** All participants achieved office BP below 130/80 after one month.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)

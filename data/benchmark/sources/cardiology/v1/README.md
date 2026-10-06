@@ -27,15 +27,15 @@ summary. Selection is finalized before gold question authoring.
 - [migration.json](migration.json): original file fingerprints, 19 legacy article
   dispositions, all 34 direct cardiology cases plus 10 GWAS/GPT-5 dependencies,
   and additional topic/evidence overlap review flags. It preserves retired IDs.
-- [metadata/](metadata/): byte-identical Cloud JSON, batched PubMed XML and PMCID
+- [metadata/](metadata): byte-identical Cloud JSON, batched PubMed XML and PMCID
   converter response. Exact original URLs and SHA-256 receipts are in the manifest.
   The much larger raw article XML, PDFs, text and page renders remain local.
 
-The original `corpus_manifest.json`, `golden_qa.json`, evaluation results and
+The original `data/archive/v1/corpus_manifest.json`, `data/archive/v1/golden_qa.json`, evaluation results and
 local corpus are preserved. No server, collection, ingestion or golden run was
 started. Historical retrieval percentages describe the original benchmark only.
 The [45-case query release and scorer](BENCHMARK.md) are authored under the
-[shared standards](../../STANDARDS.md), with the reviewed release preserved as authoring input.
+[shared standards](../../../../../docs/benchmark-standards.md), with the reviewed release preserved as authoring input.
 The [first C1/C2 retrieval baseline](REPORT.md) records historical isolated cardiology results and
 manual evidence review; C3 adds no articles yet. Most selected papers are sources;
 roles remain query specific and the two competitors are not topic outliers.
@@ -54,7 +54,7 @@ licence, ordered article authors, publication date, article type and PDF object.
 `search_query` is acquisition provenance supplied by the researcher; neither
 PubMed nor PMC can recover the query used in an earlier search.
 
-[fetch_article_metadata.py](../../../fetch_article_metadata.py) does this join,
+[fetch_article_metadata.py](../../../../../tools/corpus/fetch_article_metadata.py) does this join,
 checks PMCID/PMID/DOI/title identity, preserves structured abstract labels and
 publication-date precision, and writes a **pending** draft record. It preserves
 `filename`, `cluster`, `search_query`, `doi`, `pmcid`, `pmc_version`, `title`,
@@ -70,7 +70,7 @@ version chosen after inspecting the
 [PMC version listing](https://pmc-oa-opendata.s3.amazonaws.com/?list-type=2&prefix=metadata%2FPMC10363301.):
 
 ```sh
-.venv/bin/python fetch_article_metadata.py \
+.venv/bin/python -m tools.corpus.fetch_article_metadata \
   --pmcid PMC10363301 --pmc-version 1 \
   --filename cardio-af-incident-ecg-calibration.pdf --cluster cardiology \
   --search-query '<exact query used for discovery>' \
@@ -93,8 +93,8 @@ supported metadata/PDF route. Legacy OA/FTP and browser-only publisher routes
 are not used. PDFs remain untracked and public PDF publication is separate.
 
 ```sh
-.venv/bin/python download_corpus.py \
-  --manifest benchmark/cardiology/v1/manifest.json \
+.venv/bin/python -m tools.corpus.download_corpus \
+  --manifest data/benchmark/sources/cardiology/v1/manifest.json \
   --corpus-dir corpus/cardiology-v1
 ```
 
@@ -137,7 +137,7 @@ for article in selection['articles']:
     pdf.with_suffix('.txt').write_text(
         '\n'.join(page.extract_text() or '' for page in reader.pages), encoding='utf-8')
 PYTHON
-.venv/bin/python verify_cardiology_selection.py
+.venv/bin/python -m tools.corpus.verify_cardiology_selection
 ```
 
 The verifier checks exact selected bytes, deterministic extraction, source
@@ -235,4 +235,4 @@ indirect studies must not be presented as primary head-to-head evidence.
 
 ## Gold correction revision — 2026-10-05
 
-The active query set incorporates the [source-grounded correction ledger](../../corrections/2026-10-05/README.md). Prior runs retain their original questions and fingerprints; they are not runs of this corrected revision. The corpus and evaluation strategy are unchanged.
+The active query set incorporates the [source-grounded correction ledger](../../../corrections/2026-10-05/README.md). Prior runs retain their original questions and fingerprints; they are not runs of this corrected revision. The corpus and evaluation strategy are unchanged.

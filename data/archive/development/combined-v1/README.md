@@ -18,10 +18,10 @@ The manifests retain original article records, including metadata archive paths
 relative to their original topic releases. `source_releases` identifies those
 authoritative manifests; metadata archives are not duplicated here.
 Attribution/notice/third-party inventories cover every selected article:
-[cardiology](../../cardiology/v1/ATTRIBUTION.md),
-[diabetes](../../diabetes/v1/ATTRIBUTION.md),
-[oncology](../../oncology/v1/ATTRIBUTION.md),
-[outliers](../../outliers/v1/ATTRIBUTION.md).
+[cardiology](../../../benchmark/sources/cardiology/v1/ATTRIBUTION.md),
+[diabetes](../../../benchmark/sources/diabetes/v1/ATTRIBUTION.md),
+[oncology](../../../benchmark/sources/oncology/v1/ATTRIBUTION.md),
+[outliers](../../../benchmark/sources/outliers/v1/ATTRIBUTION.md).
 Shared articles are counted once. Exact versions, licence links, download routes
 and byte hashes stay in the manifests. PDFs/full text remain ignored local files;
 publication requires separate authorization.
@@ -34,8 +34,8 @@ different frozen envelope. Input views verify every PDF/text hash; they never
 silently accept drift. The following preparation makes no model/provider call:
 
 ```sh
-.venv/bin/python benchmark/combined/build_release.py --output benchmark/combined/v1
-.venv/bin/python benchmark/combined/prepare_corpus.py \
+.venv/bin/python -m tools.historical script benchmark/combined/build_release.py --output benchmark/combined/v1
+.venv/bin/python -m tools.corpus.prepare_corpus \
   --benchmark benchmark/combined/v1/cardiology --corpus-dir corpus/combined-v1 \
   --sources corpus/cardiology-v1 corpus/diabetes-v1 corpus/oncology-v1 corpus/outliers-v1
 ```
@@ -52,7 +52,7 @@ SEED_ON_EMPTY=false OTEL_TRACES_EXPORTER=none PYTHONPATH=. \
   --benchmark benchmark/combined/v1/cardiology --corpus-dir corpus/combined-v1 \
   --condition C3 --receipt <new-ingestion.json>
 SEED_ON_EMPTY=false OTEL_TRACES_EXPORTER=none CHROMA_PATH=<fresh-store> \
-  .venv/bin/python eval_golden.py --benchmark benchmark/combined/v1/cardiology \
+  .venv/bin/python -m tools.evaluation.eval_golden --benchmark benchmark/combined/v1/cardiology \
   --corpus-dir corpus/combined-v1 --condition C3 --output <new-cardio.json>
 # Repeat evaluation for diabetes, oncology and outliers in the same verified store.
 # Use --ids only for justified targeted iteration, preserving new immutable outputs.
@@ -62,11 +62,11 @@ Baseline derivation verifies saved context bytes and metrics with unchanged gold
 Use a fresh output path; repeat for the other listed raw parents as needed:
 
 ```sh
-.venv/bin/python benchmark/combined/derive_baseline.py \
+.venv/bin/python -m tools.historical script benchmark/combined/derive_baseline.py \
   benchmark/cardiology/v1/runs/C1-vector.json \
   --benchmark benchmark/combined/v1/cardiology --corpus-dir corpus/combined-v1 \
   --condition C1 --output <new-C1-parent.json>
-.venv/bin/python compare_evals.py <new-C1-parent.json> <new-cardio.json> --nested-corpus
+.venv/bin/python -m tools.evaluation.compare_evals <new-C1-parent.json> <new-cardio.json> --nested-corpus
 ```
 
 The other immutable parents are cardiology `runs/C2-vector.json`, diabetes
@@ -77,7 +77,7 @@ The summarizer verifies four complete nested pairs, input fingerprints, all
 model/ingestion joins, stored summaries and the complete historical 18-case slice:
 
 ```sh
-.venv/bin/python benchmark/combined/summarize_runs.py --output <new-analysis.json>
+.venv/bin/python -m tools.historical script benchmark/combined/summarize_runs.py --output <new-analysis.json>
 .venv/bin/python -m unittest discover -v
 ```
 

@@ -2,7 +2,7 @@
 """Compare two eval_results.json files side-by-side.
 
 Usage:
-    python compare_evals.py eval_results_baseline.json eval_results_bm25.json
+    python -m tools.evaluation.compare_evals eval_results_baseline.json eval_results_bm25.json
 """
 import argparse
 import json
@@ -46,7 +46,7 @@ def check_compatible(baseline: dict, experiment: dict, *, allow_legacy=False,
             raise ValueError("missing provenance; historical pairs require --allow-legacy and cannot be mixed with versioned runs")
         return
     bp, ep = provenance
-    from benchmark_scoring import (FEASIBILITY_VERSION, canonical_hash,
+    from tools.evaluation.benchmark_scoring import (FEASIBILITY_VERSION, canonical_hash,
                                    feasibility_from_minimum, validate_answerability)
     for field in ["query_version", "query_sha256", "scorer_version", "scorer_sha256",
                   "retrieval_sha256", "selection_sha256", "subset_sha256", "conditions_sha256", "depths",
@@ -136,7 +136,7 @@ def main() -> None:
             counts = [sum(data[qid][f"n{n}"]["metrics"]["document_coverage"] == "pass" for qid in scored)
                       for data in [base, exp]]
             print(f"  document_coverage: {counts[0]}/{len(scored)} → {counts[1]}/{len(scored)}")
-            from benchmark_scoring import evidence_coverage_report
+            from tools.evaluation.benchmark_scoring import evidence_coverage_report
             reports = [evidence_coverage_report([data[qid] for qid in scored], n) for data in [base, exp]]
             for scope in ["full_set", "feasible_only"]:
                 before, after = [report[scope] for report in reports]

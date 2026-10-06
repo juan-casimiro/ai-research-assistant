@@ -50,7 +50,7 @@ bytes when available. Outlier acquisition is documented in the parent release.
 With those PDFs/texts available, run from the repository root:
 
 ```sh
-.venv/bin/python benchmark/outliers/v1/als-ftd-audit-v1/verify.py --als-ftd-corpus <local-als-ftd-source-directory> --corruption-checks
+.venv/bin/python -m tools.historical script benchmark/outliers/v1/als-ftd-audit-v1/verify.py --als-ftd-corpus <local-als-ftd-source-directory> --corruption-checks
 .venv/bin/python -m unittest discover -v
 ```
 

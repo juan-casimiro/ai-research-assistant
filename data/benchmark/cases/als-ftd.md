@@ -1,11 +1,11 @@
 # Als-Ftd evaluation cases
 
 Generated from the current combined v2 inputs. Regenerate with
-`python render_case_index.py`; do not edit this page by hand.
+`python -m tools.evaluation.render_case_index`; do not edit this page by hand.
 
 [All topics](README.md) · [Article catalogue](articles.md) ·
-[Authoritative questions](../combined/v2/als-ftd/queries.json) ·
-[Dependency map](../combined/v2/case_dependencies.json)
+[Authoritative questions](../als-ftd/queries.json) ·
+[Dependency map](../case_dependencies.json)
 
 Expected responses are model-reviewed references, not biomedical expert
 certification or observed RAG responses. No new scoring is performed here.
@@ -62,7 +62,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not equate tissue immunohistochemistry and cultured-neuron protein extracts as identical assays.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -108,7 +108,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 **Premise to correct:** Liu et al. proved Cas13d improved survival and motor function in C9-500 BAC mice.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -149,7 +149,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not report the proposed cellular-environment explanation as a demonstrated mechanism or a mild decrease as necessarily statistically significant.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -197,7 +197,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not claim network bursting was normalized to wild type: no WT electrophysiology comparison was performed.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -248,7 +248,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not generalize primarily single-donor findings to all patients.
 
 **Overlap review:** 53 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -290,7 +290,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not infer clinical efficacy from embryonic zebrafish axon endpoints.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -334,7 +334,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not substitute another TDP subtype for reported type C.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -378,7 +378,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not conflate the tissue series with the single case or attribute PKR diagnostic testing to the case.
 
 **Overlap review:** 53 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -424,7 +424,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not equate SPECT interpretation with genetic/pathological findings.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)
@@ -470,7 +470,7 @@ additional mandatory sources. Page numbers refer to the pinned PDF.
 - Do not claim sense axonopathy was rescued by eif2ak2 knockdown.
 
 **Overlap review:** 54 other articles were considered; see the
-[recorded dependency map](../combined/v2/case_dependencies.json).
+[recorded dependency map](../case_dependencies.json).
 Review scope does not make every article a distractor or accepted source.
 
 [Back to questions](#find-a-question)

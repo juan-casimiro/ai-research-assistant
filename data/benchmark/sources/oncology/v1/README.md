@@ -6,7 +6,7 @@ Selection and gold were authored without retrieval results. Review rounds
 are recorded in the historical review files. The reviewed merge is held fixed for the local retrieval baseline in [EVALUATION.md](EVALUATION.md).
 
 [DECISIONS.md](DECISIONS.md) explains every article, candidate, case and legacy-migration
-decision, and lists open decisions. [render_decisions.py](render_decisions.py) generates it from the
+decision, and lists open decisions. [render_decisions.py](../../../../../tools/evaluation/historical/benchmark/oncology/v1/render_decisions.py) generates it from the
 release JSON files plus the article rationales and principles held in that script. The verifier
 rejects undocumented decisions, shared boilerplate rationale and prose that differs
 from a fresh in-memory render.
@@ -40,7 +40,7 @@ representative evidence pages were rendered; exact gold evidence is separately
 bound in [queries.json](queries.json). Standalone linked supplements are excluded.
 
 [ATTRIBUTION.md](ATTRIBUTION.md) supplies ordered author citations, notices and
-source/licence links. [metadata/](metadata/) contains unchanged Cloud JSON,
+source/licence links. [metadata/](metadata) contains unchanged Cloud JSON,
 PubMed XML and converter responses with manifest hashes. PDFs, complete article
 XML, extracted text and renders remain local and ignored by Git. Original global
 manifest, golden cases, prior evaluation results and shared collections are preserved.
@@ -101,7 +101,7 @@ Run from the repository root with Python 3.12 and pypdf 6.16.1. PDFs are fetched
 using supported PMC Cloud deposits; no browser exceptions apply to this set.
 
 ```sh
-.venv/bin/python download_corpus.py --manifest benchmark/oncology/v1/manifest.json --corpus-dir corpus/oncology-v1
+.venv/bin/python -m tools.corpus.download_corpus --manifest data/benchmark/sources/oncology/v1/manifest.json --corpus-dir corpus/oncology-v1
 .venv/bin/python - <<'PY'
 import hashlib, json
 from pathlib import Path
@@ -120,8 +120,8 @@ for article in json.loads((release / 'manifest.json').read_text())['articles']:
     assert hashlib.sha256(xml).hexdigest() == article['metadata_sources']['article.xml']['sha256']
     (corpus / f"{article['article_id']}.{article['pmc_version']}.cloud.xml").write_bytes(xml)
 PY
-.venv/bin/python verify_oncology_release.py
-.venv/bin/python verify_benchmark_reachability.py --benchmark benchmark/oncology/v1 --corpus-dir corpus/oncology-v1 --condition C2
+.venv/bin/python -m tools.corpus.verify_oncology_release
+.venv/bin/python -m tools.corpus.verify_benchmark_reachability --benchmark data/benchmark/sources/oncology/v1 --corpus-dir corpus/oncology-v1 --condition C2
 .venv/bin/python -m unittest discover -v
 ```
 
@@ -148,3 +148,7 @@ runs require separate explicit approval.
 
 Raw duplicate PDFs and deferred candidates remain archived under
 `corpus/oncology-v1/acquisition/`, outside top-level selected membership.
+
+The generated decision record retains its original command and bytes. Run its
+archived generator through the [original-layout runner](../../../../../tools/README.md#preserved-historical-tools);
+relative output belongs to the temporary historical view.

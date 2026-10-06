@@ -15,11 +15,11 @@ from anthropic import APIError
 from httpx import HTTPError
 from ollama import ResponseError
 from llm_client import LlmTimeoutError
-from benchmark_scoring import (FEASIBILITY_VERSION, SCORER_VERSION, canonical_hash,
+from tools.evaluation.benchmark_scoring import (FEASIBILITY_VERSION, SCORER_VERSION, canonical_hash,
                                compile_anchor_spans, compile_query_feasibility,
                                evidence_coverage_report, score_evidence, validate_benchmark)
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[2]
 
 
 def write_checkpoint(path: Path, output: dict) -> None:
@@ -144,7 +144,7 @@ def summarize(results: list[dict]) -> dict:
 async def run_benchmark(args, retrieve, load_models) -> int:
     import main as production
     run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ") + "-" + uuid4().hex[:8]
-    output_path = args.output or Path("eval_results/runs") / f"{run_id}.json"
+    output_path = args.output or ROOT / "data/evaluations/local/runs" / f"{run_id}.json"
     output = None
     finished = False
     try:
@@ -182,7 +182,7 @@ async def run_benchmark(args, retrieve, load_models) -> int:
         provenance = {"query_version": benchmark["query_version"], "query_sha256": canonical_hash(benchmark),
             "subset_sha256": canonical_hash(queries), "scorer_version": SCORER_VERSION,
             "feasibility_version": FEASIBILITY_VERSION, "feasibility_sha256": canonical_hash(feasibility),
-            "scorer_sha256": canonical_hash({"scoring": hashlib.sha256((ROOT / "benchmark_scoring.py").read_bytes()).hexdigest(),
+            "scorer_sha256": canonical_hash({"scoring": hashlib.sha256((ROOT / "tools/evaluation/benchmark_scoring.py").read_bytes()).hexdigest(),
                 "adapter": hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}),
             "retrieval_sha256": retrieval_fingerprint, "selection_sha256": manifest["fingerprint_sha256"],
             "conditions_sha256": canonical_hash(conditions), "condition": args.condition,

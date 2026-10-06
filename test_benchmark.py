@@ -13,14 +13,14 @@ from anthropic import APIError, AuthenticationError
 import httpx
 from ollama import ResponseError
 from llm_client import LlmTimeoutError
-import compare_evals
+from tools.evaluation import compare_evals
 
-from benchmark_scoring import (CATEGORIES, FEASIBILITY_VERSION, canonical_hash, compile_anchor_spans,
+from tools.evaluation.benchmark_scoring import (CATEGORIES, FEASIBILITY_VERSION, canonical_hash, compile_anchor_spans,
                                compile_query_feasibility, evidence_coverage_report, feasibility_from_minimum,
                                minimum_evidence_witness, score_evidence, validate_answerability, validate_benchmark)
-from compare_evals import check_compatible
-import eval_benchmark as runner
-from verify_benchmark_reachability import verify_reachability
+from tools.evaluation.compare_evals import check_compatible
+from tools.evaluation import eval_benchmark as runner
+from tools.corpus.verify_benchmark_reachability import verify_reachability
 
 ROOT = Path(__file__).resolve().parent
 
@@ -338,7 +338,7 @@ class ReleaseTests(unittest.TestCase):
             validate_benchmark({"queries": [q], "anchors": list(anchors.values())})
 
     def test_checked_in_release_covers_migration_and_exact_source_union(self):
-        directory = ROOT / "benchmark/cardiology/v1"
+        directory = ROOT / "data/benchmark/sources/cardiology/v1"
         b = json.loads((directory / "queries.json").read_text())
         validate_benchmark(b)
         queries = {q["id"]: q for q in b["queries"]}

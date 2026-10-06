@@ -73,13 +73,13 @@ MUTATIONS = [
      "test_main.RetrievalTests.test_rerank_runs_off_loop_and_preserves_top_n_order", "is not true"),
     ("llm-retries", "llm_client.py", "max_retries=0", "max_retries=2",
      "test_llm_client.ConfigurationTests.test_default_anthropic_settings_are_preserved", "expected call not found"),
-    ("distractor-order", "eval_golden.py", "sources.index(expected) >= sources.index(distractor)", "sources.index(expected) < sources.index(distractor)",
+    ("distractor-order", "tools/evaluation/eval_golden.py", "sources.index(expected) >= sources.index(distractor)", "sources.index(expected) < sources.index(distractor)",
      "test_evaluation.ScoringTests.test_category_scoring_including_missing_metadata_and_distractor_order", "FAIL:"),
-    ("synthesis-all-sources", "eval_golden.py", "all(doc in sources for doc in expected_docs)", "any(doc in sources for doc in expected_docs)",
+    ("synthesis-all-sources", "tools/evaluation/eval_golden.py", "all(doc in sources for doc in expected_docs)", "any(doc in sources for doc in expected_docs)",
      "test_evaluation.ScoringTests.test_category_scoring_including_missing_metadata_and_distractor_order", "FAIL:"),
-    ("false-premise-exclusion", "eval_context_sufficient.py", 'FALSE_PREMISE_EXCLUSIONS = {"q083"}', "FALSE_PREMISE_EXCLUSIONS = set()",
+    ("false-premise-exclusion", "tools/evaluation/eval_context_sufficient.py", 'FALSE_PREMISE_EXCLUSIONS = {"q083"}', "FALSE_PREMISE_EXCLUSIONS = set()",
      "test_evaluation.SufficiencyEvaluationTests.test_buckets_exclude_false_premise_and_sample_only_n8_passes_reproducibly", "Lists differ"),
-    ("false-positive-denominator", "eval_context_sufficient.py", "false_positives / false_bucket_total", "false_positives / len(samples)",
+    ("false-positive-denominator", "tools/evaluation/eval_context_sufficient.py", "false_positives / false_bucket_total", "false_positives / len(samples)",
      "test_evaluation.SufficiencyEvaluationTests.test_error_rates_use_separate_denominators_and_id_filter", "FAIL:"),
 ]
 
@@ -100,6 +100,8 @@ def main():
             work = Path(directory)
             for path in root.glob("*.py"):
                 shutil.copyfile(path, work / path.name)
+            shutil.copytree(root / "tools", work / "tools",
+                            ignore=shutil.ignore_patterns("__pycache__"))
             target = work / filename
             original = target.read_bytes()
             source = original.decode()

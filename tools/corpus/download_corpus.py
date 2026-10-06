@@ -14,7 +14,7 @@ import webbrowser
 
 from pypdf import PdfReader
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[2]
 BUCKET = "https://pmc-oa-opendata.s3.amazonaws.com"
 USER_AGENT = "ai-research-assistant-corpus-downloader/1.0"
 
@@ -80,7 +80,7 @@ def download(url: str, destination: Path, checksum: str | None) -> None:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--manifest", type=Path, default=ROOT / "corpus_manifest.json")
+    parser.add_argument("--manifest", type=Path, default=ROOT / "data/manifest.json")
     parser.add_argument("--corpus-dir", type=Path, default=ROOT / "corpus")
     parser.add_argument("--filename", action="append", help="Download only this exact manifest filename (repeatable)")
     parser.add_argument("--open-manual", action="store_true", help="Open missing manual articles in your default browser")
