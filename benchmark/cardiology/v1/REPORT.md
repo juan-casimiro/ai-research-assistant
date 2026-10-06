@@ -1,4 +1,4 @@
-# First cardiology retrieval baseline — JUA-110
+# First cardiology retrieval baseline
 
 On 2026-10-02, vector retrieval with the production cross-encoder reranker
 retrieved complete source sets much more often than complete pinned evidence.
@@ -10,8 +10,7 @@ retrieval baseline, not answer accuracy, a BM25 comparison or a full-corpus clai
 
 ## Frozen release and experiment
 
-Juan instructed that JUA-109 be considered done and that PR30 was already on the
-epic branch. Both experiments ran against epic commit `9910c2f` plus the
+Both historical experiments ran against commit `9910c2f` plus the
 then-uncommitted ingestion helper, preserved as
 [`ingest_isolated_20261002.py`](runs/ingest_isolated_20261002.py) and bound by
 its original SHA-256 in `artifacts.json`. The production evaluation code was
@@ -19,9 +18,7 @@ unchanged. The current reproduction helper adds explicit safety guards and atomi
 receipt finalization; it was not used for these saved runs. Both experiments use
 the unchanged
 `cardiology-queries-v1` release, `pinned-span-coverage-v3` scorer and
-`minimum-evidence-chunks-v3` feasibility contract. The authoring files retain their
-historical pending-review wording; this report records the experiment authorization
-without rewriting release fingerprints. Clinical independent review remains a limit.
+`minimum-evidence-chunks-v3` feasibility contract. The original authoring and experiment fingerprints remain preserved. Clinical independent review remains a limit.
 
 C1 is the 19-article union of required/accepted alternative answer sources. C2 is
 that identical union plus `PMC10619268` (Korean resistant-hypertension consensus,

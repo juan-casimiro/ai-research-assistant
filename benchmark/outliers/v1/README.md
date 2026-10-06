@@ -13,7 +13,7 @@ committed.
 
 The former Galápagos AMR article is excluded because its CC BY-NC-ND licence is
 outside the new-corpus policy. The GPT-5/tau217 paper's no-PMCID and restrictive
-licence exclusion is owned by JUA-108. The Alzheimer replacement is a different
+licence exclusion is owned by the article selection audit. The Alzheimer replacement is a different
 study and does not reproduce its plasma-tau or physician-comparison evidence.
 Other rejected and deferred candidates include their failed eligibility gates
 in `candidate_log.json`.
@@ -32,11 +32,11 @@ independently preserved as exact database syntax and are labelled accordingly.
 outliers and ten cases against the four later ALS/FTD sources. The relationship,
 dependency and review records link its evidence-grounded decisions. Queries,
 evidence and frozen experiment membership remain unchanged; integrated review
-and retrieval verification are handed off explicitly to JUA-114.
+and retrieval verification are recorded in the current combined benchmark.
 
 The outlier-only condition has five articles. C1, C2, and C3 therefore share
 membership here and should be evaluated once; the broader cross-topic C3
-condition is deferred to JUA-114. This release's absent-fact check covers all
+condition is recorded in the current combined benchmark. This release's absent-fact check covers all
 five outlier articles only. It does not establish absence across the integrated
 cardiology, diabetes, and oncology corpus.
 
@@ -67,7 +67,7 @@ production `retrieve()` path with reranking, but do not run answer generation,
 query rewriting, BM25, or an answer judge. Read `REPORT.md` for observed scores,
 limits, and exact run records. Document/evidence retrieval metrics are not
 answer correctness or refusal accuracy. Complete combined-corpus absence review
-and full topic evaluation remain JUA-114 work.
+and full topic evaluation are recorded in the current combined benchmark.
 
 ## Gold correction revision — 2026-10-05
 

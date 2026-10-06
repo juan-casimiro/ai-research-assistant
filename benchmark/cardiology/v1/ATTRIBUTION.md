@@ -342,7 +342,7 @@ Rights review: No incompatible credit line or conflicting reuse notice identifie
 
 Version/content note: Single centre and limited follow-up; no-reflow is not long-term MACE. Definitions and cutoffs must be tied to this paper, not transferred to the VA cohort.
 
-## JUA-109 derived benchmark additions (2026-10-01)
+## the query and scorer release derived benchmark additions (2026-10-01)
 
 `queries.json` includes verbatim pinned PDF-extraction excerpts from the articles
 attributed above, together with newly authored questions, expected claims and

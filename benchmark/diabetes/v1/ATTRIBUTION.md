@@ -1,6 +1,6 @@
 # Attribution inventory — cardiology plus diabetes v1
 
-Cardiology records retain their original verified pins and review; diabetes additions reviewed for JUA-111. PDFs remain untracked. Text is derived using the recorded pypdf extraction; original PDFs are unmodified. Standalone linked supplements are excluded. No blanket legal clearance is asserted.
+Cardiology records retain their original verified pins and review; diabetes additions reviewed for the diabetes audit. PDFs remain untracked. Text is derived using the recorded pypdf extraction; original PDFs are unmodified. Standalone linked supplements are excluded. No blanket legal clearance is asserted.
 
 ## PMC10363301
 

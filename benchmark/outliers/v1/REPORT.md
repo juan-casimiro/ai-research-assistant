@@ -70,7 +70,7 @@ when the outliers ranked below the retrieval cutoff. Failed setup attempts and e
 
 The release's outlier-only C1/C2/C3 lists have identical membership, so only one
 outlier-only retrieval run was made. The integrated C3 comparison and
-corpus-wide recheck of absent-information cases belong to JUA-114. Run
+corpus-wide recheck of absent-information cases belong to the combined evaluation. Run
 `compare_evals.py --nested-corpus` validates the focused C1-to-C2 comparison.
 
 ## Fingerprint note
@@ -84,7 +84,6 @@ and run provenance use the hash of the complete serialized query document.
 Topic regression is a 6-case-per-topic sample, not a complete topic evaluation.
 Source-family breadth is uneven: the cognition family has one primary paper.
 The legacy preserved search strings do not prove the exact original search
-syntax. Author case review and read-only Claude CLI review are complete; Juan PR review
-is pending. No clinical or other domain expert has reviewed these cases. Strict evidence retrieval rates are not answer correctness, and no
+syntax. Author case review and read-only Claude CLI review are recorded. No clinical or other domain expert has reviewed these cases. Strict evidence retrieval rates are not answer correctness, and no
 generated answer/refusal behavior was evaluated. Full integrated corpus review
-and final cross-topic claims require JUA-114.
+and final cross-topic claims require the combined evaluation.

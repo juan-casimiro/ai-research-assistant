@@ -13,13 +13,14 @@ from benchmark.combined.reuse_store import embedding_hash
 from benchmark.combined.verify_corrected_runs import analyze
 from eval_benchmark import read_release, verify_collection
 from main import chunk_text
+from benchmark.combined.verify_release_artifacts import verify_artifacts
 
 
 def verify(release, corpus, stores=False):
     hashes = load(release / "artifact_hashes.json")
-    for name, expected in hashes["files"].items():
-        if hashlib.sha256((ROOT / name).read_bytes()).hexdigest() != expected:
-            raise ValueError(f"artifact drift: {name}")
+    if release.resolve() != (ROOT / "benchmark/combined/v2").resolve():
+        raise ValueError("release overlay is specific to the retained combined/v2 experiment")
+    verify_artifacts(ROOT)
     # Builder refuses any nonidentical envelope or dependency metadata.
     build(release)
     actual = analyze(release, corpus)

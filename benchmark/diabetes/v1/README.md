@@ -1,10 +1,10 @@
 # Diabetes benchmark and cardiology interference — v1
 
-JUA-111 audits all 35 legacy cases using the six diabetes sources, then selects
+The diabetes audit audits all 35 legacy cases using the six diabetes sources, then selects
 **16 diabetes/overlap articles** and authors **49 cases**. The combined selected
 corpus contains **32 articles**: the original 21 cardiology records and 11 new
 verified diabetes articles. Target size follows the coverage gaps, rather than
-matching the cardiology article count. Independent PR/clinical review is pending.
+matching the cardiology article count. Model review is recorded; independent clinical review is not established.
 
 The retained sources cover adjunctive pharmacotherapy, zinc/hypoxia DKD,
 sleep/cardiometabolic risk and CGM counseling. New sources add Cameroon hospital

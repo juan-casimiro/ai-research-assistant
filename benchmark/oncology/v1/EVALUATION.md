@@ -1,8 +1,8 @@
-# Oncology retrieval baseline and topic regression — JUA-112
+# Oncology retrieval baseline and topic regression
 
 **Adding the POL-MOL competition article changes some returned passages but no scored oncology outcomes.** At n=8, vector retrieval finds the expected documents for 32/34 answerable cases and complete pinned evidence for 15/34. These are retrieval measurements, not answer-correctness or clinical-quality claims.
 
-The reviewed PR #33 merge (`17dd21b`) is the fixed authoring boundary. [runs/freeze.json](runs/freeze.json) records the exact source/query/scorer/adapter hashes and initial selection rationale. No source, question, reference, anchor, alternative, category, scorer or retrieval implementation was changed after retrieval began. C3 and final combined-corpus negative review remain JUA-114 work.
+The reviewed PR #33 merge (`17dd21b`) is the fixed authoring boundary. [runs/freeze.json](runs/freeze.json) records the exact source/query/scorer/adapter hashes and initial selection rationale. No source, question, reference, anchor, alternative, category, scorer or retrieval implementation was changed after retrieval began. C3 and final combined-corpus review are recorded in the current combined benchmark.
 
 Fresh task-owned stores contain 771 chunks for C1's 13 answer-source articles and 853 for C2's 14 articles. Production `main.ingest`, `main.embed`, `main.chunk_text` and `retrieve()` were used, with seeding disabled and no HTTP server. [Ingestion receipts](runs/C1-ingestion.json) and [C2 receipt](runs/C2-ingestion.json) record exact membership, source/chunk counts and loaded model file fingerprints. Ingestion and evaluation fingerprints match. No shared collection was changed.
 

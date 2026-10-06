@@ -1,6 +1,6 @@
 # Oncology selection and query release — v1
 
-JUA-112 review candidate, 2026-10-02. **14 articles**, 187 physical PDF pages,
+Oncology selection and authoring record, 2026-10-02. **14 articles**, 187 physical PDF pages,
 25,168,522 downloaded bytes; **44 cases** and 84 exact extraction anchors.
 Selection and gold were authored without retrieval results. Review rounds
 are recorded in the historical review files. The reviewed merge is held fixed for the local retrieval baseline in [EVALUATION.md](EVALUATION.md).
@@ -55,7 +55,7 @@ section, exact raw extraction offsets and hashes. Required evidence is bound to
 each fact; decoys identify the plausible confusion and why their scope differs.
 The three absent cases ask for facts not reported by specifically named studies;
 their scopes include the whole selected oncology corpus. Broader combined-corpus
-negative claims require another scope review in JUA-114.
+negative claims require another scope review in the combined evaluation.
 
 Of the legacy cases, 15 IDs have explicit revisions and 27 are retired. New
 oncology-local IDs are o001–o030 except o019. Before freeze, q082 and o019 were withdrawn
@@ -143,9 +143,8 @@ implementation were unchanged during the comparison. No paid calls occurred.
 
 The original [REPORT.md](REPORT.md) records the pre-retrieval offline checks;
 its no-retrieval statements describe that earlier stage. Combined C3 and
-cross-topic negative review remain JUA-114 work. Paid rewrite/generation/judge
-runs require separate explicit approval. JUA-112 remains open for review and
-delivery of the evaluation report.
+cross-topic negative review are recorded in the current combined benchmark. Paid rewrite/generation/judge
+runs require separate explicit approval.
 
 Raw duplicate PDFs and deferred candidates remain archived under
 `corpus/oncology-v1/acquisition/`, outside top-level selected membership.

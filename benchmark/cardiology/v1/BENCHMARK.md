@@ -1,4 +1,4 @@
-# Cardiology query release v1 — JUA-109
+# Cardiology query release v1
 
 The authored release contains **45 cases** and **77 pinned evidence anchors**:
 14 direct lookups, 9 same-article multi-hop cases, 7 related-document distractor
@@ -115,7 +115,7 @@ Manually inspect recorded contexts before interpreting failures. Broad
 answers, partial answers, refusals and premise
 corrections require separate review against the rubrics. Results split answerable,
 false-premise correction evidence and absent-fact executions, and report zero
-answer judgments. JUA-40 owns any later answer judge, subject to its separately
+answer judgments. The separate generated-answer evaluation follow-up owns any later answer judge, subject to its separately
 agreed Spring Boot/Java-AI sequencing gate; this task does not start that work.
 
 Summary evidence reports preserve **full-set** passes/total and additionally
@@ -144,7 +144,7 @@ so a spanning group can have decreasing ranks. The runner compares actual stored
 source/text chunks with the condition’s production chunking and rejects missing, extra,
 duplicate or stale chunks. It verifies every selected local PDF/text and anchor,
 including competitor pins when running C1. This does **not** rederive stored
-embedding vectors to certify their original model; JUA-110 must retain isolated
+embedding vectors to certify their original model; quality claims must retain isolated
 ingestion/model provenance before making quality claims. Remote rewrite aliases
 also cannot prove immutable provider weights. Keep these limits with results.
 
@@ -183,7 +183,7 @@ CI without downloaded corpus files. V3 comparisons require matching feasibility
 metadata and hashes; v1/v2 runs cannot be mixed with v3 or compared using this
 contract. Historical baseline artifacts remain unchanged.
 
-After PR review/freeze and JUA-110’s isolated condition ingestion, use the configured
+After verifying the frozen release and isolated condition ingestion, use the configured
 collection for that exact condition. The benchmark runner never seeds or ingests.
 For example, **only after C2 is ingested**:
 

@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "archive_commit": "e3eada3363ad7eb7b1f56d5a5053496a24498a8a",
+  "original_seal_sha256": "8bfbf05a07d757211b9f353326c58a0b7df2fc6c6bc94ac956ae54debf762074",
+  "scope": "Release presentation updates and explicit verifier migration; scientific inputs/results retain original in-place hashes.",
+  "transitions": {
+    "README.md": {
+      "kind": "presentation_documentation",
+      "current_sha256": "9349e71cae668484f63346a6c8c8829b73f4044d84c6183dda0a6d00ae5432e4"
+    },
+    "adr/002-evaluation-methodology.md": {
+      "kind": "presentation_documentation",
+      "current_sha256": "740d1b5769978bbe9f352dbdd8b53e45fbdaa1a8b4ab610055013c5088e32de3"
+    },
+    "benchmark/STANDARDS.md": {
+      "kind": "presentation_documentation",
+      "current_sha256": "1df5fec0229cd95bc9bdca2795caa3ee61cf6b19250ee7d79ac3af842f8e3ef4"
+    },
+    "benchmark/als-ftd/v1/README.md": {
+      "kind": "presentation_documentation",
+      "current_sha256": "b73a035850049b5810832905cea2124bab0445ad1195db7b51ef4fc9f691c907"
+    },
+    "benchmark/cardiology/v1/ATTRIBUTION.md": {
+      "kind": "presentation_documentation",
+      "current_sha256": "8d91c545444ee232be375a9ab1e26ea78e11991d6b037fb9ab809e28942b7d5f"
+    },
+    "benchmark/combined/v1/REPORT.md": {
+      "kind": "presentation_documentation",
+      "current_sha256": "c57d238eb970249e602cb552ca59fbaf5a488cf588564013b7a94e1a3bced232"
+    },
+    "benchmark/combined/verify_corrected_release.py": {
+      "kind": "verifier_migration",
+      "current_sha256": "f670c326c2fabfd8402800f5b66e0a44cf18d282c9fda447e6c118f0db47c200"
+    },
+    "benchmark/diabetes/v1/ATTRIBUTION.md": {
+      "kind": "presentation_documentation",
+      "current_sha256": "ba35b4877d04dcfbed5ec7c8a183fdf4e8c61ed5b1483a19b8bcd502d238d60e"
+    }
+  },
+  "artifact_verifier_sha256": "55aa6c31dc5352f29e48332e290041a1db62a7a645bd4f9cc31f897c8cbe030a"
+}

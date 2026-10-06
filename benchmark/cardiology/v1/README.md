@@ -35,8 +35,8 @@ The original `corpus_manifest.json`, `golden_qa.json`, evaluation results and
 local corpus are preserved. No server, collection, ingestion or golden run was
 started. Historical retrieval percentages describe the original benchmark only.
 The [45-case query release and scorer](BENCHMARK.md) are authored under the
-[shared standards](../../STANDARDS.md), pending independent PR review/freeze.
-The [first C1/C2 retrieval baseline](REPORT.md) records JUA-110 results and
+[shared standards](../../STANDARDS.md), with the reviewed release preserved as authoring input.
+The [first C1/C2 retrieval baseline](REPORT.md) records historical isolated cardiology results and
 manual evidence review; C3 adds no articles yet. Most selected papers are sources;
 roles remain query specific and the two competitors are not topic outliers.
 
@@ -216,7 +216,7 @@ geriatric cognition in the HFpEF source is a different topic and does not supply
 those old facts. The later outlier task reuses this exclusion, avoiding duplicate
 replacement work. Restricted GWAS and cardio-oncology overlap are excluded;
 new T2D/BP genetics supplies a distinct eligible overlap, while drug-response and
-oncology questions remain later topic work. Every legacy article disposition and
+oncology questions are recorded in their topic releases and the current combined benchmark. Every legacy article disposition and
 direct query dependency is explicit in the migration ledger.
 
 PATHWAY-2 was rejected for **CC BY 3.0**. The AI-QCT ischaemia candidate was rejected
