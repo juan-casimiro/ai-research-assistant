@@ -1,286 +1,108 @@
 # ADR-002: Evaluation Methodology
 
-The current benchmark is the [five-topic combined v2 release](../data/benchmark/README.md).
-Its [report](../data/findings/retrieval.md) and
-[reproduction guide](../data/README.md) are the starting points
-for current results and execution. The original golden QA design and earlier
-experiments below describe the methodology's history; they are not the current
-benchmark's input set.
-
 ## Context
 
-ADR-001 covers chunking and retrieval architecture decisions. This
-document covers how those decisions are *measured*: the golden QA
-dataset's category design, and the scoring logic used to turn raw
-retrieval results into pass/fail verdicts.
+A retrieval-augmented answer can fail because it finds the wrong articles,
+misses necessary passages, or generates an unsupported interpretation. These
+are different failure modes and need separate measurements. Biomedical papers
+provide dense, citation-heavy material with similar terminology, competing
+claims and scoped numerical results for testing a domain-agnostic pipeline.
 
-Splitting this out from ADR-001 is itself a decision worth recording:
-architecture and evaluation methodology are separate concerns, and
-conflating them made ADR-001 harder to navigate as both grew. This
-document is referenced by ADR-001's evaluation sections and by the
-README.
+The current [V2 benchmark](../data/benchmark/README.md) contains 55 articles and
+158 questions across five topics. Its references were LLM-authored and
+model-reviewed against the articles; they are inspectable judgments, not
+biomedical expert certification. The [standards](../docs/benchmark-standards.md)
+define selection and authoring rules. The [V1 methodology](../data/archive/v1/methodology.md) preserves the original
+category design; [later methodology history](../data/archive/development/methodology-history.md)
+records topic rebuilds and combined experiments. Archived inputs and results
+retain their original schemas.
 
-## Category design
+## Decision: measure sources, evidence and answers separately
 
-The golden QA set (`data/archive/v1/golden_qa.json`) uses five categories, each
-targeting a distinct retrieval failure mode. Four are scored by
-`tools/evaluation/eval_golden.py`; `unanswerable` is logged but not scored.
+| Layer | What is measured | What it cannot establish |
+| --- | --- | --- |
+| Source retrieval | At least one complete accepted source set is present in reranked results | That the necessary passages are present |
+| Evidence retrieval | One complete accepted evidence set covers every required fact using pinned excerpts | That a generated response interprets the evidence correctly |
+| Generated answer | Required facts, scope, attribution and unsupported-claim handling | Not yet measured by the current automated retrieval experiment |
 
-### `direct_lookup`
+Alternative evidence sets use OR; all members of a chosen set are required.
+The scorer records document coverage, complete pinned evidence, partial fact
+recall and named-distractor ordering independently. Missing facts are unscored
+by retrieval completeness. False-premise correction evidence is measured
+separately from whether an answer actually corrects the premise. The service's
+`context_sufficient` flag is a model signal, not an answer-correctness oracle.
 
-A single fact from a single document.
+`n=3` and `n=8` are chunk budgets, not unique-document counts. An offline oracle
+checks whether each accepted evidence set can fit under production chunking.
+Full-set denominators retain structurally infeasible cases; feasible-only
+coverage is reported separately. Conservative exact excerpt matching can miss
+valid paraphrases, so a failed evidence match requires context inspection and
+does not by itself prove that an answer would be wrong.
 
-*Example:* "How many RCTs and total participants were included in this
-systematic review?" — one document, one passage.
+## Decision: freeze evidence relationships before evaluation
 
-*Failure mode caught:* the floor. If this category isn't near 100%,
-something basic is broken (chunking, embedding, or ingestion) — not a
-sophistication problem.
+Each question records required facts, expected response, accepted alternatives,
+source identities, evidence locations and plausible distractors. The generated
+[case index](../data/benchmark/cases/README.md) makes those relationships readable;
+the versioned JSON remains authoritative. Select cases for coverage and realistic
+difficulty, then freeze gold and grading before observing retrieval outcomes.
+Record genuine reference defects as explicit revisions with preserved originals.
 
-*Scoring:* `expected_doc` must appear in the retrieved sources.
+The categories exercise direct lookup, separated facts within an article,
+cross-document synthesis, distractor discrimination, source conflicts, false
+premises and absent facts. For accepted source-conflict cases c012/c013/x005,
+the original questions and both attributed readings are required. Do not select
+one reading as uncontested, merge incompatible values, narrow the question or
+relax grading to turn a failure into a pass. The [source-conflict findings](../data/findings/source-conflicts.md)
+show exact questions, source roles, locations and measured retrieval limits.
 
-### `multi_hop`
+## Decision: compare controlled conditions on production retrieval
 
-Connecting two related facts within the same document.
+The harness calls the same `retrieve()` used by the API, retaining reranker
+inference and score consumption inside `asyncio.to_thread()` and reranked source
+order during deduplication. Do not index gold, anchors or expected responses as
+retrieval inputs. Fresh stores disable seeding and must match the declared
+article/chunk membership; filtered probes establish queryability, not QA success.
 
-*Example:* "How do the primary change-score analysis results compare
-with the post-treatment sensitivity analysis?" — both facts live in the
-same paper, in different sections.
+Configuration comparisons hold corpus, gold, scorer and component fingerprints
+fixed. Nested-corpus comparisons vary only declared article membership, retaining
+identical shared article versions, questions, retrieval flags, scorer and model
+provenance. Both require complete requested/executed IDs and depths. The
+comparison utility rejects incompatible versioned runs. A changed benchmark is
+not evidence of a performance gain; legacy pairs require explicit opt-in and are
+labelled unverifiable.
 
-*Failure mode caught:* whether chunking and retrieval preserve enough
-surrounding context to link related-but-separated passages, rather than
-only ever surfacing one isolated fact.
+The current saved experiment used one local vector-only configuration with
+production reranking, BM25 and rewriting off, at n=3/n=8. It contains complete
+combined runs and six compatible nested baselines. This is a snapshot, not a
+repeat-run stability estimate or a completed four-configuration comparison.
+Future paid rewriting or generated-answer judging requires approval of that run.
 
-*Scoring:* same as `direct_lookup` — `expected_doc` must appear in the
-retrieved sources. **Known limitation:** the harness checks that the
-source document was retrieved; it does not currently verify that both
-specific facts were retrievable as separate chunks. A query could pass
-this category by retrieving only the chunk containing one of the two
-facts. Tightening this would require per-query chunk-level ground
-truth rather than document-level, not currently captured in the
-dataset schema.
+## Evidence and consequences
 
-### `cross_doc_distractor`
+At n=8, the saved experiment retrieves complete source sets for **115/129**
+answerable questions and complete pinned evidence for **37/129**. No synthesis
+case has complete pinned evidence (0/17), and source-conflict evidence passes
+1/3. Failures remain visible. These findings establish a gap between source
+retrieval and complete evidence; they do not establish answer accuracy or the
+mechanism of upstream candidate displacement.
 
-The correct document sits next to a topically similar decoy.
+The [findings](../data/findings/retrieval.md) provide scoped results, compatible
+comparisons and saved-context inspection. The [minimal summary](../data/findings/combined-benchmark-v2.json)
+retains source/query/run/configuration provenance. Raw contexts, receipts,
+analysis, seals and verification are under [evaluations](../data/evaluations/).
+Original V1, earlier combined results and the Docker seed demo have different
+scopes and must not share one accuracy headline.
 
-*Example:* A question about CHA2DS2-VA scores in a no-reflow/STEMI
-study, with a distractor AFib-detection review that also discusses
-CHA2DS2-VASc — same score family, different clinical question.
+Use the [data guide](../data/README.md#verify-the-retained-experiment) to check
+immutable relocated bytes and replay the saved analysis. Original paths/hashes
+stay in frozen records; the layout map and historical runner resolve them in a
+temporary original-layout view with the recorded historical code. Maintained
+utilities produce new source fingerprints for new experiments. Offline replay
+can reproduce saved evidence and analysis; fresh approximate-index inference
+is not promised to be byte-identical.
 
-*Failure mode caught:* the hardest case for embeddings specifically —
-semantic similarity conflates "same topic" with "right answer." This is
-where reranking and hybrid search earn their keep, or don't.
-
-*Scoring (non-trivial):* it is not enough for the expected document to
-appear — it must be **ranked at or above the distractor**:
-
-```python
-if distractor and distractor in sources:
-    if sources.index(expected) >= sources.index(distractor):
-        return "fail"
-```
-
-This is deliberately stricter than presence-only scoring. A system that
-retrieves the right document but ranks a near-miss above it would still
-hand a user the wrong answer first — ranking order is what actually
-matters here, not mere recall.
-
-### `cross_doc_synthesis`
-
-The answer requires two documents together.
-
-*Example:* q117 — the tension between a treatment strategy's
-demonstrated clinical benefit (shown in one real-world cohort study)
-and real-world delivery barriers (discussed in a separate editorial).
-
-*Failure mode caught:* whether the system can assemble a synthesis view
-instead of defaulting to whichever single document scores highest — a
-different skill than distractor rejection, since here *both* documents
-are correct and needed, not one correct and one wrong.
-
-*Scoring (non-trivial):* an **AND condition** across both expected
-documents:
-
-```python
-expected_docs = query.get("expected_docs", [])
-return "pass" if all(doc in sources for doc in expected_docs) else "fail"
-```
-
-There is no partial credit. Retrieving only one of the two documents,
-however well-ranked, is a fail — a synthesis answer built from a single
-source isn't a partial synthesis, it's a single-document answer wearing
-a synthesis question's clothes.
-
-### `unanswerable`
-
-The question sounds answerable but isn't, given the corpus.
-
-*Example:* q141 — asking for confirmed cholera case counts in a
-wastewater-contamination study that discusses resistance genes and
-microbial shifts, never cholera or clinical case counts. Plausible
-enough to sound real (cholera is a genuine wastewater-linked disease),
-not obviously off-topic, and not actually reported.
-
-*Failure mode caught:* hallucination under a near-miss. The harder
-examples in this set are deliberately adjacent to real content, testing
-whether the system distinguishes "related" from "actually reported,"
-rather than testing trivial off-topic rejection.
-
-*Scoring:* logged, `not_scored`. This is a conscious trade-off, not an
-oversight: judging whether the *generated answer* correctly refused
-requires either manual review or an LLM-judge pass over generated text.
-The current harness only scores retrieval (which documents came back),
-not generation (what the model said about them) — so an unanswerable
-query can't be pass/failed by the same document-matching logic used for
-the other four categories. Retrieved sources are still recorded for
-every unanswerable query, so a human (or a future judge-model pass) can
-review whether retrieval at least avoided confidently surfacing an
-unrelated document as if it were relevant, even though the harness
-doesn't auto-score that today.
-
-**Update: the category is not a clean sufficiency-flag oracle.** With
-`context_sufficient` now returned by `/query` (ADR-001), it was expected
-that `unanswerable` queries would all report `false`. They do not, and
-the category is not at fault — it conflates two distinct cases:
-
-- **Fact genuinely absent** (e.g. `q138`, FMT treatment-duration
-  reduction): reports `false`, as expected.
-- **False premise** (e.g. `q083`, EarlyCDT-Lung FDA validation): the
-  question presupposes something untrue. Correctly rejecting the premise
-  *is* a sufficient answer, so the flag reports `true`.
-
-Scoring the category as an all-false expectation would therefore
-mislabel correct behaviour as a flag failure. Splitting `false_premise`
-into its own category is the natural fix, deferred as it would require
-re-labelling existing entries.
-
-## Consequences
-
-- Evaluation always exercises the same `retrieve()` code path used in
-  production (see ADR-001), so category-level results reflect real
-  system behavior, not a separate test harness that could drift from
-  what's shipped.
-- The two non-trivial scoring rules (`cross_doc_distractor`'s ranking
-  requirement, `cross_doc_synthesis`'s AND condition) are deliberately
-  stricter than simple presence-checking, in different directions —
-  order-sensitivity for one, no-partial-credit for the other — because
-  presence-only scoring would have overstated retrieval quality on
-  exactly the categories designed to be hard.
-- **Known limitation:** `multi_hop` scoring does not verify that both
-  connected facts were retrievable, only that the source document was.
-- **Known limitation:** `unanswerable` correctness (did the system
-  actually refuse, rather than merely "did retrieval avoid an unrelated
-  doc") is not automatically scored. Closing this gap would require an
-  LLM-judge pass over generated answers — a natural next step, and one
-  that would also address the broader "evaluation methodology" gap
-  flagged as unaddressed AI-theory ground.
-
-  ## Update: `abstract_summary` field for golden QA authoring
-
-`data/archive/v1/corpus_manifest.json` entries include an `abstract_summary` field to
-support drafting new golden QA cases without opening full text for
-every candidate query. It's sufficient for `direct_lookup` and
-`cross_doc_distractor` first drafts (top-line findings, primary
-outcomes), but not for cases depending on subgroup results or
-table-level figures — e.g. `q128`/`q129`
-(`cardio-mi-risk-stratification.pdf`) needed full-text verification
-since the abstract didn't name the specific lab marker or mention
-hypertension at all. Use the abstract for a first draft; verify
-against full text before adding table/subgroup-dependent cases to
-`data/archive/v1/golden_qa.json`.
-
-## Versioned cardiology benchmark rebuild
-
-[Corpus and benchmark standards v1](../docs/benchmark-standards.md) governs the corpus and benchmark expansion.
-The versioned scorer supports the separate [45-case cardiology query release](../data/benchmark/sources/cardiology/v1/BENCHMARK.md),
-with reviewed and frozen inputs for recorded experiments. The historical
-schema/scoring above remains unchanged for `data/archive/v1/golden_qa.json`; it is not a measure
-of passage sufficiency or answer correctness.
-
-In versioned mode, `tools/evaluation/eval_golden.py` still calls production `retrieve()` and records
-reranked chunks/sources at depths 3 and 8. Document coverage, conservative pinned
-excerpt coverage, fact recall and competitor ordering are distinct. Complete
-alternatives use OR; each set requires all its anchors. An excerpt spanning chunks
-requires every whole chunk in a contiguous production window certified against
-its pinned source offsets, regardless of retrieval rank. The offline oracle
-checks unlimited coverage and minimum complete-evidence chunk budgets. V3
-reports full-set and feasible-only coverage at each depth, with structural
-ceilings and infeasible IDs; document coverage and partial fact recall retain
-all scored cases. All 42 evidence-bearing cases fit at n=8, but only 30 fit at
-n=3 (27/38 answerable and 3/4 false-premise correction cases). These are
-structural assertions, not retrieval-quality results. Absent facts are unscored;
-false-premise correction evidence is reported separately from judging generated
-corrections. Exact matching cannot exclude valid paraphrases, so failures require
-context inspection. The separate generated-answer evaluation follow-up retains separately sequenced answer-judge work.
-
-`tools/evaluation/compare_evals.py` now rejects changed queries/revisions, scorer/retrieval/corpus
-fingerprints, depths, changed/missing feasibility and incomplete executed-ID sets.
-Explicit nested comparisons
-hold retrieval flags fixed and preserve common article tuples. Historical pairs
-require `--allow-legacy`, are labelled unverifiable and cannot be mixed with the
-new release. This prevents a repaired reference or changed corpus from appearing
-as an improvement to the old benchmark. No new quality results are claimed.
-
-## Diabetes expansion and frozen cardiology interference
-
-The diabetes audit adds the [versioned diabetes release](../data/benchmark/sources/diabetes/v1/README.md):
-16 topic/overlap sources, 49 cases and 55 pinned anchors, with the original
-21-article cardiology selection extended by 11 verified permissive articles.
-Legacy sources/cases are audited and migrated explicitly; new cohorts cannot
-inherit retired numerical gold. Four absent-fact cases are scoped to selected
-main PDFs; three false-premise cases require affirmative correction evidence.
-A generic HIF question accepts either complete review evidence set.
-
-The diabetes pair compares 16 with 32 articles. The frozen cardiology pair
-compares 21 with 32 using the exact original questions and anchors inside a
-common extended selection envelope. A fresh 21-article baseline is required
-because historical results have incompatible selection/envelope fingerprints.
-No historical output is relabelled. Only local vector retrieval and production
-reranking are run; complete final coverage is justified by corpus expansion,
-with no four-configuration sweep or paid calls. See the release report for
-source-aware context review, feasibility ceilings and evidence limitations.
-
-## Combined-corpus evaluation
-
-We evaluate whether adding articles from other topics changes retrieval quality.
-Comparisons use the same questions, scoring rules, system settings and versions
-of shared articles so that differences can be attributed to the corpus change.
-
-We report finding the right articles separately from finding the evidence needed
-to answer. Answer correctness requires a separate evaluation.
-
-The [combined report](../data/archive/development/combined-v1/REPORT.md) records the historical
-four-topic experiment's corpus, results and limitations. Its results remain
-separate from the original benchmark and Docker demo.
-
-## Corrected five-topic snapshot
-
-The [corrected combined report](../data/findings/retrieval.md) freezes the
-current model-reviewed gold and accepted correction ledger for all 158 cases in
-a 55-article / 3,638-chunk corpus, including ALS/FTD. Its canonical source query
-objects and anchors are preserved; the comparison envelope, conditions and
-dependency map receive new fingerprints. The original 51/148 runs remain
-historical. Changed questions, categories, scorer fingerprint and corpus prevent
-a direct historical performance comparison, despite an unchanged scorer version
-label. New complete nested runs pass the existing compatibility guard.
-
-One local vector-only configuration with production reranking evaluates every
-case at n3/n8 and six complete topic baselines (722 retrieval calls, zero paid
-provider calls). Existing production embeddings are reused only after checking
-the original model/dependency/code/source/chunk provenance; new source chunks
-use production ingestion. Fresh stores disable seeding, verify exact source/chunk
-multiplicities, hash copied and final vectors, and record per-source filtered
-query probes. Those probes prove queryability, not unfiltered QA success.
-
-Saved contexts, metrics, summaries, gold and all provenance joins are independently
-recomputed. Offline replay reproduces envelopes/dependency metadata and analysis;
-fresh approximate-index inference is not promised to be byte-identical. At n8,
-answerable document coverage is 115/129 and pinned evidence 37/129; correction
-evidence is 6/18 and eleven absent-fact cases are unscored. c012/c013/x005 retain
-both attributed readings, with valid failures preserved. No answer/refusal or
-conflict-handling accuracy is inferred from retrieval. The durable
-[source-conflict report](../data/findings/source-conflicts.md) and
-[minimal provenance summary](../data/findings/combined-benchmark-v2.json) are
-intended for retention independently of bulk experiment files. Biomedical expert
-review, semantic adjudication and answer judging remain separate limitations.
+Biomedical expert review, semantic adjudication, generated-answer correctness,
+refusal/correction behavior and repeat-run stability remain separate limitations
+or later evaluation work. Preserving these boundaries keeps the portfolio's
+claims auditable and directs improvements toward demonstrated failures.
