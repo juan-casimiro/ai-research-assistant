@@ -1,4 +1,4 @@
-# JUA-112 verification and pending evaluation
+# Historical oncology pre-retrieval verification
 
 Review candidate, 2026-10-02. The legacy five-paper/42-case oncology set has been
 audited into a 14-paper/44-case release. Article and query fingerprints are bound
@@ -40,7 +40,8 @@ comparison. Fact recall and complete evidence coverage must be reported separate
 No retrieval, collection ingestion or paid evaluation call was performed.
 Claude reviewer inference was separately requested by Juan. Source review
 is author verification, not independent clinical peer review. Independent PR review
-and benchmark freeze are pending under the shared authoring standards.
+and benchmark freeze were pending at this pre-retrieval stage; later model review
+and current-gold evaluation are recorded in the combined benchmark.
 
 ## Interpretation and source defects
 
@@ -89,23 +90,23 @@ source recall alone cannot establish answer correctness.
 
 A small cardiology regression sample is q044,q050,q058,q065: score/endpoint
 disambiguation, same-model competing documents, diabetes interaction and subgroup
-scope. The reviewed JUA-111 release is now merged into the epic at 2dcbfcc; use its
-versioned diabetes dependency map for the planned regression sample. Those sources
+scope. The reviewed the diabetes audit release is now merged into the epic at 2dcbfcc; use its
+versioned diabetes dependency map for the historical regression sample. Those sources
 are not silently imported into the oncology-only conditions here. Cross-topic
-condition membership and whole-corpus negative checks belong to JUA-114. Do not
+condition membership and whole-corpus negative checks belong to the combined evaluation. Do not
 reuse or mutate another task's active collection to run these samples.
 
 Paid rewrite/generation/judge runs require a separately approved run specification;
 general task authorization does not approve them. The four configurations are not
-run automatically. Retrieval results, interference/failure analysis and topic
-regressions remain outstanding, so JUA-112 is not complete.
+run automatically. Subsequent retrieval, interference analysis and topic regression are recorded in
+[EVALUATION.md](EVALUATION.md); full-corpus findings are in the current combined benchmark.
 
 ## Independent review corrections
 
 [REVIEW.md](REVIEW.md) records confirmed Claude findings, corrections and qualified
 responses. The initial draft is preserved at commit 8b1adbe and the first correction at
 a226bba. No retrieval results were used to change gold; selection and queries
-remain unfrozen for re-review.
+were unfrozen at that historical review stage.
 
 The third review of b626fbb was independently checked by Codex and corrected in
 this pass. Each evidence case records accepted restatements or why other mentions

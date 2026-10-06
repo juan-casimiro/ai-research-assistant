@@ -105,10 +105,11 @@ The change review identifies true scoped-source losses, pinned-passage losses, c
 
 ## Unresolved work and claims
 
-The pending ALS/FTD integration remains under the combined-evaluation handoff: independently review/freeze a001–a010, review cross-topic alternatives/negative scope across 55 articles, then use the 20 x/a cases and original 18-topic sample plus justified controls for iteration; complete declared coverage is needed for final 55-article claims. This report does not certify that extension.
+The later [five-topic evaluation](../v2/REPORT.md) completed ALS/FTD integration.
+The historical plan was to: independently review/freeze a001–a010, review cross-topic alternatives/negative scope across 55 articles, then use the 20 x/a cases and original 18-topic sample plus justified controls for iteration; complete declared coverage is needed for final 55-article claims. This report does not certify that extension.
 
-Required-source losses q051/o029 and passage losses q006/o004/x006 remain diagnostic follow-ups tracked in this report and JUA-114. Target those IDs and dependency/control families first for a justified later retrieval experiment. Global retriever/scorer changes would justify broader runs. No additional issue or scope expansion is silently created.
+Required-source losses q051/o029 and passage losses q006/o004/x006 remain diagnostic follow-ups tracked in this report and the combined evaluation. Target those IDs and dependency/control families first for a justified later retrieval experiment. Global retriever/scorer changes would justify broader runs. No additional issue or scope expansion is silently created.
 
-Answer-judge work remains separately sequenced in JUA-40. There are zero generated answers, zero judged refusals and zero judged premise corrections; no answer/refusal accuracy is reported. Any rewriting/generation/judge run needs explicit purpose/provider/scale/cost approval. BM25 and rewriting comparisons are not part of this corpus-only baseline and remain unmeasured on this combined release. Public PDF delivery and domain-expert certification remain outside this report.
+Answer-judge work remains separately sequenced in the separate generated-answer evaluation follow-up. There are zero generated answers, zero judged refusals and zero judged premise corrections; no answer/refusal accuracy is reported. Any rewriting/generation/judge run needs explicit purpose/provider/scale/cost approval. BM25 and rewriting comparisons are not part of this corpus-only baseline and remain unmeasured on this combined release. Public PDF delivery and domain-expert certification remain outside this report.
 
 All 213 offline regressions pass, including seven new saved-evidence corruption tests. Historical 96.4%/98.2% metrics remain original 19-document/133-query results; this rebuilt benchmark measures different gold and evidence sufficiency and does not support those claims or Docker-demo quality.

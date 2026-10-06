@@ -63,8 +63,9 @@ Writing [DECISIONS.md](DECISIONS.md) showed that o009 and o023 needed two separa
 
 At b626fbb the draft had 44 cases, 49 anchors and 14 selected articles. Offline reachability
 and release checks have been refreshed. These remain structural checks, not measured
-retrieval quality. Changed gold still needs independent re-review before freeze;
-oncology evaluation and topic regressions remain outstanding.
+retrieval quality. This records the pre-freeze review stage. Subsequent model review and corrected
+gold are preserved in the current combined benchmark; historical topic evaluation
+and regressions are recorded in [EVALUATION.md](EVALUATION.md).
 
 ## Third review of b626fbb and Codex correction pass
 

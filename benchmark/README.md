@@ -68,3 +68,21 @@ The complete committed epic before release cleanup is preserved at
 [benchmark-epic-before-cleanup-2026-10-06](https://github.com/juan-casimiro/ai-research-assistant/tree/benchmark-epic-before-cleanup-2026-10-06).
 This archive contains development history; it does not include ignored local PDFs
 or replace the current benchmark's reproduction instructions.
+
+
+## Archived review workflow and release integrity
+
+Intermediate model-review prompts, orchestration, replies and superseded findings
+are preserved in the [review archive](https://github.com/juan-casimiro/ai-research-assistant/tree/benchmark-epic-before-cleanup-2026-10-06/benchmark/validation/v1).
+The [historical review summary](validation/v1/REPORT.md) retains the methodology,
+limitations and links to final decisions and subsequent corrections.
+
+The original experiment seal is unchanged. The versioned
+[release verification overlay](combined/v2/release_verification_v1.json) separates
+current presentation documentation from its sealed historical bytes. Verification
+checks historical bytes against the immutable archive commit and current bytes
+against the overlay; scientific inputs/results keep their original hash checks.
+The single verifier migration is explicitly recorded and hash-checked as code.
+Run `python -m benchmark.combined.verify_release_artifacts` for the offline artifact
+check. It needs the archive commit locally; fetch the archive tag if unavailable.
+Full source-context replay still needs the ignored pinned corpus and environment.

@@ -1,10 +1,8 @@
 # Corpus and benchmark standards — v1
 
-Status: shared design contract for JUA-107 under JUA-106, dated 2026-10-01.
-Selection is implemented in JUA-108; scorer/query implementation in JUA-109;
-controlled cardiology runs in JUA-110. This contract does not certify the legacy
-19-paper manifest, migrate golden cases, or implement new scoring. The current
-harness and its limitations remain documented in [ADR-002](../adr/002-evaluation-methodology.md).
+Status: shared corpus selection, query authoring and evaluation contract.
+The selected corpora and versioned scorer implement this design. This contract
+does not certify the legacy benchmark or biomedical correctness.
 
 ## Evaluation objective and fair authoring
 
@@ -31,10 +29,10 @@ and matching reruns; preserve the original result and explain the correction.
 
 | Topic membership | Evidence relationships to seek | Planned scope |
 | --- | --- | --- |
-| cardiology | AF detection/stroke, CCTA/MACE, HFpEF/SGLT2, resistant hypertension, STEMI/no-reflow; same score with different endpoints, primary/secondary endpoints, overall/subgroup estimates | Approximately 20 closely related articles, selected in JUA-108 |
-| diabetes | Glycaemic treatment, drug response, genetic risk and cardiovascular outcomes | Size decided after JUA-111 audit |
-| oncology | Detection, biomarkers, precision treatment and clinical outcomes | Size decided after JUA-112 audit; actual topic overrides misleading filenames |
-| other topics | AMR/environment, microbiome/TB, cognition/AI diagnosis if retained; expand distinct topics after audit | Size decided in JUA-113 |
+| cardiology | AF detection/stroke, CCTA/MACE, HFpEF/SGLT2, resistant hypertension, STEMI/no-reflow; same score with different endpoints, primary/secondary endpoints, overall/subgroup estimates | Approximately 20 closely related articles, selected in the article selection audit |
+| diabetes | Glycaemic treatment, drug response, genetic risk and cardiovascular outcomes | Size decided after the diabetes audit audit |
+| oncology | Detection, biomarkers, precision treatment and clinical outcomes | Size decided after the oncology audit audit; actual topic overrides misleading filenames |
+| other topics | AMR/environment, microbiome/TB, cognition/AI diagnosis if retained; expand distinct topics after audit | Size decided in the outlier audit |
 
 Topic membership is an article-level, possibly multi-valued classification with
 an explicit rationale. Filenames and legacy `cluster` values are hints only.
@@ -153,13 +151,13 @@ publication. PDFs remain untracked; public PDF publication is a separate decisio
 
 ### Mandatory legacy exclusions and ownership
 
-JUA-108 owns replacement of `cardio-hypertension-guidelines.pdf` (DOI
+The article selection audit owns replacement of `cardio-hypertension-guidelines.pdf` (DOI
 10.4103/singaporemedj.SMJ-2025-248) and removal/replacement of
 `outlier-gpt5-tau217-diagnosis.pdf` (DOI 10.4103/singaporemedj.SMJ-2025-289)
 from the selected cardiology experiment, including its full-corpus condition.
-Both lack recorded PMCIDs and already have restrictive licences in JUA-105.
+Both lack recorded PMCIDs and already have restrictive licences in the legacy licence audit.
 They cannot pass by retaining a manual Ovid route. If cognition/AI diagnosis is
-retained, choose an eligible replacement; JUA-113 reuses JUA-108's decision
+retained, choose an eligible replacement; the outlier audit reuses the article selection audit's decision
 rather than replacing it independently. Together they are two of the existing
 seven restrictive candidates, not two extra papers. Other legacy papers still
 need exact-version rights and download verification; no grandfathering.
@@ -219,7 +217,7 @@ than inventing a reconciliation (as audited in q051/q062).
 | `cross_doc_distractor` | One valid evidence set plus a plausible wrong-answer competitor; question does not require the decoy |
 | `cross_doc_synthesis` | Required claims span at least two articles; each contributes evidence needed for the synthesis |
 | `unanswerable` / absent_fact subtype | Requested fact absent across the entire frozen condition corpus; related text may exist |
-| `false_premise` | Corpus supports explicit rejection/correction of the presupposition; proposed new category for JUA-109 |
+| `false_premise` | Corpus supports explicit rejection/correction of the presupposition; implemented category |
 | `source_conflict` | One article gives two unreconciled readings of the requested fact (for example abstract versus table); every evidence set contains both passages and each reading is its own required fact. A valid answer reports both with attribution; reporting one as uncontested, or merging them, fails |
 
 Do not supply the requested answer in the question (q067), rely on undefined
@@ -236,7 +234,7 @@ indexed documents or generation prompts. Freeze held-out cases before tuning;
 log tuning exposure and revise the benchmark if held-out failures drive changes.
 Evidence judgments may be manual initially; record method and reviewer, and
 never call unimplemented checks automated results. Paid judges coordinate with
-JUA-40 and require explicit run approval.
+the separate generated-answer evaluation follow-up and require explicit run approval.
 
 ## Metrics: three distinct layers
 
@@ -262,7 +260,7 @@ population/statistical scope. `context_sufficient` is a model signal, assessed
 against answerability subtype, not a gold answer-correctness metric.
 Historical 96.4%/98.2% is the original full-host-corpus document pass rate on 111
 scored of 133 queries; it describes neither Docker seed nor this new benchmark.
-JUA-109 implements and versions strengthened scoring; until then use legacy
+Versioned strengthened scoring is implemented; historical results use legacy
 metrics and labelled manual evidence checks.
 
 ## Versioning, fingerprints and controlled comparisons
@@ -305,8 +303,8 @@ and exact requested/executed IDs and depths. For nested-corpus comparisons only
 the declared corpus membership may vary; common article versions/extraction and
 all other fingerprints must match. Reject incompatible comparisons; explicitly
 label legacy artifacts without fingerprints as historical, unverifiable pairs.
-`compare_evals.py` currently enforces none of this: verify compatibility manually
-until JUA-109 adds safeguards. No cross-version percentage delta is evidence of
+`compare_evals.py` enforces these guards for versioned benchmark runs. Legacy
+artifacts remain explicitly unverifiable and require the legacy opt-in. No cross-version percentage delta is evidence of
 retrieval improvement.
 
 ### Run record and targeted iteration
@@ -346,33 +344,16 @@ iteration is not a waiver of that requirement or repository offline regressions.
 Paid rewriting/generation/judging requires explicit run approval with provider
 and estimated scale/cost; local retrieval without rewriting does not.
 
-## Handoff acceptance
+## Release acceptance
 
-JUA-108 supplies eligible article records, selection/migration logs, attribution
-inventory and explicit nested membership; neither no-PMCID paper nor a manual
-exception enters the new selected corpus. JUA-109 supplies reviewed queries,
-anchors, alternatives, category migration and implemented versioned scorers.
-JUA-110 supplies compatible run receipts and complete cardiology comparison.
-Later topic tasks reuse this contract and recheck alternative evidence/absence;
-JUA-114 integrates combined coverage. Standards delivery alone does not satisfy
-those downstream article-level or evaluation acceptance checks.
+Retain eligible article records, selection/exclusion rationale, attribution and
+explicit nested membership. Restrictive no-PMCID legacy papers and manual
+exceptions do not enter the selected permissive corpus. Reviewed queries,
+anchors, alternatives, category migration and versioned scorers define the gold.
+Compatible ingestion/run receipts and complete declared coverage support the
+reported comparisons. Alternative evidence and negative claims must be checked
+against the actual selected corpus, rather than inferred from source recall.
 
-### Epic integration and release
-
-JUA-106 integrates on `jcas-agent/JUA-106-corpus-benchmark`, created from stable
-`main`. Start each task branch from that epic branch and target its PR there.
-CI runs for task PRs and epic pushes; container publication remains restricted
-to `main`. Juan reviews and merges task PRs. After all topic work and combined
-benchmark verification, open a final epic-to-main PR with the release evidence
-and migration report. Juan reviews and merges that PR; agents never merge.
-
-The active epic-task owner checks for relevant new `main` changes when starting
-a task and before final integration. When needed, prepare a reviewed main-to-epic
-sync PR and rerun affected checks; do not rewrite published epic history.
-
-Epic CI branch filters are temporary. After the epic merges into `main` and
-post-merge verification completes, JUA-115 removes the epic branch from both
-CI triggers in a separate cleanup PR to `main`, retaining main validation and
-publication. It also removes the temporary Handoff acceptance and Epic integration
-sections, preserving lasting standards and historical migration provenance.
-This follow-up does not block the epic integration PR.
+Temporary epic CI filters remain until final integration and post-merge
+verification. Remove those filters in a separate follow-up while retaining main
+validation and publication. Active delivery routing is documented in AGENTS.md.

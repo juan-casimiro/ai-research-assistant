@@ -1,6 +1,6 @@
-# Diabetes evaluation and frozen cardiology interference — JUA-111
+# Diabetes evaluation and frozen cardiology interference
 
-**Diabetes coverage is unchanged after corpus expansion; cardiology q051 loses its expected document at both depths.** These are retrieval results, not answer-correctness or clinical-quality claims. Independent PR/clinical review remains pending.
+**Diabetes coverage is unchanged after corpus expansion; cardiology q051 loses its expected document at both depths.** These are retrieval results, not answer-correctness or clinical-quality claims. These historical retrieval results have not been independently clinically certified.
 
 ## Selection, audit and run boundaries
 
@@ -16,7 +16,7 @@ The [dependency map](case_dependencies.json) governed the [focused saved-context
 
 After the initial retrieval freeze, source/standards review corrected q036/d014/d015/d016 from lookup to multi-hop and clarified q005/d018 reference scope. Questions, anchors, sources and evidence bindings did not change. Original authoring envelopes and runs are preserved. [Offline rescoring](runs/rescore_saved.py) checked invariance and identical per-case metrics, recorded parent/helper hashes, and made zero retrieval calls. Final [C2](runs/diabetes-C2-reviewed.json)/[C3](runs/diabetes-C3-reviewed.json) files are explicit derived artifacts. No observed retrieval failure drove gold-anchor changes. Subsequent Claude review corrected descriptive metadata and per-case freeze wording; [review_corrections.json](review_corrections.json) records the before/after fingerprints. The evaluated release is preserved in [runs/evaluated-release/](runs/evaluated-release/). All original retrieval, derived-score and ingestion files remain byte-identical: the original diabetes vector query/condition envelope is in `runs/initial-authoring/`, while reviewed diabetes and cardiology envelopes are in `runs/evaluated-release/`, which also preserves their shared manifest. They are not relabelled as runs of the current descriptive revision. Questions, anchors, source bytes, memberships and evidence bindings are unchanged, and no new retrieval was run.
 
-The cardio comparison uses identical original 45 questions/77 anchors inside one extended selection envelope. A fresh 21-article baseline makes fingerprints compatible; historical JUA-110 output is not relabelled. Both [diabetes](runs/diabetes-comparison.txt) and [cardiology](runs/cardio-comparison.txt) nested comparisons passed the provenance/configuration guards.
+The cardio comparison uses identical original 45 questions/77 anchors inside one extended selection envelope. A fresh 21-article baseline makes fingerprints compatible; historical the isolated cardiology evaluation output is not relabelled. Both [diabetes](runs/diabetes-comparison.txt) and [cardiology](runs/cardio-comparison.txt) nested comparisons passed the provenance/configuration guards.
 
 ## Coverage
 

@@ -192,9 +192,9 @@ against full text before adding table/subgroup-dependent cases to
 
 ## Versioned cardiology benchmark rebuild
 
-[Corpus and benchmark standards v1](../benchmark/STANDARDS.md) governs JUA-106.
-JUA-109 adds the separate [45-case cardiology query release](../benchmark/cardiology/v1/BENCHMARK.md),
-subject to independent PR review and freeze before experiments. The historical
+[Corpus and benchmark standards v1](../benchmark/STANDARDS.md) governs the corpus and benchmark expansion.
+The versioned scorer supports the separate [45-case cardiology query release](../benchmark/cardiology/v1/BENCHMARK.md),
+with reviewed and frozen inputs for recorded experiments. The historical
 schema/scoring above remains unchanged for `golden_qa.json`; it is not a measure
 of passage sufficiency or answer correctness.
 
@@ -212,7 +212,7 @@ n=3 (27/38 answerable and 3/4 false-premise correction cases). These are
 structural assertions, not retrieval-quality results. Absent facts are unscored;
 false-premise correction evidence is reported separately from judging generated
 corrections. Exact matching cannot exclude valid paraphrases, so failures require
-context inspection. JUA-40 retains separately sequenced answer-judge work.
+context inspection. The separate generated-answer evaluation follow-up retains separately sequenced answer-judge work.
 
 `compare_evals.py` now rejects changed queries/revisions, scorer/retrieval/corpus
 fingerprints, depths, changed/missing feasibility and incomplete executed-ID sets.
@@ -224,7 +224,7 @@ as an improvement to the old benchmark. No new quality results are claimed.
 
 ## Diabetes expansion and frozen cardiology interference
 
-JUA-111 adds the [versioned diabetes release](../benchmark/diabetes/v1/README.md):
+The diabetes audit adds the [versioned diabetes release](../benchmark/diabetes/v1/README.md):
 16 topic/overlap sources, 49 cases and 55 pinned anchors, with the original
 21-article cardiology selection extended by 11 verified permissive articles.
 Legacy sources/cases are audited and migrated explicitly; new cohorts cannot

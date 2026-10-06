@@ -3,8 +3,9 @@
 This focused C9ORF72 strand adds four primary articles (2023–2024), 58 physical
 PDF pages and ten prepared cases. It covers a human clinical case, human
 postmortem tissue, patient-derived isogenic neurons, engineered cells, zebrafish
-and BAC mice. It is an author-verified selection and a **prepared benchmark**:
-independent full-text/scientific review and query freeze remain pending. It is
+and BAC mice. It is an author-verified selection and a source authoring record.
+Model review and corrected-gold integration are recorded in the current combined
+benchmark; biomedical expert review remains absent. It is
 not a comprehensive ALS/FTD review or a clinical treatment recommendation.
 
 ## Selection decisions
@@ -97,7 +98,7 @@ alternatives still require independent completeness review before freeze.
 Revision 3 records acceptance of a003’s Results passage without requiring the
 Discussion-only adjective "mild", and explains why broad tissue/electrophysiology
 summaries alone do not supply all pinned fact qualifiers. Author review covers
-identified candidate passages; exhaustive completeness review remains pending.
+identified candidate passages; exhaustive expert completeness review is not established.
 The per-alternative receipt is reproducible with `verify_als_ftd_alternatives.py`.
 No retrieval output, paid rewriting or judge result was used to choose them.
 Before freeze, an independent reviewer should read the four full texts, verify

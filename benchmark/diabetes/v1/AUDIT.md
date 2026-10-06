@@ -1,4 +1,4 @@
-# Diabetes legacy audit — JUA-111
+# Diabetes legacy audit
 
 All 35 legacy cases directly using six diabetes sources are recorded in `legacy_audit.json`, with exact original queries, source hashes, findings and dispositions. Final selection and migration are recorded in `manifest.json` and `migration.json`; the local retrieval and interference results are reported in `REPORT.md`.
 

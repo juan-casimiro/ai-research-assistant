@@ -27,11 +27,11 @@ None.
 - **Coverage, not counts:** No fixed article or case count. Articles were chosen for evidence relationships: same intervention in different populations, response versus survival, adjusted versus unadjusted results, cited-trial attribution, and competing cardio-oncology endpoints. Cases were authored from full text before any retrieval run.
 - **Legacy migration:** All five legacy articles and 42 legacy cases are accounted for. Two articles are retained after re-verification; three are replaced or deferred. A legacy ID is kept only when its task stays on the same source family and the ledger notes any task change. Changed study-specific tasks get new oncology-local o-IDs. Replacement links are kept only when the new case tests the same evidence type or reasoning task; topic similarity alone is not enough.
 - **Source conflicts:** Internal source conflicts are made explicit in gold and accepted when attributed: Hunan weighted/PSM label, Zhongshan narrative/table MPR, Vietnam abstract/Table 2 dose shares, Helsinki discontinuation denominators and the screening flow diagram. Gold never invents a reconciliation.
-- **Answerability:** Absent facts are scoped to the whole selected oncology corpus and record near-miss context. False premises need positive correction anchors. Combined-corpus negative claims are rechecked in JUA-114.
+- **Answerability:** Absent facts are scoped to the whole selected oncology corpus and record near-miss context. False premises need positive correction anchors. Combined-corpus negative claims are rechecked in the current combined evaluation.
 - **Near-duplicates:** A strict subset or duplicate of another case is withdrawn (q082, o019; legacy q084). Overlapping cases are retained only with a distinct failure mode, recorded per case below.
 - **Categories:** Categories follow STANDARDS: a direct lookup uses one local passage, and separated passages in one article make a case multi-hop. o009 and o023 were recategorised for this reason.
 - **Evidence budget:** Every evidence case must be completely retrievable at n=8. Where a required span would exceed that, the fact is tested in a companion case instead (o030 accepts either attributed Hunan OS label; o029 requires the Results/legend conflict. The pre-correction primary o030 set needed 7 chunks, and adding its legend needed 9).
-- **Conditions:** C1 is the exact answer-source union; C2 adds POL-MOL as competition; C3 is an oncology-only placeholder until JUA-114.
+- **Conditions:** C1 is the exact answer-source union; C2 adds POL-MOL as competition; source-v1 C3 is an oncology-only placeholder; use combined-v2 C3 for all 55 articles.
 - **Provenance honesty:** Each article's search string is labelled legacy, topical or targeted lookup. Unpreserved discovery queries are stated as unpreserved, not reconstructed.
 - **No tuning exposure:** No retrieval output, generated answer or paid call informed selection or gold. Three Claude reviews (8b1adbe, a226bba, b626fbb) and the Codex correction pass drove the recorded corrections.
 
@@ -100,7 +100,7 @@ None.
 - **Named decoy for:** none
 - **Partial-support overlap for:** none
 - **Conditions:** C1, C2, C3
-- **Search provenance:** topical_search — Topical search string recorded during the JUA-112 audit; it contains no publication-specific values. The "4.0" term filters for the licence notice. Search strings are not eligibility evidence.
+- **Search provenance:** topical_search — Topical search string recorded during the the oncology audit audit; it contains no publication-specific values. The "4.0" term filters for the licence notice. Search strings are not eligibility evidence.
 
 ### PMC10840225 — onco-afatinib-vietnam
 
@@ -144,7 +144,7 @@ None.
 - **Named decoy for:** o025
 - **Partial-support overlap for:** none
 - **Conditions:** C1, C2, C3
-- **Search provenance:** topical_search — Topical search string recorded during the JUA-112 audit; it contains no publication-specific values. Search strings are not eligibility evidence.
+- **Search provenance:** topical_search — Topical search string recorded during the the oncology audit audit; it contains no publication-specific values. Search strings are not eligibility evidence.
 
 ### PMC11547071 — onco-polmol-testing
 
@@ -166,7 +166,7 @@ None.
 - **Named decoy for:** none
 - **Partial-support overlap for:** none
 - **Conditions:** C1, C2, C3
-- **Search provenance:** topical_search — Topical search string recorded during the JUA-112 audit; it contains no publication-specific values. The "4.0" term filters for the licence notice. Search strings are not eligibility evidence.
+- **Search provenance:** topical_search — Topical search string recorded during the the oncology audit audit; it contains no publication-specific values. The "4.0" term filters for the licence notice. Search strings are not eligibility evidence.
 
 ### PMC13190586 — onco-icd-cold-tumor-review
 
@@ -177,7 +177,7 @@ None.
 - **Named decoy for:** none
 - **Partial-support overlap for:** none
 - **Conditions:** C1, C2, C3
-- **Search provenance:** topical_search — Topical search string recorded during the JUA-112 audit; it contains no publication-specific values. The same string also returned PMC10073666. Search strings are not eligibility evidence. The recorded lookup used a -BioRender exclusion filter; eligibility was verified from notices and credits, not inferred from that filter.
+- **Search provenance:** topical_search — Topical search string recorded during the the oncology audit audit; it contains no publication-specific values. The same string also returned PMC10073666. Search strings are not eligibility evidence. The recorded lookup used a -BioRender exclusion filter; eligibility was verified from notices and credits, not inferred from that filter.
 
 ### PMC10073666 — onco-immune-exclusion-definition
 
@@ -188,7 +188,7 @@ None.
 - **Named decoy for:** none
 - **Partial-support overlap for:** none
 - **Conditions:** C1, C2, C3
-- **Search provenance:** topical_search — Topical search string recorded during the JUA-112 audit; it contains no publication-specific values. The same string also returned PMC13190586. Search strings are not eligibility evidence. The recorded lookup used a -BioRender exclusion filter; eligibility was verified from notices and credits, not inferred from that filter.
+- **Search provenance:** topical_search — Topical search string recorded during the the oncology audit audit; it contains no publication-specific values. The same string also returned PMC13190586. Search strings are not eligibility evidence. The recorded lookup used a -BioRender exclusion filter; eligibility was verified from notices and credits, not inferred from that filter.
 
 ### PMC12495207 — onco-pd1-cause-specific-mortality
 

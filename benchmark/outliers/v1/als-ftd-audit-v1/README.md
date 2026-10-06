@@ -68,7 +68,8 @@ conditions that did not contain ALS/FTD.
 
 ## Integrated evaluation handoff
 
-JUA-114 must complete independent ALS/FTD review and freeze, recheck alternatives
+The current combined evaluation records model review, corrected-gold freeze and
+full 158-case results. The historical scope-selection rationale was to recheck alternatives
 and negative scope against actual integrated membership, and run isolated nested
 comparisons with compatible fingerprints. `audit.json` selects 20 affected IDs
 and explains their roles. Retain the original 18-topic sample for comparison;
