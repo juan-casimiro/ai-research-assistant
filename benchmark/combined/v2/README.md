@@ -71,8 +71,8 @@ SEED_ON_EMPTY=false OTEL_TRACES_EXPORTER=none CHROMA_PATH=<fresh-store> \
 ```
 
 If the parent is unavailable/incompatible, use the existing production-ingestion
-helper `benchmark/ingest_isolated.py` with the same benchmark,
-corpus, condition and fresh receipt/store arguments, from the repository root. This
+helper `benchmark/outliers/v1/runs/ingest_isolated.py` with the same benchmark,
+corpus, condition and fresh receipt/store arguments, plus `PYTHONPATH=.`. This
 embeds the whole selected condition rather than copying historical vectors; it
 still makes no paid provider call. Its receipt lacks the reuse-specific embedding
 and per-source probe fields, so do not silently substitute it into this sealed

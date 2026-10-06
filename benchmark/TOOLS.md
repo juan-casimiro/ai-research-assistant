@@ -32,16 +32,18 @@ licences or evidence against pinned inputs; they do not judge generated answers.
 
 ## Fresh isolated ingestion and evaluation
 
-[ingest_isolated.py](ingest_isolated.py) is the shared entry point for new stores.
+The existing [outlier ingestion helper](outliers/v1/runs/ingest_isolated.py)
+supports all topics through explicit benchmark and corpus arguments.
 It verifies the release inputs, ingests only the selected condition through
 production `main.ingest`, fingerprints loaded models, verifies the chunk multiset
-and BM25 count, and atomically finalizes a new receipt. It refuses existing store
-and receipt paths before loading models. Failed runs retain a setup receipt for
-inspection; retry with fresh paths. Importing the helper does not start ingestion.
+and BM25 count, and atomically finalizes a new receipt. It requires an unused
+store path and reserves the receipt exclusively before loading models. Failed
+runs retain a setup receipt for inspection; retry with fresh paths. Run it as
+a command: importing this historical script executes its setup code.
 
 ```sh
-SEED_ON_EMPTY=false OTEL_TRACES_EXPORTER=none CHROMA_PATH=<fresh-store> \
-  .venv/bin/python benchmark/ingest_isolated.py \
+SEED_ON_EMPTY=false OTEL_TRACES_EXPORTER=none PYTHONPATH=. CHROMA_PATH=<fresh-store> \
+  .venv/bin/python benchmark/outliers/v1/runs/ingest_isolated.py \
   --benchmark benchmark/combined/v2/cardiology --corpus-dir corpus/combined-v2 \
   --condition C3 --receipt <new-ingestion.json>
 SEED_ON_EMPTY=false OTEL_TRACES_EXPORTER=none CHROMA_PATH=<fresh-store> \
@@ -57,7 +59,7 @@ server-based workflow described in the root README.
 [reuse_store.py](combined/reuse_store.py) can reuse verified vectors from an
 eligible retained store; see the current reproduction instructions. Its original
 receipts additionally bind embedding digests, dependencies and source probes.
-The shared fresh-store helper does not produce those extra fields: keep its new
+The existing fresh-store helper does not produce those extra fields: keep its new
 receipts/results separate from the sealed experiment. Fresh runs have new IDs,
 timestamps and possible approximate-index variation. Retrieval coverage does
 not establish answer correctness; paid generation/rewrite/judge runs require
@@ -90,7 +92,7 @@ Original scientific seals, gold, contexts and results remain immutable.
 
 Historical helpers preserve the code used to create retained results and the
 paths/hashes those results reference. They remain available for reproduction;
-use the shared tools above for new ingestion and corpus preparation.
+use the generic ingestion and preparation commands above for new experiments.
 
 | Retained tool or evidence | Purpose |
 | --- | --- |
