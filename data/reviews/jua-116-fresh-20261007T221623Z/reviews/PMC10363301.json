@@ -1,0 +1,683 @@
+{
+  "article": {
+    "pmcid": "PMC10363301",
+    "pmc_version": 1,
+    "pmid": "37481514",
+    "doi": "10.1186/s12874-023-01989-3",
+    "title": "Comparison of discrimination and calibration performance of ECG-based machine learning models for prediction of new-onset atrial fibrillation",
+    "authors": [
+      "Giovanni Baj",
+      "Ilaria Gandin",
+      "Arjuna Scagnetto",
+      "Luca Bortolussi",
+      "Chiara Cappelletto",
+      "Andrea Di Lenarda",
+      "Giulia Barbati"
+    ],
+    "journal": "BMC Medical Research Methodology",
+    "publication_date": "2023-07-22",
+    "publication_date_precision": "day",
+    "year": 2023,
+    "article_type": "research-article",
+    "abstract": "BACKGROUND: Machine learning (ML) methods to build prediction models starting from electrocardiogram (ECG) signals are an emerging research field. The aim of the present study is to investigate the performances of two ML approaches based on ECGs for the prediction of new-onset atrial fibrillation (AF), in terms of discrimination, calibration and sample size dependence.\n\nMETHODS: We trained two models to predict new-onset AF: a convolutional neural network (CNN), that takes as input the raw ECG signals, and an eXtreme Gradient Boosting model (XGB), that uses the signal's extracted features. A penalized logistic regression model (LR) was used as a benchmark. Discrimination was evaluated with the area under the ROC curve, while calibration with the integrated calibration index. We investigated the dependence of models' performances on the sample size and on class imbalance corrections introduced with random under-sampling.\n\nRESULTS: CNN's discrimination was the most affected by the sample size, outperforming XGB and LR only around n = 10.000 observations. Calibration showed only a small dependence on the sample size for all the models considered. Balancing the training set with random undersampling did not improve discrimination in any of the models. Instead, the main effect of imbalance corrections was to worsen the models' calibration (for CNN, integrated calibration index from 0.014 [0.01, 0.018] to 0.17 [0.16, 0.19]). The sample size emerged as a fundamental point for developing the CNN model, especially in terms of discrimination (AUC = 0.75 [0.73, 0.77] when n = 10.000, AUC = 0.80 [0.79, 0.81] when n = 150.000). The effect of the sample size on the other two models was weaker. Imbalance corrections led to poorly calibrated models, for all the approaches considered, reducing the clinical utility of the models.\n\nCONCLUSIONS: Our results suggest that the choice of approach in the analysis of ECG should be based on the amount of data available, preferring more standard models for small datasets. Moreover, imbalance correction methods should be avoided when developing clinical prediction models, where calibration is crucial.",
+    "abstract_sections": [
+      {
+        "label": "BACKGROUND",
+        "text": "Machine learning (ML) methods to build prediction models starting from electrocardiogram (ECG) signals are an emerging research field. The aim of the present study is to investigate the performances of two ML approaches based on ECGs for the prediction of new-onset atrial fibrillation (AF), in terms of discrimination, calibration and sample size dependence."
+      },
+      {
+        "label": "METHODS",
+        "text": "We trained two models to predict new-onset AF: a convolutional neural network (CNN), that takes as input the raw ECG signals, and an eXtreme Gradient Boosting model (XGB), that uses the signal's extracted features. A penalized logistic regression model (LR) was used as a benchmark. Discrimination was evaluated with the area under the ROC curve, while calibration with the integrated calibration index. We investigated the dependence of models' performances on the sample size and on class imbalance corrections introduced with random under-sampling."
+      },
+      {
+        "label": "RESULTS",
+        "text": "CNN's discrimination was the most affected by the sample size, outperforming XGB and LR only around n = 10.000 observations. Calibration showed only a small dependence on the sample size for all the models considered. Balancing the training set with random undersampling did not improve discrimination in any of the models. Instead, the main effect of imbalance corrections was to worsen the models' calibration (for CNN, integrated calibration index from 0.014 [0.01, 0.018] to 0.17 [0.16, 0.19]). The sample size emerged as a fundamental point for developing the CNN model, especially in terms of discrimination (AUC = 0.75 [0.73, 0.77] when n = 10.000, AUC = 0.80 [0.79, 0.81] when n = 150.000). The effect of the sample size on the other two models was weaker. Imbalance corrections led to poorly calibrated models, for all the approaches considered, reducing the clinical utility of the models."
+      },
+      {
+        "label": "CONCLUSIONS",
+        "text": "Our results suggest that the choice of approach in the analysis of ECG should be based on the amount of data available, preferring more standard models for small datasets. Moreover, imbalance correction methods should be avoided when developing clinical prediction models, where calibration is crucial."
+      }
+    ],
+    "abstract_absence_reason": null,
+    "abstract_summary": null,
+    "license": "CC BY 4.0",
+    "license_notes": "© The Author(s) 2023https://creativecommons.org/licenses/by/4.0/Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/. The Creative Commons Public Domain Dedication waiver (http://creativecommons.org/publicdomain/zero/1.0/) applies to the data made available in this article, unless otherwise stated in a credit line to the data.",
+    "licence_urls": [
+      "http://creativecommons.org/licenses/by/4.0/",
+      "http://creativecommons.org/publicdomain/zero/1.0/",
+      "https://creativecommons.org/licenses/by/4.0/",
+      "https://creativecommons.org/publicdomain/zero/1.0/"
+    ],
+    "page_count": 10,
+    "has_structured_sections": true,
+    "notes": "Every mandatory corpus-metadata-workflow gate passed in this fresh review. PDF bytes unchanged; no ingestion or evaluation performed.",
+    "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/37481514/",
+    "article_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10363301.1/",
+    "pubmed_title": "Comparison of discrimination and calibration performance of ECG-based machine learning models for prediction of new-onset atrial fibrillation.",
+    "pubmed_publication_types": [
+      "Journal Article"
+    ],
+    "pubmed_corrections": [],
+    "pmc_related_articles": [],
+    "eligibility": "eligible",
+    "id": "PMC10363301-ecg-machine-learning-atrial-fibrillation-prediction-calibration",
+    "article_id": "PMC10363301-ecg-machine-learning-atrial-fibrillation-prediction-calibration",
+    "filename": "PMC10363301-ecg-machine-learning-atrial-fibrillation-prediction-calibration.pdf",
+    "cluster": "cardiology",
+    "search_query": "(\"atrial fibrillation\"[Title] AND (incident[Title] OR \"new-onset\"[Title]) AND (\"deep learning\"[Title] OR \"machine learning\"[Title] OR \"artificial intelligence\"[Title])) AND cc by license[filter] AND has_pdf[filter] NOT pmc embargo[filter]",
+    "metadata_fetched_at": "2026-10-07T22:44:56.327197+00:00",
+    "metadata_url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC10363301.1.json",
+    "metadata_sha256": "2cd93a176910c2b5c1dacef60bb0585cc48ed1197e2c8dd0bd1db07cdb4971f3",
+    "metadata_sources": {
+      "cloud.json": {
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC10363301.1.json",
+        "sha256": "2cd93a176910c2b5c1dacef60bb0585cc48ed1197e2c8dd0bd1db07cdb4971f3"
+      },
+      "id-converter.json": {
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC10363301&format=json&versions=yes&tool=ai-research-assistant",
+        "sha256": "80bdbc35e98b62bf3a988c50a86a9a8a83c97c3d068dbfc6f06e86900c8a8e44"
+      },
+      "pubmed.xml": {
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=37481514&retmode=xml&tool=ai-research-assistant",
+        "sha256": "08a6b2eb39c80e37977316dd7f64c3793a9d013ef339fd975a03b654a44ed7b6"
+      },
+      "article.xml": {
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10363301.1/PMC10363301.1.xml?md5=079e89095377eb5c4d96fdb52793c385",
+        "sha256": "f1e8339f68d34a498b2383a0a0c9f9e19daafc9658796be58c104f38712ccd11"
+      }
+    },
+    "metadata_assembled_at": "2026-10-07T22:44:56.327197+00:00",
+    "metadata_transport": "Original provider responses freshly acquired within this run; transport cache used for final builder parsing after two HTTP 429 assembly failures.",
+    "selection_source": "User-supplied PMCID list in current chat; version pin and discovery query preserved from data/corpus_candidates.json",
+    "bibliographic_locator": {
+      "volume": "23",
+      "issue": null,
+      "fpage": null,
+      "lpage": null,
+      "elocation-id": "169"
+    },
+    "full_citation": "Giovanni Baj; Ilaria Gandin; Arjuna Scagnetto; Luca Bortolussi; Chiara Cappelletto; Andrea Di Lenarda; Giulia Barbati. Comparison of discrimination and calibration performance of ECG-based machine learning models for prediction of new-onset atrial fibrillation. BMC Medical Research Methodology. 2023-07-22;23:169. doi:10.1186/s12874-023-01989-3. PMID:37481514. PMC10363301.1."
+  },
+  "review": {
+    "pmcid": "PMC10363301",
+    "status": "eligible",
+    "reviewer": "Codex (jcas-agent)",
+    "reviewed_at": "2026-10-07T22:38:41.919875+00:00",
+    "reason": "All mandatory workflow gates passed in this fresh review.",
+    "gates": {
+      "identity": {
+        "decision": "pass"
+      },
+      "bibliography": {
+        "decision": "pass"
+      },
+      "abstract": {
+        "decision": "pass"
+      },
+      "licence": {
+        "decision": "pass"
+      },
+      "third_party_rights": {
+        "decision": "pass"
+      },
+      "automatic_acquisition": {
+        "decision": "pass"
+      },
+      "pdf_and_extraction": {
+        "decision": "pass"
+      },
+      "attribution_and_selection": {
+        "decision": "pass"
+      }
+    },
+    "filename_review": {
+      "decision": "pass",
+      "filename": "PMC10363301-ecg-machine-learning-atrial-fibrillation-prediction-calibration.pdf",
+      "actual_title": "Comparison of discrimination and calibration performance of ECG-based machine learning models for prediction of new-onset atrial fibrillation",
+      "basis": "Descriptive intervention/population/study-type wording reviewed against fresh title, abstract and actual PDF. Previous provisional filename is not authoritative."
+    },
+    "identity": {
+      "pmcid": "PMC10363301",
+      "pmc_version": 1,
+      "doi": "10.1186/s12874-023-01989-3",
+      "pmid": "37481514",
+      "pinned_cloud_jats_converter_pubmed_agree": true,
+      "pdf_title_on_first_page": true,
+      "pdf_doi_match": true,
+      "retraction_found": false,
+      "pubmed_corrections": [],
+      "pmc_related_articles": [],
+      "author_count": 7,
+      "pubmed_author_count": 7,
+      "pdf_author_surname_check": [],
+      "author_check_notes": "Complete JATS author list retained; PDF author surnames checked. Group contributor structure separately corrected where recorded."
+    },
+    "bibliography": {
+      "full_citation": "Giovanni Baj; Ilaria Gandin; Arjuna Scagnetto; Luca Bortolussi; Chiara Cappelletto; Andrea Di Lenarda; Giulia Barbati. Comparison of discrimination and calibration performance of ECG-based machine learning models for prediction of new-onset atrial fibrillation. BMC Medical Research Methodology. 2023-07-22;23:169. doi:10.1186/s12874-023-01989-3. PMID:37481514. PMC10363301.1.",
+      "bibliographic_locator": {
+        "volume": "23",
+        "issue": null,
+        "fpage": null,
+        "lpage": null,
+        "elocation-id": "169"
+      },
+      "authors": [
+        "Giovanni Baj",
+        "Ilaria Gandin",
+        "Arjuna Scagnetto",
+        "Luca Bortolussi",
+        "Chiara Cappelletto",
+        "Andrea Di Lenarda",
+        "Giulia Barbati"
+      ],
+      "title": "Comparison of discrimination and calibration performance of ECG-based machine learning models for prediction of new-onset atrial fibrillation",
+      "journal": "BMC Medical Research Methodology",
+      "publication_date": "2023-07-22",
+      "publication_date_precision": "day",
+      "pmcid": "PMC10363301",
+      "pmc_version": 1,
+      "pmid": "37481514",
+      "doi": "10.1186/s12874-023-01989-3",
+      "article_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10363301.1/",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/37481514/",
+      "licence": "CC BY 4.0",
+      "licence_urls": [
+        "http://creativecommons.org/licenses/by/4.0/",
+        "http://creativecommons.org/publicdomain/zero/1.0/",
+        "https://creativecommons.org/licenses/by/4.0/",
+        "https://creativecommons.org/publicdomain/zero/1.0/"
+      ],
+      "copyright_credit_disclaimer_notices": [
+        {
+          "tag": "permissions",
+          "id": null,
+          "text": "© The Author(s) 2023https://creativecommons.org/licenses/by/4.0/Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/. The Creative Commons Public Domain Dedication waiver (http://creativecommons.org/publicdomain/zero/1.0/) applies to the data made available in this article, unless otherwise stated in a credit line to the data."
+        },
+        {
+          "tag": "ack",
+          "id": null,
+          "text": "AcknowledgementsNot applicable."
+        },
+        {
+          "tag": "fn-group",
+          "id": null,
+          "text": "Publisher’s NoteSpringer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations."
+        }
+      ],
+      "modifications": "PDF bytes unchanged; descriptive filename only. Machine text extraction and metadata assembly recorded separately.",
+      "topic": "cardiology",
+      "inclusion_rationale": "Explicitly selected by the user. Fresh title and complete PubMed abstract support cardiology coverage: Comparison of discrimination and calibration performance of ECG-based machine learning models for prediction of new-onset atrial fibrillation",
+      "selection_source": "User-supplied PMCID list in current chat; version pin and discovery query preserved from data/corpus_candidates.json",
+      "search_query": "(\"atrial fibrillation\"[Title] AND (incident[Title] OR \"new-onset\"[Title]) AND (\"deep learning\"[Title] OR \"machine learning\"[Title] OR \"artificial intelligence\"[Title])) AND cc by license[filter] AND has_pdf[filter] NOT pmc embargo[filter]",
+      "reviewer": "Codex (jcas-agent)",
+      "reviewed_at": "2026-10-07T22:38:41.919875+00:00"
+    },
+    "abstract_verification": {
+      "complete_pubmed_abstract_matches_source": true,
+      "section_count": 4,
+      "source": {
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=37481514&retmode=xml&tool=ai-research-assistant",
+        "sha256": "08a6b2eb39c80e37977316dd7f64c3793a9d013ef339fd975a03b654a44ed7b6"
+      },
+      "abstract_sha256": "1694ba69728a037be5e63802bd06779d41d6c92916395a3fec4a31456740b9c3"
+    },
+    "metadata_sources": {
+      "cloud.json": {
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC10363301.1.json",
+        "sha256": "2cd93a176910c2b5c1dacef60bb0585cc48ed1197e2c8dd0bd1db07cdb4971f3"
+      },
+      "id-converter.json": {
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC10363301&format=json&versions=yes&tool=ai-research-assistant",
+        "sha256": "470d78f35e20b8192f7b8b0d05f654f7a0e2c8f905ad7aa7c0f269aa064446b3"
+      },
+      "pubmed.xml": {
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=37481514&retmode=xml&tool=ai-research-assistant",
+        "sha256": "08a6b2eb39c80e37977316dd7f64c3793a9d013ef339fd975a03b654a44ed7b6"
+      },
+      "article.xml": {
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10363301.1/PMC10363301.1.xml?md5=079e89095377eb5c4d96fdb52793c385",
+        "sha256": "f1e8339f68d34a498b2383a0a0c9f9e19daafc9658796be58c104f38712ccd11"
+      }
+    },
+    "metadata_amendments": [],
+    "licence_evidence": {
+      "decision": "pass",
+      "licence": "CC BY 4.0",
+      "exact_urls": [
+        "http://creativecommons.org/licenses/by/4.0/",
+        "http://creativecommons.org/publicdomain/zero/1.0/",
+        "https://creativecommons.org/licenses/by/4.0/",
+        "https://creativecommons.org/publicdomain/zero/1.0/"
+      ],
+      "jats_location": "front/article-meta/permissions",
+      "exact_jats_notice": "© The Author(s) 2023https://creativecommons.org/licenses/by/4.0/Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/. The Creative Commons Public Domain Dedication waiver (http://creativecommons.org/publicdomain/zero/1.0/) applies to the data made available in this article, unless otherwise stated in a credit line to the data.",
+      "pdf_notices": [
+        {
+          "page": 1,
+          "excerpts": [
+            "023-01989-3 RESEARCH Open Access © The Author(s) 2023. Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http:// creat iveco mmons. org/ licen ses/ by/4. 0/. The Creative Commons Public Domain Dedication waiver (http:// creat iveco mmons. org/ publi cdoma in/ zero/1. 0/) applies to the data ma",
+            "long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http:// creat iveco mmons. org/ licen ses/ by/4. 0/. The Creative Commons Public Domain Dedication waiver (http:// creat iveco mmons. org/ publi cdoma in/ zero/1. 0/) applies to the data made available in this article, unless otherwise stated in a credit line to the data. BMC Medical Research Methodology Comparison of discrimination and calibration performance of ECG-based machine learning models for prediction of new-onset atrial fibrilla",
+            "s were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http:// creat iveco mmons. org/ licen ses/ by/4. 0/. The Creative Commons Public Domain Dedication waiver (http:// creat iveco mmons. org/ publi cdoma in/ zero/1. 0/) applies to the data made available in this article, unless otherwise stated in a credit line to the data. BMC Medical Research Methodology Comparison of discrimination and calibration performance of ECG-based machine learning models for prediction of new-onset atrial fibrillation Giovanni Baj1*, Ilaria Gandin2, Arjuna Scagnetto3, Luca Bortolussi1, Chiara Cappelletto3, Andrea Di Lenarda3 and Giulia Barbati2 Abstract Backg",
+            " indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http:// creat iveco mmons. org/ licen ses/ by/4. 0/. The Creative Commons Public Domain Dedication waiver (http:// creat iveco mmons. org/ publi cdoma in/ zero/1. 0/) applies to the data made available in this article, unless otherwise stated in a credit line to the data. BMC Medical Research Methodology Comparison of discrimination and calibration performance of ECG-based machine learning models for prediction of new-onset atrial fibrillation Giovanni Baj1*, Ilaria Gandin2, Arjuna Scagnetto3, Luca Bortolussi1, Chiara Cappelletto3, Andrea Di Lenarda3 and Giulia Barbati2 Abstract Background Machine learning (ML) methods to build prediction models starting from electrocardiogram (ECG) signals are an emerging researc",
+            "der. To view a copy of this licence, visit http:// creat iveco mmons. org/ licen ses/ by/4. 0/. The Creative Commons Public Domain Dedication waiver (http:// creat iveco mmons. org/ publi cdoma in/ zero/1. 0/) applies to the data made available in this article, unless otherwise stated in a credit line to the data. BMC Medical Research Methodology Comparison of discrimination and calibration performance of ECG-based machine learning models for prediction of new-onset atrial fibrillation Giovanni Baj1*, Ilaria Gandin2, Arjuna Scagnetto3, Luca Bortolussi1, Chiara Cappelletto3, Andrea Di Lenarda3 and Giulia Barbati2 Abstract Background Machine learning (ML) methods to build prediction models starting from electrocardiogram (ECG) signals are an emerging research field. The aim of the present study is to investigate the performances of two ML approaches based on ECGs for the prediction of new-onset atrial fibrillation (AF), in terms of discrimination, calibration and sample size dependence. Methods We trained two models to predict new-onset",
+            "utory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http:// creat iveco mmons. org/ licen ses/ by/4. 0/. The Creative Commons Public Domain Dedication waiver (http:// creat iveco mmons. org/ publi cdoma in/ zero/1. 0/) applies to the data made available in this article, unless otherwise stated in a credit line to the data. BMC Medical Research Methodology Comparison of discrimination and calibration performance of ECG-based machine learning models for prediction of new-onset atrial fibrillation Giovanni Baj1*, Ilaria Gandin2, Arjuna Scagnetto3, Luca Bortolussi1, Chiara Cappelletto3, Andrea Di Lenarda3 and Giulia Barbati2 Abstract Background Machine learning (ML) methods to build prediction models starting from electrocardiogram (ECG) signals are an emerging research field. The aim of the present study is to investigate the performances of two ML approaches based on ECGs for the prediction of new-onset atrial fibrillation (AF), in te",
+            "py of this licence, visit http:// creat iveco mmons. org/ licen ses/ by/4. 0/. The Creative Commons Public Domain Dedication waiver (http:// creat iveco mmons. org/ publi cdoma in/ zero/1. 0/) applies to the data made available in this article, unless otherwise stated in a credit line to the data. BMC Medical Research Methodology Comparison of discrimination and calibration performance of ECG-based machine learning models for prediction of new-onset atrial fibrillation Giovanni Baj1*, Ilaria Gandin2, Arjuna Scagnetto3, Luca Bortolussi1, Chiara Cappelletto3, Andrea Di Lenarda3 and Giulia Barbati2 Abstract Background Machine learning (ML) methods to build prediction models starting from electrocardiogram (ECG) signals are an emerging research field. The aim of the present study is to investigate the performances of two ML approaches based on ECGs for the prediction of new-onset atrial fibrillation (AF), in terms of discrimination, calibration and sample size dependence. Methods We trained two models to predict new-onset AF: a convolutio"
+          ]
+        }
+      ],
+      "pdf_annotation_links": [
+        {
+          "page": 1,
+          "uri": "http://creativecommons.org/licenses/by/4.0/"
+        },
+        {
+          "page": 1,
+          "uri": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "page": 1,
+          "uri": "http://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ],
+      "versioned_notice_or_link_in_pdf": true,
+      "reviewed_at": "2026-10-07T22:38:41.919875+00:00",
+      "reviewer": "Codex (jcas-agent)",
+      "permissions_xml": "<permissions xmlns:ns0=\"http://www.niso.org/schemas/ali/1.0/\" xmlns:ns1=\"http://www.w3.org/1999/xlink\"><copyright-statement>© The Author(s) 2023</copyright-statement><license><ns0:license_ref specific-use=\"textmining\" content-type=\"ccbylicense\">https://creativecommons.org/licenses/by/4.0/</ns0:license_ref><license-p><bold>Open Access</bold> This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit <ext-link ext-link-type=\"uri\" ns1:href=\"https://creativecommons.org/licenses/by/4.0/\">http://creativecommons.org/licenses/by/4.0/</ext-link>. The Creative Commons Public Domain Dedication waiver (<ext-link ext-link-type=\"uri\" ns1:href=\"https://creativecommons.org/publicdomain/zero/1.0/\">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated in a credit line to the data.</license-p></license></permissions>"
+    },
+    "third_party_rights": {
+      "decision": "pass",
+      "inspected_pdf_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "visual_scope": "All main-PDF pages reviewed via rendered contact sheet, with JATS/PDF caption, credit, acknowledgement and notice text cross-checks. Supplemental PDF pages and embedded images visually reviewed for admitted records; office text and ZIP members inspected. This is a rights/identity/readability review, not scientific validation.",
+      "figure_table_and_supplement_locations": [
+        {
+          "kind": "fig",
+          "id": "Fig1",
+          "label": "Fig. 1",
+          "caption": "A AUC values for the varying sample sizes (original event fraction in the training set). Error bars represent the 95% CI around the mean. B AUC values for the varying sample sizes (perfectly balanced training set). C ICI values for the varying sample sizes (original event fraction in the training set). D ICI values for the varying sample sizes (perfectly balanced training set)",
+          "credits": []
+        },
+        {
+          "kind": "fig",
+          "id": "Fig2",
+          "label": "Fig. 2",
+          "caption": "A AUC values for the varying event fraction, obtained by balancing the training set with RUS. Error bars represent the 95% CI around the mean. B ICI values for the varying event fraction, obtained by balancing the training set with RUS",
+          "credits": []
+        },
+        {
+          "kind": "table-wrap",
+          "id": "Tab1",
+          "label": "Table 1",
+          "caption": "Descriptive features of the dataset. For all the numerical variables median and (1st, 3rd quartile) are reported. We compared “Censored” and “Event” populations with Mann–Whitney and Chi-squared tests, respectively for continuous variables and gender. All comparisons were significant (p-value < 0.001)",
+          "credits": []
+        },
+        {
+          "kind": "table-wrap",
+          "id": "Tab2",
+          "label": "Table 2",
+          "caption": "Performances in discrimination and calibration of the three models",
+          "credits": []
+        },
+        {
+          "kind": "supplementary-material",
+          "id": "MOESM1",
+          "label": "",
+          "caption": "",
+          "credits": []
+        }
+      ],
+      "copyright_acknowledgement_and_disclaimer_notices": [
+        {
+          "tag": "permissions",
+          "id": null,
+          "text": "© The Author(s) 2023https://creativecommons.org/licenses/by/4.0/Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/. The Creative Commons Public Domain Dedication waiver (http://creativecommons.org/publicdomain/zero/1.0/) applies to the data made available in this article, unless otherwise stated in a credit line to the data."
+        },
+        {
+          "tag": "ack",
+          "id": null,
+          "text": "AcknowledgementsNot applicable."
+        },
+        {
+          "tag": "fn-group",
+          "id": null,
+          "text": "Publisher’s NoteSpringer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations."
+        }
+      ],
+      "supplement_objects": [
+        {
+          "filename": "12874_2023_1989_MOESM1_ESM.zip",
+          "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10363301.1/12874_2023_1989_MOESM1_ESM.zip?md5=71c6d7001bbbeb8e043a47957a0573e3",
+          "bytes": 286176,
+          "sha256": "4901d8d64e3a5a6059e8ab3e5d86faa5a02b5dfa328436dfe6a7e7fb6c1c1061",
+          "provider_md5": "71c6d7001bbbeb8e043a47957a0573e3"
+        }
+      ],
+      "supplement_text_sha256": [
+        {
+          "name": "12874_2023_1989_MOESM1_ESM.zip",
+          "source_bytes_sha256": "4901d8d64e3a5a6059e8ab3e5d86faa5a02b5dfa328436dfe6a7e7fb6c1c1061",
+          "extracted_text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "rights_hits": []
+        }
+      ],
+      "supplement_inspection_errors": [],
+      "resolution": "No separately excluded or incompatible material identified in inspected figures, tables, captions, credits, supplements or notices. Article notice covers the inspected original material; source citations in review/meta-analysis tables identify summarized study data, not a copied published figure. Publisher logos and software branding are retained as part of the unmodified PDF and are not independently licensed assets.",
+      "external_evidence_urls": []
+    },
+    "acquisition": {
+      "route": "automatic PMC Cloud; repository download_corpus.py",
+      "pinned_version": 1,
+      "metadata_url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC10363301.1.json",
+      "pdf_object_url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10363301.1/PMC10363301.1.pdf?md5=697d8ed1e40e67c484a9e32a0c322927",
+      "provider_md5": "697d8ed1e40e67c484a9e32a0c322927",
+      "provider_md5_matches": true,
+      "download_started_at": "2026-10-07T22:17:30.597311+00:00",
+      "download_completed_at": "2026-10-07T22:17:32.759549+00:00",
+      "bytes": 1453083,
+      "sha256": "97cb98ece2c75b991827fcd1b7899adf16112b30b4f99bf43de3c7708b6ddb1d",
+      "pdf_path": "build/corpus/jua-116-fresh-20261007T221623Z/pdfs/PMC10363301-ecg-machine-learning-atrial-fibrillation-prediction-calibration.pdf",
+      "fresh_download": true,
+      "previous_drafts_or_pdfs_used": false
+    },
+    "pdf_validation": {
+      "parser": "pdfplumber",
+      "parser_version": "0.11.9",
+      "page_count": 10,
+      "characters_per_page": [
+        3823,
+        5375,
+        5414,
+        5574,
+        5069,
+        2327,
+        3795,
+        5481,
+        7819,
+        4102
+      ],
+      "text_sha256": "1b964eebb3c0eebbdaa4416b70d33da837514fe4b7c765dfcaf7dbc371d30b09",
+      "text_path": "build/corpus/jua-116-fresh-20261007T221623Z/text/PMC10363301-comparison-discrimination-calibration-performance-ecg-based-machine.txt",
+      "secondary_parser": {
+        "parser": "pypdf",
+        "parser_version": "6.16.1",
+        "text_sha256": "2a686b981a352b921f1ee94fef0da7309ba5c1098f8ba59d87f04a0ffde1ad46",
+        "doi_in_pdf": true,
+        "title_in_first_page": true
+      },
+      "table_checks": [
+        {
+          "id": "Tab1",
+          "label": "Table 1",
+          "cell_checks": [
+            {
+              "cell": "Age (years)",
+              "found": true
+            },
+            {
+              "cell": "65 (52, 75)",
+              "found": true
+            },
+            {
+              "cell": "74 (67, 80)",
+              "found": true
+            },
+            {
+              "cell": "67 (54, 76)",
+              "found": true
+            },
+            {
+              "cell": "Gender (Male, %)",
+              "found": true
+            },
+            {
+              "cell": "P axis (degrees)",
+              "found": true
+            },
+            {
+              "cell": "58 (43, 69)",
+              "found": true
+            },
+            {
+              "cell": "60 (42, 73)",
+              "found": true
+            },
+            {
+              "cell": "58 (43, 69)",
+              "found": true
+            },
+            {
+              "cell": "P onset (msec)",
+              "found": true
+            },
+            {
+              "cell": "290 (269, 307)",
+              "found": true
+            },
+            {
+              "cell": "274 (246, 295)",
+              "found": true
+            },
+            {
+              "cell": "288 (266, 306)",
+              "found": true
+            },
+            {
+              "cell": "P offset (msec)",
+              "found": true
+            },
+            {
+              "cell": "407 (388, 422)",
+              "found": true
+            }
+          ]
+        },
+        {
+          "id": "Tab2",
+          "label": "Table 2",
+          "cell_checks": [
+            {
+              "cell": "AUC",
+              "found": true
+            },
+            {
+              "cell": "0.799 (0.794, 0.805)",
+              "found": true
+            },
+            {
+              "cell": "0.738 (0.732, 0.744)",
+              "found": true
+            },
+            {
+              "cell": "0.683 (0.678, 0.688)",
+              "found": true
+            },
+            {
+              "cell": "ICI",
+              "found": true
+            },
+            {
+              "cell": "0.014 (0.01, 0.018)",
+              "found": true
+            },
+            {
+              "cell": "0.008 (0.006, 0.01)",
+              "found": true
+            },
+            {
+              "cell": "0.014 (0.013, 0.015)",
+              "found": true
+            },
+            {
+              "cell": "CNN",
+              "found": true
+            },
+            {
+              "cell": "XGB",
+              "found": true
+            }
+          ]
+        }
+      ],
+      "table_extraction_verdict": "Useful table text verified against JATS cells and visual PDF tables; this is a readability sample, not a guarantee of perfect cell layout.",
+      "limitations": [],
+      "table_page_samples": [
+        {
+          "jats_table_id": "Tab1",
+          "label": "Table 1",
+          "pdf_page": 5,
+          "matched_sample_cells_on_page": 15,
+          "sample_cells_tested": 15,
+          "page_text_sha256": "3ef22b911d17080637dc99c8dfe61085cd54c9871e437bbe6954d3160cacd192",
+          "text_excerpt": "Table 1 Descriptive features of the dataset. For all the \nnumerical variables median and  (1st,  3rd quartile) are reported. \nWe compared “Censored” and “Event” populations with Mann–\nWhitney and Chi-squared tests, respectively for continuous \nvariables and gender. All comparisons were significant \n(p-value < 0.001)\nCensored Event Overall\nAge (years) 65 (52, 75) 74 (67, 80) 67 (54, 76)\nGender (Male, %) 49 58 50\nP axis (degrees) 58 (43, 69) 60 (42, 73) 58 (43, 69)\nP onset (msec) 290 (269, 307) 274 (246, 295) 288 (266, 306)\nP offset (msec) 407 (388, 422) 391 (361, 413) 406 (385, 422)\nPR interval (msec) 163 (148, 182) 176 (157, 199) 164 (149, 184)\nQRS axis (degrees) 37 (1, 64) 16 (-22, 53) 35 (-2, 63)\nQRS onset (msec) 453 (449, 458) 451 (445, 457) 453 (449, 458)\nQRS offset (msec) 550 (543, 558) 551 (545, 563) 550 (543, 558)\nQT interval corrected \n(msec)\n408 (395, 424) 420 (404, 439) 409 (396, 426)\nT axis (degrees) 54 (36, 68) 59 (34, 78) 55 (36, 69)\nT offset (msec) 841 (820, 863) 853 (829"
+        },
+        {
+          "jats_table_id": "Tab2",
+          "label": "Table 2",
+          "pdf_page": 5,
+          "matched_sample_cells_on_page": 10,
+          "sample_cells_tested": 10,
+          "page_text_sha256": "3ef22b911d17080637dc99c8dfe61085cd54c9871e437bbe6954d3160cacd192",
+          "text_excerpt": "Table 2 Performances in discrimination and calibration of the \nthree models\nCNN XGB LR\nAUC 0.799 (0.794, 0.805) 0.738 (0.732, 0.744) 0.683 (0.678, 0.688)\nICI 0.014 (0.01, 0.018) 0.008 (0.006, 0.01) 0.014 (0.013, 0.015)"
+        }
+      ]
+    },
+    "attribution": {
+      "full_citation": "Giovanni Baj; Ilaria Gandin; Arjuna Scagnetto; Luca Bortolussi; Chiara Cappelletto; Andrea Di Lenarda; Giulia Barbati. Comparison of discrimination and calibration performance of ECG-based machine learning models for prediction of new-onset atrial fibrillation. BMC Medical Research Methodology. 2023-07-22;23:169. doi:10.1186/s12874-023-01989-3. PMID:37481514. PMC10363301.1.",
+      "bibliographic_locator": {
+        "volume": "23",
+        "issue": null,
+        "fpage": null,
+        "lpage": null,
+        "elocation-id": "169"
+      },
+      "authors": [
+        "Giovanni Baj",
+        "Ilaria Gandin",
+        "Arjuna Scagnetto",
+        "Luca Bortolussi",
+        "Chiara Cappelletto",
+        "Andrea Di Lenarda",
+        "Giulia Barbati"
+      ],
+      "title": "Comparison of discrimination and calibration performance of ECG-based machine learning models for prediction of new-onset atrial fibrillation",
+      "journal": "BMC Medical Research Methodology",
+      "publication_date": "2023-07-22",
+      "publication_date_precision": "day",
+      "pmcid": "PMC10363301",
+      "pmc_version": 1,
+      "pmid": "37481514",
+      "doi": "10.1186/s12874-023-01989-3",
+      "article_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10363301.1/",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/37481514/",
+      "licence": "CC BY 4.0",
+      "licence_urls": [
+        "http://creativecommons.org/licenses/by/4.0/",
+        "http://creativecommons.org/publicdomain/zero/1.0/",
+        "https://creativecommons.org/licenses/by/4.0/",
+        "https://creativecommons.org/publicdomain/zero/1.0/"
+      ],
+      "copyright_credit_disclaimer_notices": [
+        {
+          "tag": "permissions",
+          "id": null,
+          "text": "© The Author(s) 2023https://creativecommons.org/licenses/by/4.0/Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/. The Creative Commons Public Domain Dedication waiver (http://creativecommons.org/publicdomain/zero/1.0/) applies to the data made available in this article, unless otherwise stated in a credit line to the data."
+        },
+        {
+          "tag": "ack",
+          "id": null,
+          "text": "AcknowledgementsNot applicable."
+        },
+        {
+          "tag": "fn-group",
+          "id": null,
+          "text": "Publisher’s NoteSpringer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations."
+        }
+      ],
+      "modifications": "PDF bytes unchanged; descriptive filename only. Machine text extraction and metadata assembly recorded separately.",
+      "topic": "cardiology",
+      "inclusion_rationale": "Explicitly selected by the user. Fresh title and complete PubMed abstract support cardiology coverage: Comparison of discrimination and calibration performance of ECG-based machine learning models for prediction of new-onset atrial fibrillation",
+      "selection_source": "User-supplied PMCID list in current chat; version pin and discovery query preserved from data/corpus_candidates.json",
+      "search_query": "(\"atrial fibrillation\"[Title] AND (incident[Title] OR \"new-onset\"[Title]) AND (\"deep learning\"[Title] OR \"machine learning\"[Title] OR \"artificial intelligence\"[Title])) AND cc by license[filter] AND has_pdf[filter] NOT pmc embargo[filter]",
+      "reviewer": "Codex (jcas-agent)",
+      "reviewed_at": "2026-10-07T22:38:41.919875+00:00"
+    },
+    "assembly_source_reverification": {
+      "checked_at": "2026-10-07T22:52:05.801093+00:00",
+      "result": "pass",
+      "changes": [
+        {
+          "source": "id-converter.json",
+          "reviewed_sha256": "470d78f35e20b8192f7b8b0d05f654f7a0e2c8f905ad7aa7c0f269aa064446b3",
+          "assembly_sha256": "80bdbc35e98b62bf3a988c50a86a9a8a83c97c3d068dbfc6f06e86900c8a8e44",
+          "resolution": "Only ID Converter response-date changed; complete request and identifier/version mapping are identical."
+        }
+      ],
+      "assembly_metadata_sources": {
+        "cloud.json": {
+          "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC10363301.1.json",
+          "sha256": "2cd93a176910c2b5c1dacef60bb0585cc48ed1197e2c8dd0bd1db07cdb4971f3"
+        },
+        "id-converter.json": {
+          "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC10363301&format=json&versions=yes&tool=ai-research-assistant",
+          "sha256": "80bdbc35e98b62bf3a988c50a86a9a8a83c97c3d068dbfc6f06e86900c8a8e44"
+        },
+        "pubmed.xml": {
+          "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=37481514&retmode=xml&tool=ai-research-assistant",
+          "sha256": "08a6b2eb39c80e37977316dd7f64c3793a9d013ef339fd975a03b654a44ed7b6"
+        },
+        "article.xml": {
+          "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10363301.1/PMC10363301.1.xml?md5=079e89095377eb5c4d96fdb52793c385",
+          "sha256": "f1e8339f68d34a498b2383a0a0c9f9e19daafc9658796be58c104f38712ccd11"
+        }
+      },
+      "fresh_response_provenance": [
+        {
+          "pmcid": "PMC10363301",
+          "provider_source": "cloud.json",
+          "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC10363301.1.json",
+          "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10363301.1.cloud.json",
+          "sha256": "2cd93a176910c2b5c1dacef60bb0585cc48ed1197e2c8dd0bd1db07cdb4971f3",
+          "source_set": "assembly-sources-attempt2",
+          "response_archived_at": "2026-10-07T22:44:56.326273+00:00"
+        },
+        {
+          "pmcid": "PMC10363301",
+          "provider_source": "id-converter.json",
+          "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC10363301&format=json&versions=yes&tool=ai-research-assistant",
+          "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10363301.1.id-converter.json",
+          "sha256": "80bdbc35e98b62bf3a988c50a86a9a8a83c97c3d068dbfc6f06e86900c8a8e44",
+          "source_set": "assembly-sources-attempt2",
+          "response_archived_at": "2026-10-07T22:44:56.326630+00:00"
+        },
+        {
+          "pmcid": "PMC10363301",
+          "provider_source": "pubmed.xml",
+          "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=37481514&retmode=xml&tool=ai-research-assistant",
+          "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10363301.1.pubmed.xml",
+          "sha256": "08a6b2eb39c80e37977316dd7f64c3793a9d013ef339fd975a03b654a44ed7b6",
+          "source_set": "assembly-sources-attempt2",
+          "response_archived_at": "2026-10-07T22:44:56.326903+00:00"
+        },
+        {
+          "pmcid": "PMC10363301",
+          "provider_source": "article.xml",
+          "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10363301.1/PMC10363301.1.xml?md5=079e89095377eb5c4d96fdb52793c385",
+          "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10363301.1.article.xml",
+          "sha256": "f1e8339f68d34a498b2383a0a0c9f9e19daafc9658796be58c104f38712ccd11",
+          "source_set": "assembly-sources-attempt2",
+          "response_archived_at": "2026-10-07T22:44:56.327197+00:00"
+        }
+      ]
+    }
+  }
+}

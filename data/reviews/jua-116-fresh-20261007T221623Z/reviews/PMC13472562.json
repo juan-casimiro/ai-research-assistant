@@ -1,0 +1,1049 @@
+{
+  "article": {
+    "pmcid": "PMC13472562",
+    "pmc_version": 1,
+    "pmid": "42598689",
+    "doi": "10.3389/fnut.2026.1850552",
+    "title": "Sleep duration, sleep quality, and daytime napping in relation to incident cardiometabolic multimorbidity across three national aging cohorts: a prospective, interpretable machine learning study",
+    "authors": [
+      "Fanchang Wang",
+      "Hongyang Qiao",
+      "Yi Zheng",
+      "Shuang Wu",
+      "Yuxin Ni",
+      "Xiaoming He"
+    ],
+    "journal": "Frontiers in Nutrition",
+    "publication_date": "2026-07-30",
+    "publication_date_precision": "day",
+    "year": 2026,
+    "article_type": "research-article",
+    "abstract": "BACKGROUND: Sleep disturbances are modifiable factors linked to metabolic dysregulation, adiposity, blood pressure abnormalities, and cardiometabolic risk. Evidence remains limited on whether nighttime sleep duration, sleep quality, and daytime napping predict cardiometabolic multimorbidity (CMM), defined as two or more of hypertension, type 2 diabetes mellitus, coronary heart disease, and stroke, across populations.\n\nMETHODS: Using CHARLS, ELSA, and HRS, we examined associations between sleep patterns and incident CMM in prospective aging cohorts. Kaplan-Meier curves and Cox proportional hazards models were used for time-to-event analyses, adjusting for sociodemographic characteristics, physical activity, and clinical covariates. Restricted cubic splines explored nonlinear associations. Mediation analyses assessed whether blood pressure, lipid markers, and C-reactive protein mediated the association between nighttime sleep duration and CMM. Interpretable machine learning evaluated the contribution of sleep variables within the cardiometabolic risk profile. Because sleep measures differed across cohorts, harmonization was conducted at the construct rather than raw-score level, and cross-cohort effect-size comparisons should be interpreted cautiously.\n\nRESULTS: The analysis included 13,859 participants: 4,145 from CHARLS, 4,268 from ELSA, and 5,446 from HRS. In fully adjusted Cox models, good sleep quality was associated with lower CMM risk than poor sleep quality in CHARLS and ELSA. A similar trend was observed in HRS, although significance appeared only in complete-case sensitivity analysis. Kaplan-Meier curves showed poorer CMM-free survival among participants with poor sleep quality. For nighttime sleep duration, restricted cubic splines suggested a U-shaped association in ELSA before adjustment, but this weakened after full adjustment, and findings were inconsistent across cohorts. In exploratory mediation analyses, some small indirect effects were observed in unadjusted models, but none remained evident after covariate adjustment. In prediction analyses, logistic regression and LightGBM showed stable performance. SHAP identified systolic blood pressure, waist circumference, and BMI as leading predictors, while nighttime sleep duration added predictive information.\n\nCONCLUSION: Better sleep quality was associated with lower incident CMM risk in CHARLS and ELSA, with a similar but less robust pattern in HRS. Nighttime sleep duration showed less consistent associations. Machine learning analyses were exploratory and supported risk stratification and feature interpretation rather than clinical screening.",
+    "abstract_sections": [
+      {
+        "label": "BACKGROUND",
+        "text": "Sleep disturbances are modifiable factors linked to metabolic dysregulation, adiposity, blood pressure abnormalities, and cardiometabolic risk. Evidence remains limited on whether nighttime sleep duration, sleep quality, and daytime napping predict cardiometabolic multimorbidity (CMM), defined as two or more of hypertension, type 2 diabetes mellitus, coronary heart disease, and stroke, across populations."
+      },
+      {
+        "label": "METHODS",
+        "text": "Using CHARLS, ELSA, and HRS, we examined associations between sleep patterns and incident CMM in prospective aging cohorts. Kaplan-Meier curves and Cox proportional hazards models were used for time-to-event analyses, adjusting for sociodemographic characteristics, physical activity, and clinical covariates. Restricted cubic splines explored nonlinear associations. Mediation analyses assessed whether blood pressure, lipid markers, and C-reactive protein mediated the association between nighttime sleep duration and CMM. Interpretable machine learning evaluated the contribution of sleep variables within the cardiometabolic risk profile. Because sleep measures differed across cohorts, harmonization was conducted at the construct rather than raw-score level, and cross-cohort effect-size comparisons should be interpreted cautiously."
+      },
+      {
+        "label": "RESULTS",
+        "text": "The analysis included 13,859 participants: 4,145 from CHARLS, 4,268 from ELSA, and 5,446 from HRS. In fully adjusted Cox models, good sleep quality was associated with lower CMM risk than poor sleep quality in CHARLS and ELSA. A similar trend was observed in HRS, although significance appeared only in complete-case sensitivity analysis. Kaplan-Meier curves showed poorer CMM-free survival among participants with poor sleep quality. For nighttime sleep duration, restricted cubic splines suggested a U-shaped association in ELSA before adjustment, but this weakened after full adjustment, and findings were inconsistent across cohorts. In exploratory mediation analyses, some small indirect effects were observed in unadjusted models, but none remained evident after covariate adjustment. In prediction analyses, logistic regression and LightGBM showed stable performance. SHAP identified systolic blood pressure, waist circumference, and BMI as leading predictors, while nighttime sleep duration added predictive information."
+      },
+      {
+        "label": "CONCLUSION",
+        "text": "Better sleep quality was associated with lower incident CMM risk in CHARLS and ELSA, with a similar but less robust pattern in HRS. Nighttime sleep duration showed less consistent associations. Machine learning analyses were exploratory and supported risk stratification and feature interpretation rather than clinical screening."
+      }
+    ],
+    "abstract_absence_reason": null,
+    "abstract_summary": null,
+    "license": "CC BY 4.0",
+    "license_notes": "Copyright © 2026 Wang, Qiao, Zheng, Wu, Ni and He.2026Wang, Qiao, Zheng, Wu, Ni and Hehttps://creativecommons.org/licenses/by/4.0/This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms.",
+    "licence_urls": [
+      "https://creativecommons.org/licenses/by/4.0/"
+    ],
+    "page_count": 18,
+    "has_structured_sections": true,
+    "notes": "Every mandatory corpus-metadata-workflow gate passed in this fresh review. PDF bytes unchanged; no ingestion or evaluation performed.",
+    "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/42598689/",
+    "article_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13472562.1/",
+    "pubmed_title": "Sleep duration, sleep quality, and daytime napping in relation to incident cardiometabolic multimorbidity across three national aging cohorts: a prospective, interpretable machine learning study.",
+    "pubmed_publication_types": [
+      "Journal Article"
+    ],
+    "pubmed_corrections": [],
+    "pmc_related_articles": [],
+    "eligibility": "eligible",
+    "id": "PMC13472562-sleep-napping-cardiometabolic-multimorbidity-aging-cohorts",
+    "article_id": "PMC13472562-sleep-napping-cardiometabolic-multimorbidity-aging-cohorts",
+    "filename": "PMC13472562-sleep-napping-cardiometabolic-multimorbidity-aging-cohorts.pdf",
+    "cluster": "diabetes",
+    "search_query": "Transferred extra-corpus candidate screened for sleep/cardiometabolic primary longitudinal evidence; original discovery query unavailable",
+    "metadata_fetched_at": "2026-10-07T22:21:02.144410+00:00",
+    "metadata_url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC13472562.1.json",
+    "metadata_sha256": "10ca21b0f31d3f99e5f86cca3a01fe95b8268507f09f36c5a253ae729c090f3f",
+    "metadata_sources": {
+      "cloud.json": {
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC13472562.1.json",
+        "sha256": "10ca21b0f31d3f99e5f86cca3a01fe95b8268507f09f36c5a253ae729c090f3f"
+      },
+      "id-converter.json": {
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC13472562&format=json&versions=yes&tool=ai-research-assistant",
+        "sha256": "b213023c034698baa5d2292543a945f455bd4c47eefbfd10a31bbe273f6ae566"
+      },
+      "pubmed.xml": {
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=42598689&retmode=xml&tool=ai-research-assistant",
+        "sha256": "0155202e9992c22ce63fc22fc88699e7b653ff98c960054676875440ee1da0b7"
+      },
+      "article.xml": {
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13472562.1/PMC13472562.1.xml?md5=6c3f0d3a7efd353e9be13a8c377f9085",
+        "sha256": "bdc43d24b193c4f5cc728c469674145a95e2ab09890bb6797c8c89dd13924016"
+      }
+    },
+    "metadata_assembled_at": "2026-10-07T22:21:02.144410+00:00",
+    "metadata_transport": "Original provider responses freshly acquired within this run; transport cache used for final builder parsing after two HTTP 429 assembly failures.",
+    "selection_source": "User-supplied PMCID list in current chat; version pin and discovery query preserved from data/corpus_candidates.json",
+    "bibliographic_locator": {
+      "volume": "13",
+      "issue": null,
+      "fpage": null,
+      "lpage": null,
+      "elocation-id": "1850552"
+    },
+    "full_citation": "Fanchang Wang; Hongyang Qiao; Yi Zheng; Shuang Wu; Yuxin Ni; Xiaoming He. Sleep duration, sleep quality, and daytime napping in relation to incident cardiometabolic multimorbidity across three national aging cohorts: a prospective, interpretable machine learning study. Frontiers in Nutrition. 2026-07-30;13:1850552. doi:10.3389/fnut.2026.1850552. PMID:42598689. PMC13472562.1."
+  },
+  "review": {
+    "pmcid": "PMC13472562",
+    "status": "eligible",
+    "reviewer": "Codex (jcas-agent)",
+    "reviewed_at": "2026-10-07T22:38:41.919875+00:00",
+    "reason": "All mandatory workflow gates passed in this fresh review.",
+    "gates": {
+      "identity": {
+        "decision": "pass"
+      },
+      "bibliography": {
+        "decision": "pass"
+      },
+      "abstract": {
+        "decision": "pass"
+      },
+      "licence": {
+        "decision": "pass"
+      },
+      "third_party_rights": {
+        "decision": "pass"
+      },
+      "automatic_acquisition": {
+        "decision": "pass"
+      },
+      "pdf_and_extraction": {
+        "decision": "pass"
+      },
+      "attribution_and_selection": {
+        "decision": "pass"
+      }
+    },
+    "filename_review": {
+      "decision": "pass",
+      "filename": "PMC13472562-sleep-napping-cardiometabolic-multimorbidity-aging-cohorts.pdf",
+      "actual_title": "Sleep duration, sleep quality, and daytime napping in relation to incident cardiometabolic multimorbidity across three national aging cohorts: a prospective, interpretable machine learning study",
+      "basis": "Descriptive intervention/population/study-type wording reviewed against fresh title, abstract and actual PDF. Previous provisional filename is not authoritative."
+    },
+    "identity": {
+      "pmcid": "PMC13472562",
+      "pmc_version": 1,
+      "doi": "10.3389/fnut.2026.1850552",
+      "pmid": "42598689",
+      "pinned_cloud_jats_converter_pubmed_agree": true,
+      "pdf_title_on_first_page": true,
+      "pdf_doi_match": true,
+      "retraction_found": false,
+      "pubmed_corrections": [],
+      "pmc_related_articles": [],
+      "author_count": 6,
+      "pubmed_author_count": 6,
+      "pdf_author_surname_check": [],
+      "author_check_notes": "Complete JATS author list retained; PDF author surnames checked. Group contributor structure separately corrected where recorded."
+    },
+    "bibliography": {
+      "full_citation": "Fanchang Wang; Hongyang Qiao; Yi Zheng; Shuang Wu; Yuxin Ni; Xiaoming He. Sleep duration, sleep quality, and daytime napping in relation to incident cardiometabolic multimorbidity across three national aging cohorts: a prospective, interpretable machine learning study. Frontiers in Nutrition. 2026-07-30;13:1850552. doi:10.3389/fnut.2026.1850552. PMID:42598689. PMC13472562.1.",
+      "bibliographic_locator": {
+        "volume": "13",
+        "issue": null,
+        "fpage": null,
+        "lpage": null,
+        "elocation-id": "1850552"
+      },
+      "authors": [
+        "Fanchang Wang",
+        "Hongyang Qiao",
+        "Yi Zheng",
+        "Shuang Wu",
+        "Yuxin Ni",
+        "Xiaoming He"
+      ],
+      "title": "Sleep duration, sleep quality, and daytime napping in relation to incident cardiometabolic multimorbidity across three national aging cohorts: a prospective, interpretable machine learning study",
+      "journal": "Frontiers in Nutrition",
+      "publication_date": "2026-07-30",
+      "publication_date_precision": "day",
+      "pmcid": "PMC13472562",
+      "pmc_version": 1,
+      "pmid": "42598689",
+      "doi": "10.3389/fnut.2026.1850552",
+      "article_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13472562.1/",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/42598689/",
+      "licence": "CC BY 4.0",
+      "licence_urls": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "copyright_credit_disclaimer_notices": [
+        {
+          "tag": "permissions",
+          "id": null,
+          "text": "Copyright © 2026 Wang, Qiao, Zheng, Wu, Ni and He.2026Wang, Qiao, Zheng, Wu, Ni and Hehttps://creativecommons.org/licenses/by/4.0/This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms."
+        },
+        {
+          "tag": "ack",
+          "id": null,
+          "text": "AcknowledgmentsWe are grateful to all the participants who were involved in this study."
+        },
+        {
+          "tag": "fn-group",
+          "id": null,
+          "text": "Edited by: Qing-Yong Zheng, Lanzhou University, ChinaReviewed by: Jian Gang Liu, China Academy of Chinese Medical Sciences, ChinaHongmei Jia, Chengdu University of Traditional Chinese Medicine, China"
+        }
+      ],
+      "modifications": "PDF bytes unchanged; descriptive filename only. Machine text extraction and metadata assembly recorded separately.",
+      "topic": "diabetes",
+      "inclusion_rationale": "Explicitly selected by the user. Fresh title and complete PubMed abstract support diabetes coverage: Sleep duration, sleep quality, and daytime napping in relation to incident cardiometabolic multimorbidity across three national aging cohorts: a prospective, interpretable machine learning study",
+      "selection_source": "User-supplied PMCID list in current chat; version pin and discovery query preserved from data/corpus_candidates.json",
+      "search_query": "Transferred extra-corpus candidate screened for sleep/cardiometabolic primary longitudinal evidence; original discovery query unavailable",
+      "reviewer": "Codex (jcas-agent)",
+      "reviewed_at": "2026-10-07T22:38:41.919875+00:00"
+    },
+    "abstract_verification": {
+      "complete_pubmed_abstract_matches_source": true,
+      "section_count": 4,
+      "source": {
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=42598689&retmode=xml&tool=ai-research-assistant",
+        "sha256": "0155202e9992c22ce63fc22fc88699e7b653ff98c960054676875440ee1da0b7"
+      },
+      "abstract_sha256": "c119e40255016d27d1ccc2baeb7b0b8238d3e7e7441ad6ab14baa42951dc1339"
+    },
+    "metadata_sources": {
+      "cloud.json": {
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC13472562.1.json",
+        "sha256": "10ca21b0f31d3f99e5f86cca3a01fe95b8268507f09f36c5a253ae729c090f3f"
+      },
+      "id-converter.json": {
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC13472562&format=json&versions=yes&tool=ai-research-assistant",
+        "sha256": "b213023c034698baa5d2292543a945f455bd4c47eefbfd10a31bbe273f6ae566"
+      },
+      "pubmed.xml": {
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=42598689&retmode=xml&tool=ai-research-assistant",
+        "sha256": "0155202e9992c22ce63fc22fc88699e7b653ff98c960054676875440ee1da0b7"
+      },
+      "article.xml": {
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13472562.1/PMC13472562.1.xml?md5=6c3f0d3a7efd353e9be13a8c377f9085",
+        "sha256": "bdc43d24b193c4f5cc728c469674145a95e2ab09890bb6797c8c89dd13924016"
+      }
+    },
+    "metadata_amendments": [],
+    "licence_evidence": {
+      "decision": "pass",
+      "licence": "CC BY 4.0",
+      "exact_urls": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "jats_location": "front/article-meta/permissions",
+      "exact_jats_notice": "Copyright © 2026 Wang, Qiao, Zheng, Wu, Ni and He.2026Wang, Qiao, Zheng, Wu, Ni and Hehttps://creativecommons.org/licenses/by/4.0/This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms.",
+      "pdf_notices": [
+        {
+          "page": 1,
+          "excerpts": [
+            "Wang, Qiao, Zheng, Wu, Ni and He. This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms. Sleep duration, sleep quality, and daytime napping in relation to incident cardiometabolic multimorbidity across three national aging cohorts: a prospective, interpretable machine learning study Fanchang Wang1, Hongyang Qiao2, Yi Zheng3,S h u a n gW u4, Yuxin Ni1 and Xiaoming He4* 1The Second School of Clinical Medicine, Zhejiang Chinese Medical University, Hangzhou, China,2The First Affiliated Hospital of Wenzhou Medical University, Wenzhou, China.,3Department of Clinical Nutrition, The Second Affiliated Hospital of Zhejiang Chinese Medical University, Hangzho",
+            "ctive, interpretable machine learning study.Front. Nutr. 13:1850552. doi: 10.3389/fnut.2026.1850552 COPYRIGHT © 2026 Wang, Qiao, Zheng, Wu, Ni and He. This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms. Sleep duration, sleep quality, and daytime napping in relation to incident cardiometabolic multimorbidity across three national aging cohorts: a prospective, interpretable machine learning study Fanchang Wang1, Hongyang Qiao2, Yi Zheng3,S h u a n gW u4, Yuxin Ni1 and Xiaoming He4* 1The Second School of Clinical Medicine, Zhejiang Chinese Medical University, Hangzhou, China,2The First Affiliated Hospital of Wenzhou Medical University, Wenzhou, Chi",
+            " distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms. Sleep duration, sleep quality, and daytime napping in relation to incident cardiometabolic multimorbidity across three national aging cohorts: a prospective, interpretable machine learning study Fanchang Wang1, Hongyang Qiao2, Yi Zheng3,S h u a n gW u4, Yuxin Ni1 and Xiaoming He4* 1The Second School of Clinical Medicine, Zhejiang Chinese Medical University, Hangzhou, China,2The First Affiliated Hospital of Wenzhou Medical University, Wenzhou, China.,3Department of Clinical Nutrition, The Second Affiliated Hospital of Zhejiang Chinese Medical University, Hangzhou, China, 4Department of Endocrinology and Metabolism, The Second Affiliated Hospital of Zhejiang Chinese Medical University, Hangzhou, China Background: "
+          ]
+        }
+      ],
+      "pdf_annotation_links": [
+        {
+          "page": 1,
+          "uri": "http://creativecommons.org/licenses/by/4.0/"
+        },
+        {
+          "page": 1,
+          "uri": "http://creativecommons.org/licenses/by/4.0/"
+        },
+        {
+          "page": 1,
+          "uri": "http://creativecommons.org/licenses/by/4.0/"
+        },
+        {
+          "page": 1,
+          "uri": "http://creativecommons.org/licenses/by/4.0/"
+        },
+        {
+          "page": 1,
+          "uri": "http://creativecommons.org/licenses/by/4.0/"
+        }
+      ],
+      "versioned_notice_or_link_in_pdf": true,
+      "reviewed_at": "2026-10-07T22:38:41.919875+00:00",
+      "reviewer": "Codex (jcas-agent)",
+      "permissions_xml": "<permissions xmlns:ns0=\"http://www.niso.org/schemas/ali/1.0/\" xmlns:ns1=\"http://www.w3.org/1999/xlink\"><copyright-statement>Copyright © 2026 Wang, Qiao, Zheng, Wu, Ni and He.</copyright-statement><copyright-year>2026</copyright-year><copyright-holder>Wang, Qiao, Zheng, Wu, Ni and He</copyright-holder><license><ns0:license_ref specific-use=\"textmining\" content-type=\"ccbylicense\" start_date=\"2026-07-30\">https://creativecommons.org/licenses/by/4.0/</ns0:license_ref><license-p>This is an open-access article distributed under the terms of the <ext-link ext-link-type=\"uri\" ns1:href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution License (CC BY)</ext-link>. The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms.</license-p></license></permissions>"
+    },
+    "third_party_rights": {
+      "decision": "pass",
+      "inspected_pdf_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "visual_scope": "All main-PDF pages reviewed via rendered contact sheet, with JATS/PDF caption, credit, acknowledgement and notice text cross-checks. Supplemental PDF pages and embedded images visually reviewed for admitted records; office text and ZIP members inspected. This is a rights/identity/readability review, not scientific validation.",
+      "figure_table_and_supplement_locations": [
+        {
+          "kind": "fig",
+          "id": "F1",
+          "label": "Figure 1",
+          "caption": "Selection process of the study population.",
+          "credits": []
+        },
+        {
+          "kind": "fig",
+          "id": "F2",
+          "label": "Figure 2",
+          "caption": "Kaplan–Meier analyses of survival free from incident cardiometabolic multimorbidity according to sleep-related variables. (A–C) show results from CHARLS: (A) sleep quality, (B) nighttime sleep duration, and (C) daytime napping. (D, E) show results from ELSA: (D) sleep quality and (E) nighttime sleep duration. (F) shows results from HRS: (F) sleep quality. For sleep quality, Q1, Q2, and Q3 indicate poor, fair, and good sleep quality, respectively. For nighttime sleep duration in CHARLS and ELSA, Q1, Q2, and Q3 indicate ≤ 6 h/night, 7–8 h/night, and ≥9 h/night, respectively. For daytime napping in CHARLS, Q1, Q2, and Q3 indicate < 30 min/day, 30–50 min/day, and >50 min/day, respectively. P-values were calculated using the log-rank test.",
+          "credits": []
+        },
+        {
+          "kind": "fig",
+          "id": "F3",
+          "label": "Figure 3",
+          "caption": "Restricted cubic spline analyses of the associations between continuous sleep measures and incident CMM. Curves were estimated using Cox proportional hazards models; therefore, the vertical scale should be interpreted as relative hazard estimates rather than absolute predicted probabilities. Adjust and Unadjust indicate the fully adjusted and crude models, respectively. The adjusted models included age, sex, marital status, education level, smoking, alcohol drinking, physical activity, chronic lung disease, depression, body mass index, waist circumference, systolic blood pressure, and activities of daily living.",
+          "credits": []
+        },
+        {
+          "kind": "fig",
+          "id": "F4",
+          "label": "Figure 4",
+          "caption": "Exploratory mediation analyses of the association between nighttime sleep duration and incident CMM in CHARLS and ELSA. DBP, LDL-C, HDL-C, TC, triglycerides, and CRP were examined separately as candidate mediators. Blue and red dashed boxes indicate CHARLS and ELSA, respectively; the upper and lower panels show covariate-adjusted and crude analyses, respectively. Indirect effects and 95% confidence intervals were estimated using 5,000 bootstrap resamples. Interpretation focused on the adjusted analyses.",
+          "credits": []
+        },
+        {
+          "kind": "fig",
+          "id": "F5",
+          "label": "Figure 5",
+          "caption": "Five-fold cross-validation stability of the eight predictive models in the CHARLS training set. (A) shows the area under the receiver operating characteristic curve (AUC), (B) shows the F1 score, (C) shows precision, and (D) shows recall across the five cross-validation folds.",
+          "credits": []
+        },
+        {
+          "kind": "fig",
+          "id": "F6",
+          "label": "Figure 6",
+          "caption": "Five-fold cross-validated discrimination performance of the eight predictive models in the CHARLS training set. (A) shows the precision-recall curves, and (B) shows the receiver operating characteristic curves.",
+          "credits": []
+        },
+        {
+          "kind": "fig",
+          "id": "F7",
+          "label": "Figure 7",
+          "caption": "Calibration and decision curve analyses of the eight predictive models in the CHARLS model-development dataset and the ELSA external-validation dataset. (A) shows bootstrap calibration curves for the CHARLS internal test set, (B) shows bootstrap calibration curves for the CHARLS training set, and (C) shows bootstrap calibration curves for the ELSA external validation set. (D) shows decision curve analysis for the CHARLS internal test set, (E) shows decision curve analysis for the CHARLS training set, and (F) shows decision curve analysis for the ELSA external validation set. The shaded areas in (A–C) represent 95% bootstrap confidence intervals.",
+          "credits": []
+        },
+        {
+          "kind": "fig",
+          "id": "F8",
+          "label": "Figure 8",
+          "caption": "SHAP-based interpretation of the XGBoost model developed using the CHARLS training set. (A) shows global feature importance ranked according to the mean absolute SHAP values. (B) shows the SHAP beeswarm plot, with colors indicating the relative feature values. (C) shows a SHAP waterfall plot for an individual prediction. (D–H) show SHAP dependence plots for systolic blood pressure, waist circumference, body mass index, age, and activities of daily living, respectively.",
+          "credits": []
+        },
+        {
+          "kind": "table-wrap",
+          "id": "T1",
+          "label": "Table 1",
+          "caption": "Baseline characteristics of participants in ELSA according to incident CMM status.",
+          "credits": []
+        },
+        {
+          "kind": "table-wrap",
+          "id": "T2",
+          "label": "Table 2",
+          "caption": "Baseline characteristics of participants in CHARLS according to incident CMM status.",
+          "credits": []
+        },
+        {
+          "kind": "table-wrap",
+          "id": "T3",
+          "label": "Table 3",
+          "caption": "Baseline characteristics of participants in HRS according to incident CMM status.",
+          "credits": []
+        },
+        {
+          "kind": "table-wrap",
+          "id": "T4",
+          "label": "Table 4",
+          "caption": "Cox proportional hazards regression analyses.",
+          "credits": []
+        },
+        {
+          "kind": "table-wrap",
+          "id": "T5",
+          "label": "Table 5",
+          "caption": "Summary of the main associations between sleep patterns and incident cardiometabolic multimorbidity across three cohorts.",
+          "credits": []
+        },
+        {
+          "kind": "table-wrap",
+          "id": "T6",
+          "label": "Table 6",
+          "caption": "Sensitivity analysis.",
+          "credits": []
+        }
+      ],
+      "copyright_acknowledgement_and_disclaimer_notices": [
+        {
+          "tag": "permissions",
+          "id": null,
+          "text": "Copyright © 2026 Wang, Qiao, Zheng, Wu, Ni and He.2026Wang, Qiao, Zheng, Wu, Ni and Hehttps://creativecommons.org/licenses/by/4.0/This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms."
+        },
+        {
+          "tag": "ack",
+          "id": null,
+          "text": "AcknowledgmentsWe are grateful to all the participants who were involved in this study."
+        },
+        {
+          "tag": "fn-group",
+          "id": null,
+          "text": "Edited by: Qing-Yong Zheng, Lanzhou University, ChinaReviewed by: Jian Gang Liu, China Academy of Chinese Medical Sciences, ChinaHongmei Jia, Chengdu University of Traditional Chinese Medicine, China"
+        }
+      ],
+      "supplement_objects": [],
+      "supplement_text_sha256": [],
+      "supplement_inspection_errors": [],
+      "resolution": "No separately excluded or incompatible material identified in inspected figures, tables, captions, credits, supplements or notices. Article notice covers the inspected original material; source citations in review/meta-analysis tables identify summarized study data, not a copied published figure. Publisher logos and software branding are retained as part of the unmodified PDF and are not independently licensed assets.",
+      "external_evidence_urls": []
+    },
+    "acquisition": {
+      "route": "automatic PMC Cloud; repository download_corpus.py",
+      "pinned_version": 1,
+      "metadata_url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC13472562.1.json",
+      "pdf_object_url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13472562.1/PMC13472562.1.pdf?md5=eb81af4e82dd82b0892a287f58293750",
+      "provider_md5": "eb81af4e82dd82b0892a287f58293750",
+      "provider_md5_matches": true,
+      "download_started_at": "2026-10-07T22:21:12.637024+00:00",
+      "download_completed_at": "2026-10-07T22:21:15.309991+00:00",
+      "bytes": 4721878,
+      "sha256": "bb7c82cd722d116881f4a770f6f599407d86d425801d098bc6332d3176fdaa51",
+      "pdf_path": "build/corpus/jua-116-fresh-20261007T221623Z/pdfs/PMC13472562-sleep-napping-cardiometabolic-multimorbidity-aging-cohorts.pdf",
+      "fresh_download": true,
+      "previous_drafts_or_pdfs_used": false
+    },
+    "pdf_validation": {
+      "parser": "pdfplumber",
+      "parser_version": "0.11.9",
+      "page_count": 18,
+      "characters_per_page": [
+        3839,
+        5227,
+        4251,
+        1952,
+        1804,
+        5206,
+        1931,
+        3147,
+        2656,
+        3592,
+        1137,
+        2787,
+        1801,
+        3799,
+        2895,
+        3835,
+        4538,
+        8468
+      ],
+      "text_sha256": "05cdb43acb2a069f79f4a40c8b1b005f1206535f33afbf7b7549f1cf373d4d65",
+      "text_path": "build/corpus/jua-116-fresh-20261007T221623Z/text/PMC13472562-sleep-duration-sleep-quality-daytime-napping-relation.txt",
+      "secondary_parser": {
+        "parser": "pypdf",
+        "parser_version": "6.16.1",
+        "text_sha256": "dfce5b07335e681d1ab9474dad88a30f5cc42134d05ec7158fc05f7b1ba707a0",
+        "doi_in_pdf": true,
+        "title_in_first_page": true
+      },
+      "table_checks": [
+        {
+          "id": "T1",
+          "label": "Table 1",
+          "cell_checks": [
+            {
+              "cell": "AGE",
+              "found": true
+            },
+            {
+              "cell": "64.12 (8.58)",
+              "found": true
+            },
+            {
+              "cell": "63.56 (8.31)",
+              "found": true
+            },
+            {
+              "cell": "67.77 (9.36)",
+              "found": true
+            },
+            {
+              "cell": "<0.001",
+              "found": true
+            },
+            {
+              "cell": "Female",
+              "found": true
+            },
+            {
+              "cell": "2,307 (54.1%)",
+              "found": true
+            },
+            {
+              "cell": "2,041 (55.1%)",
+              "found": true
+            },
+            {
+              "cell": "266 (47.2%)",
+              "found": true
+            },
+            {
+              "cell": "Male",
+              "found": true
+            },
+            {
+              "cell": "1,961 (45.9%)",
+              "found": true
+            },
+            {
+              "cell": "1,663 (44.9%)",
+              "found": true
+            },
+            {
+              "cell": "298 (52.8%)",
+              "found": true
+            },
+            {
+              "cell": "Married",
+              "found": true
+            },
+            {
+              "cell": "3,051 (71.5%)",
+              "found": true
+            }
+          ]
+        },
+        {
+          "id": "T2",
+          "label": "Table 2",
+          "cell_checks": [
+            {
+              "cell": "Age",
+              "found": true
+            },
+            {
+              "cell": "61.48 (8.04)",
+              "found": true
+            },
+            {
+              "cell": "61.21 (8.11)",
+              "found": true
+            },
+            {
+              "cell": "62.56 (7.66)",
+              "found": true
+            },
+            {
+              "cell": "<0.001",
+              "found": true
+            },
+            {
+              "cell": "Female",
+              "found": true
+            },
+            {
+              "cell": "2,123 (51.2%)",
+              "found": true
+            },
+            {
+              "cell": "1,661 (49.9%)",
+              "found": true
+            },
+            {
+              "cell": "462 (56.4%)",
+              "found": true
+            },
+            {
+              "cell": "Male",
+              "found": true
+            },
+            {
+              "cell": "2,022 (48.8%)",
+              "found": true
+            },
+            {
+              "cell": "1,665 (50.1%)",
+              "found": true
+            },
+            {
+              "cell": "357 (43.6%)",
+              "found": true
+            },
+            {
+              "cell": "Married",
+              "found": true
+            },
+            {
+              "cell": "3,441 (83.0%)",
+              "found": true
+            }
+          ]
+        },
+        {
+          "id": "T3",
+          "label": "Table 3",
+          "cell_checks": [
+            {
+              "cell": "Age",
+              "found": true
+            },
+            {
+              "cell": "64.04 (10.23)",
+              "found": true
+            },
+            {
+              "cell": "63.44 (10.09)",
+              "found": true
+            },
+            {
+              "cell": "65.78 (10.44)",
+              "found": true
+            },
+            {
+              "cell": "<0.001",
+              "found": true
+            },
+            {
+              "cell": "Female",
+              "found": true
+            },
+            {
+              "cell": "3,201 (58.8%)",
+              "found": true
+            },
+            {
+              "cell": "2,388 (58.8%)",
+              "found": true
+            },
+            {
+              "cell": "813 (58.6%)",
+              "found": true
+            },
+            {
+              "cell": "Male",
+              "found": true
+            },
+            {
+              "cell": "2,245 (41.2%)",
+              "found": true
+            },
+            {
+              "cell": "1,671 (41.2%)",
+              "found": true
+            },
+            {
+              "cell": "574 (41.4%)",
+              "found": true
+            },
+            {
+              "cell": "Married",
+              "found": true
+            },
+            {
+              "cell": "3,306 (60.7%)",
+              "found": true
+            }
+          ]
+        },
+        {
+          "id": "T4",
+          "label": "Table 4",
+          "cell_checks": [
+            {
+              "cell": "Poor",
+              "found": true
+            },
+            {
+              "cell": "Ref.",
+              "found": true
+            },
+            {
+              "cell": "Ref.",
+              "found": true
+            },
+            {
+              "cell": "Ref.",
+              "found": true
+            },
+            {
+              "cell": "Fair",
+              "found": true
+            },
+            {
+              "cell": "0.9(0.7441–1.0825)",
+              "found": true
+            },
+            {
+              "cell": "0.258",
+              "found": true
+            },
+            {
+              "cell": "0.92(0.7593–1.1049)",
+              "found": true
+            },
+            {
+              "cell": "0.359",
+              "found": true
+            },
+            {
+              "cell": "0.98(0.8068–1.186)",
+              "found": true
+            },
+            {
+              "cell": "0.823",
+              "found": true
+            },
+            {
+              "cell": "Good",
+              "found": true
+            },
+            {
+              "cell": "0.72(0.6049–0.8635)",
+              "found": true
+            },
+            {
+              "cell": "<0.001",
+              "found": true
+            },
+            {
+              "cell": "0.76(0.6309–0.9038)",
+              "found": true
+            }
+          ]
+        },
+        {
+          "id": "T5",
+          "label": "Table 5",
+          "cell_checks": [
+            {
+              "cell": "Sleep quality",
+              "found": true
+            },
+            {
+              "cell": "Fair vs poor",
+              "found": true
+            },
+            {
+              "cell": "0.98 (0.8068–1.1860); P = 0.823",
+              "found": true
+            },
+            {
+              "cell": "0.94 (0.7441–1.1824); P = 0.588",
+              "found": true
+            },
+            {
+              "cell": "0.90 (0.7670–1.0675); P = 0.236",
+              "found": true
+            },
+            {
+              "cell": "No significant association after full adjustment.",
+              "found": true
+            },
+            {
+              "cell": "Sleep quality",
+              "found": true
+            },
+            {
+              "cell": "Good vs poor",
+              "found": true
+            },
+            {
+              "cell": "0.79 (0.6503–0.9693); P = 0.023",
+              "found": true
+            },
+            {
+              "cell": "0.76 (0.5960–0.9809); P = 0.035",
+              "found": true
+            },
+            {
+              "cell": "0.84 (0.6964–1.0046); P = 0.056",
+              "found": true
+            },
+            {
+              "cell": "Protective direction across cohorts; significant in CHARLS and ELSA and borderline in HRS.",
+              "found": true
+            },
+            {
+              "cell": "Nighttime sleep duration",
+              "found": true
+            },
+            {
+              "cell": "7–8 h vs ≤ 6 h",
+              "found": true
+            },
+            {
+              "cell": "0.89 (0.6226–1.2854); P = 0.547",
+              "found": true
+            }
+          ]
+        },
+        {
+          "id": "T6",
+          "label": "Table 6",
+          "cell_checks": [
+            {
+              "cell": "Poor",
+              "found": true
+            },
+            {
+              "cell": "Ref.",
+              "found": true
+            },
+            {
+              "cell": "Ref.",
+              "found": true
+            },
+            {
+              "cell": "Ref.",
+              "found": true
+            },
+            {
+              "cell": "Fair",
+              "found": true
+            },
+            {
+              "cell": "0.91(0.7382–1.1129)",
+              "found": true
+            },
+            {
+              "cell": "0.348",
+              "found": true
+            },
+            {
+              "cell": "0.92(0.7471–1.1267)",
+              "found": true
+            },
+            {
+              "cell": "0.411",
+              "found": true
+            },
+            {
+              "cell": "0.97(0.7881–1.201)",
+              "found": true
+            },
+            {
+              "cell": "0.798",
+              "found": true
+            },
+            {
+              "cell": "Good",
+              "found": true
+            },
+            {
+              "cell": "0.72(0.5908–0.8727)",
+              "found": true
+            },
+            {
+              "cell": "<0.001",
+              "found": true
+            },
+            {
+              "cell": "0.74(0.6094–0.9032)",
+              "found": true
+            }
+          ]
+        }
+      ],
+      "table_extraction_verdict": "Useful table text verified against JATS cells and visual PDF tables; this is a readability sample, not a guarantee of perfect cell layout.",
+      "limitations": [],
+      "table_page_samples": [
+        {
+          "jats_table_id": "T1",
+          "label": "Table 1",
+          "pdf_page": 4,
+          "matched_sample_cells_on_page": 15,
+          "sample_cells_tested": 15,
+          "page_text_sha256": "999378dd572d5ed5291457b529e7972a2cbf24eb26269359e9cd1676593614e9",
+          "text_excerpt": "Wang et al. 10.3389/fnut.2026.1850552\nTABLE 1 Baseline characteristicsof participantsinELSA accordingtoincidentCMMstatus.\nVariable Overall N = 4268 a No incident CMM\nN = 3704 a\nIncident CMMN = 564 a p-\nValueb\nAGE 64.12(8.58) 63.56(8.31) 67.77(9.36) <0.001\nGender <0.001\nFemale 2,307(54.1%) 2,041(55.1%) 266(47.2%)\nMale 1,961(45.9%) 1,663(44.9%) 298(52.8%)\nMarital 0.010\nMarried 3,051(71.5%) 2,674(72.2%) 377(66.8%)\nNonmarried 1,217(28.5%) 1,030(27.8%) 187(33.2%)\nEducation 0.024\nBelowhighschool 859(20.1%) 766(20.7%) 93(16.5%)\nHighschoolandabove 3,409(79.9%) 2,938(79.3%) 471(83.5%)\nSmoke 0.9\nNo 3,749(87.8%) 3,255(87.9%) 494(87.6%)\nYes 519(12.2%) 449(12.1%) 70(12.4%)\nDrink 0.002\nNo 1,196(28.0%) 1,007(27.2%) 189(33.5%)\nYes 3,072(72.0%) 2,697(72.8%) 375(66.5%)\nChronic lung disease <0.001\nNo 4,089(95.8%) 3,568(96.3%) 521(92.4%)\nYes 179(4.2%) 136(3.7%) 43(7.6%)\nSleepnight 6.89(1.21) 6.91(1.19) 6.77(1.34) 0.009\nSleep quality 0.076\nPoor 819(19.2%) 698(18.8%) 121(21.5%)\nFair 1,789(41.9%) 1,542(41.6%"
+        },
+        {
+          "jats_table_id": "T2",
+          "label": "Table 2",
+          "pdf_page": 5,
+          "matched_sample_cells_on_page": 15,
+          "sample_cells_tested": 15,
+          "page_text_sha256": "0e0ddebda17db04748c200b8d46f3c43dae109a20321c51b3b7fa8302c1e67f5",
+          "text_excerpt": "Wang et al. 10.3389/fnut.2026.1850552\nTABLE 2 Baseline characteristicsof participantsinCHARLS accordingtoincidentCMMstatus.\nVariable Overall N = 4145 a No incident CMM\nN = 3326 a\nIncident CMMN = 819 a p\nValueb\nAge 61.48(8.04) 61.21(8.11) 62.56(7.66) <0.001\nGender 0.001\nFemale 2,123(51.2%) 1,661(49.9%) 462(56.4%)\nMale 2,022(48.8%) 1,665(50.1%) 357(43.6%)\nMarital 0.2\nMarried 3,441(83.0%) 2,774(83.4%) 667(81.4%)\nNonmarried 704(17.0%) 552(16.6%) 152(18.6%)\nEducation 0.8\nBelowhighschool 3,710(89.5%) 2,974(89.4%) 736(89.9%)\nHighschoolandabove 435(10.5%) 352(10.6%) 83(10.1%)\nSmoke 0.003\nNo 2,481(59.9%) 1,953(58.7%) 528(64.5%)\nYes 1,664(40.1%) 1,373(41.3%) 291(35.5%)\nDrink 0.4\nNo 2,497(60.2%) 1,992(59.9%) 505(61.7%)\nYes 1,648(39.8%) 1,334(40.1%) 314(38.3%)\nChronic lung disease 0.019\nNo 3,719(89.7%) 3,003(90.3%) 716(87.4%)\nYes 426(10.3%) 323(9.7%) 103(12.6%)\nSleepnight 6.34(1.89) 6.34(1.89) 6.33(1.86) 0.8\nSleep quality 0.003\nPoor 791(19.1%) 609(18.3%) 182(22.2%)\nFair 1,308(31.6%) 1,034(31.1%) 2"
+        },
+        {
+          "jats_table_id": "T3",
+          "label": "Table 3",
+          "pdf_page": 7,
+          "matched_sample_cells_on_page": 15,
+          "sample_cells_tested": 15,
+          "page_text_sha256": "642cec458422107cd1b75e7692eefac9e1ea0adad372e2d39ff6f0dd0a8faf24",
+          "text_excerpt": "Wang et al. 10.3389/fnut.2026.1850552\nTABLE 3 Baseline characteristicsof participantsinHRS accordingtoincidentCMMstatus.\nVariable Overall N = 5446 a No incident CMM\nN = 4059 a\nIncident CMMN = 1387 a p\nValueb\nAge 64.04(10.23) 63.44(10.09) 65.78(10.44) <0.001\nGender >0.9\nFemale 3,201(58.8%) 2,388(58.8%) 813(58.6%)\nMale 2,245(41.2%) 1,671(41.2%) 574(41.4%)\nMarital 0.020\nMarried 3,306(60.7%) 2,501(61.6%) 805(58.0%)\nNonmarried 2,140(39.3%) 1,558(38.4%) 582(42.0%)\nEducation 0.001\nBelowhighschool 521(9.6%) 357(8.8%) 164(11.8%)\nHighschoolandabove 4,925(90.4%) 3,702(91.2%) 1,223(88.2%)\nSmoke 0.3\nNo 4,586(84.2%) 3,432(84.6%) 1,154(83.2%)\nYes 860(15.8%) 627(15.4%) 233(16.8%)\nDrink <0.001\nNo 2,033(37.3%) 1,436(35.4%) 597(43.0%)\nYes 3,413(62.7%) 2,623(64.6%) 790(57.0%)\nChronic lung disease <0.001\nNo 5,120(94.0%) 3,842(94.7%) 1,278(92.1%)\nYes 326(6.0%) 217(5.3%) 109(7.9%)\nSleep quality <0.001\nPoor 586(10.8%) 405(10.0%) 181(13.0%)\nFair 3,035(55.7%) 2,240(55.2%) 795(57.3%)\nGood 1,825(33.5%) 1,414(34.8"
+        },
+        {
+          "jats_table_id": "T4",
+          "label": "Table 4",
+          "pdf_page": 8,
+          "matched_sample_cells_on_page": 15,
+          "sample_cells_tested": 15,
+          "page_text_sha256": "ed338c5b5b51d08be5fe1673380335ef4a97d77b841b6edafe6e6075702745a0",
+          "text_excerpt": "Wang et al. 10.3389/fnut.2026.1850552\nwould have required removing the key sleep-duration feature and\nwould not have provided a valid test of the model as speciﬁed.\nELSA was the only cohort other than CHARLS that provided a\ncomparablenighttimesleepdurationmeasure,andwasaccordingly\nused for external validation. HRS was instead retained for the\nCox proportional hazards and Kaplan–Meier analyses of sleep\nquality, for which a harmonized measure was available across all\nthreecohorts.\nEight classiﬁers were compared, including logistic regression,\nXGBoost, LightGBM, neural network, random forest, k-nearest\nneighbors, support vector machine, and naive Bayes. Model\nperformance was assessed using ﬁve-fold cross-validation, internal\ntesting, and external validation. ROC curves and precision-recall\ncurveswereusedtoevaluatediscrimination.Calibrationcurvesand\ndecisioncurveanalysiswereusedtoassesscalibrationandpotential\nclinical utility. SHAP analysis was used to examine the relative\ncontributionofpr"
+        },
+        {
+          "jats_table_id": "T5",
+          "label": "Table 5",
+          "pdf_page": 9,
+          "matched_sample_cells_on_page": 15,
+          "sample_cells_tested": 15,
+          "page_text_sha256": "bbc896f3a0c84c5097ebe4cb428650168586440d0a9db44c40b9bcc132c01541",
+          "text_excerpt": "Wang et al. 10.3389/fnut.2026.1850552\nTABLE 5 Summary of the main associationsbetween sleep patterns and incidentcardiometabolicmultimorbidityacross three cohorts.\nSleep\ndimension\nComparison CHARLSHR (95%\nCI); p value\nELSAHR (95%\nCI); p value\nHRSHR (95%\nCI); p value\nOverall interpretation\nSleepquality Fairvspoor 0.98(0.8068–1.1860);\nP=0.823\n0.94(0.7441–1.1824);\nP=0.588\n0.90\n(0.7670–1.0675);\nP=0.236\nNosigniﬁcantassociationafterfull\nadjustment.\nSleepquality Goodvspoor 0.79(0.6503–0.9693);\nP=0.023\n0.76(0.5960–0.9809);\nP=0.035\n0.84\n(0.6964–1.0046);\nP=0.056\nProtectivedirectionacrosscohorts;\nsigniﬁcantinCHARLSandELSAand\nborderlineinHRS.\nNighttimesleep\nduration\n7–8hvs ≤6h 0.89(0.6226–1.2854);\nP=0.547\n0.79(0.3784–1.6296);\nP=0.516\nNotavailable Nosigniﬁcantassociationafterfull\nadjustment.\nNighttimesleep\nduration\n≥9hvs ≤6h 0.94(0.7982–1.0955);\nP=0.406\n0.85(0.6717–1.0720);\nP=0.168\nNotavailable Nosigniﬁcantassociationafterfull\nadjustment.\nDaytimenapping >50minvs\n<30min\n1.11(0.9590–1.2935);\nP=0.158\n"
+        },
+        {
+          "jats_table_id": "T6",
+          "label": "Table 6",
+          "pdf_page": 12,
+          "matched_sample_cells_on_page": 15,
+          "sample_cells_tested": 15,
+          "page_text_sha256": "e2672d42669e6ee17dc3582712ca0cc8c8a2629aa94b53117b21afd02bb70c93",
+          "text_excerpt": "Wang et al. 10.3389/fnut.2026.1850552\nTABLE 6 Sensitivityanalysis.\nVariable Model 1 Model 2 Model 3\nHR (95%CI) p-Value HR (95%CI) p-Value HR (95%CI) p-Value\nCHARLS\nSleepquality\nPoor Ref. Ref. Ref.\nFair 0.91(0.7382–1.1129) 0.348 0.92(0.7471–1.1267) 0.411 0.97(0.7881–1.201) 0.798\nGood 0.72(0.5908–0.8727) <0.001 0.74(0.6094–0.9032) 0.003 0.8(0.639–0.9911) 0.041\nSleepnight\n≤6h Ref. Ref. Ref.\n7–8h 0.81(0.5342–1.2228) 0.314 0.8(0.5255–1.2051) 0.281 0.83(0.548–1.2682) 0.395\n≥9h 0.87(0.7382–1.0218) 0.089 0.91(0.772–1.0719) 0.258 0.94(0.7906–1.1175) 0.483\nNap\n<30min Ref. Ref. Ref.\n30–50min 1.24(0.9583–1.6158) 0.101 1.25(0.9598–1.6207) 0.098 1.18(0.904–1.5288) 0.227\n>50min 1.3(1.1066–1.5215) 0.001 1.32(1.1263–1.5567) <0.001 1.14(0.9696–1.3435) 0.112\nELSA\nSleepquality\nPoor Ref. Ref. Ref.\nFair 0.83(0.6867–1.0058) 0.057 0.74(0.6121–0.9009) 0.003 0.9(0.7308–1.1011) 0.299\nGood 0.72(0.59–0.8767) 0.001 0.63(0.5103–0.7665) <0.001 0.76(0.6087–0.9459) 0.014\nSleepnight\n≤6h Ref. Ref. Ref.\n7–8h 1.41(0.8101–2"
+        }
+      ]
+    },
+    "attribution": {
+      "full_citation": "Fanchang Wang; Hongyang Qiao; Yi Zheng; Shuang Wu; Yuxin Ni; Xiaoming He. Sleep duration, sleep quality, and daytime napping in relation to incident cardiometabolic multimorbidity across three national aging cohorts: a prospective, interpretable machine learning study. Frontiers in Nutrition. 2026-07-30;13:1850552. doi:10.3389/fnut.2026.1850552. PMID:42598689. PMC13472562.1.",
+      "bibliographic_locator": {
+        "volume": "13",
+        "issue": null,
+        "fpage": null,
+        "lpage": null,
+        "elocation-id": "1850552"
+      },
+      "authors": [
+        "Fanchang Wang",
+        "Hongyang Qiao",
+        "Yi Zheng",
+        "Shuang Wu",
+        "Yuxin Ni",
+        "Xiaoming He"
+      ],
+      "title": "Sleep duration, sleep quality, and daytime napping in relation to incident cardiometabolic multimorbidity across three national aging cohorts: a prospective, interpretable machine learning study",
+      "journal": "Frontiers in Nutrition",
+      "publication_date": "2026-07-30",
+      "publication_date_precision": "day",
+      "pmcid": "PMC13472562",
+      "pmc_version": 1,
+      "pmid": "42598689",
+      "doi": "10.3389/fnut.2026.1850552",
+      "article_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13472562.1/",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/42598689/",
+      "licence": "CC BY 4.0",
+      "licence_urls": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "copyright_credit_disclaimer_notices": [
+        {
+          "tag": "permissions",
+          "id": null,
+          "text": "Copyright © 2026 Wang, Qiao, Zheng, Wu, Ni and He.2026Wang, Qiao, Zheng, Wu, Ni and Hehttps://creativecommons.org/licenses/by/4.0/This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms."
+        },
+        {
+          "tag": "ack",
+          "id": null,
+          "text": "AcknowledgmentsWe are grateful to all the participants who were involved in this study."
+        },
+        {
+          "tag": "fn-group",
+          "id": null,
+          "text": "Edited by: Qing-Yong Zheng, Lanzhou University, ChinaReviewed by: Jian Gang Liu, China Academy of Chinese Medical Sciences, ChinaHongmei Jia, Chengdu University of Traditional Chinese Medicine, China"
+        }
+      ],
+      "modifications": "PDF bytes unchanged; descriptive filename only. Machine text extraction and metadata assembly recorded separately.",
+      "topic": "diabetes",
+      "inclusion_rationale": "Explicitly selected by the user. Fresh title and complete PubMed abstract support diabetes coverage: Sleep duration, sleep quality, and daytime napping in relation to incident cardiometabolic multimorbidity across three national aging cohorts: a prospective, interpretable machine learning study",
+      "selection_source": "User-supplied PMCID list in current chat; version pin and discovery query preserved from data/corpus_candidates.json",
+      "search_query": "Transferred extra-corpus candidate screened for sleep/cardiometabolic primary longitudinal evidence; original discovery query unavailable",
+      "reviewer": "Codex (jcas-agent)",
+      "reviewed_at": "2026-10-07T22:38:41.919875+00:00"
+    },
+    "assembly_source_reverification": {
+      "checked_at": "2026-10-07T22:52:05.910436+00:00",
+      "result": "pass",
+      "changes": [],
+      "assembly_metadata_sources": {
+        "cloud.json": {
+          "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC13472562.1.json",
+          "sha256": "10ca21b0f31d3f99e5f86cca3a01fe95b8268507f09f36c5a253ae729c090f3f"
+        },
+        "id-converter.json": {
+          "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC13472562&format=json&versions=yes&tool=ai-research-assistant",
+          "sha256": "b213023c034698baa5d2292543a945f455bd4c47eefbfd10a31bbe273f6ae566"
+        },
+        "pubmed.xml": {
+          "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=42598689&retmode=xml&tool=ai-research-assistant",
+          "sha256": "0155202e9992c22ce63fc22fc88699e7b653ff98c960054676875440ee1da0b7"
+        },
+        "article.xml": {
+          "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13472562.1/PMC13472562.1.xml?md5=6c3f0d3a7efd353e9be13a8c377f9085",
+          "sha256": "bdc43d24b193c4f5cc728c469674145a95e2ab09890bb6797c8c89dd13924016"
+        }
+      },
+      "fresh_response_provenance": [
+        {
+          "pmcid": "PMC13472562",
+          "provider_source": "cloud.json",
+          "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC13472562.1.json",
+          "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13472562.1.cloud.json",
+          "sha256": "10ca21b0f31d3f99e5f86cca3a01fe95b8268507f09f36c5a253ae729c090f3f",
+          "source_set": "sources",
+          "response_archived_at": "2026-10-07T22:21:02.143661+00:00"
+        },
+        {
+          "pmcid": "PMC13472562",
+          "provider_source": "id-converter.json",
+          "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC13472562&format=json&versions=yes&tool=ai-research-assistant",
+          "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13472562.1.id-converter.json",
+          "sha256": "b213023c034698baa5d2292543a945f455bd4c47eefbfd10a31bbe273f6ae566",
+          "source_set": "sources",
+          "response_archived_at": "2026-10-07T22:21:02.143900+00:00"
+        },
+        {
+          "pmcid": "PMC13472562",
+          "provider_source": "pubmed.xml",
+          "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=42598689&retmode=xml&tool=ai-research-assistant",
+          "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13472562.1.pubmed.xml",
+          "sha256": "0155202e9992c22ce63fc22fc88699e7b653ff98c960054676875440ee1da0b7",
+          "source_set": "sources",
+          "response_archived_at": "2026-10-07T22:21:02.144131+00:00"
+        },
+        {
+          "pmcid": "PMC13472562",
+          "provider_source": "article.xml",
+          "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13472562.1/PMC13472562.1.xml?md5=6c3f0d3a7efd353e9be13a8c377f9085",
+          "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13472562.1.article.xml",
+          "sha256": "bdc43d24b193c4f5cc728c469674145a95e2ab09890bb6797c8c89dd13924016",
+          "source_set": "sources",
+          "response_archived_at": "2026-10-07T22:21:02.144410+00:00"
+        }
+      ]
+    }
+  }
+}

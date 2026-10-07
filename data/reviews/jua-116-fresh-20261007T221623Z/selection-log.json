@@ -1,0 +1,104 @@
+{
+  "counts": {
+    "supplied": 55,
+    "admitted": 43,
+    "excluded": 0,
+    "pending": 12
+  },
+  "source": {
+    "selection": "Exactly the 55 PMCIDs supplied by Juan in this chat.",
+    "pins_and_discovery_queries": "Only the explicit version pins and preserved discovery queries were read from existing data/corpus_candidates.json. No draft metadata, existing PDFs or previous eligibility decisions used.",
+    "run_id": "jua-116-fresh-20261007T221623Z",
+    "fresh_acquisition_started_at": "2026-10-07T22:16:23Z",
+    "reviewed_at": "2026-10-07T22:38:41.919875+00:00",
+    "reviewer": "Codex (jcas-agent)"
+  },
+  "pending": [
+    {
+      "pmcid": "PMC10188109",
+      "filename": "PMC10188109-c9orf72-antisense-rna-pkr-isr-experimental-study.pdf",
+      "reason": "Supplement/source-data review incomplete: two actual TIFF members in the fresh source-data ZIPs cannot be decoded (Figure 2-source data/Unlabelled/2A GAPDH.tif; Figure 5-figure supplement 1-source data/Unlabelled/A phospho-PKR-high exposure_3.tif). The source-data gallery has not been fully visually cleared. macOS resource forks are not counted as article failures.",
+      "unresolved_gate": "third_party_rights",
+      "review_path": "reviews/PMC10188109.json"
+    },
+    {
+      "pmcid": "PMC10802081",
+      "filename": "PMC10802081-c9orf72-atypical-neuropsychiatric-ftd-als-case-report.pdf",
+      "reason": "Pinned PDF has only a Sage journals-permissions notice, with no CC BY 4.0 notice or licence annotation link. JATS specifies CC BY 4.0; coverage of the actual PDF remains unresolved.",
+      "unresolved_gate": "licence",
+      "review_path": "reviews/PMC10802081.json"
+    },
+    {
+      "pmcid": "PMC11047104",
+      "filename": "PMC11047104-c9orf72-allele-specific-excision-cultured-human-neurons.pdf",
+      "reason": "Correction PMC12704798 (2025-12-09) changes antisense ddPCR probe sequences in SI Appendix Table S2. Reconciliation of the freshly downloaded pinned supplement with that corrected appendix is unresolved; no retraction was found.",
+      "unresolved_gate": "identity",
+      "review_path": "reviews/PMC11047104.json"
+    },
+    {
+      "pmcid": "PMC11527445",
+      "filename": "PMC11527445-c9orf72-crispr-cas13d-ran-translation-experimental-study.pdf",
+      "reason": "Correction PMC11645136 (2024-12-16) adds a patent/conflict disclosure; correction PMC13132388 (2026-05-01) relabels four C9 ALS iPSC/iMN groups in SI Figure 3C. Corrected PDF/supplement versus pinned objects has not been reconciled; no retraction was found.",
+      "unresolved_gate": "identity",
+      "review_path": "reviews/PMC11527445.json"
+    },
+    {
+      "pmcid": "PMC11847805",
+      "filename": "PMC11847805-hif1a-zinc-diabetic-kidney-disease-mechanism-review.pdf",
+      "reason": "Acknowledgments explicitly say Figure by figdraw. Figure-specific publication and downstream reuse rights were not established by the article CC BY notice.",
+      "unresolved_gate": "third_party_rights",
+      "review_path": "reviews/PMC11847805.json"
+    },
+    {
+      "pmcid": "PMC12003177",
+      "filename": "PMC12003177-persistent-atrial-fibrillation-ai-tailored-ablation-rct.pdf",
+      "reason": "Supplementary Information contains a Volta Medical clinical investigation plan with CONFIDENTIAL watermarks and proprietary/confidential notices. Article CC BY 4.0 does not resolve these conflicting supplement terms.",
+      "unresolved_gate": "third_party_rights",
+      "review_path": "reviews/PMC12003177.json"
+    },
+    {
+      "pmcid": "PMC12823827",
+      "filename": "PMC12823827-alzheimers-clinical-mri-dual-model-ai-diagnosis.pdf",
+      "reason": "Figures 7–8 include MRI/Grad-CAM images from an augmented Kaggle dataset derived from OASIS. The exact source dataset version, image licence and authorization chain have not been established. Official OASIS terms identify commercial-use restrictions and redistribution restrictions for OASIS-3/4, but applicability to these particular augmented images is unresolved. This is a pending coverage finding, not a universal legal exclusion.",
+      "unresolved_gate": "third_party_rights",
+      "review_path": "reviews/PMC12823827.json"
+    },
+    {
+      "pmcid": "PMC13175446",
+      "filename": "PMC13175446-diabetes-digital-education-continuous-glucose-monitoring-rct.pdf",
+      "reason": "The supplement reproduces the separately credited CONSORT-EHEALTH V1.6.1 Google submission/publication form. Its cited 2011 source is CC BY 2.0, but coverage of this specific later form and complete required third-party licence attribution have not been established. Do not infer clearance of the form solely from the 2026 article licence.",
+      "unresolved_gate": "third_party_rights",
+      "review_path": "reviews/PMC13175446.json"
+    },
+    {
+      "pmcid": "PMC13311226",
+      "filename": "PMC13311226-diabetes-metabolic-syndrome-cameroon-prevalence-study.pdf",
+      "reason": "First-page notice specifies CC BY 4.0, while subsequent PDF footers say For non-profit purposes. These conflicting notices require publisher clarification before admission.",
+      "unresolved_gate": "licence",
+      "review_path": "reviews/PMC13311226.json"
+    },
+    {
+      "pmcid": "PMC13433218",
+      "filename": "PMC13433218-zinc-diabetes-kidney-disease-hypoxia-review.pdf",
+      "reason": "Acknowledgments explicitly say Figures were created with BioRender.com. No required figure-specific BioRender publication-licence/figure URL evidence is supplied; compatible downstream reuse has not been verified.",
+      "unresolved_gate": "third_party_rights",
+      "review_path": "reviews/PMC13433218.json"
+    },
+    {
+      "pmcid": "PMC9239676",
+      "filename": "PMC9239676-women-cervical-colorectal-dual-screening-population-study.pdf",
+      "reason": "The STROBE checklist supplement reproduces separately authored reporting recommendations. The official STROBE site asks users to contact the authors for republication. Independent downstream permission/licence coverage for the exact checklist remains unresolved; article accessibility does not clear it.",
+      "unresolved_gate": "third_party_rights",
+      "review_path": "reviews/PMC9239676.json"
+    },
+    {
+      "pmcid": "PMC10765819",
+      "filename": "PMC10765819-gut-microbiota-tuberculosis-bidirectional-mendelian-randomization.pdf",
+      "reason": "Supplementary Table S1 reproduces the separately authored STROBE-MR checklist and cites the 2021 JAMA statement. The official checklist page labels downloads open-access but does not establish exact licence/attribution coverage for this completed XLSX version; a separately hosted fillable checklist is marked CC BY 3.0. Exact compatible third-party coverage is unresolved under the project selection policy.",
+      "unresolved_gate": "third_party_rights",
+      "review_path": "reviews/PMC10765819.json"
+    }
+  ],
+  "excluded": [],
+  "fetch_failures": []
+}

@@ -1,0 +1,2947 @@
+{
+  "decision": "pass",
+  "builder": "Unmodified build_corpus_manifest.py main called directly for the unique final manifest path. The original metadata function re-parses/checks original provider-response bytes freshly downloaded in this same run. A temporary transport/observation wrapper supplies exact-URL current-run bytes and archives them; no repository helper/schema changes or pre-run draft/PDF/approval reuse.",
+  "live_attempts": [
+    {
+      "result": "Builder aborted on HTTP 429 after bounded retries; no manifest written.",
+      "fully_fetched_articles": 18,
+      "next_attempt": "Freshly refetch all passing articles with 1.2 seconds extra spacing before each metadata request; unchanged repository parsing/validation and input."
+    },
+    {
+      "result": "Builder aborted on repeated HTTP 429 after bounded retries and slower pacing; no manifest written.",
+      "fully_fetched_articles": 31,
+      "next_attempt": "Use only original provider-response bytes freshly downloaded within this run, preferring complete attempt2 response sets, then attempt1, then the initial acquisition. Re-run original helper parsing/crosschecks through the builder. No existing pre-run metadata/PDF/approval used."
+    }
+  ],
+  "transport": {
+    "reason": "NCBI HTTP 429 blocked two live assembly retries. Metadata acquired afresh in this same unique run is reused only as original provider-response bytes; no prior drafts, PDFs or approvals are consumed. Original helper parsing, identity joins, checksum/retraction checks and builder preflight are unchanged.",
+    "providers": [
+      {
+        "pmcid": "PMC10073666",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC10073666.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10073666.1.cloud.json",
+        "sha256": "5e545060a05592e187a8e2384084978dca950bc3bdebf318be798ec7ac715ec3",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:44:47.162810+00:00"
+      },
+      {
+        "pmcid": "PMC10073666",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC10073666&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10073666.1.id-converter.json",
+        "sha256": "e2f4bcaf0c5f5cd475e4965dbce1b96d58c1529d9568a80c4c6f11b870b7f345",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:44:47.163064+00:00"
+      },
+      {
+        "pmcid": "PMC10073666",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=37033994&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10073666.1.pubmed.xml",
+        "sha256": "13de92346e499c1abba10fa055d2182739cfcec84e357abff4cca509ef245114",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:44:47.163292+00:00"
+      },
+      {
+        "pmcid": "PMC10073666",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10073666.1/PMC10073666.1.xml?md5=3135c8c05261c11aaad227b0c0b05ae1",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10073666.1.article.xml",
+        "sha256": "26c168581ea03b7fb62390017c206f1c2c8bb46b2a21d18926ed5662cd0dacda",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:44:47.163535+00:00"
+      },
+      {
+        "pmcid": "PMC10363301",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC10363301.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10363301.1.cloud.json",
+        "sha256": "2cd93a176910c2b5c1dacef60bb0585cc48ed1197e2c8dd0bd1db07cdb4971f3",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:44:56.326273+00:00"
+      },
+      {
+        "pmcid": "PMC10363301",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC10363301&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10363301.1.id-converter.json",
+        "sha256": "80bdbc35e98b62bf3a988c50a86a9a8a83c97c3d068dbfc6f06e86900c8a8e44",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:44:56.326630+00:00"
+      },
+      {
+        "pmcid": "PMC10363301",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=37481514&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10363301.1.pubmed.xml",
+        "sha256": "08a6b2eb39c80e37977316dd7f64c3793a9d013ef339fd975a03b654a44ed7b6",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:44:56.326903+00:00"
+      },
+      {
+        "pmcid": "PMC10363301",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10363301.1/PMC10363301.1.xml?md5=079e89095377eb5c4d96fdb52793c385",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10363301.1.article.xml",
+        "sha256": "f1e8339f68d34a498b2383a0a0c9f9e19daafc9658796be58c104f38712ccd11",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:44:56.327197+00:00"
+      },
+      {
+        "pmcid": "PMC10452755",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC10452755.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10452755.1.cloud.json",
+        "sha256": "94f6537fa68eee318842e55363d4b2431c4121bbb79e1ccea7b9d9a1cd1f86ad",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:45:05.294491+00:00"
+      },
+      {
+        "pmcid": "PMC10452755",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC10452755&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10452755.1.id-converter.json",
+        "sha256": "171d92273b4b21326b7ab859add3e69b8f20f448595fff5758156993d42489e4",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:45:05.294854+00:00"
+      },
+      {
+        "pmcid": "PMC10452755",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=37626778&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10452755.1.pubmed.xml",
+        "sha256": "fb6695db32c0b83a5441fa7edbcd382f8374e657793a4084eff8b4136e5d6d54",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:45:05.295112+00:00"
+      },
+      {
+        "pmcid": "PMC10452755",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10452755.1/PMC10452755.1.xml?md5=0468e0afa2b940b9b4a50aea16ac3eb3",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10452755.1.article.xml",
+        "sha256": "37f2a743108be0d0563a5efad082b26c58912faacae42e355cf0e1e7bfca2e3a",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:45:05.295371+00:00"
+      },
+      {
+        "pmcid": "PMC10485396",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC10485396.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10485396.1.cloud.json",
+        "sha256": "3adb5c1c6a5dc470649b354c6afb0d724b5722b8def7cb05ad0fe9d90970129d",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:45:17.224799+00:00"
+      },
+      {
+        "pmcid": "PMC10485396",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC10485396&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10485396.1.id-converter.json",
+        "sha256": "edb4faa621663de088d5f758bd22be7acc660eeeb100ff68efbaab5154e65b0e",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:45:17.225195+00:00"
+      },
+      {
+        "pmcid": "PMC10485396",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=37356358&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10485396.1.pubmed.xml",
+        "sha256": "c7e88547a00089dd35c766be14232ac8d5837b68cd1428bbef1829319036c498",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:45:17.225521+00:00"
+      },
+      {
+        "pmcid": "PMC10485396",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10485396.1/PMC10485396.1.xml?md5=f54734bbd9f80b71cbfa5bca6fc2883d",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10485396.1.article.xml",
+        "sha256": "ae426d781e13232ec00c2610345f6711d2a4c2ecd72e2c1693033b880c7181d8",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:45:17.225861+00:00"
+      },
+      {
+        "pmcid": "PMC10607686",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC10607686.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10607686.1.cloud.json",
+        "sha256": "f9713929c2f5fa12019bdadb283184383b0f0abc6338fd9b3d749d09e9aa28be",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:45:26.563232+00:00"
+      },
+      {
+        "pmcid": "PMC10607686",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC10607686&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10607686.1.id-converter.json",
+        "sha256": "32562572c91e37da87516d9e50ccdaa961b8f7feaf9e8279313b85d8ec836445",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:45:26.563622+00:00"
+      },
+      {
+        "pmcid": "PMC10607686",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=37892626&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10607686.1.pubmed.xml",
+        "sha256": "ffbdaea1648f35ea69eacc4731b79c12c035cb131d2382d196ffa96e3daa7765",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:45:26.563917+00:00"
+      },
+      {
+        "pmcid": "PMC10607686",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10607686.1/PMC10607686.1.xml?md5=3e7c870feacf566117f561903ccd31a5",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10607686.1.article.xml",
+        "sha256": "5b20c327fd3345f4553ac84b290caff694b1c98c249321a5b9ad659b0784212e",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:45:26.564282+00:00"
+      },
+      {
+        "pmcid": "PMC10619268",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC10619268.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10619268.1.cloud.json",
+        "sha256": "ce4e8cb4f3708de9b9ad8afbdb17bdf1b8e4ef1d9b24302560f7f09a141b4706",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:45:35.729750+00:00"
+      },
+      {
+        "pmcid": "PMC10619268",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC10619268&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10619268.1.id-converter.json",
+        "sha256": "e40b20ccb9b48c587a3d365438985a0f8a3c2c6a80a53c3b85b5452346a52ef1",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:45:35.730091+00:00"
+      },
+      {
+        "pmcid": "PMC10619268",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=37908019&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10619268.1.pubmed.xml",
+        "sha256": "5ea03c8de4f555906dc3a6248b69f1fe44529dfa0a56d0c64d5294adee6d913c",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:45:35.730346+00:00"
+      },
+      {
+        "pmcid": "PMC10619268",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10619268.1/PMC10619268.1.xml?md5=910113dea1f1350177ae958ef365d331",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10619268.1.article.xml",
+        "sha256": "7bf778ce421da7291509bfeefa8ba32e602a27db511a44b404eb98d0d374e7b5",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:45:35.730634+00:00"
+      },
+      {
+        "pmcid": "PMC10770829",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC10770829.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10770829.1.cloud.json",
+        "sha256": "409209011f0cf4528f6a97f347393fefac2eabd43523f37efaba02c4ef24a4d7",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:45:56.509416+00:00"
+      },
+      {
+        "pmcid": "PMC10770829",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC10770829&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10770829.1.id-converter.json",
+        "sha256": "d2581be6d23b35934a7288d45779921d7753a1dea55708a3e42083e98419f7d5",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:45:56.509773+00:00"
+      },
+      {
+        "pmcid": "PMC10770829",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=38187385&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10770829.1.pubmed.xml",
+        "sha256": "15c072fe47896f42a5556aacaadeef2e148c3fdea3d49c930d5b3a45eef22e9f",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:45:56.510561+00:00"
+      },
+      {
+        "pmcid": "PMC10770829",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10770829.1/PMC10770829.1.xml?md5=ce86ed8c4ff0a3e291fd0d533d090572",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10770829.1.article.xml",
+        "sha256": "1eb83d9f5c9ebdb843db2c9a5bfc86fd1a3afb5e1eb18014feeb1db8a4caf909",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:45:56.510955+00:00"
+      },
+      {
+        "pmcid": "PMC10840225",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC10840225.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10840225.1.cloud.json",
+        "sha256": "78add39302126ac03b22f8e941a5b74a3755688a254cd36f1214eb6cc2891669",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:46:05.717309+00:00"
+      },
+      {
+        "pmcid": "PMC10840225",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC10840225&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10840225.1.id-converter.json",
+        "sha256": "171051d6f37d09309c7e012c43d74faefd4030fc389599ad7452ad543afc78df",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:46:05.717621+00:00"
+      },
+      {
+        "pmcid": "PMC10840225",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=38317094&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10840225.1.pubmed.xml",
+        "sha256": "8b52444a5827e0dc4949bf7f67cdf65ada1462e89945928b266019fffcd36cfd",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:46:05.717844+00:00"
+      },
+      {
+        "pmcid": "PMC10840225",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10840225.1/PMC10840225.1.xml?md5=68e7f02cdfe43f1c2a4d11982067809d",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10840225.1.article.xml",
+        "sha256": "0bf59dd4408749f6a06a3940a571bf501a5287cb710017a517d3179ab10df618",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:46:05.718082+00:00"
+      },
+      {
+        "pmcid": "PMC10985250",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC10985250.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10985250.1.cloud.json",
+        "sha256": "60fe07bc8d1275d7a77bdf410fbe1107325dbf05dce674e609c4c823a92860bf",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:46:17.653780+00:00"
+      },
+      {
+        "pmcid": "PMC10985250",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC10985250&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10985250.1.id-converter.json",
+        "sha256": "c4d7d23630e9c290dee9ace7d2a1999f1047e10f1388553bd3412759afa22727",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:46:17.654031+00:00"
+      },
+      {
+        "pmcid": "PMC10985250",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=38567348&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10985250.1.pubmed.xml",
+        "sha256": "52ad715ce3948c4c27316c8c5d974bd7c0ed7e376b4491b86ee749ba111822b0",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:46:17.654274+00:00"
+      },
+      {
+        "pmcid": "PMC10985250",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10985250.1/PMC10985250.1.xml?md5=bf4274efd02060df3237083fdf8ed3c6",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10985250.1.article.xml",
+        "sha256": "a92cf74f73fac225737b6ad552041c6475499b8cfb6e17ce3f21c305439889e6",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:46:17.654492+00:00"
+      },
+      {
+        "pmcid": "PMC10997137",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC10997137.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10997137.1.cloud.json",
+        "sha256": "444c724c2230ad94c041cb24d2f2e36029f1d886c2f22a5a0a9baf59b3978872",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:46:26.468804+00:00"
+      },
+      {
+        "pmcid": "PMC10997137",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC10997137&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10997137.1.id-converter.json",
+        "sha256": "d4321c82f4bc91912805ae73ba9e3d240f723ad956f7260619ffb7ac6f8c257d",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:46:26.469142+00:00"
+      },
+      {
+        "pmcid": "PMC10997137",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=38578803&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10997137.1.pubmed.xml",
+        "sha256": "5d5b4042b54c0a6e9a3e6699994f53797f9bd8dea38078ea94ed598cb5fcd443",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:46:26.469404+00:00"
+      },
+      {
+        "pmcid": "PMC10997137",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10997137.1/PMC10997137.1.xml?md5=23c13062995db8c36db942a7ddcb2865",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC10997137.1.article.xml",
+        "sha256": "e558412a61e01714afebeb5954842e9b27d1902dd73c7e1eeb4d28b4c844ab6d",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:46:26.469701+00:00"
+      },
+      {
+        "pmcid": "PMC11181582",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC11181582.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11181582.1.cloud.json",
+        "sha256": "10396fc6c0ab109bb1d0c457539708668abc7f077e5c624ba06c338f47b168d5",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:46:35.471449+00:00"
+      },
+      {
+        "pmcid": "PMC11181582",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC11181582&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11181582.1.id-converter.json",
+        "sha256": "ee34d32837df8e0e239a578e580b2fee9e9e8cd694e313449d0cddf3a89d32e7",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:46:35.471793+00:00"
+      },
+      {
+        "pmcid": "PMC11181582",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=38886852&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11181582.1.pubmed.xml",
+        "sha256": "33c9491473f1917ad5f23436f63f856c65f73925aeed16ea7484f474e3f0bc88",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:46:35.472047+00:00"
+      },
+      {
+        "pmcid": "PMC11181582",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC11181582.1/PMC11181582.1.xml?md5=95403441856fa5b52a5a0b7a56102c97",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11181582.1.article.xml",
+        "sha256": "d777ba4be6ecaa713c3d1c8bd19bf7d1f5e775b95be4c3e4fa9db45cef65bd54",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:46:35.472316+00:00"
+      },
+      {
+        "pmcid": "PMC11265054",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC11265054.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11265054.1.cloud.json",
+        "sha256": "84294eb65ffc2691111aa04bedc9ac280b35c0ff6cdfacc5858784cae22c3aaf",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:46:47.211155+00:00"
+      },
+      {
+        "pmcid": "PMC11265054",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC11265054&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11265054.1.id-converter.json",
+        "sha256": "9770c802c5f52c2c0448fcaab38ecdcce41807f5f796163fde78b7d784e263f0",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:46:47.211401+00:00"
+      },
+      {
+        "pmcid": "PMC11265054",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=39033295&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11265054.1.pubmed.xml",
+        "sha256": "02e7e19d4aaca49e259d033456a9ef0a803c82dfa8e553385d7aaa6606025753",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:46:47.211609+00:00"
+      },
+      {
+        "pmcid": "PMC11265054",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC11265054.1/PMC11265054.1.xml?md5=a95171d253c863156af6b630dd798ae2",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11265054.1.article.xml",
+        "sha256": "67b084e3128cf781925276b4b1157867a3d58d6d6fb97f23d03a9f983eb50c11",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:46:47.211792+00:00"
+      },
+      {
+        "pmcid": "PMC11354916",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC11354916.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11354916.1.cloud.json",
+        "sha256": "0ee089abc1aac8560f075e8c6bd5bc5c697ffd65a272c1dca8adb808cd74fdb2",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:46:56.137491+00:00"
+      },
+      {
+        "pmcid": "PMC11354916",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC11354916&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11354916.1.id-converter.json",
+        "sha256": "7c64b8e43f34c4d35d2db14b597c79140a7662ad30c9ceef9698c4a59bff47c9",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:46:56.137964+00:00"
+      },
+      {
+        "pmcid": "PMC11354916",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=39201499&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11354916.1.pubmed.xml",
+        "sha256": "8da4d3b16163ff4ca96850dd5cc99cb1da3fcd10777cdd938e7b631f4e4df180",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:46:56.138510+00:00"
+      },
+      {
+        "pmcid": "PMC11354916",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC11354916.1/PMC11354916.1.xml?md5=639f74010c1a3ac5b2fe5a5fc62c14bd",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11354916.1.article.xml",
+        "sha256": "a34be78e8a2a4dfe488591a6e537f2c30cab37f3657f158b290c3866579abff2",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:46:56.138854+00:00"
+      },
+      {
+        "pmcid": "PMC11373557",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC11373557.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11373557.1.cloud.json",
+        "sha256": "d6f02e22fc6f87cebfbb30532c1bafc7f5203281f4fcd19d4293946189d01267",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:47:05.325478+00:00"
+      },
+      {
+        "pmcid": "PMC11373557",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC11373557&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11373557.1.id-converter.json",
+        "sha256": "6b1a5c19f3e1dc15adb726e7ee20df12bc81baf11ae885c99b10f685504f4869",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:47:05.325756+00:00"
+      },
+      {
+        "pmcid": "PMC11373557",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=39239537&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11373557.1.pubmed.xml",
+        "sha256": "cfe9af8146a7e634e3e21021c3361efbff6d9e3f3054137d57639c6751d3c889",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:47:05.325990+00:00"
+      },
+      {
+        "pmcid": "PMC11373557",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC11373557.1/PMC11373557.1.xml?md5=2e3d1b36a9fa0e3fef5140768688049b",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11373557.1.article.xml",
+        "sha256": "32772bd7d286b6a45cde76b5a06deec38b5c9d3ce223ce1ce711eb1301ceba31",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:47:05.326259+00:00"
+      },
+      {
+        "pmcid": "PMC11374717",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC11374717.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11374717.1.cloud.json",
+        "sha256": "9f78d936576d92b13f43c502343399152d90f25e51cdd95988b7dcf3e4dd0d72",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:47:17.242367+00:00"
+      },
+      {
+        "pmcid": "PMC11374717",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC11374717&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11374717.1.id-converter.json",
+        "sha256": "c553cfe87eb3128fc969e765a50918ee7e8675fc53fd9be617944f6b5898c8b2",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:47:17.242698+00:00"
+      },
+      {
+        "pmcid": "PMC11374717",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=39014113&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11374717.1.pubmed.xml",
+        "sha256": "3da347446229b7d234b419ae200d2d5d65c330b7b25ffbc7ad8c1b61020882dd",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:47:17.242945+00:00"
+      },
+      {
+        "pmcid": "PMC11374717",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC11374717.1/PMC11374717.1.xml?md5=c8ddb55000ab8464af866a30e1bda0c3",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11374717.1.article.xml",
+        "sha256": "e522ede45d413c648f02d89b374fa2aff36765b98af5ff0759bc14fa54826a25",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:47:17.243183+00:00"
+      },
+      {
+        "pmcid": "PMC11411718",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC11411718.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11411718.1.cloud.json",
+        "sha256": "7649bb13e405eb8a49e8910858f8961d9eb7ef8942ece9bb7021d3a7be0a6e72",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:47:26.335692+00:00"
+      },
+      {
+        "pmcid": "PMC11411718",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC11411718&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11411718.1.id-converter.json",
+        "sha256": "bc318b16f2c2b23806f2dd9bfd5f607bcfc8e5610dc4d8e9b2a517a01f86107c",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:47:26.335947+00:00"
+      },
+      {
+        "pmcid": "PMC11411718",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=39229966&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11411718.1.pubmed.xml",
+        "sha256": "3cdd9cecba2d13a8d49360ff21c020d1e72e6d64248ba73bf16afabf847ff529",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:47:26.336151+00:00"
+      },
+      {
+        "pmcid": "PMC11411718",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC11411718.1/PMC11411718.1.xml?md5=86d70d6472f1dc147fb22e16bd28519f",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11411718.1.article.xml",
+        "sha256": "0c5bf003372ef8ef6df84d355353236323c15d1f59b41bcf31b6a2cf29281feb",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:47:26.336336+00:00"
+      },
+      {
+        "pmcid": "PMC11431721",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC11431721.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11431721.1.cloud.json",
+        "sha256": "8d354fa0441aa4d5341fb2e2743e4df0a4153b3fcba98691df9eccacfe2ce13b",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:47:35.711878+00:00"
+      },
+      {
+        "pmcid": "PMC11431721",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC11431721&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11431721.1.id-converter.json",
+        "sha256": "f6dd03db2bbd86e5245e0f07e09b413e1dadeddc22f13a5bbcb683f0d5e2ad0e",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:47:35.712146+00:00"
+      },
+      {
+        "pmcid": "PMC11431721",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=39330007&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11431721.1.pubmed.xml",
+        "sha256": "4d6a4ebbb5b098eae44998e86d817b815f2a9c2bd7a1f631921915a2d1dc6b32",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:47:35.712353+00:00"
+      },
+      {
+        "pmcid": "PMC11431721",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC11431721.1/PMC11431721.1.xml?md5=bc4800a28587e244712ae1fab37e9134",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11431721.1.article.xml",
+        "sha256": "04e3b2ec6062f3526dfc16147d5f3c85aa625f7d156e8309d3e026d9be2360ed",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:47:35.712574+00:00"
+      },
+      {
+        "pmcid": "PMC11514186",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC11514186.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11514186.1.cloud.json",
+        "sha256": "1c684bd91bbebf2c58ec8cb639aba03ff6840f9c9a3cd11feeb148bc1af21fdd",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:47:47.803924+00:00"
+      },
+      {
+        "pmcid": "PMC11514186",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC11514186&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11514186.1.id-converter.json",
+        "sha256": "aa5a8c2e09f021fc5d12aaeb67340ca6fda37e43e3516bfc783be693038857cb",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:47:47.804289+00:00"
+      },
+      {
+        "pmcid": "PMC11514186",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=39465316&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11514186.1.pubmed.xml",
+        "sha256": "94132b29d48f5e00d71c3462434edaea74ebbf2814217312cb9a232c71c0cef6",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:47:47.804551+00:00"
+      },
+      {
+        "pmcid": "PMC11514186",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC11514186.1/PMC11514186.1.xml?md5=5ff83bf7e5d12896180fa60ad5028eb9",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11514186.1.article.xml",
+        "sha256": "00be43a0092b1dbbad4b12cb3ea6857fb374072cd152ff75886f694d6c70be75",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:47:47.804829+00:00"
+      },
+      {
+        "pmcid": "PMC11547071",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC11547071.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11547071.1.cloud.json",
+        "sha256": "a941c566177c1327efa5dd6ec8e4f1b0c7c018751ccd9f0838ed7a47af66e0fa",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:47:57.058547+00:00"
+      },
+      {
+        "pmcid": "PMC11547071",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC11547071&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11547071.1.id-converter.json",
+        "sha256": "2c8bdfca9fda19dd34d1c83d057055087bd2171b4661fe4005e81792f0b67ef7",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:47:57.058898+00:00"
+      },
+      {
+        "pmcid": "PMC11547071",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=39518907&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11547071.1.pubmed.xml",
+        "sha256": "1a8e3ebf0c6e66edf7fa325f4ba7d24f0006d4163ed4a4a45eb9d1a7b472d401",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:47:57.059217+00:00"
+      },
+      {
+        "pmcid": "PMC11547071",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC11547071.1/PMC11547071.1.xml?md5=e4b7ae5d707baee6415519243483fee9",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11547071.1.article.xml",
+        "sha256": "b5a27105da2b225c92008d0c06329c6ad965e7d728e6c17b91811bcd0311e4cc",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:47:57.059562+00:00"
+      },
+      {
+        "pmcid": "PMC11549774",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC11549774.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11549774.1.cloud.json",
+        "sha256": "165162eae678fe6f9d44b9a2324b31b0bce3e37fb9e9351279317ff4d7a958a7",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:48:06.307445+00:00"
+      },
+      {
+        "pmcid": "PMC11549774",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC11549774&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11549774.1.id-converter.json",
+        "sha256": "25823e7be7329e261ab27fdcabb7a05e6f3d720425da1945a986c90708e9c56d",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:48:06.307857+00:00"
+      },
+      {
+        "pmcid": "PMC11549774",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=39516772&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11549774.1.pubmed.xml",
+        "sha256": "5c6dcc5bbf04ff0d90bceecfeac33364f2136b0494b23b8d7fc6434b314c6715",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:48:06.308134+00:00"
+      },
+      {
+        "pmcid": "PMC11549774",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC11549774.1/PMC11549774.1.xml?md5=8f31a9e1ae500fdaa8497264383f2ce9",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11549774.1.article.xml",
+        "sha256": "c58a87ad909f5d2663652c9a8fe7f8275b07b46e8a0da914b3516f9de6cdb1c9",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:48:06.308508+00:00"
+      },
+      {
+        "pmcid": "PMC11891047",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC11891047.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11891047.1.cloud.json",
+        "sha256": "ea2cf91b8d579b4521fa7100b51e1c7d8e5739b4d8bf9539280c9a4b1eccc42a",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:48:15.320483+00:00"
+      },
+      {
+        "pmcid": "PMC11891047",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC11891047&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11891047.1.id-converter.json",
+        "sha256": "5fdcb7a9d4c8791853f550854bf8dc2f023560a93dfeb55229ab4bc50ec57571",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:48:15.320955+00:00"
+      },
+      {
+        "pmcid": "PMC11891047",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=40066100&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11891047.1.pubmed.xml",
+        "sha256": "13c187430f923b292cd2e2bbac98cdb968a4d9e6c76be73c2faa73481ef165cb",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:48:15.321311+00:00"
+      },
+      {
+        "pmcid": "PMC11891047",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC11891047.1/PMC11891047.1.xml?md5=fa106fce4814a76c3097adeba031c375",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11891047.1.article.xml",
+        "sha256": "24ceb88c0121edc59b4c6a58354c9f1e57a270fb9cadc3661bbb8afe36ace8d5",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:48:15.321608+00:00"
+      },
+      {
+        "pmcid": "PMC11973566",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC11973566.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11973566.1.cloud.json",
+        "sha256": "ab1d5ddefb9e27ff1e274c5b9e89214ea886ea86c68b878a61a1d2c4b4673411",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:48:27.499928+00:00"
+      },
+      {
+        "pmcid": "PMC11973566",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC11973566&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11973566.1.id-converter.json",
+        "sha256": "995ff0106bd2d17148981036d5e736776109a9ea1b3ed5ee7d177a6dcd311366",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:48:27.500321+00:00"
+      },
+      {
+        "pmcid": "PMC11973566",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=40037646&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11973566.1.pubmed.xml",
+        "sha256": "024d377fb5e163ba7078586bd46f142cfc9fbd53785e3d236014f6236f372971",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:48:27.500634+00:00"
+      },
+      {
+        "pmcid": "PMC11973566",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC11973566.1/PMC11973566.1.xml?md5=8ced9e87f6e7da92cdb1afd097f69b80",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11973566.1.article.xml",
+        "sha256": "d5e7304462729eccea577ff70a57435dc79138028b6c8681dc403f2e5e3bfef2",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:48:27.500977+00:00"
+      },
+      {
+        "pmcid": "PMC12419643",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC12419643.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC12419643.1.cloud.json",
+        "sha256": "5ac69f1f8c46d04b8113f2a01eb4756df2ce5d7c1d19d908acf3d6630df2a1e2",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:48:36.591706+00:00"
+      },
+      {
+        "pmcid": "PMC12419643",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC12419643&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC12419643.1.id-converter.json",
+        "sha256": "c806fa9ccd440f105ba9f456bb035931c5b9c8f7ccba0ab4a13a376cc5d467d3",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:48:36.592050+00:00"
+      },
+      {
+        "pmcid": "PMC12419643",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=40892850&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC12419643.1.pubmed.xml",
+        "sha256": "c36f797fffeebbd93fbd74b976f3ca0e5e4af0350ac059bbdc13e6db0dcd1515",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:48:36.592289+00:00"
+      },
+      {
+        "pmcid": "PMC12419643",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12419643.1/PMC12419643.1.xml?md5=ca722d6145e19a8bea7155c04f42c894",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC12419643.1.article.xml",
+        "sha256": "3b92e398d78b29e743ecfd98c32bd31f35bfaea68724b6213cb8168b6dd75c88",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:48:36.592555+00:00"
+      },
+      {
+        "pmcid": "PMC12436478",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC12436478.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC12436478.1.cloud.json",
+        "sha256": "c5789906f5b02551e42ac3a35ffa4a9058d990ca01591242ba1a105e76e94136",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:48:45.560044+00:00"
+      },
+      {
+        "pmcid": "PMC12436478",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC12436478&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC12436478.1.id-converter.json",
+        "sha256": "949d25759b95b90061cb8834b042688f5f4a571569e75c0debb5620089d7a576",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:48:45.560215+00:00"
+      },
+      {
+        "pmcid": "PMC12436478",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=40450156&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC12436478.1.pubmed.xml",
+        "sha256": "658eb611e51492077b11b6e3bcf6c278fca724af42ce4fc19492498b2ae4866b",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:48:45.560390+00:00"
+      },
+      {
+        "pmcid": "PMC12436478",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12436478.1/PMC12436478.1.xml?md5=cad56a40e6c5f5b1836923c7b211ce32",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC12436478.1.article.xml",
+        "sha256": "0b6a5736b4930558580f2ae49977d2da55db1737612052bd17d50695b46af52f",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:48:45.560536+00:00"
+      },
+      {
+        "pmcid": "PMC12495207",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC12495207.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC12495207.1.cloud.json",
+        "sha256": "28019ad5a0521f1e768b4264045446fbed35a9cc87ced8ecef3e493f3ce887d0",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:48:57.028807+00:00"
+      },
+      {
+        "pmcid": "PMC12495207",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC12495207&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC12495207.1.id-converter.json",
+        "sha256": "ac46b791d4408ca4241dd87d27c18a30b414c9c8915a384bf4fb5b957a462fb6",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:48:57.029015+00:00"
+      },
+      {
+        "pmcid": "PMC12495207",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=41041850&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC12495207.1.pubmed.xml",
+        "sha256": "a8ac558f7d3806f2665f78d6d741173179563533ba79ac4f61cbc533657b70ed",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:48:57.029165+00:00"
+      },
+      {
+        "pmcid": "PMC12495207",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12495207.1/PMC12495207.1.xml?md5=4521393e94711735dcd90b0c38089d9d",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC12495207.1.article.xml",
+        "sha256": "b343578c1b3d553e949fb5c9f6bfb3a7f123ffb79caa041e1b07e4ec978f9c4c",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:48:57.029291+00:00"
+      },
+      {
+        "pmcid": "PMC12683810",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC12683810.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC12683810.1.cloud.json",
+        "sha256": "3dde098d6129547e078b44c6c4a5068bda3d14fce30591f9302afe2823a21f26",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:49:06.201308+00:00"
+      },
+      {
+        "pmcid": "PMC12683810",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC12683810&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC12683810.1.id-converter.json",
+        "sha256": "613f70eaaa800cd0bdc73f3207dfb6ef8eb4fcc23f1938497819d047660cdc2e",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:49:06.201580+00:00"
+      },
+      {
+        "pmcid": "PMC12683810",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=41354946&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC12683810.1.pubmed.xml",
+        "sha256": "24ef227f630725cf18b9e886c38e4cfedf314a6b679b140ddddb2a6d840f4edc",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:49:06.201819+00:00"
+      },
+      {
+        "pmcid": "PMC12683810",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12683810.1/PMC12683810.1.xml?md5=c754016de8175d44b3f994f23201a386",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC12683810.1.article.xml",
+        "sha256": "5e6a39d5cea2b76f4ad1216f9f1f8908fabb4edb153c5f867b56c43ac98b5f2f",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:49:06.202044+00:00"
+      },
+      {
+        "pmcid": "PMC12880197",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC12880197.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC12880197.1.cloud.json",
+        "sha256": "1a5c219d6cf8cf070d076cc4b31d74057af27c872b7bb7058bc86b878a7dfce1",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:49:15.128023+00:00"
+      },
+      {
+        "pmcid": "PMC12880197",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC12880197&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC12880197.1.id-converter.json",
+        "sha256": "e6f1e0f5451fb3ad80ebede7d5c06bd2998bac79ae40fd5973069c857a455f65",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:49:15.128370+00:00"
+      },
+      {
+        "pmcid": "PMC12880197",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=41657709&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC12880197.1.pubmed.xml",
+        "sha256": "6c8b2f2735987fd5c304a7a475e03b5333f6bb60203dfea26b1dda8c55ccb568",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:49:15.128627+00:00"
+      },
+      {
+        "pmcid": "PMC12880197",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12880197.1/PMC12880197.1.xml?md5=16eca7dcbf6482dc9aa5cca10fbd5d6d",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC12880197.1.article.xml",
+        "sha256": "176ee84284ccc21a57e45b2daf0556bf1d3ae6796e350cfc5721e3f15b3762a4",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:49:15.128920+00:00"
+      },
+      {
+        "pmcid": "PMC12886974",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC12886974.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC12886974.1.cloud.json",
+        "sha256": "acc8a8a23e0438148ced96ba11c321a6a42e71f58c69a3170260738cac57648b",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:49:27.355381+00:00"
+      },
+      {
+        "pmcid": "PMC12886974",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC12886974&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC12886974.1.id-converter.json",
+        "sha256": "c478f272e3c5a7d511b82d331da506a9213b2cc4ba9b31f7b19cd74b4e5f687e",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:49:27.355714+00:00"
+      },
+      {
+        "pmcid": "PMC12886974",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=41663376&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC12886974.1.pubmed.xml",
+        "sha256": "60f657dfecf2976b3613e8b10bfea69f6e4f01b9202c75a05ed716b1e06d3638",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:49:27.356027+00:00"
+      },
+      {
+        "pmcid": "PMC12886974",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12886974.1/PMC12886974.1.xml?md5=eea7f0e0cef403bedfb39efd78d86141",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC12886974.1.article.xml",
+        "sha256": "73d204a169a1e15d0f9beb6373412ce49acd96933660bce76ba4c41d91fd8e3f",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:49:27.356365+00:00"
+      },
+      {
+        "pmcid": "PMC12931073",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC12931073.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC12931073.1.cloud.json",
+        "sha256": "acdd3f235d3c3b49fbf692ae84eb781069c55816174ff8a5a3f054b85d5a6bef",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:49:36.400769+00:00"
+      },
+      {
+        "pmcid": "PMC12931073",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC12931073&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC12931073.1.id-converter.json",
+        "sha256": "ea18a89b47ddce19762f056d6b3fb9d1c954b9fffb562cd9761dce2e5f5fc384",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:49:36.401104+00:00"
+      },
+      {
+        "pmcid": "PMC12931073",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=41711493&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC12931073.1.pubmed.xml",
+        "sha256": "aaa05c8fa167c2b27c941a41f3691ba9a985fd06e24174fd0a7a3fd9a31f19da",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:49:36.401336+00:00"
+      },
+      {
+        "pmcid": "PMC12931073",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12931073.1/PMC12931073.1.xml?md5=c7f6a6afaa1c9f327c81132c212a12a2",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC12931073.1.article.xml",
+        "sha256": "bf7d5e8ff393f129d77caa1f353ff0c6c1dc93b4ae770c72905895d5c283610b",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:49:36.401606+00:00"
+      },
+      {
+        "pmcid": "PMC13107781",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC13107781.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC13107781.1.cloud.json",
+        "sha256": "acde6c4a90a5ab9451a627d78108b8dfbef1bc741eb00e583df5c490ecb9d85f",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:49:45.408526+00:00"
+      },
+      {
+        "pmcid": "PMC13107781",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC13107781&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC13107781.1.id-converter.json",
+        "sha256": "a9b7daf345a555e305734ef9e66daabcd2eb7922ae20e226908d4742cba77c0a",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:49:45.408818+00:00"
+      },
+      {
+        "pmcid": "PMC13107781",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=42026662&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC13107781.1.pubmed.xml",
+        "sha256": "b583d83be4400a0e6298edb80929acf5d6c4632aa2832cc7e33ff688ba0f90ec",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:49:45.409060+00:00"
+      },
+      {
+        "pmcid": "PMC13107781",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13107781.1/PMC13107781.1.xml?md5=39dff5ea85ddda81f01fdd8642767b41",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC13107781.1.article.xml",
+        "sha256": "136f35a1e0c1a758c228a0b338cd4fb517a29239b9d6742721aa82e8ae30e5da",
+        "source_set": "assembly-sources-attempt2",
+        "response_archived_at": "2026-10-07T22:49:45.409304+00:00"
+      },
+      {
+        "pmcid": "PMC13190586",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC13190586.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13190586.1.cloud.json",
+        "sha256": "b92c7069491991ec8bf370118ac1c68c0ea5d9e187f434d28d50dba52e95ba9a",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:20:14.420258+00:00"
+      },
+      {
+        "pmcid": "PMC13190586",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC13190586&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13190586.1.id-converter.json",
+        "sha256": "a1bd2f8be3e301e7ac13ffbd763171ce5fc2398232efb8ca8cd0c2b003642909",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:20:14.420578+00:00"
+      },
+      {
+        "pmcid": "PMC13190586",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=42181899&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13190586.1.pubmed.xml",
+        "sha256": "77c2ab107ae51df838214efd6adf94bc7d3eee217070a3e395aa651f8a43e9ae",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:20:14.420826+00:00"
+      },
+      {
+        "pmcid": "PMC13190586",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13190586.1/PMC13190586.1.xml?md5=545efe7eabb262adce689257deceabef",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13190586.1.article.xml",
+        "sha256": "e7f93050618d14e99b55e044ab3323f0438dc1539be56c556544717da84c5e87",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:20:14.421147+00:00"
+      },
+      {
+        "pmcid": "PMC13328407",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC13328407.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13328407.1.cloud.json",
+        "sha256": "74dca3d76bc134b408ff72adb510bf69ec8694b076cfd29bab62610e46e9de79",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:20:23.707565+00:00"
+      },
+      {
+        "pmcid": "PMC13328407",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC13328407&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13328407.1.id-converter.json",
+        "sha256": "b7149d640fdfafc9d323b7dfaa3c688ea9090da63cf91a665b1e5b2b1d92d168",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:20:23.707754+00:00"
+      },
+      {
+        "pmcid": "PMC13328407",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=42555388&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13328407.1.pubmed.xml",
+        "sha256": "f62a10aeeb11c94f8873c3f14fe6d18c271fc6dcd028bacc52d1eca5b3426c56",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:20:23.707942+00:00"
+      },
+      {
+        "pmcid": "PMC13328407",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13328407.1/PMC13328407.1.xml?md5=a1a1f7d5e7eb11f73c77ff1bee5ffe32",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13328407.1.article.xml",
+        "sha256": "7f03914561182e37d9ca84805bf4cb524217c1ee141f58f95f7dd2fc7d13a7e5",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:20:23.708159+00:00"
+      },
+      {
+        "pmcid": "PMC13423648",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC13423648.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13423648.1.cloud.json",
+        "sha256": "611bf0f6751340b9db3f997179214ccc5b6027f9264fe2c823c145519c0f58af",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:20:27.573352+00:00"
+      },
+      {
+        "pmcid": "PMC13423648",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC13423648&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13423648.1.id-converter.json",
+        "sha256": "721f0d5a32c0ed8ca1b9cc478c3722be19618cc7db28972074076303666b65f4",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:20:27.573470+00:00"
+      },
+      {
+        "pmcid": "PMC13423648",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=42539441&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13423648.1.pubmed.xml",
+        "sha256": "83d04a343b461b1f052a0e8665e7469b396a35519634bb5fa2afb9d21e2a6f5f",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:20:27.573542+00:00"
+      },
+      {
+        "pmcid": "PMC13423648",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13423648.1/PMC13423648.1.xml?md5=c3a6d32020f67235c510a5b6feeb6350",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13423648.1.article.xml",
+        "sha256": "170cd3e122a580a7f7f979e1fb1e791e5e5e0080e7239447f216312f26c9ae40",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:20:27.573611+00:00"
+      },
+      {
+        "pmcid": "PMC13429855",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC13429855.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13429855.1.cloud.json",
+        "sha256": "2116a57d3627dab74aa604d935bfde125c2ef55620b28f414a587addb0f82cf2",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:20:32.159859+00:00"
+      },
+      {
+        "pmcid": "PMC13429855",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC13429855&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13429855.1.id-converter.json",
+        "sha256": "6101c51263c4db6fe47c2b9eeb8315d7c0cf7f6b42eeff55eec5c44433a3bae0",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:20:32.159965+00:00"
+      },
+      {
+        "pmcid": "PMC13429855",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=42548867&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13429855.1.pubmed.xml",
+        "sha256": "369594f33d15e43c30949f9f880e870e5f888c0332aa2139645277530e325ec7",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:20:32.160062+00:00"
+      },
+      {
+        "pmcid": "PMC13429855",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13429855.1/PMC13429855.1.xml?md5=8360829c9c298ecc379cc3cb9d713a7c",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13429855.1.article.xml",
+        "sha256": "f8cf904042159c00d1b6fd0a0f0b36293a075fb1763e5f9907a87b08dbce70a3",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:20:32.160155+00:00"
+      },
+      {
+        "pmcid": "PMC13430954",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC13430954.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13430954.1.cloud.json",
+        "sha256": "9a709783756f36031532e73c60c1435d955b131ae2374ec6897c97aa2362a5e7",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:20:36.361797+00:00"
+      },
+      {
+        "pmcid": "PMC13430954",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC13430954&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13430954.1.id-converter.json",
+        "sha256": "74a926a39d219bd6fbcf7ef654edf9380ffde070a5674cf314414ac15f432920",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:20:36.361912+00:00"
+      },
+      {
+        "pmcid": "PMC13430954",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=42544991&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13430954.1.pubmed.xml",
+        "sha256": "e9fcecf77af8c75a144b0a70486e2da802c9ae83608154b0e968dd4ed1265d1a",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:20:36.362000+00:00"
+      },
+      {
+        "pmcid": "PMC13430954",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13430954.1/PMC13430954.1.xml?md5=58993acb0580a8a13063887245787490",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13430954.1.article.xml",
+        "sha256": "b5d828d81c07bd388accdb9f6f294ae9ea0d68fb6d1c66b2315fb6869713fc7f",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:20:36.362072+00:00"
+      },
+      {
+        "pmcid": "PMC13433181",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC13433181.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13433181.1.cloud.json",
+        "sha256": "f7992c6d8933fb0e79f84b635050287a7387241e9227c084ebd055d63d3869f4",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:20:40.427160+00:00"
+      },
+      {
+        "pmcid": "PMC13433181",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC13433181&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13433181.1.id-converter.json",
+        "sha256": "fe1fc35c3afdb65abac7a443192b0f99cc31a630888e1c197555b95ae1d02dcc",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:20:40.427268+00:00"
+      },
+      {
+        "pmcid": "PMC13433181",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=42553073&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13433181.1.pubmed.xml",
+        "sha256": "ad52949b66ded76b30d384504aade68527a6755e5a92d3e7c5d788f2cc09bdc3",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:20:40.427356+00:00"
+      },
+      {
+        "pmcid": "PMC13433181",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13433181.1/PMC13433181.1.xml?md5=c753814a4f890135ed0265ad78b82b69",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13433181.1.article.xml",
+        "sha256": "8dee6961c25b70af7833403c421d00e3e0652e3e24f91268e84ef09902277151",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:20:40.427434+00:00"
+      },
+      {
+        "pmcid": "PMC13433680",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC13433680.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13433680.1.cloud.json",
+        "sha256": "1e86ed45cc3263852b0c6464728773cad49ecdad2a088a39d6fd125c56b762f3",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:20:49.324678+00:00"
+      },
+      {
+        "pmcid": "PMC13433680",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC13433680&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13433680.1.id-converter.json",
+        "sha256": "d9828a925b30cb158709dba699f46597c5d9fcc2a8509d13815b338e7419dd0c",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:20:49.324797+00:00"
+      },
+      {
+        "pmcid": "PMC13433680",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=42547683&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13433680.1.pubmed.xml",
+        "sha256": "760a0594bf6833e1ea596cc34ab3dcceafca8e3a9de2532af27ad02e52830b2c",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:20:49.324894+00:00"
+      },
+      {
+        "pmcid": "PMC13433680",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13433680.1/PMC13433680.1.xml?md5=c6905b9fcc1ef48a87c4e19f130529d6",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13433680.1.article.xml",
+        "sha256": "9714dd1be3d9fe2e0bd04984e48d6b7bcd13ec82f867ee34607a18755b7dcb2c",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:20:49.324999+00:00"
+      },
+      {
+        "pmcid": "PMC13433862",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC13433862.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13433862.1.cloud.json",
+        "sha256": "94ac29113e2a51f88c6bd9251c54435ab020addb44ee0a7bb745a322c2e094d5",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:20:53.460687+00:00"
+      },
+      {
+        "pmcid": "PMC13433862",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC13433862&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13433862.1.id-converter.json",
+        "sha256": "eabcfa64856e33cfe40c25d7973394ab417b569a2ad60b97904c70801345334e",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:20:53.460805+00:00"
+      },
+      {
+        "pmcid": "PMC13433862",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=42553332&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13433862.1.pubmed.xml",
+        "sha256": "b78ccfbbbc60216255b5fbd57c61f454099c529df72c221a93b3a88556ad7faa",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:20:53.460902+00:00"
+      },
+      {
+        "pmcid": "PMC13433862",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13433862.1/PMC13433862.1.xml?md5=039d5b2da43664197c99201af14b3341",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13433862.1.article.xml",
+        "sha256": "8cde9ee46ae2e6680013d8de350ef54cd3c20dae6d0ff3d1bc073896864480b8",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:20:53.460996+00:00"
+      },
+      {
+        "pmcid": "PMC13439631",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC13439631.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13439631.1.cloud.json",
+        "sha256": "796ac5e69a0dd4f2affa81623efc9d0c0babf9d35e47a23cb62d8bc494121bef",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:20:57.490726+00:00"
+      },
+      {
+        "pmcid": "PMC13439631",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC13439631&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13439631.1.id-converter.json",
+        "sha256": "0eaa704eba933ff5dbd2566ab7aeb3e87a4021ead73bbd7ad545bca7f792be3e",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:20:57.490954+00:00"
+      },
+      {
+        "pmcid": "PMC13439631",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=42554205&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13439631.1.pubmed.xml",
+        "sha256": "1105f6d8f68244a9c9870edff072c6f2468c6972c7960d5dd93bbcf5d5ce3b6b",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:20:57.491110+00:00"
+      },
+      {
+        "pmcid": "PMC13439631",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13439631.1/PMC13439631.1.xml?md5=321b8bc55db6ffc0cfcfdc2986553227",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13439631.1.article.xml",
+        "sha256": "48f05d0726b8ecc0d3c65e37bfef18ef18782c86290411f1a854c13308206ee4",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:20:57.491269+00:00"
+      },
+      {
+        "pmcid": "PMC13472562",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC13472562.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13472562.1.cloud.json",
+        "sha256": "10ca21b0f31d3f99e5f86cca3a01fe95b8268507f09f36c5a253ae729c090f3f",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:21:02.143661+00:00"
+      },
+      {
+        "pmcid": "PMC13472562",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC13472562&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13472562.1.id-converter.json",
+        "sha256": "b213023c034698baa5d2292543a945f455bd4c47eefbfd10a31bbe273f6ae566",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:21:02.143900+00:00"
+      },
+      {
+        "pmcid": "PMC13472562",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=42598689&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13472562.1.pubmed.xml",
+        "sha256": "0155202e9992c22ce63fc22fc88699e7b653ff98c960054676875440ee1da0b7",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:21:02.144131+00:00"
+      },
+      {
+        "pmcid": "PMC13472562",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13472562.1/PMC13472562.1.xml?md5=6c3f0d3a7efd353e9be13a8c377f9085",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC13472562.1.article.xml",
+        "sha256": "bdc43d24b193c4f5cc728c469674145a95e2ab09890bb6797c8c89dd13924016",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:21:02.144410+00:00"
+      },
+      {
+        "pmcid": "PMC4804513",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC4804513.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC4804513.1.cloud.json",
+        "sha256": "bc57ac9407d83586534e8ffd4855da799bfe41ab70ad676355d59bc4cd1e57d1",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:21:06.194040+00:00"
+      },
+      {
+        "pmcid": "PMC4804513",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC4804513&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC4804513.1.id-converter.json",
+        "sha256": "60674b99c719ca5a93aa9c41dc169082b9aa560911b78d6a15dab17a04d56fb1",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:21:06.194449+00:00"
+      },
+      {
+        "pmcid": "PMC4804513",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=27007793&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC4804513.1.pubmed.xml",
+        "sha256": "bebee29f80f2309796720f16e7ac677d532072e1a87b35f114e37d84e40ae263",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:21:06.194710+00:00"
+      },
+      {
+        "pmcid": "PMC4804513",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC4804513.1/PMC4804513.1.xml?md5=46b4c3dc3589c416c69d766118f9f307",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC4804513.1.article.xml",
+        "sha256": "61e85000ddf35239eb821a1309078be5ab434406816e7da311d8e0e88e31b7c8",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:21:06.195009+00:00"
+      },
+      {
+        "pmcid": "PMC8866621",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC8866621.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC8866621.1.cloud.json",
+        "sha256": "e71132ff3525000306f278f904f45d1ccf07941927b273469e0273be614f06c3",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:21:10.991394+00:00"
+      },
+      {
+        "pmcid": "PMC8866621",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC8866621&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC8866621.1.id-converter.json",
+        "sha256": "c4d0c6070e5e28571ad9cdf4b9980373976e13ce86ce4f395a92fcc475a9d864",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:21:10.991756+00:00"
+      },
+      {
+        "pmcid": "PMC8866621",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=35195795&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC8866621.1.pubmed.xml",
+        "sha256": "fcd457316cbbce00ff9ba13e842eea0d81d20b786314625836bdeac79eb0af7a",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:21:10.992001+00:00"
+      },
+      {
+        "pmcid": "PMC8866621",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC8866621.1/PMC8866621.1.xml?md5=fb442eb5b0b76d57870632f6e0d51a9d",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC8866621.1.article.xml",
+        "sha256": "1f08450ba9f1c9d349adb46a190e962609840dd6f87b06bcfc0070787c8b4049",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:21:10.992294+00:00"
+      },
+      {
+        "pmcid": "PMC9844597",
+        "provider_source": "cloud.json",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC9844597.1.json",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC9844597.1.cloud.json",
+        "sha256": "bf7a85c99c6d5e9a2d6a40f4a37ef475f90447fab90fdc280a73c4e1ff369e19",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:21:19.423632+00:00"
+      },
+      {
+        "pmcid": "PMC9844597",
+        "provider_source": "id-converter.json",
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC9844597&format=json&versions=yes&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC9844597.1.id-converter.json",
+        "sha256": "69a436e1309137c7b65d477bbd69563e141a94602f8d20431ccdb69dc684e257",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:21:19.423748+00:00"
+      },
+      {
+        "pmcid": "PMC9844597",
+        "provider_source": "pubmed.xml",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=35621048&retmode=xml&tool=ai-research-assistant",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC9844597.1.pubmed.xml",
+        "sha256": "11aee15b7f976624ce4f5582d17c836b93623894a7f4434a498d3c675e790495",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:21:19.423852+00:00"
+      },
+      {
+        "pmcid": "PMC9844597",
+        "provider_source": "article.xml",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC9844597.1/PMC9844597.1.xml?md5=c6ec3cb11ba8914a3bc62eae231c158c",
+        "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/sources/PMC9844597.1.article.xml",
+        "sha256": "e4fdd25104fce87f27c9b29ebee2412a9bba0708a34e8acc478e8510f0a0a69e",
+        "source_set": "sources",
+        "response_archived_at": "2026-10-07T22:21:19.423942+00:00"
+      }
+    ]
+  },
+  "articles": [
+    {
+      "pmcid": "PMC10073666",
+      "source": "cloud.json",
+      "reviewed_sha256": "5e545060a05592e187a8e2384084978dca950bc3bdebf318be798ec7ac715ec3",
+      "assembly_sha256": "5e545060a05592e187a8e2384084978dca950bc3bdebf318be798ec7ac715ec3",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10073666",
+      "source": "id-converter.json",
+      "reviewed_sha256": "a07ce1f59df86e36b7d6835ac831812eba6bfefed938d92c3209e9d939c6cc8f",
+      "assembly_sha256": "e2f4bcaf0c5f5cd475e4965dbce1b96d58c1529d9568a80c4c6f11b870b7f345",
+      "bytes_identical": false,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10073666",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "13de92346e499c1abba10fa055d2182739cfcec84e357abff4cca509ef245114",
+      "assembly_sha256": "13de92346e499c1abba10fa055d2182739cfcec84e357abff4cca509ef245114",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10073666",
+      "source": "article.xml",
+      "reviewed_sha256": "26c168581ea03b7fb62390017c206f1c2c8bb46b2a21d18926ed5662cd0dacda",
+      "assembly_sha256": "26c168581ea03b7fb62390017c206f1c2c8bb46b2a21d18926ed5662cd0dacda",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10363301",
+      "source": "cloud.json",
+      "reviewed_sha256": "2cd93a176910c2b5c1dacef60bb0585cc48ed1197e2c8dd0bd1db07cdb4971f3",
+      "assembly_sha256": "2cd93a176910c2b5c1dacef60bb0585cc48ed1197e2c8dd0bd1db07cdb4971f3",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10363301",
+      "source": "id-converter.json",
+      "reviewed_sha256": "470d78f35e20b8192f7b8b0d05f654f7a0e2c8f905ad7aa7c0f269aa064446b3",
+      "assembly_sha256": "80bdbc35e98b62bf3a988c50a86a9a8a83c97c3d068dbfc6f06e86900c8a8e44",
+      "bytes_identical": false,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10363301",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "08a6b2eb39c80e37977316dd7f64c3793a9d013ef339fd975a03b654a44ed7b6",
+      "assembly_sha256": "08a6b2eb39c80e37977316dd7f64c3793a9d013ef339fd975a03b654a44ed7b6",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10363301",
+      "source": "article.xml",
+      "reviewed_sha256": "f1e8339f68d34a498b2383a0a0c9f9e19daafc9658796be58c104f38712ccd11",
+      "assembly_sha256": "f1e8339f68d34a498b2383a0a0c9f9e19daafc9658796be58c104f38712ccd11",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10452755",
+      "source": "cloud.json",
+      "reviewed_sha256": "94f6537fa68eee318842e55363d4b2431c4121bbb79e1ccea7b9d9a1cd1f86ad",
+      "assembly_sha256": "94f6537fa68eee318842e55363d4b2431c4121bbb79e1ccea7b9d9a1cd1f86ad",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10452755",
+      "source": "id-converter.json",
+      "reviewed_sha256": "e776ab65d18ed720e6c9ae8e07d0e1a39a596a344c300036d754b1fe3b8a51c1",
+      "assembly_sha256": "171d92273b4b21326b7ab859add3e69b8f20f448595fff5758156993d42489e4",
+      "bytes_identical": false,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10452755",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "fb6695db32c0b83a5441fa7edbcd382f8374e657793a4084eff8b4136e5d6d54",
+      "assembly_sha256": "fb6695db32c0b83a5441fa7edbcd382f8374e657793a4084eff8b4136e5d6d54",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10452755",
+      "source": "article.xml",
+      "reviewed_sha256": "37f2a743108be0d0563a5efad082b26c58912faacae42e355cf0e1e7bfca2e3a",
+      "assembly_sha256": "37f2a743108be0d0563a5efad082b26c58912faacae42e355cf0e1e7bfca2e3a",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10485396",
+      "source": "cloud.json",
+      "reviewed_sha256": "3adb5c1c6a5dc470649b354c6afb0d724b5722b8def7cb05ad0fe9d90970129d",
+      "assembly_sha256": "3adb5c1c6a5dc470649b354c6afb0d724b5722b8def7cb05ad0fe9d90970129d",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10485396",
+      "source": "id-converter.json",
+      "reviewed_sha256": "07813cd6e9515c760ea4b75e174251140c91806629b7a20e112a1c26eefee13d",
+      "assembly_sha256": "edb4faa621663de088d5f758bd22be7acc660eeeb100ff68efbaab5154e65b0e",
+      "bytes_identical": false,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10485396",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "c7e88547a00089dd35c766be14232ac8d5837b68cd1428bbef1829319036c498",
+      "assembly_sha256": "c7e88547a00089dd35c766be14232ac8d5837b68cd1428bbef1829319036c498",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10485396",
+      "source": "article.xml",
+      "reviewed_sha256": "ae426d781e13232ec00c2610345f6711d2a4c2ecd72e2c1693033b880c7181d8",
+      "assembly_sha256": "ae426d781e13232ec00c2610345f6711d2a4c2ecd72e2c1693033b880c7181d8",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10607686",
+      "source": "cloud.json",
+      "reviewed_sha256": "f9713929c2f5fa12019bdadb283184383b0f0abc6338fd9b3d749d09e9aa28be",
+      "assembly_sha256": "f9713929c2f5fa12019bdadb283184383b0f0abc6338fd9b3d749d09e9aa28be",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10607686",
+      "source": "id-converter.json",
+      "reviewed_sha256": "733e6572815954f15d124df95d45e0c9c7fe21096d5e0515283293e4d556e060",
+      "assembly_sha256": "32562572c91e37da87516d9e50ccdaa961b8f7feaf9e8279313b85d8ec836445",
+      "bytes_identical": false,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10607686",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "ffbdaea1648f35ea69eacc4731b79c12c035cb131d2382d196ffa96e3daa7765",
+      "assembly_sha256": "ffbdaea1648f35ea69eacc4731b79c12c035cb131d2382d196ffa96e3daa7765",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10607686",
+      "source": "article.xml",
+      "reviewed_sha256": "5b20c327fd3345f4553ac84b290caff694b1c98c249321a5b9ad659b0784212e",
+      "assembly_sha256": "5b20c327fd3345f4553ac84b290caff694b1c98c249321a5b9ad659b0784212e",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10619268",
+      "source": "cloud.json",
+      "reviewed_sha256": "ce4e8cb4f3708de9b9ad8afbdb17bdf1b8e4ef1d9b24302560f7f09a141b4706",
+      "assembly_sha256": "ce4e8cb4f3708de9b9ad8afbdb17bdf1b8e4ef1d9b24302560f7f09a141b4706",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10619268",
+      "source": "id-converter.json",
+      "reviewed_sha256": "f3b90b9241cc2c90ddf3c0da7c2e5c7bb9eff9e509b567ff7cbdd47433eb15de",
+      "assembly_sha256": "e40b20ccb9b48c587a3d365438985a0f8a3c2c6a80a53c3b85b5452346a52ef1",
+      "bytes_identical": false,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10619268",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "5ea03c8de4f555906dc3a6248b69f1fe44529dfa0a56d0c64d5294adee6d913c",
+      "assembly_sha256": "5ea03c8de4f555906dc3a6248b69f1fe44529dfa0a56d0c64d5294adee6d913c",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10619268",
+      "source": "article.xml",
+      "reviewed_sha256": "7bf778ce421da7291509bfeefa8ba32e602a27db511a44b404eb98d0d374e7b5",
+      "assembly_sha256": "7bf778ce421da7291509bfeefa8ba32e602a27db511a44b404eb98d0d374e7b5",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10770829",
+      "source": "cloud.json",
+      "reviewed_sha256": "409209011f0cf4528f6a97f347393fefac2eabd43523f37efaba02c4ef24a4d7",
+      "assembly_sha256": "409209011f0cf4528f6a97f347393fefac2eabd43523f37efaba02c4ef24a4d7",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10770829",
+      "source": "id-converter.json",
+      "reviewed_sha256": "814211923c8bdba23a0003c02164284d2e0a3a184c63e7e9bd9ac8ccfb7db958",
+      "assembly_sha256": "d2581be6d23b35934a7288d45779921d7753a1dea55708a3e42083e98419f7d5",
+      "bytes_identical": false,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10770829",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "15c072fe47896f42a5556aacaadeef2e148c3fdea3d49c930d5b3a45eef22e9f",
+      "assembly_sha256": "15c072fe47896f42a5556aacaadeef2e148c3fdea3d49c930d5b3a45eef22e9f",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10770829",
+      "source": "article.xml",
+      "reviewed_sha256": "1eb83d9f5c9ebdb843db2c9a5bfc86fd1a3afb5e1eb18014feeb1db8a4caf909",
+      "assembly_sha256": "1eb83d9f5c9ebdb843db2c9a5bfc86fd1a3afb5e1eb18014feeb1db8a4caf909",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10840225",
+      "source": "cloud.json",
+      "reviewed_sha256": "78add39302126ac03b22f8e941a5b74a3755688a254cd36f1214eb6cc2891669",
+      "assembly_sha256": "78add39302126ac03b22f8e941a5b74a3755688a254cd36f1214eb6cc2891669",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10840225",
+      "source": "id-converter.json",
+      "reviewed_sha256": "302620dd6ff91ce872341321aaaedb9927e666106da24f646cb0d401208c9005",
+      "assembly_sha256": "171051d6f37d09309c7e012c43d74faefd4030fc389599ad7452ad543afc78df",
+      "bytes_identical": false,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10840225",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "8b52444a5827e0dc4949bf7f67cdf65ada1462e89945928b266019fffcd36cfd",
+      "assembly_sha256": "8b52444a5827e0dc4949bf7f67cdf65ada1462e89945928b266019fffcd36cfd",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10840225",
+      "source": "article.xml",
+      "reviewed_sha256": "0bf59dd4408749f6a06a3940a571bf501a5287cb710017a517d3179ab10df618",
+      "assembly_sha256": "0bf59dd4408749f6a06a3940a571bf501a5287cb710017a517d3179ab10df618",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10985250",
+      "source": "cloud.json",
+      "reviewed_sha256": "60fe07bc8d1275d7a77bdf410fbe1107325dbf05dce674e609c4c823a92860bf",
+      "assembly_sha256": "60fe07bc8d1275d7a77bdf410fbe1107325dbf05dce674e609c4c823a92860bf",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10985250",
+      "source": "id-converter.json",
+      "reviewed_sha256": "6072c74a95b3e27921fa755aebaec2f25357ff2a988189a9727eea368bd7173f",
+      "assembly_sha256": "c4d7d23630e9c290dee9ace7d2a1999f1047e10f1388553bd3412759afa22727",
+      "bytes_identical": false,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10985250",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "52ad715ce3948c4c27316c8c5d974bd7c0ed7e376b4491b86ee749ba111822b0",
+      "assembly_sha256": "52ad715ce3948c4c27316c8c5d974bd7c0ed7e376b4491b86ee749ba111822b0",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10985250",
+      "source": "article.xml",
+      "reviewed_sha256": "a92cf74f73fac225737b6ad552041c6475499b8cfb6e17ce3f21c305439889e6",
+      "assembly_sha256": "a92cf74f73fac225737b6ad552041c6475499b8cfb6e17ce3f21c305439889e6",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10997137",
+      "source": "cloud.json",
+      "reviewed_sha256": "444c724c2230ad94c041cb24d2f2e36029f1d886c2f22a5a0a9baf59b3978872",
+      "assembly_sha256": "444c724c2230ad94c041cb24d2f2e36029f1d886c2f22a5a0a9baf59b3978872",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10997137",
+      "source": "id-converter.json",
+      "reviewed_sha256": "0115696dd247940eae096876ef414bf22da03097746d4bc8cb021c87fc1de34f",
+      "assembly_sha256": "d4321c82f4bc91912805ae73ba9e3d240f723ad956f7260619ffb7ac6f8c257d",
+      "bytes_identical": false,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10997137",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "5d5b4042b54c0a6e9a3e6699994f53797f9bd8dea38078ea94ed598cb5fcd443",
+      "assembly_sha256": "5d5b4042b54c0a6e9a3e6699994f53797f9bd8dea38078ea94ed598cb5fcd443",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC10997137",
+      "source": "article.xml",
+      "reviewed_sha256": "e558412a61e01714afebeb5954842e9b27d1902dd73c7e1eeb4d28b4c844ab6d",
+      "assembly_sha256": "e558412a61e01714afebeb5954842e9b27d1902dd73c7e1eeb4d28b4c844ab6d",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11181582",
+      "source": "cloud.json",
+      "reviewed_sha256": "10396fc6c0ab109bb1d0c457539708668abc7f077e5c624ba06c338f47b168d5",
+      "assembly_sha256": "10396fc6c0ab109bb1d0c457539708668abc7f077e5c624ba06c338f47b168d5",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11181582",
+      "source": "id-converter.json",
+      "reviewed_sha256": "075fb7837da622311e0aedd972392b9d12f65b4b63d0d17e0a7d61743759a2a3",
+      "assembly_sha256": "ee34d32837df8e0e239a578e580b2fee9e9e8cd694e313449d0cddf3a89d32e7",
+      "bytes_identical": false,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11181582",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "33c9491473f1917ad5f23436f63f856c65f73925aeed16ea7484f474e3f0bc88",
+      "assembly_sha256": "33c9491473f1917ad5f23436f63f856c65f73925aeed16ea7484f474e3f0bc88",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11181582",
+      "source": "article.xml",
+      "reviewed_sha256": "d777ba4be6ecaa713c3d1c8bd19bf7d1f5e775b95be4c3e4fa9db45cef65bd54",
+      "assembly_sha256": "d777ba4be6ecaa713c3d1c8bd19bf7d1f5e775b95be4c3e4fa9db45cef65bd54",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11265054",
+      "source": "cloud.json",
+      "reviewed_sha256": "84294eb65ffc2691111aa04bedc9ac280b35c0ff6cdfacc5858784cae22c3aaf",
+      "assembly_sha256": "84294eb65ffc2691111aa04bedc9ac280b35c0ff6cdfacc5858784cae22c3aaf",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11265054",
+      "source": "id-converter.json",
+      "reviewed_sha256": "790991bc2f52c2b2d7a4417aa5c2a6ad213ac422b6b085cf15eb9679aae1991e",
+      "assembly_sha256": "9770c802c5f52c2c0448fcaab38ecdcce41807f5f796163fde78b7d784e263f0",
+      "bytes_identical": false,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11265054",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "02e7e19d4aaca49e259d033456a9ef0a803c82dfa8e553385d7aaa6606025753",
+      "assembly_sha256": "02e7e19d4aaca49e259d033456a9ef0a803c82dfa8e553385d7aaa6606025753",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11265054",
+      "source": "article.xml",
+      "reviewed_sha256": "67b084e3128cf781925276b4b1157867a3d58d6d6fb97f23d03a9f983eb50c11",
+      "assembly_sha256": "67b084e3128cf781925276b4b1157867a3d58d6d6fb97f23d03a9f983eb50c11",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11354916",
+      "source": "cloud.json",
+      "reviewed_sha256": "0ee089abc1aac8560f075e8c6bd5bc5c697ffd65a272c1dca8adb808cd74fdb2",
+      "assembly_sha256": "0ee089abc1aac8560f075e8c6bd5bc5c697ffd65a272c1dca8adb808cd74fdb2",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11354916",
+      "source": "id-converter.json",
+      "reviewed_sha256": "593001b198dc1387f0ad89a2e33515fdb51d025fb050ae5ab68287faf30b5ee6",
+      "assembly_sha256": "7c64b8e43f34c4d35d2db14b597c79140a7662ad30c9ceef9698c4a59bff47c9",
+      "bytes_identical": false,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11354916",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "8da4d3b16163ff4ca96850dd5cc99cb1da3fcd10777cdd938e7b631f4e4df180",
+      "assembly_sha256": "8da4d3b16163ff4ca96850dd5cc99cb1da3fcd10777cdd938e7b631f4e4df180",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11354916",
+      "source": "article.xml",
+      "reviewed_sha256": "a34be78e8a2a4dfe488591a6e537f2c30cab37f3657f158b290c3866579abff2",
+      "assembly_sha256": "a34be78e8a2a4dfe488591a6e537f2c30cab37f3657f158b290c3866579abff2",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11373557",
+      "source": "cloud.json",
+      "reviewed_sha256": "d6f02e22fc6f87cebfbb30532c1bafc7f5203281f4fcd19d4293946189d01267",
+      "assembly_sha256": "d6f02e22fc6f87cebfbb30532c1bafc7f5203281f4fcd19d4293946189d01267",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11373557",
+      "source": "id-converter.json",
+      "reviewed_sha256": "5a82aab528e68ef4bf77b2956149b01421bd8faf31c40a24973c01091663678c",
+      "assembly_sha256": "6b1a5c19f3e1dc15adb726e7ee20df12bc81baf11ae885c99b10f685504f4869",
+      "bytes_identical": false,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11373557",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "cfe9af8146a7e634e3e21021c3361efbff6d9e3f3054137d57639c6751d3c889",
+      "assembly_sha256": "cfe9af8146a7e634e3e21021c3361efbff6d9e3f3054137d57639c6751d3c889",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11373557",
+      "source": "article.xml",
+      "reviewed_sha256": "32772bd7d286b6a45cde76b5a06deec38b5c9d3ce223ce1ce711eb1301ceba31",
+      "assembly_sha256": "32772bd7d286b6a45cde76b5a06deec38b5c9d3ce223ce1ce711eb1301ceba31",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11374717",
+      "source": "cloud.json",
+      "reviewed_sha256": "9f78d936576d92b13f43c502343399152d90f25e51cdd95988b7dcf3e4dd0d72",
+      "assembly_sha256": "9f78d936576d92b13f43c502343399152d90f25e51cdd95988b7dcf3e4dd0d72",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11374717",
+      "source": "id-converter.json",
+      "reviewed_sha256": "669a012fbba046c10f99f4c503fde20388736817deb744e14621eaa04cef6f7d",
+      "assembly_sha256": "c553cfe87eb3128fc969e765a50918ee7e8675fc53fd9be617944f6b5898c8b2",
+      "bytes_identical": false,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11374717",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "3da347446229b7d234b419ae200d2d5d65c330b7b25ffbc7ad8c1b61020882dd",
+      "assembly_sha256": "3da347446229b7d234b419ae200d2d5d65c330b7b25ffbc7ad8c1b61020882dd",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11374717",
+      "source": "article.xml",
+      "reviewed_sha256": "e522ede45d413c648f02d89b374fa2aff36765b98af5ff0759bc14fa54826a25",
+      "assembly_sha256": "e522ede45d413c648f02d89b374fa2aff36765b98af5ff0759bc14fa54826a25",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11411718",
+      "source": "cloud.json",
+      "reviewed_sha256": "7649bb13e405eb8a49e8910858f8961d9eb7ef8942ece9bb7021d3a7be0a6e72",
+      "assembly_sha256": "7649bb13e405eb8a49e8910858f8961d9eb7ef8942ece9bb7021d3a7be0a6e72",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11411718",
+      "source": "id-converter.json",
+      "reviewed_sha256": "a9c628608ad6440370f87350f11e59e0fed6db9e1dfbc7eafb6f85993ed2160b",
+      "assembly_sha256": "bc318b16f2c2b23806f2dd9bfd5f607bcfc8e5610dc4d8e9b2a517a01f86107c",
+      "bytes_identical": false,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11411718",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "3cdd9cecba2d13a8d49360ff21c020d1e72e6d64248ba73bf16afabf847ff529",
+      "assembly_sha256": "3cdd9cecba2d13a8d49360ff21c020d1e72e6d64248ba73bf16afabf847ff529",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11411718",
+      "source": "article.xml",
+      "reviewed_sha256": "0c5bf003372ef8ef6df84d355353236323c15d1f59b41bcf31b6a2cf29281feb",
+      "assembly_sha256": "0c5bf003372ef8ef6df84d355353236323c15d1f59b41bcf31b6a2cf29281feb",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11431721",
+      "source": "cloud.json",
+      "reviewed_sha256": "8d354fa0441aa4d5341fb2e2743e4df0a4153b3fcba98691df9eccacfe2ce13b",
+      "assembly_sha256": "8d354fa0441aa4d5341fb2e2743e4df0a4153b3fcba98691df9eccacfe2ce13b",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11431721",
+      "source": "id-converter.json",
+      "reviewed_sha256": "d0dec4adb92147e62bb359c22f9966ec3d14aff15460b751ad3b0fff38791a02",
+      "assembly_sha256": "f6dd03db2bbd86e5245e0f07e09b413e1dadeddc22f13a5bbcb683f0d5e2ad0e",
+      "bytes_identical": false,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11431721",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "4d6a4ebbb5b098eae44998e86d817b815f2a9c2bd7a1f631921915a2d1dc6b32",
+      "assembly_sha256": "4d6a4ebbb5b098eae44998e86d817b815f2a9c2bd7a1f631921915a2d1dc6b32",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11431721",
+      "source": "article.xml",
+      "reviewed_sha256": "04e3b2ec6062f3526dfc16147d5f3c85aa625f7d156e8309d3e026d9be2360ed",
+      "assembly_sha256": "04e3b2ec6062f3526dfc16147d5f3c85aa625f7d156e8309d3e026d9be2360ed",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11514186",
+      "source": "cloud.json",
+      "reviewed_sha256": "1c684bd91bbebf2c58ec8cb639aba03ff6840f9c9a3cd11feeb148bc1af21fdd",
+      "assembly_sha256": "1c684bd91bbebf2c58ec8cb639aba03ff6840f9c9a3cd11feeb148bc1af21fdd",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11514186",
+      "source": "id-converter.json",
+      "reviewed_sha256": "4c29798b707a5ef86190100d74e702390b205c6e0ac2aff794a0a854321f42b4",
+      "assembly_sha256": "aa5a8c2e09f021fc5d12aaeb67340ca6fda37e43e3516bfc783be693038857cb",
+      "bytes_identical": false,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11514186",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "94132b29d48f5e00d71c3462434edaea74ebbf2814217312cb9a232c71c0cef6",
+      "assembly_sha256": "94132b29d48f5e00d71c3462434edaea74ebbf2814217312cb9a232c71c0cef6",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11514186",
+      "source": "article.xml",
+      "reviewed_sha256": "00be43a0092b1dbbad4b12cb3ea6857fb374072cd152ff75886f694d6c70be75",
+      "assembly_sha256": "00be43a0092b1dbbad4b12cb3ea6857fb374072cd152ff75886f694d6c70be75",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11547071",
+      "source": "cloud.json",
+      "reviewed_sha256": "a941c566177c1327efa5dd6ec8e4f1b0c7c018751ccd9f0838ed7a47af66e0fa",
+      "assembly_sha256": "a941c566177c1327efa5dd6ec8e4f1b0c7c018751ccd9f0838ed7a47af66e0fa",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11547071",
+      "source": "id-converter.json",
+      "reviewed_sha256": "afc2c30bf89b68ed9b5441e00821ebf0a43492076dacdd02f249c768d4b1380b",
+      "assembly_sha256": "2c8bdfca9fda19dd34d1c83d057055087bd2171b4661fe4005e81792f0b67ef7",
+      "bytes_identical": false,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11547071",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "1a8e3ebf0c6e66edf7fa325f4ba7d24f0006d4163ed4a4a45eb9d1a7b472d401",
+      "assembly_sha256": "1a8e3ebf0c6e66edf7fa325f4ba7d24f0006d4163ed4a4a45eb9d1a7b472d401",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11547071",
+      "source": "article.xml",
+      "reviewed_sha256": "b5a27105da2b225c92008d0c06329c6ad965e7d728e6c17b91811bcd0311e4cc",
+      "assembly_sha256": "b5a27105da2b225c92008d0c06329c6ad965e7d728e6c17b91811bcd0311e4cc",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11549774",
+      "source": "cloud.json",
+      "reviewed_sha256": "165162eae678fe6f9d44b9a2324b31b0bce3e37fb9e9351279317ff4d7a958a7",
+      "assembly_sha256": "165162eae678fe6f9d44b9a2324b31b0bce3e37fb9e9351279317ff4d7a958a7",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11549774",
+      "source": "id-converter.json",
+      "reviewed_sha256": "75493e130c953e312b1d938116795e5c9bdc8daea1c6c83188d750238af44779",
+      "assembly_sha256": "25823e7be7329e261ab27fdcabb7a05e6f3d720425da1945a986c90708e9c56d",
+      "bytes_identical": false,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11549774",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "5c6dcc5bbf04ff0d90bceecfeac33364f2136b0494b23b8d7fc6434b314c6715",
+      "assembly_sha256": "5c6dcc5bbf04ff0d90bceecfeac33364f2136b0494b23b8d7fc6434b314c6715",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11549774",
+      "source": "article.xml",
+      "reviewed_sha256": "c58a87ad909f5d2663652c9a8fe7f8275b07b46e8a0da914b3516f9de6cdb1c9",
+      "assembly_sha256": "c58a87ad909f5d2663652c9a8fe7f8275b07b46e8a0da914b3516f9de6cdb1c9",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11891047",
+      "source": "cloud.json",
+      "reviewed_sha256": "ea2cf91b8d579b4521fa7100b51e1c7d8e5739b4d8bf9539280c9a4b1eccc42a",
+      "assembly_sha256": "ea2cf91b8d579b4521fa7100b51e1c7d8e5739b4d8bf9539280c9a4b1eccc42a",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11891047",
+      "source": "id-converter.json",
+      "reviewed_sha256": "5c8abda840632a9cf1fad0035acd4cf422838687dd9a55613cfaf2ab4f51d952",
+      "assembly_sha256": "5fdcb7a9d4c8791853f550854bf8dc2f023560a93dfeb55229ab4bc50ec57571",
+      "bytes_identical": false,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11891047",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "13c187430f923b292cd2e2bbac98cdb968a4d9e6c76be73c2faa73481ef165cb",
+      "assembly_sha256": "13c187430f923b292cd2e2bbac98cdb968a4d9e6c76be73c2faa73481ef165cb",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11891047",
+      "source": "article.xml",
+      "reviewed_sha256": "24ceb88c0121edc59b4c6a58354c9f1e57a270fb9cadc3661bbb8afe36ace8d5",
+      "assembly_sha256": "24ceb88c0121edc59b4c6a58354c9f1e57a270fb9cadc3661bbb8afe36ace8d5",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11973566",
+      "source": "cloud.json",
+      "reviewed_sha256": "ab1d5ddefb9e27ff1e274c5b9e89214ea886ea86c68b878a61a1d2c4b4673411",
+      "assembly_sha256": "ab1d5ddefb9e27ff1e274c5b9e89214ea886ea86c68b878a61a1d2c4b4673411",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11973566",
+      "source": "id-converter.json",
+      "reviewed_sha256": "9bff31ff91955f0344757b3824e7291527de95aa78c8f29e061a98373000318a",
+      "assembly_sha256": "995ff0106bd2d17148981036d5e736776109a9ea1b3ed5ee7d177a6dcd311366",
+      "bytes_identical": false,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11973566",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "024d377fb5e163ba7078586bd46f142cfc9fbd53785e3d236014f6236f372971",
+      "assembly_sha256": "024d377fb5e163ba7078586bd46f142cfc9fbd53785e3d236014f6236f372971",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC11973566",
+      "source": "article.xml",
+      "reviewed_sha256": "d5e7304462729eccea577ff70a57435dc79138028b6c8681dc403f2e5e3bfef2",
+      "assembly_sha256": "d5e7304462729eccea577ff70a57435dc79138028b6c8681dc403f2e5e3bfef2",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC12419643",
+      "source": "cloud.json",
+      "reviewed_sha256": "5ac69f1f8c46d04b8113f2a01eb4756df2ce5d7c1d19d908acf3d6630df2a1e2",
+      "assembly_sha256": "5ac69f1f8c46d04b8113f2a01eb4756df2ce5d7c1d19d908acf3d6630df2a1e2",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC12419643",
+      "source": "id-converter.json",
+      "reviewed_sha256": "c9b03798753a0c73df18a6c3c29c90cbb36893a8573c06d8c898e3f40d7a096c",
+      "assembly_sha256": "c806fa9ccd440f105ba9f456bb035931c5b9c8f7ccba0ab4a13a376cc5d467d3",
+      "bytes_identical": false,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC12419643",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "c36f797fffeebbd93fbd74b976f3ca0e5e4af0350ac059bbdc13e6db0dcd1515",
+      "assembly_sha256": "c36f797fffeebbd93fbd74b976f3ca0e5e4af0350ac059bbdc13e6db0dcd1515",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC12419643",
+      "source": "article.xml",
+      "reviewed_sha256": "3b92e398d78b29e743ecfd98c32bd31f35bfaea68724b6213cb8168b6dd75c88",
+      "assembly_sha256": "3b92e398d78b29e743ecfd98c32bd31f35bfaea68724b6213cb8168b6dd75c88",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC12436478",
+      "source": "cloud.json",
+      "reviewed_sha256": "c5789906f5b02551e42ac3a35ffa4a9058d990ca01591242ba1a105e76e94136",
+      "assembly_sha256": "c5789906f5b02551e42ac3a35ffa4a9058d990ca01591242ba1a105e76e94136",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC12436478",
+      "source": "id-converter.json",
+      "reviewed_sha256": "b13c898571c0885cc3e44c5dfab1e34b49f0ef2df60b8625d6392919e72c3465",
+      "assembly_sha256": "949d25759b95b90061cb8834b042688f5f4a571569e75c0debb5620089d7a576",
+      "bytes_identical": false,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC12436478",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "658eb611e51492077b11b6e3bcf6c278fca724af42ce4fc19492498b2ae4866b",
+      "assembly_sha256": "658eb611e51492077b11b6e3bcf6c278fca724af42ce4fc19492498b2ae4866b",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC12436478",
+      "source": "article.xml",
+      "reviewed_sha256": "0b6a5736b4930558580f2ae49977d2da55db1737612052bd17d50695b46af52f",
+      "assembly_sha256": "0b6a5736b4930558580f2ae49977d2da55db1737612052bd17d50695b46af52f",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC12495207",
+      "source": "cloud.json",
+      "reviewed_sha256": "28019ad5a0521f1e768b4264045446fbed35a9cc87ced8ecef3e493f3ce887d0",
+      "assembly_sha256": "28019ad5a0521f1e768b4264045446fbed35a9cc87ced8ecef3e493f3ce887d0",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC12495207",
+      "source": "id-converter.json",
+      "reviewed_sha256": "743c44db2e12568c4807ba045277a6d4db64cb1143e3f39ae108e8daf8500f3f",
+      "assembly_sha256": "ac46b791d4408ca4241dd87d27c18a30b414c9c8915a384bf4fb5b957a462fb6",
+      "bytes_identical": false,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC12495207",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "a8ac558f7d3806f2665f78d6d741173179563533ba79ac4f61cbc533657b70ed",
+      "assembly_sha256": "a8ac558f7d3806f2665f78d6d741173179563533ba79ac4f61cbc533657b70ed",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC12495207",
+      "source": "article.xml",
+      "reviewed_sha256": "b343578c1b3d553e949fb5c9f6bfb3a7f123ffb79caa041e1b07e4ec978f9c4c",
+      "assembly_sha256": "b343578c1b3d553e949fb5c9f6bfb3a7f123ffb79caa041e1b07e4ec978f9c4c",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC12683810",
+      "source": "cloud.json",
+      "reviewed_sha256": "3dde098d6129547e078b44c6c4a5068bda3d14fce30591f9302afe2823a21f26",
+      "assembly_sha256": "3dde098d6129547e078b44c6c4a5068bda3d14fce30591f9302afe2823a21f26",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC12683810",
+      "source": "id-converter.json",
+      "reviewed_sha256": "202d117294e43ca3be8677dafa340a77a241683ee068cd7780834d379a2bfebf",
+      "assembly_sha256": "613f70eaaa800cd0bdc73f3207dfb6ef8eb4fcc23f1938497819d047660cdc2e",
+      "bytes_identical": false,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC12683810",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "24ef227f630725cf18b9e886c38e4cfedf314a6b679b140ddddb2a6d840f4edc",
+      "assembly_sha256": "24ef227f630725cf18b9e886c38e4cfedf314a6b679b140ddddb2a6d840f4edc",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC12683810",
+      "source": "article.xml",
+      "reviewed_sha256": "5e6a39d5cea2b76f4ad1216f9f1f8908fabb4edb153c5f867b56c43ac98b5f2f",
+      "assembly_sha256": "5e6a39d5cea2b76f4ad1216f9f1f8908fabb4edb153c5f867b56c43ac98b5f2f",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC12880197",
+      "source": "cloud.json",
+      "reviewed_sha256": "1a5c219d6cf8cf070d076cc4b31d74057af27c872b7bb7058bc86b878a7dfce1",
+      "assembly_sha256": "1a5c219d6cf8cf070d076cc4b31d74057af27c872b7bb7058bc86b878a7dfce1",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC12880197",
+      "source": "id-converter.json",
+      "reviewed_sha256": "9c8189d57feb5974f6565134b3d456735e3274c80e0e48e526c725748469888d",
+      "assembly_sha256": "e6f1e0f5451fb3ad80ebede7d5c06bd2998bac79ae40fd5973069c857a455f65",
+      "bytes_identical": false,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC12880197",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "6c8b2f2735987fd5c304a7a475e03b5333f6bb60203dfea26b1dda8c55ccb568",
+      "assembly_sha256": "6c8b2f2735987fd5c304a7a475e03b5333f6bb60203dfea26b1dda8c55ccb568",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC12880197",
+      "source": "article.xml",
+      "reviewed_sha256": "176ee84284ccc21a57e45b2daf0556bf1d3ae6796e350cfc5721e3f15b3762a4",
+      "assembly_sha256": "176ee84284ccc21a57e45b2daf0556bf1d3ae6796e350cfc5721e3f15b3762a4",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC12886974",
+      "source": "cloud.json",
+      "reviewed_sha256": "acc8a8a23e0438148ced96ba11c321a6a42e71f58c69a3170260738cac57648b",
+      "assembly_sha256": "acc8a8a23e0438148ced96ba11c321a6a42e71f58c69a3170260738cac57648b",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC12886974",
+      "source": "id-converter.json",
+      "reviewed_sha256": "5e863d717e502c9922ebfe5f6e8dc8c853344189f5640b927dea6382a1a2e2c9",
+      "assembly_sha256": "c478f272e3c5a7d511b82d331da506a9213b2cc4ba9b31f7b19cd74b4e5f687e",
+      "bytes_identical": false,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC12886974",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "60f657dfecf2976b3613e8b10bfea69f6e4f01b9202c75a05ed716b1e06d3638",
+      "assembly_sha256": "60f657dfecf2976b3613e8b10bfea69f6e4f01b9202c75a05ed716b1e06d3638",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC12886974",
+      "source": "article.xml",
+      "reviewed_sha256": "73d204a169a1e15d0f9beb6373412ce49acd96933660bce76ba4c41d91fd8e3f",
+      "assembly_sha256": "73d204a169a1e15d0f9beb6373412ce49acd96933660bce76ba4c41d91fd8e3f",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC12931073",
+      "source": "cloud.json",
+      "reviewed_sha256": "acdd3f235d3c3b49fbf692ae84eb781069c55816174ff8a5a3f054b85d5a6bef",
+      "assembly_sha256": "acdd3f235d3c3b49fbf692ae84eb781069c55816174ff8a5a3f054b85d5a6bef",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC12931073",
+      "source": "id-converter.json",
+      "reviewed_sha256": "b8380d83ab86a7d519ff57f9a53973001e0f96bf5ed074ea8476ceba41b7e7d6",
+      "assembly_sha256": "ea18a89b47ddce19762f056d6b3fb9d1c954b9fffb562cd9761dce2e5f5fc384",
+      "bytes_identical": false,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC12931073",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "aaa05c8fa167c2b27c941a41f3691ba9a985fd06e24174fd0a7a3fd9a31f19da",
+      "assembly_sha256": "aaa05c8fa167c2b27c941a41f3691ba9a985fd06e24174fd0a7a3fd9a31f19da",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC12931073",
+      "source": "article.xml",
+      "reviewed_sha256": "bf7d5e8ff393f129d77caa1f353ff0c6c1dc93b4ae770c72905895d5c283610b",
+      "assembly_sha256": "bf7d5e8ff393f129d77caa1f353ff0c6c1dc93b4ae770c72905895d5c283610b",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13107781",
+      "source": "cloud.json",
+      "reviewed_sha256": "acde6c4a90a5ab9451a627d78108b8dfbef1bc741eb00e583df5c490ecb9d85f",
+      "assembly_sha256": "acde6c4a90a5ab9451a627d78108b8dfbef1bc741eb00e583df5c490ecb9d85f",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13107781",
+      "source": "id-converter.json",
+      "reviewed_sha256": "5e7ae09d5ac1d4e38f644e420c66d5ecfb9c5e93d2feda8a5f07bb74e61f803c",
+      "assembly_sha256": "a9b7daf345a555e305734ef9e66daabcd2eb7922ae20e226908d4742cba77c0a",
+      "bytes_identical": false,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13107781",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "b583d83be4400a0e6298edb80929acf5d6c4632aa2832cc7e33ff688ba0f90ec",
+      "assembly_sha256": "b583d83be4400a0e6298edb80929acf5d6c4632aa2832cc7e33ff688ba0f90ec",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13107781",
+      "source": "article.xml",
+      "reviewed_sha256": "136f35a1e0c1a758c228a0b338cd4fb517a29239b9d6742721aa82e8ae30e5da",
+      "assembly_sha256": "136f35a1e0c1a758c228a0b338cd4fb517a29239b9d6742721aa82e8ae30e5da",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13190586",
+      "source": "cloud.json",
+      "reviewed_sha256": "b92c7069491991ec8bf370118ac1c68c0ea5d9e187f434d28d50dba52e95ba9a",
+      "assembly_sha256": "b92c7069491991ec8bf370118ac1c68c0ea5d9e187f434d28d50dba52e95ba9a",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13190586",
+      "source": "id-converter.json",
+      "reviewed_sha256": "a1bd2f8be3e301e7ac13ffbd763171ce5fc2398232efb8ca8cd0c2b003642909",
+      "assembly_sha256": "a1bd2f8be3e301e7ac13ffbd763171ce5fc2398232efb8ca8cd0c2b003642909",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13190586",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "77c2ab107ae51df838214efd6adf94bc7d3eee217070a3e395aa651f8a43e9ae",
+      "assembly_sha256": "77c2ab107ae51df838214efd6adf94bc7d3eee217070a3e395aa651f8a43e9ae",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13190586",
+      "source": "article.xml",
+      "reviewed_sha256": "e7f93050618d14e99b55e044ab3323f0438dc1539be56c556544717da84c5e87",
+      "assembly_sha256": "e7f93050618d14e99b55e044ab3323f0438dc1539be56c556544717da84c5e87",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13328407",
+      "source": "cloud.json",
+      "reviewed_sha256": "74dca3d76bc134b408ff72adb510bf69ec8694b076cfd29bab62610e46e9de79",
+      "assembly_sha256": "74dca3d76bc134b408ff72adb510bf69ec8694b076cfd29bab62610e46e9de79",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13328407",
+      "source": "id-converter.json",
+      "reviewed_sha256": "b7149d640fdfafc9d323b7dfaa3c688ea9090da63cf91a665b1e5b2b1d92d168",
+      "assembly_sha256": "b7149d640fdfafc9d323b7dfaa3c688ea9090da63cf91a665b1e5b2b1d92d168",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13328407",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "f62a10aeeb11c94f8873c3f14fe6d18c271fc6dcd028bacc52d1eca5b3426c56",
+      "assembly_sha256": "f62a10aeeb11c94f8873c3f14fe6d18c271fc6dcd028bacc52d1eca5b3426c56",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13328407",
+      "source": "article.xml",
+      "reviewed_sha256": "7f03914561182e37d9ca84805bf4cb524217c1ee141f58f95f7dd2fc7d13a7e5",
+      "assembly_sha256": "7f03914561182e37d9ca84805bf4cb524217c1ee141f58f95f7dd2fc7d13a7e5",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13423648",
+      "source": "cloud.json",
+      "reviewed_sha256": "611bf0f6751340b9db3f997179214ccc5b6027f9264fe2c823c145519c0f58af",
+      "assembly_sha256": "611bf0f6751340b9db3f997179214ccc5b6027f9264fe2c823c145519c0f58af",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13423648",
+      "source": "id-converter.json",
+      "reviewed_sha256": "721f0d5a32c0ed8ca1b9cc478c3722be19618cc7db28972074076303666b65f4",
+      "assembly_sha256": "721f0d5a32c0ed8ca1b9cc478c3722be19618cc7db28972074076303666b65f4",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13423648",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "83d04a343b461b1f052a0e8665e7469b396a35519634bb5fa2afb9d21e2a6f5f",
+      "assembly_sha256": "83d04a343b461b1f052a0e8665e7469b396a35519634bb5fa2afb9d21e2a6f5f",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13423648",
+      "source": "article.xml",
+      "reviewed_sha256": "170cd3e122a580a7f7f979e1fb1e791e5e5e0080e7239447f216312f26c9ae40",
+      "assembly_sha256": "170cd3e122a580a7f7f979e1fb1e791e5e5e0080e7239447f216312f26c9ae40",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13429855",
+      "source": "cloud.json",
+      "reviewed_sha256": "2116a57d3627dab74aa604d935bfde125c2ef55620b28f414a587addb0f82cf2",
+      "assembly_sha256": "2116a57d3627dab74aa604d935bfde125c2ef55620b28f414a587addb0f82cf2",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13429855",
+      "source": "id-converter.json",
+      "reviewed_sha256": "6101c51263c4db6fe47c2b9eeb8315d7c0cf7f6b42eeff55eec5c44433a3bae0",
+      "assembly_sha256": "6101c51263c4db6fe47c2b9eeb8315d7c0cf7f6b42eeff55eec5c44433a3bae0",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13429855",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "369594f33d15e43c30949f9f880e870e5f888c0332aa2139645277530e325ec7",
+      "assembly_sha256": "369594f33d15e43c30949f9f880e870e5f888c0332aa2139645277530e325ec7",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13429855",
+      "source": "article.xml",
+      "reviewed_sha256": "f8cf904042159c00d1b6fd0a0f0b36293a075fb1763e5f9907a87b08dbce70a3",
+      "assembly_sha256": "f8cf904042159c00d1b6fd0a0f0b36293a075fb1763e5f9907a87b08dbce70a3",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13430954",
+      "source": "cloud.json",
+      "reviewed_sha256": "9a709783756f36031532e73c60c1435d955b131ae2374ec6897c97aa2362a5e7",
+      "assembly_sha256": "9a709783756f36031532e73c60c1435d955b131ae2374ec6897c97aa2362a5e7",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13430954",
+      "source": "id-converter.json",
+      "reviewed_sha256": "74a926a39d219bd6fbcf7ef654edf9380ffde070a5674cf314414ac15f432920",
+      "assembly_sha256": "74a926a39d219bd6fbcf7ef654edf9380ffde070a5674cf314414ac15f432920",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13430954",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "e9fcecf77af8c75a144b0a70486e2da802c9ae83608154b0e968dd4ed1265d1a",
+      "assembly_sha256": "e9fcecf77af8c75a144b0a70486e2da802c9ae83608154b0e968dd4ed1265d1a",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13430954",
+      "source": "article.xml",
+      "reviewed_sha256": "b5d828d81c07bd388accdb9f6f294ae9ea0d68fb6d1c66b2315fb6869713fc7f",
+      "assembly_sha256": "b5d828d81c07bd388accdb9f6f294ae9ea0d68fb6d1c66b2315fb6869713fc7f",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13433181",
+      "source": "cloud.json",
+      "reviewed_sha256": "f7992c6d8933fb0e79f84b635050287a7387241e9227c084ebd055d63d3869f4",
+      "assembly_sha256": "f7992c6d8933fb0e79f84b635050287a7387241e9227c084ebd055d63d3869f4",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13433181",
+      "source": "id-converter.json",
+      "reviewed_sha256": "fe1fc35c3afdb65abac7a443192b0f99cc31a630888e1c197555b95ae1d02dcc",
+      "assembly_sha256": "fe1fc35c3afdb65abac7a443192b0f99cc31a630888e1c197555b95ae1d02dcc",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13433181",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "ad52949b66ded76b30d384504aade68527a6755e5a92d3e7c5d788f2cc09bdc3",
+      "assembly_sha256": "ad52949b66ded76b30d384504aade68527a6755e5a92d3e7c5d788f2cc09bdc3",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13433181",
+      "source": "article.xml",
+      "reviewed_sha256": "8dee6961c25b70af7833403c421d00e3e0652e3e24f91268e84ef09902277151",
+      "assembly_sha256": "8dee6961c25b70af7833403c421d00e3e0652e3e24f91268e84ef09902277151",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13433680",
+      "source": "cloud.json",
+      "reviewed_sha256": "1e86ed45cc3263852b0c6464728773cad49ecdad2a088a39d6fd125c56b762f3",
+      "assembly_sha256": "1e86ed45cc3263852b0c6464728773cad49ecdad2a088a39d6fd125c56b762f3",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13433680",
+      "source": "id-converter.json",
+      "reviewed_sha256": "d9828a925b30cb158709dba699f46597c5d9fcc2a8509d13815b338e7419dd0c",
+      "assembly_sha256": "d9828a925b30cb158709dba699f46597c5d9fcc2a8509d13815b338e7419dd0c",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13433680",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "760a0594bf6833e1ea596cc34ab3dcceafca8e3a9de2532af27ad02e52830b2c",
+      "assembly_sha256": "760a0594bf6833e1ea596cc34ab3dcceafca8e3a9de2532af27ad02e52830b2c",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13433680",
+      "source": "article.xml",
+      "reviewed_sha256": "9714dd1be3d9fe2e0bd04984e48d6b7bcd13ec82f867ee34607a18755b7dcb2c",
+      "assembly_sha256": "9714dd1be3d9fe2e0bd04984e48d6b7bcd13ec82f867ee34607a18755b7dcb2c",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13433862",
+      "source": "cloud.json",
+      "reviewed_sha256": "94ac29113e2a51f88c6bd9251c54435ab020addb44ee0a7bb745a322c2e094d5",
+      "assembly_sha256": "94ac29113e2a51f88c6bd9251c54435ab020addb44ee0a7bb745a322c2e094d5",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13433862",
+      "source": "id-converter.json",
+      "reviewed_sha256": "eabcfa64856e33cfe40c25d7973394ab417b569a2ad60b97904c70801345334e",
+      "assembly_sha256": "eabcfa64856e33cfe40c25d7973394ab417b569a2ad60b97904c70801345334e",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13433862",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "b78ccfbbbc60216255b5fbd57c61f454099c529df72c221a93b3a88556ad7faa",
+      "assembly_sha256": "b78ccfbbbc60216255b5fbd57c61f454099c529df72c221a93b3a88556ad7faa",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13433862",
+      "source": "article.xml",
+      "reviewed_sha256": "8cde9ee46ae2e6680013d8de350ef54cd3c20dae6d0ff3d1bc073896864480b8",
+      "assembly_sha256": "8cde9ee46ae2e6680013d8de350ef54cd3c20dae6d0ff3d1bc073896864480b8",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13439631",
+      "source": "cloud.json",
+      "reviewed_sha256": "796ac5e69a0dd4f2affa81623efc9d0c0babf9d35e47a23cb62d8bc494121bef",
+      "assembly_sha256": "796ac5e69a0dd4f2affa81623efc9d0c0babf9d35e47a23cb62d8bc494121bef",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13439631",
+      "source": "id-converter.json",
+      "reviewed_sha256": "0eaa704eba933ff5dbd2566ab7aeb3e87a4021ead73bbd7ad545bca7f792be3e",
+      "assembly_sha256": "0eaa704eba933ff5dbd2566ab7aeb3e87a4021ead73bbd7ad545bca7f792be3e",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13439631",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "1105f6d8f68244a9c9870edff072c6f2468c6972c7960d5dd93bbcf5d5ce3b6b",
+      "assembly_sha256": "1105f6d8f68244a9c9870edff072c6f2468c6972c7960d5dd93bbcf5d5ce3b6b",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13439631",
+      "source": "article.xml",
+      "reviewed_sha256": "48f05d0726b8ecc0d3c65e37bfef18ef18782c86290411f1a854c13308206ee4",
+      "assembly_sha256": "48f05d0726b8ecc0d3c65e37bfef18ef18782c86290411f1a854c13308206ee4",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13472562",
+      "source": "cloud.json",
+      "reviewed_sha256": "10ca21b0f31d3f99e5f86cca3a01fe95b8268507f09f36c5a253ae729c090f3f",
+      "assembly_sha256": "10ca21b0f31d3f99e5f86cca3a01fe95b8268507f09f36c5a253ae729c090f3f",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13472562",
+      "source": "id-converter.json",
+      "reviewed_sha256": "b213023c034698baa5d2292543a945f455bd4c47eefbfd10a31bbe273f6ae566",
+      "assembly_sha256": "b213023c034698baa5d2292543a945f455bd4c47eefbfd10a31bbe273f6ae566",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13472562",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "0155202e9992c22ce63fc22fc88699e7b653ff98c960054676875440ee1da0b7",
+      "assembly_sha256": "0155202e9992c22ce63fc22fc88699e7b653ff98c960054676875440ee1da0b7",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC13472562",
+      "source": "article.xml",
+      "reviewed_sha256": "bdc43d24b193c4f5cc728c469674145a95e2ab09890bb6797c8c89dd13924016",
+      "assembly_sha256": "bdc43d24b193c4f5cc728c469674145a95e2ab09890bb6797c8c89dd13924016",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC4804513",
+      "source": "cloud.json",
+      "reviewed_sha256": "bc57ac9407d83586534e8ffd4855da799bfe41ab70ad676355d59bc4cd1e57d1",
+      "assembly_sha256": "bc57ac9407d83586534e8ffd4855da799bfe41ab70ad676355d59bc4cd1e57d1",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC4804513",
+      "source": "id-converter.json",
+      "reviewed_sha256": "60674b99c719ca5a93aa9c41dc169082b9aa560911b78d6a15dab17a04d56fb1",
+      "assembly_sha256": "60674b99c719ca5a93aa9c41dc169082b9aa560911b78d6a15dab17a04d56fb1",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC4804513",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "bebee29f80f2309796720f16e7ac677d532072e1a87b35f114e37d84e40ae263",
+      "assembly_sha256": "bebee29f80f2309796720f16e7ac677d532072e1a87b35f114e37d84e40ae263",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC4804513",
+      "source": "article.xml",
+      "reviewed_sha256": "61e85000ddf35239eb821a1309078be5ab434406816e7da311d8e0e88e31b7c8",
+      "assembly_sha256": "61e85000ddf35239eb821a1309078be5ab434406816e7da311d8e0e88e31b7c8",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC8866621",
+      "source": "cloud.json",
+      "reviewed_sha256": "e71132ff3525000306f278f904f45d1ccf07941927b273469e0273be614f06c3",
+      "assembly_sha256": "e71132ff3525000306f278f904f45d1ccf07941927b273469e0273be614f06c3",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC8866621",
+      "source": "id-converter.json",
+      "reviewed_sha256": "c4d0c6070e5e28571ad9cdf4b9980373976e13ce86ce4f395a92fcc475a9d864",
+      "assembly_sha256": "c4d0c6070e5e28571ad9cdf4b9980373976e13ce86ce4f395a92fcc475a9d864",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC8866621",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "fcd457316cbbce00ff9ba13e842eea0d81d20b786314625836bdeac79eb0af7a",
+      "assembly_sha256": "fcd457316cbbce00ff9ba13e842eea0d81d20b786314625836bdeac79eb0af7a",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC8866621",
+      "source": "article.xml",
+      "reviewed_sha256": "1f08450ba9f1c9d349adb46a190e962609840dd6f87b06bcfc0070787c8b4049",
+      "assembly_sha256": "1f08450ba9f1c9d349adb46a190e962609840dd6f87b06bcfc0070787c8b4049",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC9844597",
+      "source": "cloud.json",
+      "reviewed_sha256": "bf7a85c99c6d5e9a2d6a40f4a37ef475f90447fab90fdc280a73c4e1ff369e19",
+      "assembly_sha256": "bf7a85c99c6d5e9a2d6a40f4a37ef475f90447fab90fdc280a73c4e1ff369e19",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC9844597",
+      "source": "id-converter.json",
+      "reviewed_sha256": "69a436e1309137c7b65d477bbd69563e141a94602f8d20431ccdb69dc684e257",
+      "assembly_sha256": "69a436e1309137c7b65d477bbd69563e141a94602f8d20431ccdb69dc684e257",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC9844597",
+      "source": "pubmed.xml",
+      "reviewed_sha256": "11aee15b7f976624ce4f5582d17c836b93623894a7f4434a498d3c675e790495",
+      "assembly_sha256": "11aee15b7f976624ce4f5582d17c836b93623894a7f4434a498d3c675e790495",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    },
+    {
+      "pmcid": "PMC9844597",
+      "source": "article.xml",
+      "reviewed_sha256": "e4fdd25104fce87f27c9b29ebee2412a9bba0708a34e8acc478e8510f0a0a69e",
+      "assembly_sha256": "e4fdd25104fce87f27c9b29ebee2412a9bba0708a34e8acc478e8510f0a0a69e",
+      "bytes_identical": true,
+      "semantic_agreement": true
+    }
+  ]
+}

@@ -1,0 +1,876 @@
+{
+  "article": {
+    "pmcid": "PMC11265054",
+    "pmc_version": 1,
+    "pmid": "39033295",
+    "doi": "10.1186/s12875-024-02407-3",
+    "title": "Detection of atrial fibrillation using a nonlinear Lorenz Scattergram and deep learning in primary care",
+    "authors": [
+      "Yi Yao",
+      "Yu Jia",
+      "Miaomiao Wu",
+      "Songzhu Wang",
+      "Haiqi Song",
+      "Xiang Fang",
+      "Xiaoyang Liao",
+      "Dongze Li",
+      "Qian Zhao"
+    ],
+    "journal": "BMC Primary Care",
+    "publication_date": "2024-07-20",
+    "publication_date_precision": "day",
+    "year": 2024,
+    "article_type": "research-article",
+    "abstract": "BACKGROUND: Atrial fibrillation (AF) is highly correlated with heart failure, stroke and death. Screening increases AF detection and facilitates the early adoption of comprehensive intervention. Long-term wearable devices have become increasingly popular for AF screening in primary care. However, interpreting data obtained by long-term wearable ECG devices is a problem in primary care. To diagnose the disease quickly and accurately, we aimed to build AF episode detection model based on a nonlinear Lorenz scattergram (LS) and deep learning.\n\nMETHODS: The MIT-BIH Normal Sinus Rhythm Database, MIT-BIH Arrhythmia Database and the Long-Term AF Database were extracted to construct the MIT-BIH Ambulatory Electrocardiograph (MIT-BIH AE) dataset. We converted the long-term ECG into a two-dimensional LSs. The LSs from MIT-BIH AE dataset was randomly divided into training and internal validation sets in a 9:1 ratio, which was used to develop and internally validated model. We built a MOBILE-SCREEN-AF (MS-AF) dataset from a single-lead wearable ECG device in primary care for external validation. Performance was quantified using a confusion matrix and standard classification metrics.\n\nRESULTS: During the evaluation of model performance based on the LS, the sensitivity, specificity and accuracy of the model in diagnosing AF were 0.992, 0.973, and 0.983 in the internal validation set respectively. In the external validation set, these metrics were 0.989, 0.956, and 0.967, respectively. Furthermore, when evaluating the model's performance based on ECG records in the MS-AF dataset, the sensitivity, specificity and accuracy of model diagnosis paroxysmal AF were 1.000, 0.870 and 0.876 respectively, and 0.927, 1.000 and 0.973 for the persistent AF.\n\nCONCLUSIONS: The model based on the nonlinear LS and deep learning has high accuracy, making it promising for AF screening in primary care. It has potential for generalization and practical application.",
+    "abstract_sections": [
+      {
+        "label": "BACKGROUND",
+        "text": "Atrial fibrillation (AF) is highly correlated with heart failure, stroke and death. Screening increases AF detection and facilitates the early adoption of comprehensive intervention. Long-term wearable devices have become increasingly popular for AF screening in primary care. However, interpreting data obtained by long-term wearable ECG devices is a problem in primary care. To diagnose the disease quickly and accurately, we aimed to build AF episode detection model based on a nonlinear Lorenz scattergram (LS) and deep learning."
+      },
+      {
+        "label": "METHODS",
+        "text": "The MIT-BIH Normal Sinus Rhythm Database, MIT-BIH Arrhythmia Database and the Long-Term AF Database were extracted to construct the MIT-BIH Ambulatory Electrocardiograph (MIT-BIH AE) dataset. We converted the long-term ECG into a two-dimensional LSs. The LSs from MIT-BIH AE dataset was randomly divided into training and internal validation sets in a 9:1 ratio, which was used to develop and internally validated model. We built a MOBILE-SCREEN-AF (MS-AF) dataset from a single-lead wearable ECG device in primary care for external validation. Performance was quantified using a confusion matrix and standard classification metrics."
+      },
+      {
+        "label": "RESULTS",
+        "text": "During the evaluation of model performance based on the LS, the sensitivity, specificity and accuracy of the model in diagnosing AF were 0.992, 0.973, and 0.983 in the internal validation set respectively. In the external validation set, these metrics were 0.989, 0.956, and 0.967, respectively. Furthermore, when evaluating the model's performance based on ECG records in the MS-AF dataset, the sensitivity, specificity and accuracy of model diagnosis paroxysmal AF were 1.000, 0.870 and 0.876 respectively, and 0.927, 1.000 and 0.973 for the persistent AF."
+      },
+      {
+        "label": "CONCLUSIONS",
+        "text": "The model based on the nonlinear LS and deep learning has high accuracy, making it promising for AF screening in primary care. It has potential for generalization and practical application."
+      }
+    ],
+    "abstract_absence_reason": null,
+    "abstract_summary": null,
+    "license": "CC BY 4.0",
+    "license_notes": "© The Author(s) 20242024https://creativecommons.org/licenses/by/4.0/Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/. The Creative Commons Public Domain Dedication waiver (http://creativecommons.org/publicdomain/zero/1.0/) applies to the data made available in this article, unless otherwise stated in a credit line to the data.",
+    "licence_urls": [
+      "http://creativecommons.org/licenses/by/4.0/",
+      "http://creativecommons.org/publicdomain/zero/1.0/",
+      "https://creativecommons.org/licenses/by/4.0/",
+      "https://creativecommons.org/publicdomain/zero/1.0/"
+    ],
+    "page_count": 9,
+    "has_structured_sections": true,
+    "notes": "Every mandatory corpus-metadata-workflow gate passed in this fresh review. PDF bytes unchanged; no ingestion or evaluation performed.",
+    "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/39033295/",
+    "article_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11265054.1/",
+    "pubmed_title": "Detection of atrial fibrillation using a nonlinear Lorenz Scattergram and deep learning in primary care.",
+    "pubmed_publication_types": [
+      "Journal Article"
+    ],
+    "pubmed_corrections": [],
+    "pmc_related_articles": [],
+    "eligibility": "eligible",
+    "id": "PMC11265054-atrial-fibrillation-lorenz-scattergram-deep-learning-detection",
+    "article_id": "PMC11265054-atrial-fibrillation-lorenz-scattergram-deep-learning-detection",
+    "filename": "PMC11265054-atrial-fibrillation-lorenz-scattergram-deep-learning-detection.pdf",
+    "cluster": "cardiology",
+    "search_query": "(atrial fibrillation[Title] AND (artificial intelligence[Title] OR deep learning[Title] OR machine learning[Title] OR detection[Title])) AND (cc by license[filter] OR cc0 license[filter]) AND has_pdf[filter] NOT pmc embargo[filter] AND 2023:2026[pubdate]",
+    "metadata_fetched_at": "2026-10-07T22:46:47.211792+00:00",
+    "metadata_url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC11265054.1.json",
+    "metadata_sha256": "84294eb65ffc2691111aa04bedc9ac280b35c0ff6cdfacc5858784cae22c3aaf",
+    "metadata_sources": {
+      "cloud.json": {
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC11265054.1.json",
+        "sha256": "84294eb65ffc2691111aa04bedc9ac280b35c0ff6cdfacc5858784cae22c3aaf"
+      },
+      "id-converter.json": {
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC11265054&format=json&versions=yes&tool=ai-research-assistant",
+        "sha256": "9770c802c5f52c2c0448fcaab38ecdcce41807f5f796163fde78b7d784e263f0"
+      },
+      "pubmed.xml": {
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=39033295&retmode=xml&tool=ai-research-assistant",
+        "sha256": "02e7e19d4aaca49e259d033456a9ef0a803c82dfa8e553385d7aaa6606025753"
+      },
+      "article.xml": {
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC11265054.1/PMC11265054.1.xml?md5=a95171d253c863156af6b630dd798ae2",
+        "sha256": "67b084e3128cf781925276b4b1157867a3d58d6d6fb97f23d03a9f983eb50c11"
+      }
+    },
+    "metadata_assembled_at": "2026-10-07T22:46:47.211792+00:00",
+    "metadata_transport": "Original provider responses freshly acquired within this run; transport cache used for final builder parsing after two HTTP 429 assembly failures.",
+    "selection_source": "User-supplied PMCID list in current chat; version pin and discovery query preserved from data/corpus_candidates.json",
+    "bibliographic_locator": {
+      "volume": "25",
+      "issue": null,
+      "fpage": null,
+      "lpage": null,
+      "elocation-id": "267"
+    },
+    "full_citation": "Yi Yao; Yu Jia; Miaomiao Wu; Songzhu Wang; Haiqi Song; Xiang Fang; Xiaoyang Liao; Dongze Li; Qian Zhao. Detection of atrial fibrillation using a nonlinear Lorenz Scattergram and deep learning in primary care. BMC Primary Care. 2024-07-20;25:267. doi:10.1186/s12875-024-02407-3. PMID:39033295. PMC11265054.1."
+  },
+  "review": {
+    "pmcid": "PMC11265054",
+    "status": "eligible",
+    "reviewer": "Codex (jcas-agent)",
+    "reviewed_at": "2026-10-07T22:38:41.919875+00:00",
+    "reason": "All mandatory workflow gates passed in this fresh review.",
+    "gates": {
+      "identity": {
+        "decision": "pass"
+      },
+      "bibliography": {
+        "decision": "pass"
+      },
+      "abstract": {
+        "decision": "pass"
+      },
+      "licence": {
+        "decision": "pass"
+      },
+      "third_party_rights": {
+        "decision": "pass"
+      },
+      "automatic_acquisition": {
+        "decision": "pass"
+      },
+      "pdf_and_extraction": {
+        "decision": "pass"
+      },
+      "attribution_and_selection": {
+        "decision": "pass"
+      }
+    },
+    "filename_review": {
+      "decision": "pass",
+      "filename": "PMC11265054-atrial-fibrillation-lorenz-scattergram-deep-learning-detection.pdf",
+      "actual_title": "Detection of atrial fibrillation using a nonlinear Lorenz Scattergram and deep learning in primary care",
+      "basis": "Descriptive intervention/population/study-type wording reviewed against fresh title, abstract and actual PDF. Previous provisional filename is not authoritative."
+    },
+    "identity": {
+      "pmcid": "PMC11265054",
+      "pmc_version": 1,
+      "doi": "10.1186/s12875-024-02407-3",
+      "pmid": "39033295",
+      "pinned_cloud_jats_converter_pubmed_agree": true,
+      "pdf_title_on_first_page": true,
+      "pdf_doi_match": true,
+      "retraction_found": false,
+      "pubmed_corrections": [],
+      "pmc_related_articles": [],
+      "author_count": 9,
+      "pubmed_author_count": 9,
+      "pdf_author_surname_check": [],
+      "author_check_notes": "Complete JATS author list retained; PDF author surnames checked. Group contributor structure separately corrected where recorded."
+    },
+    "bibliography": {
+      "full_citation": "Yi Yao; Yu Jia; Miaomiao Wu; Songzhu Wang; Haiqi Song; Xiang Fang; Xiaoyang Liao; Dongze Li; Qian Zhao. Detection of atrial fibrillation using a nonlinear Lorenz Scattergram and deep learning in primary care. BMC Primary Care. 2024-07-20;25:267. doi:10.1186/s12875-024-02407-3. PMID:39033295. PMC11265054.1.",
+      "bibliographic_locator": {
+        "volume": "25",
+        "issue": null,
+        "fpage": null,
+        "lpage": null,
+        "elocation-id": "267"
+      },
+      "authors": [
+        "Yi Yao",
+        "Yu Jia",
+        "Miaomiao Wu",
+        "Songzhu Wang",
+        "Haiqi Song",
+        "Xiang Fang",
+        "Xiaoyang Liao",
+        "Dongze Li",
+        "Qian Zhao"
+      ],
+      "title": "Detection of atrial fibrillation using a nonlinear Lorenz Scattergram and deep learning in primary care",
+      "journal": "BMC Primary Care",
+      "publication_date": "2024-07-20",
+      "publication_date_precision": "day",
+      "pmcid": "PMC11265054",
+      "pmc_version": 1,
+      "pmid": "39033295",
+      "doi": "10.1186/s12875-024-02407-3",
+      "article_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11265054.1/",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/39033295/",
+      "licence": "CC BY 4.0",
+      "licence_urls": [
+        "http://creativecommons.org/licenses/by/4.0/",
+        "http://creativecommons.org/publicdomain/zero/1.0/",
+        "https://creativecommons.org/licenses/by/4.0/",
+        "https://creativecommons.org/publicdomain/zero/1.0/"
+      ],
+      "copyright_credit_disclaimer_notices": [
+        {
+          "tag": "permissions",
+          "id": null,
+          "text": "© The Author(s) 20242024https://creativecommons.org/licenses/by/4.0/Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/. The Creative Commons Public Domain Dedication waiver (http://creativecommons.org/publicdomain/zero/1.0/) applies to the data made available in this article, unless otherwise stated in a credit line to the data."
+        },
+        {
+          "tag": "ack",
+          "id": null,
+          "text": "AcknowledgementsWe thank American Journal Experts for providing language editing."
+        },
+        {
+          "tag": "fn-group",
+          "id": null,
+          "text": "Publisher’s NoteSpringer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations."
+        }
+      ],
+      "modifications": "PDF bytes unchanged; descriptive filename only. Machine text extraction and metadata assembly recorded separately.",
+      "topic": "cardiology",
+      "inclusion_rationale": "Explicitly selected by the user. Fresh title and complete PubMed abstract support cardiology coverage: Detection of atrial fibrillation using a nonlinear Lorenz Scattergram and deep learning in primary care",
+      "selection_source": "User-supplied PMCID list in current chat; version pin and discovery query preserved from data/corpus_candidates.json",
+      "search_query": "(atrial fibrillation[Title] AND (artificial intelligence[Title] OR deep learning[Title] OR machine learning[Title] OR detection[Title])) AND (cc by license[filter] OR cc0 license[filter]) AND has_pdf[filter] NOT pmc embargo[filter] AND 2023:2026[pubdate]",
+      "reviewer": "Codex (jcas-agent)",
+      "reviewed_at": "2026-10-07T22:38:41.919875+00:00"
+    },
+    "abstract_verification": {
+      "complete_pubmed_abstract_matches_source": true,
+      "section_count": 4,
+      "source": {
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=39033295&retmode=xml&tool=ai-research-assistant",
+        "sha256": "02e7e19d4aaca49e259d033456a9ef0a803c82dfa8e553385d7aaa6606025753"
+      },
+      "abstract_sha256": "e2f8d223955ebbc840d7f11279d1bc4b0748179fdfb4c7ea18adc499301d9f22"
+    },
+    "metadata_sources": {
+      "cloud.json": {
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC11265054.1.json",
+        "sha256": "84294eb65ffc2691111aa04bedc9ac280b35c0ff6cdfacc5858784cae22c3aaf"
+      },
+      "id-converter.json": {
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC11265054&format=json&versions=yes&tool=ai-research-assistant",
+        "sha256": "790991bc2f52c2b2d7a4417aa5c2a6ad213ac422b6b085cf15eb9679aae1991e"
+      },
+      "pubmed.xml": {
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=39033295&retmode=xml&tool=ai-research-assistant",
+        "sha256": "02e7e19d4aaca49e259d033456a9ef0a803c82dfa8e553385d7aaa6606025753"
+      },
+      "article.xml": {
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC11265054.1/PMC11265054.1.xml?md5=a95171d253c863156af6b630dd798ae2",
+        "sha256": "67b084e3128cf781925276b4b1157867a3d58d6d6fb97f23d03a9f983eb50c11"
+      }
+    },
+    "metadata_amendments": [],
+    "licence_evidence": {
+      "decision": "pass",
+      "licence": "CC BY 4.0",
+      "exact_urls": [
+        "http://creativecommons.org/licenses/by/4.0/",
+        "http://creativecommons.org/publicdomain/zero/1.0/",
+        "https://creativecommons.org/licenses/by/4.0/",
+        "https://creativecommons.org/publicdomain/zero/1.0/"
+      ],
+      "jats_location": "front/article-meta/permissions",
+      "exact_jats_notice": "© The Author(s) 20242024https://creativecommons.org/licenses/by/4.0/Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/. The Creative Commons Public Domain Dedication waiver (http://creativecommons.org/publicdomain/zero/1.0/) applies to the data made available in this article, unless otherwise stated in a credit line to the data.",
+      "pdf_notices": [
+        {
+          "page": 1,
+          "excerpts": [
+            "RESEARCH Open Access © The Author(s) 2024. Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/. The Creative Commons Public Domain Dedication waiver (http://creativecommons.org/publicdomain/zero/1.0/) applies to the data made available in t",
+            "long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/. The Creative Commons Public Domain Dedication waiver (http://creativecommons.org/publicdomain/zero/1.0/) applies to the data made available in this article, unless otherwise stated in a credit line to the data. Yao et al. BMC Primary Care (2024) 25:267 https://doi.org/10.1186/s12875-024-02407-3 BMC Primary Care *Correspondence: Dongze Li lidongze@wchscu.cn Qian Zhao 27355151@qq.com 1General Prac",
+            "s were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/. The Creative Commons Public Domain Dedication waiver (http://creativecommons.org/publicdomain/zero/1.0/) applies to the data made available in this article, unless otherwise stated in a credit line to the data. Yao et al. BMC Primary Care (2024) 25:267 https://doi.org/10.1186/s12875-024-02407-3 BMC Primary Care *Correspondence: Dongze Li lidongze@wchscu.cn Qian Zhao 27355151@qq.com 1General Practice Ward/International Medical Center Ward, General Practice Medical Center, West China Hospital, Sichuan University, Chengdu, China 2Teaching&Rese",
+            " indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/. The Creative Commons Public Domain Dedication waiver (http://creativecommons.org/publicdomain/zero/1.0/) applies to the data made available in this article, unless otherwise stated in a credit line to the data. Yao et al. BMC Primary Care (2024) 25:267 https://doi.org/10.1186/s12875-024-02407-3 BMC Primary Care *Correspondence: Dongze Li lidongze@wchscu.cn Qian Zhao 27355151@qq.com 1General Practice Ward/International Medical Center Ward, General Practice Medical Center, West China Hospital, Sichuan University, Chengdu, China 2Teaching&Research Section, General Practice Medical Center, West China Hospital, Sichuan University, Chengdu, China 3General Practice Medical Cen",
+            "ight holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/. The Creative Commons Public Domain Dedication waiver (http://creativecommons.org/publicdomain/zero/1.0/) applies to the data made available in this article, unless otherwise stated in a credit line to the data. Yao et al. BMC Primary Care (2024) 25:267 https://doi.org/10.1186/s12875-024-02407-3 BMC Primary Care *Correspondence: Dongze Li lidongze@wchscu.cn Qian Zhao 27355151@qq.com 1General Practice Ward/International Medical Center Ward, General Practice Medical Center, West China Hospital, Sichuan University, Chengdu, China 2Teaching&Research Section, General Practice Medical Center, West China Hospital, Sichuan University, Chengdu, China 3General Practice Medical Center and General Practice Research Institute, West China Hospital, Sichuan University, Chengdu, China 4Department of Emergency Medicine and Laboratory of Emergency Medicine, West China Hospital, Sichuan University, Chengdu, China Abstract Background Atrial fibrillation (AF) is",
+            " obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/. The Creative Commons Public Domain Dedication waiver (http://creativecommons.org/publicdomain/zero/1.0/) applies to the data made available in this article, unless otherwise stated in a credit line to the data. Yao et al. BMC Primary Care (2024) 25:267 https://doi.org/10.1186/s12875-024-02407-3 BMC Primary Care *Correspondence: Dongze Li lidongze@wchscu.cn Qian Zhao 27355151@qq.com 1General Practice Ward/International Medical Center Ward, General Practice Medical Center, West China Hospital, Sichuan University, Chengdu, China 2Teaching&Research Section, General Practice Medical Center, West China Hospital, Sichuan University, Chengdu, China 3General Practice Medical Center and General Practice Research Institute, West China Hospital, Sichuan University, Chengdu, China 4Department of Emergency Medicine and Laboratory of Emergency Medicine, West China Hospital, Sichuan University, Chengdu, China Abstr",
+            "/creativecommons.org/licenses/by/4.0/. The Creative Commons Public Domain Dedication waiver (http://creativecommons.org/publicdomain/zero/1.0/) applies to the data made available in this article, unless otherwise stated in a credit line to the data. Yao et al. BMC Primary Care (2024) 25:267 https://doi.org/10.1186/s12875-024-02407-3 BMC Primary Care *Correspondence: Dongze Li lidongze@wchscu.cn Qian Zhao 27355151@qq.com 1General Practice Ward/International Medical Center Ward, General Practice Medical Center, West China Hospital, Sichuan University, Chengdu, China 2Teaching&Research Section, General Practice Medical Center, West China Hospital, Sichuan University, Chengdu, China 3General Practice Medical Center and General Practice Research Institute, West China Hospital, Sichuan University, Chengdu, China 4Department of Emergency Medicine and Laboratory of Emergency Medicine, West China Hospital, Sichuan University, Chengdu, China Abstract Background Atrial fibrillation (AF) is highly correlated with heart failure, stroke and death. ",
+            "utory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/. The Creative Commons Public Domain Dedication waiver (http://creativecommons.org/publicdomain/zero/1.0/) applies to the data made available in this article, unless otherwise stated in a credit line to the data. Yao et al. BMC Primary Care (2024) 25:267 https://doi.org/10.1186/s12875-024-02407-3 BMC Primary Care *Correspondence: Dongze Li lidongze@wchscu.cn Qian Zhao 27355151@qq.com 1General Practice Ward/International Medical Center Ward, General Practice Medical Center, West China Hospital, Sichuan University, Chengdu, China 2Teaching&Research Section, General Practice Medical Center, West China Hospital, Sichuan University, Chengdu, China 3General Practice Medical Center and General Practice Research Institute, West China Hospital, Sichuan University, Chengdu, China 4Department of Emergency Medicine and Laboratory of Emergency Medicine",
+            "iew a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/. The Creative Commons Public Domain Dedication waiver (http://creativecommons.org/publicdomain/zero/1.0/) applies to the data made available in this article, unless otherwise stated in a credit line to the data. Yao et al. BMC Primary Care (2024) 25:267 https://doi.org/10.1186/s12875-024-02407-3 BMC Primary Care *Correspondence: Dongze Li lidongze@wchscu.cn Qian Zhao 27355151@qq.com 1General Practice Ward/International Medical Center Ward, General Practice Medical Center, West China Hospital, Sichuan University, Chengdu, China 2Teaching&Research Section, General Practice Medical Center, West China Hospital, Sichuan University, Chengdu, China 3General Practice Medical Center and General Practice Research Institute, West China Hospital, Sichuan University, Chengdu, China 4Department of Emergency Medicine and Laboratory of Emergency Medicine, West China Hospital, Sichuan University, Chengdu, China Abstract Background Atrial fibrillation (AF) is highly correlate"
+          ]
+        }
+      ],
+      "pdf_annotation_links": [
+        {
+          "page": 1,
+          "uri": "http://creativecommons.org/licenses/by/4.0/"
+        },
+        {
+          "page": 1,
+          "uri": "http://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ],
+      "versioned_notice_or_link_in_pdf": true,
+      "reviewed_at": "2026-10-07T22:38:41.919875+00:00",
+      "reviewer": "Codex (jcas-agent)",
+      "permissions_xml": "<permissions xmlns:ns0=\"http://www.niso.org/schemas/ali/1.0/\" xmlns:ns1=\"http://www.w3.org/1999/xlink\"><copyright-statement>© The Author(s) 2024</copyright-statement><copyright-year>2024</copyright-year><license><ns0:license_ref specific-use=\"textmining\" content-type=\"ccbylicense\">https://creativecommons.org/licenses/by/4.0/</ns0:license_ref><license-p><bold>Open Access</bold> This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit <ext-link ext-link-type=\"uri\" ns1:href=\"https://creativecommons.org/licenses/by/4.0/\">http://creativecommons.org/licenses/by/4.0/</ext-link>. The Creative Commons Public Domain Dedication waiver (<ext-link ext-link-type=\"uri\" ns1:href=\"https://creativecommons.org/publicdomain/zero/1.0/\">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated in a credit line to the data.</license-p></license></permissions>"
+    },
+    "third_party_rights": {
+      "decision": "pass",
+      "inspected_pdf_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "visual_scope": "All main-PDF pages reviewed via rendered contact sheet, with JATS/PDF caption, credit, acknowledgement and notice text cross-checks. Supplemental PDF pages and embedded images visually reviewed for admitted records; office text and ZIP members inspected. This is a rights/identity/readability review, not scientific validation.",
+      "figure_table_and_supplement_locations": [
+        {
+          "kind": "fig",
+          "id": "Fig1",
+          "label": "Fig. 1",
+          "caption": "Lorenz scattergram with 85 R waves. A LS of AF. B LS of non AF (sinus rhythm)",
+          "credits": []
+        },
+        {
+          "kind": "fig",
+          "id": "Fig2",
+          "label": "Fig. 2",
+          "caption": "Receiver operating characteristic curves. A ROC of the diagnostic model in all LSs from the training and internal validation set. B ROC of the diagnostic model in the MIT-BIH AE dataset of ECG records. C ROC curves of the diagnostic model in the MIT-BIH AE dataset of AF records",
+          "credits": []
+        },
+        {
+          "kind": "fig",
+          "id": "Fig3",
+          "label": "Fig. 3",
+          "caption": "Receiver operating characteristic curves. A ROC of the model for diagnosing AF in the internal validation set. B ROC of the model for diagnosing AF in the external validation set",
+          "credits": []
+        },
+        {
+          "kind": "table-wrap",
+          "id": "Tab1",
+          "label": "Table 1",
+          "caption": "Baseline characteristics of the ECG datasets",
+          "credits": []
+        },
+        {
+          "kind": "table-wrap",
+          "id": "Tab2",
+          "label": "Table 2",
+          "caption": "The confusion matrix for the model in the internal and external validation sets",
+          "credits": []
+        },
+        {
+          "kind": "table-wrap",
+          "id": "Tab3",
+          "label": "Table 3",
+          "caption": "Performance of the model in the internal and external validation sets",
+          "credits": []
+        },
+        {
+          "kind": "table-wrap",
+          "id": "Tab4",
+          "label": "Table 4",
+          "caption": "Performance of the model in ECG records of the MS-AF dataset",
+          "credits": []
+        },
+        {
+          "kind": "supplementary-material",
+          "id": "MOESM1",
+          "label": "",
+          "caption": "",
+          "credits": []
+        }
+      ],
+      "copyright_acknowledgement_and_disclaimer_notices": [
+        {
+          "tag": "permissions",
+          "id": null,
+          "text": "© The Author(s) 20242024https://creativecommons.org/licenses/by/4.0/Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/. The Creative Commons Public Domain Dedication waiver (http://creativecommons.org/publicdomain/zero/1.0/) applies to the data made available in this article, unless otherwise stated in a credit line to the data."
+        },
+        {
+          "tag": "ack",
+          "id": null,
+          "text": "AcknowledgementsWe thank American Journal Experts for providing language editing."
+        },
+        {
+          "tag": "fn-group",
+          "id": null,
+          "text": "Publisher’s NoteSpringer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations."
+        }
+      ],
+      "supplement_objects": [
+        {
+          "filename": "12875_2024_2407_MOESM1_ESM.docx",
+          "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC11265054.1/12875_2024_2407_MOESM1_ESM.docx?md5=f3829ce3a964a0ab31060ad3e23ccad7",
+          "bytes": 107104,
+          "sha256": "888571987784a526286509e51285ea287d0696e9fb04f5e61d43611d1330fb92",
+          "provider_md5": "f3829ce3a964a0ab31060ad3e23ccad7"
+        }
+      ],
+      "supplement_text_sha256": [
+        {
+          "name": "12875_2024_2407_MOESM1_ESM.docx",
+          "source_bytes_sha256": "888571987784a526286509e51285ea287d0696e9fb04f5e61d43611d1330fb92",
+          "extracted_text_sha256": "8a2a47b548778261117e85293982acc8b52c212396d2440fef54c4d025236e76",
+          "rights_hits": []
+        }
+      ],
+      "supplement_inspection_errors": [],
+      "resolution": "No separately excluded or incompatible material identified in inspected figures, tables, captions, credits, supplements or notices. Article notice covers the inspected original material; source citations in review/meta-analysis tables identify summarized study data, not a copied published figure. Publisher logos and software branding are retained as part of the unmodified PDF and are not independently licensed assets.",
+      "external_evidence_urls": []
+    },
+    "acquisition": {
+      "route": "automatic PMC Cloud; repository download_corpus.py",
+      "pinned_version": 1,
+      "metadata_url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC11265054.1.json",
+      "pdf_object_url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC11265054.1/PMC11265054.1.pdf?md5=7b990a68e8617c26b4418da91584d9c2",
+      "provider_md5": "7b990a68e8617c26b4418da91584d9c2",
+      "provider_md5_matches": true,
+      "download_started_at": "2026-10-07T22:18:15.154591+00:00",
+      "download_completed_at": "2026-10-07T22:18:17.284292+00:00",
+      "bytes": 1217663,
+      "sha256": "2e0ede0a64a478e6a71597953a3a129f1b0ec2e517c141031626716902617988",
+      "pdf_path": "build/corpus/jua-116-fresh-20261007T221623Z/pdfs/PMC11265054-atrial-fibrillation-lorenz-scattergram-deep-learning-detection.pdf",
+      "fresh_download": true,
+      "previous_drafts_or_pdfs_used": false
+    },
+    "pdf_validation": {
+      "parser": "pdfplumber",
+      "parser_version": "0.11.9",
+      "page_count": 9,
+      "characters_per_page": [
+        4146,
+        5830,
+        4286,
+        4136,
+        3738,
+        4044,
+        5847,
+        6226,
+        8280
+      ],
+      "text_sha256": "5151c264121e2379d028c0cdd1b1354fa7392348de863992fdba34dcb263a82c",
+      "text_path": "build/corpus/jua-116-fresh-20261007T221623Z/text/PMC11265054-detection-atrial-fibrillation-using-nonlinear-lorenz-scattergram.txt",
+      "secondary_parser": {
+        "parser": "pypdf",
+        "parser_version": "6.16.1",
+        "text_sha256": "3c6e8c3ad9131c494674d30edba8c9e537360b4393323fd3a4d35ef3450e01b7",
+        "doi_in_pdf": true,
+        "title_in_first_page": true
+      },
+      "table_checks": [
+        {
+          "id": "Tab1",
+          "label": "Table 1",
+          "cell_checks": [
+            {
+              "cell": "Sex, n (%)",
+              "found": true
+            },
+            {
+              "cell": "Male",
+              "found": true
+            },
+            {
+              "cell": "5 (27.78)",
+              "found": true
+            },
+            {
+              "cell": "26 (54.17)",
+              "found": true
+            },
+            {
+              "cell": "55 (48.67)",
+              "found": true
+            },
+            {
+              "cell": "Female",
+              "found": true
+            },
+            {
+              "cell": "13 (72.22)",
+              "found": true
+            },
+            {
+              "cell": "22 (45.83)",
+              "found": true
+            },
+            {
+              "cell": "58 (51.33)",
+              "found": true
+            },
+            {
+              "cell": "Age, (Mean ± SD)/M(IQR), years",
+              "found": true
+            },
+            {
+              "cell": "34.33 ± 8.44",
+              "found": true
+            },
+            {
+              "cell": "67.00(53.75,76.25)",
+              "found": true
+            },
+            {
+              "cell": "71.0(65.00,77.00)",
+              "found": true
+            },
+            {
+              "cell": "Duration of ECG Record, (Mean ± SD)/M(IQR), h",
+              "found": true
+            },
+            {
+              "cell": "24.31 ± 0.86",
+              "found": true
+            }
+          ]
+        },
+        {
+          "id": "Tab2",
+          "label": "Table 2",
+          "cell_checks": [
+            {
+              "cell": "Predicted label",
+              "found": true
+            },
+            {
+              "cell": "66,509",
+              "found": true
+            },
+            {
+              "cell": "1,791",
+              "found": true
+            },
+            {
+              "cell": "66,492",
+              "found": true
+            },
+            {
+              "cell": "6,128",
+              "found": true
+            },
+            {
+              "cell": "non-AF",
+              "found": true
+            },
+            {
+              "cell": "514",
+              "found": true
+            },
+            {
+              "cell": "65,771",
+              "found": true
+            },
+            {
+              "cell": "771",
+              "found": true
+            },
+            {
+              "cell": "134,099",
+              "found": true
+            },
+            {
+              "cell": "Ture label",
+              "found": true
+            },
+            {
+              "cell": "Internal validation set",
+              "found": true
+            },
+            {
+              "cell": "External validation set",
+              "found": true
+            },
+            {
+              "cell": "non-AF",
+              "found": true
+            },
+            {
+              "cell": "non-AF",
+              "found": true
+            }
+          ]
+        },
+        {
+          "id": "Tab3",
+          "label": "Table 3",
+          "cell_checks": [
+            {
+              "cell": "Internal validation set",
+              "found": true
+            },
+            {
+              "cell": "0.992",
+              "found": true
+            },
+            {
+              "cell": "0.973",
+              "found": true
+            },
+            {
+              "cell": "0.983",
+              "found": true
+            },
+            {
+              "cell": "0.974",
+              "found": true
+            },
+            {
+              "cell": "0.992",
+              "found": true
+            },
+            {
+              "cell": "37.434",
+              "found": true
+            },
+            {
+              "cell": "0.008",
+              "found": true
+            },
+            {
+              "cell": "0.995",
+              "found": true
+            },
+            {
+              "cell": "External validation set",
+              "found": true
+            },
+            {
+              "cell": "0.989",
+              "found": true
+            },
+            {
+              "cell": "0.956",
+              "found": true
+            },
+            {
+              "cell": "0.967",
+              "found": true
+            },
+            {
+              "cell": "0.916",
+              "found": true
+            },
+            {
+              "cell": "0.994",
+              "found": true
+            }
+          ]
+        },
+        {
+          "id": "Tab4",
+          "label": "Table 4",
+          "cell_checks": [
+            {
+              "cell": "Non-AF",
+              "found": true
+            },
+            {
+              "cell": "0.836",
+              "found": true
+            },
+            {
+              "cell": "1.000",
+              "found": true
+            },
+            {
+              "cell": "0.903",
+              "found": true
+            },
+            {
+              "cell": "1.000",
+              "found": true
+            },
+            {
+              "cell": "0.807",
+              "found": true
+            },
+            {
+              "cell": "0.171",
+              "found": true
+            },
+            {
+              "cell": "Paroxysmal AF",
+              "found": true
+            },
+            {
+              "cell": "1.000",
+              "found": true
+            },
+            {
+              "cell": "0.870",
+              "found": true
+            },
+            {
+              "cell": "0.876",
+              "found": true
+            },
+            {
+              "cell": "0.263",
+              "found": true
+            },
+            {
+              "cell": "1.000",
+              "found": true
+            },
+            {
+              "cell": "7.692",
+              "found": true
+            },
+            {
+              "cell": "0.000",
+              "found": true
+            }
+          ]
+        }
+      ],
+      "table_extraction_verdict": "Useful table text verified against JATS cells and visual PDF tables; this is a readability sample, not a guarantee of perfect cell layout.",
+      "limitations": [],
+      "table_page_samples": [
+        {
+          "jats_table_id": "Tab1",
+          "label": "Table 1",
+          "pdf_page": 4,
+          "matched_sample_cells_on_page": 15,
+          "sample_cells_tested": 15,
+          "page_text_sha256": "2f2ba69ef9dcbce03fc80fa178cbaa6153faf6670e8d83691b97f4e52bc462dc",
+          "text_excerpt": "Table 1 Baseline characteristics of the ECG datasets\nVariable MIT-BIH AE dataset MS-AF \ndataset(n = 113)MIT-BIH Normal \nSinus Rhythm Data-\nbase (n = 18)\nMIT-BIH Arrhythmia \nDatabase (n = 48)\nLong-Term AF Data-\nbase (n = 84)\nSex, n (%)\n Male 5 (27.78) 26 (54.17) - 55 (48.67)\n Female 13 (72.22) 22 (45.83) - 58 (51.33)\nAge, (Mean ± SD)/M(IQR), years 34.33 ± 8.44 67.00(53.75,76.25) - 71.0(65.00,77.00)\nDuration of ECG Record, (Mean ± SD)/M(IQR), h 24.31 ± 0.86 0.50 ± 0.00 24.00(23.78,24.58) 25.08 (23.00)\nSinus Rhythm, n (%) 18(100.00) 44(91.67) 53(63.10) 72 (63.72)\nAtrial Fibrillation, n (%)\n Paroxysmal Atrial Fibrillation 0(0.00) 5(10.42) 52(61.90) 5 (4.42)\n Persistent Atrial Fibrillation 0(0.00) 3(6.25) 31(36.90) 41 (36.23)\nOther Arrhythmias, n (%)\n Pacemaker Rhythm - 3 (6.25) - 0(0.00)\n Supraventricular Premature Beats 15(83.33) 27(56.25) 46(54.76) 72 (63.72)\n  Supraventricular Tachycardia - 7(14.58) 45(53.57) 45 (39.82)\n Paroxysmal Atrial Flutter - 2 (4.17) - 2 (1.77)\n Premature Ventric"
+        },
+        {
+          "jats_table_id": "Tab2",
+          "label": "Table 2",
+          "pdf_page": 5,
+          "matched_sample_cells_on_page": 15,
+          "sample_cells_tested": 15,
+          "page_text_sha256": "7e83bc3b106927bb78aa68ef146585485ade4a4a25c4d8de8c98a473f4e23074",
+          "text_excerpt": "Table 2 The confusion matrix for the model in the internal and \nexternal validation sets\nTure label\nInternal validation \nset\nExternal validation \nset\nAF non-AF AF non-AF\nPredicted label AF 66,509 1,791 66,492 6,128\nnon-AF 514 65,771 771 134,099\nAF: Atrial fibrillation, non-AF: nonatrial fibrillation\nTable 3 Performance of the model in the internal and external validation sets\nSen Spe Acc PPV NPV +LR -LR AUC\nInternal validation set 0.992 0.973 0.983 0.974 0.992 37.434 0.008 0.995\nExternal validation set 0.989 0.956 0.967 0.916 0.994 22.621 0.012 0.987\nSen: sensitivity, Spe: specificity, Acc: accuracy, PPV: positive predictive value, NPV: negative predictive value, +LR: positive likelihood ratio, -LR: negative likelihood \nratio, AUC: area under the curve\nFig. 2 Receiver operating characteristic curves. A ROC of the diagnostic model in all LSs from the training and internal validation set. B ROC of the diag-\nnostic model in the MIT-BIH AE dataset of ECG records. C ROC curves of the diagno"
+        },
+        {
+          "jats_table_id": "Tab3",
+          "label": "Table 3",
+          "pdf_page": 5,
+          "matched_sample_cells_on_page": 15,
+          "sample_cells_tested": 15,
+          "page_text_sha256": "7e83bc3b106927bb78aa68ef146585485ade4a4a25c4d8de8c98a473f4e23074",
+          "text_excerpt": "Table 3 Performance of the model in the internal and external validation sets\nSen Spe Acc PPV NPV +LR -LR AUC\nInternal validation set 0.992 0.973 0.983 0.974 0.992 37.434 0.008 0.995\nExternal validation set 0.989 0.956 0.967 0.916 0.994 22.621 0.012 0.987\nSen: sensitivity, Spe: specificity, Acc: accuracy, PPV: positive predictive value, NPV: negative predictive value, +LR: positive likelihood ratio, -LR: negative likelihood \nratio, AUC: area under the curve\nFig. 2 Receiver operating characteristic curves. A ROC of the diagnostic model in all LSs from the training and internal validation set. B ROC of the diag-\nnostic model in the MIT-BIH AE dataset of ECG records. C ROC curves of the diagnostic model in the MIT-BIH AE dataset of AF records\n "
+        },
+        {
+          "jats_table_id": "Tab4",
+          "label": "Table 4",
+          "pdf_page": 6,
+          "matched_sample_cells_on_page": 15,
+          "sample_cells_tested": 15,
+          "page_text_sha256": "156fbff8822b96c6db12a63653b7c5560c307bcebc15bf0d903b69a56610dad6",
+          "text_excerpt": "Table 4 Performance of the model in ECG records of the MS-AF dataset\nSen Spe Acc PPV NPV +LR -LR\nNon-AF 0.836 1.000 0.903 1.000 0.807 NA 0.171\nParoxysmal AF 1.000 0.870 0.876 0.263 1.000 7.692 0.000\nPersistent AF 0.927 1.000 0.973 1.000 0.960 NA 0.091\nNon-AF: non atrial fibrillation, Sen: sensitivity, Spe: specificity, Acc: accuracy, PPV: positive predictive value, NPV: negative predictive value, +LR: positive likelihood \nratio, -LR: negative likelihood ratio, AUC: area under the curve, NA: Not applicable\nFig. 3 Receiver operating characteristic curves. A ROC of the model for diagnosing AF in the internal validation set. B ROC of the model for diagnosing \nAF in the external validation set\n "
+        }
+      ]
+    },
+    "attribution": {
+      "full_citation": "Yi Yao; Yu Jia; Miaomiao Wu; Songzhu Wang; Haiqi Song; Xiang Fang; Xiaoyang Liao; Dongze Li; Qian Zhao. Detection of atrial fibrillation using a nonlinear Lorenz Scattergram and deep learning in primary care. BMC Primary Care. 2024-07-20;25:267. doi:10.1186/s12875-024-02407-3. PMID:39033295. PMC11265054.1.",
+      "bibliographic_locator": {
+        "volume": "25",
+        "issue": null,
+        "fpage": null,
+        "lpage": null,
+        "elocation-id": "267"
+      },
+      "authors": [
+        "Yi Yao",
+        "Yu Jia",
+        "Miaomiao Wu",
+        "Songzhu Wang",
+        "Haiqi Song",
+        "Xiang Fang",
+        "Xiaoyang Liao",
+        "Dongze Li",
+        "Qian Zhao"
+      ],
+      "title": "Detection of atrial fibrillation using a nonlinear Lorenz Scattergram and deep learning in primary care",
+      "journal": "BMC Primary Care",
+      "publication_date": "2024-07-20",
+      "publication_date_precision": "day",
+      "pmcid": "PMC11265054",
+      "pmc_version": 1,
+      "pmid": "39033295",
+      "doi": "10.1186/s12875-024-02407-3",
+      "article_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11265054.1/",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/39033295/",
+      "licence": "CC BY 4.0",
+      "licence_urls": [
+        "http://creativecommons.org/licenses/by/4.0/",
+        "http://creativecommons.org/publicdomain/zero/1.0/",
+        "https://creativecommons.org/licenses/by/4.0/",
+        "https://creativecommons.org/publicdomain/zero/1.0/"
+      ],
+      "copyright_credit_disclaimer_notices": [
+        {
+          "tag": "permissions",
+          "id": null,
+          "text": "© The Author(s) 20242024https://creativecommons.org/licenses/by/4.0/Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/. The Creative Commons Public Domain Dedication waiver (http://creativecommons.org/publicdomain/zero/1.0/) applies to the data made available in this article, unless otherwise stated in a credit line to the data."
+        },
+        {
+          "tag": "ack",
+          "id": null,
+          "text": "AcknowledgementsWe thank American Journal Experts for providing language editing."
+        },
+        {
+          "tag": "fn-group",
+          "id": null,
+          "text": "Publisher’s NoteSpringer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations."
+        }
+      ],
+      "modifications": "PDF bytes unchanged; descriptive filename only. Machine text extraction and metadata assembly recorded separately.",
+      "topic": "cardiology",
+      "inclusion_rationale": "Explicitly selected by the user. Fresh title and complete PubMed abstract support cardiology coverage: Detection of atrial fibrillation using a nonlinear Lorenz Scattergram and deep learning in primary care",
+      "selection_source": "User-supplied PMCID list in current chat; version pin and discovery query preserved from data/corpus_candidates.json",
+      "search_query": "(atrial fibrillation[Title] AND (artificial intelligence[Title] OR deep learning[Title] OR machine learning[Title] OR detection[Title])) AND (cc by license[filter] OR cc0 license[filter]) AND has_pdf[filter] NOT pmc embargo[filter] AND 2023:2026[pubdate]",
+      "reviewer": "Codex (jcas-agent)",
+      "reviewed_at": "2026-10-07T22:38:41.919875+00:00"
+    },
+    "assembly_source_reverification": {
+      "checked_at": "2026-10-07T22:52:05.829056+00:00",
+      "result": "pass",
+      "changes": [
+        {
+          "source": "id-converter.json",
+          "reviewed_sha256": "790991bc2f52c2b2d7a4417aa5c2a6ad213ac422b6b085cf15eb9679aae1991e",
+          "assembly_sha256": "9770c802c5f52c2c0448fcaab38ecdcce41807f5f796163fde78b7d784e263f0",
+          "resolution": "Only ID Converter response-date changed; complete request and identifier/version mapping are identical."
+        }
+      ],
+      "assembly_metadata_sources": {
+        "cloud.json": {
+          "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC11265054.1.json",
+          "sha256": "84294eb65ffc2691111aa04bedc9ac280b35c0ff6cdfacc5858784cae22c3aaf"
+        },
+        "id-converter.json": {
+          "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC11265054&format=json&versions=yes&tool=ai-research-assistant",
+          "sha256": "9770c802c5f52c2c0448fcaab38ecdcce41807f5f796163fde78b7d784e263f0"
+        },
+        "pubmed.xml": {
+          "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=39033295&retmode=xml&tool=ai-research-assistant",
+          "sha256": "02e7e19d4aaca49e259d033456a9ef0a803c82dfa8e553385d7aaa6606025753"
+        },
+        "article.xml": {
+          "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC11265054.1/PMC11265054.1.xml?md5=a95171d253c863156af6b630dd798ae2",
+          "sha256": "67b084e3128cf781925276b4b1157867a3d58d6d6fb97f23d03a9f983eb50c11"
+        }
+      },
+      "fresh_response_provenance": [
+        {
+          "pmcid": "PMC11265054",
+          "provider_source": "cloud.json",
+          "url": "https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC11265054.1.json",
+          "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11265054.1.cloud.json",
+          "sha256": "84294eb65ffc2691111aa04bedc9ac280b35c0ff6cdfacc5858784cae22c3aaf",
+          "source_set": "assembly-sources-attempt2",
+          "response_archived_at": "2026-10-07T22:46:47.211155+00:00"
+        },
+        {
+          "pmcid": "PMC11265054",
+          "provider_source": "id-converter.json",
+          "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC11265054&format=json&versions=yes&tool=ai-research-assistant",
+          "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11265054.1.id-converter.json",
+          "sha256": "9770c802c5f52c2c0448fcaab38ecdcce41807f5f796163fde78b7d784e263f0",
+          "source_set": "assembly-sources-attempt2",
+          "response_archived_at": "2026-10-07T22:46:47.211401+00:00"
+        },
+        {
+          "pmcid": "PMC11265054",
+          "provider_source": "pubmed.xml",
+          "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=39033295&retmode=xml&tool=ai-research-assistant",
+          "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11265054.1.pubmed.xml",
+          "sha256": "02e7e19d4aaca49e259d033456a9ef0a803c82dfa8e553385d7aaa6606025753",
+          "source_set": "assembly-sources-attempt2",
+          "response_archived_at": "2026-10-07T22:46:47.211609+00:00"
+        },
+        {
+          "pmcid": "PMC11265054",
+          "provider_source": "article.xml",
+          "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC11265054.1/PMC11265054.1.xml?md5=a95171d253c863156af6b630dd798ae2",
+          "fresh_response_path": "build/corpus/jua-116-fresh-20261007T221623Z/assembly-sources-attempt2/PMC11265054.1.article.xml",
+          "sha256": "67b084e3128cf781925276b4b1157867a3d58d6d6fb97f23d03a9f983eb50c11",
+          "source_set": "assembly-sources-attempt2",
+          "response_archived_at": "2026-10-07T22:46:47.211792+00:00"
+        }
+      ]
+    }
+  }
+}
