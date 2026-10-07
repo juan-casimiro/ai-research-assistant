@@ -1,13 +1,14 @@
 # Generate corpus metadata and acquire PDFs
 
-Use a supplied PMCID list to create a reviewed, publicly reusable corpus. Run
+Use a supplied PMCID list to generate article metadata and acquire PDFs locally. Run
 helpers from the active repository root with its Python environment. This
 procedure covers acquisition and admission, not ingestion or benchmark authoring.
 The skill routes here; this document owns all process and verification instructions.
 Use the active assigned ai-research-assistant checkout/worktree even when skill
 discovery points to another checkout. Read its AGENTS.md first and resolve helpers
 and outputs from that checkout. Preserve archived V1 data and frozen records.
-The existing scripts remain alongside this document.
+The existing scripts remain alongside this document. This workflow currently covers
+metadata and article text, not figure/table reuse or public PDF distribution.
 
 Accept the PMCID list and any supplied versions, topics and discovery provenance.
 Download/ingestion defaults reserve data/corpus_manifest.json for the reviewed
@@ -116,17 +117,19 @@ the eligible manifest. PMID and PubMed abstract have no missing-value exception.
 | Bibliography | Exact nonempty title, complete ordered authors, journal, publication date and date precision. Do not invent missing date components. |
 | Abstract | Nonempty complete abstract from the matching PubMed record, including labelled sections. Retain source URL/response hash. Abstract summaries do not substitute for the source abstract. |
 | Licence — critical | Exactly CC BY 4.0 or CC0 1.0 for this deposit. Verify authoritative metadata/JATS and article/PDF notices; retain exact URL, notice, evidence locations, check date and reviewer. Unversioned BY, earlier BY, NC, ND, SA, custom/ambiguous terms and unresolved conflicts fail this project's selection policy. |
-| Third-party rights | Inspect figures, tables, captions, credit lines, supplements and notices for excluded material. Record inspected locations and resolutions. Unresolved incompatible material fails admission of the complete PDF; do not silently strip it and claim the original PDF passed. |
 | Automatic acquisition | Use the supported PMC Cloud metadata/PDF route. Retain pinned metadata/PDF object URLs and available provider checksum. Manual publisher routes, XML-only records or missing PDFs do not qualify. |
-| PDF and extraction | Validate actual PDF bytes, nonzero pages, readable text, first-page identity and useful table extraction. Record acquisition UTC time, byte count, SHA-256, parser/version and extraction checks. Extracted text needs its own SHA-256 and tool/version. |
+| PDF and extraction | Validate actual PDF bytes, nonzero pages, readable article text and first-page identity. Record acquisition UTC time, byte count, SHA-256, parser/version and extraction checks. Extracted text needs its own SHA-256 and tool/version. |
 | Attribution and selection | Full citation, identifiers/version, source and exact licence links, copyright/credit/disclaimer notices, modifications, topic/inclusion rationale and reviewer. Verify one attribution entry per admitted article. |
 
 Licence sources: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 permits sharing/adaptation including commercial use subject to attribution,
 licence links, change notices and other terms. [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)
 provides a public-domain dedication/waiver; retain attribution as project provenance.
-Neither article licence automatically clears separately credited third-party
-material or other rights. PMC accessibility alone does not establish reuse rights.
+PMC accessibility alone does not establish reuse rights. Detailed figure/table
+credit inventories are not required for this current workflow. If public PDF
+distribution or figure/table reuse is later requested, verify separately credited
+material and any licence exclusions before that use. Do not treat article-level
+licence verification as clearance of every element in the complete PDF.
 See [PMC acquisition documentation](https://pmc.ncbi.nlm.nih.gov/tools/textmining/).
 These are project admission rules; they do not classify every excluded licence as
 universally unusable. Publishing PDFs is a separate requested action, not part of
@@ -173,8 +176,10 @@ eligibility. It does not enforce rights or review gates; the workflow must compl
 them before invoking it and attach their evidence to the final file afterward.
 Compare its records/source hashes to the reviewed metadata; changed source content
 requires renewed checks. Do not publish merely because the command succeeded.
-Attach the completed rights, third-party, acquisition, validation, attribution and
-review evidence to admitted records and mark them eligible only after the checks.
+Attach the licence, acquisition, validation and attribution evidence to admitted
+records and mark them eligible only after the checks. Record the review scope as
+metadata/article text and local PDF acquisition; do not claim figure/table or
+public full-PDF reuse clearance.
 Finish the manifest at the user-selected final path (normally
 `data/corpus_manifest.json`); every member must have all mandatory values and a
 matching passing review. Do not treat the file as ready until these post-build
@@ -194,7 +199,8 @@ checks are automated by the current builder.
 
 Adapted from the epic's [eligibility gates and article record contract](https://github.com/juan-casimiro/ai-research-assistant/blob/6bfed40218fcdf94c4bbc0dbdd44c817760f63dd/docs/benchmark-standards.md#eligibility-gates-and-provenance)
 and [JUA-128](https://linear.app/juan-casimiro-agent/issue/JUA-128/add-repository-owned-corpus-management-and-ingestion-skills-for),
-with the user's stricter mandatory PMID and PubMed abstract requirement.
+with the user's mandatory PMID/PubMed abstract requirements and narrower current
+scope: detailed figure/table review is deferred until that material is used.
 
 Use CLI --help to confirm options. Offline helper coverage:
 
