@@ -66,30 +66,24 @@ The original V1 inputs and saved results are now in [data/archive/v1/](./data/ar
 
 ## Fresh MVP corpus
 
-Run from the repository root. [data/corpus_candidates.json](./data/corpus_candidates.json)
-contains the 55 PMCIDs, pinned versions, topics and discovery notes extracted
-from the recorded epic commit. It supplies candidate identities; metadata is
-fetched afresh. All 55 filenames have title-reviewed descriptive slugs rather than inherited
-names. Filenames use PMCID plus the slug, and IDs use
-the filename without `.pdf`. Archived V1 files remain unchanged.
+Use [the corpus metadata workflow](./corpus-metadata-workflow.md) and the
+[generate-corpus-metadata skill](./.agents/skills/generate-corpus-metadata/SKILL.md).
+DOI, PMID, pinned PMCID/version, bibliography and the complete PubMed abstract
+are mandatory. Verify exact CC BY 4.0/CC0 1.0 rights, third-party material and
+PDF identity before assembly. Only passing reviewed articles enter the final
+`data/corpus_manifest.json`; acquisition alone is not eligibility approval.
 
-```sh
-python build_corpus_manifest.py --candidates data/corpus_candidates.json --output data/corpus_manifest.json
-python download_corpus.py --manifest data/corpus_manifest.json --corpus-dir corpus/
-```
+[data/corpus_candidates.json](./data/corpus_candidates.json) records the 55
+selected PMC identities and title-reviewed names. The freshly fetched records
+remain pending in [data/drafts/corpus_metadata.json](./data/drafts/corpus_metadata.json),
+and their downloaded PDFs remain local under `corpus/`. No eligible final
+manifest has been published yet. The workflow explains how to reuse these
+records and PDFs with hash-bound review instead of downloading again.
 
-The builder validates the complete candidate list before network requests,
-checks joined PMC/PubMed identity and retraction information, and writes the
-`articles` manifest only after all records succeed. It refuses existing output;
-choose another output path for a new acquisition. Metadata requests are paced
-and transient HTTP failures have bounded retries. Draft eligibility stays pending;
-review metadata, licences and PDF identity before treating the corpus as final.
-PDFs stay untracked. The downloader validates available checksums and readability
-and skips readable existing files. Download/ingestion defaults now use the fresh
-manifest; select `--manifest data/archive/v1/corpus_manifest.json` explicitly for V1.
-
-The V1 evaluation helper still reads archived Q&A. Its saved scores do not
-describe this fresh corpus; new Q&A and evaluation remain subsequent work.
+Download/ingestion defaults reserve `data/corpus_manifest.json` for the reviewed
+corpus. For a draft download, pass its path explicitly; for V1, use
+`--manifest data/archive/v1/corpus_manifest.json`. The V1 evaluation helper still
+reads archived Q&A; its scores do not describe the new corpus.
 
 ## Develop and evaluate (host)
 
