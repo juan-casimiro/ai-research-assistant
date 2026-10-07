@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Build a fresh draft manifest from explicitly selected PMC candidates."""
+"""Build a corpus manifest from explicitly selected PMC candidates."""
 import argparse
 import json
 from pathlib import Path
 import re
 import xml.etree.ElementTree as ET
 
-from fetch_article_metadata import fetch_metadata
+from fetch_article_metadata import fetch_metadata, licence_eligibility
 
 
 def load_candidates(path: Path) -> list[dict]:
@@ -45,8 +45,15 @@ def main(argv=None) -> int:
         records = []
         for index, article in enumerate(candidates, 1):
             print(f"Metadata {index}/{len(candidates)}: {article['pmcid']}", flush=True)
-            records.append(fetch_metadata(article["pmcid"], article["pmc_version"], article["search_query"],
-                                          article["filename"], article["cluster"]))
+            record = fetch_metadata(article["pmcid"], article["pmc_version"], article["search_query"],
+                                    article["filename"], article["cluster"])
+            record["eligibility"] = licence_eligibility(record.get("license"), record.get("licence_urls", []))
+            if record["eligibility"] != "eligible":
+                print(f"EXCLUDED {article['pmcid']}: unsupported or missing licence evidence", flush=True)
+                continue
+            records.append(record)
+        if not records:
+            raise ValueError("no articles have supported licence evidence")
         manifest = {"articles": records}
         source = json.loads(args.candidates.read_text(encoding="utf-8")).get("source")
         if source is not None:
@@ -57,7 +64,7 @@ def main(argv=None) -> int:
     except (OSError, ValueError, KeyError, TypeError, ET.ParseError) as error:
         print(f"ERROR: {error}")
         return 1
-    print(f"Draft manifest saved: {args.output} ({len(records)} articles)")
+    print(f"Manifest saved: {args.output} ({len(records)} articles)")
     return 0
 
 

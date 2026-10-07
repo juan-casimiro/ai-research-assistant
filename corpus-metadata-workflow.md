@@ -19,40 +19,17 @@ helper still reads archived Q&A; its scores do not describe a newly acquired cor
 
 ## Local run directory
 
-Place all generated intermediate files in `build/corpus/<run-id>/`, ignored by
-Git. Choose a unique run ID (for example a UTC timestamp plus a short label) and
-create a new directory; preserve earlier runs. Honour an explicit user-selected
-output location instead when supplied. Write the corpus manifest directly to `data/corpus_manifest.json` or the user's
-chosen final path.
-
-```text
-build/corpus/<run-id>/
-├── candidates.json
-├── passed-candidates.json
-├── acquisition.json
-├── metadata/                 # one <PMCID>.<version>.json per article
-├── provenance/               # original provider responses
-├── pdfs/
-├── text/                     # extracted text
-├── reviews/                  # per-article checks and attribution
-└── selection-log.json
-```
-
-In the commands below, set `corpus_run_dir` to this run's directory:
+Use a new ignored `build/corpus/<run-id>/` directory for candidates.json,
+per-article JSON in metadata/, source responses in provenance/ and PDFs in pdfs/.
+Create the directories before running helpers. Preserve earlier runs. The final
+manifest goes directly to `data/corpus_manifest.json` or the user's chosen path.
 
 ```sh
 corpus_run_dir="build/corpus/<unique-run-id>"
 mkdir -p build/corpus
 mkdir "$corpus_run_dir"
-mkdir "$corpus_run_dir/metadata" "$corpus_run_dir/provenance" \
-  "$corpus_run_dir/pdfs" "$corpus_run_dir/text" "$corpus_run_dir/reviews"
+mkdir "$corpus_run_dir/metadata" "$corpus_run_dir/provenance" "$corpus_run_dir/pdfs"
 ```
-
-Replace placeholders before execution. If the run directory already exists,
-stop and choose a new ID; resume it only when explicitly continuing that run.
-Use the same directory throughout acquisition, review and assembly. Keep durable
-review provenance needed by the final manifest in its admitted article records;
-do not make a committed manifest depend solely on disposable local files.
 
 ## Article metadata
 
@@ -90,8 +67,7 @@ For example, after resolving these fields, an entry has this shape:
 ```
 
 The values above are illustrative, not verified article metadata. Keep the
-complete candidate list local, including pending/excluded candidates for the
-selection log; create a separate passing-only input after verification.
+candidate list local; the builder reports and omits unsupported licences.
 
 Fetch per-article metadata into the run directory, retaining source responses:
 
@@ -105,23 +81,22 @@ Fetch per-article metadata into the run directory, retaining source responses:
 
 The helper cross-checks PMC, ID Converter and PubMed identity and retractions,
 preserves PubMed abstract sections, and records metadata URLs/hashes. It leaves
-eligibility pending. Its licence summary is evidence, not admission approval.
+`eligibility` from the article licence evidence: `eligible` for explicit CC BY 4.0
+or CC0 1.0, otherwise `excluded`. This field does not represent a wider review.
 
 ## Mandatory verification before manifest assembly
 
 Every included article must pass every gate. Missing values, unresolved conflicts
-or unavailable evidence fail admission; record them as pending/excluded outside
-the eligible manifest. PMID and PubMed abstract have no missing-value exception.
+or unavailable evidence prevent inclusion. Report excluded articles and reasons. PMID and PubMed abstract have no missing-value exception.
 
 | Gate | Required verification and retained evidence |
 | --- | --- |
 | Identity | Valid resolved PMCID, positive pinned PMC version, nonempty DOI and numeric PMID; agreement across pinned PMC metadata/JATS, official ID Converter, PubMed and actual PDF. Resolve corrections/discrepancies; reject retractions. |
 | Bibliography | Exact nonempty title, complete ordered authors, journal, publication date and date precision. Do not invent missing date components. |
 | Abstract | Nonempty complete abstract from the matching PubMed record, including labelled sections. Retain source URL/response hash. Abstract summaries do not substitute for the source abstract. |
-| Licence — critical | Exactly CC BY 4.0 or CC0 1.0 for this deposit. Verify authoritative metadata/JATS and article/PDF notices; retain exact URL, notice, evidence locations, check date and reviewer. Unversioned BY, earlier BY, NC, ND, SA, custom/ambiguous terms and unresolved conflicts fail this project's selection policy. |
+| Licence — critical | Exactly CC BY 4.0 or CC0 1.0 for this deposit. Verify authoritative metadata/JATS and article/PDF notices; retain the exact licence URL and article notice. Unversioned BY, earlier BY, NC, ND, SA, custom/ambiguous terms and unresolved conflicts fail this project's selection policy. |
 | Automatic acquisition | Use the supported PMC Cloud metadata/PDF route. Retain pinned metadata/PDF object URLs and available provider checksum. Manual publisher routes, XML-only records or missing PDFs do not qualify. |
-| PDF and extraction | Validate actual PDF bytes, nonzero pages, readable article text and first-page identity. Record acquisition UTC time, byte count, SHA-256, parser/version and extraction checks. Extracted text needs its own SHA-256 and tool/version. |
-| Attribution and selection | Full citation, identifiers/version, source and exact licence links, copyright/credit/disclaimer notices, modifications, topic/inclusion rationale and reviewer. Verify one attribution entry per admitted article. |
+| PDF and extraction | Validate actual PDF bytes, nonzero pages, readable article text and first-page identity. Check the actual local file rather than relying only on an HTTP success or PDF header. |
 
 Licence sources: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 permits sharing/adaptation including commercial use subject to attribution,
@@ -153,49 +128,34 @@ skips already readable files without checking their identity/hash. Verify reused
 files against the review receipt. Its legacy manual fallback never counts as
 admission for this PMC-only workflow.
 
-Keep a per-article record in `$corpus_run_dir/reviews/` with all gate decisions, reviewer/date,
-metadata source hashes, PDF/text hashes, exact licence evidence and attribution.
-Maintain `$corpus_run_dir/selection-log.json` for failed/pending candidates. Only pass records proceed.
-Existing data/corpus_manifest.json
-contains 55 freshly fetched **pending**
-records; successful downloads did not make them eligible. Review them using these
-same gates before inclusion; archived V1 material is not grandfathered in.
+## Assemble or complete the manifest
 
-## Assemble and publish only passing articles
-
-Create `$corpus_run_dir/passed-candidates.json` containing only articles with completed passing reviews:
-pmcid, pmc_version, filename, cluster and search_query. Keep any source provenance.
-After all selected articles pass verification, invoke the builder directly with
-the final manifest path. There is no separate draft or staged manifest:
+For a new output, run:
 
 ```sh
-.venv/bin/python build_corpus_manifest.py --candidates "$corpus_run_dir/passed-candidates.json" \
+.venv/bin/python build_corpus_manifest.py --candidates "$corpus_run_dir/candidates.json" \
   --output data/corpus_manifest.json
 ```
 
-The builder validates input and refuses existing output, but emits pending
-eligibility. It does not enforce rights or review gates; the workflow must complete
-them before invoking it and attach their evidence to the final file afterward.
-Compare its records/source hashes to the reviewed metadata; changed source content
-requires renewed checks. Do not publish merely because the command succeeded.
-Attach the licence, acquisition, validation and attribution evidence to admitted
-records and mark them eligible only after the checks. Record the review scope as
-metadata/article text and local PDF acquisition; do not claim figure/table or
-public full-PDF reuse clearance.
-Finish the manifest at the user-selected final path (normally
-`data/corpus_manifest.json`); every member must have all mandatory values and a
-matching passing review. Do not treat the file as ready until these post-build
-checks and evidence attachment succeed. If refreshed sources invalidate a review,
-stop and report the incomplete file; do not commit it as an eligible manifest. Pending/excluded articles belong only in the selection
-log or drafts. Never overwrite frozen manifests or archived evidence implicitly.
+The builder fetches metadata, computes licence eligibility and reports/omits
+unsupported or missing licence evidence. It fails without writing a manifest if
+none qualify. `eligible` requires the exact licence URL as well as the licence
+name; a generic label or claimed status alone is insufficient. Check mandatory
+identifiers, bibliography and the complete PubMed abstract before accepting its
+output, and download/check one matching readable PDF per included article.
 
-Verify unique PMCIDs/IDs/filenames, candidate-to-review-to-manifest joins, exact
-PDF directory membership and hashes, attribution completeness and zero unreviewed
-members. Report admitted/excluded/pending counts, output and evidence locations, checks
-and remaining limitations. Keep
-PDFs, extracted text and raw acquisition artifacts untracked. Helper/schema
-changes are separate implementation work; this skill does not pretend those
-checks are automated by the current builder.
+For an existing manifest, skip the builder's creation command: it refuses existing
+output. Complete metadata in place without deleting/refetching the whole file.
+Recompute eligibility using fetch_article_metadata.licence_eligibility and exclude
+unsupported articles; preserve all other scientific values. Existing 55 records
+have explicit supported article licence evidence. Their status describes only
+that check, not figure/table reuse or public PDF distribution.
+
+Verify unique identifiers/filenames, mandatory metadata, exact licence evidence
+and matching readable PDFs. Report included/excluded articles and output paths.
+Keep citation, source links and licence notices for attribution; temporary files
+remain local. No separate review inventories, receipts or admission workflow is
+required for this MVP.
 
 ## Sources and checks
 
@@ -210,6 +170,5 @@ Use CLI --help to confirm options. Offline helper coverage:
 .venv/bin/python -m unittest tests.corpus.test_download_corpus tests.corpus.test_fetch_article_metadata tests.corpus.test_build_corpus_manifest -v
 ```
 
-Mocked tests do not certify live acquisition, legal eligibility or the review of
-any particular article. No paid calls or bulk downloads are needed to validate
+Mocked tests do not certify live acquisition, public reuse of every element in an article. No paid calls or bulk downloads are needed to validate
 the skill instructions themselves.

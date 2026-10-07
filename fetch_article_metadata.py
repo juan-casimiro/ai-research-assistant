@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Fetch a draft corpus article record from a pinned PMCID and PubMed.
+"""Fetch corpus article metadata from a pinned PMCID and PubMed.
 
-Metadata acquisition is not PDF/rights eligibility certification. Discovery
+Eligibility reflects the supported article licence, not figure/table rights. Discovery
 queries are caller-supplied provenance; PubMed cannot recover a past search.
 """
 import argparse
@@ -77,6 +77,20 @@ def author_name(author) -> str:
     raise ValueError("PMC XML has an author without a supported name")
 
 
+def licence_eligibility(license_name: str, urls: list[str]) -> str:
+    """Accept only explicit, compatible CC BY 4.0/CC0 evidence."""
+    parsed = [urlsplit(url) for url in urls]
+    if not parsed or any(u.scheme not in {"http", "https"} or u.hostname != "creativecommons.org" for u in parsed):
+        return "excluded"
+    paths = {u.path for u in parsed}
+    by, zero = "/licenses/by/4.0/", "/publicdomain/zero/1.0/"
+    if license_name == "CC BY 4.0" and by in paths and paths <= {by, zero}:
+        return "eligible"
+    if license_name == "CC0 1.0" and paths == {zero}:
+        return "eligible"
+    return "excluded"
+
+
 def parse_record(metadata: dict, jats: bytes, pubmed: bytes, identifiers: dict) -> dict:
     """Join identifiers and version-specific PMC metadata with PubMed prose."""
     pmcid, doi, pmid = metadata["pmcid"], metadata["doi"], str(metadata["pmid"])
@@ -141,14 +155,14 @@ def parse_record(metadata: dict, jats: bytes, pubmed: bytes, identifiers: dict) 
         "abstract_summary": None, "license": licence, "license_notes": notice,
         "licence_urls": licence_urls,
         "page_count": None, "has_structured_sections": bool(article.findall("./body/sec")),
-        "notes": "Draft metadata; PDF identity/readability and third-party rights still require review.",
+        "notes": "Article licence status is based on pinned metadata; check PDF identity/readability separately.",
         "pubmed_url": f"https://pubmed.ncbi.nlm.nih.gov/{pmid}/",
         "article_url": f"https://pmc.ncbi.nlm.nih.gov/articles/{pmcid}.{metadata['version']}/",
         "pubmed_title": element_text(citation.find("ArticleTitle")),
         "pubmed_publication_types": [element_text(e) for e in citation.findall("./PublicationTypeList/PublicationType")],
         "pubmed_corrections": [dict(e.attrib, text=element_text(e)) for e in pubmed_article.findall("./MedlineCitation/CommentsCorrectionsList/CommentsCorrections")],
         "pmc_related_articles": [dict(e.attrib, text=element_text(e)) for e in front.findall("related-article")],
-        "eligibility": "pending",
+        "eligibility": licence_eligibility(licence, licence_urls),
     }
 
 
@@ -202,7 +216,7 @@ def main(argv=None) -> int:
     except (OSError, ValueError, KeyError, TypeError, ET.ParseError) as error:
         print(f"ERROR: {error}")
         return 1
-    print(f"Draft metadata saved: {args.pmcid} -> PMID {record['pmid']}; eligibility remains pending")
+    print(f"Metadata saved: {args.pmcid} -> PMID {record['pmid']}; eligibility={record['eligibility']}")
     return 0
 
 

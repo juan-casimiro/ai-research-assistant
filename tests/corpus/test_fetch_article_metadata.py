@@ -43,7 +43,7 @@ class ArticleMetadataTests(unittest.TestCase):
         self.assertEqual(record["publication_date_precision"], "month")
         self.assertEqual(record["license"], "CC BY 4.0")
         self.assertEqual(record["pmc_version"], 2)
-        self.assertEqual(record["eligibility"], "pending")
+        self.assertEqual(record["eligibility"], "eligible")
         self.assertIsNone(record["page_count"])
 
     def test_mismatched_mapping_does_not_attach_wrong_pubmed_record(self):
@@ -68,6 +68,7 @@ class ArticleMetadataTests(unittest.TestCase):
         jats = self.jats.replace(b"licenses/by/4.0", b"licenses/by/3.0")
         record = parse_record(self.cloud_metadata, jats, self.pubmed, self.identifiers)
         self.assertNotEqual(record["license"], "CC BY 4.0")
+        self.assertEqual(record["eligibility"], "excluded")
 
     def test_mixed_jats_author_formats_preserve_order_and_complete_names(self):
         authors = b'''<contrib-group>
@@ -174,6 +175,26 @@ class MetadataRequestTests(unittest.TestCase):
         with self.assertRaises(HTTPError):
             read_bytes("https://example.test")
         self.assertEqual(opener.call_count, 1)
+
+
+class LicenceEligibilityTests(unittest.TestCase):
+    def test_only_explicit_compatible_licence_evidence_passes(self):
+        from fetch_article_metadata import licence_eligibility
+        by = "https://creativecommons.org/licenses/by/4.0/"
+        zero = "https://creativecommons.org/publicdomain/zero/1.0/"
+        cases = [
+            ("CC BY 4.0", [by], "eligible"),
+            ("CC0 1.0", [zero], "eligible"),
+            ("CC BY 4.0", [by, zero], "eligible"),
+            ("CC BY 4.0", [], "excluded"),
+            ("CC BY", [by], "excluded"),
+            ("CC BY 4.0", [by, "https://creativecommons.org/licenses/by-nc/4.0/"], "excluded"),
+            ("CC BY 4.0", ["https://example.test/licenses/by/4.0/"], "excluded"),
+            ("CC BY 4.0", ["https://creativecommons.org/licenses/by/3.0/"], "excluded"),
+        ]
+        for name, urls, expected in cases:
+            with self.subTest(name=name, urls=urls):
+                self.assertEqual(licence_eligibility(name, urls), expected)
 
 
 if __name__ == "__main__":

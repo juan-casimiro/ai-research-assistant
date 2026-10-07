@@ -20,9 +20,9 @@ unavailable, report that and stop before task work.
 - `download_corpus.py`: PMC PDF downloads and browser instructions for the two Ovid exceptions; see [host setup](README.md#develop-and-evaluate-host). Missing manual downloads return nonzero status.
 - `eval_golden.py`: production-path retrieval evaluation; `compare_evals.py`: result comparison.
 
-- `build_corpus_manifest.py` / `fetch_article_metadata.py`: fresh draft manifest from explicitly selected PMC candidates; see README.
-- Candidate and acquisition files are generated locally under ignored `build/corpus/<run-id>/`. The corpus metadata is in `data/corpus_manifest.json`; inspect its recorded eligibility before claiming that articles have passed review.
-- `corpus-metadata-workflow.md`: mandatory acquisition/eligibility gates; `.agents/skills/generate-corpus-metadata/` routes agents to this workflow.
+- `build_corpus_manifest.py` / `fetch_article_metadata.py`: corpus manifest from explicitly selected PMC candidates; see README.
+- Candidate and acquisition files are generated locally under ignored `build/corpus/<run-id>/`. The corpus metadata is in `data/corpus_manifest.json`; `eligibility` reflects supported article licence evidence only.
+- `corpus-metadata-workflow.md`: metadata, licence and PDF checks; `.agents/skills/generate-corpus-metadata/` routes agents to this workflow.
 - `data/archive/v1/`: original corpus manifest, golden Q&A and saved evaluation evidence; helpers remain at the repository root.
 
 ## Constraints

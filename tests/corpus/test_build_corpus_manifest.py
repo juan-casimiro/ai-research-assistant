@@ -21,7 +21,7 @@ class ManifestTests(unittest.TestCase):
             candidates.write_text(json.dumps({"articles": articles}))
             if existing:
                 output.write_text("existing scientific bytes")
-            with patch.object(builder, "fetch_metadata", return_value={"title": "Synthetic study"},
+            with patch.object(builder, "fetch_metadata", return_value={"title": "Synthetic study", "license": "CC BY 4.0", "licence_urls": ["https://creativecommons.org/licenses/by/4.0/"]},
                               side_effect=fetch_error) as fetch, contextlib.redirect_stdout(io.StringIO()):
                 status = builder.main(["--candidates", str(candidates), "--output", str(output)])
             return status, output.read_text() if output.exists() else None, fetch.call_count
@@ -29,7 +29,7 @@ class ManifestTests(unittest.TestCase):
     def test_builds_downloader_compatible_envelope(self):
         status, content, calls = self.run_builder([self.candidate()])
         self.assertEqual(status, 0)
-        self.assertEqual(json.loads(content), {"articles": [{"title": "Synthetic study"}]})
+        self.assertEqual(json.loads(content), {"articles": [{"title": "Synthetic study", "license": "CC BY 4.0", "licence_urls": ["https://creativecommons.org/licenses/by/4.0/"], "eligibility": "eligible"}]})
         self.assertEqual(calls, 1)
 
     def test_invalid_or_duplicate_candidates_fail_before_network(self):
@@ -44,3 +44,12 @@ class ManifestTests(unittest.TestCase):
 
     def test_failed_metadata_fetch_does_not_publish_partial_manifest(self):
         self.assertEqual(self.run_builder([self.candidate()], ValueError("test identity mismatch")), (1, None, 1))
+
+    def test_unsupported_licence_is_excluded_even_with_claimed_eligibility(self):
+        with tempfile.TemporaryDirectory() as directory:
+            candidates, output = Path(directory, "candidates.json"), Path(directory, "manifest.json")
+            candidates.write_text(json.dumps({"articles": [self.candidate()]}))
+            unsupported = {"license": "CC BY 4.0", "licence_urls": [], "eligibility": "eligible"}
+            with patch.object(builder, "fetch_metadata", return_value=unsupported), contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(builder.main(["--candidates", str(candidates), "--output", str(output)]), 1)
+            self.assertFalse(output.exists())
