@@ -25,6 +25,34 @@ statement. Derive a reviewed descriptive filename: PMCID plus 1–7 lowercase
 hyphen-separated words and .pdf. Check the title, intervention, population and
 study type; inherited filenames are not authoritative. IDs match the basename.
 
+Generate a local candidate file from the supplied PMCID list, normally
+`data/corpus_candidates.json`. For each article include `pmcid`, explicitly
+resolved `pmc_version`, title-reviewed `filename`, `cluster` and `search_query`
+(actual discovery query or explicit selection provenance). The top-level object
+contains an `articles` array and optional `source` provenance. Do not copy an
+existing list unless the user requested that selection. This file is generated
+by the skill and remains untracked; it is not a committed corpus input.
+
+For example, after resolving these fields, an entry has this shape:
+
+```json
+{
+  "articles": [
+    {
+      "pmcid": "PMC123456",
+      "pmc_version": 2,
+      "filename": "PMC123456-descriptive-study-title.pdf",
+      "cluster": "selected-topic",
+      "search_query": "User supplied PMCID; original discovery query unavailable"
+    }
+  ]
+}
+```
+
+The values above are illustrative, not verified article metadata. Keep the
+complete candidate list local, including pending/excluded candidates for the
+selection log; create a separate passing-only input after verification.
+
 Fetch draft records into an existing local directory, retaining source responses:
 
 ```sh
@@ -85,8 +113,7 @@ admission for this PMC-only workflow.
 Keep a local per-article review record with all gate decisions, reviewer/date,
 metadata source hashes, PDF/text hashes, exact licence evidence and attribution.
 Maintain a selection log for failed/pending candidates. Only pass records proceed.
-data/corpus_candidates.json records the 55 selected identities and title-reviewed
-names used in the initial fresh acquisition. Existing data/drafts/corpus_metadata.json
+Existing data/drafts/corpus_metadata.json
 contains 55 freshly fetched **pending**
 records; successful downloads did not make them eligible. Review them using these
 same gates before inclusion; archived V1 material is not grandfathered in.
