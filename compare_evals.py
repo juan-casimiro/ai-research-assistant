@@ -2,7 +2,7 @@
 """Compare two eval_results.json files side-by-side.
 
 Usage:
-    python compare_evals.py eval_results_baseline.json eval_results_bm25.json
+    python compare_evals.py data/archive/v1/evaluations/eval_results_baseline.json data/archive/v1/evaluations/eval_results_bm25.json
 """
 import argparse
 import json

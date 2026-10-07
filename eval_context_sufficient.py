@@ -16,8 +16,8 @@ import argparse
 
 import httpx
 
-GOLDEN_QA_PATH = Path("./golden_qa.json")
-BASELINE_RESULTS_PATH = Path("./eval_results/eval_results_baseline.json")
+GOLDEN_QA_PATH = Path("./data/archive/v1/golden_qa.json")
+BASELINE_RESULTS_PATH = Path("./data/archive/v1/evaluations/eval_results_baseline.json")
 OUTPUT_PATH = Path("./context_sufficient_eval_results.json")
 QUERY_URL = "http://localhost:8000/query"
 

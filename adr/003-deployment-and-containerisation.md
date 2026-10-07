@@ -195,7 +195,7 @@ documented-and-deliberate reads as judgement.
   addressing auth would fix the smaller problem while leaving the
   bigger one (an open API key) untouched.
 - **No evaluation tooling shipped in the image.** `eval_golden.py`,
-  `golden_qa.json`, and `corpus_manifest.json` are not copied into the
+  [golden_qa.json](../data/archive/v1/golden_qa.json), and [corpus_manifest.json](../data/archive/v1/corpus_manifest.json) are not copied into the
   container. Evaluation is, and remains, a host-side workflow run
   against the full 19-document corpus — the seed corpus baked into the
   image is a demo aid, not something ever run through the eval harness

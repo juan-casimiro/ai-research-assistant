@@ -16,7 +16,7 @@ from pathlib import Path
 
 from main import retrieve, _load_models_and_index
 
-GOLDEN_QA_PATH = Path("./golden_qa.json")
+GOLDEN_QA_PATH = Path("./data/archive/v1/golden_qa.json")
 RESULTS_PATH = Path("./eval_results.json")
 N_VALUES = [3, 8]
 

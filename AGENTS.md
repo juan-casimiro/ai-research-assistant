@@ -20,6 +20,8 @@ unavailable, report that and stop before task work.
 - `download_corpus.py`: PMC PDF downloads and browser instructions for the two Ovid exceptions; see [host setup](README.md#develop-and-evaluate-host). Missing manual downloads return nonzero status.
 - `eval_golden.py`: production-path retrieval evaluation; `compare_evals.py`: result comparison.
 
+- `data/archive/v1/`: original corpus manifest, golden Q&A and saved evaluation evidence; helpers remain at the repository root.
+
 ## Constraints
 
 - Set `SEED_ON_EMPTY=false` for host full-corpus ingestion; overlapping seed articles use different filenames and can be duplicated. When changing seeding, verify chunk count and queryability, beyond CI health status.
