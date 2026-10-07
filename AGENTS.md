@@ -32,6 +32,8 @@ unavailable, report that and stop before task work.
 - Keep evaluation on production `retrieve()`; preserve reranker inference and score consumption inside `asyncio.to_thread()`, and reranked source order during deduplication.
 - Do not commit downloaded corpus PDFs; redistribution restrictions are documented in README.
 
+- `tests/`: offline service and evaluation regressions; corpus acquisition tests are under `tests/corpus/`.
+
 ## Verification
 
-Run `.venv/bin/python -m unittest discover -v` for offline regressions. Golden evaluation is a separate manual quality check, not a CI gate; follow the Working Agreement's approval rule for paid external runs.
+Run `.venv/bin/python -m unittest discover -s tests -t . -v` for offline regressions. Golden evaluation is a separate manual quality check, not a CI gate; follow the Working Agreement's approval rule for paid external runs.

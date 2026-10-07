@@ -199,7 +199,7 @@ with the user's stricter mandatory PMID and PubMed abstract requirement.
 Use CLI --help to confirm options. Offline helper coverage:
 
 ```sh
-.venv/bin/python -m unittest test_download_corpus test_fetch_article_metadata test_build_corpus_manifest -v
+.venv/bin/python -m unittest tests.corpus.test_download_corpus tests.corpus.test_fetch_article_metadata tests.corpus.test_build_corpus_manifest -v
 ```
 
 Mocked tests do not certify live acquisition, legal eligibility or the review of

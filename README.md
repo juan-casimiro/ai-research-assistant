@@ -339,7 +339,7 @@ Spring → FastAPI trace proof in Jaeger.
 
 ## Deterministic regression tests
 
-Run `.venv/bin/python -m unittest discover -v` for the offline regression suite.
+Run `.venv/bin/python -m unittest discover -s tests -t . -v` for the offline regression suite.
 See [the test-strength audit](quality/test-strength-audit.md) for the
 behaviour map, verification-first mutation evidence, optional coverage/complexity
 commands, and remaining gaps. These tests do not replace the live golden evaluations.
