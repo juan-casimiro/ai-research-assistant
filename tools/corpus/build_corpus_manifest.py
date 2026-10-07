@@ -6,7 +6,7 @@ from pathlib import Path
 import re
 import xml.etree.ElementTree as ET
 
-from fetch_article_metadata import fetch_metadata, licence_eligibility
+from .fetch_article_metadata import fetch_metadata, licence_eligibility
 
 
 def load_candidates(path: Path) -> list[dict]:

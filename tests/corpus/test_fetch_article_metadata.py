@@ -8,7 +8,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from fetch_article_metadata import fetch_metadata, main, parse_record
+from tools.corpus.fetch_article_metadata import fetch_metadata, main, parse_record
 
 
 class ArticleMetadataTests(unittest.TestCase):
@@ -92,7 +92,7 @@ class ArticleMetadataTests(unittest.TestCase):
     def xml_service(self, checksum):
         metadata = dict(self.cloud_metadata, xml_url=f"s3://pmc-oa-opendata/PMC123456.2/test-article.xml?md5={checksum}")
         responses = [json.dumps(metadata).encode(), json.dumps(self.identifiers).encode(), self.pubmed, self.jats]
-        return patch("fetch_article_metadata.read_bytes", side_effect=responses)
+        return patch("tools.corpus.fetch_article_metadata.read_bytes", side_effect=responses)
 
     def test_xml_checksum_match_allows_parsing_and_archival(self):
         with tempfile.TemporaryDirectory() as directory, self.xml_service(hashlib.md5(self.jats).hexdigest()):
@@ -118,7 +118,7 @@ class ArticleMetadataTests(unittest.TestCase):
             self.assertEqual(output.read_text(), "some existing record")
             self.assertFalse(archive.exists())
 
-    @patch("fetch_article_metadata.read_bytes")
+    @patch("tools.corpus.fetch_article_metadata.read_bytes")
     def test_invalid_names_fail_before_network_or_archival(self, source_reader):
         names = ["synthetic-study.pdf", "PMC999999-synthetic-study.pdf",
                  "PMC123456.pdf", "PMC123456-Synthetic-study.pdf",
@@ -149,7 +149,7 @@ class ArticleMetadataTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "PubMed reports a retraction"):
             parse_record(self.cloud_metadata, self.jats, pubmed, self.identifiers)
 
-    @patch("fetch_article_metadata.read_bytes")
+    @patch("tools.corpus.fetch_article_metadata.read_bytes")
     def test_invalid_input_and_wrong_deposit_version_fail_before_join(self, source_reader):
         with self.assertRaises(ValueError):
             fetch_metadata("123456", 2, "a search", "PMC123456-synthetic-study.pdf", "cardiology")
@@ -159,12 +159,12 @@ class ArticleMetadataTests(unittest.TestCase):
             fetch_metadata("PMC123456", 2, "a search", "PMC123456-synthetic-study.pdf", "cardiology")
 
 class MetadataRequestTests(unittest.TestCase):
-    @patch("fetch_article_metadata.time.sleep")
-    @patch("fetch_article_metadata.open_url")
+    @patch("tools.corpus.fetch_article_metadata.time.sleep")
+    @patch("tools.corpus.fetch_article_metadata.open_url")
     def test_rate_limit_is_retried_but_permanent_failure_is_not(self, opener, sleep):
         from urllib.error import HTTPError
         from unittest.mock import MagicMock
-        from fetch_article_metadata import read_bytes
+        from tools.corpus.fetch_article_metadata import read_bytes
         response = MagicMock()
         response.__enter__.return_value.read.return_value = b"some metadata"
         opener.side_effect = [HTTPError("https://example.test", 429, "rate limit", {}, None), response]
@@ -179,7 +179,7 @@ class MetadataRequestTests(unittest.TestCase):
 
 class LicenceEligibilityTests(unittest.TestCase):
     def test_only_explicit_compatible_licence_evidence_passes(self):
-        from fetch_article_metadata import licence_eligibility
+        from tools.corpus.fetch_article_metadata import licence_eligibility
         by = "https://creativecommons.org/licenses/by/4.0/"
         zero = "https://creativecommons.org/publicdomain/zero/1.0/"
         cases = [

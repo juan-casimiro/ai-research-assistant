@@ -7,7 +7,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-import build_corpus_manifest as builder
+from tools.corpus import build_corpus_manifest as builder
 
 
 class ManifestTests(unittest.TestCase):

@@ -72,7 +72,7 @@ candidate list local; the builder reports and omits unsupported licences.
 Fetch per-article metadata into the run directory, retaining source responses:
 
 ```sh
-.venv/bin/python fetch_article_metadata.py --pmcid <PMCID> --pmc-version <VERSION> \
+.venv/bin/python -m tools.corpus.fetch_article_metadata --pmcid <PMCID> --pmc-version <VERSION> \
   --search-query '<actual query or explicit selection provenance>' \
   --filename <PMCID-descriptive-title.pdf> --cluster <TOPIC> \
   --output "$corpus_run_dir/metadata/<PMCID>.<VERSION>.json" \
@@ -119,7 +119,7 @@ for the downloader. This is not the final corpus manifest. Download candidates
 before the rights/PDF review and before build_corpus_manifest.py:
 
 ```sh
-.venv/bin/python download_corpus.py --manifest "$corpus_run_dir/acquisition.json" \
+.venv/bin/python -m tools.corpus.download_corpus --manifest "$corpus_run_dir/acquisition.json" \
   --corpus-dir "$corpus_run_dir/pdfs"
 ```
 
@@ -133,7 +133,7 @@ admission for this PMC-only workflow.
 For a new output, run:
 
 ```sh
-.venv/bin/python build_corpus_manifest.py --candidates "$corpus_run_dir/candidates.json" \
+.venv/bin/python -m tools.corpus.build_corpus_manifest --candidates "$corpus_run_dir/candidates.json" \
   --output data/corpus_manifest.json
 ```
 

@@ -17,13 +17,13 @@ unavailable, report that and stop before task work.
 ## Project map
 
 - `main.py`: startup, ingestion, retrieval and endpoints; `llm_client.py`: provider configuration and bounded LLM calls.
-- `download_corpus.py`: PMC PDF downloads and browser instructions for the two Ovid exceptions; see [host setup](README.md#develop-and-evaluate-host). Missing manual downloads return nonzero status.
+- `tools/corpus/download_corpus.py`: PMC PDF downloads and browser instructions for the two Ovid exceptions; see [host setup](README.md#develop-and-evaluate-host). Missing manual downloads return nonzero status.
 - `eval_golden.py`: production-path retrieval evaluation; `compare_evals.py`: result comparison.
 
-- `build_corpus_manifest.py` / `fetch_article_metadata.py`: corpus manifest from explicitly selected PMC candidates; see README.
+- `tools/corpus/build_corpus_manifest.py` / `tools/corpus/fetch_article_metadata.py`: corpus manifest from explicitly selected PMC candidates; see README.
 - Candidate and acquisition files are generated locally under ignored `build/corpus/<run-id>/`. The corpus metadata is in `data/corpus_manifest.json`; `eligibility` reflects supported article licence evidence only.
-- `corpus-metadata-workflow.md`: metadata, licence and PDF checks; `.agents/skills/generate-corpus-metadata/` routes agents to this workflow.
-- `data/archive/v1/`: original corpus manifest, golden Q&A and saved evaluation evidence; helpers remain at the repository root.
+- `tools/corpus/corpus-metadata-workflow.md`: metadata, licence and PDF checks; `.agents/skills/generate-corpus-metadata/` routes agents to this workflow.
+- `data/archive/v1/`: original corpus manifest, golden Q&A and saved evaluation evidence; corpus helpers live under `tools/corpus/` and run as modules from the repository root.
 
 ## Constraints
 

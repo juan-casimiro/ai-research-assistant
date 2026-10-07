@@ -68,7 +68,7 @@ The original V1 inputs and saved results are now in [data/archive/v1/](./data/ar
 
 Give a list of PMCIDs to the [generate-corpus-metadata skill](./.agents/skills/generate-corpus-metadata/SKILL.md)
 to generate the corpus manifest and download the PDF files. The process and
-verification requirements are described in [the corpus metadata workflow](./corpus-metadata-workflow.md).
+verification requirements are described in [the corpus metadata workflow](./tools/corpus/corpus-metadata-workflow.md).
 
 ## Develop and evaluate (host)
 
@@ -109,7 +109,7 @@ In a separate terminal, populate the full corpus. PDFs remain untracked
 (see `.gitignore`); per-article license terms are recorded in [corpus_manifest.json](./data/archive/v1/corpus_manifest.json).
 
 ```bash
-python download_corpus.py --manifest data/archive/v1/corpus_manifest.json
+python -m tools.corpus.download_corpus --manifest data/archive/v1/corpus_manifest.json
 ```
 
 The downloader fetches the 17 PMC articles through the public
@@ -120,7 +120,7 @@ The manifest pins version 1 for these articles; versions are distinct deposits,
 so the downloader does not guess a replacement version when a source fails.
 
 Two articles have no recorded PMC ID and need a browser download. Run
-`python download_corpus.py --manifest data/archive/v1/corpus_manifest.json --open-manual` to open only the missing publisher
+`python -m tools.corpus.download_corpus --manifest data/archive/v1/corpus_manifest.json --open-manual` to open only the missing publisher
 pages. On each Ovid page, select **Download PDF**, then the download icon in
 the PDF viewer toolbar, and save into `./corpus/` with the exact name below:
 

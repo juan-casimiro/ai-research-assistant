@@ -14,7 +14,7 @@ import webbrowser
 
 from pypdf import PdfReader
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[2]
 BUCKET = "https://pmc-oa-opendata.s3.amazonaws.com"
 USER_AGENT = "ai-research-assistant-corpus-downloader/1.0"
 
