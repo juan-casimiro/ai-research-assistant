@@ -21,7 +21,7 @@ unavailable, report that and stop before task work.
 - `eval_golden.py`: production-path retrieval evaluation; `compare_evals.py`: result comparison.
 
 - `build_corpus_manifest.py` / `fetch_article_metadata.py`: fresh draft manifest from explicitly selected PMC candidates; see README.
-- Candidate files are generated locally by the skill and remain untracked. Pending metadata is in `data/drafts/corpus_metadata.json`; only fully reviewed articles enter `data/corpus_manifest.json`.
+- Candidate and acquisition files are generated locally under ignored `build/corpus/<run-id>/`. Pending metadata is in `data/drafts/corpus_metadata.json`; only fully reviewed articles enter `data/corpus_manifest.json`.
 - `corpus-metadata-workflow.md`: mandatory acquisition/eligibility gates; `.agents/skills/generate-corpus-metadata/` routes agents to this workflow.
 - `data/archive/v1/`: original corpus manifest, golden Q&A and saved evaluation evidence; helpers remain at the repository root.
 

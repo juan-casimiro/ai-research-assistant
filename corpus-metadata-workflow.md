@@ -14,6 +14,44 @@ Download/ingestion defaults reserve data/corpus_manifest.json for the reviewed
 corpus. Use explicit paths for drafts or archived V1 acquisition. The V1 evaluation
 helper still reads archived Q&A; its scores do not describe a newly acquired corpus.
 
+## Local run directory
+
+Place all generated intermediate files in `build/corpus/<run-id>/`, ignored by
+Git. Choose a unique run ID (for example a UTC timestamp plus a short label) and
+create a new directory; preserve earlier runs. Honour an explicit user-selected
+output location instead when supplied. Only the verified final manifest is
+promoted to `data/corpus_manifest.json` or the user's chosen final path.
+
+```text
+build/corpus/<run-id>/
+├── candidates.json
+├── passed-candidates.json
+├── acquisition.json
+├── metadata/                 # one <PMCID>.<version>.json per article
+├── provenance/               # original provider responses
+├── pdfs/
+├── text/                     # extracted text
+├── reviews/                  # per-article checks and attribution
+├── selection-log.json
+└── manifest-staging.json
+```
+
+In the commands below, set `corpus_run_dir` to this run's directory:
+
+```sh
+corpus_run_dir="build/corpus/<unique-run-id>"
+mkdir -p build/corpus
+mkdir "$corpus_run_dir"
+mkdir "$corpus_run_dir/metadata" "$corpus_run_dir/provenance" \
+  "$corpus_run_dir/pdfs" "$corpus_run_dir/text" "$corpus_run_dir/reviews"
+```
+
+Replace placeholders before execution. If the run directory already exists,
+stop and choose a new ID; resume it only when explicitly continuing that run.
+Use the same directory throughout acquisition, review and staging. Keep durable
+review provenance needed by the final manifest in its admitted article records;
+do not make a committed manifest depend solely on disposable local files.
+
 ## Candidate metadata
 
 Resolve each PMCID to the actual article and explicitly choose its PMC deposit
@@ -26,7 +64,7 @@ hyphen-separated words and .pdf. Check the title, intervention, population and
 study type; inherited filenames are not authoritative. IDs match the basename.
 
 Generate a local candidate file from the supplied PMCID list, normally
-`data/corpus_candidates.json`. For each article include `pmcid`, explicitly
+`build/corpus/<run-id>/candidates.json`. For each article include `pmcid`, explicitly
 resolved `pmc_version`, title-reviewed `filename`, `cluster` and `search_query`
 (actual discovery query or explicit selection provenance). The top-level object
 contains an `articles` array and optional `source` provenance. Do not copy an
@@ -59,7 +97,8 @@ Fetch draft records into an existing local directory, retaining source responses
 .venv/bin/python fetch_article_metadata.py --pmcid <PMCID> --pmc-version <VERSION> \
   --search-query '<actual query or explicit selection provenance>' \
   --filename <PMCID-descriptive-title.pdf> --cluster <TOPIC> \
-  --output <LOCAL-DRAFT-DIR/article.json> --archive-dir <LOCAL-PROVENANCE-DIR>
+  --output "$corpus_run_dir/metadata/<PMCID>.<VERSION>.json" \
+  --archive-dir "$corpus_run_dir/provenance"
 ```
 
 The helper cross-checks PMC, ID Converter and PubMed identity and retractions,
@@ -96,13 +135,13 @@ acquisition or skill validation.
 
 ## Candidate PDF acquisition and review record
 
-Assemble a local acquisition envelope, `{"articles": [<draft records>]}`, solely
+Assemble `$corpus_run_dir/acquisition.json`, a local acquisition envelope, `{"articles": [<draft records>]}`, solely
 for the downloader. This is not the final corpus manifest. Download candidates
 before the rights/PDF review and before build_corpus_manifest.py:
 
 ```sh
-.venv/bin/python download_corpus.py --manifest <LOCAL-ACQUISITION-JSON> \
-  --corpus-dir <LOCAL-PDF-DIR>
+.venv/bin/python download_corpus.py --manifest "$corpus_run_dir/acquisition.json" \
+  --corpus-dir "$corpus_run_dir/pdfs"
 ```
 
 The downloader checks identity metadata, available MD5 and PDF structure, but
@@ -110,9 +149,9 @@ skips already readable files without checking their identity/hash. Verify reused
 files against the review receipt. Its legacy manual fallback never counts as
 admission for this PMC-only workflow.
 
-Keep a local per-article review record with all gate decisions, reviewer/date,
+Keep a per-article record in `$corpus_run_dir/reviews/` with all gate decisions, reviewer/date,
 metadata source hashes, PDF/text hashes, exact licence evidence and attribution.
-Maintain a selection log for failed/pending candidates. Only pass records proceed.
+Maintain `$corpus_run_dir/selection-log.json` for failed/pending candidates. Only pass records proceed.
 Existing data/drafts/corpus_metadata.json
 contains 55 freshly fetched **pending**
 records; successful downloads did not make them eligible. Review them using these
@@ -120,13 +159,13 @@ same gates before inclusion; archived V1 material is not grandfathered in.
 
 ## Assemble and publish only passing articles
 
-Create a candidate file containing only articles with completed passing reviews:
+Create `$corpus_run_dir/passed-candidates.json` containing only articles with completed passing reviews:
 pmcid, pmc_version, filename, cluster and search_query. Keep any source provenance.
 Invoke the unchanged builder to a new local staging path, not the final manifest:
 
 ```sh
-.venv/bin/python build_corpus_manifest.py --candidates <PASSED-CANDIDATES-JSON> \
-  --output <LOCAL-STAGING-MANIFEST>
+.venv/bin/python build_corpus_manifest.py --candidates "$corpus_run_dir/passed-candidates.json" \
+  --output "$corpus_run_dir/manifest-staging.json"
 ```
 
 The builder validates input and refuses existing output, but fetches fresh draft
