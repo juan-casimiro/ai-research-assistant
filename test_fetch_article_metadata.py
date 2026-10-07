@@ -96,8 +96,10 @@ class ArticleMetadataTests(unittest.TestCase):
     def test_xml_checksum_match_allows_parsing_and_archival(self):
         with tempfile.TemporaryDirectory() as directory, self.xml_service(hashlib.md5(self.jats).hexdigest()):
             archive = Path(directory)
-            record = fetch_metadata("PMC123456", 2, "some discovery query", "test-article.pdf", "cardiology", archive)
+            record = fetch_metadata("PMC123456", 2, "some discovery query", "PMC123456-synthetic-cardiac-study.pdf", "cardiology", archive)
             self.assertEqual(record["authors"], ["Ada Example"])
+            self.assertEqual(record["id"], "PMC123456-synthetic-cardiac-study")
+            self.assertEqual(record["article_id"], record["id"])
             self.assertEqual(record["metadata_sources"]["article.xml"]["sha256"], hashlib.sha256(self.jats).hexdigest())
             self.assertEqual((archive / "PMC123456.2.article.xml").read_bytes(), self.jats)
 
@@ -109,11 +111,32 @@ class ArticleMetadataTests(unittest.TestCase):
             captured = io.StringIO()
             with contextlib.redirect_stdout(captured):
                 result = main(["--pmcid", "PMC123456", "--pmc-version", "2", "--search-query", "some discovery query",
-                               "--filename", "test-article.pdf", "--cluster", "cardiology", "--output", str(output), "--archive-dir", str(archive)])
+                               "--filename", "PMC123456-synthetic-cardiac-study.pdf", "--cluster", "cardiology", "--output", str(output), "--archive-dir", str(archive)])
             self.assertEqual(result, 1)
             self.assertIn("ERROR: PMC XML checksum mismatch", captured.getvalue())
             self.assertEqual(output.read_text(), "some existing record")
             self.assertFalse(archive.exists())
+
+    @patch("tools.corpus.fetch_article_metadata.read_bytes")
+    def test_invalid_names_fail_before_network_or_archival(self, source_reader):
+        names = ["synthetic-study.pdf", "PMC999999-synthetic-study.pdf",
+                 "PMC123456.pdf", "PMC123456-Synthetic-study.pdf",
+                 "PMC123456-synthetic_study.pdf", "../PMC123456-synthetic-study.pdf",
+                 "PMC123456-one-two-three-four-five-six-seven-eight.pdf",
+                 "PMC123456-synthetic--study.pdf"]
+        with tempfile.TemporaryDirectory() as directory:
+            archive = Path(directory, "archive")
+            for name in names:
+                with self.subTest(name=name), self.assertRaisesRegex(ValueError, "filename must"):
+                    fetch_metadata("PMC123456", 2, "some discovery query", name, "cardiology", archive)
+            source_reader.assert_not_called()
+            self.assertFalse(archive.exists())
+
+    def test_seven_word_summary_is_accepted(self):
+        with self.xml_service(hashlib.md5(self.jats).hexdigest()):
+            record = fetch_metadata("PMC123456", 2, "some discovery query",
+                                    "PMC123456-one-two-three-four-five-six-seven.pdf", "cardiology")
+        self.assertEqual(record["id"], "PMC123456-one-two-three-four-five-six-seven")
 
     def test_retraction_stops_candidate_metadata(self):
         metadata = dict(self.cloud_metadata, is_retracted=True)
@@ -128,11 +151,11 @@ class ArticleMetadataTests(unittest.TestCase):
     @patch("tools.corpus.fetch_article_metadata.read_bytes")
     def test_invalid_input_and_wrong_deposit_version_fail_before_join(self, source_reader):
         with self.assertRaises(ValueError):
-            fetch_metadata("123456", 2, "a search", "test.pdf", "cardiology")
+            fetch_metadata("123456", 2, "a search", "PMC123456-synthetic-study.pdf", "cardiology")
         source_reader.assert_not_called()
         source_reader.return_value = b'{"pmcid":"PMC123456","version":1}'
         with self.assertRaisesRegex(ValueError, "PMCID/version"):
-            fetch_metadata("PMC123456", 2, "a search", "test.pdf", "cardiology")
+            fetch_metadata("PMC123456", 2, "a search", "PMC123456-synthetic-study.pdf", "cardiology")
 
 
 if __name__ == "__main__":

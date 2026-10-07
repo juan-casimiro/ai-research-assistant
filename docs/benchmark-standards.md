@@ -131,7 +131,7 @@ Missing metadata needs an explicit absence reason, not an inferred value.
 
 | Field | Type and rule |
 | --- | --- |
-| `article_id`, `filename` | Unique stable string ID and unique PDF basename; keep legacy filename aliases in migration records |
+| `id`, `article_id`, `filename` | New drafts: `PMCID` + 1–7 lowercase hyphen-separated summary words + `.pdf`; `id` is the basename without `.pdf`, with matching `article_id` for epic compatibility. Keep identities stable after use and legacy aliases in migration records; frozen records remain unchanged. |
 | `topics`, `topic_rationale` | Nonempty array of topic strings and membership explanation |
 | `doi`, `pmcid`, `pmc_version`, `pmid` | DOI string; resolved PMCID; positive integer deposit version; PMID string or null with absence reason |
 | `title`, `authors`, `journal`, `publication_date` | Exact title, ordered author names, journal and ISO date with recorded precision (day/month/year); no invented date components |

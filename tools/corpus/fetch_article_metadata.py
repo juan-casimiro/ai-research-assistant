@@ -146,8 +146,10 @@ def parse_record(metadata: dict, jats: bytes, pubmed: bytes, identifiers: dict) 
 def fetch_metadata(pmcid: str, version: int, search_query: str, filename: str, cluster: str, archive_dir: Path | None = None) -> dict:
     if not re.fullmatch(r"PMC[0-9]+", pmcid) or type(version) is not int or version < 1:
         raise ValueError("use a valid PMCID and explicitly chosen positive deposit version")
-    if not search_query.strip() or Path(filename).name != filename or not filename.endswith(".pdf") or not cluster.strip():
-        raise ValueError("supply discovery query, PDF basename and topic cluster")
+    if not search_query.strip() or not cluster.strip():
+        raise ValueError("supply discovery query and topic cluster")
+    if not re.fullmatch(re.escape(pmcid) + r"-[a-z0-9]+(?:-[a-z0-9]+){0,6}\.pdf", filename):
+        raise ValueError("filename must be PMCID followed by 1–7 lowercase hyphen-separated words and .pdf")
     metadata_url = f"{BUCKET}/metadata/{pmcid}.{version}.json"
     raw_metadata = read_bytes(metadata_url)
     metadata = json.loads(raw_metadata)
@@ -159,7 +161,10 @@ def fetch_metadata(pmcid: str, version: int, search_query: str, filename: str, c
     pubmed_url = EFETCH + "?" + urlencode({"db": "pubmed", "id": metadata["pmid"], "retmode": "xml", "tool": "ai-research-assistant"})
     sources = {"cloud.json": (metadata_url, raw_metadata), "id-converter.json": (converter_url, read_bytes(converter_url)), "pubmed.xml": (pubmed_url, read_bytes(pubmed_url)), "article.xml": (cloud_url(metadata["xml_url"]), read_pmc_xml(metadata["xml_url"]))}
     result = parse_record(metadata, sources["article.xml"][1], sources["pubmed.xml"][1], json.loads(sources["id-converter.json"][1]))
-    result.update(filename=filename, cluster=cluster, search_query=search_query,
+    # Keep the epic's article_id alias until its consumers migrate to id.
+    article_id = filename[:-4]
+    result.update(id=article_id, article_id=article_id,
+                  filename=filename, cluster=cluster, search_query=search_query,
                   metadata_fetched_at=datetime.now(timezone.utc).isoformat())
     result["metadata_url"] = metadata_url
     result["metadata_sha256"] = hashlib.sha256(raw_metadata).hexdigest()
@@ -176,7 +181,8 @@ def main(argv=None) -> int:
     parser.add_argument("--pmcid", required=True)
     parser.add_argument("--pmc-version", type=int, required=True)
     parser.add_argument("--search-query", required=True)
-    parser.add_argument("--filename", required=True)
+    parser.add_argument("--filename", required=True,
+                        help="PMCID-brief-title-summary.pdf; 1–7 lowercase hyphen-separated words after PMCID")
     parser.add_argument("--cluster", required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--archive-dir", type=Path)

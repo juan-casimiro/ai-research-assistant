@@ -28,6 +28,17 @@ through `tools.layout.recorded_path`; raw provenance JSON is not rewritten.
 
 ## Full-corpus ingestion
 
+New draft records use filenames such as
+`PMC13403371-diabetes-genetic-risk-gwas.pdf`: the matching PMCID plus a reviewed
+brief title summary of 1–7 lowercase, hyphen-separated words (PMCID excluded).
+The metadata tool validates the format before fetching, but relevance of the
+summary requires author review. It derives `id` from the basename without `.pdf`
+and emits the same value as `article_id` for existing epic consumers. Keep the
+full title, PMCID and pinned PMC version separately. Use this ID in new Q&A,
+retrieval metadata and citations; downstream migration is a separate change.
+Once referenced, keep IDs stable; rename only with an explicit reference migration.
+Existing frozen manifests, Q&A and results retain their recorded identities.
+
 Start the service against a fresh local collection with `SEED_ON_EMPTY=false`.
 Download PDFs using the intended manifest, then pass that same manifest and
 corpus directory to the ingestion module. For example:
