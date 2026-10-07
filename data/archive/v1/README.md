@@ -24,8 +24,9 @@ It is not the complete before/after experiment described in ADR-001.
 
 These results describe **V1**, not the forthcoming 55-article corpus, and do not
 measure generated-answer accuracy. Historical replay is **not required**.
-Existing root-level helpers remain available with defaults pointing to this
-archive; new evaluation outputs still go to the repository root.
+Existing root-level evaluation helpers still read this archive; new evaluation
+outputs go to the repository root. Download/ingestion helpers now default to the
+fresh MVP manifest: pass `--manifest data/archive/v1/corpus_manifest.json` for V1.
 
 See [ADR-001](../../../adr/001-chunking-and-retrieval.md) for retrieval decisions
 and historical findings, [ADR-002](../../../adr/002-evaluation-methodology.md)

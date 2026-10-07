@@ -4,9 +4,9 @@ Research Assistant (RAG)
 
 A FastAPI service for semantic search and question-answering over ingested documents, using local embeddings, Chroma for vector storage, and an LLM (via LangChain) for grounded generation.
 
-The test corpus is 19 open-access biomedical research articles (PubMed Central Open Access subset and equivalent open-access journals), spanning diabetes, cardiology, oncology, and an outlier cluster covering antimicrobial resistance, gut microbiome/tuberculosis, and AI-assisted diagnosis — see [corpus_manifest.json](./data/archive/v1/corpus_manifest.json) for full per-article metadata, licenses, and sourcing notes. The RAG pipeline itself is domain-agnostic; biomedical literature was chosen as a corpus with genuinely dense, citation-heavy, and terminology-specific text, useful for stress-testing retrieval precision.
+The original V1 test corpus is 19 open-access biomedical research articles (PubMed Central Open Access subset and equivalent open-access journals), spanning diabetes, cardiology, oncology, and an outlier cluster covering antimicrobial resistance, gut microbiome/tuberculosis, and AI-assisted diagnosis — see [corpus_manifest.json](./data/archive/v1/corpus_manifest.json) for full per-article metadata, licenses, and sourcing notes. The RAG pipeline itself is domain-agnostic; biomedical literature was chosen as a corpus with genuinely dense, citation-heavy, and terminology-specific text, useful for stress-testing retrieval precision.
 
-**Retrieval accuracy: 96.4% @ n=3, 98.2% @ n=8** on a 133-query golden QA set (111 scored), spanning direct lookup, multi-hop, cross-document distractor, and cross-document synthesis cases. BM25 hybrid search and LLM query rewriting were implemented and evaluated as opt-in additions but measured no net benefit on this corpus — see [ADR-001](./adr/001-chunking-and-retrieval.md) for the full evaluation, including one attributable regression from BM25 alone.
+**Original V1 retrieval accuracy: 96.4% @ n=3, 98.2% @ n=8** on a 133-query golden QA set (111 scored), spanning direct lookup, multi-hop, cross-document distractor, and cross-document synthesis cases. BM25 hybrid search and LLM query rewriting were implemented and evaluated as opt-in additions but measured no net benefit on this corpus — see [ADR-001](./adr/001-chunking-and-retrieval.md) for the full evaluation, including one attributable regression from BM25 alone.
 
 CI runs unit tests, builds the Docker image, and smoke-tests `/health` on every pull request and push to `main`. The golden QA evaluation remains manual because it is non-deterministic and calls a paid API. Successful `main` builds publish commit-SHA and `latest` images to `ghcr.io/juan-casimiro/ai-research-assistant`; nothing is deployed automatically. See [ADR-003](./adr/003-deployment-and-containerisation.md).
 
@@ -64,6 +64,33 @@ required.
 
 The original V1 inputs and saved results are now in [data/archive/v1/](./data/archive/v1/README.md). These results describe the 19-article V1 corpus, not the forthcoming 55-article corpus. Historical replay is not required; the existing helper commands below remain available.
 
+## Fresh MVP corpus
+
+Run from the repository root. [data/corpus_candidates.json](./data/corpus_candidates.json)
+contains the 55 PMCIDs, pinned versions, topics and discovery notes extracted
+from the recorded epic commit. It supplies candidate identities; metadata is
+fetched afresh. All 55 filenames have title-reviewed descriptive slugs rather than inherited
+names. Filenames use PMCID plus the slug, and IDs use
+the filename without `.pdf`. Archived V1 files remain unchanged.
+
+```sh
+python build_corpus_manifest.py --candidates data/corpus_candidates.json --output data/corpus_manifest.json
+python download_corpus.py --manifest data/corpus_manifest.json --corpus-dir corpus/
+```
+
+The builder validates the complete candidate list before network requests,
+checks joined PMC/PubMed identity and retraction information, and writes the
+`articles` manifest only after all records succeed. It refuses existing output;
+choose another output path for a new acquisition. Metadata requests are paced
+and transient HTTP failures have bounded retries. Draft eligibility stays pending;
+review metadata, licences and PDF identity before treating the corpus as final.
+PDFs stay untracked. The downloader validates available checksums and readability
+and skips readable existing files. Download/ingestion defaults now use the fresh
+manifest; select `--manifest data/archive/v1/corpus_manifest.json` explicitly for V1.
+
+The V1 evaluation helper still reads archived Q&A. Its saved scores do not
+describe this fresh corpus; new Q&A and evaluation remain subsequent work.
+
 ## Develop and evaluate (host)
 
 This is the path the headline retrieval figures (96.4% @ n=3, 98.2% @
@@ -103,7 +130,7 @@ In a separate terminal, populate the full corpus. PDFs remain untracked
 (see `.gitignore`); per-article license terms are recorded in [corpus_manifest.json](./data/archive/v1/corpus_manifest.json).
 
 ```bash
-python download_corpus.py
+python download_corpus.py --manifest data/archive/v1/corpus_manifest.json
 ```
 
 The downloader fetches the 17 PMC articles through the public
@@ -114,7 +141,7 @@ The manifest pins version 1 for these articles; versions are distinct deposits,
 so the downloader does not guess a replacement version when a source fails.
 
 Two articles have no recorded PMC ID and need a browser download. Run
-`python download_corpus.py --open-manual` to open only the missing publisher
+`python download_corpus.py --manifest data/archive/v1/corpus_manifest.json --open-manual` to open only the missing publisher
 pages. On each Ovid page, select **Download PDF**, then the download icon in
 the PDF viewer toolbar, and save into `./corpus/` with the exact name below:
 
@@ -141,7 +168,7 @@ Ingest everything:
 
 ```bash
 python reset_collection.py    # resets the vector store (safe on a fresh clone)
-python ingest_corpus.py       # ingests every PDF listed in the manifest
+python ingest_corpus.py --manifest data/archive/v1/corpus_manifest.json # original V1 corpus
 ```
 
    Expect one `INGESTED` line per file; `SKIP (file not found)` means

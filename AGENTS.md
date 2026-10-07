@@ -20,6 +20,8 @@ unavailable, report that and stop before task work.
 - `download_corpus.py`: PMC PDF downloads and browser instructions for the two Ovid exceptions; see [host setup](README.md#develop-and-evaluate-host). Missing manual downloads return nonzero status.
 - `eval_golden.py`: production-path retrieval evaluation; `compare_evals.py`: result comparison.
 
+- `build_corpus_manifest.py` / `fetch_article_metadata.py`: fresh draft manifest from explicitly selected PMC candidates; see README.
+- `data/corpus_candidates.json`: candidate identities extracted from the epic; `data/corpus_manifest.json` is fetched fresh.
 - `data/archive/v1/`: original corpus manifest, golden Q&A and saved evaluation evidence; helpers remain at the repository root.
 
 ## Constraints

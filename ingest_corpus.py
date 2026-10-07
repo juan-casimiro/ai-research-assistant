@@ -21,7 +21,7 @@ from pypdf import PdfReader
 
 INGEST_URL = "http://localhost:8000/ingest"
 HEALTH_URL = "http://localhost:8000/health"
-DEFAULT_MANIFEST = Path("./data/archive/v1/corpus_manifest.json")
+DEFAULT_MANIFEST = Path("./data/corpus_manifest.json")
 DEFAULT_CORPUS_DIR = Path("./corpus")
 
 def check_existing_chunks(client: httpx.Client) -> int:
@@ -76,7 +76,7 @@ def main() -> int:
         "--manifest",
         type=Path,
         default=DEFAULT_MANIFEST,
-        help="Path to corpus_manifest.json (default: ./data/archive/v1/corpus_manifest.json)",
+        help="Path to corpus_manifest.json (default: ./data/corpus_manifest.json)",
     )
     args = parser.parse_args()
 
