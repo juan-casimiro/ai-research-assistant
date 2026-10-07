@@ -424,13 +424,9 @@
       }
     ],
     "note": "Other JUA-116 commits changed instructions/test layout and moved the existing pending metadata during acquisition. The current workflow was narrowed concurrently; the user’s explicitly stricter third-party review requirements remain authoritative. They were preserved and formed the delivery baseline; this review only adds new files.",
-    "concurrent_uncommitted_changes_at_delivery": [
-      {
-        "path": "fetch_article_metadata.py",
-        "sha256": "0c92a3d3ee27334020f4a8abdf6dcbb6acc0e5b3043196755ce50b05560c0091",
-        "resolution": "Existing concurrent edit preserved and excluded from this acquisition commit."
-      }
-    ]
+    "concurrent_uncommitted_changes_at_delivery": [],
+    "delivery_snapshot_at": "2026-10-07T22:55:17.901418+00:00",
+    "concurrent_existing_manifest_sha256": "9cf0076b6a5deb17224b9e1c747b857eac4ada5e5079ae114e5d463e25102e1c"
   },
   "prohibited_actions": {
     "ingestion_run": false,
