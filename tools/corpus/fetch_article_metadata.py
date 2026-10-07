@@ -5,6 +5,7 @@ Eligibility reflects the supported article licence, not figure/table rights. Dis
 queries are caller-supplied provenance; PubMed cannot recover a past search.
 """
 import argparse
+import copy
 from datetime import datetime, timezone
 import hashlib
 import json
@@ -67,7 +68,16 @@ def author_name(author) -> str:
             (name.text or "").strip()
             or any((child.tail or "").strip() or child.tag not in name_parts for child in name)
         )
-        if tag == "collab" or prose_name:
+        if tag == "collab":
+            # Group labels can contain a nested roster; retain inline name markup
+            # but exclude member details and reference markers from the label.
+            label = copy.deepcopy(name)
+            for parent in label.iter():
+                for child in list(parent):
+                    if child.tag in {"contrib-group", "xref"}:
+                        parent.remove(child)
+            value = element_text(label)
+        elif prose_name:
             value = element_text(name)
         else:
             parts = [element_text(name.find(key)) for key in name_parts]

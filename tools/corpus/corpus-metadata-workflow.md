@@ -152,7 +152,11 @@ have explicit supported article licence evidence. Their status describes only
 that check, not figure/table reuse or public PDF distribution.
 
 Verify unique identifiers/filenames, mandatory metadata, exact licence evidence
-and matching readable PDFs. Report included/excluded articles and output paths.
+and matching readable PDFs. If a page yields no extracted text, render and
+inspect it before reporting unreadability. Distinguish readable article text
+from appended forms or image-only pages; record any extraction limitation.
+Visual readability alone does not make those pages searchable, and this workflow
+does not add OCR. Report included/excluded articles and output paths.
 Keep citation, source links and licence notices for attribution; temporary files
 remain local; commit only the final corpus manifest, not generated per-run
 reports or duplicate manifests. No separate review inventories, receipts or

@@ -77,7 +77,7 @@ class ArticleMetadataTests(unittest.TestCase):
           <contrib contrib-type="author"><string-name><surname>Researcher</surname><given-names>Sam</given-names><suffix>Jr.</suffix></string-name></contrib>
           <contrib contrib-type="author"><string-name>Lee <italic>Sample</italic></string-name></contrib>
           <contrib contrib-type="author"><string-name><given-names>Pat</given-names> Synthetic</string-name></contrib>
-          <contrib contrib-type="author"><collab>Synthetic Cardiac Study Group</collab></contrib>
+          <contrib contrib-type="author"><collab>Synthetic <italic>Cardiac</italic> Study Group<xref ref-type="aff">1</xref><contrib-group><contrib contrib-type="author"><name><given-names>Nested</given-names><surname>Member</surname></name><email>member@example.test</email></contrib></contrib-group></collab></contrib>
         </contrib-group>'''
         start, end = self.jats.index(b"<contrib-group>"), self.jats.index(b"</contrib-group>") + len(b"</contrib-group>")
         jats = self.jats[:start] + authors + self.jats[end:]
