@@ -32,8 +32,7 @@ build/corpus/<run-id>/
 ├── pdfs/
 ├── text/                     # extracted text
 ├── reviews/                  # per-article checks and attribution
-├── selection-log.json
-└── manifest-staging.json
+└── selection-log.json
 ```
 
 In the commands below, set `corpus_run_dir` to this run's directory:
@@ -48,11 +47,11 @@ mkdir "$corpus_run_dir/metadata" "$corpus_run_dir/provenance" \
 
 Replace placeholders before execution. If the run directory already exists,
 stop and choose a new ID; resume it only when explicitly continuing that run.
-Use the same directory throughout acquisition, review and staging. Keep durable
+Use the same directory throughout acquisition, review and assembly. Keep durable
 review provenance needed by the final manifest in its admitted article records;
 do not make a committed manifest depend solely on disposable local files.
 
-## Candidate metadata
+## Article metadata
 
 Resolve each PMCID to the actual article and explicitly choose its PMC deposit
 version. Do not silently assume version 1 or latest. Preserve supplied discovery
@@ -91,7 +90,7 @@ The values above are illustrative, not verified article metadata. Keep the
 complete candidate list local, including pending/excluded candidates for the
 selection log; create a separate passing-only input after verification.
 
-Fetch draft records into an existing local directory, retaining source responses:
+Fetch per-article metadata into the run directory, retaining source responses:
 
 ```sh
 .venv/bin/python fetch_article_metadata.py --pmcid <PMCID> --pmc-version <VERSION> \
@@ -161,22 +160,26 @@ same gates before inclusion; archived V1 material is not grandfathered in.
 
 Create `$corpus_run_dir/passed-candidates.json` containing only articles with completed passing reviews:
 pmcid, pmc_version, filename, cluster and search_query. Keep any source provenance.
-Invoke the unchanged builder to a new local staging path, not the final manifest:
+After all selected articles pass verification, invoke the builder directly with
+the final manifest path. There is no separate draft or staged manifest:
 
 ```sh
 .venv/bin/python build_corpus_manifest.py --candidates "$corpus_run_dir/passed-candidates.json" \
-  --output "$corpus_run_dir/manifest-staging.json"
+  --output data/corpus_manifest.json
 ```
 
-The builder validates input and refuses existing output, but fetches fresh draft
-records and emits pending eligibility. It does not enforce rights or review gates.
+The builder validates input and refuses existing output, but emits pending
+eligibility. It does not enforce rights or review gates; the workflow must complete
+them before invoking it and attach their evidence to the final file afterward.
 Compare its records/source hashes to the reviewed metadata; changed source content
 requires renewed checks. Do not publish merely because the command succeeded.
 Attach the completed rights, third-party, acquisition, validation, attribution and
 review evidence to admitted records and mark them eligible only after the checks.
-Publish the final manifest at the user-selected path (normally
+Finish the manifest at the user-selected final path (normally
 `data/corpus_manifest.json`); every member must have all mandatory values and a
-matching passing review. Pending/excluded articles belong only in the selection
+matching passing review. Do not treat the file as ready until these post-build
+checks and evidence attachment succeed. If refreshed sources invalidate a review,
+stop and report the incomplete file; do not commit it as an eligible manifest. Pending/excluded articles belong only in the selection
 log or drafts. Never overwrite frozen manifests or archived evidence implicitly.
 
 Verify unique PMCIDs/IDs/filenames, candidate-to-review-to-manifest joins, exact
