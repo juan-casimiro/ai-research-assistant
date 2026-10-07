@@ -43,6 +43,8 @@ class ArticleMetadataTests(unittest.TestCase):
         self.assertEqual(record["publication_date_precision"], "month")
         self.assertEqual(record["license"], "CC BY 4.0")
         self.assertEqual(record["pmc_version"], 2)
+        self.assertEqual(record["eligibility"], "pending")
+        self.assertIsNone(record["page_count"])
 
     def test_mismatched_mapping_does_not_attach_wrong_pubmed_record(self):
         mapping = copy.deepcopy(self.identifiers)
@@ -55,10 +57,12 @@ class ArticleMetadataTests(unittest.TestCase):
             with self.subTest(pubmed=pubmed), self.assertRaises(ValueError):
                 parse_record(self.cloud_metadata, self.jats, pubmed, self.identifiers)
 
-    def test_missing_abstract_is_not_invented(self):
+    def test_missing_abstract_is_explicit_not_an_invented_summary(self):
         pubmed = self.pubmed.replace(b"<Abstract>", b"<Other>").replace(b"</Abstract>", b"</Other>")
         record = parse_record(self.cloud_metadata, self.jats, pubmed, self.identifiers)
         self.assertIsNone(record["abstract"])
+        self.assertIsNone(record["abstract_summary"])
+        self.assertTrue(record["abstract_absence_reason"])
 
     def test_old_cc_by_version_is_not_labelled_cc_by_4(self):
         jats = self.jats.replace(b"licenses/by/4.0", b"licenses/by/3.0")
@@ -95,6 +99,8 @@ class ArticleMetadataTests(unittest.TestCase):
             record = fetch_metadata("PMC123456", 2, "some discovery query", "PMC123456-synthetic-cardiac-study.pdf", "cardiology", archive)
             self.assertEqual(record["authors"], ["Ada Example"])
             self.assertEqual(record["id"], "PMC123456-synthetic-cardiac-study")
+            self.assertEqual(record["article_id"], record["id"])
+            self.assertEqual(record["metadata_sources"]["article.xml"]["sha256"], hashlib.sha256(self.jats).hexdigest())
             self.assertEqual((archive / "PMC123456.2.article.xml").read_bytes(), self.jats)
 
     def test_xml_checksum_mismatch_does_not_write_record_or_archive(self):

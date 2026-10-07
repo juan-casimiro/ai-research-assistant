@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Fetch a corpus article record from a pinned PMCID and PubMed.
+"""Fetch a draft corpus article record from a pinned PMCID and PubMed.
 
-PDF identity and readability are checked separately. Discovery
+Metadata acquisition is not PDF/rights eligibility certification. Discovery
 queries are caller-supplied provenance; PubMed cannot recover a past search.
 """
 import argparse
+from datetime import datetime, timezone
 import hashlib
 import json
 from pathlib import Path
@@ -134,10 +135,20 @@ def parse_record(metadata: dict, jats: bytes, pubmed: bytes, identifiers: dict) 
         "doi": doi, "title": title, "authors": authors,
         "journal": element_text(article.find("./front/journal-meta/journal-title-group/journal-title")),
         "publication_date": date, "publication_date_precision": precision,
-        "abstract": abstract, "article_type": article.get("article-type"),
-        "license": licence, "license_notes": notice, "licence_urls": licence_urls,
+        "year": int(parts[0]), "article_type": article.get("article-type"),
+        "abstract": abstract, "abstract_sections": abstract_sections,
+        "abstract_absence_reason": None if abstract else "No abstract in the PubMed record",
+        "abstract_summary": None, "license": licence, "license_notes": notice,
+        "licence_urls": licence_urls,
+        "page_count": None, "has_structured_sections": bool(article.findall("./body/sec")),
+        "notes": "Draft metadata; PDF identity/readability and third-party rights still require review.",
         "pubmed_url": f"https://pubmed.ncbi.nlm.nih.gov/{pmid}/",
         "article_url": f"https://pmc.ncbi.nlm.nih.gov/articles/{pmcid}.{metadata['version']}/",
+        "pubmed_title": element_text(citation.find("ArticleTitle")),
+        "pubmed_publication_types": [element_text(e) for e in citation.findall("./PublicationTypeList/PublicationType")],
+        "pubmed_corrections": [dict(e.attrib, text=element_text(e)) for e in pubmed_article.findall("./MedlineCitation/CommentsCorrectionsList/CommentsCorrections")],
+        "pmc_related_articles": [dict(e.attrib, text=element_text(e)) for e in front.findall("related-article")],
+        "eligibility": "pending",
     }
 
 
@@ -159,8 +170,14 @@ def fetch_metadata(pmcid: str, version: int, search_query: str, filename: str, c
     pubmed_url = EFETCH + "?" + urlencode({"db": "pubmed", "id": metadata["pmid"], "retmode": "xml", "tool": "ai-research-assistant"})
     sources = {"cloud.json": (metadata_url, raw_metadata), "id-converter.json": (converter_url, read_bytes(converter_url)), "pubmed.xml": (pubmed_url, read_bytes(pubmed_url)), "article.xml": (cloud_url(metadata["xml_url"]), read_pmc_xml(metadata["xml_url"]))}
     result = parse_record(metadata, sources["article.xml"][1], sources["pubmed.xml"][1], json.loads(sources["id-converter.json"][1]))
-    result.update(id=filename[:-4], filename=filename, cluster=cluster,
-                  search_query=search_query, metadata_url=metadata_url)
+    # Preserve the metadata helper's article_id alias alongside the canonical id.
+    article_id = filename[:-4]
+    result.update(id=article_id, article_id=article_id,
+                  filename=filename, cluster=cluster, search_query=search_query,
+                  metadata_fetched_at=datetime.now(timezone.utc).isoformat())
+    result["metadata_url"] = metadata_url
+    result["metadata_sha256"] = hashlib.sha256(raw_metadata).hexdigest()
+    result["metadata_sources"] = {name: {"url": url, "sha256": hashlib.sha256(data).hexdigest()} for name, (url, data) in sources.items()}
     if archive_dir is not None:
         archive_dir.mkdir(parents=True, exist_ok=True)
         for name, (_, data) in sources.items():
@@ -185,7 +202,7 @@ def main(argv=None) -> int:
     except (OSError, ValueError, KeyError, TypeError, ET.ParseError) as error:
         print(f"ERROR: {error}")
         return 1
-    print(f"Metadata saved: {args.pmcid} -> PMID {record['pmid']}")
+    print(f"Draft metadata saved: {args.pmcid} -> PMID {record['pmid']}; eligibility remains pending")
     return 0
 
 
