@@ -154,8 +154,9 @@ that check, not figure/table reuse or public PDF distribution.
 Verify unique identifiers/filenames, mandatory metadata, exact licence evidence
 and matching readable PDFs. Report included/excluded articles and output paths.
 Keep citation, source links and licence notices for attribution; temporary files
-remain local. No separate review inventories, receipts or admission workflow is
-required for this MVP.
+remain local; commit only the final corpus manifest, not generated per-run
+reports or duplicate manifests. No separate review inventories, receipts or
+admission workflow is required for this MVP.
 
 ## Sources and checks
 
