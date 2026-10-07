@@ -19,8 +19,8 @@ helper still reads archived Q&A; its scores do not describe a newly acquired cor
 Place all generated intermediate files in `build/corpus/<run-id>/`, ignored by
 Git. Choose a unique run ID (for example a UTC timestamp plus a short label) and
 create a new directory; preserve earlier runs. Honour an explicit user-selected
-output location instead when supplied. Only the verified final manifest is
-promoted to `data/corpus_manifest.json` or the user's chosen final path.
+output location instead when supplied. Write the corpus manifest directly to `data/corpus_manifest.json` or the user's
+chosen final path.
 
 ```text
 build/corpus/<run-id>/
@@ -151,7 +151,7 @@ admission for this PMC-only workflow.
 Keep a per-article record in `$corpus_run_dir/reviews/` with all gate decisions, reviewer/date,
 metadata source hashes, PDF/text hashes, exact licence evidence and attribution.
 Maintain `$corpus_run_dir/selection-log.json` for failed/pending candidates. Only pass records proceed.
-Existing data/drafts/corpus_metadata.json
+Existing data/corpus_manifest.json
 contains 55 freshly fetched **pending**
 records; successful downloads did not make them eligible. Review them using these
 same gates before inclusion; archived V1 material is not grandfathered in.
