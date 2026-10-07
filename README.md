@@ -64,26 +64,11 @@ required.
 
 The original V1 inputs and saved results are now in [data/archive/v1/](./data/archive/v1/README.md). These results describe the 19-article V1 corpus, not the forthcoming 55-article corpus. Historical replay is not required; the existing helper commands below remain available.
 
-## Fresh MVP corpus
+## Corpus metadata and PDFs
 
-Use [the corpus metadata workflow](./corpus-metadata-workflow.md) and the
-[generate-corpus-metadata skill](./.agents/skills/generate-corpus-metadata/SKILL.md).
-DOI, PMID, pinned PMCID/version, bibliography and the complete PubMed abstract
-are mandatory. Verify exact CC BY 4.0/CC0 1.0 rights, third-party material and
-PDF identity before assembly. Only passing reviewed articles enter the final
-`data/corpus_manifest.json`; acquisition alone is not eligibility approval.
-
-[data/corpus_candidates.json](./data/corpus_candidates.json) records the 55
-selected PMC identities and title-reviewed names. The freshly fetched records
-remain pending in [data/drafts/corpus_metadata.json](./data/drafts/corpus_metadata.json),
-and their downloaded PDFs remain local under `corpus/`. No eligible final
-manifest has been published yet. The workflow explains how to reuse these
-records and PDFs with hash-bound review instead of downloading again.
-
-Download/ingestion defaults reserve `data/corpus_manifest.json` for the reviewed
-corpus. For a draft download, pass its path explicitly; for V1, use
-`--manifest data/archive/v1/corpus_manifest.json`. The V1 evaluation helper still
-reads archived Q&A; its scores do not describe the new corpus.
+Give a list of PMCIDs to the [generate-corpus-metadata skill](./.agents/skills/generate-corpus-metadata/SKILL.md)
+to generate the corpus manifest and download the PDF files. The process and
+verification requirements are described in [the corpus metadata workflow](./corpus-metadata-workflow.md).
 
 ## Develop and evaluate (host)
 

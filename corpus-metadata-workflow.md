@@ -3,7 +3,16 @@
 Use a supplied PMCID list to create a reviewed, publicly reusable corpus. Run
 helpers from the active repository root with its Python environment. This
 procedure covers acquisition and admission, not ingestion or benchmark authoring.
-The skill routes here; the existing scripts remain alongside this document.
+The skill routes here; this document owns all process and verification instructions.
+Use the active assigned ai-research-assistant checkout/worktree even when skill
+discovery points to another checkout. Read its AGENTS.md first and resolve helpers
+and outputs from that checkout. Preserve archived V1 data and frozen records.
+The existing scripts remain alongside this document.
+
+Accept the PMCID list and any supplied versions, topics and discovery provenance.
+Download/ingestion defaults reserve data/corpus_manifest.json for the reviewed
+corpus. Use explicit paths for drafts or archived V1 acquisition. The V1 evaluation
+helper still reads archived Q&A; its scores do not describe a newly acquired corpus.
 
 ## Candidate metadata
 
@@ -76,7 +85,9 @@ admission for this PMC-only workflow.
 Keep a local per-article review record with all gate decisions, reviewer/date,
 metadata source hashes, PDF/text hashes, exact licence evidence and attribution.
 Maintain a selection log for failed/pending candidates. Only pass records proceed.
-Existing data/drafts/corpus_metadata.json contains 55 freshly fetched **pending**
+data/corpus_candidates.json records the 55 selected identities and title-reviewed
+names used in the initial fresh acquisition. Existing data/drafts/corpus_metadata.json
+contains 55 freshly fetched **pending**
 records; successful downloads did not make them eligible. Review them using these
 same gates before inclusion; archived V1 material is not grandfathered in.
 
@@ -104,7 +115,8 @@ log or drafts. Never overwrite frozen manifests or archived evidence implicitly.
 
 Verify unique PMCIDs/IDs/filenames, candidate-to-review-to-manifest joins, exact
 PDF directory membership and hashes, attribution completeness and zero unreviewed
-members. Report admitted/excluded/pending counts and evidence locations. Keep
+members. Report admitted/excluded/pending counts, output and evidence locations, checks
+and remaining limitations. Keep
 PDFs, extracted text and raw acquisition artifacts untracked. Helper/schema
 changes are separate implementation work; this skill does not pretend those
 checks are automated by the current builder.
