@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a fresh draft manifest from explicitly selected PMC candidates."""
+"""Build a corpus manifest from explicitly selected PMC candidates."""
 import argparse
 import json
 from pathlib import Path
@@ -57,7 +57,7 @@ def main(argv=None) -> int:
     except (OSError, ValueError, KeyError, TypeError, ET.ParseError) as error:
         print(f"ERROR: {error}")
         return 1
-    print(f"Draft manifest saved: {args.output} ({len(records)} articles)")
+    print(f"Manifest saved: {args.output} ({len(records)} articles)")
     return 0
 
 
