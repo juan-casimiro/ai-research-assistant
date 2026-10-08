@@ -176,6 +176,29 @@ def parse_record(metadata: dict, jats: bytes, pubmed: bytes, identifiers: dict) 
     }
 
 
+def validate_metadata(record):
+    for field in ['pmid', 'doi', 'title', 'journal', 'publication_date', 'pubmed_url', 'abstract']:
+        if not isinstance(record.get(field), str) or not record[field].strip():
+            raise ValueError('missing mandatory field: ' + field)
+    if not re.fullmatch(r'[0-9]+', record['pmid']):
+        raise ValueError('invalid PMID')
+    if record['pubmed_url'] != f"https://pubmed.ncbi.nlm.nih.gov/{record['pmid']}/":
+        raise ValueError('PubMed identity URL mismatch')
+    if record.get('abstract_absence_reason'):
+        raise ValueError('PubMed abstract is marked absent')
+    if not isinstance(record.get('authors'), list) or not record['authors'] or any(
+        not isinstance(name, str) or not name.strip() for name in record['authors']
+    ):
+        raise ValueError('missing bibliography authors')
+    if type(record.get('year')) is not int or record['year'] < 1:
+        raise ValueError('missing bibliography year')
+    for field in ['id', 'article_id']:
+        if record.get(field) != record['filename'][:-4]:
+            raise ValueError('filename/ID mismatch: ' + field)
+    if licence_eligibility(record.get('license'), record.get('licence_urls', [])) != 'eligible':
+        raise ValueError('unsupported or missing licence evidence')
+
+
 def fetch_metadata(pmcid: str, version: int, search_query: str, filename: str, cluster: str, archive_dir: Path | None = None) -> dict:
     if not re.fullmatch(r"PMC[0-9]+", pmcid) or type(version) is not int or version < 1:
         raise ValueError("use a valid PMCID and explicitly chosen positive deposit version")
@@ -203,6 +226,7 @@ def fetch_metadata(pmcid: str, version: int, search_query: str, filename: str, c
     result["metadata_sha256"] = hashlib.sha256(raw_metadata).hexdigest()
     result["metadata_sources"] = {name: {"url": url, "sha256": hashlib.sha256(data).hexdigest()} for name, (url, data) in sources.items()}
     result["metadata_sources"]["pdf"] = {"url": cloud_url(metadata["pdf_url"])}
+    validate_metadata(result)
     if archive_dir is not None:
         archive_dir.mkdir(parents=True, exist_ok=True)
         for name, (_, data) in sources.items():

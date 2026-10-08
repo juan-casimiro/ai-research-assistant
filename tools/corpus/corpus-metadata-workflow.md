@@ -67,7 +67,7 @@ For example, after resolving these fields, an entry has this shape:
 ```
 
 The values above are illustrative, not verified article metadata. Keep the
-candidate list local; the builder reports and omits unsupported licences.
+candidate list local; unsupported licences fail metadata validation.
 
 Fetch per-article metadata into the run directory, retaining source responses:
 
@@ -82,7 +82,8 @@ Fetch per-article metadata into the run directory, retaining source responses:
 The helper cross-checks PMC, ID Converter and PubMed identity and retractions,
 preserves PubMed abstract sections, and records metadata URLs/hashes. It leaves
 `eligibility` from the article licence evidence: `eligible` for explicit CC BY 4.0
-or CC0 1.0, otherwise `excluded`. This field does not represent a wider review.
+or CC0 1.0. Missing mandatory fields or unsupported licences fail before a record
+is written. This field does not represent extraction success.
 
 ## Mandatory verification before manifest assembly
 
@@ -112,104 +113,103 @@ These are project admission rules; they do not classify every excluded licence a
 universally unusable. Publishing PDFs is a separate requested action, not part of
 acquisition or skill validation.
 
-## Candidate PDF acquisition and review record
+## Assemble metadata, download, then extract
 
-Assemble `$corpus_run_dir/acquisition.json`, a local acquisition envelope, `{"articles": [<draft records>]}`, solely
-for the downloader. This is not the final corpus manifest. Download candidates
-before the rights/PDF review and before build_corpus_manifest.py:
-
-```sh
-.venv/bin/python -m tools.corpus.download_corpus --manifest "$corpus_run_dir/acquisition.json" \
-  --corpus-dir "$corpus_run_dir/pdfs"
-```
-
-The downloader checks identity metadata, available MD5 and PDF structure, but
-skips already readable files without checking their identity/hash. Verify reused
-files against their recorded checksums. When a PDF SHA-256 is provided, the
-downloader checks it before skipping a local PDF and before replacing it with a
-download. Archived V1 manifests without hashes keep the prior structural checks. Its legacy manual fallback never counts as
-admission for this PMC-only workflow.
-
-## Assemble or complete the manifest
-
-For a new output, run:
-
-```sh
-.venv/bin/python -m tools.corpus.build_corpus_manifest --candidates "$corpus_run_dir/candidates.json" \
-  --corpus-dir "$corpus_run_dir/pdfs" --output data/corpus_manifest.json
-```
-
-The builder fetches metadata and validates mandatory identifiers, bibliography,
-nonempty PubMed abstract, filename/ID rules, licence and every PDF page. It records
-pinned PDF URL, PDF SHA-256 and exact production extracted-text provenance.
-It reports selected/included/excluded counts and exclusion reasons. Any excluded
-article returns nonzero and writes no manifest: a reduced corpus is not a complete
-build. Creation refuses an existing output.
-
-To validate and complete the existing manifest using local PDFs, without fetching
-metadata or downloading:
+The scripts have separate jobs: fetch validates metadata; build assembles existing
+records; download verifies PDF checksums; extract manages the local text cache.
+The builder never fetches metadata, downloads PDFs or extracts text. For a new
+manifest, after fetching one record for every selected PMCID:
 
 ```sh
 .venv/bin/python -m tools.corpus.build_corpus_manifest \
-  --finalize data/corpus_manifest.json --corpus-dir "$corpus_run_dir/pdfs" \
-  --provenance-dir "$corpus_run_dir/provenance"
+  --records-dir "$corpus_run_dir/metadata" --output data/corpus_manifest.json
+.venv/bin/python -m tools.corpus.download_corpus \
+  --manifest data/corpus_manifest.json --corpus-dir "$corpus_run_dir/pdfs"
+.venv/bin/python -m tools.corpus.extract_corpus_text \
+  --manifest data/corpus_manifest.json --corpus-dir "$corpus_run_dir/pdfs" \
+  --cache-dir "$corpus_run_dir/extracted_text"
 ```
 
-Finalisation preserves scientific metadata, IDs and top-level selection provenance.
-It fills missing PDF/text provenance and verifies existing SHA-256, provider MD5
-and page counts; mismatches fail rather than replacing recorded evidence. All
-articles must validate before an atomic write. On any failure the original stays
-intact. Optional `--provenance-dir` supplies retained `<PMCID>.<version>.cloud.json`
-responses to fill missing pinned PDF URLs; their recorded hashes and article
-identity are checked. Without a recorded URL or matching local source, fail
-rather than guessing a URL. The builder is for the fresh PMC
-corpus; archived V1 manifests remain untouched.
-
-Verify unique identifiers/filenames, mandatory metadata, exact licence evidence
-and matching readable PDFs. If a page yields no extracted text, render and
-inspect it before reporting unreadability. Distinguish readable article text
-from appended forms or image-only pages; record any extraction limitation.
-Visual readability alone does not satisfy admission; exclude articles with any
-page lacking extracted text. This workflow does not add OCR.
-
-The only user-approved exception is **PMC12003177, version 1**, PDF SHA-256
-`d977b0dc0b6e1642cdf840e3980a7049b2705efea8c3673b1966228426b00747`.
-Its pages 1–21 yield text; pages 22–24 are visually readable Nature reporting-summary
-forms without extractable text. Keep this article, recording the limitation in
-its manifest notes. Those forms are not searchable. The builder permits only
-this exact identity, version, hash and missing-page set; future deposits or other
-articles do not inherit the exception. Revisit this exception at the next corpus
-expansion: obtain complete text extraction or replace/exclude the article, then
-remove the special-case code to keep the helpers simple. Report included/excluded articles and output paths.
-Before evaluation, retain minimal corpus provenance in each article's
-`metadata_sources`: `pdf.url` (pinned PMC source), `pdf.sha256`, and
-`extracted_text.sha256`. Reuse verified local PDFs. Compute the text hash exactly
-as production `ingest_corpus.ingest_file` does: `PdfReader(str(pdf_path))`, join
-`page.extract_text() or ""` with a single newline, then hash the UTF-8 bytes
-without trimming or adding a final newline. Record the pypdf version, method,
-encoding and pages without text alongside the hash. Preserve the PMC12003177
-exception and its extraction limitation. PDF hashes identify complete PDF bytes;
-text hashes identify only the text actually available to ingestion.
-Keep extracted text, PDFs and raw acquisition responses in ignored
-`build/corpus/<run-id>/`; commit only their minimal provenance in the manifest.
-
-Keep citation, source links and licence notices for attribution; temporary files
-remain local; commit only the final corpus manifest, not generated per-run
-reports or duplicate manifests. No separate review inventories, receipts or
-admission workflow is required for this MVP.
-
-## Sources and checks
-
-Adapted from the epic's [eligibility gates and article record contract](https://github.com/juan-casimiro/ai-research-assistant/blob/6bfed40218fcdf94c4bbc0dbdd44c817760f63dd/docs/benchmark-standards.md#eligibility-gates-and-provenance)
-and [JUA-128](https://linear.app/juan-casimiro-agent/issue/JUA-128/add-repository-owned-corpus-management-and-ingestion-skills-for),
-with the user's mandatory PMID/PubMed abstract requirements and narrower current
-scope: detailed figure/table review is deferred until that material is used.
-
-Use CLI --help to confirm options. Offline helper coverage:
+Before assembly, compare the metadata record membership with the supplied PMCID
+list: a missing record must not quietly reduce the selected corpus. Metadata
+fetch failures require replacement and a nonzero result; do not call preparation
+complete while selected articles are missing. Assembly reports selected/included/
+excluded counts and reasons; invalid records prevent any output. It validates
+identity, bibliography, PubMed abstract, filename/IDs and licence evidence.
+Creation refuses an existing output. To validate an existing manifest offline:
 
 ```sh
-.venv/bin/python -m unittest tests.corpus.test_download_corpus tests.corpus.test_fetch_article_metadata tests.corpus.test_build_corpus_manifest -v
+.venv/bin/python -m tools.corpus.build_corpus_manifest \
+  --finalize data/corpus_manifest.json
 ```
 
-Mocked tests do not certify live acquisition, public reuse of every element in an article. No paid calls or bulk downloads are needed to validate
-the skill instructions themselves.
+Validation preserves scientific metadata and IDs and writes atomically only after
+all records pass. Extraction provenance is removed from the manifest; it belongs
+in the local index. The downloader checks supplied PDF SHA-256 before skipping
+existing files and before atomically replacing them. Archived V1 manifests without
+hashes retain their original structural-check compatibility. For reused local
+PDFs, just run extraction; no new download is required.
+
+## Text cache and failure policy
+
+Extraction uses only pypdf, exactly as production ingestion:
+`PdfReader(str(pdf_path))`, `page.extract_text() or ""`, and a single `"\n"`
+between pages. Hash the UTF-8 bytes without trimming or adding a final newline.
+The small shared extraction function prevents preparation/ingestion drift;
+ingestion otherwise keeps its previous behavior. **Ingestion cache consumption
+is a later integration step**; ingestion does not yet read this cache.
+
+Local outputs are:
+
+```text
+build/corpus/<run-id>/
+  pdfs/
+  extracted_text/
+    <article-id>.txt
+    index.json
+    extraction_report.json
+```
+
+`index.json` contains `schema_version` and successful article entries with
+`source_id`, `pdf_sha256`, relative `text_file`, `text_sha256`, and extractor
+`tool`, `version`, `method`. Diagnostics belong only in
+`extraction_report.json`: PMCID/deposit, missing-text pages, failures, accepted
+exception and limitation, plus corpus completeness. All outputs stay ignored.
+Do not commit PDFs, text, index, reports or raw acquisition responses.
+
+Reuse requires verified local PDF and text hashes and the same extractor version
+and method. A changed/corrupt text file, changed PDF or stale entry is not reused.
+A current failure removes the prior cache entry/text so previous success cannot
+conceal it. Successful articles may be cached during an incomplete run; the
+report marks the corpus incomplete and the command returns nonzero.
+
+Parsing/extraction errors, empty document text, missing PDFs, mismatched recorded
+PDF hashes or any page without text fail that article. Report its PMCID and
+reason as **requiring replacement**; publish no reusable text for it. Do not
+perform OCR, change extractors or attempt text recovery. Replacement selection
+and other PDF-processing changes are separate work.
+
+The sole user-approved exception is **PMC12003177, version 1**, PDF SHA-256
+`d977b0dc0b6e1642cdf840e3980a7049b2705efea8c3673b1966228426b00747`.
+Accept its pypdf output as-is. Pages 22–24 are reporting-summary forms without
+extracted text and are not searchable. Record actual missing pages and this
+limitation in the extraction report, not the manifest/index. No workaround is
+applied. The exception cannot apply to another deposit or PDF. Revisit it at the
+next corpus expansion and remove the special case when the article is replaced
+or excluded.
+
+## Verification
+
+Check selection membership, mandatory metadata and exact licence evidence, PDF
+identity/checksums and a complete extraction report. Preserve attribution, source
+links and article licence notices. This workflow covers metadata and article text,
+not figure/table reuse or public PDF distribution.
+
+```sh
+.venv/bin/python -m unittest discover -s tests -t . -v
+```
+
+Tests mock acquisition and do not establish live availability. No paid evaluations
+are needed. The article metadata contract was adapted from the epic's
+[benchmark standards](https://github.com/juan-casimiro/ai-research-assistant/blob/6bfed40218fcdf94c4bbc0dbdd44c817760f63dd/docs/benchmark-standards.md),
+with mandatory PMID/PubMed abstracts and the user's narrower MVP scope.

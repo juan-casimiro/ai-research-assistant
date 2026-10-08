@@ -95,6 +95,11 @@ class ArticleMetadataTests(unittest.TestCase):
         responses = [json.dumps(metadata).encode(), json.dumps(self.identifiers).encode(), self.pubmed, self.jats]
         return patch("tools.corpus.fetch_article_metadata.read_bytes", side_effect=responses)
 
+    def test_fetch_rejects_missing_pubmed_abstract(self):
+        self.pubmed = self.pubmed.replace(b"<Abstract>", b"<Other>").replace(b"</Abstract>", b"</Other>")
+        with self.xml_service(hashlib.md5(self.jats).hexdigest()), self.assertRaisesRegex(ValueError, "abstract"):
+            fetch_metadata("PMC123456", 2, "some discovery query", "PMC123456-synthetic-study.pdf", "test-topic")
+
     def test_xml_checksum_match_allows_parsing_and_archival(self):
         with tempfile.TemporaryDirectory() as directory, self.xml_service(hashlib.md5(self.jats).hexdigest()):
             archive = Path(directory)

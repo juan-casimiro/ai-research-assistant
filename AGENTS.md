@@ -21,6 +21,7 @@ unavailable, report that and stop before task work.
 - `eval_golden.py`: production-path retrieval evaluation; `compare_evals.py`: result comparison.
 
 - `tools/corpus/build_corpus_manifest.py` / `tools/corpus/fetch_article_metadata.py`: corpus manifest from explicitly selected PMC candidates; see README.
+- `tools/corpus/extract_corpus_text.py`: local production-equivalent text cache and extraction failures; ingestion cache consumption is deferred.
 - Candidate and acquisition files are generated locally under ignored `build/corpus/<run-id>/`. The corpus metadata is in `data/corpus_manifest.json`; `eligibility` reflects supported article licence evidence only.
 - `tools/corpus/corpus-metadata-workflow.md`: metadata, licence and PDF checks; `.agents/skills/generate-corpus-metadata/` routes agents to this workflow.
 - `data/archive/v1/`: original corpus manifest, golden Q&A and saved evaluation evidence; corpus helpers live under `tools/corpus/` and run as modules from the repository root.
