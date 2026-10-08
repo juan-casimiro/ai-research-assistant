@@ -17,7 +17,7 @@ Use each actual selected PMCID. Optional `filename` supplies a reviewed basename
 with PMCID plus 1–7 lowercase hyphen-separated words and `.pdf`; optional
 `pmc_version` pins a deposit. Otherwise fetch selects the latest PMC version.
 
-## 2. Fetch and assemble
+## 2. Fetch and generate a draft manifest
 
 ```sh
 corpus_run_dir=build/corpus/<run-id>
@@ -31,8 +31,10 @@ python -m tools.corpus.build_corpus_manifest \
 
 Fetch loops over the selection and prints each proposed filename. Correct a
 filename in `candidates.json`, then rerun the fetch command with
-`--pmcid <PMCID>` before assembly. Repeat `--pmcid` to correct several articles
-without refetching others. Assembly rebuilds the prepared manifest in place.
+`--pmcid <PMCID>` before draft assembly. Repeat `--pmcid` to correct several articles
+without refetching others. Assembly rebuilds the draft manifest in place at
+`build/corpus/<run-id>/corpus_manifest.json`. This draft drives acquisition; it
+is not the reviewed final corpus manifest.
 `cluster`, `selection_rationale` and `search_query` are reference fields and
 non-critical; missing or empty values never block fetch, assembly or publication.
 
@@ -67,6 +69,19 @@ Downloads use the manifest's pinned version and verify provider MD5 and any
 pinned PDF SHA-256. A missing or failed article returns nonzero; resolve it
 before continuing.
 
+## Mandatory verification before final admission
+
+Before final admission, verify every selected article against its actual local
+PDF: first-page identity must agree with the pinned metadata, article/PDF licence
+notices must support CC BY 4.0 or CC0 1.0 without unresolved conflicts, and the
+PDF must have nonzero pages and readable article text. Retain the evidence under
+the run directory. Then run extraction below.
+
+Any failed check, unavailable evidence or unresolved conflict leaves the run
+incomplete and prevents publication of the reviewed final manifest. Report each
+affected PMCID and reason; do not silently reduce the selection or apply recovery
+workarounds.
+
 ## 4. Extract
 
 ```sh
@@ -83,7 +98,12 @@ approved exception remains PMC12003177 version 1 with its exact PDF SHA-256;
 its reporting-summary pages are not searchable. No OCR or replacement exception
 is implied.
 
-## 5. Publish locally
+## 5. Publish the reviewed final manifest locally
+
+Confirm that metadata, PDF identity/licence verification and extraction passed
+for every supplied PMCID before running publication. A successful automated
+`--check` does not replace the identity/licence review above. Only after all gates
+pass may the draft be published as `data/corpus_manifest.json`.
 
 ```sh
 python -m tools.corpus.publish_corpus --run-dir "$corpus_run_dir" --check
