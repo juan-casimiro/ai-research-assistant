@@ -51,8 +51,7 @@ class ManifestTests(unittest.TestCase):
                 self.assertEqual(self.run_builder()[0], 1)
                 self.assertFalse(self.output.exists())
 
-    def test_conflicting_existing_output_is_preserved(self):
+    def test_differing_prepared_manifest_is_rebuilt(self):
         self.output.write_text('{"articles": []}')
-        before = self.output.read_bytes()
-        self.assertEqual(self.run_builder()[0], 1)
-        self.assertEqual(self.output.read_bytes(), before)
+        self.assertEqual(self.run_builder()[0], 0)
+        self.assertEqual(json.loads(self.output.read_text()), {'articles': [self.article]})

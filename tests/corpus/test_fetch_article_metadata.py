@@ -139,6 +139,50 @@ class ArticleMetadataTests(unittest.TestCase):
             self.assertIn('PMC999', report.getvalue())
             self.assertEqual(selection.read_bytes(), before)
 
+    def test_pmcid_filter_preserves_other_records_and_uses_selection_fields(self):
+        from tests.corpus.test_build_corpus_manifest import record
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            records = root/'metadata'; records.mkdir()
+            untouched = records/'PMC999.json'
+            untouched.write_bytes(b'{"synthetic": "existing record"}\n')
+            before = untouched.read_bytes()
+            selection = root/'candidates.json'
+            selection.write_text(json.dumps({'articles': [
+                {'pmcid': 'PMC123456', 'pmc_version': 2, 'cluster': 'test-topic',
+                 'filename': 'PMC123456-reviewed-study.pdf', 'search_query': 'some query'},
+                {'pmcid': 'PMC999', 'cluster': 'another topic'}]}))
+            with patch('tools.corpus.fetch_article_metadata.fetch_metadata', return_value=record()) as fetcher, contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(main(['--selection-file', str(selection), '--records-dir', str(records),
+                                       '--archive-dir', str(root/'provenance'), '--pmcid', 'PMC123456']), 0)
+            fetcher.assert_called_once_with('PMC123456', 2, 'some query',
+                                           'PMC123456-reviewed-study.pdf', 'test-topic', root/'provenance')
+            self.assertEqual(untouched.read_bytes(), before)
+            self.assertTrue((records/'PMC123456.json').exists())
+            selected = json.loads(selection.read_text())
+            selected['articles'].append({'pmcid': 'PMC888', 'cluster': 'test-topic'})
+            selection.write_text(json.dumps(selected))
+            with patch('tools.corpus.fetch_article_metadata.fetch_metadata', side_effect=[record(), dict(record(), pmcid='PMC888')]) as fetcher, contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(main(['--selection-file', str(selection), '--records-dir', str(records),
+                                       '--archive-dir', str(root/'provenance'), '--pmcid', 'PMC123456',
+                                       '--pmcid', 'PMC888']), 0)
+            self.assertEqual([call.args[0] for call in fetcher.call_args_list], ['PMC123456', 'PMC888'])
+            self.assertEqual(untouched.read_bytes(), before)
+            self.assertTrue((records/'PMC888.json').exists())
+
+    def test_unknown_pmcid_filter_fails_before_network(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            selection = root/'candidates.json'
+            selection.write_text(json.dumps({'articles': [{'pmcid': 'PMC123456'}]}))
+            with patch('tools.corpus.fetch_article_metadata.read_bytes') as source_reader, contextlib.redirect_stdout(io.StringIO()) as report:
+                self.assertEqual(main(['--selection-file', str(selection), '--records-dir', str(root/'metadata'),
+                                       '--archive-dir', str(root/'provenance'), '--pmcid', 'PMC123456',
+                                       '--pmcid', 'PMC999']), 1)
+            source_reader.assert_not_called()
+            self.assertIn('PMC999', report.getvalue())
+            self.assertFalse((root/'metadata').exists())
+
     def test_latest_without_unique_current_deposit_fails_and_retains_response(self):
         raw = json.dumps(self.identifiers).encode()
         with tempfile.TemporaryDirectory() as directory, patch('tools.corpus.fetch_article_metadata.read_bytes', return_value=raw):

@@ -30,9 +30,10 @@ python -m tools.corpus.build_corpus_manifest \
 ```
 
 Fetch loops over the selection and prints each proposed filename. Correct a
-filename in `candidates.json` and rerun fetch before assembly. If a prepared
-manifest already differs, inspect it and remove it explicitly before rebuilding;
-there is no overwrite/force option. Cluster always comes from the selection.
+filename in `candidates.json`, then rerun the fetch command with
+`--pmcid <PMCID>` before assembly. Repeat `--pmcid` to correct several articles
+without refetching others. Assembly rebuilds the prepared manifest in place.
+Cluster always comes from the selection.
 Fetch, assembly and publication use the same complete-record validator.
 
 Every record requires PMCID, pinned PMC version, PMID, DOI, title, authors,

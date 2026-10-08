@@ -1,5 +1,6 @@
 """Publication gate: all validation first, conflicts abort, moves can be resumed."""
 import contextlib
+import hashlib
 import io
 import json
 from pathlib import Path
@@ -19,7 +20,7 @@ class PublicationTests(unittest.TestCase):
         self.run_dir = self.root / 'build/corpus/synthetic-run'
         (self.run_dir / 'pdfs').mkdir(parents=True)
         self.article = record()
-        self.article['metadata_sources'] = {'pdf': {'url': publisher.BUCKET + '/PMC123456.2/synthetic.pdf'}}
+        self.article['metadata_sources'] = {'pdf': {'url': publisher.BUCKET + '/PMC123456.2/synthetic.pdf', 'md5': hashlib.md5(pdf_bytes()).hexdigest()}}
         self.source = self.run_dir / 'corpus_manifest.json'
         self.source.write_text(json.dumps({'articles': [self.article]}))
         (self.run_dir / 'candidates.json').write_text(self.source.read_text())
@@ -91,7 +92,7 @@ class PublicationTests(unittest.TestCase):
 
     def test_matching_destinations_are_preserved(self):
         raw = self.pdf.read_bytes()
-        manifest = {'articles': [dict(self.article, metadata_sources={'pdf': {'url': self.article['metadata_sources']['pdf']['url'], 'sha256': publisher.digest(raw)}})]}
+        manifest = {'articles': [dict(self.article, metadata_sources={'pdf': {'url': self.article['metadata_sources']['pdf']['url'], 'md5': self.article['metadata_sources']['pdf']['md5'], 'sha256': publisher.digest(raw)}})]}
         self.final_manifest.parent.mkdir(parents=True)
         self.final_manifest.write_text(json.dumps(manifest))
         before = self.final_manifest.read_bytes()
@@ -183,6 +184,7 @@ class PublicationTests(unittest.TestCase):
                               (pdf_bytes(), '0'*64)]:
             with self.subTest(checksum=checksum, size=len(raw)):
                 self.pdf.write_bytes(raw)
+                self.article['metadata_sources']['pdf']['md5'] = hashlib.md5(raw).hexdigest()
                 self.article['metadata_sources']['pdf'].pop('sha256', None)
                 if checksum:
                     self.article['metadata_sources']['pdf']['sha256'] = checksum
@@ -227,9 +229,9 @@ class PublicationTests(unittest.TestCase):
             self.assertEqual(target.read_bytes(), b'synthetic conflicting content')
 
     def test_publication_keeps_exact_pdf_exception(self):
-        import hashlib
         raw = pdf_bytes(('Some synthetic article text', ''))
         self.pdf.write_bytes(raw)
+        self.article['metadata_sources']['pdf']['md5'] = hashlib.md5(raw).hexdigest()
         for version, checksum, status in [(1, hashlib.sha256(raw).hexdigest(), 0),
                                           (2, hashlib.sha256(raw).hexdigest(), 1),
                                           (1, 'wrong', 1)]:
@@ -240,3 +242,32 @@ class PublicationTests(unittest.TestCase):
                 with patch('tools.corpus.extract_corpus_text.EXCEPTION', ('PMC123456', 1, checksum)):
                     self.assertEqual(self.run_tool(check=True), status)
                 self.assertFalse(self.final_pdfs.exists())
+
+    def test_missing_provider_md5_blocks_publication(self):
+        del self.article['metadata_sources']['pdf']['md5']
+        self.source.write_text(json.dumps({'articles': [self.article]}))
+        self.assertEqual(self.run_tool(), 1)
+        failures = json.loads((self.run_dir/'publication_report.json').read_text())['failures']
+        self.assertEqual(failures, [{'pmcid': self.article['pmcid'], 'reason': 'missing PDF provider MD5 checksum'}])
+        self.assertFalse(self.final_pdfs.exists())
+        self.assertFalse(self.final_manifest.exists())
+
+    def test_url_provider_md5_is_sufficient(self):
+        pdf_source = self.article['metadata_sources']['pdf']
+        pdf_source['url'] += '?md5=' + pdf_source.pop('md5')
+        self.source.write_text(json.dumps({'articles': [self.article]}))
+        self.assertEqual(self.run_tool(), 0)
+
+    def test_missing_pdf_names_prepared_path(self):
+        self.pdf.unlink()
+        self.assertEqual(self.run_tool(), 1)
+        failures = json.loads((self.run_dir/'publication_report.json').read_text())['failures']
+        self.assertIn(str(self.pdf), failures[0]['reason'])
+        self.assertNotIn(str(self.final_pdfs), failures[0]['reason'])
+
+    def test_nonexistent_run_directory_creates_nothing(self):
+        self.run_dir = self.root/'mistyped-parent'/'mistyped-run'
+        with contextlib.redirect_stdout(io.StringIO()) as report:
+            self.assertEqual(publisher.main(['--run-dir', str(self.run_dir)]), 1)
+        self.assertIn(str(self.run_dir), report.getvalue())
+        self.assertFalse(self.run_dir.parent.exists())

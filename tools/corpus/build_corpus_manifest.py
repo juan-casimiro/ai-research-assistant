@@ -3,7 +3,7 @@
 import argparse
 import json
 from pathlib import Path
-from .fetch_article_metadata import validate_records, validate_selection
+from .fetch_article_metadata import validate_records
 
 
 def save_json(path, data):
@@ -20,8 +20,6 @@ def main(argv=None):
     try:
         articles = validate_records([json.loads(p.read_text()) for p in sorted(args.records_dir.glob('*.json'))])
         manifest = {'articles': articles}
-        if path.exists() and json.loads(path.read_text()) != manifest:
-            raise ValueError('conflicting file: ' + str(path))
         save_json(path, manifest)
     except (OSError, ValueError, KeyError, TypeError) as error:
         print(f'ERROR: {error}')

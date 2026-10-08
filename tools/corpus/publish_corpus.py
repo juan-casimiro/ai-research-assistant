@@ -6,9 +6,9 @@ import json
 from pathlib import Path
 import shutil
 from urllib.parse import parse_qs, urlsplit
-from .build_corpus_manifest import save_json, validate_selection
+from .build_corpus_manifest import save_json
 from .download_corpus import BUCKET
-from .fetch_article_metadata import validate_record
+from .fetch_article_metadata import validate_record, validate_selection
 from .extract_corpus_text import digest, extract_article
 
 
@@ -19,6 +19,9 @@ def main(argv=None):
     parser.add_argument('--pdf-destination', type=Path, default=Path('corpus/mvp'))
     parser.add_argument('--check', action='store_true')
     args = parser.parse_args(argv)
+    if not args.run_dir.is_dir():
+        print(f'ERROR: run directory does not exist or is not a directory: {args.run_dir}')
+        return 1
     failures, files = [], []
     try:
         if any(p.resolve().is_relative_to(args.run_dir.resolve()) for p in [args.pdf_destination, args.manifest_destination]):
@@ -46,10 +49,13 @@ def main(argv=None):
                     raise ValueError('missing or invalid pinned PDF source URL')
                 target = args.pdf_destination / article['filename']
                 pdf = args.run_dir / 'pdfs' / article['filename']
-                if not pdf.exists():
+                if not pdf.exists() and target.exists():
                     pdf = target  # Rerun after a successful or partial move.
                 raw = pdf.read_bytes()
-                for checksum in [pdf_source.get('md5'), parse_qs(urlsplit(url).query).get('md5', [None])[0]]:
+                checksums = [pdf_source.get('md5'), parse_qs(urlsplit(url).query).get('md5', [None])[0]]
+                if not any(checksums):
+                    raise ValueError('missing PDF provider MD5 checksum')
+                for checksum in checksums:
                     if checksum is not None and hashlib.md5(raw).hexdigest() != checksum:
                         raise ValueError('PDF provider MD5 mismatch')
                 text = extract_article(article, pdf).encode('utf-8')

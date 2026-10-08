@@ -266,7 +266,6 @@ def fetch_metadata(pmcid: str, version: int | None = None, search_query: str | N
         raise ValueError("cloud response does not match requested PMCID/version")
     if not metadata.get("pmid"):
         raise ValueError("this PMCID has no PMID; PubMed metadata is unavailable")
-    converter_url = ID_CONVERTER + "?" + urlencode({"ids": pmcid, "format": "json", "versions": "yes", "tool": "ai-research-assistant"})
     pubmed_url = EFETCH + "?" + urlencode({"db": "pubmed", "id": metadata["pmid"], "retmode": "xml", "tool": "ai-research-assistant"})
     sources = {"cloud.json": (metadata_url, raw_metadata), "id-converter.json": (converter_url, converter_bytes if converter_bytes is not None else read_bytes(converter_url)), "pubmed.xml": (pubmed_url, read_bytes(pubmed_url)), "article.xml": (cloud_url(metadata["xml_url"]), read_pmc_xml(metadata["xml_url"]))}
     result = parse_record(metadata, sources["article.xml"][1], sources["pubmed.xml"][1], json.loads(sources["id-converter.json"][1]))
@@ -297,11 +296,17 @@ def fetch_metadata(pmcid: str, version: int | None = None, search_query: str | N
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--selection-file', type=Path, required=True)
+    parser.add_argument('--pmcid', action='append', help='Fetch only this selected PMCID (repeatable)')
     parser.add_argument('--records-dir', type=Path, required=True)
     parser.add_argument('--archive-dir', type=Path, required=True)
     args = parser.parse_args(argv)
     try:
         articles = validate_selection(json.loads(args.selection_file.read_text())['articles'])
+        if args.pmcid:
+            unknown = set(args.pmcid) - {a['pmcid'] for a in articles}
+            if unknown:
+                raise ValueError('PMCIDs not in selection: ' + ', '.join(sorted(unknown)))
+            articles = [a for a in articles if a['pmcid'] in args.pmcid]
         args.records_dir.mkdir(parents=True, exist_ok=True)
     except (OSError, ValueError, KeyError, TypeError) as error:
         print(f'ERROR: {error}')
