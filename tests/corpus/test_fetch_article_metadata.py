@@ -105,43 +105,45 @@ class ArticleMetadataTests(unittest.TestCase):
         raw = json.dumps(identifiers).encode()
         responses = [raw, json.dumps(cloud).encode(), self.pubmed, self.jats]
         with tempfile.TemporaryDirectory() as directory, patch('tools.corpus.fetch_article_metadata.read_bytes', side_effect=responses) as source_reader:
-            result = fetch_metadata('PMC123456', archive_dir=Path(directory))
+            result = fetch_metadata('PMC123456', cluster='test-topic', archive_dir=Path(directory))
             self.assertEqual(result['pmc_version'], 2)
             self.assertIn('PMC123456.2.json', source_reader.call_args_list[1].args[0])
             self.assertEqual((Path(directory)/'PMC123456.2.id-converter.json').read_bytes(), raw)
             self.assertEqual(result['metadata_sources']['id-converter.json']['sha256'], hashlib.sha256(raw).hexdigest())
             self.assertEqual(result['filename'], 'PMC123456-a-synthetic-cardiac-study.pdf')
-            self.assertIsNone(result['cluster'])
+            self.assertEqual(result['cluster'], 'test-topic')
             self.assertIn('User supplied PMCID', result['search_query'])
 
     def test_explicit_version_is_not_replaced_by_current_version(self):
         self.identifiers['records'][0]['versions'] = [{'pmcid': 'PMC123456.3', 'current': True}]
         with self.xml_service(hashlib.md5(self.jats).hexdigest()):
-            result = fetch_metadata('PMC123456', 2)
+            result = fetch_metadata('PMC123456', 2, cluster='test-topic')
         self.assertEqual(result['pmc_version'], 2)
         self.assertIn('/PMC123456.2/', result['metadata_sources']['pdf']['url'])
 
-    def test_offline_review_assigns_complete_names_and_cluster_for_assembly(self):
-        from tools.corpus.build_corpus_manifest import main as assemble
-        with self.xml_service(hashlib.md5(self.jats).hexdigest()):
-            result = fetch_metadata('PMC123456', 2)
+    def test_selection_fetch_loops_and_prints_reviewed_filename(self):
+        from tests.corpus.test_build_corpus_manifest import record
         with tempfile.TemporaryDirectory() as directory:
-            records = Path(directory)/'metadata'; records.mkdir()
-            output = records/'PMC123456.json'; output.write_text(json.dumps(result))
-            with patch('tools.corpus.fetch_article_metadata.read_bytes', side_effect=AssertionError('review must stay offline')), contextlib.redirect_stdout(io.StringIO()):
-                self.assertEqual(main(['--review-record',str(output),'--cluster','cardiology','--filename','PMC123456-synthetic-cardiac-study.pdf']),0)
-                manifest = Path(directory)/'corpus_manifest.json'
-                self.assertEqual(assemble(['--records-dir',str(records),'--output',str(manifest)]),0)
-            reviewed = json.loads(output.read_text())
-            self.assertEqual(reviewed['id'], 'PMC123456-synthetic-cardiac-study')
-            self.assertEqual(reviewed['article_id'],reviewed['id'])
-            self.assertEqual(reviewed['cluster'],'cardiology')
+            root = Path(directory)
+            selection = root/'candidates.json'
+            articles = [{'pmcid': 'PMC123456', 'cluster': 'test-topic',
+                         'filename': 'PMC123456-reviewed-study.pdf'},
+                        {'pmcid': 'PMC999', 'cluster': 'test-topic'}]
+            selection.write_text(json.dumps({'articles': articles}))
+            before = selection.read_bytes()
+            with patch('tools.corpus.fetch_article_metadata.fetch_metadata', side_effect=[record(), OSError('synthetic failure')]) as fetcher, contextlib.redirect_stdout(io.StringIO()) as report:
+                self.assertEqual(main(['--selection-file', str(selection), '--records-dir', str(root/'metadata'), '--archive-dir', str(root/'provenance')]), 1)
+            self.assertEqual(fetcher.call_count, 2)
+            self.assertEqual(fetcher.call_args_list[0].args[3:5], ('PMC123456-reviewed-study.pdf', 'test-topic'))
+            self.assertIn('PMC123456-synthetic-study.pdf', report.getvalue())
+            self.assertIn('PMC999', report.getvalue())
+            self.assertEqual(selection.read_bytes(), before)
 
     def test_latest_without_unique_current_deposit_fails_and_retains_response(self):
         raw = json.dumps(self.identifiers).encode()
         with tempfile.TemporaryDirectory() as directory, patch('tools.corpus.fetch_article_metadata.read_bytes', return_value=raw):
             with self.assertRaisesRegex(ValueError, 'current deposit'):
-                fetch_metadata('PMC123456', archive_dir=Path(directory))
+                fetch_metadata('PMC123456', cluster='test-topic', archive_dir=Path(directory))
             self.assertEqual((Path(directory)/'PMC123456.id-converter.json').read_bytes(), raw)
         # No fallback to version one or a guessed version.
 
@@ -166,13 +168,12 @@ class ArticleMetadataTests(unittest.TestCase):
             output.write_text("some existing record")
             archive = Path(directory, "archive")
             selection = Path(directory, 'candidates.json')
-            selection.write_text(json.dumps({'articles': [{'pmcid': 'PMC123456'}]}))
+            selection.write_text(json.dumps({'articles': [{'pmcid': 'PMC123456', 'pmc_version': 2, 'cluster': 'test-topic'}]}))
             captured = io.StringIO()
             with contextlib.redirect_stdout(captured):
-                result = main(["--selection-file", str(selection), "--pmcid", "PMC123456", "--pmc-version", "2", "--search-query", "some discovery query",
-                               "--filename", "PMC123456-synthetic-cardiac-study.pdf", "--cluster", "cardiology", "--output", str(output), "--archive-dir", str(archive)])
+                result = main(['--selection-file', str(selection), '--records-dir', str(Path(directory)/'metadata'), '--archive-dir', str(archive)])
             self.assertEqual(result, 1)
-            self.assertIn("ERROR PMC123456: PMC XML checksum mismatch", captured.getvalue())
+            self.assertIn("FAILED PMC123456: PMC XML checksum mismatch", captured.getvalue())
             self.assertEqual(output.read_text(), "some existing record")
             self.assertFalse(archive.exists())
 

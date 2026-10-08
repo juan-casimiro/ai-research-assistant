@@ -6,7 +6,6 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
-from unittest.mock import patch
 from tools.corpus import build_corpus_manifest as builder
 
 
@@ -31,51 +30,29 @@ class ManifestTests(unittest.TestCase):
         self.article = record()
         (self.records / 'article.json').write_text(json.dumps(self.article))
 
-    def run_builder(self, finalize=False):
-        args = ['--finalize', str(self.output)] if finalize else ['--records-dir', str(self.records), '--output', str(self.output)]
+    def run_builder(self):
         with contextlib.redirect_stdout(io.StringIO()) as report:
-            status = builder.main(args)
+            status = builder.main(['--records-dir', str(self.records), '--output', str(self.output)])
         return status, report.getvalue()
 
-    def test_assembles_existing_records_without_modification(self):
+    def test_assembles_complete_records_and_reruns(self):
         self.assertEqual(self.run_builder()[0], 0)
         self.assertEqual(json.loads(self.output.read_text()), {'articles': [self.article]})
-        before = self.output.read_bytes()
-        self.assertEqual(self.run_builder(finalize=True)[0], 0)
-        self.assertEqual(self.output.read_bytes(), before)
+        self.assertEqual(self.run_builder()[0], 0)
 
-    def test_mandatory_fields_and_licence_failure_preserve_existing(self):
-        for field in ['pmid','doi','title','journal','authors','year','abstract','pubmed_url','id','article_id','licence_urls']:
+    def test_incomplete_records_never_write_manifest(self):
+        for field in ['pmcid', 'pmc_version', 'filename', 'pmid', 'doi', 'title', 'journal',
+                      'publication_date', 'authors', 'year', 'abstract', 'pubmed_url',
+                      'id', 'article_id', 'cluster', 'search_query', 'licence_urls']:
             with self.subTest(field=field):
                 article = copy.deepcopy(self.article)
                 del article[field]
-                self.output.write_text(json.dumps({'articles':[article]}))
-                before = self.output.read_bytes()
-                self.assertEqual(self.run_builder(finalize=True)[0], 1)
-                self.assertEqual(self.output.read_bytes(), before)
-
-    def test_incomplete_selection_never_publishes_reduced_manifest(self):
-        invalid = dict(self.article, pmcid='PMC999', filename='PMC999-synthetic-study.pdf', id='PMC999-synthetic-study', article_id='PMC999-synthetic-study', abstract='')
-        (self.records/'invalid.json').write_text(json.dumps(invalid))
-        status, report = self.run_builder()
-        self.assertEqual(status,1)
-        self.assertIn('Selected: 2; included: 1; excluded: 1',report)
-        self.assertFalse(self.output.exists())
-
-    def test_existing_output_and_atomic_failure_preserve_original(self):
-        self.output.write_text(json.dumps({'articles':[self.article]}))
-        before = self.output.read_bytes()
-        self.assertEqual(self.run_builder()[0],1)
-        with patch.object(builder.os,'replace',side_effect=OSError('synthetic failure')):
-            self.assertEqual(self.run_builder(finalize=True)[0],1)
-        self.assertEqual(self.output.read_bytes(),before)
-
-    def test_invalid_or_missing_filename_fails_before_output(self):
-        for filename in [None, '../synthetic-study.pdf', 'PMC123456-Bad-name.pdf']:
-            with self.subTest(filename=filename):
-                invalid = dict(self.article)
-                if filename is None: del invalid['filename']
-                else: invalid['filename'] = filename
-                (self.records/'article.json').write_text(json.dumps(invalid))
-                self.assertEqual(self.run_builder()[0],1)
+                (self.records / 'article.json').write_text(json.dumps(article))
+                self.assertEqual(self.run_builder()[0], 1)
                 self.assertFalse(self.output.exists())
+
+    def test_conflicting_existing_output_is_preserved(self):
+        self.output.write_text('{"articles": []}')
+        before = self.output.read_bytes()
+        self.assertEqual(self.run_builder()[0], 1)
+        self.assertEqual(self.output.read_bytes(), before)

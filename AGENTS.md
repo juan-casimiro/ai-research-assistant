@@ -20,8 +20,8 @@ unavailable, report that and stop before task work.
 - `tools/corpus/download_corpus.py`: PMC PDF downloads and browser instructions for the two Ovid exceptions; see [host setup](README.md#develop-and-evaluate-host). Missing manual downloads return nonzero status.
 - `eval_golden.py`: production-path retrieval evaluation; `compare_evals.py`: result comparison.
 
-- `tools/corpus/build_corpus_manifest.py` / `tools/corpus/fetch_article_metadata.py`: fetch latest/pinned PMC metadata, review naming/topics offline, then assemble existing records; see the corpus workflow.
-- `tools/corpus/extract_corpus_text.py`: local production-equivalent text cache and extraction failures; ingestion cache consumption is deferred.
+- `tools/corpus/build_corpus_manifest.py` / `tools/corpus/fetch_article_metadata.py`: fetch the selection’s latest/pinned PMC metadata and assemble complete records; see the corpus workflow.
+- `tools/corpus/extract_corpus_text.py`: production-equivalent extraction into text beside PDFs and a small failure report.
 - `tools/corpus/publish_corpus.py`: final validation and local promotion; abort conflicts and ask the user before resolving them.
 - `candidates.json` retains the original supplied PMCIDs before network calls; failed fetches cannot remove selected articles.
 - Candidate and acquisition files are generated locally under ignored `build/corpus/<run-id>/`. The corpus metadata is in `data/corpus_manifest.json`; `eligibility` reflects supported article licence evidence only.

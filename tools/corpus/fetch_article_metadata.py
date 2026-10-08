@@ -176,7 +176,37 @@ def parse_record(metadata: dict, jats: bytes, pubmed: bytes, identifiers: dict) 
     }
 
 
-def validate_metadata(record):
+def validate_selection(articles):
+    """Validate the original user input; fetched versions/names are not selection."""
+    if not isinstance(articles, list) or not articles:
+        raise ValueError('selection articles must be a nonempty list')
+    seen = set()
+    for article in articles:
+        pmcid = article.get('pmcid')
+        if not isinstance(pmcid, str) or not re.fullmatch(r'PMC[0-9]+', pmcid):
+            raise ValueError('invalid selected PMCID')
+        if pmcid in seen:
+            raise ValueError('duplicate selected PMCID: ' + pmcid)
+        seen.add(pmcid)
+        for field in ['cluster', 'search_query']:
+            if field in article and (not isinstance(article[field], str) or not article[field].strip()):
+                raise ValueError('invalid supplied ' + field)
+    return articles
+
+
+def validate_records(articles):
+    if not isinstance(articles, list) or not articles:
+        raise ValueError('articles must be a nonempty list')
+    seen = set()
+    for article in articles:
+        validate_record(article)
+        if article['pmcid'] in seen:
+            raise ValueError('duplicate PMCID: ' + article['pmcid'])
+        seen.add(article['pmcid'])
+    return articles
+
+
+def validate_record(record):
     for field in ['pmid', 'doi', 'title', 'journal', 'publication_date', 'pubmed_url', 'abstract']:
         if not isinstance(record.get(field), str) or not record[field].strip():
             raise ValueError('missing mandatory field: ' + field)
@@ -194,6 +224,21 @@ def validate_metadata(record):
         raise ValueError('missing bibliography year')
     if licence_eligibility(record.get('license'), record.get('licence_urls', [])) != 'eligible':
         raise ValueError('unsupported or missing licence evidence')
+
+    pmcid, version = record['pmcid'], record['pmc_version']
+    if not isinstance(pmcid, str) or not re.fullmatch(r'PMC[0-9]+', pmcid):
+        raise ValueError('invalid PMCID')
+    if type(version) is not int or version < 1:
+        raise ValueError('pmc_version must be a positive integer')
+    filename = record['filename']
+    if not isinstance(filename, str) or not re.fullmatch(re.escape(pmcid) + r'-[a-z0-9]+(?:-[a-z0-9]+){0,6}\.pdf', filename):
+        raise ValueError('filename must match PMCID plus 1–7 lowercase hyphen-separated words')
+    for field in ['id', 'article_id']:
+        if record.get(field) != filename[:-4]:
+            raise ValueError('filename/ID mismatch: ' + field)
+    for field in ['cluster', 'search_query']:
+        if not isinstance(record.get(field), str) or not record[field].strip():
+            raise ValueError(field + ' must be nonempty')
 
 
 def fetch_metadata(pmcid: str, version: int | None = None, search_query: str | None = None, filename: str | None = None, cluster: str | None = None, archive_dir: Path | None = None) -> dict:
@@ -239,7 +284,7 @@ def fetch_metadata(pmcid: str, version: int | None = None, search_query: str | N
     result["metadata_sha256"] = hashlib.sha256(raw_metadata).hexdigest()
     result["metadata_sources"] = {name: {"url": url, "sha256": hashlib.sha256(data).hexdigest()} for name, (url, data) in sources.items()}
     result["metadata_sources"]["pdf"] = {"url": cloud_url(metadata["pdf_url"])}
-    validate_metadata(result)
+    validate_record(result)
     if archive_dir is not None:
         archive_dir.mkdir(parents=True, exist_ok=True)
         for name, (_, data) in sources.items():
@@ -251,55 +296,31 @@ def fetch_metadata(pmcid: str, version: int | None = None, search_query: str | N
 
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    mode = parser.add_mutually_exclusive_group(required=True)
-    mode.add_argument("--pmcid")
-    mode.add_argument("--review-record", type=Path, help="Assign cluster/review naming offline after fetch")
-    parser.add_argument("--selection-file", type=Path, help="Original supplied PMCID list, saved before any fetch")
-    parser.add_argument("--pmc-version", type=int)
-    parser.add_argument("--search-query")
-    parser.add_argument("--filename", help="Reviewed PMCID plus 1–7 lowercase hyphenated words and .pdf")
-    parser.add_argument("--cluster")
-    parser.add_argument("--output", type=Path)
-    parser.add_argument("--archive-dir", type=Path)
+    parser.add_argument('--selection-file', type=Path, required=True)
+    parser.add_argument('--records-dir', type=Path, required=True)
+    parser.add_argument('--archive-dir', type=Path, required=True)
     args = parser.parse_args(argv)
     try:
-        if args.review_record:
-            from .build_corpus_manifest import validate_records, atomic_write
-            original = args.review_record.read_bytes()
-            record = json.loads(original)
-            if args.cluster is not None:
-                record['cluster'] = args.cluster
-            if args.filename is not None:
-                record['filename'] = args.filename
-            record['id'] = record['article_id'] = record['filename'][:-4]
-            validate_records([record])
-            validate_metadata(record)
-            atomic_write(args.review_record, record, original)
-        else:
-            if args.output is None:
-                parser.error('--output is required for fetch')
-            if args.selection_file is None:
-                parser.error('--selection-file is required; save supplied PMCIDs before fetching')
-            cluster, query = args.cluster, args.search_query
-            if args.selection_file is not None:
-                from .build_corpus_manifest import validate_selection
-                supplied = validate_selection(json.loads(args.selection_file.read_text())['articles'])
-                selected = next((a for a in supplied if a['pmcid'] == args.pmcid), None)
-                if selected is None:
-                    raise ValueError('PMCID is not in supplied selection')
-                cluster = cluster if cluster is not None else selected.get('cluster')
-                query = query if query is not None else selected.get('search_query')
-            if args.pmc_version is None and args.archive_dir is None:
-                parser.error('--archive-dir is required to retain latest-deposit lookup evidence')
-            record = fetch_metadata(args.pmcid, args.pmc_version, query, args.filename, cluster, args.archive_dir)
-            args.output.parent.mkdir(parents=True, exist_ok=True)
-            args.output.write_text(json.dumps(record, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    except (OSError, ValueError, KeyError, TypeError, ET.ParseError) as error:
-        print(f"ERROR {args.pmcid or args.review_record}: {error}")
+        articles = validate_selection(json.loads(args.selection_file.read_text())['articles'])
+        args.records_dir.mkdir(parents=True, exist_ok=True)
+    except (OSError, ValueError, KeyError, TypeError) as error:
+        print(f'ERROR: {error}')
         return 1
-    print(f"Metadata saved: {record['pmcid']} version {record['pmc_version']}; review filename and cluster before assembly")
-    return 0
+    failed = False
+    for article in articles:
+        try:
+            record = fetch_metadata(article['pmcid'], article.get('pmc_version'),
+                                    article.get('search_query'), article.get('filename'),
+                                    article.get('cluster'), args.archive_dir)
+            (args.records_dir / (article['pmcid'] + '.json')).write_text(
+                json.dumps(record, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+            print(f"{record['pmcid']} version {record['pmc_version']}: {record['filename']}")
+        except (OSError, ValueError, KeyError, TypeError, ET.ParseError) as error:
+            failed = True
+            (args.records_dir / (article['pmcid'] + '.json')).unlink(missing_ok=True)
+            print(f"FAILED {article['pmcid']}: {error}")
+    return int(failed)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     raise SystemExit(main())
