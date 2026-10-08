@@ -58,11 +58,11 @@ def main(argv=None):
     mode = parser.add_mutually_exclusive_group(required=True)
     mode.add_argument('--records-dir', type=Path, help='Directory of per-article metadata JSON records')
     mode.add_argument('--finalize', type=Path, help='Validate this existing manifest in place, offline')
-    parser.add_argument('--output', type=Path, help='Creation output; defaults to data/corpus_manifest.json')
+    parser.add_argument('--output', type=Path, help='Preparation output; defaults to corpus_manifest.json beside the records directory')
     args = parser.parse_args(argv)
     if args.finalize and args.output:
         parser.error('--output cannot be used with --finalize')
-    path = args.finalize or args.output or Path('data/corpus_manifest.json')
+    path = args.finalize or args.output or (args.records_dir.parent / 'corpus_manifest.json')
     try:
         original = path.read_bytes() if args.finalize else None
         if not args.finalize and path.exists():

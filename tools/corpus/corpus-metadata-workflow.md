@@ -122,11 +122,11 @@ manifest, after fetching one record for every selected PMCID:
 
 ```sh
 .venv/bin/python -m tools.corpus.build_corpus_manifest \
-  --records-dir "$corpus_run_dir/metadata" --output data/corpus_manifest.json
+  --records-dir "$corpus_run_dir/metadata" --output "$corpus_run_dir/corpus_manifest.json"
 .venv/bin/python -m tools.corpus.download_corpus \
-  --manifest data/corpus_manifest.json --corpus-dir "$corpus_run_dir/pdfs"
+  --manifest "$corpus_run_dir/corpus_manifest.json" --corpus-dir "$corpus_run_dir/pdfs"
 .venv/bin/python -m tools.corpus.extract_corpus_text \
-  --manifest data/corpus_manifest.json --corpus-dir "$corpus_run_dir/pdfs" \
+  --manifest "$corpus_run_dir/corpus_manifest.json" --corpus-dir "$corpus_run_dir/pdfs" \
   --cache-dir "$corpus_run_dir/extracted_text"
 ```
 
@@ -140,7 +140,7 @@ Creation refuses an existing output. To validate an existing manifest offline:
 
 ```sh
 .venv/bin/python -m tools.corpus.build_corpus_manifest \
-  --finalize data/corpus_manifest.json
+  --finalize "$corpus_run_dir/corpus_manifest.json"
 ```
 
 Validation preserves scientific metadata and IDs and writes atomically only after
@@ -149,6 +149,37 @@ in the local index. The downloader checks supplied PDF SHA-256 before skipping
 existing files and before atomically replacing them. Archived V1 manifests without
 hashes retain their original structural-check compatibility. For reused local
 PDFs, just run extraction; no new download is required.
+
+## Publication is the final gate
+
+Prepare every artifact under `build/corpus/<run-id>/` first. Keep the supplied
+selection in `candidates.json`; publication compares its PMCID/version/filename
+membership with the prepared manifest, so missing metadata cannot silently reduce
+the corpus. Only after metadata, PDF checksums and extraction all pass, run:
+
+```sh
+.venv/bin/python -m tools.corpus.publish_corpus --run-dir "$corpus_run_dir" \
+  --manifest-destination data/corpus_manifest.json --pdf-destination corpus/mvp
+```
+
+Use `--check` to validate without moving final artifacts. Publication revalidates
+metadata, pinned PDF sources/checksums and the extraction cache. It aborts on
+any failure or destination conflict before moving artifacts. Existing final
+files are accepted only when manifest contents and PDF membership/hashes match;
+there is no overwrite/force option. After success the manifest and PDFs live
+outside build, and preparation originals are removed. Text/cache diagnostics stay
+local under the run directory. To reuse that cache afterward, supply
+`--corpus-dir corpus/mvp` to the extraction helper.
+
+On failure, read local `publication_report.json` and `extraction_report.json`.
+**Stop and prompt the user**, listing each PMCID/file, reason and affected
+existing destination. Ask whether to resolve conflicting files or remove/replace
+PMCIDs. Do not change selection, delete final files, overwrite conflicts or
+retry publication until the user resolves the choice. If selection changes,
+update candidates/metadata, rebuild the prepared manifest and rerun validation.
+Keep final destinations intact while validation is incomplete. PDF promotion is
+staged; a manifest-write failure rolls back newly installed PDFs. No downloaded
+PDFs or local reports are committed.
 
 ## Text cache and failure policy
 
