@@ -15,7 +15,7 @@ README.
 
 ## Category design
 
-The golden QA set (`golden_qa.json`) uses five categories, each
+The golden QA set ([golden_qa.json](../data/archive/v1/golden_qa.json)) uses five categories, each
 targeting a distinct retrieval failure mode. Four are scored by
 `eval_golden.py`; `unanswerable` is logged but not scored.
 
@@ -171,7 +171,7 @@ re-labelling existing entries.
 
   ## Update: `abstract_summary` field for golden QA authoring
 
-`corpus_manifest.json` entries include an `abstract_summary` field to
+[corpus_manifest.json](../data/archive/v1/corpus_manifest.json) entries include an `abstract_summary` field to
 support drafting new golden QA cases without opening full text for
 every candidate query. It's sufficient for `direct_lookup` and
 `cross_doc_distractor` first drafts (top-line findings, primary
@@ -181,4 +181,4 @@ table-level figures — e.g. `q128`/`q129`
 since the abstract didn't name the specific lab marker or mention
 hypertension at all. Use the abstract for a first draft; verify
 against full text before adding table/subgroup-dependent cases to
-`golden_qa.json`.
+[golden_qa.json](../data/archive/v1/golden_qa.json).

@@ -76,7 +76,7 @@ lenient version of this check that produced misleadingly high scores.
 
 (**Superseded**: this early 8-query harness, `eval_retrieval.py`, was
 later replaced by the category-aware `eval_golden.py` harness against
-`golden_qa.json` — see the Hybrid Search Evaluation section below and
+[golden_qa.json](../data/archive/v1/golden_qa.json) — see the Hybrid Search Evaluation section below and
 [ADR-002](./002-evaluation-methodology.md) for the current, much larger
 evaluation set and its scoring logic. `eval_retrieval.py` has been
 removed from the repo; kept here only as a historical record of how
@@ -232,7 +232,7 @@ They were evaluated against the golden QA set (103 scored queries, 4
 categories) in isolation and combined, to measure their actual effect
 rather than assume a hybrid approach would outperform vector-only search.
 
-New `cross_doc_distractor` queries were added to `golden_qa.json`
+New `cross_doc_distractor` queries were added to [golden_qa.json](../data/archive/v1/golden_qa.json)
 specifically to exercise exact-term matching (model names, biomarkers,
 numeric thresholds) where BM25 should have a structural advantage over
 dense embeddings.
@@ -258,7 +258,7 @@ at any point.
 | BM25 + rewrite         | 99/103 (96.1%)  | 101/103 (98.1%)  | 0             |
 
 Full per-query results for all four configurations are committed under
-`eval_results/` for inspection.
+[data/archive/v1/evaluations/](../data/archive/v1/evaluations/) for inspection.
 
 ### Findings
 
@@ -403,7 +403,7 @@ miss.
 
 Measured: "What is the capital of Peru?" returns a correct refusal
 alongside `sources: ["outlier-amr-surveillance.pdf"]`. Corroborated by
-`eval_results/eval_results_baseline.json`, where `unanswerable` queries
+[eval_results_baseline.json](../data/archive/v1/evaluations/eval_results_baseline.json), where `unanswerable` queries
 return fully-populated `retrieved_sources`.
 
 **The failure mode is low-relevance results, not zero results.**
@@ -419,6 +419,8 @@ correctly — it was just trapped in prose. `/query` now captures it via
 Field order in the schema is deliberate (`answer` before the flag) so the
 judgement follows the answer rather than preceding it.
 
+
+Saved V1 flag evidence is [context_sufficient_eval_results.json](../data/archive/v1/evaluations/context_sufficient_eval_results.json). This file contains the 29 expected-True samples only; it is not the complete before/after experiment described below.
 
 ### Known limitations (both measured, not hypothetical)
 

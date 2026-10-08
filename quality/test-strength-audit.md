@@ -41,7 +41,7 @@ model configuration, prompts, corpus, and deployment files are unchanged.
 
 ## Verification results
 
-Baseline: **12 tests pass**. Final: **55 tests pass** with `unittest discover`,
+Baseline: **12 tests pass**. Final: **55 tests pass** with `unittest discover -s tests -t .`,
 including the coverage run. Focused runs passed before the final suite. Tests use
 fake model/LLM/store boundaries and temporary fixtures; no real Chroma store,
 model download, live LLM request, or paid evaluation was used.
@@ -193,8 +193,8 @@ From the repository root, with Python 3.12, the virtual environment activated
 ```sh
 python -m pip install -r requirements-quality.txt
 AUDIT_DIR="$(mktemp -d)"
-python -m unittest discover -v
-python -m coverage run --data-file="$AUDIT_DIR/final.coverage" -m unittest discover
+python -m unittest discover -s tests -t . -v
+python -m coverage run --data-file="$AUDIT_DIR/final.coverage" -m unittest discover -s tests -t .
 python -m coverage report --data-file="$AUDIT_DIR/final.coverage"
 python -m coverage json --data-file="$AUDIT_DIR/final.coverage" -o "$AUDIT_DIR/final.json"
 python quality/quality_hotspots.py "$AUDIT_DIR/final.json" > "$AUDIT_DIR/final-hotspots.json"

@@ -18,10 +18,11 @@ from pathlib import Path
 
 import httpx
 from pypdf import PdfReader
+from tools.corpus.pdf_text import extract_pages
 
 INGEST_URL = "http://localhost:8000/ingest"
 HEALTH_URL = "http://localhost:8000/health"
-DEFAULT_MANIFEST = Path("./corpus_manifest.json")
+DEFAULT_MANIFEST = Path("./data/corpus_manifest.json")
 DEFAULT_CORPUS_DIR = Path("./corpus")
 
 def check_existing_chunks(client: httpx.Client) -> int:
@@ -49,7 +50,7 @@ def ingest_file(client: httpx.Client, pdf_path: Path, source: str) -> int | None
         print(f"  ERROR reading {pdf_path.name}: {exc}")
         return None
 
-    text = "\n".join(page.extract_text() or "" for page in reader.pages)
+    text = "\n".join(extract_pages(reader))
     pdf_path.with_suffix(".txt").write_text(text, encoding="utf-8") # saves the parsed pdf txt for reference
     if not text.strip():
         print(f"  WARNING: {pdf_path.name} extracted empty text — skipping.")
@@ -76,7 +77,7 @@ def main() -> int:
         "--manifest",
         type=Path,
         default=DEFAULT_MANIFEST,
-        help="Path to corpus_manifest.json (default: ./corpus_manifest.json)",
+        help="Path to corpus_manifest.json (default: ./data/corpus_manifest.json)",
     )
     args = parser.parse_args()
 

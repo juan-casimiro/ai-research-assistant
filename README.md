@@ -4,9 +4,9 @@ Research Assistant (RAG)
 
 A FastAPI service for semantic search and question-answering over ingested documents, using local embeddings, Chroma for vector storage, and an LLM (via LangChain) for grounded generation.
 
-The test corpus is 19 open-access biomedical research articles (PubMed Central Open Access subset and equivalent open-access journals), spanning diabetes, cardiology, oncology, and an outlier cluster covering antimicrobial resistance, gut microbiome/tuberculosis, and AI-assisted diagnosis — see corpus_manifest.json for full per-article metadata, licenses, and sourcing notes. The RAG pipeline itself is domain-agnostic; biomedical literature was chosen as a corpus with genuinely dense, citation-heavy, and terminology-specific text, useful for stress-testing retrieval precision.
+The original V1 test corpus is 19 open-access biomedical research articles (PubMed Central Open Access subset and equivalent open-access journals), spanning diabetes, cardiology, oncology, and an outlier cluster covering antimicrobial resistance, gut microbiome/tuberculosis, and AI-assisted diagnosis — see [corpus_manifest.json](./data/archive/v1/corpus_manifest.json) for full per-article metadata, licenses, and sourcing notes. The RAG pipeline itself is domain-agnostic; biomedical literature was chosen as a corpus with genuinely dense, citation-heavy, and terminology-specific text, useful for stress-testing retrieval precision.
 
-**Retrieval accuracy: 96.4% @ n=3, 98.2% @ n=8** on a 133-query golden QA set (111 scored), spanning direct lookup, multi-hop, cross-document distractor, and cross-document synthesis cases. BM25 hybrid search and LLM query rewriting were implemented and evaluated as opt-in additions but measured no net benefit on this corpus — see [ADR-001](./adr/001-chunking-and-retrieval.md) for the full evaluation, including one attributable regression from BM25 alone.
+**Original V1 retrieval accuracy: 96.4% @ n=3, 98.2% @ n=8** on a 133-query golden QA set (111 scored), spanning direct lookup, multi-hop, cross-document distractor, and cross-document synthesis cases. BM25 hybrid search and LLM query rewriting were implemented and evaluated as opt-in additions but measured no net benefit on this corpus — see [ADR-001](./adr/001-chunking-and-retrieval.md) for the full evaluation, including one attributable regression from BM25 alone.
 
 CI runs unit tests, builds the Docker image, and smoke-tests `/health` on every pull request and push to `main`. The golden QA evaluation remains manual because it is non-deterministic and calls a paid API. Successful `main` builds publish commit-SHA and `latest` images to `ghcr.io/juan-casimiro/ai-research-assistant`; nothing is deployed automatically. See [ADR-003](./adr/003-deployment-and-containerisation.md).
 
@@ -62,6 +62,14 @@ No Anthropic API key? See the [Ollama appendix](#appendix-local-llm-with-ollama)
 for a Docker-based alternative that runs entirely locally, no credentials
 required.
 
+The original V1 inputs and saved results are now in [data/archive/v1/](./data/archive/v1/README.md). These results describe the 19-article V1 corpus, not the forthcoming 55-article corpus. Historical replay is not required; the existing helper commands below remain available.
+
+## Corpus metadata and PDFs
+
+Give a list of PMCIDs to the [generate-corpus-metadata skill](./.agents/skills/generate-corpus-metadata/SKILL.md)
+to generate the corpus manifest and download the PDF files. The process and
+verification requirements are described in [the corpus metadata workflow](./tools/corpus/corpus-metadata-workflow.md).
+
 ## Develop and evaluate (host)
 
 This is the path the headline retrieval figures (96.4% @ n=3, 98.2% @
@@ -98,10 +106,10 @@ uvicorn main:app --reload
 ```
 
 In a separate terminal, populate the full corpus. PDFs remain untracked
-(see `.gitignore`); per-article license terms are recorded in `corpus_manifest.json`.
+(see `.gitignore`); per-article license terms are recorded in [corpus_manifest.json](./data/archive/v1/corpus_manifest.json).
 
 ```bash
-python download_corpus.py
+python -m tools.corpus.download_corpus --manifest data/archive/v1/corpus_manifest.json
 ```
 
 The downloader fetches the 17 PMC articles through the public
@@ -112,7 +120,7 @@ The manifest pins version 1 for these articles; versions are distinct deposits,
 so the downloader does not guess a replacement version when a source fails.
 
 Two articles have no recorded PMC ID and need a browser download. Run
-`python download_corpus.py --open-manual` to open only the missing publisher
+`python -m tools.corpus.download_corpus --manifest data/archive/v1/corpus_manifest.json --open-manual` to open only the missing publisher
 pages. On each Ovid page, select **Download PDF**, then the download icon in
 the PDF viewer toolbar, and save into `./corpus/` with the exact name below:
 
@@ -139,7 +147,7 @@ Ingest everything:
 
 ```bash
 python reset_collection.py    # resets the vector store (safe on a fresh clone)
-python ingest_corpus.py       # ingests every PDF listed in the manifest
+python ingest_corpus.py --manifest data/archive/v1/corpus_manifest.json # original V1 corpus
 ```
 
    Expect one `INGESTED` line per file; `SKIP (file not found)` means
@@ -151,7 +159,7 @@ python ingest_corpus.py       # ingests every PDF listed in the manifest
 python eval_golden.py [--bm25] [--rewrite]
 ```
 
-Runs the golden QA evaluation harness (`golden_qa.json`, 133 queries,
+Runs the golden QA evaluation harness ([golden_qa.json](./data/archive/v1/golden_qa.json), 133 queries,
 111 scored across 4 categories plus unanswerable) against the production
 `retrieve()` pipeline. The script imports `retrieve()` and
 `_load_models_and_index()` from `main.py`, loads the models and existing
@@ -173,7 +181,7 @@ Diffs two result files and prints per-query pass/fail flips, for
 isolating the effect of a single change.
 
 Raw per-query results for all four tested configurations are committed
-under `eval_results/` for inspection: `eval_results_baseline.json`,
+under [data/archive/v1/evaluations/](./data/archive/v1/evaluations/) for inspection: `eval_results_baseline.json`,
 `eval_results_bm25.json`, `eval_results_rewrite.json`, and
 `eval_results_bm25_rewrite.json`.
 
@@ -331,7 +339,7 @@ Spring → FastAPI trace proof in Jaeger.
 
 ## Deterministic regression tests
 
-Run `.venv/bin/python -m unittest discover -v` for the offline regression suite.
+Run `.venv/bin/python -m unittest discover -s tests -t . -v` for the offline regression suite.
 See [the test-strength audit](quality/test-strength-audit.md) for the
 behaviour map, verification-first mutation evidence, optional coverage/complexity
 commands, and remaining gaps. These tests do not replace the live golden evaluations.

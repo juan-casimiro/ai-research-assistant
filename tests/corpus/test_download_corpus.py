@@ -10,7 +10,7 @@ from unittest.mock import patch
 
 from pypdf import PdfWriter
 
-import download_corpus
+from tools.corpus import download_corpus
 
 
 def pdf_bytes():
@@ -48,6 +48,31 @@ class DownloadCorpusTests(unittest.TestCase):
                 self.assertEqual(destination.read_bytes(), b"previous file")
                 self.assertEqual(list(Path(directory).glob("*.part")), [])
 
+    def test_manifest_hash_controls_skip_and_replacement(self):
+        payload = pdf_bytes()
+        expected = hashlib.sha256(payload).hexdigest()
+        with tempfile.TemporaryDirectory() as directory:
+            destination = Path(directory, "test-paper.pdf")
+            manifest = Path(directory, "manifest.json")
+            article = {"filename": destination.name, "pmcid": "PMC123", "doi": "10.123/test", "metadata_sources": {"pdf": {"sha256": expected}}}
+            manifest.write_text(json.dumps({"articles": [article]}))
+            args = ["--manifest", str(manifest), "--corpus-dir", directory]
+            destination.write_bytes(payload)
+            with patch.object(download_corpus, "open_url") as remote, contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(download_corpus.main(args), 0)
+                remote.assert_not_called()
+            # A structurally valid PDF with the wrong hash must not be skipped.
+            destination.write_bytes(payload + b"\n% synthetic different bytes")
+            with patch.object(download_corpus, "resolve_pdf", return_value=("https://example.test/pdf", None)), patch.object(download_corpus, "open_url", return_value=io.BytesIO(payload)), contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(download_corpus.main(args), 0)
+            self.assertEqual(destination.read_bytes(), payload)
+            article["metadata_sources"]["pdf"]["sha256"] = "0" * 64
+            manifest.write_text(json.dumps({"articles": [article]}))
+            with patch.object(download_corpus, "resolve_pdf", return_value=("https://example.test/pdf", None)), patch.object(download_corpus, "open_url", return_value=io.BytesIO(payload)), contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(download_corpus.main(args), 1)
+            self.assertEqual(destination.read_bytes(), payload)
+            self.assertEqual(list(Path(directory).glob("*.part")), [])
+
     def test_metadata_identity_and_url_validation(self):
         article = {"pmcid": "PMC123", "doi": "10.123/test-paper", "pmc_version": 4}
         metadata = {"pmcid": "PMC123", "doi": "10.123/TEST-PAPER", "pdf_url": "s3://pmc-oa-opendata/PMC123.4/paper.pdf?md5=test-digest"}
@@ -59,6 +84,19 @@ class DownloadCorpusTests(unittest.TestCase):
         for field, value in [("doi", "10.123/wrong-paper"), ("pmcid", "PMC999"), ("pdf_url", "https://example.test/wrong.pdf")]:
             with self.subTest(field=field), patch.object(download_corpus, "open_url", return_value=io.BytesIO(json.dumps(dict(metadata, **{field: value})).encode())), self.assertRaises(ValueError):
                 download_corpus.resolve_pdf(article)
+
+    def test_existing_manifest_download_uses_pinned_version_without_latest_lookup(self):
+        payload = pdf_bytes()
+        metadata = {'pmcid': 'PMC123', 'doi': '10.123/synthetic', 'pdf_url': 's3://pmc-oa-opendata/PMC123.4/synthetic.pdf'}
+        with tempfile.TemporaryDirectory() as directory:
+            manifest = Path(directory, 'manifest.json')
+            manifest.write_text(json.dumps({'articles': [{'pmcid': 'PMC123', 'pmc_version': 4, 'doi': '10.123/synthetic', 'filename': 'synthetic-pinned.pdf'}]}))
+            original = manifest.read_bytes()
+            with patch.object(download_corpus, 'open_url', side_effect=[io.BytesIO(json.dumps(metadata).encode()), io.BytesIO(payload)]) as source_reader, contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(download_corpus.main(['--manifest', str(manifest), '--corpus-dir', directory]), 0)
+            urls = [call.args[0] for call in source_reader.call_args_list]
+            self.assertEqual(urls, [download_corpus.BUCKET + '/metadata/PMC123.4.json', download_corpus.BUCKET + '/PMC123.4/synthetic.pdf'])
+            self.assertEqual(manifest.read_bytes(), original)
 
     def test_missing_manual_is_incomplete_and_browser_is_opt_in(self):
         with tempfile.TemporaryDirectory() as directory:

@@ -1,7 +1,7 @@
 # Diagnostic quality checks
 
 These are opt-in measurements, not build gates. The default test suite remains
-`python -m unittest discover`. Optional pinned `coverage==7.16.0` and
+`python -m unittest discover -s tests -t .`. Optional pinned `coverage==7.16.0` and
 `radon==6.0.1` live in `requirements-quality.txt`; runtime requirements and the
 Docker image are untouched.
 
@@ -13,7 +13,7 @@ explicitly if you regenerate it.
 
 ```sh
 AUDIT_DIR="$(mktemp -d)"
-python -m coverage run --data-file="$AUDIT_DIR/final.coverage" -m unittest discover
+python -m coverage run --data-file="$AUDIT_DIR/final.coverage" -m unittest discover -s tests -t .
 python -m coverage report --data-file="$AUDIT_DIR/final.coverage"
 python -m coverage json --data-file="$AUDIT_DIR/final.coverage" -o "$AUDIT_DIR/final.json"
 python quality/quality_hotspots.py "$AUDIT_DIR/final.json" > "$AUDIT_DIR/final-hotspots.json"
