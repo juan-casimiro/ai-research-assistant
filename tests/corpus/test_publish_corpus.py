@@ -49,6 +49,18 @@ class PublicationTests(unittest.TestCase):
         self.assertTrue(self.source.exists())
         self.assertTrue((self.final_pdfs / self.pdf.with_suffix('.txt').name).exists())
         self.assertEqual(self.run_tool(), 0)
+        for value in [None, '']:
+            article = json.loads(self.final_manifest.read_text())['articles'][0]
+            for field in ['cluster', 'search_query', 'selection_rationale']:
+                if value is None:
+                    article.pop(field, None)
+                else:
+                    article[field] = value
+            manifest = json.dumps({'articles': [article]})
+            self.source.write_text(manifest)
+            self.final_manifest.write_text(manifest)
+            (self.run_dir/'candidates.json').write_text(manifest)
+            self.assertEqual(self.run_tool(check=True), 0)
 
     def test_conflicting_manifest_or_pdf_leaves_everything_intact(self):
         for kind in ['manifest', 'pdf']:
@@ -169,7 +181,7 @@ class PublicationTests(unittest.TestCase):
     def test_every_incomplete_metadata_field_blocks_publication(self):
         for field in ['pmcid', 'pmc_version', 'pmid', 'doi', 'title', 'authors', 'journal',
                       'publication_date', 'abstract', 'filename', 'id', 'article_id',
-                      'cluster', 'search_query', 'pubmed_url', 'year', 'license', 'licence_urls']:
+                      'pubmed_url', 'year', 'license', 'licence_urls']:
             with self.subTest(field=field):
                 invalid = dict(self.article)
                 del invalid[field]

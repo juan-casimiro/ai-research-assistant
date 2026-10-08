@@ -6,8 +6,8 @@ failed fetch. No ingestion or retrieval changes are part of this workflow.
 
 ## 1. Save selection
 
-Save `candidates.json` before fetching, containing the supplied PMCIDs, clusters
-and discovery queries (or explicit selection provenance):
+Save `candidates.json` before fetching, containing the supplied PMCIDs and any
+supplied reference fields:
 
 ```json
 {"articles": [{"pmcid": "PMC123456", "cluster": "test-topic", "search_query": "User selected PMCID; original query unavailable"}]}
@@ -33,16 +33,25 @@ Fetch loops over the selection and prints each proposed filename. Correct a
 filename in `candidates.json`, then rerun the fetch command with
 `--pmcid <PMCID>` before assembly. Repeat `--pmcid` to correct several articles
 without refetching others. Assembly rebuilds the prepared manifest in place.
-Cluster always comes from the selection.
-Optional `selection_rationale` and `topic_rationale` describe the article’s
-role in Q&A and evaluation. Put them in the selection for new runs; refetch
-preserves existing record rationales unless the selection supplies replacements.
-Assembly preserves these fields. They do not affect admission or ingestion.
+`cluster`, `selection_rationale` and `search_query` are reference fields and
+non-critical; missing or empty values never block fetch, assembly or publication.
+
+- `cluster`: after fetching, assign a high-level grouping from the abstract,
+  reusing an existing value where one fits. Set it in the article's record under
+  `metadata/` and in `candidates.json`, then assemble.
+- `selection_rationale`: take it from the user's request or ask once; otherwise
+  leave it blank. Do not invent one.
+- `search_query`: record a discovery query only when one was supplied. Fetch
+  retains its explicit user-selection fallback when no query is supplied.
+
+Assembly preserves editorial fields; they do not affect ingestion.
+Optional `topic_rationale` describes topic assignment and is preserved on refetch
+unless the selection supplies a replacement.
 Fetch, assembly and publication use the same complete-record validator.
 
 Every record requires PMCID, pinned PMC version, PMID, DOI, title, authors,
 journal, publication date/year, PubMed abstract and identity URL, consistent
-filename/IDs, cluster and selection provenance. Only the existing
+filename/IDs. Only the existing
 `licence_eligibility` rules for CC BY 4.0 and CC0 1.0 are accepted. Raw responses
 remain under `provenance/`; per-source SHA-256 values stay in the manifest.
 

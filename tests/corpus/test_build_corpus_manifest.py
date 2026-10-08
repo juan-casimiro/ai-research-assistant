@@ -39,11 +39,20 @@ class ManifestTests(unittest.TestCase):
         self.assertEqual(self.run_builder()[0], 0)
         self.assertEqual(json.loads(self.output.read_text()), {'articles': [self.article]})
         self.assertEqual(self.run_builder()[0], 0)
+        for value in [None, '']:
+            article = dict(self.article)
+            for field in ['cluster', 'search_query', 'selection_rationale']:
+                if value is None:
+                    article.pop(field, None)
+                else:
+                    article[field] = value
+            (self.records/'article.json').write_text(json.dumps(article))
+            self.assertEqual(self.run_builder()[0], 0)
 
     def test_incomplete_records_never_write_manifest(self):
         for field in ['pmcid', 'pmc_version', 'filename', 'pmid', 'doi', 'title', 'journal',
                       'publication_date', 'authors', 'year', 'abstract', 'pubmed_url',
-                      'id', 'article_id', 'cluster', 'search_query', 'licence_urls']:
+                      'id', 'article_id', 'licence_urls']:
             with self.subTest(field=field):
                 article = copy.deepcopy(self.article)
                 del article[field]

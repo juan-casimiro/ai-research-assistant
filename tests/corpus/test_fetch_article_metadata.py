@@ -104,13 +104,14 @@ class ArticleMetadataTests(unittest.TestCase):
         raw = json.dumps(identifiers).encode()
         responses = [raw, json.dumps(cloud).encode(), self.pubmed, self.jats]
         with tempfile.TemporaryDirectory() as directory, patch('tools.corpus.fetch_article_metadata.read_bytes', side_effect=responses) as source_reader:
-            result = fetch_metadata('PMC123456', cluster='test-topic', archive_dir=Path(directory))
+            result = fetch_metadata('PMC123456', archive_dir=Path(directory))
             self.assertEqual(result['pmc_version'], 2)
             self.assertIn('PMC123456.2.json', source_reader.call_args_list[1].args[0])
             self.assertEqual((Path(directory)/'PMC123456.2.id-converter.json').read_bytes(), raw)
             self.assertEqual(result['metadata_sources']['id-converter.json']['sha256'], hashlib.sha256(raw).hexdigest())
             self.assertEqual(result['filename'], 'PMC123456-a-synthetic-cardiac-study.pdf')
-            self.assertEqual(result['cluster'], 'test-topic')
+            self.assertEqual(result['cluster'], '')
+            self.assertEqual(result['selection_rationale'], '')
             self.assertIn('User supplied PMCID', result['search_query'])
 
     def test_explicit_version_is_not_replaced_by_current_version(self):
@@ -169,7 +170,7 @@ class ArticleMetadataTests(unittest.TestCase):
             self.assertEqual(untouched.read_bytes(), before)
             self.assertTrue((records/'PMC888.json').exists())
 
-    def test_refetch_preserves_rationales_and_selection_can_replace_them(self):
+    def test_refetch_preserves_topic_rationale_and_uses_supplied_selection_rationale(self):
         from tests.corpus.test_build_corpus_manifest import record
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
@@ -178,7 +179,7 @@ class ArticleMetadataTests(unittest.TestCase):
             output.write_text(json.dumps(dict(record(), selection_rationale='Some selection reason',
                                               topic_rationale='Some topic reason')))
             selection = root/'candidates.json'
-            article = {'pmcid': 'PMC123456', 'cluster': 'test-topic'}
+            article = {'pmcid': 'PMC123456', 'cluster': '', 'search_query': ''}
             for replacement in [None, 'Some revised selection reason']:
                 if replacement:
                     article['selection_rationale'] = replacement
@@ -187,7 +188,7 @@ class ArticleMetadataTests(unittest.TestCase):
                     self.assertEqual(main(['--selection-file', str(selection), '--records-dir', str(records),
                                            '--archive-dir', str(root/'provenance'), '--pmcid', 'PMC123456']), 0)
                 fetched = json.loads(output.read_text())
-                self.assertEqual(fetched['selection_rationale'], replacement or 'Some selection reason')
+                self.assertEqual(fetched['selection_rationale'], replacement or '')
                 self.assertEqual(fetched['topic_rationale'], 'Some topic reason')
 
     def test_unknown_pmcid_filter_fails_before_network(self):

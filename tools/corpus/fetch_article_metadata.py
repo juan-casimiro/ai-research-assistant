@@ -188,9 +188,6 @@ def validate_selection(articles):
         if pmcid in seen:
             raise ValueError('duplicate selected PMCID: ' + pmcid)
         seen.add(pmcid)
-        for field in ['cluster', 'search_query']:
-            if field in article and (not isinstance(article[field], str) or not article[field].strip()):
-                raise ValueError('invalid supplied ' + field)
     return articles
 
 
@@ -236,9 +233,6 @@ def validate_record(record):
     for field in ['id', 'article_id']:
         if record.get(field) != filename[:-4]:
             raise ValueError('filename/ID mismatch: ' + field)
-    for field in ['cluster', 'search_query']:
-        if not isinstance(record.get(field), str) or not record[field].strip():
-            raise ValueError(field + ' must be nonempty')
 
 
 def fetch_metadata(pmcid: str, version: int | None = None, search_query: str | None = None, filename: str | None = None, cluster: str | None = None, archive_dir: Path | None = None) -> dict:
@@ -277,7 +271,7 @@ def fetch_metadata(pmcid: str, version: int | None = None, search_query: str | N
     # Preserve the metadata helper's article_id alias alongside the canonical id.
     article_id = filename[:-4]
     result.update(id=article_id, article_id=article_id,
-                  filename=filename, cluster=cluster, search_query=search_query,
+                  filename=filename, cluster=cluster or "", selection_rationale="", search_query=search_query,
                   metadata_fetched_at=datetime.now(timezone.utc).isoformat())
     result["metadata_url"] = metadata_url
     result["metadata_sha256"] = hashlib.sha256(raw_metadata).hexdigest()
@@ -319,7 +313,8 @@ def main(argv=None) -> int:
             record = fetch_metadata(article['pmcid'], article.get('pmc_version'),
                                     article.get('search_query'), article.get('filename'),
                                     article.get('cluster'), args.archive_dir)
-            for field in ['selection_rationale', 'topic_rationale']:
+            record['selection_rationale'] = article.get('selection_rationale') or ''
+            for field in ['topic_rationale']:
                 if field in article or field in previous:
                     record[field] = article.get(field, previous.get(field))
             path.write_text(
