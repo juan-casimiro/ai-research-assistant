@@ -1,12 +1,21 @@
 #!/usr/bin/env python3
 """Build a corpus manifest from explicitly selected PMC candidates."""
 import argparse
+import hashlib
 import json
 from pathlib import Path
 import re
 import xml.etree.ElementTree as ET
 
 from .fetch_article_metadata import fetch_metadata, licence_eligibility
+from pypdf import PdfReader
+
+
+# User-approved exception: only reporting-summary pages lack extracted text.
+READABILITY_EXCEPTION = (
+    "PMC12003177", 1,
+    "d977b0dc0b6e1642cdf840e3980a7049b2705efea8c3673b1966228426b00747",
+)
 
 
 def load_candidates(path: Path) -> list[dict]:
@@ -33,9 +42,19 @@ def load_candidates(path: Path) -> list[dict]:
     return candidates
 
 
+def unreadable_pages(path: Path) -> list[int]:
+    """Require extractable text on every page; visual readability is insufficient."""
+    reader = PdfReader(path, strict=True)
+    if not reader.pages:
+        raise ValueError("PDF has no pages")
+    return [index for index, page in enumerate(reader.pages, 1)
+            if not (page.extract_text() or "").strip()]
+
+
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--candidates", type=Path, required=True)
+    parser.add_argument("--corpus-dir", type=Path, required=True, help="Directory containing candidate PDFs")
     parser.add_argument("--output", type=Path, default=Path("data/corpus_manifest.json"))
     args = parser.parse_args(argv)
     try:
@@ -51,9 +70,22 @@ def main(argv=None) -> int:
             if record["eligibility"] != "eligible":
                 print(f"EXCLUDED {article['pmcid']}: unsupported or missing licence evidence", flush=True)
                 continue
+            try:
+                missing_text = unreadable_pages(args.corpus_dir / article["filename"])
+            except Exception as error:
+                print(f"EXCLUDED {article['pmcid']}: PDF readability check failed: {error}", flush=True)
+                continue
+            exception = False
+            if missing_text == [22, 23, 24] and (article["pmcid"], article["pmc_version"]) == READABILITY_EXCEPTION[:2]:
+                exception = hashlib.sha256((args.corpus_dir / article["filename"]).read_bytes()).hexdigest() == READABILITY_EXCEPTION[2]
+            if missing_text and not exception:
+                print(f"EXCLUDED {article['pmcid']}: no extracted text on pages {missing_text}", flush=True)
+                continue
+            if exception:
+                record["notes"] = (record.get("notes", "") + " User-approved readability exception for PMC12003177 v1: pages 22–24 are reporting-summary forms with no extracted text; pages 1–21 yield text. Appended forms are not searchable.").strip()
             records.append(record)
         if not records:
-            raise ValueError("no articles have supported licence evidence")
+            raise ValueError("no articles pass licence and PDF readability checks")
         manifest = {"articles": records}
         source = json.loads(args.candidates.read_text(encoding="utf-8")).get("source")
         if source is not None:

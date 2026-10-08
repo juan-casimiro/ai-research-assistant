@@ -134,11 +134,12 @@ For a new output, run:
 
 ```sh
 .venv/bin/python -m tools.corpus.build_corpus_manifest --candidates "$corpus_run_dir/candidates.json" \
-  --output data/corpus_manifest.json
+  --corpus-dir "$corpus_run_dir/pdfs" --output data/corpus_manifest.json
 ```
 
-The builder fetches metadata, computes licence eligibility and reports/omits
-unsupported or missing licence evidence. It fails without writing a manifest if
+The builder fetches metadata, computes licence eligibility, checks every PDF page
+for nonempty extracted text, and reports/omits articles failing either gate.
+Missing PDFs, parser failures or any page without text exclude an article. It fails without writing a manifest if
 none qualify. `eligible` requires the exact licence URL as well as the licence
 name; a generic label or claimed status alone is insufficient. Check mandatory
 identifiers, bibliography and the complete PubMed abstract before accepting its
@@ -147,7 +148,7 @@ output, and download/check one matching readable PDF per included article.
 For an existing manifest, skip the builder's creation command: it refuses existing
 output. Complete metadata in place without deleting/refetching the whole file.
 Recompute eligibility using fetch_article_metadata.licence_eligibility and exclude
-unsupported articles; preserve all other scientific values. Existing 55 records
+unsupported articles and apply the same PDF readability gate; preserve all other scientific values. Existing 55 records
 have explicit supported article licence evidence. Their status describes only
 that check, not figure/table reuse or public PDF distribution.
 
@@ -155,8 +156,16 @@ Verify unique identifiers/filenames, mandatory metadata, exact licence evidence
 and matching readable PDFs. If a page yields no extracted text, render and
 inspect it before reporting unreadability. Distinguish readable article text
 from appended forms or image-only pages; record any extraction limitation.
-Visual readability alone does not make those pages searchable, and this workflow
-does not add OCR. Report included/excluded articles and output paths.
+Visual readability alone does not satisfy admission; exclude articles with any
+page lacking extracted text. This workflow does not add OCR.
+
+The only user-approved exception is **PMC12003177, version 1**, PDF SHA-256
+`d977b0dc0b6e1642cdf840e3980a7049b2705efea8c3673b1966228426b00747`.
+Its pages 1–21 yield text; pages 22–24 are visually readable Nature reporting-summary
+forms without extractable text. Keep this article, recording the limitation in
+its manifest notes. Those forms are not searchable. The builder permits only
+this exact identity, version, hash and missing-page set; future deposits or other
+articles do not inherit the exception. Report included/excluded articles and output paths.
 Keep citation, source links and licence notices for attribution; temporary files
 remain local; commit only the final corpus manifest, not generated per-run
 reports or duplicate manifests. No separate review inventories, receipts or
