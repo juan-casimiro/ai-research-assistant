@@ -62,7 +62,6 @@ class ArticleMetadataTests(unittest.TestCase):
         pubmed = self.pubmed.replace(b"<Abstract>", b"<Other>").replace(b"</Abstract>", b"</Other>")
         record = parse_record(self.cloud_metadata, self.jats, pubmed, self.identifiers)
         self.assertIsNone(record["abstract"])
-        self.assertIsNone(record["abstract_summary"])
         self.assertTrue(record["abstract_absence_reason"])
 
     def test_old_cc_by_version_is_not_labelled_cc_by_4(self):

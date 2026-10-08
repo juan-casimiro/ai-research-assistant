@@ -162,7 +162,7 @@ def parse_record(metadata: dict, jats: bytes, pubmed: bytes, identifiers: dict) 
         "year": int(parts[0]), "article_type": article.get("article-type"),
         "abstract": abstract, "abstract_sections": abstract_sections,
         "abstract_absence_reason": None if abstract else "No abstract in the PubMed record",
-        "abstract_summary": None, "license": licence, "license_notes": notice,
+        "license": licence, "license_notes": notice,
         "licence_urls": licence_urls,
         "page_count": None, "has_structured_sections": bool(article.findall("./body/sec")),
         "notes": "Article licence status is based on pinned metadata; check PDF identity/readability separately.",
