@@ -125,7 +125,9 @@ before the rights/PDF review and before build_corpus_manifest.py:
 
 The downloader checks identity metadata, available MD5 and PDF structure, but
 skips already readable files without checking their identity/hash. Verify reused
-files against the review receipt. Its legacy manual fallback never counts as
+files against their recorded checksums. When a PDF SHA-256 is provided, the
+downloader checks it before skipping a local PDF and before replacing it with a
+download. Archived V1 manifests without hashes keep the prior structural checks. Its legacy manual fallback never counts as
 admission for this PMC-only workflow.
 
 ## Assemble or complete the manifest
@@ -137,20 +139,31 @@ For a new output, run:
   --corpus-dir "$corpus_run_dir/pdfs" --output data/corpus_manifest.json
 ```
 
-The builder fetches metadata, computes licence eligibility, checks every PDF page
-for nonempty extracted text, and reports/omits articles failing either gate.
-Missing PDFs, parser failures or any page without text exclude an article. It fails without writing a manifest if
-none qualify. `eligible` requires the exact licence URL as well as the licence
-name; a generic label or claimed status alone is insufficient. Check mandatory
-identifiers, bibliography and the complete PubMed abstract before accepting its
-output, and download/check one matching readable PDF per included article.
+The builder fetches metadata and validates mandatory identifiers, bibliography,
+nonempty PubMed abstract, filename/ID rules, licence and every PDF page. It records
+pinned PDF URL, PDF SHA-256 and exact production extracted-text provenance.
+It reports selected/included/excluded counts and exclusion reasons. Any excluded
+article returns nonzero and writes no manifest: a reduced corpus is not a complete
+build. Creation refuses an existing output.
 
-For an existing manifest, skip the builder's creation command: it refuses existing
-output. Complete metadata in place without deleting/refetching the whole file.
-Recompute eligibility using fetch_article_metadata.licence_eligibility and exclude
-unsupported articles and apply the same PDF readability gate; preserve all other scientific values. Existing 55 records
-have explicit supported article licence evidence. Their status describes only
-that check, not figure/table reuse or public PDF distribution.
+To validate and complete the existing manifest using local PDFs, without fetching
+metadata or downloading:
+
+```sh
+.venv/bin/python -m tools.corpus.build_corpus_manifest \
+  --finalize data/corpus_manifest.json --corpus-dir "$corpus_run_dir/pdfs" \
+  --provenance-dir "$corpus_run_dir/provenance"
+```
+
+Finalisation preserves scientific metadata, IDs and top-level selection provenance.
+It fills missing PDF/text provenance and verifies existing SHA-256, provider MD5
+and page counts; mismatches fail rather than replacing recorded evidence. All
+articles must validate before an atomic write. On any failure the original stays
+intact. Optional `--provenance-dir` supplies retained `<PMCID>.<version>.cloud.json`
+responses to fill missing pinned PDF URLs; their recorded hashes and article
+identity are checked. Without a recorded URL or matching local source, fail
+rather than guessing a URL. The builder is for the fresh PMC
+corpus; archived V1 manifests remain untouched.
 
 Verify unique identifiers/filenames, mandatory metadata, exact licence evidence
 and matching readable PDFs. If a page yields no extracted text, render and

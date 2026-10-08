@@ -202,6 +202,7 @@ def fetch_metadata(pmcid: str, version: int, search_query: str, filename: str, c
     result["metadata_url"] = metadata_url
     result["metadata_sha256"] = hashlib.sha256(raw_metadata).hexdigest()
     result["metadata_sources"] = {name: {"url": url, "sha256": hashlib.sha256(data).hexdigest()} for name, (url, data) in sources.items()}
+    result["metadata_sources"]["pdf"] = {"url": cloud_url(metadata["pdf_url"])}
     if archive_dir is not None:
         archive_dir.mkdir(parents=True, exist_ok=True)
         for name, (_, data) in sources.items():

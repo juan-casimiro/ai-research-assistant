@@ -57,7 +57,7 @@ def resolve_pdf(article: dict) -> tuple[str, str | None]:
     return BUCKET + "/" + pdf_url[len(prefix):], checksum
 
 
-def download(url: str, destination: Path, checksum: str | None) -> None:
+def download(url: str, destination: Path, checksum: str | None, sha256: str | None = None) -> None:
     """Validate a unique temporary file before atomically replacing the target."""
     temporary = None
     try:
@@ -70,6 +70,8 @@ def download(url: str, destination: Path, checksum: str | None) -> None:
                 actual = hashlib.file_digest(pdf_file, "md5").hexdigest()
             if actual != checksum:
                 raise ValueError("PDF checksum mismatch")
+        if sha256 and hashlib.sha256(temporary.read_bytes()).hexdigest() != sha256:
+            raise ValueError("PDF SHA-256 mismatch")
         if not valid_pdf(temporary):
             raise ValueError("download is not a readable PDF")
         temporary.replace(destination)
@@ -106,7 +108,8 @@ def main(argv: list[str] | None = None) -> int:
         if args.filename and filename not in args.filename:
             continue
         destination = args.corpus_dir / filename
-        if valid_pdf(destination):
+        expected_sha256 = article.get("metadata_sources", {}).get("pdf", {}).get("sha256")
+        if valid_pdf(destination) and (not expected_sha256 or hashlib.sha256(destination.read_bytes()).hexdigest() == expected_sha256):
             print(f"SKIP {filename} (readable PDF already present)")
             continue
         if not article.get("pmcid"):
@@ -122,7 +125,7 @@ def main(argv: list[str] | None = None) -> int:
             continue
         try:
             url, checksum = resolve_pdf(article)
-            download(url, destination, checksum)
+            download(url, destination, checksum, expected_sha256)
             print(f"OK {filename} ({destination.stat().st_size} bytes)")
         except (OSError, URLError, ValueError, KeyError, TypeError) as error:
             print(f"FAILED {filename}: {error}")

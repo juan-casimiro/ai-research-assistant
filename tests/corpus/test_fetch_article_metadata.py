@@ -15,6 +15,7 @@ class ArticleMetadataTests(unittest.TestCase):
     def setUp(self):
         self.cloud_metadata = {
             "pmcid": "PMC123456", "version": 2, "pmid": 987654,
+            "pdf_url": "s3://pmc-oa-opendata/PMC123456.2/synthetic.pdf",
             "doi": "10.1234/synthetic", "license_code": "CC BY", "is_retracted": False,
         }
         self.identifiers = {"records": [{"pmcid": "PMC123456", "pmid": 987654, "doi": "10.1234/synthetic"}]}
