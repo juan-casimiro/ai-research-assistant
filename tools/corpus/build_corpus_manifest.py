@@ -12,6 +12,8 @@ from pypdf import PdfReader
 
 
 # User-approved exception: only reporting-summary pages lack extracted text.
+# Revisit at the next corpus expansion; resolve extraction or replace/exclude the
+# article, then remove this special case (see corpus-metadata-workflow.md).
 READABILITY_EXCEPTION = (
     "PMC12003177", 1,
     "d977b0dc0b6e1642cdf840e3980a7049b2705efea8c3673b1966228426b00747",

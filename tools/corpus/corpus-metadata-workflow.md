@@ -165,7 +165,9 @@ Its pages 1–21 yield text; pages 22–24 are visually readable Nature reportin
 forms without extractable text. Keep this article, recording the limitation in
 its manifest notes. Those forms are not searchable. The builder permits only
 this exact identity, version, hash and missing-page set; future deposits or other
-articles do not inherit the exception. Report included/excluded articles and output paths.
+articles do not inherit the exception. Revisit this exception at the next corpus
+expansion: obtain complete text extraction or replace/exclude the article, then
+remove the special-case code to keep the helpers simple. Report included/excluded articles and output paths.
 Keep citation, source links and licence notices for attribution; temporary files
 remain local; commit only the final corpus manifest, not generated per-run
 reports or duplicate manifests. No separate review inventories, receipts or
