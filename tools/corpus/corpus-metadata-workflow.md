@@ -1,8 +1,52 @@
 # Local corpus metadata workflow
 
-Run these modules from the repository root. Prepare the whole selection under
-ignored `build/corpus/<run-id>/`; do not publish a reduced selection after a
-failed fetch. No ingestion or retrieval changes are part of this workflow.
+Run these modules from the active repository root with its Python environment.
+Choose the flow from the supplied input and state it before execution:
+
+- **PMCID list:** fetch metadata, generate a draft manifest, download PDFs, verify
+  and extract, then publish only after every selected article passes.
+- **Existing manifest:** validate metadata, download missing PDFs, verify and
+  generate adjacent `.txt` files. Preserve the manifest, versions and IDs; skip
+  metadata fetching, assembly and publication.
+
+If the user says the corpus is already generated, use `data/corpus_manifest.json`
+when present. Report missing or ambiguous inputs rather than generating a new
+selection. No ingestion or retrieval changes are part of either flow.
+
+## Existing manifest
+
+Set the supplied manifest and PDF directory; defaults for the current corpus are:
+
+```sh
+corpus_manifest=data/corpus_manifest.json
+corpus_pdf_dir=corpus/mvp
+```
+
+Validate the entire manifest offline before acquisition, without rewriting it:
+
+```sh
+python - "$corpus_manifest" <<'PYTHON'
+import json
+import sys
+from pathlib import Path
+from tools.corpus.fetch_article_metadata import validate_records
+
+articles = validate_records(json.loads(Path(sys.argv[1]).read_text())["articles"])
+print(f"Validated {len(articles)} articles")
+PYTHON
+```
+
+A validation failure stops this flow; report the reason without refetching or
+repairing metadata. Continue at **3. Download**, then perform mandatory PDF
+verification and **4. Extract**. Completion requires every manifest article to
+pass and `extraction_report.json` to report `complete: true`. Keep the existing
+manifest unchanged; do not run **5. Publish**.
+
+## PMCID list
+
+Prepare the whole supplied selection under a new ignored
+`build/corpus/<run-id>/`; preserve earlier runs. Do not publish a reduced
+selection after a failed fetch.
 
 ## 1. Save selection
 
@@ -21,6 +65,8 @@ with PMCID plus 1–7 lowercase hyphen-separated words and `.pdf`; optional
 
 ```sh
 corpus_run_dir=build/corpus/<run-id>
+corpus_manifest="$corpus_run_dir/corpus_manifest.json"
+corpus_pdf_dir="$corpus_run_dir/pdfs"
 python -m tools.corpus.fetch_article_metadata \
   --selection-file "$corpus_run_dir/candidates.json" \
   --records-dir "$corpus_run_dir/metadata" \
@@ -57,13 +103,18 @@ filename/IDs. Only the existing
 `licence_eligibility` rules for CC BY 4.0 and CC0 1.0 are accepted. Raw responses
 remain under `provenance/`; per-source SHA-256 values stay in the manifest.
 
-## 3. Download
+## 3. Download (both flows)
 
 ```sh
 python -m tools.corpus.download_corpus \
-  --manifest "$corpus_run_dir/corpus_manifest.json" \
-  --corpus-dir "$corpus_run_dir/pdfs"
+  --manifest "$corpus_manifest" \
+  --corpus-dir "$corpus_pdf_dir"
 ```
+
+Before downloading, inspect existing selected PDF paths. Report invalid PDFs,
+recorded-hash mismatches or conflicting paths and stop rather than allowing the
+downloader to replace them. Valid PDFs are skipped; when no SHA-256 is recorded,
+verify them against the available provider checksum before accepting reuse.
 
 Downloads use the manifest's pinned version and verify provider MD5 and any
 pinned PDF SHA-256. A missing or failed article returns nonzero; resolve it
@@ -75,30 +126,32 @@ Before final admission, verify every selected article against its actual local
 PDF: first-page identity must agree with the pinned metadata, article/PDF licence
 notices must support CC BY 4.0 or CC0 1.0 without unresolved conflicts, and the
 PDF must have nonzero pages and readable article text. Retain the evidence under
-the run directory. Then run extraction below.
+the run directory for the PMCID-list flow, or an ignored review directory under
+`build/corpus/` for the existing-manifest flow. Then run extraction below.
 
 Any failed check, unavailable evidence or unresolved conflict leaves the run
 incomplete and prevents publication of the reviewed final manifest. Report each
 affected PMCID and reason; do not silently reduce the selection or apply recovery
 workarounds.
 
-## 4. Extract
+## 4. Extract (both flows)
 
 ```sh
 python -m tools.corpus.extract_corpus_text \
-  --manifest "$corpus_run_dir/corpus_manifest.json" \
-  --corpus-dir "$corpus_run_dir/pdfs"
+  --manifest "$corpus_manifest" \
+  --corpus-dir "$corpus_pdf_dir"
 ```
 
 Every run extracts every PDF through `tools/corpus/pdf_text.py`. Text is written
 beside each PDF as `<article-id>.txt`, matching ingestion. The small
-`pdfs/extraction_report.json` records pass/fail and names failed PMCIDs/reasons.
+`$corpus_pdf_dir/extraction_report.json` records pass/fail and names failed
+PMCIDs/reasons.
 Empty text, parser failures and pages without text block admission. The sole
 approved exception remains PMC12003177 version 1 with its exact PDF SHA-256;
 its reporting-summary pages are not searchable. No OCR or replacement exception
 is implied.
 
-## 5. Publish the reviewed final manifest locally
+## 5. Publish the reviewed final manifest locally (PMCID list only)
 
 Confirm that metadata, PDF identity/licence verification and extraction passed
 for every supplied PMCID before running publication. A successful automated

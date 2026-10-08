@@ -66,8 +66,8 @@ The original V1 inputs and saved results are now in [data/archive/v1/](./data/ar
 
 ## Corpus metadata and PDFs
 
-Give a list of PMCIDs to the [generate-corpus-metadata skill](./.agents/skills/generate-corpus-metadata/SKILL.md)
-to generate the corpus manifest and download the PDF files. The process and
+Give a PMCID list or an existing corpus manifest to the [generate-corpus-metadata skill](./.agents/skills/generate-corpus-metadata/SKILL.md)
+to generate metadata when needed, acquire PDFs and generate adjacent text files. The process and
 verification requirements are described in [the corpus metadata workflow](./tools/corpus/corpus-metadata-workflow.md).
 
 ## Develop and evaluate (host)
