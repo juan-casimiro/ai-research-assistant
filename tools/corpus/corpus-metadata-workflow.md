@@ -34,6 +34,10 @@ filename in `candidates.json`, then rerun the fetch command with
 `--pmcid <PMCID>` before assembly. Repeat `--pmcid` to correct several articles
 without refetching others. Assembly rebuilds the prepared manifest in place.
 Cluster always comes from the selection.
+Optional `selection_rationale` and `topic_rationale` describe the article’s
+role in Q&A and evaluation. Put them in the selection for new runs; refetch
+preserves existing record rationales unless the selection supplies replacements.
+Assembly preserves these fields. They do not affect admission or ingestion.
 Fetch, assembly and publication use the same complete-record validator.
 
 Every record requires PMCID, pinned PMC version, PMID, DOI, title, authors,

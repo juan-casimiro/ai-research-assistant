@@ -169,6 +169,27 @@ class ArticleMetadataTests(unittest.TestCase):
             self.assertEqual(untouched.read_bytes(), before)
             self.assertTrue((records/'PMC888.json').exists())
 
+    def test_refetch_preserves_rationales_and_selection_can_replace_them(self):
+        from tests.corpus.test_build_corpus_manifest import record
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            records = root/'metadata'; records.mkdir()
+            output = records/'PMC123456.json'
+            output.write_text(json.dumps(dict(record(), selection_rationale='Some selection reason',
+                                              topic_rationale='Some topic reason')))
+            selection = root/'candidates.json'
+            article = {'pmcid': 'PMC123456', 'cluster': 'test-topic'}
+            for replacement in [None, 'Some revised selection reason']:
+                if replacement:
+                    article['selection_rationale'] = replacement
+                selection.write_text(json.dumps({'articles': [article]}))
+                with patch('tools.corpus.fetch_article_metadata.fetch_metadata', return_value=record()), contextlib.redirect_stdout(io.StringIO()):
+                    self.assertEqual(main(['--selection-file', str(selection), '--records-dir', str(records),
+                                           '--archive-dir', str(root/'provenance'), '--pmcid', 'PMC123456']), 0)
+                fetched = json.loads(output.read_text())
+                self.assertEqual(fetched['selection_rationale'], replacement or 'Some selection reason')
+                self.assertEqual(fetched['topic_rationale'], 'Some topic reason')
+
     def test_unknown_pmcid_filter_fails_before_network(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

@@ -314,10 +314,15 @@ def main(argv=None) -> int:
     failed = False
     for article in articles:
         try:
+            path = args.records_dir / (article['pmcid'] + '.json')
+            previous = json.loads(path.read_text()) if path.exists() else {}
             record = fetch_metadata(article['pmcid'], article.get('pmc_version'),
                                     article.get('search_query'), article.get('filename'),
                                     article.get('cluster'), args.archive_dir)
-            (args.records_dir / (article['pmcid'] + '.json')).write_text(
+            for field in ['selection_rationale', 'topic_rationale']:
+                if field in article or field in previous:
+                    record[field] = article.get(field, previous.get(field))
+            path.write_text(
                 json.dumps(record, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
             print(f"{record['pmcid']} version {record['pmc_version']}: {record['filename']}")
         except (OSError, ValueError, KeyError, TypeError, ET.ParseError) as error:
