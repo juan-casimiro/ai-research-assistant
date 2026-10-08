@@ -168,6 +168,18 @@ this exact identity, version, hash and missing-page set; future deposits or othe
 articles do not inherit the exception. Revisit this exception at the next corpus
 expansion: obtain complete text extraction or replace/exclude the article, then
 remove the special-case code to keep the helpers simple. Report included/excluded articles and output paths.
+Before evaluation, retain minimal corpus provenance in each article's
+`metadata_sources`: `pdf.url` (pinned PMC source), `pdf.sha256`, and
+`extracted_text.sha256`. Reuse verified local PDFs. Compute the text hash exactly
+as production `ingest_corpus.ingest_file` does: `PdfReader(str(pdf_path))`, join
+`page.extract_text() or ""` with a single newline, then hash the UTF-8 bytes
+without trimming or adding a final newline. Record the pypdf version, method,
+encoding and pages without text alongside the hash. Preserve the PMC12003177
+exception and its extraction limitation. PDF hashes identify complete PDF bytes;
+text hashes identify only the text actually available to ingestion.
+Keep extracted text, PDFs and raw acquisition responses in ignored
+`build/corpus/<run-id>/`; commit only their minimal provenance in the manifest.
+
 Keep citation, source links and licence notices for attribution; temporary files
 remain local; commit only the final corpus manifest, not generated per-run
 reports or duplicate manifests. No separate review inventories, receipts or
