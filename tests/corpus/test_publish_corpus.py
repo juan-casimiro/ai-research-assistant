@@ -108,6 +108,28 @@ class PublicationTests(unittest.TestCase):
         self.assertFalse(self.final_manifest.exists())
         self.assertIn('MD5 mismatch', json.loads((self.run / 'publication_report.json').read_text())['failures'][0]['reason'])
 
+    def test_failed_fetch_preserves_selection_and_reports_missing_pmcid(self):
+        from tools.corpus.fetch_article_metadata import main as fetch
+        selection = self.run/'candidates.json'
+        selection.write_text(json.dumps({'articles':[{'pmcid':'PMC123456'},{'pmcid':'PMC999'}]}))
+        before = selection.read_bytes()
+        with patch('tools.corpus.fetch_article_metadata.read_bytes',side_effect=OSError('synthetic fetch failure')),contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(fetch(['--pmcid','PMC999','--selection-file',str(selection),'--archive-dir',str(self.run/'provenance'),'--output',str(self.run/'metadata/PMC999.json')]),1)
+        self.assertEqual(selection.read_bytes(),before)
+        self.assertEqual(self.run_tool(),1)
+        failures=json.loads((self.run/'publication_report.json').read_text())['failures']
+        self.assertIn({'pmcid':'PMC999','reason':'selected PMCID missing from prepared manifest'},failures)
+        self.assertFalse(self.final_manifest.exists())
+
+    def test_extra_manifest_pmcid_is_named_and_versions_names_are_not_selection(self):
+        selection=self.run/'candidates.json'
+        selection.write_text(json.dumps({'articles':[{'pmcid':'PMC999'}]}))
+        self.assertEqual(self.run_tool(),1)
+        failures=json.loads((self.run/'publication_report.json').read_text())['failures']
+        self.assertIn({'pmcid':'PMC123456','reason':'prepared PMCID not in supplied selection'},failures)
+        selection.write_text(json.dumps({'articles':[{'pmcid':'PMC123456'}]}))
+        self.assertEqual(self.run_tool(check=True),0)
+
     def test_manifest_write_failure_rolls_back_new_pdf_directory(self):
         with patch.object(publisher, 'atomic_write', side_effect=OSError('synthetic manifest-write failure')):
             self.assertEqual(self.run_tool(), 1)

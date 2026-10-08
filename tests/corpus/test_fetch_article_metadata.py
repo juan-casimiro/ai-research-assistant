@@ -95,6 +95,56 @@ class ArticleMetadataTests(unittest.TestCase):
         responses = [json.dumps(metadata).encode(), json.dumps(self.identifiers).encode(), self.pubmed, self.jats]
         return patch("tools.corpus.fetch_article_metadata.read_bytes", side_effect=responses)
 
+    def test_latest_version_is_pinned_and_lookup_evidence_retained(self):
+        identifiers = copy.deepcopy(self.identifiers)
+        identifiers['records'][0]['versions'] = [
+            {'pmcid': 'PMC123456.1', 'current': False},
+            {'pmcid': 'PMC123456.2', 'current': True},
+        ]
+        cloud = dict(self.cloud_metadata, xml_url='s3://pmc-oa-opendata/PMC123456.2/synthetic.xml?md5=' + hashlib.md5(self.jats).hexdigest())
+        raw = json.dumps(identifiers).encode()
+        responses = [raw, json.dumps(cloud).encode(), self.pubmed, self.jats]
+        with tempfile.TemporaryDirectory() as directory, patch('tools.corpus.fetch_article_metadata.read_bytes', side_effect=responses) as source_reader:
+            result = fetch_metadata('PMC123456', archive_dir=Path(directory))
+            self.assertEqual(result['pmc_version'], 2)
+            self.assertIn('PMC123456.2.json', source_reader.call_args_list[1].args[0])
+            self.assertEqual((Path(directory)/'PMC123456.2.id-converter.json').read_bytes(), raw)
+            self.assertEqual(result['metadata_sources']['id-converter.json']['sha256'], hashlib.sha256(raw).hexdigest())
+            self.assertEqual(result['filename'], 'PMC123456-a-synthetic-cardiac-study.pdf')
+            self.assertIsNone(result['cluster'])
+            self.assertIn('User supplied PMCID', result['search_query'])
+
+    def test_explicit_version_is_not_replaced_by_current_version(self):
+        self.identifiers['records'][0]['versions'] = [{'pmcid': 'PMC123456.3', 'current': True}]
+        with self.xml_service(hashlib.md5(self.jats).hexdigest()):
+            result = fetch_metadata('PMC123456', 2)
+        self.assertEqual(result['pmc_version'], 2)
+        self.assertIn('/PMC123456.2/', result['metadata_sources']['pdf']['url'])
+
+    def test_offline_review_assigns_complete_names_and_cluster_for_assembly(self):
+        from tools.corpus.build_corpus_manifest import main as assemble
+        with self.xml_service(hashlib.md5(self.jats).hexdigest()):
+            result = fetch_metadata('PMC123456', 2)
+        with tempfile.TemporaryDirectory() as directory:
+            records = Path(directory)/'metadata'; records.mkdir()
+            output = records/'PMC123456.json'; output.write_text(json.dumps(result))
+            with patch('tools.corpus.fetch_article_metadata.read_bytes', side_effect=AssertionError('review must stay offline')), contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(main(['--review-record',str(output),'--cluster','cardiology','--filename','PMC123456-synthetic-cardiac-study.pdf']),0)
+                manifest = Path(directory)/'corpus_manifest.json'
+                self.assertEqual(assemble(['--records-dir',str(records),'--output',str(manifest)]),0)
+            reviewed = json.loads(output.read_text())
+            self.assertEqual(reviewed['id'], 'PMC123456-synthetic-cardiac-study')
+            self.assertEqual(reviewed['article_id'],reviewed['id'])
+            self.assertEqual(reviewed['cluster'],'cardiology')
+
+    def test_latest_without_unique_current_deposit_fails_and_retains_response(self):
+        raw = json.dumps(self.identifiers).encode()
+        with tempfile.TemporaryDirectory() as directory, patch('tools.corpus.fetch_article_metadata.read_bytes', return_value=raw):
+            with self.assertRaisesRegex(ValueError, 'current deposit'):
+                fetch_metadata('PMC123456', archive_dir=Path(directory))
+            self.assertEqual((Path(directory)/'PMC123456.id-converter.json').read_bytes(), raw)
+        # No fallback to version one or a guessed version.
+
     def test_fetch_rejects_missing_pubmed_abstract(self):
         self.pubmed = self.pubmed.replace(b"<Abstract>", b"<Other>").replace(b"</Abstract>", b"</Other>")
         with self.xml_service(hashlib.md5(self.jats).hexdigest()), self.assertRaisesRegex(ValueError, "abstract"):
@@ -115,12 +165,14 @@ class ArticleMetadataTests(unittest.TestCase):
             output = Path(directory, "record.json")
             output.write_text("some existing record")
             archive = Path(directory, "archive")
+            selection = Path(directory, 'candidates.json')
+            selection.write_text(json.dumps({'articles': [{'pmcid': 'PMC123456'}]}))
             captured = io.StringIO()
             with contextlib.redirect_stdout(captured):
-                result = main(["--pmcid", "PMC123456", "--pmc-version", "2", "--search-query", "some discovery query",
+                result = main(["--selection-file", str(selection), "--pmcid", "PMC123456", "--pmc-version", "2", "--search-query", "some discovery query",
                                "--filename", "PMC123456-synthetic-cardiac-study.pdf", "--cluster", "cardiology", "--output", str(output), "--archive-dir", str(archive)])
             self.assertEqual(result, 1)
-            self.assertIn("ERROR: PMC XML checksum mismatch", captured.getvalue())
+            self.assertIn("ERROR PMC123456: PMC XML checksum mismatch", captured.getvalue())
             self.assertEqual(output.read_text(), "some existing record")
             self.assertFalse(archive.exists())
 

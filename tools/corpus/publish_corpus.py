@@ -8,7 +8,7 @@ from urllib.parse import parse_qs, urlsplit
 from pathlib import Path
 import shutil
 import tempfile
-from .build_corpus_manifest import atomic_write, validate_selection
+from .build_corpus_manifest import atomic_write, validate_selection, validate_records
 from .fetch_article_metadata import validate_metadata
 from .download_corpus import BUCKET
 from .extract_corpus_text import main as extract, digest, save_json
@@ -31,11 +31,14 @@ def main(argv=None):
             raise ValueError('final destinations must be outside the preparation run')
         original = source.read_bytes()
         manifest = json.loads(original)
-        articles = validate_selection(manifest['articles'])
+        articles = validate_records(manifest['articles'])
         selection = validate_selection(json.loads((run / 'candidates.json').read_text())['articles'])
-        identities = lambda records: {(a['pmcid'], a['pmc_version'], a['filename']) for a in records}
-        if identities(articles) != identities(selection):
-            failures.append({'reason': 'prepared manifest does not match the complete selected PMCID/version/filename list'})
+        prepared = {a['pmcid'] for a in articles}
+        requested = {a['pmcid'] for a in selection}
+        for pmcid in sorted(requested - prepared):
+            failures.append({'pmcid': pmcid, 'reason': 'selected PMCID missing from prepared manifest'})
+        for pmcid in sorted(prepared - requested):
+            failures.append({'pmcid': pmcid, 'reason': 'prepared PMCID not in supplied selection'})
         for article in articles:
             try:
                 validate_metadata(article)

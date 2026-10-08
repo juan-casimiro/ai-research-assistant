@@ -8,9 +8,26 @@ import re
 import tempfile
 
 from .fetch_article_metadata import validate_metadata
-from .download_corpus import BUCKET
 
 def validate_selection(articles):
+    """Validate the original user input; fetched versions/names are not selection."""
+    if not isinstance(articles, list) or not articles:
+        raise ValueError('selection articles must be a nonempty list')
+    seen = set()
+    for article in articles:
+        pmcid = article.get('pmcid')
+        if not isinstance(pmcid, str) or not re.fullmatch(r'PMC[0-9]+', pmcid):
+            raise ValueError('invalid selected PMCID')
+        if pmcid in seen:
+            raise ValueError('duplicate selected PMCID: ' + pmcid)
+        seen.add(pmcid)
+        for field in ['cluster', 'search_query']:
+            if field in article and (not isinstance(article[field], str) or not article[field].strip()):
+                raise ValueError('invalid supplied ' + field)
+    return articles
+
+
+def validate_records(articles):
     if not isinstance(articles, list) or not articles:
         raise ValueError("articles must be a nonempty list")
     seen = set()
@@ -26,6 +43,9 @@ def validate_selection(articles):
         filename = article['filename']
         if not isinstance(filename, str) or not re.fullmatch(re.escape(pmcid) + r'-[a-z0-9]+(?:-[a-z0-9]+){0,6}\.pdf', filename):
             raise ValueError('filename must match PMCID plus 1–7 lowercase hyphen-separated words')
+        for field in ['id', 'article_id']:
+            if article.get(field) != filename[:-4]:
+                raise ValueError('filename/ID mismatch: ' + field)
         for field in ['cluster', 'search_query']:
             if not isinstance(article.get(field), str) or not article[field].strip():
                 raise ValueError(field + ' must be nonempty')
@@ -68,7 +88,7 @@ def main(argv=None):
         if not args.finalize and path.exists():
             raise ValueError('output already exists; use --finalize')
         envelope = json.loads(original) if args.finalize else {'articles': [json.loads(p.read_text()) for p in sorted(args.records_dir.glob('*.json'))]}
-        selected = validate_selection(envelope['articles'])
+        selected = validate_records(envelope['articles'])
         records, excluded = [], []
         for article in selected:
             try:

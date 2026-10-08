@@ -17,73 +17,76 @@ Download/ingestion defaults reserve data/corpus_manifest.json for the reviewed
 corpus. Use explicit paths for drafts or archived V1 acquisition. The V1 evaluation
 helper still reads archived Q&A; its scores do not describe a newly acquired corpus.
 
-## Local run directory
+## Local run directory and original selection
 
-Use a new ignored `build/corpus/<run-id>/` directory for candidates.json,
-per-article JSON in metadata/, source responses in provenance/ and PDFs in pdfs/.
-Create the directories before running helpers. Preserve earlier runs. The final
-manifest goes directly to `data/corpus_manifest.json` or the user's chosen path.
+Create a new ignored `build/corpus/<run-id>/` directory. Metadata records go in
+`metadata/`, retained source responses in `provenance/`, PDFs in `pdfs/`, and
+text/cache diagnostics in `extracted_text/`. The prepared manifest stays at
+`$corpus_run_dir/corpus_manifest.json`; only successful publication installs it
+at `data/corpus_manifest.json` (or the chosen final destination).
 
 ```sh
 corpus_run_dir="build/corpus/<unique-run-id>"
-mkdir -p build/corpus
-mkdir "$corpus_run_dir"
-mkdir "$corpus_run_dir/metadata" "$corpus_run_dir/provenance" "$corpus_run_dir/pdfs"
+mkdir -p "$corpus_run_dir/metadata" "$corpus_run_dir/provenance" "$corpus_run_dir/pdfs"
 ```
 
-## Article metadata
-
-Resolve each PMCID to the actual article and explicitly choose its PMC deposit
-version. Do not silently assume version 1 or latest. Preserve supplied discovery
-queries verbatim; if only PMCIDs were supplied, record that selection source and
-that the original query is unavailable rather than inventing search history.
-The helper's required search-query argument can contain this explicit provenance
-statement. Derive a reviewed descriptive filename: PMCID plus 1–7 lowercase
-hyphen-separated words and .pdf. Check the title, intervention, population and
-study type; inherited filenames are not authoritative. IDs match the basename.
-
-Generate a local candidate file from the supplied PMCID list, normally
-`build/corpus/<run-id>/candidates.json`. For each article include `pmcid`, explicitly
-resolved `pmc_version`, title-reviewed `filename`, `cluster` and `search_query`
-(actual discovery query or explicit selection provenance). The top-level object
-contains an `articles` array and optional `source` provenance. Do not copy an
-existing list unless the user requested that selection. This file is generated
-by the skill and remains untracked; it is not a committed corpus input.
-
-For example, after resolving these fields, an entry has this shape:
+**Before any network call**, save the exact supplied PMCID list as
+`$corpus_run_dir/candidates.json`. Keep this name for compatibility, but it is
+now the original selection, not fetched candidate metadata. For example:
 
 ```json
-{
-  "articles": [
-    {
-      "pmcid": "PMC123456",
-      "pmc_version": 2,
-      "filename": "PMC123456-descriptive-study-title.pdf",
-      "cluster": "selected-topic",
-      "search_query": "User supplied PMCID; original discovery query unavailable"
-    }
-  ]
-}
+{"articles": [{"pmcid": "PMC123456"}]}
 ```
 
-The values above are illustrative, not verified article metadata. Keep the
-candidate list local; unsupported licences fail metadata validation.
+Only add `cluster` and `search_query` when the user supplied them; preserve their
+values verbatim. Do not fill this file from fetch results, add resolved versions
+or proposed filenames, or remove failed PMCIDs. A user-requested explicit version
+is passed to fetch with `--pmc-version`. Publication compares **PMCID sets only**
+and names missing/extra PMCIDs. Changing the selection requires the user's
+choice, not an automatic response to failed acquisition.
 
-Fetch per-article metadata into the run directory, retaining source responses:
+## Fetch, then review naming and topic
+
+Without `--pmc-version`, the helper resolves the uniquely current/latest deposit
+from the official ID Converter response, then pins that version for PMC Cloud
+metadata and PDFs. It never assumes version 1 or guesses when resolution is
+ambiguous. Retain the converter response and its hash as evidence of what latest
+meant during this run. Explicit `--pmc-version <VERSION>` still works and is not
+replaced by the current version. Downloader always uses the manifest's pinned
+version and never re-resolves latest.
 
 ```sh
-.venv/bin/python -m tools.corpus.fetch_article_metadata --pmcid <PMCID> --pmc-version <VERSION> \
-  --search-query '<actual query or explicit selection provenance>' \
-  --filename <PMCID-descriptive-title.pdf> --cluster <TOPIC> \
-  --output "$corpus_run_dir/metadata/<PMCID>.<VERSION>.json" \
+.venv/bin/python -m tools.corpus.fetch_article_metadata \
+  --pmcid <PMCID> --selection-file "$corpus_run_dir/candidates.json" \
+  --output "$corpus_run_dir/metadata/<PMCID>.json" \
   --archive-dir "$corpus_run_dir/provenance"
 ```
 
-The helper cross-checks PMC, ID Converter and PubMed identity and retractions,
-preserves PubMed abstract sections, and records metadata URLs/hashes. It leaves
-`eligibility` from the article licence evidence: `eligible` for explicit CC BY 4.0
-or CC0 1.0. Missing mandatory fields or unsupported licences fail before a record
-is written. This field does not represent extraction success.
+The helper looks up and validates PMC/ID Converter/PubMed identity, bibliography,
+complete PubMed abstract, retractions and article licence evidence. It preserves
+supplied cluster/query inputs. When discovery history is unavailable, the record
+says `User supplied PMCID; original discovery query unavailable` rather than
+inventing it. Failure returns nonzero; the original selection file stays intact.
+
+After fetching, the helper proposes a filename from the title (PMCID plus the
+first 1–7 lowercase alphanumeric words) and assigns matching `id`/`article_id`.
+**Review the proposal against the title and abstract**: intervention, population
+and study type should be clear. Assign a cluster from those sources if the user
+did not supply one. Do not guess a cluster before lookup. Review/update the saved
+record offline using the same helper, with no refetch:
+
+```sh
+.venv/bin/python -m tools.corpus.fetch_article_metadata \
+  --review-record "$corpus_run_dir/metadata/<PMCID>.json" \
+  --filename <PMCID-reviewed-title.pdf> --cluster <REVIEWED_TOPIC>
+```
+
+`--filename` can be omitted to accept the proposed name. `--cluster` can be
+omitted only when a valid supplied cluster is already present. The command
+updates IDs to match the reviewed filename. Naming/cluster checks belong to
+complete-record validation before assembly; core fetched metadata is validated
+without requiring those pre-lookup decisions. Missing/invalid filenames, IDs,
+clusters or selection provenance prevent assembly output.
 
 ## Mandatory verification before manifest assembly
 
@@ -153,9 +156,10 @@ PDFs, just run extraction; no new download is required.
 ## Publication is the final gate
 
 Prepare every artifact under `build/corpus/<run-id>/` first. Keep the supplied
-selection in `candidates.json`; publication compares its PMCID/version/filename
+selection in `candidates.json`; publication compares its PMCID
 membership with the prepared manifest, so missing metadata cannot silently reduce
-the corpus. Only after metadata, PDF checksums and extraction all pass, run:
+the corpus. Publication lists each missing and extra PMCID; versions and filenames
+are fetch outputs and do not participate in selection comparison. Only after metadata, PDF checksums and extraction all pass, run:
 
 ```sh
 .venv/bin/python -m tools.corpus.publish_corpus --run-dir "$corpus_run_dir" \

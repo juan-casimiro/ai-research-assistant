@@ -5,7 +5,7 @@ import hashlib
 import json
 from pathlib import Path
 import pypdf
-from .build_corpus_manifest import atomic_write, validate_selection
+from .build_corpus_manifest import atomic_write, validate_records
 from .pdf_text import extract_pdf, METHOD
 
 # Revisit at the next corpus expansion; no recovery workaround is applied.
@@ -28,7 +28,7 @@ def main(argv=None):
     parser.add_argument('--cache-dir', type=Path, required=True)
     args = parser.parse_args(argv)
     try:
-        articles = validate_selection(json.loads(args.manifest.read_text())['articles'])
+        articles = validate_records(json.loads(args.manifest.read_text())['articles'])
         args.cache_dir.mkdir(parents=True, exist_ok=True)
         index_path = args.cache_dir / 'index.json'
         previous = json.loads(index_path.read_text()) if index_path.exists() else {}

@@ -192,20 +192,28 @@ def validate_metadata(record):
         raise ValueError('missing bibliography authors')
     if type(record.get('year')) is not int or record['year'] < 1:
         raise ValueError('missing bibliography year')
-    for field in ['id', 'article_id']:
-        if record.get(field) != record['filename'][:-4]:
-            raise ValueError('filename/ID mismatch: ' + field)
     if licence_eligibility(record.get('license'), record.get('licence_urls', [])) != 'eligible':
         raise ValueError('unsupported or missing licence evidence')
 
 
-def fetch_metadata(pmcid: str, version: int, search_query: str, filename: str, cluster: str, archive_dir: Path | None = None) -> dict:
-    if not re.fullmatch(r"PMC[0-9]+", pmcid) or type(version) is not int or version < 1:
-        raise ValueError("use a valid PMCID and explicitly chosen positive deposit version")
-    if not search_query.strip() or not cluster.strip():
-        raise ValueError("supply discovery query and topic cluster")
-    if not re.fullmatch(re.escape(pmcid) + r"-[a-z0-9]+(?:-[a-z0-9]+){0,6}\.pdf", filename):
-        raise ValueError("filename must be PMCID followed by 1–7 lowercase hyphen-separated words and .pdf")
+def fetch_metadata(pmcid: str, version: int | None = None, search_query: str | None = None, filename: str | None = None, cluster: str | None = None, archive_dir: Path | None = None) -> dict:
+    if not re.fullmatch(r"PMC[0-9]+", pmcid) or (version is not None and (type(version) is not int or version < 1)):
+        raise ValueError("use a valid PMCID and positive deposit version")
+    if filename is not None and not re.fullmatch(re.escape(pmcid) + r"-[a-z0-9]+(?:-[a-z0-9]+){0,6}\.pdf", filename):
+        raise ValueError("filename must be PMCID plus 1–7 lowercase words and .pdf")
+    converter_url = ID_CONVERTER + "?" + urlencode({"ids": pmcid, "format": "json", "versions": "yes", "tool": "ai-research-assistant"})
+    converter_bytes = None
+    if version is None:
+        converter_bytes = read_bytes(converter_url)
+        if archive_dir is not None:
+            archive_dir.mkdir(parents=True, exist_ok=True)
+            (archive_dir / f"{pmcid}.id-converter.json").write_bytes(converter_bytes)
+        matches = [r for r in json.loads(converter_bytes).get('records', []) if r.get('pmcid') == pmcid]
+        current = [v for v in matches[0].get('versions', []) if v.get('current') is True] if len(matches) == 1 else []
+        if len(current) != 1 or not re.fullmatch(re.escape(pmcid) + r"\.[1-9][0-9]*", current[0].get('pmcid', '')):
+            raise ValueError('ID Converter must identify exactly one current deposit')
+        version = int(current[0]['pmcid'].split('.')[1])
+    search_query = search_query or 'User supplied PMCID; original discovery query unavailable'
     metadata_url = f"{BUCKET}/metadata/{pmcid}.{version}.json"
     raw_metadata = read_bytes(metadata_url)
     metadata = json.loads(raw_metadata)
@@ -215,8 +223,13 @@ def fetch_metadata(pmcid: str, version: int, search_query: str, filename: str, c
         raise ValueError("this PMCID has no PMID; PubMed metadata is unavailable")
     converter_url = ID_CONVERTER + "?" + urlencode({"ids": pmcid, "format": "json", "versions": "yes", "tool": "ai-research-assistant"})
     pubmed_url = EFETCH + "?" + urlencode({"db": "pubmed", "id": metadata["pmid"], "retmode": "xml", "tool": "ai-research-assistant"})
-    sources = {"cloud.json": (metadata_url, raw_metadata), "id-converter.json": (converter_url, read_bytes(converter_url)), "pubmed.xml": (pubmed_url, read_bytes(pubmed_url)), "article.xml": (cloud_url(metadata["xml_url"]), read_pmc_xml(metadata["xml_url"]))}
+    sources = {"cloud.json": (metadata_url, raw_metadata), "id-converter.json": (converter_url, converter_bytes if converter_bytes is not None else read_bytes(converter_url)), "pubmed.xml": (pubmed_url, read_bytes(pubmed_url)), "article.xml": (cloud_url(metadata["xml_url"]), read_pmc_xml(metadata["xml_url"]))}
     result = parse_record(metadata, sources["article.xml"][1], sources["pubmed.xml"][1], json.loads(sources["id-converter.json"][1]))
+    if filename is None:
+        words = re.findall(r'[a-z0-9]+', result['title'].lower())[:7]
+        if not words:
+            raise ValueError('title cannot produce a filename; supply a reviewed filename')
+        filename = pmcid + '-' + '-'.join(words) + '.pdf'
     # Preserve the metadata helper's article_id alias alongside the canonical id.
     article_id = filename[:-4]
     result.update(id=article_id, article_id=article_id,
@@ -231,27 +244,60 @@ def fetch_metadata(pmcid: str, version: int, search_query: str, filename: str, c
         archive_dir.mkdir(parents=True, exist_ok=True)
         for name, (_, data) in sources.items():
             (archive_dir / f"{pmcid}.{version}.{name}").write_bytes(data)
+        if converter_bytes is not None:
+            (archive_dir / f"{pmcid}.id-converter.json").unlink(missing_ok=True)
     return result
 
 
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--pmcid", required=True)
-    parser.add_argument("--pmc-version", type=int, required=True)
-    parser.add_argument("--search-query", required=True)
-    parser.add_argument("--filename", required=True,
-                        help="PMCID-brief-title-summary.pdf; 1–7 lowercase hyphen-separated words after PMCID")
-    parser.add_argument("--cluster", required=True)
-    parser.add_argument("--output", type=Path, required=True)
+    mode = parser.add_mutually_exclusive_group(required=True)
+    mode.add_argument("--pmcid")
+    mode.add_argument("--review-record", type=Path, help="Assign cluster/review naming offline after fetch")
+    parser.add_argument("--selection-file", type=Path, help="Original supplied PMCID list, saved before any fetch")
+    parser.add_argument("--pmc-version", type=int)
+    parser.add_argument("--search-query")
+    parser.add_argument("--filename", help="Reviewed PMCID plus 1–7 lowercase hyphenated words and .pdf")
+    parser.add_argument("--cluster")
+    parser.add_argument("--output", type=Path)
     parser.add_argument("--archive-dir", type=Path)
     args = parser.parse_args(argv)
     try:
-        record = fetch_metadata(args.pmcid, args.pmc_version, args.search_query, args.filename, args.cluster, args.archive_dir)
-        args.output.write_text(json.dumps(record, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        if args.review_record:
+            from .build_corpus_manifest import validate_records, atomic_write
+            original = args.review_record.read_bytes()
+            record = json.loads(original)
+            if args.cluster is not None:
+                record['cluster'] = args.cluster
+            if args.filename is not None:
+                record['filename'] = args.filename
+            record['id'] = record['article_id'] = record['filename'][:-4]
+            validate_records([record])
+            validate_metadata(record)
+            atomic_write(args.review_record, record, original)
+        else:
+            if args.output is None:
+                parser.error('--output is required for fetch')
+            if args.selection_file is None:
+                parser.error('--selection-file is required; save supplied PMCIDs before fetching')
+            cluster, query = args.cluster, args.search_query
+            if args.selection_file is not None:
+                from .build_corpus_manifest import validate_selection
+                supplied = validate_selection(json.loads(args.selection_file.read_text())['articles'])
+                selected = next((a for a in supplied if a['pmcid'] == args.pmcid), None)
+                if selected is None:
+                    raise ValueError('PMCID is not in supplied selection')
+                cluster = cluster if cluster is not None else selected.get('cluster')
+                query = query if query is not None else selected.get('search_query')
+            if args.pmc_version is None and args.archive_dir is None:
+                parser.error('--archive-dir is required to retain latest-deposit lookup evidence')
+            record = fetch_metadata(args.pmcid, args.pmc_version, query, args.filename, cluster, args.archive_dir)
+            args.output.parent.mkdir(parents=True, exist_ok=True)
+            args.output.write_text(json.dumps(record, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     except (OSError, ValueError, KeyError, TypeError, ET.ParseError) as error:
-        print(f"ERROR: {error}")
+        print(f"ERROR {args.pmcid or args.review_record}: {error}")
         return 1
-    print(f"Metadata saved: {args.pmcid} -> PMID {record['pmid']}; eligibility={record['eligibility']}")
+    print(f"Metadata saved: {record['pmcid']} version {record['pmc_version']}; review filename and cluster before assembly")
     return 0
 
 

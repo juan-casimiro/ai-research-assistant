@@ -55,7 +55,7 @@ class ManifestTests(unittest.TestCase):
                 self.assertEqual(self.output.read_bytes(), before)
 
     def test_incomplete_selection_never_publishes_reduced_manifest(self):
-        invalid = dict(self.article, pmcid='PMC999', filename='PMC999-synthetic-study.pdf', abstract='')
+        invalid = dict(self.article, pmcid='PMC999', filename='PMC999-synthetic-study.pdf', id='PMC999-synthetic-study', article_id='PMC999-synthetic-study', abstract='')
         (self.records/'invalid.json').write_text(json.dumps(invalid))
         status, report = self.run_builder()
         self.assertEqual(status,1)
@@ -69,3 +69,13 @@ class ManifestTests(unittest.TestCase):
         with patch.object(builder.os,'replace',side_effect=OSError('synthetic failure')):
             self.assertEqual(self.run_builder(finalize=True)[0],1)
         self.assertEqual(self.output.read_bytes(),before)
+
+    def test_invalid_or_missing_filename_fails_before_output(self):
+        for filename in [None, '../synthetic-study.pdf', 'PMC123456-Bad-name.pdf']:
+            with self.subTest(filename=filename):
+                invalid = dict(self.article)
+                if filename is None: del invalid['filename']
+                else: invalid['filename'] = filename
+                (self.records/'article.json').write_text(json.dumps(invalid))
+                self.assertEqual(self.run_builder()[0],1)
+                self.assertFalse(self.output.exists())

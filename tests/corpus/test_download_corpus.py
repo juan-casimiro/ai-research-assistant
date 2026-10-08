@@ -85,6 +85,19 @@ class DownloadCorpusTests(unittest.TestCase):
             with self.subTest(field=field), patch.object(download_corpus, "open_url", return_value=io.BytesIO(json.dumps(dict(metadata, **{field: value})).encode())), self.assertRaises(ValueError):
                 download_corpus.resolve_pdf(article)
 
+    def test_existing_manifest_download_uses_pinned_version_without_latest_lookup(self):
+        payload = pdf_bytes()
+        metadata = {'pmcid': 'PMC123', 'doi': '10.123/synthetic', 'pdf_url': 's3://pmc-oa-opendata/PMC123.4/synthetic.pdf'}
+        with tempfile.TemporaryDirectory() as directory:
+            manifest = Path(directory, 'manifest.json')
+            manifest.write_text(json.dumps({'articles': [{'pmcid': 'PMC123', 'pmc_version': 4, 'doi': '10.123/synthetic', 'filename': 'synthetic-pinned.pdf'}]}))
+            original = manifest.read_bytes()
+            with patch.object(download_corpus, 'open_url', side_effect=[io.BytesIO(json.dumps(metadata).encode()), io.BytesIO(payload)]) as source_reader, contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(download_corpus.main(['--manifest', str(manifest), '--corpus-dir', directory]), 0)
+            urls = [call.args[0] for call in source_reader.call_args_list]
+            self.assertEqual(urls, [download_corpus.BUCKET + '/metadata/PMC123.4.json', download_corpus.BUCKET + '/PMC123.4/synthetic.pdf'])
+            self.assertEqual(manifest.read_bytes(), original)
+
     def test_missing_manual_is_incomplete_and_browser_is_opt_in(self):
         with tempfile.TemporaryDirectory() as directory:
             manifest = Path(directory, "manifest.json")
