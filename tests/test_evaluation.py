@@ -139,6 +139,50 @@ class AdjacentSpanTests(unittest.TestCase):
             scoring.compile_anchor_spans(anchors, {"A.pdf": text}, lambda t: ["invented"])
 
 
+class BenchmarkValidationTests(unittest.TestCase):
+    def fixture(self):
+        return {"queries": [{"id": "q001", "revision": 1, "question": "What was found?",
+            "category": "direct_lookup", "answerability": {"status": "answerable"},
+            "required_facts": [{"id": "f1"}], "related_distractors": [],
+            "evidence_sets": [{"anchors": ["a"], "fact_anchors": {"f1": ["a"]}}]}],
+            "anchors": [{"id": "a", "article_id": "A", "filename": "A.pdf",
+                         "excerpt": "A finding."}]}
+
+    def test_rejects_duplicate_ids(self):
+        import copy
+        scoring.validate_benchmark(self.fixture())
+        for field, message in [("queries", "duplicate query IDs"),
+                               ("anchors", "duplicate anchor IDs")]:
+            data = self.fixture()
+            data[field].append(copy.deepcopy(data[field][0]))
+            with self.subTest(field=field), self.assertRaisesRegex(ValueError, message):
+                scoring.validate_benchmark(data)
+
+    def test_rejects_unknown_anchor_and_incomplete_fact_mapping(self):
+        for mapping, members, message in [
+            ({"f1": ["missing"]}, ["missing"], "unknown evidence anchor"),
+            ({}, ["a"], "does not cover each required fact"),
+            ({"f2": ["a"]}, ["a"], "does not cover each required fact"),
+            ({"f1": []}, ["a"], "does not cover each required fact"),
+        ]:
+            data = self.fixture()
+            data["queries"][0]["evidence_sets"][0] = {"anchors": members, "fact_anchors": mapping}
+            with self.subTest(mapping=mapping), self.assertRaisesRegex(ValueError, message):
+                scoring.validate_benchmark(data)
+
+    def test_rejects_inconsistent_answerability_and_unscoped_absence(self):
+        data = self.fixture()
+        data["queries"][0]["answerability"]["status"] = "absent_fact"
+        with self.assertRaisesRegex(ValueError, "inconsistent answerability"):
+            scoring.validate_benchmark(data)
+        query = data["queries"][0]
+        query.update(category="unanswerable", required_facts=[], evidence_sets=[])
+        with self.assertRaisesRegex(ValueError, "explicit search scope"):
+            scoring.validate_benchmark(data)
+        query["answerability"]["search_scope"] = "Reviewed the complete article."
+        scoring.validate_benchmark(data)
+
+
 class InputTests(unittest.TestCase):
     def test_combined_dataset_has_valid_unique_cases_and_current_references(self):
         root = Path(__file__).resolve().parents[1]
@@ -167,10 +211,26 @@ class InputTests(unittest.TestCase):
 
     def test_collection_rejects_extra_and_missing_chunks(self):
         from types import SimpleNamespace
-        collection = SimpleNamespace(name="test collection", get=lambda **kw: {"documents": ["some text"], "metadatas": [{"source": "some-source.pdf"}]})
-        self.assertEqual(evaluate.verify_collection(collection, {"some-source.pdf": "some text"}, lambda s: [s]), 1)
-        with self.assertRaisesRegex(ValueError, "collection differs"):
-            evaluate.verify_collection(collection, {"some-source.pdf": "different text"}, lambda s: [s])
+        texts = {"A.pdf": "first|second"}
+        def collection(rows):
+            return SimpleNamespace(get=lambda **kw: {
+                "documents": [text for source, text in rows],
+                "metadatas": [{"source": source} for source, text in rows]})
+        expected = [("A.pdf", "first"), ("A.pdf", "second")]
+        self.assertEqual(evaluate.verify_collection(collection(expected), texts,
+                                                   lambda text: text.split("|")), 2)
+        cases = {
+            "missing": expected[:1],
+            "empty": [],
+            "extra": expected + [("A.pdf", "third")],
+            "extra source": expected + [("B.pdf", "first")],
+            "duplicate": expected + expected[:1],
+            "changed text": [("A.pdf", "first"), ("A.pdf", "changed")],
+            "wrong source": [("A.pdf", "first"), ("B.pdf", "second")],
+        }
+        for name, rows in cases.items():
+            with self.subTest(case=name), self.assertRaisesRegex(ValueError, "collection differs"):
+                evaluate.verify_collection(collection(rows), texts, lambda text: text.split("|"))
 
     def test_missing_inputs_and_check_do_not_load_models(self):
         with tempfile.TemporaryDirectory() as directory:
