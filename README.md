@@ -8,6 +8,10 @@ The original V1 test corpus is 19 open-access biomedical research articles (PubM
 
 **Original V1 retrieval accuracy: 96.4% @ n=3, 98.2% @ n=8** on a 133-query golden QA set (111 scored), spanning direct lookup, multi-hop, cross-document distractor, and cross-document synthesis cases. BM25 hybrid search and LLM query rewriting were implemented and evaluated as opt-in additions but measured no net benefit on this corpus — see [ADR-001](./adr/001-chunking-and-retrieval.md) for the full evaluation, including one attributable regression from BM25 alone.
 
+The [current MVP evaluation results](data/evaluations/mvp/2026-10-09-anthropic/README.md)
+save all four combinations on the 55-article, 158-query corpus, with separate
+document and pinned-excerpt coverage metrics.
+
 CI runs unit tests, builds the Docker image, and smoke-tests `/health` on every pull request and push to `main`. The golden QA evaluation remains manual because it is non-deterministic and calls a paid API. Successful `main` builds publish commit-SHA and `latest` images to `ghcr.io/juan-casimiro/ai-research-assistant`; nothing is deployed automatically. See [ADR-003](./adr/003-deployment-and-containerisation.md).
 
 ## Two ways to run this
