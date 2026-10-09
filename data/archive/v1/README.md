@@ -46,6 +46,10 @@ generated-answer accuracy. They apply to V1, not the current 55-article corpus.
 
 ## High-level technical setup
 
+Historical scripts and their matching inputs are preserved in the
+`evaluation-v1-baseline` tag. Use a checkout of that tag for historical commands;
+the current branch uses the new evaluation workflow.
+
 V1 ran on the host using local embeddings, a Chroma collection and a cross-encoder
 reranker, through production retrieval. PDFs were acquired separately: 17 articles
 from PMC and two through publisher browser downloads. Text was extracted and

@@ -1,6 +1,8 @@
 # Original V1 methodology record
 
 Moved from ADR-002 on 2026-10-09; superseded by the current benchmark.
+Scripts referenced in this record are preserved in the `evaluation-v1-baseline`
+tag; historical commands require a checkout of that tag.
 
 # ADR-002: Evaluation Methodology
 

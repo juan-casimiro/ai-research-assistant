@@ -1,7 +1,9 @@
 # Original V1 corpus acquisition record
 
 Moved from the README host guide on 2026-10-09; superseded by the current benchmark.
-Run historical commands from the repository root.
+Historical commands refer to scripts preserved in the `evaluation-v1-baseline`
+tag. Run them from the repository root of a checkout of that tag, not the
+current branch.
 
 Start the server:
 
