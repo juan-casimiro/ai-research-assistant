@@ -58,6 +58,18 @@ a new result path. The default is a unique ignored JSON file under
 `build/corpus/evaluation-runs/`. Existing outputs are refused. Failed runs retain
 completed results as an incomplete checkpoint; never report it as a complete run.
 
+For rewriting runs, save each prompt and full returned provider response,
+including available response metadata and token usage, to a separate JSONL log
+beside the result file. Tag each record with query ID, depth, provider and model;
+flush records as calls finish. Keep credentials and request headers out of logs.
+The evaluator currently saves retrieved contexts and scores, but does not capture
+rewrite responses: use a run-scoped wrapper around the existing LLM call to log
+its returned message without making extra provider calls. Verify one successful
+response record per executed query/depth before claiming complete response logs.
+Preserve partial logs on failure and report gaps. Keep full logs on disk; inspect
+counts, summaries or selected records instead of loading them all into agent
+context. Do not commit generated logs.
+
 Report requested/executed counts, depths (3 and 8), configuration, separate
 source-document and pinned-excerpt coverage, fact recall and distractor ordering.
 Absent-fact cases have no positive retrieval score. False-premise cases measure
