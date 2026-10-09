@@ -294,6 +294,19 @@ class EvaluationRunTests(unittest.IsolatedAsyncioTestCase):
         return SimpleNamespace(queries=path / "queries.json", manifest=path / "manifest.json", corpus_dir=path,
                                output=path / "result.json", ids=None, bm25=False, rewrite=False), article, text
 
+    def test_corpus_folder_defaults_to_the_manifest_corpus_name(self):
+        with tempfile.TemporaryDirectory() as directory:
+            args, article, text = self.inputs(directory)
+            named = Path(directory) / "corpus/test-corpus"
+            named.mkdir(parents=True)
+            for path in Path(directory).glob(article["id"] + ".*"):
+                path.rename(named / path.name)
+            with patch.object(evaluate, "ROOT", Path(directory)):
+                with self.assertRaisesRegex(ValueError, "corpus"):
+                    evaluate.read_inputs(args.queries, args.manifest, None)
+                args.manifest.write_text(json.dumps({"corpus": "test-corpus", "articles": [article]}))
+                self.assertEqual(evaluate.read_inputs(args.queries, args.manifest, None)[2], {article["filename"]: text})
+
     async def test_complete_run_records_both_depths_and_refuses_output_overwrite(self):
         from types import SimpleNamespace
         with tempfile.TemporaryDirectory() as directory:

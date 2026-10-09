@@ -15,7 +15,9 @@ selection. No ingestion or retrieval changes are part of either flow.
 
 ## Existing manifest
 
-Set the supplied manifest and PDF directory; defaults for the current corpus are:
+The manifest's top-level `corpus` name identifies the corpus; its PDFs and text
+live under `corpus/<name>/`. Set the supplied manifest and PDF directory;
+for the current corpus (`"corpus": "mvp"`) they are:
 
 ```sh
 corpus_manifest=data/corpus_manifest.json
@@ -72,7 +74,7 @@ python -m tools.corpus.fetch_article_metadata \
   --records-dir "$corpus_run_dir/metadata" \
   --archive-dir "$corpus_run_dir/provenance"
 python -m tools.corpus.build_corpus_manifest \
-  --records-dir "$corpus_run_dir/metadata"
+  --records-dir "$corpus_run_dir/metadata" --corpus <name>
 ```
 
 Fetch loops over the selection and prints each proposed filename. Correct a
@@ -166,7 +168,8 @@ python -m tools.corpus.publish_corpus --run-dir "$corpus_run_dir"
 Publication validates every record and PDF again, computes PDF SHA-256 directly,
 compares the manifest PMCID set with the saved selection, and checks all final
 destinations before moving anything. Defaults are `data/corpus_manifest.json`
-and `corpus/mvp/`, with both PDFs and adjacent text. Missing/extra PMCIDs and
+and `corpus/<name>/` from the manifest's `corpus` name, with both PDFs and
+adjacent text. Missing/extra PMCIDs and
 conflicting files are named. Only expected PDF/text files are compared; unrelated
 files are ignored, and matching text left by ingestion is accepted.
 

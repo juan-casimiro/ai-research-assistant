@@ -99,17 +99,18 @@ Ingest into a new collection beside the corpus with seeding disabled; no server 
 
 ```bash
 SEED_ON_EMPTY=false CHROMA_PATH=corpus/mvp/chroma \
-  python -m tools.corpus.ingest_corpus --manifest data/corpus_manifest.json --corpus-dir corpus/mvp
+  python -m tools.corpus.ingest_corpus
 ```
 
-Use the same `CHROMA_PATH` for evaluation and for `uvicorn main:app`. The command
+The corpus folder comes from the manifest's `corpus` name (`mvp`). Use the same
+`CHROMA_PATH` for evaluation and for `uvicorn main:app`. The command
 refuses an existing collection path; do not reset or append to a shared
 collection, because the evaluator checks exact corpus membership.
 
 ### Retrieval evaluation
 
 ```bash
-python -m tools.evaluation.evaluate --corpus-dir corpus/mvp
+python -m tools.evaluation.evaluate
 ```
 
 Evaluates all 158 questions in [queries.json](data/queries.json) against production

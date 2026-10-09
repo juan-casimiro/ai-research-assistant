@@ -77,6 +77,21 @@ class CorpusIngestionTests(unittest.TestCase):
             self.assertIsNone(rag_production.llm)
         create_llm_client.assert_not_called()
 
+    def test_corpus_folder_defaults_to_the_manifest_corpus_name(self):
+        named = self.root / "corpus/test-corpus"
+        named.mkdir(parents=True)
+        for name in ("first-test.pdf", "second-test.pdf"):
+            (self.root / name).rename(named / name)
+        for corpus, status in [(None, 1), ("test-corpus", 0)]:
+            with self.subTest(corpus=corpus):
+                articles = [{"filename": "first-test.pdf"}, {"filename": "second-test.pdf"}]
+                self.manifest.write_text(json.dumps({"articles": articles} if corpus is None else {"corpus": corpus, "articles": articles}))
+                rag_production = FakeProduction()
+                with patch.dict(os.environ, self.environment, clear=True), patch.object(ingest_corpus, "ROOT", self.root), patch.object(
+                        ingest_corpus, "load_production", return_value=rag_production), contextlib.redirect_stdout(io.StringIO()):
+                    self.assertEqual(ingest_corpus.main(["--manifest", str(self.manifest)]), status)
+                self.assertEqual((named / "first-test.txt").exists(), corpus is not None)
+
     def test_every_article_is_ingested_by_filename_and_verified(self):
         rag_production = FakeProduction()
         status, _ = self.run_tool(rag_production)

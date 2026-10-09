@@ -14,4 +14,4 @@ owns the preparation order, selection evidence, validation and local output rule
 | `tools.corpus.publish_corpus` | Compare prepared PMCID membership with the original selection and publish only after validation/conflict checks. |
 
 Use each module's `--help`. Local preparation artifacts remain ignored; publication
-and conflict resolution follow the workflow. Publication moves PDFs and text into `corpus/mvp`.
+and conflict resolution follow the workflow. The manifest's `corpus` name sets the corpus folder: publication moves PDFs and text into `corpus/<name>/`.
