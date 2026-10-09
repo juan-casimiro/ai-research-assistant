@@ -156,34 +156,20 @@ python ingest_corpus.py --manifest data/archive/v1/corpus_manifest.json # origin
 ### Retrieval evaluation
 
 ```bash
-python eval_golden.py [--bm25] [--rewrite]
+python -m tools.evaluation.evaluate --corpus-dir corpus/mvp
 ```
 
-Runs the golden QA evaluation harness ([golden_qa.json](./data/archive/v1/golden_qa.json), 133 queries,
-111 scored across 4 categories plus unanswerable) against the production
-`retrieve()` pipeline. The script imports `retrieve()` and
-`_load_models_and_index()` from `main.py`, loads the models and existing
-Chroma collection in its own process, and does not require a separate
-Uvicorn server. The full corpus must already be ingested at the configured
-`CHROMA_PATH`; this script does not run startup seeding. Configure the
-selected LLM provider as described above (`ANTHROPIC_API_KEY` is required
-for the default Anthropic provider). The `--rewrite` option makes LLM
-requests and may incur provider usage. Results are written to
-`eval_results.json` with a config label and per-query verdicts. See
-[ADR-002](./adr/002-evaluation-methodology.md) for the category design
-and scoring logic.
+Evaluates all 158 questions in [queries.json](data/queries.json) against production
+`retrieve()`. [queries-schema.md](data/queries-schema.md) documents the inputs;
+[the evaluation workflow](tools/evaluation/evaluation-workflow.md) describes
+setup, verification and optional BM25/query rewriting. Results separate document
+coverage from pinned-evidence coverage; they do not measure generated-answer
+accuracy. Outputs are ignored under `build/corpus/evaluation-runs/`.
 
-```bash
-python compare_evals.py <baseline.json> <experiment.json>
-```
-
-Diffs two result files and prints per-query pass/fail flips, for
-isolating the effect of a single change.
-
-Raw per-query results for all four tested configurations are committed
-under [data/archive/v1/evaluations/](./data/archive/v1/evaluations/) for inspection: `eval_results_baseline.json`,
-`eval_results_bm25.json`, `eval_results_rewrite.json`, and
-`eval_results_bm25_rewrite.json`.
+The original 133-question V1 gold and saved configuration results remain under
+[data/archive/v1/](data/archive/v1/). Their historical scores do not describe the
+current corpus. `compare_evals.py` remains a legacy V1 result comparison utility;
+it does not compare the new evidence-scoring result format.
 
 
 ## Features

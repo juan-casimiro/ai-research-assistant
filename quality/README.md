@@ -17,13 +17,13 @@ python -m coverage run --data-file="$AUDIT_DIR/final.coverage" -m unittest disco
 python -m coverage report --data-file="$AUDIT_DIR/final.coverage"
 python -m coverage json --data-file="$AUDIT_DIR/final.coverage" -o "$AUDIT_DIR/final.json"
 python quality/quality_hotspots.py "$AUDIT_DIR/final.json" > "$AUDIT_DIR/final-hotspots.json"
-python -m radon cc main.py eval_golden.py eval_context_sufficient.py ingest_corpus.py compare_evals.py -s -a
+python -m radon cc main.py tools/evaluation/evaluate.py eval_context_sufficient.py ingest_corpus.py compare_evals.py -s -a
 ```
 
 `quality_hotspots.py` joins Radon cyclomatic complexity to `coverage.py`'s
 executed/missing statement lines and reports a CRAP-style score
 (`CC² × (1 − line coverage)³ + CC`) plus a structural decision-nesting count. It
-covers `main.py`, `eval_golden.py`, `eval_context_sufficient.py`,
+covers `main.py`, `tools/evaluation/evaluate.py`, `eval_context_sufficient.py`,
 `ingest_corpus.py`, `compare_evals.py`, `reset_collection.py`, `debug_bm25.py`,
 and `show_failures.py`. Tests, `.venv`, and `quality/` itself are excluded via
 `.coveragerc`.

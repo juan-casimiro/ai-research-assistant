@@ -5,84 +5,177 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
-from unittest.mock import AsyncMock, patch
+from unittest.mock import AsyncMock, Mock, patch
 
-import eval_golden as golden
+from tools.evaluation import evaluate, scoring
 import eval_context_sufficient as sufficiency
 
 
 class ScoringTests(unittest.TestCase):
-    def test_category_scoring_including_missing_metadata_and_distractor_order(self):
-        cases = [
-            ("unanswerable", {}, [], "not_scored"),
-            ("direct_lookup", {"expected_doc": "a.pdf"}, ["a.pdf"], "pass"),
-            ("direct_lookup", {"expected_doc": "a.pdf"}, ["b.pdf"], "fail"),
-            ("multi_hop", {"expected_doc": "a.pdf"}, ["a.pdf"], "pass"),
-            ("multi_hop", {}, ["a.pdf"], "fail"),
-            ("cross_doc_distractor", {"expected_doc": "a.pdf", "distractor_doc": "b.pdf"}, ["a.pdf", "b.pdf"], "pass"),
-            ("cross_doc_distractor", {"expected_doc": "a.pdf", "distractor_doc": "b.pdf"}, ["b.pdf", "a.pdf"], "fail"),
-            ("cross_doc_distractor", {"expected_doc": "a.pdf", "distractor_doc": "b.pdf"}, ["a.pdf"], "pass"),
-            ("cross_doc_distractor", {"expected_doc": "a.pdf"}, ["a.pdf"], "pass"),
-            ("cross_doc_distractor", {"expected_doc": "a.pdf"}, ["b.pdf"], "fail"),
-            ("cross_doc_distractor", {}, [], "fail"),
-            ("cross_doc_synthesis", {"expected_docs": ["a.pdf", "b.pdf"]}, ["b.pdf", "a.pdf"], "pass"),
-            ("cross_doc_synthesis", {"expected_docs": ["a.pdf", "b.pdf"]}, ["a.pdf", "a.pdf"], "fail"),
-            ("cross_doc_synthesis", {}, [], "fail"),
-            ("unknown", {"expected_doc": "a.pdf"}, ["a.pdf"], "fail"),
-        ]
-        for category, metadata, sources, verdict in cases:
-            with self.subTest(category=category, metadata=metadata, sources=sources):
-                self.assertEqual(golden.score_query(sources, {"category": category, **metadata}), verdict)
+    def fixture(self):
+        anchors = {"a": {"filename": "some-source.pdf", "excerpt": "Some measured finding."},
+                   "b": {"filename": "other-source.pdf", "excerpt": "Another scoped finding."}}
+        query = {"category": "cross_doc_synthesis", "answerability": {"status": "answerable"},
+                 "required_facts": [{"id": "f1"}, {"id": "f2"}], "related_distractors": [],
+                 "evidence_sets": [{"anchors": ["a", "b"], "fact_anchors": {"f1": ["a"], "f2": ["b"]}}]}
+        return query, anchors
 
-    def test_config_labels_distinguish_all_four_experiments(self):
-        for bm25, rewrite, label in [(False, False, "vector-only-baseline"), (True, False, "vector-bm25"),
-                                     (False, True, "vector-rewrite"), (True, True, "vector-bm25-rewrite")]:
-            with self.subTest(label=label):
-                self.assertEqual(golden.build_config_label(bm25, rewrite), label)
+    def test_document_coverage_and_distractor_order(self):
+        query, anchors = self.fixture()
+        self.assertEqual(scoring.score_evidence(["Unrelated text"], ["some-source.pdf"], query, anchors)["document_coverage"], "fail")
+        query["category"] = "cross_doc_distractor"
+        query["required_facts"] = [{"id": "f1"}]
+        query["evidence_sets"] = [{"anchors": ["a"], "fact_anchors": {"f1": ["a"]}}]
+        query["related_distractors"] = [{"filename": "other-source.pdf"}]
+        for sources, expected in [(["some-source.pdf", "other-source.pdf"], "pass"),
+                                  (["other-source.pdf", "some-source.pdf"], "fail")]:
+            with self.subTest(sources=sources):
+                self.assertEqual(scoring.score_evidence(["irrelevant", "irrelevant"], sources, query, anchors)["distractor_ordering"], expected)
+
+    def test_documents_without_evidence_and_partial_facts_are_separate(self):
+        query, anchors = self.fixture()
+        result = scoring.score_evidence(["Some measured finding.", "Unrelated text"],
+                                        ["some-source.pdf", "other-source.pdf"], query, anchors)
+        self.assertEqual(result["document_coverage"], "pass")
+        self.assertEqual(result["evidence_coverage"], "fail")
+        self.assertEqual(result["fact_recall"], 0.5)
+
+    def test_complete_alternative_passes_without_mixing_partial_sets(self):
+        query, anchors = self.fixture()
+        anchors["c"] = {"filename": "alternative.pdf", "excerpt": "Both scoped findings."}
+        query["evidence_sets"].append({"anchors": ["c"], "fact_anchors": {"f1": ["c"], "f2": ["c"]}})
+        result = scoring.score_evidence(["Both scoped findings."], ["alternative.pdf"], query, anchors)
+        self.assertEqual(result["evidence_coverage"], "pass")
+        self.assertEqual(result["fact_recall"], 1.0)
+
+    def test_absent_fact_is_not_scored_and_wrong_source_cannot_support_evidence(self):
+        query, anchors = self.fixture()
+        result = scoring.score_evidence(["Some measured finding."], ["other-source.pdf"], query, anchors)
+        self.assertEqual(result["fact_recall"], 0.0)
+        query["answerability"]["status"] = "absent_fact"
+        self.assertEqual(scoring.score_evidence([], [], query, anchors)["evidence_coverage"], "not_scored")
 
 
-class GoldenHarnessTests(unittest.IsolatedAsyncioTestCase):
-    async def test_harness_records_both_depths_and_excludes_unanswerable_from_denominator(self):
+class InputTests(unittest.TestCase):
+    def test_combined_dataset_has_valid_unique_cases_and_current_references(self):
+        root = Path(__file__).resolve().parents[1]
+        data = json.loads((root / "data/queries.json").read_text())
+        scoring.validate_benchmark(data)
+        self.assertEqual(len(data["queries"]), 158)
+        self.assertEqual(len({q["id"] for q in data["queries"]}), 158)
+        articles = {a["article_id"]: a for a in json.loads((root / "data/corpus_manifest.json").read_text())["articles"]}
+        self.assertEqual(set(data["sources"]), set(articles))
+        for anchor in data["anchors"]:
+            self.assertEqual(anchor["filename"], articles[anchor["article_id"]]["filename"])
+        self.assertEqual([q["id"] for q in data["queries"]], [f"q{i:03d}" for i in range(1, 159)])
+        topics = [q["topics"][0] for q in data["queries"]]
+        self.assertEqual(topics, sorted(topics))
+
+    def test_collection_rejects_extra_and_missing_chunks(self):
+        from types import SimpleNamespace
+        collection = SimpleNamespace(name="test collection", get=lambda **kw: {"documents": ["some text"], "metadatas": [{"source": "some-source.pdf"}]})
+        self.assertEqual(evaluate.verify_collection(collection, {"some-source.pdf": "some text"}, lambda s: [s]), 1)
+        with self.assertRaisesRegex(ValueError, "collection differs"):
+            evaluate.verify_collection(collection, {"some-source.pdf": "different text"}, lambda s: [s])
+
+    def test_missing_inputs_and_check_do_not_load_models(self):
         with tempfile.TemporaryDirectory() as directory:
-            input_path, output_path = Path(directory, "qa.json"), Path(directory, "results.json")
-            input_path.write_text(json.dumps({"queries": [
-                {"id": "test-a", "category": "direct_lookup", "question": "some question", "expected_doc": "a.pdf"},
-                {"id": "test-b", "category": "unanswerable", "question": "some other question"},
-            ]}))
-            async def retrieve(question, n_results, **options):
-                return [], ["a.pdf"] if n_results == 8 else ["b.pdf"]
-            output = io.StringIO()
-            with patch.object(golden, "GOLDEN_QA_PATH", input_path), patch.object(golden, "RESULTS_PATH", output_path), patch.object(
-                golden, "_load_models_and_index"
-            ) as load, patch.object(golden, "retrieve", AsyncMock(side_effect=retrieve)) as lookup, patch(
-                "sys.argv", ["eval_golden.py", "--bm25", "--rewrite"]
-            ), contextlib.redirect_stdout(output):
-                self.assertEqual(await golden.main(), 0)
-            load.assert_called_once()
-            self.assertEqual(lookup.await_count, 4)
-            lookup.assert_any_await("some question", n_results=8, use_query_rewriting=True, use_bm25=True)
-            result = json.loads(output_path.read_text())
-            self.assertEqual(result["config"]["n_values"], [3, 8])
-            self.assertEqual(result["config_label"], "vector-bm25-rewrite")
-            self.assertEqual(result["results"][0]["n3"]["verdict"], "fail")
-            self.assertEqual(result["results"][0]["n8"]["verdict"], "pass")
-            self.assertEqual(result["results"][1]["n8"]["verdict"], "not_scored")
-            overall = next(line for line in output.getvalue().splitlines() if line.startswith("OVERALL"))
-            self.assertIn("0/1", overall)
-            self.assertIn("1/1", overall)
+            with patch("sys.argv", ["evaluate", "--check", "--queries", str(Path(directory) / "missing.json")]), patch("main._load_models_and_index") as load:
+                self.assertEqual(__import__("asyncio").run(evaluate.main()), 1)
+                load.assert_not_called()
 
-    async def test_missing_file_and_unknown_id_do_not_load_models(self):
+    def test_checkpoint_preserves_prior_file_on_serialization_failure(self):
         with tempfile.TemporaryDirectory() as directory:
-            path = Path(directory, "qa.json")
-            for exists in (False, True):
-                with self.subTest(exists=exists):
-                    if exists:
-                        path.write_text('{"queries": []}')
-                    with patch.object(golden, "GOLDEN_QA_PATH", path), patch.object(
-                        golden, "_load_models_and_index"
-                    ) as load, patch("sys.argv", ["eval_golden.py", "--ids", "test-unknown"]), contextlib.redirect_stdout(io.StringIO()):
-                        self.assertEqual(await golden.main(), 1)
-                    load.assert_not_called()
+            path = Path(directory) / "run.json"
+            evaluate.write_checkpoint(path, {"results": ["some result"]})
+            original = path.read_bytes()
+            with self.assertRaises(ValueError):
+                evaluate.write_checkpoint(path, {"value": float("nan")})
+            self.assertEqual(path.read_bytes(), original)
+
+
+class EvaluationRunTests(unittest.IsolatedAsyncioTestCase):
+    def inputs(self, directory):
+        import copy
+        import hashlib
+        from types import SimpleNamespace
+        root = Path(__file__).resolve().parents[1]
+        article = copy.deepcopy(json.loads((root / "data/corpus_manifest.json").read_text())["articles"][0])
+        pdf_bytes = b"synthetic test PDF bytes"
+        text = "Some measured finding."
+        pin = {"pmcid": article["pmcid"], "pmc_version": article["pmc_version"],
+               "pdf_sha256": hashlib.sha256(pdf_bytes).hexdigest(), "text_sha256": hashlib.sha256(text.encode()).hexdigest()}
+        article["metadata_sources"]["pdf"]["sha256"] = pin["pdf_sha256"]
+        path = Path(directory)
+        pdf = path / article["filename"]
+        pdf.write_bytes(pdf_bytes)
+        pdf.with_suffix(".txt").write_text(text)
+        anchor = {"id": "some-anchor", "article_id": article["id"], "filename": article["filename"],
+                  "excerpt": text, "text_start": 0, "text_end": len(text), "excerpt_sha256": pin["text_sha256"],
+                  "pmc_version": pin["pmc_version"], "pdf_sha256": pin["pdf_sha256"], "text_sha256": pin["text_sha256"]}
+        query = {"id": "some-case", "revision": 1, "category": "direct_lookup", "question": "Some test question?",
+                 "answerability": {"status": "answerable"}, "required_facts": [{"id": "f1"}],
+                 "related_distractors": [], "evidence_sets": [{"anchors": [anchor["id"]], "fact_anchors": {"f1": [anchor["id"]]}}]}
+        (path / "queries.json").write_text(json.dumps({"query_version": "test-v1", "sources": {article["id"]: pin}, "queries": [query], "anchors": [anchor]}))
+        (path / "manifest.json").write_text(json.dumps({"articles": [article]}))
+        return SimpleNamespace(queries=path / "queries.json", manifest=path / "manifest.json", corpus_dir=path,
+                               output=path / "result.json", ids=None, bm25=False, rewrite=False), article, text
+
+    async def test_complete_run_records_both_depths_and_refuses_output_overwrite(self):
+        from types import SimpleNamespace
+        with tempfile.TemporaryDirectory() as directory:
+            args, article, text = self.inputs(directory)
+            collection = SimpleNamespace(name="test collection", get=lambda **kw: {"documents": [text], "metadatas": [{"source": article["filename"]}]})
+            lookup = AsyncMock(return_value=([text], [article["filename"]]))
+            with patch("main.collection", collection), patch("main.CHROMA_PATH", "some-test-store"), patch("main.chunk_text", side_effect=lambda s: [s]):
+                loader = Mock()
+                self.assertEqual(await evaluate.run_evaluation(args, lookup, loader), 0)
+                result = json.loads(args.output.read_text())
+                self.assertEqual(result["run_status"], "complete")
+                self.assertEqual(result["results"][0]["n3"]["metrics"]["evidence_coverage"], "pass")
+                self.assertEqual(result["executed_ids"], ["some-case"])
+                original = args.output.read_bytes()
+                self.assertEqual(await evaluate.run_evaluation(args, lookup, loader), 1)
+                self.assertEqual(args.output.read_bytes(), original)
+                self.assertEqual(lookup.await_count, 2)
+                self.assertEqual(loader.call_count, 1)
+
+    async def test_provider_failure_retains_incomplete_results(self):
+        from types import SimpleNamespace
+        from llm_client import LlmTimeoutError
+        with tempfile.TemporaryDirectory() as directory:
+            args, article, text = self.inputs(directory)
+            collection = SimpleNamespace(name="test collection", get=lambda **kw: {"documents": [text], "metadatas": [{"source": article["filename"]}]})
+            lookup = AsyncMock(side_effect=[([text], [article["filename"]]), LlmTimeoutError("synthetic timeout")])
+            with patch("main.collection", collection), patch("main.CHROMA_PATH", "some-test-store"), patch("main.chunk_text", side_effect=lambda s: [s]):
+                self.assertEqual(await evaluate.run_evaluation(args, lookup, lambda: None), 1)
+                result = json.loads(args.output.read_text())
+                self.assertEqual(result["run_status"], "incomplete")
+                self.assertEqual(result["results"][0]["n3"]["metrics"]["evidence_coverage"], "pass")
+                self.assertNotIn("n8", result["results"][0])
+                self.assertEqual(sorted(set(result["requested_ids"]) - set(result["executed_ids"])), ["some-case"])
+
+    async def test_collection_failure_marks_reserved_output_incomplete(self):
+        from types import SimpleNamespace
+        with tempfile.TemporaryDirectory() as directory:
+            args, article, text = self.inputs(directory)
+            collection = SimpleNamespace(name="test collection", get=lambda **kw: {"documents": [], "metadatas": []})
+            lookup = AsyncMock()
+            with patch("main.collection", collection):
+                self.assertEqual(await evaluate.run_evaluation(args, lookup, lambda: None), 1)
+            self.assertEqual(json.loads(args.output.read_text())["run_status"], "incomplete")
+            lookup.assert_not_awaited()
+
+    async def test_tampered_text_stops_before_loading_or_retrieval(self):
+        with tempfile.TemporaryDirectory() as directory:
+            args, article, text = self.inputs(directory)
+            (Path(directory) / article["filename"]).with_suffix(".txt").write_text("corrupted text")
+            lookup = AsyncMock()
+            loader = Mock()
+            self.assertEqual(await evaluate.run_evaluation(args, lookup, loader), 1)
+            loader.assert_not_called()
+            lookup.assert_not_awaited()
+            self.assertFalse(args.output.exists())
 
 
 class SufficiencyEvaluationTests(unittest.TestCase):

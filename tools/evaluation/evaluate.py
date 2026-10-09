@@ -1,247 +1,185 @@
-#!/usr/bin/env python3
-"""Category-aware retrieval evaluation harness against golden_qa.json.
-
-Usage:
-    python eval_golden.py                  # vector-only baseline
-    python eval_golden.py --bm25           # enable BM25 hybrid fusion
-    python eval_golden.py --rewrite        # enable LLM query rewriting
-    python eval_golden.py --bm25 --rewrite # both strategies on
-    python eval_golden.py --ids q139,q140  # only these query ids
-    python eval_golden.py --rewrite --ids q139,q140
-"""
+"""Evaluate the current Q&A dataset using production retrieve()."""
 import argparse
 import asyncio
+from collections import Counter
+from datetime import datetime, timezone
+import hashlib
 import json
+import os
 from pathlib import Path
+from tempfile import NamedTemporaryFile
+from uuid import uuid4
 
-from main import retrieve, _load_models_and_index
+from chromadb.errors import ChromaError
+from anthropic import APIError
+from httpx import HTTPError
+from ollama import ResponseError
+from llm_client import LlmTimeoutError
+from tools.evaluation.scoring import (canonical_hash, compile_anchor_spans,
+                                      score_evidence, validate_benchmark)
 
-GOLDEN_QA_PATH = Path("./data/archive/v1/golden_qa.json")
-RESULTS_PATH = Path("./eval_results.json")
-N_VALUES = [3, 8]
-
-
-def build_config_label(use_bm25: bool, use_rewrite: bool) -> str:
-    """Generate a human-readable config label from runtime flags."""
-    parts = ["vector"]
-    if use_bm25:
-        parts.append("bm25")
-    if use_rewrite:
-        parts.append("rewrite")
-    return "-".join(parts) if len(parts) > 1 else "vector-only-baseline"
+ROOT = Path(__file__).resolve().parents[2]
 
 
-def score_query(sources: list[str], query: dict) -> str:
-    """Return 'pass', 'fail', or 'not_scored' for a single query."""
-    category = query.get("category")
-
-    if category == "unanswerable":
-        return "not_scored"
-
-    if category in ("direct_lookup", "multi_hop"):
-        expected = query.get("expected_doc")
-        if not expected:
-            return "fail"
-        return "pass" if expected in sources else "fail"
-
-    if category == "cross_doc_distractor":
-        expected = query.get("expected_doc")
-        distractor = query.get("distractor_doc")
-        if not expected:
-            return "fail"
-        if expected not in sources:
-            return "fail"
-        if distractor and distractor in sources:
-            if sources.index(expected) >= sources.index(distractor):
-                return "fail"
-        return "pass"
-
-    if category == "cross_doc_synthesis":
-        expected_docs = query.get("expected_docs", [])
-        if not expected_docs:
-            return "fail"
-        return "pass" if all(doc in sources for doc in expected_docs) else "fail"
-
-    return "fail"
+def write_checkpoint(path: Path, output: dict) -> None:
+    """Replace this run's reserved file atomically, preserving the last good snapshot."""
+    temporary = None
+    try:
+        with NamedTemporaryFile(mode="w", encoding="utf-8", dir=path.parent,
+                                prefix=f".{path.name}.", suffix=".tmp", delete=False) as stream:
+            temporary = Path(stream.name)
+            json.dump(output, stream, indent=2, ensure_ascii=False, allow_nan=False)
+            stream.flush()
+            os.fsync(stream.fileno())
+        os.replace(temporary, path)
+    finally:
+        if temporary is not None:
+            temporary.unlink(missing_ok=True)
 
 
-async def main() -> int:
-    parser = argparse.ArgumentParser(
-        description="Evaluate retrieval against the golden QA dataset."
-    )
-    parser.add_argument(
-        "--bm25",
-        action="store_true",
-        default=False,
-        help="Enable BM25 sparse retrieval via reciprocal rank fusion",
-    )
-    parser.add_argument(
-        "--rewrite",
-        action="store_true",
-        default=False,
-        help="Enable LLM query rewriting before retrieval",
-    )
-    parser.add_argument(
-        "--ids",
-        type=str,
-        default=None,
-        help="Comma-separated query ids to evaluate, e.g. q139,q140. "
-             "Runs only these instead of the full golden set.",
-    )
-    args = parser.parse_args()
+def read_inputs(query_path: Path, manifest_path: Path, corpus_dir: Path):
+    benchmark = json.loads(query_path.read_text())
+    validate_benchmark(benchmark)
+    manifest = json.loads(manifest_path.read_text())
+    from tools.corpus.fetch_article_metadata import validate_records
+    validate_records(manifest["articles"])
+    articles = {a["article_id"]: a for a in manifest["articles"]}
+    if len(articles) != len(manifest["articles"]) or set(articles) != set(benchmark["sources"]):
+        raise ValueError("query sources and corpus membership differ")
+    text_by_source = {}
+    for source_id, article in articles.items():
+        pin = benchmark["sources"][source_id]
+        if (pin["pmcid"], pin["pmc_version"]) != (article["pmcid"], article["pmc_version"]):
+            raise ValueError(f"{source_id}: pinned deposit differs")
+        pdf = corpus_dir / article["filename"]
+        text_bytes = pdf.with_suffix(".txt").read_bytes()
+        pdf_hash = hashlib.sha256(pdf.read_bytes()).hexdigest()
+        if pdf_hash != pin["pdf_sha256"] or hashlib.sha256(text_bytes).hexdigest() != pin["text_sha256"]:
+            raise ValueError(f"{source_id}: pinned PDF/text changed")
+        recorded = article.get("metadata_sources", {}).get("pdf", {}).get("sha256")
+        if recorded is not None and recorded != pdf_hash:
+            raise ValueError(f"{source_id}: manifest PDF hash differs")
+        text_by_source[article["filename"]] = text_bytes.decode("utf-8")
+    for anchor in benchmark["anchors"]:
+        article = articles[anchor["article_id"]]
+        pin = benchmark["sources"][article["article_id"]]
+        if (anchor["filename"], anchor["pmc_version"], anchor["pdf_sha256"], anchor["text_sha256"]) != (
+                article["filename"], pin["pmc_version"], pin["pdf_sha256"], pin["text_sha256"]):
+            raise ValueError(f"{anchor['id']}: anchor source version changed")
+        excerpt = text_by_source[anchor["filename"]][anchor["text_start"]:anchor["text_end"]]
+        if excerpt != anchor["excerpt"] or hashlib.sha256(excerpt.encode()).hexdigest() != anchor["excerpt_sha256"]:
+            raise ValueError(f"{anchor['id']}: anchor offset/hash changed")
+    return benchmark, manifest, text_by_source
 
-    use_bm25: bool = args.bm25
-    use_rewrite: bool = args.rewrite
-    config_label = build_config_label(use_bm25, use_rewrite)
 
-    # ------------------------------------------------------------------
-    # Runtime config banner
-    # ------------------------------------------------------------------
-    print("=" * 70)
-    print("RETRIEVAL EVALUATION HARNESS")
-    print("=" * 70)
-    print(f"  Config label : {config_label}")
-    print(f"  BM25         : {use_bm25}")
-    print(f"  Query rewrite: {use_rewrite}")
-    print(f"  N values     : {N_VALUES}")
-    print("=" * 70)
-    print()
+def verify_collection(collection, selected_text: dict, chunker) -> dict:
+    """Check actual stored chunks, rather than trusting a receipt or path name."""
+    expected = Counter((source, chunk) for source, text in selected_text.items() for chunk in chunker(text))
+    stored = collection.get(include=["documents", "metadatas"])
+    docs, metadata = stored["documents"], stored["metadatas"]
+    if len(docs) != len(metadata):
+        raise ValueError("stored chunk/source counts differ")
+    actual = Counter((m["source"], d) for d, m in zip(docs, metadata))
+    if not expected or actual != expected:
+        raise ValueError("collection differs from corpus chunks (missing, stale, duplicate or extra sources); ingest an isolated collection first")
+    return len(docs)
 
-    if not GOLDEN_QA_PATH.exists():
-        print(f"Golden QA file not found: {GOLDEN_QA_PATH}")
+
+def summarize(results):
+    summary = {}
+    for depth in (3, 8):
+        values = [r[f"n{depth}"]["metrics"] for r in results]
+        summary[f"n{depth}"] = {
+            metric: {"pass": sum(v[metric] == "pass" for v in values),
+                     "scored": sum(v[metric] != "not_scored" for v in values)}
+            for metric in ("document_coverage", "evidence_coverage", "distractor_ordering")}
+        recall = [v["fact_recall"] for v in values if v["fact_recall"] is not None]
+        summary[f"n{depth}"]["mean_fact_recall"] = sum(recall) / len(recall) if recall else None
+    return summary
+
+
+async def run_evaluation(args, retrieve, load_models):
+    import main as production
+    path = args.output or ROOT / "build/corpus/evaluation-runs" / f"{uuid4().hex}.json"
+    output = None
+    try:
+        benchmark, manifest, texts = read_inputs(args.queries, args.manifest, args.corpus_dir)
+        requested = {i.strip() for i in args.ids.split(",")} if args.ids is not None else {q["id"] for q in benchmark["queries"]}
+        if not requested or requested - {q["id"] for q in benchmark["queries"]}:
+            raise ValueError("invalid requested query IDs")
+        queries = [q for q in benchmark["queries"] if q["id"] in requested]
+        anchors = {a["id"]: a for a in benchmark["anchors"]}
+        spans = compile_anchor_spans(anchors, texts, production.chunk_text)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with path.open("x", encoding="utf-8") as stream:
+            output = {"created_at": datetime.now(timezone.utc).isoformat(),
+                      "run_status": "incomplete", "requested_ids": sorted(requested),
+                      "executed_ids": [], "config": {"bm25": args.bm25, "rewrite": args.rewrite, "depths": [3, 8]},
+                      "input_hashes": {"queries": canonical_hash(benchmark), "manifest": canonical_hash(manifest)},
+                      "results": [], "summary": None}
+            json.dump(output, stream)
+        load_models()
+        verify_collection(production.collection, texts, production.chunk_text)
+        output["models"] = {"embedding": getattr(production.embed_model, "model_name", None),
+                            "reranker": getattr(production.reranker, "model_name", None)}
+        if args.rewrite:
+            from llm_client import DEFAULT_MODELS_BY_PROVIDER
+            provider = os.getenv("LLM_PROVIDER", "anthropic")
+            output["models"]["rewrite"] = {"provider": provider, "model": os.getenv("LLM_MODEL", DEFAULT_MODELS_BY_PROVIDER.get(provider))}
+        for query in queries:
+            entry = {"id": query["id"], "category": query["category"]}
+            output["results"].append(entry)
+            for depth in (3, 8):
+                try:
+                    contexts, sources = await retrieve(query["question"], n_results=depth,
+                        use_query_rewriting=args.rewrite, use_bm25=args.bm25)
+                except (LlmTimeoutError, APIError, HTTPError, ResponseError) as error:
+                    print(f"ERROR: {type(error).__name__}: retrieval failed for {query['id']} at n={depth}")
+                    return 1
+                if len(contexts) > depth:
+                    raise ValueError("retrieval exceeded the chunk budget")
+                entry[f"n{depth}"] = {"retrieved_sources": sources, "retrieved_contexts": contexts,
+                                      "metrics": score_evidence(contexts, sources, query, anchors, spans)}
+                write_checkpoint(path, output)
+            output["executed_ids"].append(query["id"])
+            print(query["id"], "complete")
+        output["summary"] = summarize(output["results"])
+        output["run_status"] = "complete"
+        print(f"Saved {len(queries)} evaluated queries to {path}")
+        return 0
+    except (OSError, ValueError, KeyError, TypeError, AttributeError, ChromaError) as error:
+        print(f"ERROR: {error}")
         return 1
+    finally:
+        if output is not None:
+            write_checkpoint(path, output)
 
-    golden = json.loads(GOLDEN_QA_PATH.read_text())
-    queries = golden.get("queries", [])
 
-    id_filter: set[str] | None = None
-    if args.ids:
-        id_filter = {qid.strip() for qid in args.ids.split(",") if qid.strip()}
-        queries = [q for q in queries if q["id"] in id_filter]
-        missing = id_filter - {q["id"] for q in queries}
-        if missing:
-            print(f"WARNING: ids not found in golden set: {sorted(missing)}")
-        if not queries:
-            print("No matching queries for --ids. Nothing to evaluate.")
+def parse_args(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--queries", type=Path, default=ROOT / "data/queries.json")
+    parser.add_argument("--manifest", type=Path, default=ROOT / "data/corpus_manifest.json")
+    parser.add_argument("--corpus-dir", type=Path, default=ROOT / "corpus/mvp")
+    parser.add_argument("--output", type=Path, help="New result file; existing files are refused")
+    parser.add_argument("--ids", help="Comma-separated query IDs; defaults to all queries")
+    parser.add_argument("--bm25", action="store_true")
+    parser.add_argument("--rewrite", action="store_true")
+    parser.add_argument("--check", action="store_true", help="Validate inputs and local PDF/text without models or retrieval")
+    return parser.parse_args(argv)
+
+
+async def main(argv=None):
+    args = parse_args(argv)
+    if args.check:
+        try:
+            benchmark, manifest, _ = read_inputs(args.queries, args.manifest, args.corpus_dir)
+            print(f"Validated {len(benchmark['queries'])} queries and {len(manifest['articles'])} articles")
+            return 0
+        except (OSError, ValueError, KeyError, TypeError) as error:
+            print(f"ERROR: {error}")
             return 1
-        
-    results: list[dict] = []
-    scored_categories = [
-        "direct_lookup",
-        "multi_hop",
-        "cross_doc_distractor",
-        "cross_doc_synthesis",
-    ]
-    _load_models_and_index()
-    # ------------------------------------------------------------------
-    # Run every query at both n=3 and n=8
-    # ------------------------------------------------------------------
-    for q in queries:
-        q_id = q["id"]
-        question = q["question"]
-        category = q["category"]
-
-        print(f"  {q_id} ({category:<22}) ... ", end="", flush=True)
-
-        entry = {
-            "id": q_id,
-            "question": question,
-            "category": category,
-            "expected_doc": q.get("expected_doc"),
-            "expected_docs": q.get("expected_docs"),
-            "distractor_doc": q.get("distractor_doc"),
-        }
-
-        for n in N_VALUES:
-            _, sources = await retrieve(
-                question,
-                n_results=n,
-                use_query_rewriting=use_rewrite,
-                use_bm25=use_bm25,
-            )
-            verdict = score_query(sources, q)
-            entry[f"n{n}"] = {
-                "retrieved_sources": sources,
-                "verdict": verdict,
-            }
-
-        results.append(entry)
-        print(f"n3={entry['n3']['verdict']:<12} n8={entry['n8']['verdict']}")
-
-    # ------------------------------------------------------------------
-    # Aggregate
-    # ------------------------------------------------------------------
-    stats = {
-        cat: {3: {"pass": 0, "total": 0}, 8: {"pass": 0, "total": 0}}
-        for cat in scored_categories
-    }
-    overall = {3: {"pass": 0, "total": 0}, 8: {"pass": 0, "total": 0}}
-    unanswerable_count = 0
-
-    for entry in results:
-        cat = entry["category"]
-        if cat == "unanswerable":
-            unanswerable_count += 1
-            continue
-
-        for n in N_VALUES:
-            verdict = entry[f"n{n}"]["verdict"]
-            if cat in stats:
-                stats[cat][n]["total"] += 1
-                if verdict == "pass":
-                    stats[cat][n]["pass"] += 1
-            overall[n]["total"] += 1
-            if verdict == "pass":
-                overall[n]["pass"] += 1
-
-    # ------------------------------------------------------------------
-    # Console report
-    # ------------------------------------------------------------------
-    print("\n" + "=" * 70)
-    print("RETRIEVAL EVALUATION SUMMARY")
-    print(f"Config: {config_label}")
-    print(f"BM25: {use_bm25} | Rewrite: {use_rewrite}")
-    print("=" * 70)
-    print(f"{'Category':<25} {'n=3':>20} {'n=8':>20}")
-    print("-" * 70)
-
-    for cat in scored_categories:
-        p3, t3 = stats[cat][3]["pass"], stats[cat][3]["total"]
-        p8, t8 = stats[cat][8]["pass"], stats[cat][8]["total"]
-        a3 = (p3 / t3 * 100) if t3 else 0.0
-        a8 = (p8 / t8 * 100) if t8 else 0.0
-        print(f"{cat:<25} {p3:>3}/{t3:<3} ({a3:>5.1f}%)   {p8:>3}/{t8:<3} ({a8:>5.1f}%)")
-
-    print("-" * 70)
-    print(f"{'unanswerable':<25} {unanswerable_count} logged, not scored")
-    print("-" * 70)
-
-    o3, o8 = overall[3], overall[8]
-    oa3 = (o3["pass"] / o3["total"] * 100) if o3["total"] else 0.0
-    oa8 = (o8["pass"] / o8["total"] * 100) if o8["total"] else 0.0
-    print(f"{'OVERALL':<25} {o3['pass']:>3}/{o3['total']:<3} ({oa3:>5.1f}%)   {o8['pass']:>3}/{o8['total']:<3} ({oa8:>5.1f}%)")
-    print("=" * 70)
-
-    # ------------------------------------------------------------------
-    # Write JSON artifact
-    # ------------------------------------------------------------------
-    output = {
-        "config_label": config_label,
-        "config": {
-            "use_bm25": use_bm25,
-            "use_query_rewriting": use_rewrite,
-            "n_values": N_VALUES,
-            "query_ids_filter": sorted(id_filter) if id_filter else None,
-        },
-        "results": results,
-    }
-    output_path = (
-        Path(f"./eval_results_subset_{config_label}.json") if id_filter else RESULTS_PATH
-    )
-    output_path.write_text(json.dumps(output, indent=2))
-    print(f"\nPer-query details written to {output_path}")  
-
-    return 0
+    from main import retrieve, _load_models_and_index
+    return await run_evaluation(args, retrieve, _load_models_and_index)
 
 
 if __name__ == "__main__":
