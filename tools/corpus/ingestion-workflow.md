@@ -1,7 +1,7 @@
 # Corpus ingestion
 
 Run from the active repository root. Defaults are `data/corpus_manifest.json`
-and `corpus/<name>/`, where `<name>` is the manifest's top-level `corpus` value
+and `corpus/<corpus_name>/`, taken from the manifest's top-level `corpus_name`
 (currently `mvp`). This workflow ingests an already acquired corpus on the host;
 it does not download PDFs, change the manifest or apply to the Docker demo,
 which always seeds.
@@ -23,7 +23,7 @@ key are needed.
    [corpus workflow](corpus-metadata-workflow.md) first. Missing PDFs stop the
    run before any model is loaded.
 2. The collection lives beside the corpus it was built from, at
-   `corpus/<name>/chroma` (`corpus/mvp/chroma` for the current corpus). It must not exist
+   `corpus/<corpus_name>/chroma` (`corpus/mvp/chroma` for the current corpus). It must not exist
    yet. If it does, stop: never reuse, reset or append to it, and delete it
    only with the user's agreement before ingesting again.
 3. Ingest with both variables set on the command line, not taken from `.env`:

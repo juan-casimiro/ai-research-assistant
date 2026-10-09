@@ -6,7 +6,7 @@ Run from the repository root with the service's Python environment:
     SEED_ON_EMPTY=false CHROMA_PATH=corpus/mvp/chroma \\
         python -m tools.corpus.ingest_corpus
 
-The corpus folder defaults to corpus/<name>/ from the manifest's corpus name.
+The corpus folder defaults to corpus/<corpus_name>/ from the manifest.
 
 No server is started and no port is used: the production models, chunker and
 /ingest handler from main.py run in this process. No LLM provider settings are
@@ -26,7 +26,7 @@ import os
 from pathlib import Path
 
 from pypdf import PdfReader
-from tools.corpus.fetch_article_metadata import corpus_name
+from tools.corpus.download_corpus import named_corpus_dir
 from tools.corpus.pdf_text import extract_pages
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -54,7 +54,7 @@ def ingest_file(production, pdf_path: Path, source: str) -> str:
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description="Ingest a corpus manifest into a new isolated collection.")
     parser.add_argument("--manifest", type=Path, default=ROOT / "data/corpus_manifest.json")
-    parser.add_argument("--corpus-dir", type=Path, help="Defaults to corpus/<name>/ from the manifest")
+    parser.add_argument("--corpus-dir", type=Path, help="Defaults to corpus/<corpus_name>/ from the manifest")
     args = parser.parse_args(argv)
 
     if os.environ.get("SEED_ON_EMPTY", "").lower() != "false":
@@ -68,7 +68,7 @@ def main(argv=None) -> int:
         manifest = json.loads(args.manifest.read_text())
         filenames = [article["filename"] for article in manifest["articles"]]
         if args.corpus_dir is None:
-            args.corpus_dir = ROOT / "corpus" / corpus_name(manifest)
+            args.corpus_dir = named_corpus_dir(manifest)
     except (OSError, ValueError, KeyError, TypeError) as error:
         print(f"ERROR: manifest {args.manifest}: {error}")
         return 1

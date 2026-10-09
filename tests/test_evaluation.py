@@ -301,10 +301,10 @@ class EvaluationRunTests(unittest.IsolatedAsyncioTestCase):
             named.mkdir(parents=True)
             for path in Path(directory).glob(article["id"] + ".*"):
                 path.rename(named / path.name)
-            with patch.object(evaluate, "ROOT", Path(directory)):
-                with self.assertRaisesRegex(ValueError, "corpus"):
+            with patch("tools.corpus.download_corpus.ROOT", Path(directory)):
+                with self.assertRaisesRegex(ValueError, "corpus_name"):
                     evaluate.read_inputs(args.queries, args.manifest, None)
-                args.manifest.write_text(json.dumps({"corpus": "test-corpus", "articles": [article]}))
+                args.manifest.write_text(json.dumps({"corpus_name": "test-corpus", "articles": [article]}))
                 self.assertEqual(evaluate.read_inputs(args.queries, args.manifest, None)[2], {article["filename"]: text})
 
     async def test_complete_run_records_both_depths_and_refuses_output_overwrite(self):

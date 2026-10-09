@@ -41,6 +41,16 @@ class ExtractionTests(unittest.TestCase):
 
     def report(self):return json.loads((self.root/'extraction_report.json').read_text())
 
+    def test_default_folder_follows_corpus_name(self):
+        from tools.corpus import download_corpus
+        named=self.root/'corpus/test-corpus';named.mkdir(parents=True);self.pdf.rename(named/self.pdf.name)
+        for corpus,status in [(None,1),('test-corpus',0)]:
+            with self.subTest(corpus=corpus):
+                self.manifest.write_text(json.dumps({'articles':[self.article]} if corpus is None else {'corpus_name':corpus,'articles':[self.article]}))
+                with patch.object(download_corpus,'ROOT',self.root),contextlib.redirect_stdout(io.StringIO()):
+                    self.assertEqual(extractor.main(['--manifest',str(self.manifest)]),status)
+                self.assertEqual((named/self.pdf.with_suffix('.txt').name).exists(),corpus is not None)
+
     def test_exact_production_output_and_extraction_on_every_run(self):
         self.assertEqual(self.run_tool(),0)
         rag_production=Mock();rag_production.ingest.return_value={'chunks_ingested':0}

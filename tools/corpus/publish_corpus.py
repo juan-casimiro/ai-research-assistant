@@ -7,8 +7,8 @@ from pathlib import Path
 import shutil
 from urllib.parse import parse_qs, urlsplit
 from .build_corpus_manifest import save_json
-from .download_corpus import BUCKET
-from .fetch_article_metadata import corpus_name, validate_record, validate_selection
+from .download_corpus import BUCKET, named_corpus_dir
+from .fetch_article_metadata import validate_record, validate_selection
 from .extract_corpus_text import digest, extract_article
 
 
@@ -16,7 +16,7 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--run-dir', type=Path, required=True)
     parser.add_argument('--manifest-destination', type=Path, default=Path('data/corpus_manifest.json'))
-    parser.add_argument('--pdf-destination', type=Path, help='Defaults to corpus/<name>/ from the manifest')
+    parser.add_argument('--pdf-destination', type=Path, help='Defaults to corpus/<corpus_name>/ from the manifest')
     parser.add_argument('--check', action='store_true')
     args = parser.parse_args(argv)
     if not args.run_dir.is_dir():
@@ -27,7 +27,7 @@ def main(argv=None):
         source = args.run_dir / 'corpus_manifest.json'
         manifest = json.loads(source.read_text())
         if args.pdf_destination is None:
-            args.pdf_destination = Path('corpus') / corpus_name(manifest)
+            args.pdf_destination = named_corpus_dir(manifest)
         if any(p.resolve().is_relative_to(args.run_dir.resolve()) for p in [args.pdf_destination, args.manifest_destination]):
             raise ValueError('final destinations must be outside the preparation run')
         articles = manifest['articles']

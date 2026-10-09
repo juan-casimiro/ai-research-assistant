@@ -191,14 +191,6 @@ def validate_selection(articles):
     return articles
 
 
-def corpus_name(manifest) -> str:
-    """The manifest's corpus name; its PDFs, text and collection live under corpus/<name>/."""
-    name = manifest.get('corpus') if isinstance(manifest, dict) else None
-    if not isinstance(name, str) or not re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*', name):
-        raise ValueError('manifest needs a top-level "corpus" name: lowercase words joined by hyphens')
-    return name
-
-
 def validate_records(articles):
     if not isinstance(articles, list) or not articles:
         raise ValueError('articles must be a nonempty list')

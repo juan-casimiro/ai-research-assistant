@@ -102,7 +102,7 @@ SEED_ON_EMPTY=false CHROMA_PATH=corpus/mvp/chroma \
   python -m tools.corpus.ingest_corpus
 ```
 
-The corpus folder comes from the manifest's `corpus` name (`mvp`). Use the same
+The corpus folder comes from the manifest's `corpus_name` (`mvp`). Use the same
 `CHROMA_PATH` for evaluation and for `uvicorn main:app`. The command
 refuses an existing collection path; do not reset or append to a shared
 collection, because the evaluator checks exact corpus membership.

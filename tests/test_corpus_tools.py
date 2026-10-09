@@ -11,7 +11,7 @@ from unittest.mock import patch
 
 import compare_evals
 from tests.corpus.test_extract_corpus_text import pdf_bytes
-from tools.corpus import ingest_corpus
+from tools.corpus import download_corpus, ingest_corpus
 
 
 class FakeProduction:
@@ -85,9 +85,9 @@ class CorpusIngestionTests(unittest.TestCase):
         for corpus, status in [(None, 1), ("test-corpus", 0)]:
             with self.subTest(corpus=corpus):
                 articles = [{"filename": "first-test.pdf"}, {"filename": "second-test.pdf"}]
-                self.manifest.write_text(json.dumps({"articles": articles} if corpus is None else {"corpus": corpus, "articles": articles}))
+                self.manifest.write_text(json.dumps({"articles": articles} if corpus is None else {"corpus_name": corpus, "articles": articles}))
                 rag_production = FakeProduction()
-                with patch.dict(os.environ, self.environment, clear=True), patch.object(ingest_corpus, "ROOT", self.root), patch.object(
+                with patch.dict(os.environ, self.environment, clear=True), patch.object(download_corpus, "ROOT", self.root), patch.object(
                         ingest_corpus, "load_production", return_value=rag_production), contextlib.redirect_stdout(io.StringIO()):
                     self.assertEqual(ingest_corpus.main(["--manifest", str(self.manifest)]), status)
                 self.assertEqual((named / "first-test.txt").exists(), corpus is not None)

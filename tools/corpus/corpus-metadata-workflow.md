@@ -15,9 +15,13 @@ selection. No ingestion or retrieval changes are part of either flow.
 
 ## Existing manifest
 
-The manifest's top-level `corpus` name identifies the corpus; its PDFs and text
-live under `corpus/<name>/`. Set the supplied manifest and PDF directory;
-for the current corpus (`"corpus": "mvp"`) they are:
+The manifest's top-level `corpus_name` identifies the corpus. Its PDFs, text and
+`chroma` collection live under `corpus/<corpus_name>/`, and download, extraction,
+publication, ingestion and evaluation all use that folder unless another is
+passed. The name is set once, at assembly, with `--corpus-name`. A manifest
+without a name needs an explicit folder; only the archived V1 manifest keeps its
+original `corpus/` download folder. Set the supplied manifest and PDF directory;
+for the current corpus (`"corpus_name": "mvp"`) they are:
 
 ```sh
 corpus_manifest=data/corpus_manifest.json
@@ -74,7 +78,7 @@ python -m tools.corpus.fetch_article_metadata \
   --records-dir "$corpus_run_dir/metadata" \
   --archive-dir "$corpus_run_dir/provenance"
 python -m tools.corpus.build_corpus_manifest \
-  --records-dir "$corpus_run_dir/metadata" --corpus <name>
+  --records-dir "$corpus_run_dir/metadata" --corpus-name <corpus_name>
 ```
 
 Fetch loops over the selection and prints each proposed filename. Correct a
@@ -168,7 +172,7 @@ python -m tools.corpus.publish_corpus --run-dir "$corpus_run_dir"
 Publication validates every record and PDF again, computes PDF SHA-256 directly,
 compares the manifest PMCID set with the saved selection, and checks all final
 destinations before moving anything. Defaults are `data/corpus_manifest.json`
-and `corpus/<name>/` from the manifest's `corpus` name, with both PDFs and
+and `corpus/<corpus_name>/` from the manifest's `corpus_name`, with both PDFs and
 adjacent text. Missing/extra PMCIDs and
 conflicting files are named. Only expected PDF/text files are compared; unrelated
 files are ignored, and matching text left by ingestion is accepted.

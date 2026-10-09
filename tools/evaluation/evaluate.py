@@ -41,10 +41,11 @@ def read_inputs(query_path: Path, manifest_path: Path, corpus_dir: Path):
     benchmark = json.loads(query_path.read_text())
     validate_benchmark(benchmark)
     manifest = json.loads(manifest_path.read_text())
-    from tools.corpus.fetch_article_metadata import corpus_name, validate_records
+    from tools.corpus.download_corpus import named_corpus_dir
+    from tools.corpus.fetch_article_metadata import validate_records
     validate_records(manifest["articles"])
     if corpus_dir is None:
-        corpus_dir = ROOT / "corpus" / corpus_name(manifest)
+        corpus_dir = named_corpus_dir(manifest)
     articles = {a["article_id"]: a for a in manifest["articles"]}
     if len(articles) != len(manifest["articles"]) or set(articles) != set(benchmark["sources"]):
         raise ValueError("query sources and corpus membership differ")
@@ -161,7 +162,7 @@ def parse_args(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--queries", type=Path, default=ROOT / "data/queries.json")
     parser.add_argument("--manifest", type=Path, default=ROOT / "data/corpus_manifest.json")
-    parser.add_argument("--corpus-dir", type=Path, help="Defaults to corpus/<name>/ from the manifest")
+    parser.add_argument("--corpus-dir", type=Path, help="Defaults to corpus/<corpus_name>/ from the manifest")
     parser.add_argument("--output", type=Path, help="New result file; existing files are refused")
     parser.add_argument("--ids", help="Comma-separated query IDs; defaults to all queries")
     parser.add_argument("--bm25", action="store_true")

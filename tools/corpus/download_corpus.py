@@ -19,6 +19,19 @@ BUCKET = "https://pmc-oa-opendata.s3.amazonaws.com"
 USER_AGENT = "ai-research-assistant-corpus-downloader/1.0"
 
 
+def corpus_name(manifest) -> str:
+    """The manifest's top-level corpus_name, validated as a safe folder name."""
+    name = manifest.get("corpus_name") if isinstance(manifest, dict) else None
+    if not isinstance(name, str) or not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", name):
+        raise ValueError('manifest needs a top-level "corpus_name": lowercase words joined by hyphens')
+    return name
+
+
+def named_corpus_dir(manifest) -> Path:
+    """corpus/<corpus_name>/: the local home of a corpus's PDFs, text and chroma collection."""
+    return ROOT / "corpus" / corpus_name(manifest)
+
+
 def valid_pdf(path: Path) -> bool:
     """Reject HTML responses, truncated files and PDFs without readable pages."""
     try:
@@ -83,13 +96,17 @@ def download(url: str, destination: Path, checksum: str | None, sha256: str | No
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", type=Path, default=ROOT / "data/corpus_manifest.json")
-    parser.add_argument("--corpus-dir", type=Path, default=ROOT / "corpus")
+    parser.add_argument("--corpus-dir", type=Path, help="Defaults to corpus/<corpus_name>/ from the manifest")
     parser.add_argument("--filename", action="append", help="Download only this exact manifest filename (repeatable)")
     parser.add_argument("--open-manual", action="store_true", help="Open missing manual articles in your default browser")
     args = parser.parse_args(argv)
     try:
         with args.manifest.open() as manifest_file:
-            articles = json.load(manifest_file)["articles"]
+            manifest = json.load(manifest_file)
+        articles = manifest["articles"]
+        if args.corpus_dir is None:
+            # Archived V1 manifests have no corpus_name and keep their original corpus/ folder.
+            args.corpus_dir = named_corpus_dir(manifest) if "corpus_name" in manifest else ROOT / "corpus"
         filenames = [article["filename"] for article in articles]
         if len(set(filenames)) != len(filenames) or any(
             Path(name).name != name or not name.endswith(".pdf") for name in filenames

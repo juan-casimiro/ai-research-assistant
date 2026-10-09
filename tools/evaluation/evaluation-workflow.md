@@ -1,8 +1,8 @@
 # Retrieval evaluation
 
 Run from the active repository root using its Python environment. Defaults are
-`data/queries.json`, `data/corpus_manifest.json`, and `corpus/<name>/`, where
-`<name>` is the manifest's top-level `corpus` value (currently `mvp`).
+`data/queries.json`, `data/corpus_manifest.json`, and `corpus/<corpus_name>/`, taken
+from the manifest's top-level `corpus_name` (currently `mvp`).
 
 1. Validate Q&A and manifest inputs with `python -m tools.evaluation.evaluate --check`.
    This also checks every local PDF/text hash, evidence offset and span reachability; it runs no
