@@ -8,7 +8,8 @@ Run from the repository root with the service's Python environment:
         --manifest data/corpus_manifest.json --corpus-dir corpus/mvp
 
 No server is started and no port is used: the production models, chunker and
-/ingest handler from main.py run in this process. Safeguards:
+/ingest handler from main.py run in this process. No LLM provider settings are
+needed. Safeguards:
 
     1. SEED_ON_EMPTY=false must be set in the environment, not only in .env.
     2. CHROMA_PATH must be set and must not exist yet, so an existing
@@ -30,9 +31,9 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 def load_production():
-    """Load the production models and collection; scripts never seed."""
+    """Load the production retrieval models and collection: no LLM client, no seeding."""
     import main
-    main._load_models_and_index()
+    main._load_retrieval()
     main._ready = True
     return main
 

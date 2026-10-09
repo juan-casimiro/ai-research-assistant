@@ -1,15 +1,21 @@
 # Corpus ingestion
 
-Run from the active repository root using its Python environment. Defaults are
-`data/corpus_manifest.json` and `corpus/mvp/`. This workflow ingests an already
-acquired corpus on the host; it does not download PDFs, change the manifest or
-apply to the Docker demo, which always seeds.
+Run from the active repository root. Defaults are `data/corpus_manifest.json`
+and `corpus/mvp/`. This workflow ingests an already acquired corpus on the host;
+it does not download PDFs, change the manifest or apply to the Docker demo,
+which always seeds.
 
-Ingestion runs in-process: the production models, chunker and `/ingest` handler
-from `main.py` are loaded by the command itself. No server is started, no port
-is used and `/health` is not involved. The service configuration is loaded as
-usual, so the LLM provider settings in `.env` must be valid; ingestion makes no
-provider calls.
+`python` below means the repository's Python environment: `.venv/bin/python` in
+the active checkout, or the main checkout's `.venv/bin/python` when a worktree
+has none (find the main checkout with `git worktree list`). PDFs and collections
+are untracked, so in a worktree pass the directory that actually holds the PDFs
+with `--corpus-dir`, and use an absolute `CHROMA_PATH` in the checkout where the
+collection will be used.
+
+Ingestion runs in-process: the production embedding model, chunker and `/ingest`
+handler from `main.py` are loaded by the command itself. No server is started,
+no port is used, `/health` is not involved and no LLM provider settings or API
+key are needed.
 
 1. Confirm the corpus is complete. Every manifest PDF must already be in the
    corpus directory; acquire and verify it with the

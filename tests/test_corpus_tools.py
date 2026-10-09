@@ -65,6 +65,18 @@ class CorpusIngestionTests(unittest.TestCase):
                 self.assertEqual(status, 1)
                 load.assert_not_called()
 
+    def test_production_loads_for_ingestion_without_an_llm_client(self):
+        import main
+        with patch("main.TextEmbedding"), patch("main.TextCrossEncoder"), patch("main.chromadb.PersistentClient") as store, patch(
+                "main.create_llm_client") as create_llm_client, patch.multiple(
+                main, embed_model=None, reranker=None, chroma_client=None, collection=None, llm=None, _ready=False), \
+                contextlib.redirect_stdout(io.StringIO()):
+            rag_production = ingest_corpus.load_production()
+            self.assertIs(rag_production.collection, store.return_value.get_or_create_collection.return_value)
+            self.assertTrue(rag_production._ready)
+            self.assertIsNone(rag_production.llm)
+        create_llm_client.assert_not_called()
+
     def test_every_article_is_ingested_by_filename_and_verified(self):
         rag_production = FakeProduction()
         status, _ = self.run_tool(rag_production)
