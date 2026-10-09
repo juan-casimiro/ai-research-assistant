@@ -194,12 +194,10 @@ documented-and-deliberate reads as judgement.
   this epic, and revisiting user/permissions here without also
   addressing auth would fix the smaller problem while leaving the
   bigger one (an open API key) untouched.
-- **No evaluation tooling shipped in the image.** `eval_golden.py`,
-  [golden_qa.json](../data/archive/v1/golden_qa.json), and [corpus_manifest.json](../data/archive/v1/corpus_manifest.json) are not copied into the
-  container. Evaluation is, and remains, a host-side workflow run
-  against the full 19-document corpus — the seed corpus baked into the
-  image is a demo aid, not something ever run through the eval harness
-  (see "Consequences" below).
+- **No evaluation tooling shipped in the image.** Evaluation code, benchmark
+  inputs and the full corpus are host-side resources. The image contains only
+  the demo seed corpus. Operational evaluation steps belong in the
+  [evaluation workflow](../tools/evaluation/evaluation-workflow.md).
 
 ## Consequences
 
@@ -209,10 +207,11 @@ documented-and-deliberate reads as judgement.
   volume; seeding is skipped once the collection is non-empty).
 - The seed corpus (4 CC-BY-licensed articles, 429 chunks) exists purely
   so the container isn't empty on first run. It has never been run
-  through `eval_golden.py` and is not represented in the 96.4% (n=3) /
+  through the V1 retrieval evaluation and is not represented in the 96.4% (n=3) /
   98.2% (n=8) figures reported elsewhere in this repo — those numbers
   belong to the full 19-document corpus, loaded separately via
-  `ingest_corpus.py` against a host-run (non-Docker) instance. The
+  `ingest_corpus.py` against a host-run (non-Docker) instance; see the
+  [V1 acquisition record](../data/archive/v1/corpus-acquisition.md). The
   README quickstart states this explicitly so the two corpora are never
   conflated.
 - **`docker-compose.yml` pins `SEED_ON_EMPTY` and `CHROMA_PATH` via
@@ -234,8 +233,8 @@ documented-and-deliberate reads as judgement.
   `seed_corpus/ATTRIBUTION.md`) — if the host server auto-seeds before
   `ingest_corpus.py` runs, those four end up ingested twice under
   different filenames (`.txt` from the seed corpus, `.pdf`-derived from
-  the full corpus). `eval_golden.py`'s document-name matching can't
-  deduplicate that, so it would silently corrupt retrieval evaluation.
+  the full corpus). Duplicate source identities distort retrieval and evaluation; keep host
+  seeding disabled when ingesting a full corpus.
   Previously this was documented only in `seed_corpus/ATTRIBUTION.md`;
   it's now stated directly in the README's host section.
 - Because readiness doesn't probe the LLM provider, a misconfigured or

@@ -95,7 +95,7 @@ def _load_models_and_index() -> None:
       - _startup() calls this, then optionally seeds, then rebuilds the BM25
         index a second time so seeded chunks are included.
       - Scripts that import main directly without going through the ASGI
-        app (e.g. eval_golden.py) call this alone — they assume the
+        app (e.g. tools.evaluation.evaluate) call this alone — they assume the
         corpus is already populated and deliberately skip seeding.
     """
     _load_models()

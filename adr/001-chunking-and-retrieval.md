@@ -74,13 +74,10 @@ scored with a strict `all()` match (all expected keywords must appear
 in retrieved context, not just any one) to avoid an earlier, overly
 lenient version of this check that produced misleadingly high scores.
 
-(**Superseded**: this early 8-query harness, `eval_retrieval.py`, was
-later replaced by the category-aware `eval_golden.py` harness against
-[golden_qa.json](../data/archive/v1/golden_qa.json) — see the Hybrid Search Evaluation section below and
-[ADR-002](./002-evaluation-methodology.md) for the current, much larger
-evaluation set and its scoring logic. `eval_retrieval.py` has been
-removed from the repo; kept here only as a historical record of how
-evaluation started.)
+(**Superseded**: this early eight-query harness was replaced by V1's
+category-aware document scoring. Its technical context is summarized in the
+[V1 methodology record](../data/archive/v1/methodology.md). See
+[ADR-002](002-evaluation-methodology.md) for the evaluation strategy.)
 
 Tested against three different real documents:
 

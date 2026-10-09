@@ -17,8 +17,8 @@ unavailable, report that and stop before task work.
 ## Project map
 
 - `main.py`: startup, ingestion, retrieval and endpoints; `llm_client.py`: provider configuration and bounded LLM calls.
-- `tools/corpus/download_corpus.py`: PMC PDF downloads and browser instructions for the two Ovid exceptions; see [host setup](README.md#develop-and-evaluate-host). Missing manual downloads return nonzero status.
-- `eval_golden.py`: production-path retrieval evaluation; `compare_evals.py`: result comparison.
+- `tools/corpus/download_corpus.py`: PMC PDF downloads and browser instructions for the two Ovid exceptions; see [V1 acquisition record](data/archive/v1/corpus-acquisition.md). Missing manual downloads return nonzero status.
+- `tools/evaluation/evaluate.py` and `scoring.py`: current production-path retrieval evaluation; `compare_evals.py`: result comparison.
 
 - `tools/corpus/build_corpus_manifest.py` / `tools/corpus/fetch_article_metadata.py`: fetch the selection’s latest/pinned PMC metadata and assemble complete records; see the corpus workflow.
 - `tools/corpus/extract_corpus_text.py`: production-equivalent extraction into text beside PDFs and a small failure report.
@@ -26,6 +26,7 @@ unavailable, report that and stop before task work.
 - `candidates.json` retains the original supplied PMCIDs before network calls; failed fetches cannot remove selected articles.
 - Candidate and acquisition files are generated locally under ignored `build/corpus/<run-id>/`. The corpus metadata is in `data/corpus_manifest.json`; `eligibility` reflects supported article licence evidence only.
 - `tools/corpus/corpus-metadata-workflow.md`: metadata, licence and PDF checks; `.agents/skills/generate-corpus-metadata/` routes agents to this workflow.
+- `data/queries.json` and `data/queries-schema.md`: current Q&A inputs and field guide; evaluation procedure is `tools/evaluation/evaluation-workflow.md`.
 - `data/archive/v1/`: original corpus manifest, golden Q&A and saved evaluation evidence; corpus helpers live under `tools/corpus/` and run as modules from the repository root.
 
 ## Constraints

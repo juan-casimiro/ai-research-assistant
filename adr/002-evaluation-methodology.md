@@ -2,183 +2,79 @@
 
 ## Context
 
-ADR-001 covers chunking and retrieval architecture decisions. This
-document covers how those decisions are *measured*: the golden QA
-dataset's category design, and the scoring logic used to turn raw
-retrieval results into pass/fail verdicts.
+Retrieval architecture and evaluation methodology are separate concerns.
+Evaluation must exercise production `retrieve()` so its results describe the
+shipped retrieval path. Finding a relevant article and retrieving its supporting
+passages are different measurements; neither establishes generated-answer quality.
 
-Splitting this out from ADR-001 is itself a decision worth recording:
-architecture and evaluation methodology are separate concerns, and
-conflating them made ADR-001 harder to navigate as both grew. This
-document is referenced by ADR-001's evaluation sections and by the
-README.
+## Decision
 
-## Category design
+Use questions targeting distinct retrieval failure modes:
 
-The golden QA set ([golden_qa.json](../data/archive/v1/golden_qa.json)) uses five categories, each
-targeting a distinct retrieval failure mode. Four are scored by
-`eval_golden.py`; `unanswerable` is logged but not scored.
+| Category | Purpose |
+| --- | --- |
+| Direct lookup | Find a scoped fact in one article |
+| Multi-hop | Retrieve evidence connecting related facts |
+| Cross-document distractor | Prefer applicable evidence over a similar decoy |
+| Cross-document synthesis | Retrieve all sources needed for a combined answer |
+| Unanswerable | Record cases whose requested fact is absent from the reviewed corpus |
+| False premise | Retrieve evidence correcting a mistaken premise |
+| Source conflict | Preserve differing attributed findings without inventing a reconciliation |
 
-### `direct_lookup`
+Score document coverage separately from pinned-evidence coverage and fact recall.
+A complete alternative evidence set suffices; partial pieces from different sets
+do not establish complete evidence. For distractor cases, required sources must
+rank ahead of retrieved competitors. Ordering prevents a similar but inapplicable
+source from taking precedence over supporting evidence. Synthesis receives no
+partial credit because one source cannot support a claim requiring several.
+Preserve source attribution, population,
+endpoint and scientific qualifiers in the benchmark.
 
-A single fact from a single document.
+Absent facts receive no positive retrieval score because source presence cannot
+establish that a generated answer correctly refused an unsupported claim.
+Correct refusal and premise
+correction in generated answers require a separate answer evaluation.
+Abstracts can support initial question drafting; full-text verification is needed
+for supporting passages, subgroup results and table-level figures.
 
-*Example:* "How many RCTs and total participants were included in this
-systematic review?" — one document, one passage.
+Current commands and input rules belong in the
+[evaluation workflow](../tools/evaluation/evaluation-workflow.md) and
+[Q&A schema](../data/queries-schema.md).
 
-*Failure mode caught:* the floor. If this category isn't near 100%,
-something basic is broken (chunking, embedding, or ingestion) — not a
-sophistication problem.
+## Evaluation milestones
 
-*Scoring:* `expected_doc` must appear in the retrieved sources.
+**V1 established a production-path retrieval baseline:** 19 biomedical articles,
+133 questions and 111 scored cases. Dense retrieval with cross-encoder reranking
+achieved **96.4% at depth 3 and 98.2% at depth 8**. BM25 and query rewriting
+were tested as opt-in improvements without a net gain on that corpus; the
+incremental experiments and ranking decisions remain recorded in
+[ADR-001](001-chunking-and-retrieval.md).
 
-### `multi_hop`
+V1 used document-level rules: lookup and multi-hop required the expected source;
+synthesis required every expected source; distractor cases additionally required
+the expected source ahead of the decoy. Unanswerable cases were recorded without
+positive scoring. This baseline did not prove that every supporting passage was
+retrieved, or that generated answers were correct.
 
-Connecting two related facts within the same document.
-
-*Example:* "How do the primary change-score analysis results compare
-with the post-treatment sensitivity analysis?" — both facts live in the
-same paper, in different sections.
-
-*Failure mode caught:* whether chunking and retrieval preserve enough
-surrounding context to link related-but-separated passages, rather than
-only ever surfacing one isolated fact.
-
-*Scoring:* same as `direct_lookup` — `expected_doc` must appear in the
-retrieved sources. **Known limitation:** the harness checks that the
-source document was retrieved; it does not currently verify that both
-specific facts were retrievable as separate chunks. A query could pass
-this category by retrieving only the chunk containing one of the two
-facts. Tightening this would require per-query chunk-level ground
-truth rather than document-level, not currently captured in the
-dataset schema.
-
-### `cross_doc_distractor`
-
-The correct document sits next to a topically similar decoy.
-
-*Example:* A question about CHA2DS2-VA scores in a no-reflow/STEMI
-study, with a distractor AFib-detection review that also discusses
-CHA2DS2-VASc — same score family, different clinical question.
-
-*Failure mode caught:* the hardest case for embeddings specifically —
-semantic similarity conflates "same topic" with "right answer." This is
-where reranking and hybrid search earn their keep, or don't.
-
-*Scoring (non-trivial):* it is not enough for the expected document to
-appear — it must be **ranked at or above the distractor**:
-
-```python
-if distractor and distractor in sources:
-    if sources.index(expected) >= sources.index(distractor):
-        return "fail"
-```
-
-This is deliberately stricter than presence-only scoring. A system that
-retrieves the right document but ranks a near-miss above it would still
-hand a user the wrong answer first — ranking order is what actually
-matters here, not mere recall.
-
-### `cross_doc_synthesis`
-
-The answer requires two documents together.
-
-*Example:* q117 — the tension between a treatment strategy's
-demonstrated clinical benefit (shown in one real-world cohort study)
-and real-world delivery barriers (discussed in a separate editorial).
-
-*Failure mode caught:* whether the system can assemble a synthesis view
-instead of defaulting to whichever single document scores highest — a
-different skill than distractor rejection, since here *both* documents
-are correct and needed, not one correct and one wrong.
-
-*Scoring (non-trivial):* an **AND condition** across both expected
-documents:
-
-```python
-expected_docs = query.get("expected_docs", [])
-return "pass" if all(doc in sources for doc in expected_docs) else "fail"
-```
-
-There is no partial credit. Retrieving only one of the two documents,
-however well-ranked, is a fail — a synthesis answer built from a single
-source isn't a partial synthesis, it's a single-document answer wearing
-a synthesis question's clothes.
-
-### `unanswerable`
-
-The question sounds answerable but isn't, given the corpus.
-
-*Example:* q141 — asking for confirmed cholera case counts in a
-wastewater-contamination study that discusses resistance genes and
-microbial shifts, never cholera or clinical case counts. Plausible
-enough to sound real (cholera is a genuine wastewater-linked disease),
-not obviously off-topic, and not actually reported.
-
-*Failure mode caught:* hallucination under a near-miss. The harder
-examples in this set are deliberately adjacent to real content, testing
-whether the system distinguishes "related" from "actually reported,"
-rather than testing trivial off-topic rejection.
-
-*Scoring:* logged, `not_scored`. This is a conscious trade-off, not an
-oversight: judging whether the *generated answer* correctly refused
-requires either manual review or an LLM-judge pass over generated text.
-The current harness only scores retrieval (which documents came back),
-not generation (what the model said about them) — so an unanswerable
-query can't be pass/failed by the same document-matching logic used for
-the other four categories. Retrieved sources are still recorded for
-every unanswerable query, so a human (or a future judge-model pass) can
-review whether retrieval at least avoided confidently surfacing an
-unrelated document as if it were relevant, even though the harness
-doesn't auto-score that today.
-
-**Update: the category is not a clean sufficiency-flag oracle.** With
-`context_sufficient` now returned by `/query` (ADR-001), it was expected
-that `unanswerable` queries would all report `false`. They do not, and
-the category is not at fault — it conflates two distinct cases:
-
-- **Fact genuinely absent** (e.g. `q138`, FMT treatment-duration
-  reduction): reports `false`, as expected.
-- **False premise** (e.g. `q083`, EarlyCDT-Lung FDA validation): the
-  question presupposes something untrue. Correctly rejecting the premise
-  *is* a sufficient answer, so the flag reports `true`.
-
-Scoring the category as an all-false expectation would therefore
-mislabel correct behaviour as a flag failure. Splitting `false_premise`
-into its own category is the natural fix, deferred as it would require
-re-labelling existing entries.
+The current benchmark expands to 55 articles and 158 questions, with pinned
+excerpts and separate evidence metrics. This closes the document-only scoring
+gap and distinguishes absent facts from false premises. Scores from these two
+benchmarks are not directly comparable because corpus, questions and metrics differ.
+The [V1 evaluation record](../data/archive/v1/README.md) preserves its corpus,
+scoring rules, saved results and high-level technical setup.
+Git tag `evaluation-v1-baseline` identifies the main baseline before the evaluator
+transition.
 
 ## Consequences
 
-- Evaluation always exercises the same `retrieve()` code path used in
-  production (see ADR-001), so category-level results reflect real
-  system behavior, not a separate test harness that could drift from
-  what's shipped.
-- The two non-trivial scoring rules (`cross_doc_distractor`'s ranking
-  requirement, `cross_doc_synthesis`'s AND condition) are deliberately
-  stricter than simple presence-checking, in different directions —
-  order-sensitivity for one, no-partial-credit for the other — because
-  presence-only scoring would have overstated retrieval quality on
-  exactly the categories designed to be hard.
-- **Known limitation:** `multi_hop` scoring does not verify that both
-  connected facts were retrievable, only that the source document was.
-- **Known limitation:** `unanswerable` correctness (did the system
-  actually refuse, rather than merely "did retrieval avoid an unrelated
-  doc") is not automatically scored. Closing this gap would require an
-  LLM-judge pass over generated answers — a natural next step, and one
-  that would also address the broader "evaluation methodology" gap
-  flagged as unaddressed AI-theory ground.
+- Retrieval evaluation remains separate from generated-answer evaluation.
+- Complete synthesis and distractor ordering prevent presence-only scoring from
+  overstating performance on difficult cases.
+- Literal pinned-evidence matching can miss semantic support; retrieval depth can
+  also limit complete evidence coverage. Interpret results using the schema's
+  metric definitions and benchmark review status.
 
-  ## Update: `abstract_summary` field for golden QA authoring
+## Record relocation — 2026-10-09
 
-[corpus_manifest.json](../data/archive/v1/corpus_manifest.json) entries include an `abstract_summary` field to
-support drafting new golden QA cases without opening full text for
-every candidate query. It's sufficient for `direct_lookup` and
-`cross_doc_distractor` first drafts (top-line findings, primary
-outcomes), but not for cases depending on subgroup results or
-table-level figures — e.g. `q128`/`q129`
-(`cardio-mi-risk-stratification.pdf`) needed full-text verification
-since the abstract didn't name the specific lab marker or mention
-hypertension at all. Use the abstract for a first draft; verify
-against full text before adding table/subgroup-dependent cases to
-[golden_qa.json](../data/archive/v1/golden_qa.json).
+The original V1 methodology detail was moved verbatim, with relative links
+adjusted, to the [V1 methodology record](../data/archive/v1/methodology.md).
