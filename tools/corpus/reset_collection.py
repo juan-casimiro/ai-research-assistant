@@ -1,4 +1,4 @@
-# reset_collection.py
+"""Delete the collection at CHROMA_PATH: python -m tools.corpus.reset_collection"""
 import os
 
 import chromadb

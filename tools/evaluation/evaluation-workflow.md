@@ -9,7 +9,8 @@ Run from the active repository root using its Python environment. Defaults are
    conflicting source IDs stop the run. Report them; do not rewrite gold or pins.
 2. Use a previously ingested isolated collection at the selected `CHROMA_PATH`,
    with `SEED_ON_EMPTY=false`. Evaluation verifies exact source/chunk membership.
-   Creating or resetting a collection is separate work; do not reset shared data.
+   Create one with the [ingestion workflow](../corpus/ingestion-workflow.md);
+   do not reset shared data.
 3. Run the evaluator. `--bm25` enables hybrid retrieval; `--ids` selects a
    comma-separated query subset. `--rewrite` invokes the configured LLM provider;
    obtain explicit approval for the provider and run scale/cost before paid calls.

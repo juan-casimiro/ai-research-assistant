@@ -1,145 +1,88 @@
 #!/usr/bin/env python3
-"""Batch ingestion script for the biomedical RAG corpus.
+"""Ingest a manifest's PDFs into a new, isolated collection, in-process.
 
-See "Develop and evaluate (host)" in the README for the full setup
-(venv, SEED_ON_EMPTY=false, corpus download). Once that's done:
+Run from the repository root with the service's Python environment:
 
-Usage:
-    1. Run `python -m tools.corpus.reset_collection` to reset the collection when
-       ingesting the corpus from scratch.
-    2. Start the FastAPI server:
-       `uvicorn main:app --reload`
-    3. Run `python -m tools.corpus.ingest_corpus` to ingest the corpus.
+    SEED_ON_EMPTY=false CHROMA_PATH=<new directory> \\
+        python -m tools.corpus.ingest_corpus \\
+        --manifest data/corpus_manifest.json --corpus-dir corpus/mvp
+
+No server is started and no port is used: the production models, chunker and
+/ingest handler from main.py run in this process. Safeguards:
+
+    1. SEED_ON_EMPTY=false must be set in the environment, not only in .env.
+    2. CHROMA_PATH must be set and must not exist yet, so an existing
+       collection is never appended to. Run
+       `python -m tools.corpus.reset_collection` to discard a collection you
+       no longer need; ingest again into a new CHROMA_PATH.
+    3. Every manifest PDF must be present before any model is loaded.
+    4. The stored chunks are compared with the corpus before reporting success.
 """
 import argparse
 import json
-import sys
+import os
 from pathlib import Path
 
-import httpx
 from pypdf import PdfReader
 from tools.corpus.pdf_text import extract_pages
 
-INGEST_URL = "http://localhost:8000/ingest"
-HEALTH_URL = "http://localhost:8000/health"
-DEFAULT_MANIFEST = Path("./data/corpus_manifest.json")
-DEFAULT_CORPUS_DIR = Path("./corpus")
+ROOT = Path(__file__).resolve().parents[2]
 
-def check_existing_chunks(client: httpx.Client) -> int:
-    """Query /health for current chunk count. Exits if the server isn't
-    reachable or isn't ready yet — ingesting against a not-ready server
-    would just fail on every request anyway."""
-    try:
-        response = client.get(HEALTH_URL, timeout=10.0)
-    except httpx.ConnectError:
-        print("ERROR: could not reach the server — is `uvicorn main:app` running?")
-        sys.exit(1)
 
-    if response.status_code == 503:
-        body = response.json()
-        print(f"Server not ready yet: {body}. Wait for /health to report 'ready', then retry.")
-        sys.exit(1)
+def load_production():
+    """Load the production models and collection; scripts never seed."""
+    import main
+    main._load_models_and_index()
+    main._ready = True
+    return main
 
-    return response.json().get("chunks", 0)
 
-def ingest_file(client: httpx.Client, pdf_path: Path, source: str) -> int | None:
-    """Extract text from a PDF and POST it to the local /ingest endpoint."""
-    try:
-        reader = PdfReader(str(pdf_path))
-    except Exception as exc:
-        print(f"  ERROR reading {pdf_path.name}: {exc}")
-        return None
-
-    text = "\n".join(extract_pages(reader))
+def ingest_file(production, pdf_path: Path, source: str) -> str:
+    """Extract text from a PDF and pass it to the production /ingest handler."""
+    text = "\n".join(extract_pages(PdfReader(str(pdf_path))))
     pdf_path.with_suffix(".txt").write_text(text, encoding="utf-8") # saves the parsed pdf txt for reference
     if not text.strip():
-        print(f"  WARNING: {pdf_path.name} extracted empty text — skipping.")
-        return 0
-
-    response = client.post(
-        INGEST_URL,
-        json={"text": text, "source": source},
-        timeout=60.0,
-    )
-    response.raise_for_status()
-    return response.json().get("chunks_ingested", 0)
+        raise ValueError(f"{pdf_path.name} extracted empty text")
+    result = production.ingest(production.IngestRequest(text=text, source=source))
+    print(f"INGESTED: {source} | chunks={result['chunks_ingested']}")
+    return text
 
 
-def main() -> int:
-    parser = argparse.ArgumentParser(description="Ingest biomedical corpus into the RAG system.")
-    parser.add_argument(
-        "--corpus-dir",
-        type=Path,
-        default=DEFAULT_CORPUS_DIR,
-        help="Directory containing PDF files (default: ./corpus)",
-    )
-    parser.add_argument(
-        "--manifest",
-        type=Path,
-        default=DEFAULT_MANIFEST,
-        help="Path to corpus_manifest.json (default: ./data/corpus_manifest.json)",
-    )
-    args = parser.parse_args()
+def main(argv=None) -> int:
+    parser = argparse.ArgumentParser(description="Ingest a corpus manifest into a new isolated collection.")
+    parser.add_argument("--manifest", type=Path, default=ROOT / "data/corpus_manifest.json")
+    parser.add_argument("--corpus-dir", type=Path, default=ROOT / "corpus/mvp")
+    args = parser.parse_args(argv)
 
-    if not args.manifest.exists():
-        print(f"Manifest not found: {args.manifest}")
+    if os.environ.get("SEED_ON_EMPTY", "").lower() != "false":
+        print("ERROR: set SEED_ON_EMPTY=false in the environment.")
+        return 1
+    chroma_path = os.environ.get("CHROMA_PATH")
+    if not chroma_path or Path(chroma_path).exists():
+        print("ERROR: set CHROMA_PATH to a new directory that does not exist yet.")
+        return 1
+    try:
+        filenames = [article["filename"] for article in json.loads(args.manifest.read_text())["articles"]]
+    except (OSError, ValueError, KeyError, TypeError) as error:
+        print(f"ERROR: unreadable manifest {args.manifest}: {error}")
+        return 1
+    missing = [name for name in filenames if not (args.corpus_dir / name).is_file()]
+    if not filenames or missing:
+        print(f"ERROR: no articles, or {len(missing)} PDFs missing from {args.corpus_dir}: {missing[:5]}")
         return 1
 
-    manifest = json.loads(args.manifest.read_text())
-    articles = manifest.get("articles", [])
-
-    stats = {
-        "ingested": 0,
-        "missing": 0,
-        "total_chunks": 0,
-    }
-
-    print(f"\nIngesting from: {args.corpus_dir.resolve()}\n")
-    with httpx.Client() as client:
-        existing = check_existing_chunks(client)
-        if existing > 0:
-            answer = input(
-                f"Collection already has {existing} chunks. Ingesting now will "
-                f"add to it, not replace it — if any of these articles are "
-                f"already in there, you'll get duplicates. Continue? [y/N] "
-            )
-            if answer.strip().lower() not in ("y", "yes"):
-                print(
-                    "Aborted — run `python -m tools.corpus.reset_collection` first if you want a clean ingest.\n"
-                    "For the full setup, see \"Develop and evaluate (host)\" in the README."
-                )
-                return 1
-
-        for article in articles:
-            filename = article["filename"]
-            cluster = article.get("cluster", "unknown")
-
-            pdf_path = args.corpus_dir / filename
-            if not pdf_path.exists():
-                print(f"SKIP (file not found): {filename}")
-                stats["missing"] += 1
-                continue
-
-            chunks = ingest_file(client, pdf_path, source=filename)
-            if chunks is None:
-                stats["missing"] += 1
-                continue
-
-            print(f"INGESTED: {filename} | cluster={cluster} | chunks={chunks}")
-            stats["ingested"] += 1
-            stats["total_chunks"] += chunks
-
-    # 6. Final summary table
-    print("\n" + "=" * 60)
-    print("SUMMARY")
-    print("=" * 60)
-    print(f"  Ingested:        {stats['ingested']}")
-    print(f"  Missing/empty:   {stats['missing']}")
-    print(f"  Total chunks:    {stats['total_chunks']}")
-    print("=" * 60)
-
+    from tools.evaluation.evaluate import verify_collection
+    try:
+        production = load_production()
+        texts = {name: ingest_file(production, args.corpus_dir / name, name) for name in filenames}
+        chunks = verify_collection(production.collection, texts, production.chunk_text)
+    except Exception as error:
+        print(f"FAILED: {error}\nThe collection at {chroma_path} is incomplete; do not use it.")
+        return 1
+    print(f"Ingested {len(texts)} articles; {chunks} stored chunks match the corpus.")
+    print(f"CHROMA_PATH={Path(chroma_path).resolve()}")
     return 0
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    raise SystemExit(main())

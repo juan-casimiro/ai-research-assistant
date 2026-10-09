@@ -2,58 +2,82 @@
 import contextlib
 import io
 import json
+import os
 from pathlib import Path
 import tempfile
+from types import SimpleNamespace
 import unittest
-from unittest.mock import MagicMock, patch
-
-import httpx
+from unittest.mock import patch
 
 import compare_evals
+from tests.corpus.test_extract_corpus_text import pdf_bytes
 from tools.corpus import ingest_corpus
 
 
+class FakeProduction:
+    """Stands in for main.py: ten-character chunks stored in memory."""
+    def __init__(self, drop_last_chunk=False):
+        self.collection, self.stored, self.drop_last_chunk = self, [], drop_last_chunk
+
+    IngestRequest = staticmethod(lambda text, source: SimpleNamespace(text=text, source=source))
+    chunk_text = staticmethod(lambda text: [text[i:i + 10] for i in range(0, len(text), 10)])
+
+    def ingest(self, request):
+        chunks = self.chunk_text(request.text)
+        self.stored += [(request.source, chunk) for chunk in (chunks[:-1] if self.drop_last_chunk else chunks)]
+        return {"chunks_ingested": len(chunks)}
+
+    def get(self, include):
+        return {"documents": [chunk for _, chunk in self.stored], "metadatas": [{"source": source} for source, _ in self.stored]}
+
+
 class CorpusIngestionTests(unittest.TestCase):
-    def test_unreachable_or_loading_service_aborts_before_ingestion(self):
-        for failure in (httpx.ConnectError("test connection failure"), None):
-            client = MagicMock()
-            client.get.side_effect = failure
-            client.get.return_value = httpx.Response(503, json={"status": "loading"})
-            with self.subTest(failure=failure), contextlib.redirect_stdout(io.StringIO()):
-                with self.assertRaises(SystemExit) as raised:
-                    ingest_corpus.check_existing_chunks(client)
-                self.assertEqual(raised.exception.code, 1)
+    def setUp(self):
+        directory = tempfile.TemporaryDirectory()
+        self.addCleanup(directory.cleanup)
+        self.root = Path(directory.name)
+        self.manifest = self.root / "manifest.json"
+        self.manifest.write_text(json.dumps({"articles": [{"filename": "first-test.pdf"}, {"filename": "second-test.pdf"}]}))
+        for name in ("first-test.pdf", "second-test.pdf"):
+            (self.root / name).write_bytes(pdf_bytes((f"Some text in {name}", "Some more text")))
+        self.environment = {"SEED_ON_EMPTY": "false", "CHROMA_PATH": str(self.root / "new-collection")}
 
-    def test_populated_store_requires_affirmative_answer_before_any_ingest(self):
-        with tempfile.TemporaryDirectory() as directory:
-            manifest = Path(directory, "manifest.json")
-            manifest.write_text(json.dumps({"articles": [{"filename": "test.pdf"}]}))
-            Path(directory, "test.pdf").touch()
-            for answer, expected in [("", 1), ("no", 1), (" YES ", 0)]:
-                with self.subTest(answer=answer), patch("sys.argv", ["ingest_corpus.py", "--manifest", str(manifest),
-                                                                       "--corpus-dir", directory]), patch.object(
-                    ingest_corpus.httpx, "Client"
-                ), patch.object(ingest_corpus, "check_existing_chunks", return_value=7), patch(
-                    "builtins.input", return_value=answer
-                ), patch.object(ingest_corpus, "ingest_file", return_value=2) as ingest, contextlib.redirect_stdout(io.StringIO()):
-                    self.assertEqual(ingest_corpus.main(), expected)
-                    if expected:
-                        ingest.assert_not_called()
-                    else:
-                        self.assertEqual(ingest.call_args.args[1], Path(directory, "test.pdf"))
-                        self.assertEqual(ingest.call_args.kwargs, {"source": "test.pdf"})
+    def run_tool(self, rag_production):
+        with patch.dict(os.environ, self.environment, clear=True), patch.object(
+                ingest_corpus, "load_production", return_value=rag_production) as load, contextlib.redirect_stdout(io.StringIO()):
+            return ingest_corpus.main(["--manifest", str(self.manifest), "--corpus-dir", str(self.root)]), load
 
-    def test_unreadable_or_textless_pdf_never_posts_to_service(self):
-        with tempfile.TemporaryDirectory() as directory:
-            path = Path(directory, "test.pdf")
-            client = MagicMock()
-            for failure in (ValueError("test malformed PDF"), None):
-                with self.subTest(failure=failure), patch.object(ingest_corpus, "PdfReader", side_effect=failure) as reader, contextlib.redirect_stdout(io.StringIO()):
-                    page = MagicMock()
-                    page.extract_text.return_value = None
-                    reader.return_value.pages = [page]
-                    self.assertEqual(ingest_corpus.ingest_file(client, path, "test.pdf"), None if failure else 0)
-            client.post.assert_not_called()
+    def test_unsafe_environment_or_missing_pdf_stops_before_models_load(self):
+        for unsafe in ("seed unset", "seed enabled", "path unset", "path exists", "pdf missing"):
+            with self.subTest(unsafe=unsafe):
+                self.setUp()
+                if unsafe == "seed unset":
+                    del self.environment["SEED_ON_EMPTY"]
+                elif unsafe == "seed enabled":
+                    self.environment["SEED_ON_EMPTY"] = "true"
+                elif unsafe == "path unset":
+                    del self.environment["CHROMA_PATH"]
+                elif unsafe == "path exists":
+                    Path(self.environment["CHROMA_PATH"]).mkdir()
+                else:
+                    (self.root / "second-test.pdf").unlink()
+                status, load = self.run_tool(FakeProduction())
+                self.assertEqual(status, 1)
+                load.assert_not_called()
+
+    def test_every_article_is_ingested_by_filename_and_verified(self):
+        rag_production = FakeProduction()
+        status, _ = self.run_tool(rag_production)
+        self.assertEqual(status, 0)
+        self.assertEqual({source for source, _ in rag_production.stored}, {"first-test.pdf", "second-test.pdf"})
+        self.assertIn("Some text in first-test.pdf", (self.root / "first-test.txt").read_text())
+
+    def test_textless_pdf_or_incomplete_collection_is_reported_as_failure(self):
+        self.assertEqual(self.run_tool(FakeProduction(drop_last_chunk=True))[0], 1)
+        (self.root / "second-test.pdf").write_bytes(pdf_bytes(("",)))
+        rag_production = FakeProduction()
+        self.assertEqual(self.run_tool(rag_production)[0], 1)
+        self.assertNotIn("second-test.pdf", {source for source, _ in rag_production.stored})
 
 
 class ComparisonTests(unittest.TestCase):

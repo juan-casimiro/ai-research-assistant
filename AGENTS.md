@@ -22,6 +22,7 @@ unavailable, report that and stop before task work.
 
 - `tools/corpus/build_corpus_manifest.py` / `tools/corpus/fetch_article_metadata.py`: fetch the selection’s latest/pinned PMC metadata and assemble complete records; see the corpus workflow.
 - `tools/corpus/extract_corpus_text.py`: production-equivalent extraction into text beside PDFs and a small failure report.
+- `tools/corpus/ingest_corpus.py`: in-process ingestion into a new collection (`SEED_ON_EMPTY=false`, unused `CHROMA_PATH`); see `tools/corpus/ingestion-workflow.md`. `.agents/skills/ingest-corpus/` routes agents there.
 - `tools/corpus/publish_corpus.py`: final validation and local promotion; abort conflicts and ask the user before resolving them.
 - `candidates.json` retains the original supplied PMCIDs before network calls; failed fetches cannot remove selected articles.
 - Candidate and acquisition files are generated locally under ignored `build/corpus/<run-id>/`. The corpus metadata is in `data/corpus_manifest.json`; `eligibility` reflects supported article licence evidence only.

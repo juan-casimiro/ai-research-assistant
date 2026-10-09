@@ -43,9 +43,10 @@ class ExtractionTests(unittest.TestCase):
 
     def test_exact_production_output_and_extraction_on_every_run(self):
         self.assertEqual(self.run_tool(),0)
-        rag_client=Mock();rag_client.post.return_value.json.return_value={'chunks_ingested':0}
-        ingest_file(rag_client,self.pdf,self.article['filename'])
-        production=rag_client.post.call_args.kwargs['json']['text'].encode('utf-8')
+        rag_production=Mock();rag_production.ingest.return_value={'chunks_ingested':0}
+        with contextlib.redirect_stdout(io.StringIO()):
+            ingest_file(rag_production,self.pdf,self.article['filename'])
+        production=rag_production.IngestRequest.call_args.kwargs['text'].encode('utf-8')
         self.assertEqual(self.pdf.with_suffix('.txt').read_bytes(),production)
         with patch.object(extractor,'extract_pdf',side_effect=ValueError('synthetic extraction failure')):
             self.assertEqual(self.run_tool(),1)
