@@ -3,6 +3,7 @@
 import argparse
 import json
 from pathlib import Path
+from .download_corpus import corpus_name
 from .fetch_article_metadata import validate_records
 
 
@@ -14,12 +15,13 @@ def save_json(path, data):
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--records-dir', type=Path, required=True)
+    parser.add_argument('--corpus-name', required=True, help='Final files live under corpus/<corpus_name>/')
     parser.add_argument('--output', type=Path)
     args = parser.parse_args(argv)
     path = args.output or args.records_dir.parent / 'corpus_manifest.json'
     try:
         articles = validate_records([json.loads(p.read_text()) for p in sorted(args.records_dir.glob('*.json'))])
-        manifest = {'articles': articles}
+        manifest = {'corpus_name': corpus_name({'corpus_name': args.corpus_name}), 'articles': articles}
         save_json(path, manifest)
     except (OSError, ValueError, KeyError, TypeError) as error:
         print(f'ERROR: {error}')

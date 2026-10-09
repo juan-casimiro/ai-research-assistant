@@ -85,6 +85,20 @@ class DownloadCorpusTests(unittest.TestCase):
             with self.subTest(field=field), patch.object(download_corpus, "open_url", return_value=io.BytesIO(json.dumps(dict(metadata, **{field: value})).encode())), self.assertRaises(ValueError):
                 download_corpus.resolve_pdf(article)
 
+    def test_default_folder_follows_corpus_name_and_unnamed_archive_keeps_corpus_root(self):
+        payload = pdf_bytes()
+        article = {"filename": "test-paper.pdf", "pmcid": "PMC123", "doi": "10.123/test",
+                   "metadata_sources": {"pdf": {"sha256": hashlib.sha256(payload).hexdigest()}}}
+        for manifest_fields, folder in [({"corpus_name": "test-corpus"}, "corpus/test-corpus"), ({}, "corpus")]:
+            with self.subTest(folder=folder), tempfile.TemporaryDirectory() as directory:
+                manifest = Path(directory, "manifest.json")
+                manifest.write_text(json.dumps({**manifest_fields, "articles": [article]}))
+                with patch.object(download_corpus, "ROOT", Path(directory)), patch.object(
+                        download_corpus, "resolve_pdf", return_value=("https://example.test/pdf", None)), patch.object(
+                        download_corpus, "open_url", return_value=io.BytesIO(payload)), contextlib.redirect_stdout(io.StringIO()):
+                    self.assertEqual(download_corpus.main(["--manifest", str(manifest)]), 0)
+                self.assertEqual(Path(directory, folder, "test-paper.pdf").read_bytes(), payload)
+
     def test_existing_manifest_download_uses_pinned_version_without_latest_lookup(self):
         payload = pdf_bytes()
         metadata = {'pmcid': 'PMC123', 'doi': '10.123/synthetic', 'pdf_url': 's3://pmc-oa-opendata/PMC123.4/synthetic.pdf'}

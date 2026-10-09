@@ -22,9 +22,10 @@ unavailable, report that and stop before task work.
 
 - `tools/corpus/build_corpus_manifest.py` / `tools/corpus/fetch_article_metadata.py`: fetch the selection’s latest/pinned PMC metadata and assemble complete records; see the corpus workflow.
 - `tools/corpus/extract_corpus_text.py`: production-equivalent extraction into text beside PDFs and a small failure report.
+- `tools/corpus/ingest_corpus.py`: in-process ingestion into a new collection at `corpus/<corpus_name>/chroma` (`SEED_ON_EMPTY=false`, folder must not exist); see `tools/corpus/ingestion-workflow.md`. `.agents/skills/ingest-corpus/` routes agents there.
 - `tools/corpus/publish_corpus.py`: final validation and local promotion; abort conflicts and ask the user before resolving them.
 - `candidates.json` retains the original supplied PMCIDs before network calls; failed fetches cannot remove selected articles.
-- Candidate and acquisition files are generated locally under ignored `build/corpus/<run-id>/`. The corpus metadata is in `data/corpus_manifest.json`; `eligibility` reflects supported article licence evidence only.
+- Candidate and acquisition files are generated locally under ignored `build/corpus/<run-id>/`. The corpus metadata is in `data/corpus_manifest.json`; its `corpus_name` sets the local folder `corpus/<corpus_name>/` for PDFs, text and the `chroma` collection; `eligibility` reflects supported article licence evidence only.
 - `tools/corpus/corpus-metadata-workflow.md`: metadata, licence and PDF checks; `.agents/skills/generate-corpus-metadata/` routes agents to this workflow.
 - `data/queries.json` and `data/queries-schema.md`: current Q&A inputs and field guide; evaluation procedure is `tools/evaluation/evaluation-workflow.md`.
 - `data/archive/v1/`: original corpus manifest, golden Q&A and saved evaluation evidence; corpus helpers live under `tools/corpus/` and run as modules from the repository root.

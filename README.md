@@ -94,20 +94,24 @@ retrieval results.
 Acquire and verify PDFs and adjacent text using the
 [corpus workflow](tools/corpus/corpus-metadata-workflow.md). PDFs remain untracked;
 article licence terms are recorded in [the manifest](data/corpus_manifest.json).
-Set a new `CHROMA_PATH` and `SEED_ON_EMPTY=false` in the host environment.
-Start `uvicorn main:app --reload`, then ingest from a separate terminal:
+Ingest into a new collection beside the corpus with seeding disabled; no server is needed
+(see the [ingestion workflow](tools/corpus/ingestion-workflow.md)):
 
 ```bash
-python ingest_corpus.py --manifest data/corpus_manifest.json --corpus-dir corpus/mvp
+SEED_ON_EMPTY=false python -m tools.corpus.ingest_corpus
 ```
 
-Use the same `CHROMA_PATH` for evaluation. Do not reset or append to a shared
-collection; the evaluator checks exact corpus membership.
+The corpus folder comes from the manifest's `corpus_name` (`mvp`), and the
+collection is created beside the PDFs at `corpus/mvp/chroma`. Evaluation reads
+it from there. The command refuses an existing collection folder; do not reset
+or append to a shared collection, because the evaluator checks exact corpus
+membership. To serve it, start the service with
+`SEED_ON_EMPTY=false CHROMA_PATH=corpus/mvp/chroma uvicorn main:app`.
 
 ### Retrieval evaluation
 
 ```bash
-python -m tools.evaluation.evaluate --corpus-dir corpus/mvp
+python -m tools.evaluation.evaluate
 ```
 
 Evaluates all 158 questions in [queries.json](data/queries.json) against production

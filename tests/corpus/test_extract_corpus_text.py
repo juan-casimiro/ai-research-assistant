@@ -9,7 +9,7 @@ import unittest
 from unittest.mock import Mock, patch
 from pypdf import PdfWriter
 from pypdf.generic import DictionaryObject, NameObject, DecodedStreamObject
-from ingest_corpus import ingest_file
+from tools.corpus.ingest_corpus import ingest_file
 from tools.corpus import extract_corpus_text as extractor
 from tests.corpus.test_build_corpus_manifest import record
 
@@ -41,11 +41,22 @@ class ExtractionTests(unittest.TestCase):
 
     def report(self):return json.loads((self.root/'extraction_report.json').read_text())
 
+    def test_default_folder_follows_corpus_name(self):
+        from tools.corpus import download_corpus
+        named=self.root/'corpus/test-corpus';named.mkdir(parents=True);self.pdf.rename(named/self.pdf.name)
+        for corpus,status in [(None,1),('test-corpus',0)]:
+            with self.subTest(corpus=corpus):
+                self.manifest.write_text(json.dumps({'articles':[self.article]} if corpus is None else {'corpus_name':corpus,'articles':[self.article]}))
+                with patch.object(download_corpus,'ROOT',self.root),contextlib.redirect_stdout(io.StringIO()):
+                    self.assertEqual(extractor.main(['--manifest',str(self.manifest)]),status)
+                self.assertEqual((named/self.pdf.with_suffix('.txt').name).exists(),corpus is not None)
+
     def test_exact_production_output_and_extraction_on_every_run(self):
         self.assertEqual(self.run_tool(),0)
-        rag_client=Mock();rag_client.post.return_value.json.return_value={'chunks_ingested':0}
-        ingest_file(rag_client,self.pdf,self.article['filename'])
-        production=rag_client.post.call_args.kwargs['json']['text'].encode('utf-8')
+        rag_production=Mock();rag_production.ingest.return_value={'chunks_ingested':0}
+        with contextlib.redirect_stdout(io.StringIO()):
+            ingest_file(rag_production,self.pdf,self.article['filename'])
+        production=rag_production.IngestRequest.call_args.kwargs['text'].encode('utf-8')
         self.assertEqual(self.pdf.with_suffix('.txt').read_bytes(),production)
         with patch.object(extractor,'extract_pdf',side_effect=ValueError('synthetic extraction failure')):
             self.assertEqual(self.run_tool(),1)

@@ -7,7 +7,7 @@ from pathlib import Path
 import tempfile
 import unittest
 from unittest.mock import patch
-from tools.corpus import publish_corpus as publisher
+from tools.corpus import download_corpus, publish_corpus as publisher
 from tests.corpus.test_build_corpus_manifest import record
 from tests.corpus.test_extract_corpus_text import pdf_bytes
 
@@ -35,6 +35,16 @@ class PublicationTests(unittest.TestCase):
             args.append('--check')
         with contextlib.redirect_stdout(io.StringIO()):
             return publisher.main(args)
+
+    def test_default_destination_is_the_manifest_corpus_folder(self):
+        for corpus, status in [(None, 1), ('test-corpus', 0)]:
+            with self.subTest(corpus=corpus):
+                manifest = {'articles': [self.article]} if corpus is None else {'corpus_name': corpus, 'articles': [self.article]}
+                self.source.write_text(json.dumps(manifest))
+                with patch.object(download_corpus, 'ROOT', self.root), contextlib.redirect_stdout(io.StringIO()):
+                    self.assertEqual(publisher.main(['--run-dir', str(self.run_dir), '--manifest-destination', str(self.final_manifest)]), status)
+                self.assertEqual((self.root / 'corpus/test-corpus' / self.pdf.name).exists(), corpus is not None)
+                self.assertFalse(self.final_pdfs.exists())
 
     def test_success_moves_only_final_artifacts_after_validation(self):
         raw = self.pdf.read_bytes()

@@ -291,8 +291,22 @@ class EvaluationRunTests(unittest.IsolatedAsyncioTestCase):
                  "related_distractors": [], "evidence_sets": [{"anchors": [anchor["id"]], "fact_anchors": {"f1": [anchor["id"]]}}]}
         (path / "queries.json").write_text(json.dumps({"query_version": "test-v1", "sources": {article["id"]: pin}, "queries": [query], "anchors": [anchor]}))
         (path / "manifest.json").write_text(json.dumps({"articles": [article]}))
+        (path / "chroma").mkdir()
         return SimpleNamespace(queries=path / "queries.json", manifest=path / "manifest.json", corpus_dir=path,
                                output=path / "result.json", ids=None, bm25=False, rewrite=False), article, text
+
+    def test_corpus_folder_defaults_to_the_manifest_corpus_name(self):
+        with tempfile.TemporaryDirectory() as directory:
+            args, article, text = self.inputs(directory)
+            named = Path(directory) / "corpus/test-corpus"
+            named.mkdir(parents=True)
+            for path in Path(directory).glob(article["id"] + ".*"):
+                path.rename(named / path.name)
+            with patch("tools.corpus.download_corpus.ROOT", Path(directory)):
+                with self.assertRaisesRegex(ValueError, "corpus_name"):
+                    evaluate.read_inputs(args.queries, args.manifest, None)
+                args.manifest.write_text(json.dumps({"corpus_name": "test-corpus", "articles": [article]}))
+                self.assertEqual(evaluate.read_inputs(args.queries, args.manifest, None)[2], {article["filename"]: text})
 
     async def test_complete_run_records_both_depths_and_refuses_output_overwrite(self):
         from types import SimpleNamespace
@@ -301,7 +315,8 @@ class EvaluationRunTests(unittest.IsolatedAsyncioTestCase):
             collection = SimpleNamespace(name="test collection", get=lambda **kw: {"documents": [text], "metadatas": [{"source": article["filename"]}]})
             lookup = AsyncMock(return_value=([text], [article["filename"]]))
             with patch("main.collection", collection), patch("main.CHROMA_PATH", "some-test-store"), patch("main.chunk_text", side_effect=lambda s: [s]):
-                loader = Mock()
+                import main
+                loader = Mock(side_effect=lambda: self.assertEqual(main.CHROMA_PATH, str(Path(directory) / "chroma")))
                 self.assertEqual(await evaluate.run_evaluation(args, lookup, loader), 0)
                 result = json.loads(args.output.read_text())
                 self.assertEqual(result["run_status"], "complete")
@@ -312,6 +327,23 @@ class EvaluationRunTests(unittest.IsolatedAsyncioTestCase):
                 self.assertEqual(args.output.read_bytes(), original)
                 self.assertEqual(lookup.await_count, 2)
                 self.assertEqual(loader.call_count, 1)
+
+    async def test_missing_or_exported_collection_folder_is_respected_before_models_load(self):
+        with tempfile.TemporaryDirectory() as directory:
+            args, article, text = self.inputs(directory)
+            (Path(directory) / "chroma").rmdir()
+            loader = Mock()
+            with patch("main.CHROMA_PATH", "some-test-store"), contextlib.redirect_stdout(io.StringIO()) as output:
+                self.assertEqual(await evaluate.run_evaluation(args, AsyncMock(), loader), 1)
+                self.assertIn("ingest the corpus first", output.getvalue())
+                loader.assert_not_called()
+                args.output.unlink()
+                args.chroma_path = str(Path(directory) / "exported-collection")
+                Path(args.chroma_path).mkdir()
+                import main
+                loader.side_effect = lambda: self.assertEqual(main.CHROMA_PATH, args.chroma_path)
+                await evaluate.run_evaluation(args, AsyncMock(), loader)
+                loader.assert_called_once()
 
     async def test_provider_failure_retains_incomplete_results(self):
         from types import SimpleNamespace

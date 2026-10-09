@@ -5,6 +5,7 @@ import hashlib
 import json
 from pathlib import Path
 from .build_corpus_manifest import save_json, validate_records
+from .download_corpus import named_corpus_dir
 from .pdf_text import extract_pdf
 
 # Revisit at the next corpus expansion; no recovery workaround is applied.
@@ -32,11 +33,14 @@ def extract_article(article, pdf_path):
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--manifest', type=Path, default=Path('data/corpus_manifest.json'))
-    parser.add_argument('--corpus-dir', type=Path, required=True)
+    parser.add_argument('--corpus-dir', type=Path, help='Defaults to corpus/<corpus_name>/ from the manifest')
     args = parser.parse_args(argv)
     failures = []
     try:
-        articles = validate_records(json.loads(args.manifest.read_text())['articles'])
+        manifest = json.loads(args.manifest.read_text())
+        articles = validate_records(manifest['articles'])
+        if args.corpus_dir is None:
+            args.corpus_dir = named_corpus_dir(manifest)
         for article in articles:
             pdf = args.corpus_dir / article['filename']
             try:

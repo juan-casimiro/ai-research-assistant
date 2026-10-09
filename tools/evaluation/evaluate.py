@@ -41,8 +41,11 @@ def read_inputs(query_path: Path, manifest_path: Path, corpus_dir: Path):
     benchmark = json.loads(query_path.read_text())
     validate_benchmark(benchmark)
     manifest = json.loads(manifest_path.read_text())
+    from tools.corpus.download_corpus import named_corpus_dir
     from tools.corpus.fetch_article_metadata import validate_records
     validate_records(manifest["articles"])
+    if corpus_dir is None:
+        corpus_dir = named_corpus_dir(manifest)
     articles = {a["article_id"]: a for a in manifest["articles"]}
     if len(articles) != len(manifest["articles"]) or set(articles) != set(benchmark["sources"]):
         raise ValueError("query sources and corpus membership differ")
@@ -118,6 +121,11 @@ async def run_evaluation(args, retrieve, load_models):
                       "input_hashes": {"queries": canonical_hash(benchmark), "manifest": canonical_hash(manifest)},
                       "results": [], "summary": None}
             json.dump(output, stream)
+        from tools.corpus.download_corpus import collection_path, named_corpus_dir
+        chroma_path = collection_path(args.corpus_dir or named_corpus_dir(manifest), getattr(args, "chroma_path", None))
+        if not chroma_path.is_dir():
+            raise ValueError(f"no collection at {chroma_path}; ingest the corpus first")
+        production.CHROMA_PATH = str(chroma_path)
         load_models()
         verify_collection(production.collection, texts, production.chunk_text)
         output["models"] = {"embedding": getattr(production.embed_model, "model_name", None),
@@ -159,7 +167,7 @@ def parse_args(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--queries", type=Path, default=ROOT / "data/queries.json")
     parser.add_argument("--manifest", type=Path, default=ROOT / "data/corpus_manifest.json")
-    parser.add_argument("--corpus-dir", type=Path, default=ROOT / "corpus/mvp")
+    parser.add_argument("--corpus-dir", type=Path, help="Defaults to corpus/<corpus_name>/ from the manifest")
     parser.add_argument("--output", type=Path, help="New result file; existing files are refused")
     parser.add_argument("--ids", help="Comma-separated query IDs; defaults to all queries")
     parser.add_argument("--bm25", action="store_true")
@@ -180,6 +188,7 @@ async def main(argv=None):
         except (OSError, ValueError, KeyError, TypeError) as error:
             print(f"ERROR: missing required key {error}" if isinstance(error, KeyError) else f"ERROR: {error}")
             return 1
+    args.chroma_path = os.environ.get("CHROMA_PATH")  # read before main.py loads .env
     from main import retrieve, _load_models_and_index
     return await run_evaluation(args, retrieve, _load_models_and_index)
 

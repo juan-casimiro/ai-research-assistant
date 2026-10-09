@@ -48,9 +48,10 @@ def _log(message: str) -> None:
     print(f"[startup] {message}")
 
 
-def _load_models() -> None:
-    """Blocking model construction — runs in a worker thread, not the event loop."""
-    global embed_model, reranker, chroma_client, collection, llm
+def _load_retrieval() -> None:
+    """Embedding model, reranker and store: everything except the LLM client.
+    Corpus ingestion calls this alone, so it needs no provider settings."""
+    global embed_model, reranker, chroma_client, collection
     _log("loading embedding model (FastEmbed bge-small-en-v1.5)...")
     embed_model = TextEmbedding()
     _log("loading cross-encoder reranker (Xenova/ms-marco-MiniLM-L-6-v2)...")
@@ -59,6 +60,12 @@ def _load_models() -> None:
     chroma_client = chromadb.PersistentClient(path=CHROMA_PATH)
     collection = chroma_client.get_or_create_collection("documents")
     _log(f"collection ready — {collection.count()} chunks already stored")
+
+
+def _load_models() -> None:
+    """Blocking model construction — runs in a worker thread, not the event loop."""
+    global llm
+    _load_retrieval()
     _log("initializing LLM client...")
     llm = create_llm_client()
     _log("models loaded")

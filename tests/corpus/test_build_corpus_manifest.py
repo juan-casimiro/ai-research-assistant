@@ -30,14 +30,14 @@ class ManifestTests(unittest.TestCase):
         self.article = record()
         (self.records / 'article.json').write_text(json.dumps(self.article))
 
-    def run_builder(self):
+    def run_builder(self, corpus='test-corpus'):
         with contextlib.redirect_stdout(io.StringIO()) as report:
-            status = builder.main(['--records-dir', str(self.records), '--output', str(self.output)])
+            status = builder.main(['--records-dir', str(self.records), '--output', str(self.output), '--corpus-name', corpus])
         return status, report.getvalue()
 
     def test_assembles_complete_records_and_reruns(self):
         self.assertEqual(self.run_builder()[0], 0)
-        self.assertEqual(json.loads(self.output.read_text()), {'articles': [self.article]})
+        self.assertEqual(json.loads(self.output.read_text()), {'corpus_name': 'test-corpus', 'articles': [self.article]})
         self.assertEqual(self.run_builder()[0], 0)
         for value in [None, '']:
             article = dict(self.article)
@@ -63,4 +63,10 @@ class ManifestTests(unittest.TestCase):
     def test_differing_prepared_manifest_is_rebuilt(self):
         self.output.write_text('{"articles": []}')
         self.assertEqual(self.run_builder()[0], 0)
-        self.assertEqual(json.loads(self.output.read_text()), {'articles': [self.article]})
+        self.assertEqual(json.loads(self.output.read_text()), {'corpus_name': 'test-corpus', 'articles': [self.article]})
+
+    def test_invalid_corpus_name_never_writes_manifest(self):
+        for corpus in ['', 'Test Corpus', '../test', 'test_corpus']:
+            with self.subTest(corpus=corpus):
+                self.assertEqual(self.run_builder(corpus)[0], 1)
+                self.assertFalse(self.output.exists())
