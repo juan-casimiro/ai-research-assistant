@@ -94,11 +94,11 @@ retrieval results.
 Acquire and verify PDFs and adjacent text using the
 [corpus workflow](tools/corpus/corpus-metadata-workflow.md). PDFs remain untracked;
 article licence terms are recorded in [the manifest](data/corpus_manifest.json).
-Ingest into a new collection path with seeding disabled; no server is needed
+Ingest into a new collection beside the corpus with seeding disabled; no server is needed
 (see the [ingestion workflow](tools/corpus/ingestion-workflow.md)):
 
 ```bash
-SEED_ON_EMPTY=false CHROMA_PATH=build/corpus/chroma/<run-id> \
+SEED_ON_EMPTY=false CHROMA_PATH=corpus/mvp/chroma \
   python -m tools.corpus.ingest_corpus --manifest data/corpus_manifest.json --corpus-dir corpus/mvp
 ```
 

@@ -3,7 +3,7 @@
 
 Run from the repository root with the service's Python environment:
 
-    SEED_ON_EMPTY=false CHROMA_PATH=<new directory> \\
+    SEED_ON_EMPTY=false CHROMA_PATH=corpus/mvp/chroma \\
         python -m tools.corpus.ingest_corpus \\
         --manifest data/corpus_manifest.json --corpus-dir corpus/mvp
 
@@ -14,8 +14,8 @@ needed. Safeguards:
     1. SEED_ON_EMPTY=false must be set in the environment, not only in .env.
     2. CHROMA_PATH must be set and must not exist yet, so an existing
        collection is never appended to. Run
-       `python -m tools.corpus.reset_collection` to discard a collection you
-       no longer need; ingest again into a new CHROMA_PATH.
+       `python -m tools.corpus.reset_collection` to empty a collection you
+       no longer need; delete its folder before ingesting there again.
     3. Every manifest PDF must be present before any model is loaded.
     4. The stored chunks are compared with the corpus before reporting success.
 """
