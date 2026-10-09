@@ -13,11 +13,13 @@ No server is started and no port is used: the production models, chunker and
 needed. Safeguards:
 
     1. SEED_ON_EMPTY=false must be set in the environment, not only in .env.
-    2. The collection folder must not exist yet, so an existing collection
-       is never appended to. Delete it before ingesting there again;
+    2. The collection folder must not exist yet and is created atomically
+       before any model loads, so an existing collection is never appended
+       to. Delete it before ingesting there again;
        `python -m tools.corpus.reset_collection` only empties a collection.
        An exported CHROMA_PATH replaces the default folder; .env does not.
-    3. Every manifest PDF must be present before any model is loaded.
+    3. Manifest filenames must be unique plain .pdf basenames, and every PDF
+       must be present, before any model is loaded.
     4. The stored chunks are compared with the corpus before reporting success.
 """
 import argparse
@@ -26,7 +28,7 @@ import os
 from pathlib import Path
 
 from pypdf import PdfReader
-from tools.corpus.download_corpus import collection_path, named_corpus_dir
+from tools.corpus.download_corpus import collection_path, named_corpus_dir, unique_pdf_basenames
 from tools.corpus.pdf_text import extract_pages
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -64,7 +66,7 @@ def main(argv=None) -> int:
     exported = os.environ.get("CHROMA_PATH")  # read before main.py loads .env
     try:
         manifest = json.loads(args.manifest.read_text())
-        filenames = [article["filename"] for article in manifest["articles"]]
+        filenames = unique_pdf_basenames([article["filename"] for article in manifest["articles"]])
         if args.corpus_dir is None:
             args.corpus_dir = named_corpus_dir(manifest)
     except (OSError, ValueError, KeyError, TypeError) as error:
@@ -75,7 +77,9 @@ def main(argv=None) -> int:
         print(f"ERROR: no articles, or {len(missing)} PDFs missing from {args.corpus_dir}: {missing[:5]}")
         return 1
     chroma_path = collection_path(args.corpus_dir, exported)
-    if chroma_path.exists():
+    try:
+        chroma_path.mkdir(parents=True, exist_ok=False)  # atomic: claims the folder or fails
+    except FileExistsError:
         print(f"ERROR: a collection already exists at {chroma_path}; it is never reused or appended to.")
         return 1
 

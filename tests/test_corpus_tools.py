@@ -94,6 +94,31 @@ class CorpusIngestionTests(unittest.TestCase):
                     self.assertEqual(ingest_corpus.main(["--manifest", str(self.manifest)]), status)
                 self.assertEqual((named / "first-test.txt").exists(), corpus is not None)
 
+    def test_collection_folder_is_claimed_atomically_before_models_load(self):
+        (self.root / "chroma").symlink_to(self.root / "some-missing-target")  # exists() is False, yet the name is taken
+        status, load = self.run_tool(FakeProduction())
+        self.assertEqual(status, 1)
+        load.assert_not_called()
+        (self.root / "chroma").unlink()
+        with patch.dict(os.environ, self.environment, clear=True), patch.object(
+                ingest_corpus, "load_production", side_effect=lambda path: self.assertTrue(path.is_dir()) or FakeProduction()
+        ) as load, contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(ingest_corpus.main(["--manifest", str(self.manifest), "--corpus-dir", str(self.root)]), 0)
+        load.assert_called_once()
+        self.assertEqual(self.run_tool(FakeProduction())[0], 1)
+
+    def test_unsafe_manifest_filenames_stop_before_models_load(self):
+        for filenames in (["first-test.pdf", "first-test.pdf"], [str(self.root / "first-test.pdf")], ["../first-test.pdf"],
+                          ["nested/first-test.pdf"], ["first-test.txt"], [7]):
+            with self.subTest(filenames=filenames):
+                self.manifest.write_text(json.dumps({"articles": [{"filename": name} for name in filenames]}))
+                with patch.dict(os.environ, self.environment, clear=True), patch.object(
+                        ingest_corpus, "load_production") as load, contextlib.redirect_stdout(io.StringIO()) as output:
+                    self.assertEqual(ingest_corpus.main(["--manifest", str(self.manifest), "--corpus-dir", str(self.root)]), 1)
+                load.assert_not_called()
+                self.assertIn("ERROR: manifest", output.getvalue())
+                self.assertFalse((self.root / "chroma").exists())
+
     def test_collection_is_created_beside_the_corpus_unless_a_path_is_exported(self):
         self.assertEqual(self.run_tool(FakeProduction())[1].call_args.args, (self.root / "chroma",))
         self.environment["CHROMA_PATH"] = str(self.root / "exported-collection")
@@ -108,10 +133,11 @@ class CorpusIngestionTests(unittest.TestCase):
 
     def test_textless_pdf_or_incomplete_collection_is_reported_as_failure(self):
         self.assertEqual(self.run_tool(FakeProduction(drop_last_chunk=True))[0], 1)
+        (self.root / "chroma").rmdir()
         (self.root / "second-test.pdf").write_bytes(pdf_bytes(("",)))
         rag_production = FakeProduction()
         self.assertEqual(self.run_tool(rag_production)[0], 1)
-        self.assertNotIn("second-test.pdf", {source for source, _ in rag_production.stored})
+        self.assertEqual({source for source, _ in rag_production.stored}, {"first-test.pdf"})
 
 
 class ComparisonTests(unittest.TestCase):

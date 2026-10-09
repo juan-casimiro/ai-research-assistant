@@ -37,6 +37,15 @@ def collection_path(corpus_dir: Path, exported: str | None = None) -> Path:
     return Path(exported) if exported else corpus_dir / "chroma"
 
 
+def unique_pdf_basenames(filenames: list) -> list:
+    """Reject duplicates and anything that is not a plain .pdf basename (no directories or traversal)."""
+    if len(set(filenames)) != len(filenames) or any(
+        Path(name).name != name or not name.endswith(".pdf") for name in filenames
+    ):
+        raise ValueError("manifest filenames must be unique PDF basenames")
+    return filenames
+
+
 def valid_pdf(path: Path) -> bool:
     """Reject HTML responses, truncated files and PDFs without readable pages."""
     try:
@@ -112,11 +121,7 @@ def main(argv: list[str] | None = None) -> int:
         if args.corpus_dir is None:
             # Archived V1 manifests have no corpus_name and keep their original corpus/ folder.
             args.corpus_dir = named_corpus_dir(manifest) if "corpus_name" in manifest else ROOT / "corpus"
-        filenames = [article["filename"] for article in articles]
-        if len(set(filenames)) != len(filenames) or any(
-            Path(name).name != name or not name.endswith(".pdf") for name in filenames
-        ):
-            raise ValueError("manifest filenames must be unique PDF basenames")
+        filenames = unique_pdf_basenames([article["filename"] for article in articles])
         if args.filename and set(args.filename) - set(filenames):
             raise ValueError("requested filename is not in the manifest")
         args.corpus_dir.mkdir(parents=True, exist_ok=True)
