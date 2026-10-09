@@ -16,7 +16,7 @@
       ],
       "required_facts": [
         {
-          "id": "a001:f1",
+          "id": "q001:f1",
           "expected": "Frontal-cortex phosphorylated PKR and normalized phosphorylated eIF2α increased in C9FTD/ALS tissue.",
           "population": "Human postmortem C9FTD/ALS versus controls",
           "endpoint": "PKR/eIF2α phosphorylation",
@@ -27,7 +27,7 @@
           "contradiction_rule": "Preserve scope differences and hypotheses; no invented reconciliation."
         },
         {
-          "id": "a001:f2",
+          "id": "q001:f2",
           "expected": "No phosphorylation difference was observed in two patient-derived lines versus isogenic controls at 38 days; later disease-stage activation was suggested, not demonstrated longitudinally.",
           "population": "Two patient-derived motor-neuron lines and isogenic controls",
           "endpoint": "PKR/eIF2α phosphorylation",
@@ -40,16 +40,16 @@
       ],
       "evidence_sets": [
         {
-          "id": "a001:set1",
+          "id": "q001:set1",
           "anchors": [
             "als-ftd-isr-tissue",
             "als-ftd-isr-young"
           ],
           "fact_anchors": {
-            "a001:f1": [
+            "q001:f1": [
               "als-ftd-isr-tissue"
             ],
-            "a001:f2": [
+            "q001:f2": [
               "als-ftd-isr-young"
             ]
           }
@@ -97,7 +97,7 @@
       ],
       "required_facts": [
         {
-          "id": "a002:f1",
+          "id": "q002:f1",
           "expected": "No: Liu cites prior work reporting no survival or motor deficits in this BAC model; the reported Cas13d result was reduced poly-GP/poly-GA, rather than demonstrated survival or motor rescue.",
           "population": "C9-500 BAC mice",
           "endpoint": "Survival/motor phenotype limitation",
@@ -108,7 +108,7 @@
           "contradiction_rule": "Preserve scope differences and hypotheses; no invented reconciliation."
         },
         {
-          "id": "a002:f2",
+          "id": "q002:f2",
           "expected": "Clinical protective effects still require evaluation.",
           "population": "C9-ALS/FTD patients",
           "endpoint": "Clinical protection",
@@ -121,18 +121,18 @@
       ],
       "evidence_sets": [
         {
-          "id": "a002:set1",
+          "id": "q002:set1",
           "anchors": [
             "als-ftd-cas13-mice",
             "als-ftd-cas13-clinical",
             "als-ftd-cas13-dpr"
           ],
           "fact_anchors": {
-            "a002:f1": [
+            "q002:f1": [
               "als-ftd-cas13-mice",
               "als-ftd-cas13-dpr"
             ],
-            "a002:f2": [
+            "q002:f2": [
               "als-ftd-cas13-clinical"
             ]
           }
@@ -187,7 +187,7 @@
       ],
       "required_facts": [
         {
-          "id": "a003:f1",
+          "id": "q003:f1",
           "expected": "A C9-V1/V3 decrease was observed only in iMNs, not in same-donor iPSCs; the authors suggest that cellular environment may influence targeting.",
           "population": "Same-donor C9-ALS iPSC line 2/iMN line 2",
           "endpoint": "C9-V1/V3 RNA levels",
@@ -200,23 +200,23 @@
       ],
       "evidence_sets": [
         {
-          "id": "a003:set1",
+          "id": "q003:set1",
           "anchors": [
             "als-ftd-cas13-cell"
           ],
           "fact_anchors": {
-            "a003:f1": [
+            "q003:f1": [
               "als-ftd-cas13-cell"
             ]
           }
         },
         {
-          "id": "a003:set2",
+          "id": "q003:set2",
           "anchors": [
             "als-ftd-cas13-cell-results"
           ],
           "fact_anchors": {
-            "a003:f1": [
+            "q003:f1": [
               "als-ftd-cas13-cell-results"
             ]
           }
@@ -263,7 +263,7 @@
       ],
       "required_facts": [
         {
-          "id": "a004:f1",
+          "id": "q004:f1",
           "expected": "No: repeat-expansion or mutant-allele removal eliminated poly-GP, whereas some poly-GP remained after exon 1A excision.",
           "population": "Patient-derived edited motor neurons",
           "endpoint": "Residual poly-GP",
@@ -274,7 +274,7 @@
           "contradiction_rule": "Preserve scope differences and hypotheses; no invented reconciliation."
         },
         {
-          "id": "a004:f2",
+          "id": "q004:f2",
           "expected": "At 3 weeks, REx and HET(Mut)x neurons showed network bursting; C9-unedited and 1Ax neurons showed no or minimal network bursting.",
           "population": "Isogenic motor-neuron cultures",
           "endpoint": "Network bursting",
@@ -287,61 +287,61 @@
       ],
       "evidence_sets": [
         {
-          "id": "a004:set1",
+          "id": "q004:set1",
           "anchors": [
             "als-ftd-excision-dpr",
             "als-ftd-excision-network"
           ],
           "fact_anchors": {
-            "a004:f1": [
+            "q004:f1": [
               "als-ftd-excision-dpr"
             ],
-            "a004:f2": [
+            "q004:f2": [
               "als-ftd-excision-network"
             ]
           }
         },
         {
-          "id": "a004:set2",
+          "id": "q004:set2",
           "anchors": [
             "als-ftd-excision-dpr-caption",
             "als-ftd-excision-network"
           ],
           "fact_anchors": {
-            "a004:f1": [
+            "q004:f1": [
               "als-ftd-excision-dpr-caption"
             ],
-            "a004:f2": [
+            "q004:f2": [
               "als-ftd-excision-network"
             ]
           }
         },
         {
-          "id": "a004:set3",
+          "id": "q004:set3",
           "anchors": [
             "als-ftd-excision-dpr",
             "als-ftd-excision-network-caption"
           ],
           "fact_anchors": {
-            "a004:f1": [
+            "q004:f1": [
               "als-ftd-excision-dpr"
             ],
-            "a004:f2": [
+            "q004:f2": [
               "als-ftd-excision-network-caption"
             ]
           }
         },
         {
-          "id": "a004:set4",
+          "id": "q004:set4",
           "anchors": [
             "als-ftd-excision-dpr-caption",
             "als-ftd-excision-network-caption"
           ],
           "fact_anchors": {
-            "a004:f1": [
+            "q004:f1": [
               "als-ftd-excision-dpr-caption"
             ],
-            "a004:f2": [
+            "q004:f2": [
               "als-ftd-excision-network-caption"
             ]
           }
@@ -390,7 +390,7 @@
       ],
       "required_facts": [
         {
-          "id": "a005:f1",
+          "id": "q005:f1",
           "expected": "Liu reported reduced poly-GP/poly-GA in BAC mice, cited prior work reporting no survival/motor deficits in this model, and left clinical protection for future evaluation.",
           "population": "BAC mouse and C9-ALS/FTD patients",
           "endpoint": "Molecular target engagement versus clinical protection",
@@ -401,7 +401,7 @@
           "contradiction_rule": "Preserve scope differences and hypotheses; no invented reconciliation."
         },
         {
-          "id": "a005:f2",
+          "id": "q005:f2",
           "expected": "At 3 weeks, REx and HET(Mut)x cultured neurons showed network bursting while C9-unedited and 1Ax neurons showed no or minimal bursting; the biological insight came primarily from one donor line.",
           "population": "Single patient-derived isogenic series",
           "endpoint": "Network activity and donor limitation",
@@ -414,7 +414,7 @@
       ],
       "evidence_sets": [
         {
-          "id": "a005:set1",
+          "id": "q005:set1",
           "anchors": [
             "als-ftd-cas13-mice",
             "als-ftd-cas13-clinical",
@@ -423,19 +423,19 @@
             "als-ftd-excision-limit"
           ],
           "fact_anchors": {
-            "a005:f1": [
+            "q005:f1": [
               "als-ftd-cas13-mice",
               "als-ftd-cas13-clinical",
               "als-ftd-cas13-dpr"
             ],
-            "a005:f2": [
+            "q005:f2": [
               "als-ftd-excision-network",
               "als-ftd-excision-limit"
             ]
           }
         },
         {
-          "id": "a005:set2",
+          "id": "q005:set2",
           "anchors": [
             "als-ftd-cas13-mice",
             "als-ftd-cas13-clinical",
@@ -444,12 +444,12 @@
             "als-ftd-excision-limit"
           ],
           "fact_anchors": {
-            "a005:f1": [
+            "q005:f1": [
               "als-ftd-cas13-mice",
               "als-ftd-cas13-clinical",
               "als-ftd-cas13-dpr"
             ],
-            "a005:f2": [
+            "q005:f2": [
               "als-ftd-excision-network-caption",
               "als-ftd-excision-limit"
             ]
@@ -499,7 +499,7 @@
       ],
       "required_facts": [
         {
-          "id": "a006:f1",
+          "id": "q006:f1",
           "expected": "It mitigated antisense-induced axonal-length/branching abnormalities; no protective effect was observed for the sense-RNA condition.",
           "population": "Injected zebrafish embryos",
           "endpoint": "Motor axon length and branching",
@@ -512,24 +512,24 @@
       ],
       "evidence_sets": [
         {
-          "id": "a006:set1",
+          "id": "q006:set1",
           "anchors": [
             "als-ftd-zebrafish"
           ],
           "fact_anchors": {
-            "a006:f1": [
+            "q006:f1": [
               "als-ftd-zebrafish"
             ]
           }
         },
         {
-          "id": "a006:set2",
+          "id": "q006:set2",
           "anchors": [
             "als-ftd-zebrafish-caption-result",
             "als-ftd-zebrafish-caption-endpoints"
           ],
           "fact_anchors": {
-            "a006:f1": [
+            "q006:f1": [
               "als-ftd-zebrafish-caption-result",
               "als-ftd-zebrafish-caption-endpoints"
             ]
@@ -577,7 +577,7 @@
       ],
       "required_facts": [
         {
-          "id": "a007:f1",
+          "id": "q007:f1",
           "expected": "SPECT was interpreted as most consistent with Alzheimer disease rather than FTLD.",
           "population": "One 42-year-old patient",
           "endpoint": "SPECT interpretation",
@@ -588,7 +588,7 @@
           "contradiction_rule": "Preserve scope differences and hypotheses; no invented reconciliation."
         },
         {
-          "id": "a007:f2",
+          "id": "q007:f2",
           "expected": "Testing found a C9orf72 GGGGCC expansion supporting FTD-ALS; autopsy confirmed FTLD with TDP pathology type C.",
           "population": "Same patient",
           "endpoint": "Genetic and pathological diagnosis",
@@ -601,17 +601,17 @@
       ],
       "evidence_sets": [
         {
-          "id": "a007:set1",
+          "id": "q007:set1",
           "anchors": [
             "als-ftd-case-imaging",
             "als-ftd-case-genetics",
             "als-ftd-case-autopsy"
           ],
           "fact_anchors": {
-            "a007:f1": [
+            "q007:f1": [
               "als-ftd-case-imaging"
             ],
-            "a007:f2": [
+            "q007:f2": [
               "als-ftd-case-genetics",
               "als-ftd-case-autopsy"
             ]
@@ -661,7 +661,7 @@
       ],
       "required_facts": [
         {
-          "id": "a008:f1",
+          "id": "q008:f1",
           "expected": "In human postmortem frontal cortex, phosphorylated PKR and normalized phosphorylated eIF2α were increased in C9FTD/ALS samples versus controls.",
           "population": "Postmortem C9FTD/ALS series",
           "endpoint": "Phosphorylation association",
@@ -672,7 +672,7 @@
           "contradiction_rule": "Preserve scope differences and hypotheses; no invented reconciliation."
         },
         {
-          "id": "a008:f2",
+          "id": "q008:f2",
           "expected": "The individual case was diagnosed through genetic evidence despite discordant SPECT, with pathology confirmation.",
           "population": "One clinical patient",
           "endpoint": "Diagnostic evidence",
@@ -685,7 +685,7 @@
       ],
       "evidence_sets": [
         {
-          "id": "a008:set1",
+          "id": "q008:set1",
           "anchors": [
             "als-ftd-isr-tissue",
             "als-ftd-case-imaging",
@@ -693,10 +693,10 @@
             "als-ftd-case-autopsy"
           ],
           "fact_anchors": {
-            "a008:f1": [
+            "q008:f1": [
               "als-ftd-isr-tissue"
             ],
-            "a008:f2": [
+            "q008:f2": [
               "als-ftd-case-imaging",
               "als-ftd-case-genetics",
               "als-ftd-case-autopsy"
@@ -749,7 +749,7 @@
       ],
       "required_facts": [
         {
-          "id": "a009:f1",
+          "id": "q009:f1",
           "expected": "Genetic testing identified a C9orf72 GGGGCC repeat expansion, confirming FTD-ALS after discordant SPECT imaging.",
           "population": "Single clinical case",
           "endpoint": "Genetic diagnosis",
@@ -762,12 +762,12 @@
       ],
       "evidence_sets": [
         {
-          "id": "a009:set1",
+          "id": "q009:set1",
           "anchors": [
             "als-ftd-case-genetics"
           ],
           "fact_anchors": {
-            "a009:f1": [
+            "q009:f1": [
               "als-ftd-case-genetics"
             ]
           }
@@ -824,7 +824,7 @@
       ],
       "required_facts": [
         {
-          "id": "a010:f1",
+          "id": "q010:f1",
           "expected": "PKR is present in vertebrates and absent in Drosophila; the authors offer this as a partial explanation, not proof that every model discrepancy is resolved.",
           "population": "Vertebrate models versus cited Drosophila experiments",
           "endpoint": "PKR expression and model scope",
@@ -835,7 +835,7 @@
           "contradiction_rule": "Preserve scope differences and hypotheses; no invented reconciliation."
         },
         {
-          "id": "a010:f2",
+          "id": "q010:f2",
           "expected": "Reducing eif2ak2 mitigated antisense but not sense axonopathy in zebrafish.",
           "population": "Zebrafish embryos",
           "endpoint": "Strand-specific axonopathy rescue",
@@ -848,32 +848,32 @@
       ],
       "evidence_sets": [
         {
-          "id": "a010:set1",
+          "id": "q010:set1",
           "anchors": [
             "als-ftd-model-pkr",
             "als-ftd-zebrafish"
           ],
           "fact_anchors": {
-            "a010:f1": [
+            "q010:f1": [
               "als-ftd-model-pkr"
             ],
-            "a010:f2": [
+            "q010:f2": [
               "als-ftd-zebrafish"
             ]
           }
         },
         {
-          "id": "a010:set2",
+          "id": "q010:set2",
           "anchors": [
             "als-ftd-model-pkr",
             "als-ftd-zebrafish-caption-result",
             "als-ftd-zebrafish-caption-endpoints"
           ],
           "fact_anchors": {
-            "a010:f1": [
+            "q010:f1": [
               "als-ftd-model-pkr"
             ],
-            "a010:f2": [
+            "q010:f2": [
               "als-ftd-zebrafish-caption-result",
               "als-ftd-zebrafish-caption-endpoints"
             ]
@@ -4793,7 +4793,7 @@
         ],
         "negative_evidence": []
       },
-      "selection_rationale": "Intentional simple retrieval floor. Distinct from q065, which additionally requires sex-specific ROC evidence; target percentage removed from question."
+      "selection_rationale": "Intentional simple retrieval floor. Distinct from q048, which additionally requires sex-specific ROC evidence; target percentage removed from question."
     },
     {
       "id": "q051",
@@ -5161,7 +5161,7 @@
         ],
         "negative_evidence": []
       },
-      "selection_rationale": "A single table extraction task, classified direct lookup; q069 asks the retained predictor instead."
+      "selection_rationale": "A single table extraction task, classified direct lookup; q051 asks the retained predictor instead."
     },
     {
       "id": "q055",
@@ -11116,7 +11116,7 @@
         ],
         "negative_evidence": []
       },
-      "selection_rationale": "False premise: higher pathological response establishes significant DFS improvement. The abstract supplies response rates and nonsignificant DFS (p=0.129); internal count-conflict detection is optional here and required only by o002."
+      "selection_rationale": "False premise: higher pathological response establishes significant DFS improvement. The abstract supplies response rates and nonsignificant DFS (p=0.129); internal count-conflict detection is optional here and required only by q116."
     },
     {
       "id": "q116",
@@ -12179,7 +12179,7 @@
         ],
         "negative_evidence": []
       },
-      "selection_rationale": "Tests the ICD review's cold-tumour phenotypes, including the immunosuppressed phenotype absent from q085's source. Direct lookup: one passage."
+      "selection_rationale": "Tests the ICD review's cold-tumour phenotypes, including the immunosuppressed phenotype absent from q149's source. Direct lookup: one passage."
     },
     {
       "id": "q130",
@@ -14166,7 +14166,7 @@
         ],
         "negative_evidence": []
       },
-      "selection_rationale": "Tests the cervical-only versus CRC-only comparison (27.1% versus 5.4%, approximately fivefold), which the Results explicitly state. q095 instead asks all four categories; this is not solely a derived-arithmetic case."
+      "selection_rationale": "Tests the cervical-only versus CRC-only comparison (27.1% versus 5.4%, approximately fivefold), which the Results explicitly state. q150 instead asks all four categories; this is not solely a derived-arithmetic case."
     },
     {
       "id": "q152",
@@ -19347,7 +19347,7 @@
       "text_end": 2799,
       "excerpt_sha256": "a4fce591d9d575293c5288c3254f484c9aaf47a5c78d8798c3d833c4a13cf0f8",
       "fact_ids": [
-        "epic:f1"
+        "q111:f1"
       ]
     },
     {
@@ -19364,7 +19364,7 @@
       "text_end": 15812,
       "excerpt_sha256": "ab841b24d8226ac994d69add31d1f7db9508be6bc94994c0e383ed9be8f80b48",
       "fact_ids": [
-        "epic:f1"
+        "q111:f1"
       ]
     },
     {
@@ -19381,7 +19381,7 @@
       "text_end": 16242,
       "excerpt_sha256": "0c627fb19b1a1cc8419660a3cb529ef5932d58143660edfd78d30f3f552e7fd5",
       "fact_ids": [
-        "epic:f1"
+        "q111:f1"
       ]
     },
     {
@@ -19398,7 +19398,7 @@
       "text_end": 22882,
       "excerpt_sha256": "a44d08da0e30e0b1ead52c5b631315b5acdbad2f794b18bf66bcb2810053bf4a",
       "fact_ids": [
-        "epic:f1"
+        "q111:f1"
       ]
     },
     {
@@ -19415,7 +19415,7 @@
       "text_end": 2212,
       "excerpt_sha256": "285d151e5961dcd948bfc80043b8087a88209fd1dd034205e3e5525979a6c53f",
       "fact_ids": [
-        "epic:f1"
+        "q112:f1"
       ]
     },
     {
@@ -19432,7 +19432,7 @@
       "text_end": 2841,
       "excerpt_sha256": "9c29fd13d8d979b5779af972b80dd26a8bbca1dc9a74dd3afb65f78a239689a9",
       "fact_ids": [
-        "epic:f1"
+        "q108:f1"
       ]
     },
     {
@@ -19449,7 +19449,7 @@
       "text_end": 1473,
       "excerpt_sha256": "0d2b3d56752cda95fa6023dfb688bb186f4f02a38c6d6f20b03e94e0fb8cb48e",
       "fact_ids": [
-        "epic:f1"
+        "q109:f1"
       ]
     },
     {
@@ -19466,7 +19466,7 @@
       "text_end": 1574,
       "excerpt_sha256": "b4ed427075c3a6653d380a68cace609397ca7f8a9b9745ff21f3229aabf154e3",
       "fact_ids": [
-        "epic:f1"
+        "q056:f1"
       ]
     },
     {
@@ -19483,7 +19483,7 @@
       "text_end": 42924,
       "excerpt_sha256": "9aa2be51bd035b4ad7d96265f2ad1b991820b2020eae6cd53a72baf5a93a6555",
       "fact_ids": [
-        "epic:f1"
+        "q057:f1"
       ]
     },
     {
@@ -19500,7 +19500,7 @@
       "text_end": 90867,
       "excerpt_sha256": "54f6fdfebdb56b414026933f8d0ac00e49f1c2f7a4c7554a545e935af24fcc92",
       "fact_ids": [
-        "epic:f1"
+        "q113:f1"
       ]
     },
     {
@@ -19517,7 +19517,7 @@
       "text_end": 75162,
       "excerpt_sha256": "638f63b458011d35b89e8f75fd018b0a48f1b3d92c3b6b3b2162344cd7de0873",
       "fact_ids": [
-        "epic:f1"
+        "q114:f1"
       ]
     },
     {
@@ -19534,7 +19534,7 @@
       "text_end": 40067,
       "excerpt_sha256": "a6a1863d0d0fb8d1cb78da0bd80733c20bde57cec18c05c46c4c33dc7cbbcf6f",
       "fact_ids": [
-        "epic:f1"
+        "q058:f1"
       ]
     },
     {
@@ -19551,7 +19551,7 @@
       "text_end": 32064,
       "excerpt_sha256": "6e93bdb104deb247513020502f1d97f8fb7ba3a8cee896e6191fc94750c4edfa",
       "fact_ids": [
-        "epic:f2"
+        "q056:f2"
       ]
     },
     {
@@ -19568,7 +19568,7 @@
       "text_end": 33633,
       "excerpt_sha256": "e4fcce43e69cde11ec7cbfb3db2777b24e269f7251275b84770828314052893c",
       "fact_ids": [
-        "epic:f2"
+        "q056:f2"
       ]
     },
     {

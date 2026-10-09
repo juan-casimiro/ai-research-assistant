@@ -151,6 +151,17 @@ class InputTests(unittest.TestCase):
         for anchor in data["anchors"]:
             self.assertEqual(anchor["filename"], articles[anchor["article_id"]]["filename"])
         self.assertEqual([q["id"] for q in data["queries"]], [f"q{i:03d}" for i in range(1, 159)])
+        qualified_facts = {
+            fact["id"] if fact["id"].startswith(query["id"] + ":")
+            else query["id"] + ":" + fact["id"]
+            for query in data["queries"] for fact in query["required_facts"]
+        }
+        for anchor in data["anchors"]:
+            for fact_id in anchor.get("fact_ids", []):
+                if fact_id.startswith("q") and ":" in fact_id:
+                    self.assertIn(fact_id, qualified_facts, anchor["id"])
+            if anchor["id"].startswith("outliers-"):
+                self.assertFalse(any(f.startswith("epic:") for f in anchor["fact_ids"]))
         topics = [q["topics"][0] for q in data["queries"]]
         self.assertEqual(topics, sorted(topics))
 
