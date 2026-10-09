@@ -238,6 +238,25 @@ class InputTests(unittest.TestCase):
                 self.assertEqual(__import__("asyncio").run(evaluate.main()), 1)
                 load.assert_not_called()
 
+    def test_check_validates_span_reachability_without_loading_models(self):
+        import asyncio
+        anchor = {"id": "a", "filename": "A.pdf", "excerpt": "finding",
+                  "text_start": 0, "text_end": 7}
+        benchmark = {"queries": [{}], "anchors": [anchor]}
+        with patch.object(evaluate, "read_inputs", return_value=(benchmark, {"articles": [{}]}, {"A.pdf": "finding"})), patch("main._load_models_and_index") as load:
+            self.assertEqual(asyncio.run(evaluate.main(["--check"])), 0)
+            anchor["text_start"], anchor["text_end"] = 1, 8
+            with contextlib.redirect_stdout(io.StringIO()) as output:
+                self.assertEqual(asyncio.run(evaluate.main(["--check"])), 1)
+            self.assertIn("offset/excerpt mismatch", output.getvalue())
+            load.assert_not_called()
+
+    def test_check_reports_missing_required_key(self):
+        import asyncio
+        with patch.object(evaluate, "read_inputs", side_effect=KeyError("queries")), contextlib.redirect_stdout(io.StringIO()) as output:
+            self.assertEqual(asyncio.run(evaluate.main(["--check"])), 1)
+        self.assertIn("missing required key 'queries'", output.getvalue())
+
     def test_checkpoint_preserves_prior_file_on_serialization_failure(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "run.json"

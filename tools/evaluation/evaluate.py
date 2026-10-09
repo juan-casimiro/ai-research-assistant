@@ -148,7 +148,7 @@ async def run_evaluation(args, retrieve, load_models):
         print(f"Saved {len(queries)} evaluated queries to {path}")
         return 0
     except (OSError, ValueError, KeyError, TypeError, AttributeError, ChromaError) as error:
-        print(f"ERROR: {error}")
+        print(f"ERROR: missing required key {error}" if isinstance(error, KeyError) else f"ERROR: {error}")
         return 1
     finally:
         if output is not None:
@@ -172,11 +172,13 @@ async def main(argv=None):
     args = parse_args(argv)
     if args.check:
         try:
-            benchmark, manifest, _ = read_inputs(args.queries, args.manifest, args.corpus_dir)
+            benchmark, manifest, texts = read_inputs(args.queries, args.manifest, args.corpus_dir)
+            from main import chunk_text
+            compile_anchor_spans({a["id"]: a for a in benchmark["anchors"]}, texts, chunk_text)
             print(f"Validated {len(benchmark['queries'])} queries and {len(manifest['articles'])} articles")
             return 0
         except (OSError, ValueError, KeyError, TypeError) as error:
-            print(f"ERROR: {error}")
+            print(f"ERROR: missing required key {error}" if isinstance(error, KeyError) else f"ERROR: {error}")
             return 1
     from main import retrieve, _load_models_and_index
     return await run_evaluation(args, retrieve, _load_models_and_index)
