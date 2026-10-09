@@ -4,8 +4,18 @@
 current corpus IDs. The source questions, answers, scientific qualifications,
 accepted alternatives and evidence text are preserved. Topic anchor IDs are
 prefixed to avoid collisions. This is a new input version, not the original
-frozen release. Removed C1/C2/C3 metadata and old pending-review prose are not
-current evaluation instructions. Original inputs remain in the source commit.
+frozen release. Removed C1/C2/C3 metadata and historical workflow review blocks
+are not current evaluation instructions. Original inputs remain in the source commit.
+
+## Review status
+
+This benchmark is **model-reviewed, not expert-certified**. Its expected answers,
+scientific qualifications and evidence have not been certified by domain experts.
+Some retained answer rubrics explicitly state that independent full-text and
+cross-topic alternative review remains pending before freeze. Those reviews
+remain outstanding; consolidation and successful validation or evaluation do
+not constitute completion of scientific review. Local evaluation may proceed,
+but results should be interpreted with this review status in mind.
 
 ## Envelope
 
@@ -75,6 +85,12 @@ Evidence coverage requires its pinned excerpts, bound to the right sources;
 certified adjacent chunks can jointly cover an excerpt. Fact recall reports the
 fraction of supported facts. Distractor ordering requires sufficient sources to
 rank ahead of retrieved competitors.
+
+Some complete evidence sets need more chunks than the retrieval depth allows;
+a failure can reflect the chunk budget as well as retrieval quality.
+
+For example, if complete supporting evidence needs 4 chunks but retrieval returns
+only 3, evidence coverage fails even when the right documents are found.
 
 Absent-fact cases are not positively scored. False-premise cases assess correction
 evidence, not whether an answer corrected the premise. Source-conflict cases

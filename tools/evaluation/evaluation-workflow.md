@@ -4,7 +4,7 @@ Run from the active repository root using its Python environment. Defaults are
 `data/queries.json`, `data/corpus_manifest.json`, and `corpus/mvp/`.
 
 1. Validate Q&A and manifest inputs with `python -m tools.evaluation.evaluate --check`.
-   This also checks every local PDF/text hash and evidence offset; it runs no
+   This also checks every local PDF/text hash, evidence offset and span reachability; it runs no
    models, ingestion, retrieval or provider calls. Missing/changed files or
    conflicting source IDs stop the run. Report them; do not rewrite gold or pins.
 2. Use a previously ingested isolated collection at the selected `CHROMA_PATH`,
@@ -31,6 +31,7 @@ Absent-fact cases have no positive retrieval score. False-premise cases measure
 correction evidence, not successful premise correction. Source-conflict cases
 retain both attributed readings. No generated answers or answer judge are run.
 Missed literal excerpts do not prove absent semantic support.
+See the [metric definitions and chunk-budget limitation](../../data/queries-schema.md#metrics).
 
 Preserve the original archived V1 gold/results. New runs record input hashes and retrieval options and cannot be described as reproductions of historical scores.
 Offline verification: `python -m unittest discover -s tests -t . -v`.
