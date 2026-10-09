@@ -6,6 +6,9 @@ services:
     environment:
       SEED_ON_EMPTY: "true"
       CHROMA_PATH: /data/chroma_db
+      # No value: copied from the shell running Compose when it is set there,
+      # taking precedence over .env; otherwise the .env value applies.
+      ANTHROPIC_API_KEY:
     ports:
       - "127.0.0.1:8000:8000"
 

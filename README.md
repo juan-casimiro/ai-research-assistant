@@ -26,6 +26,9 @@ cp .env.example .env   # set ANTHROPIC_API_KEY
 docker compose up --build
 ```
 
+An `ANTHROPIC_API_KEY` already exported in your shell is passed to the container
+and takes precedence, so the key can stay out of `.env`.
+
 Compose publishes the RAG API at `http://localhost:8000` on the host's
 loopback interface only. Containers in the same Compose application, including
 the MCP gateway's Compose `include` flow, still reach it at
