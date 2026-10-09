@@ -40,7 +40,7 @@ class CorpusIngestionTests(unittest.TestCase):
         self.manifest.write_text(json.dumps({"articles": [{"filename": "first-test.pdf"}, {"filename": "second-test.pdf"}]}))
         for name in ("first-test.pdf", "second-test.pdf"):
             (self.root / name).write_bytes(pdf_bytes((f"Some text in {name}", "Some more text")))
-        self.environment = {"SEED_ON_EMPTY": "false", "CHROMA_PATH": str(self.root / "new-collection")}
+        self.environment = {"SEED_ON_EMPTY": "false"}
 
     def run_tool(self, rag_production):
         with patch.dict(os.environ, self.environment, clear=True), patch.object(
@@ -48,17 +48,18 @@ class CorpusIngestionTests(unittest.TestCase):
             return ingest_corpus.main(["--manifest", str(self.manifest), "--corpus-dir", str(self.root)]), load
 
     def test_unsafe_environment_or_missing_pdf_stops_before_models_load(self):
-        for unsafe in ("seed unset", "seed enabled", "path unset", "path exists", "pdf missing"):
+        for unsafe in ("seed unset", "seed enabled", "collection exists", "exported collection exists", "pdf missing"):
             with self.subTest(unsafe=unsafe):
                 self.setUp()
                 if unsafe == "seed unset":
                     del self.environment["SEED_ON_EMPTY"]
                 elif unsafe == "seed enabled":
                     self.environment["SEED_ON_EMPTY"] = "true"
-                elif unsafe == "path unset":
-                    del self.environment["CHROMA_PATH"]
-                elif unsafe == "path exists":
-                    Path(self.environment["CHROMA_PATH"]).mkdir()
+                elif unsafe == "collection exists":
+                    (self.root / "chroma").mkdir()
+                elif unsafe == "exported collection exists":
+                    self.environment["CHROMA_PATH"] = str(self.root / "exported-collection")
+                    (self.root / "exported-collection").mkdir()
                 else:
                     (self.root / "second-test.pdf").unlink()
                 status, load = self.run_tool(FakeProduction())
@@ -69,9 +70,10 @@ class CorpusIngestionTests(unittest.TestCase):
         import main
         with patch("main.TextEmbedding"), patch("main.TextCrossEncoder"), patch("main.chromadb.PersistentClient") as store, patch(
                 "main.create_llm_client") as create_llm_client, patch.multiple(
-                main, embed_model=None, reranker=None, chroma_client=None, collection=None, llm=None, _ready=False), \
-                contextlib.redirect_stdout(io.StringIO()):
-            rag_production = ingest_corpus.load_production()
+                main, embed_model=None, reranker=None, chroma_client=None, collection=None, llm=None, _ready=False,
+                CHROMA_PATH="some-other-store"), contextlib.redirect_stdout(io.StringIO()):
+            rag_production = ingest_corpus.load_production(self.root / "chroma")
+            store.assert_called_once_with(path=str(self.root / "chroma"))
             self.assertIs(rag_production.collection, store.return_value.get_or_create_collection.return_value)
             self.assertTrue(rag_production._ready)
             self.assertIsNone(rag_production.llm)
@@ -91,6 +93,11 @@ class CorpusIngestionTests(unittest.TestCase):
                         ingest_corpus, "load_production", return_value=rag_production), contextlib.redirect_stdout(io.StringIO()):
                     self.assertEqual(ingest_corpus.main(["--manifest", str(self.manifest)]), status)
                 self.assertEqual((named / "first-test.txt").exists(), corpus is not None)
+
+    def test_collection_is_created_beside_the_corpus_unless_a_path_is_exported(self):
+        self.assertEqual(self.run_tool(FakeProduction())[1].call_args.args, (self.root / "chroma",))
+        self.environment["CHROMA_PATH"] = str(self.root / "exported-collection")
+        self.assertEqual(self.run_tool(FakeProduction())[1].call_args.args, (self.root / "exported-collection",))
 
     def test_every_article_is_ingested_by_filename_and_verified(self):
         rag_production = FakeProduction()

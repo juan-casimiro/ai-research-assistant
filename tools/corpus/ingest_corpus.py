@@ -3,20 +3,20 @@
 
 Run from the repository root with the service's Python environment:
 
-    SEED_ON_EMPTY=false CHROMA_PATH=corpus/mvp/chroma \\
-        python -m tools.corpus.ingest_corpus
+    SEED_ON_EMPTY=false python -m tools.corpus.ingest_corpus
 
-The corpus folder defaults to corpus/<corpus_name>/ from the manifest.
+The corpus folder defaults to corpus/<corpus_name>/ from the manifest, and the
+collection is created beside the PDFs at <corpus folder>/chroma.
 
 No server is started and no port is used: the production models, chunker and
 /ingest handler from main.py run in this process. No LLM provider settings are
 needed. Safeguards:
 
     1. SEED_ON_EMPTY=false must be set in the environment, not only in .env.
-    2. CHROMA_PATH must be set and must not exist yet, so an existing
-       collection is never appended to. Run
-       `python -m tools.corpus.reset_collection` to empty a collection you
-       no longer need; delete its folder before ingesting there again.
+    2. The collection folder must not exist yet, so an existing collection
+       is never appended to. Delete it before ingesting there again;
+       `python -m tools.corpus.reset_collection` only empties a collection.
+       An exported CHROMA_PATH replaces the default folder; .env does not.
     3. Every manifest PDF must be present before any model is loaded.
     4. The stored chunks are compared with the corpus before reporting success.
 """
@@ -26,15 +26,16 @@ import os
 from pathlib import Path
 
 from pypdf import PdfReader
-from tools.corpus.download_corpus import named_corpus_dir
+from tools.corpus.download_corpus import collection_path, named_corpus_dir
 from tools.corpus.pdf_text import extract_pages
 
 ROOT = Path(__file__).resolve().parents[2]
 
 
-def load_production():
+def load_production(chroma_path: Path):
     """Load the production retrieval models and collection: no LLM client, no seeding."""
     import main
+    main.CHROMA_PATH = str(chroma_path)
     main._load_retrieval()
     main._ready = True
     return main
@@ -60,10 +61,7 @@ def main(argv=None) -> int:
     if os.environ.get("SEED_ON_EMPTY", "").lower() != "false":
         print("ERROR: set SEED_ON_EMPTY=false in the environment.")
         return 1
-    chroma_path = os.environ.get("CHROMA_PATH")
-    if not chroma_path or Path(chroma_path).exists():
-        print("ERROR: set CHROMA_PATH to a new directory that does not exist yet.")
-        return 1
+    exported = os.environ.get("CHROMA_PATH")  # read before main.py loads .env
     try:
         manifest = json.loads(args.manifest.read_text())
         filenames = [article["filename"] for article in manifest["articles"]]
@@ -76,17 +74,21 @@ def main(argv=None) -> int:
     if not filenames or missing:
         print(f"ERROR: no articles, or {len(missing)} PDFs missing from {args.corpus_dir}: {missing[:5]}")
         return 1
+    chroma_path = collection_path(args.corpus_dir, exported)
+    if chroma_path.exists():
+        print(f"ERROR: a collection already exists at {chroma_path}; it is never reused or appended to.")
+        return 1
 
     from tools.evaluation.evaluate import verify_collection
     try:
-        production = load_production()
+        production = load_production(chroma_path)
         texts = {name: ingest_file(production, args.corpus_dir / name, name) for name in filenames}
         chunks = verify_collection(production.collection, texts, production.chunk_text)
     except Exception as error:
         print(f"FAILED: {error}\nThe collection at {chroma_path} is incomplete; do not use it.")
         return 1
     print(f"Ingested {len(texts)} articles; {chunks} stored chunks match the corpus.")
-    print(f"CHROMA_PATH={Path(chroma_path).resolve()}")
+    print(f"CHROMA_PATH={chroma_path.resolve()}")
     return 0
 
 

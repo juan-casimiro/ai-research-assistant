@@ -98,14 +98,15 @@ Ingest into a new collection beside the corpus with seeding disabled; no server 
 (see the [ingestion workflow](tools/corpus/ingestion-workflow.md)):
 
 ```bash
-SEED_ON_EMPTY=false CHROMA_PATH=corpus/mvp/chroma \
-  python -m tools.corpus.ingest_corpus
+SEED_ON_EMPTY=false python -m tools.corpus.ingest_corpus
 ```
 
-The corpus folder comes from the manifest's `corpus_name` (`mvp`). Use the same
-`CHROMA_PATH` for evaluation and for `uvicorn main:app`. The command
-refuses an existing collection path; do not reset or append to a shared
-collection, because the evaluator checks exact corpus membership.
+The corpus folder comes from the manifest's `corpus_name` (`mvp`), and the
+collection is created beside the PDFs at `corpus/mvp/chroma`. Evaluation reads
+it from there. The command refuses an existing collection folder; do not reset
+or append to a shared collection, because the evaluator checks exact corpus
+membership. To serve it, start the service with
+`SEED_ON_EMPTY=false CHROMA_PATH=corpus/mvp/chroma uvicorn main:app`.
 
 ### Retrieval evaluation
 

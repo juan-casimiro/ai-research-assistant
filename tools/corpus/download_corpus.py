@@ -32,6 +32,11 @@ def named_corpus_dir(manifest) -> Path:
     return ROOT / "corpus" / corpus_name(manifest)
 
 
+def collection_path(corpus_dir: Path, exported: str | None = None) -> Path:
+    """The corpus's chroma collection: <corpus folder>/chroma unless CHROMA_PATH was exported."""
+    return Path(exported) if exported else corpus_dir / "chroma"
+
+
 def valid_pdf(path: Path) -> bool:
     """Reject HTML responses, truncated files and PDFs without readable pages."""
     try:

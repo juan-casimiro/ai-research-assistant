@@ -121,6 +121,11 @@ async def run_evaluation(args, retrieve, load_models):
                       "input_hashes": {"queries": canonical_hash(benchmark), "manifest": canonical_hash(manifest)},
                       "results": [], "summary": None}
             json.dump(output, stream)
+        from tools.corpus.download_corpus import collection_path, named_corpus_dir
+        chroma_path = collection_path(args.corpus_dir or named_corpus_dir(manifest), getattr(args, "chroma_path", None))
+        if not chroma_path.is_dir():
+            raise ValueError(f"no collection at {chroma_path}; ingest the corpus first")
+        production.CHROMA_PATH = str(chroma_path)
         load_models()
         verify_collection(production.collection, texts, production.chunk_text)
         output["models"] = {"embedding": getattr(production.embed_model, "model_name", None),
@@ -183,6 +188,7 @@ async def main(argv=None):
         except (OSError, ValueError, KeyError, TypeError) as error:
             print(f"ERROR: missing required key {error}" if isinstance(error, KeyError) else f"ERROR: {error}")
             return 1
+    args.chroma_path = os.environ.get("CHROMA_PATH")  # read before main.py loads .env
     from main import retrieve, _load_models_and_index
     return await run_evaluation(args, retrieve, _load_models_and_index)
 

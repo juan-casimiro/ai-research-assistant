@@ -8,10 +8,12 @@ from the manifest's top-level `corpus_name` (currently `mvp`).
    This also checks every local PDF/text hash, evidence offset and span reachability; it runs no
    models, ingestion, retrieval or provider calls. Missing/changed files or
    conflicting source IDs stop the run. Report them; do not rewrite gold or pins.
-2. Use a previously ingested isolated collection at the selected `CHROMA_PATH`,
-   with `SEED_ON_EMPTY=false`. Evaluation verifies exact source/chunk membership.
-   Create one with the [ingestion workflow](../corpus/ingestion-workflow.md);
-   do not reset shared data.
+2. Evaluation reads the collection beside the corpus, at
+   `corpus/<corpus_name>/chroma`, and verifies exact source/chunk membership.
+   It stops if that folder is missing; create it with the
+   [ingestion workflow](../corpus/ingestion-workflow.md). `CHROMA_PATH` is not
+   needed: only an exported value replaces the folder, and `.env` does not.
+   Do not reset shared data.
 3. Run the evaluator. `--bm25` enables hybrid retrieval; `--ids` selects a
    comma-separated query subset. `--rewrite` invokes the configured LLM provider;
    obtain explicit approval for the provider and run scale/cost before paid calls.
