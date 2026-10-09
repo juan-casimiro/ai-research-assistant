@@ -56,6 +56,89 @@ class ScoringTests(unittest.TestCase):
         self.assertEqual(scoring.score_evidence([], [], query, anchors)["evidence_coverage"], "not_scored")
 
 
+class AdjacentSpanTests(unittest.TestCase):
+    """Ported from epic 6bfed40:test_benchmark.py; no feasibility oracle required."""
+    def case(self, text, start, end, chunker=None):
+        from main import chunk_text
+        excerpt = "At six months, adjusted HR was 0.35."
+        anchors = {"a": {"id": "a", "filename": "A.pdf", "excerpt": excerpt,
+                         "text_start": 0, "text_end": len(excerpt)}}
+        q = {"category": "direct_lookup", "answerability": {"status": "answerable"},
+             "related_distractors": []}
+        q["required_facts"] = [{"id": "f1"}]
+        q["evidence_sets"] = [{"id": "only", "anchors": ["a"], "fact_anchors": {"f1": ["a"]}}]
+        anchor = {**anchors["a"], "text_start": start, "text_end": end, "excerpt": text[start:end]}
+        anchors = {"a": anchor}
+        chunker = chunker or chunk_text
+        chunks = chunker(text)
+        plans = scoring.compile_anchor_spans(anchors, {"A.pdf": text}, chunker)
+        return q, anchors, chunks, plans
+
+    def test_boundary_inside_number_matches_verified_chunks_in_reverse_retrieval_order(self):
+        excerpt = "At six months, adjusted HR was 0.35."
+        start = 1000 - excerpt.index("0.35") - 2
+        q, anchors, chunks, plans = self.case("x" * start + excerpt + "y" * 1100, start, start + len(excerpt))
+        self.assertEqual(scoring.score_evidence(chunks, ["A.pdf"] * len(chunks), q, anchors)["evidence_coverage"], "fail")
+        result = scoring.score_evidence([chunks[1], chunks[0]], ["A.pdf"] * 2, q, anchors, plans)
+        self.assertEqual(result["evidence_coverage"], "pass")
+        self.assertEqual(result["fact_recall"], 1)
+        self.assertEqual(result["anchor_match_groups"]["a"], [[1, 0]])
+        self.assertEqual(result["anchor_matches"]["a"], [0, 1])
+
+    def test_missing_wrong_source_changed_or_arbitrary_fragment_cannot_complete_span(self):
+        excerpt = "At six months, adjusted HR was 0.35."
+        q, anchors, chunks, plans = self.case("x" * 990 + excerpt + "y" * 1100, 990, 990 + len(excerpt))
+        for contexts, sources in [([chunks[0]], ["A.pdf"]),
+                                  ([chunks[0], chunks[1]], ["A.pdf", "B.pdf"]),
+                                  ([chunks[0], chunks[1].replace("0.35", "−0.35")], ["A.pdf"] * 2),
+                                  ([chunks[0], chunks[2]], ["A.pdf"] * 2),
+                                  ([excerpt[:10], excerpt[10:]], ["A.pdf"] * 2)]:
+            with self.subTest(contexts=contexts, sources=sources):
+                result = scoring.score_evidence(contexts, sources, q, anchors, plans)
+                self.assertEqual(result["fact_recall"], 0)
+                self.assertEqual(result["anchor_matches"]["a"], [])
+
+    def test_long_span_requires_every_intermediate_chunk(self):
+        text = " ".join(f"finding-{i:04d}" for i in range(400))
+        q, anchors, chunks, plans = self.case(text, 900, 3100)
+        self.assertEqual(plans["a"][0]["chunk_indices"], [0, 1, 2, 3])
+        for missing in range(4):
+            selected = [chunk for i, chunk in enumerate(chunks[:4]) if i != missing]
+            self.assertEqual(scoring.score_evidence(selected, ["A.pdf"] * 3, q, anchors, plans)["evidence_coverage"], "fail")
+        self.assertEqual(scoring.score_evidence(chunks[:4], ["A.pdf"] * 4, q, anchors, plans)["evidence_coverage"], "pass")
+
+    def test_overlapping_paragraph_chunks_and_trimmed_whitespace_boundaries(self):
+        from main import chunk_text
+        text = " ".join(f"first-{i}" for i in range(95)) + "\n\n" + " ".join(f"second-{i}" for i in range(70))
+        start, end = 600, len(text) - 30
+        for chunker in [chunk_text, lambda value: [p.strip() for p in value.split("\n\n")]]:
+            with self.subTest(chunker=chunker):
+                q, anchors, chunks, plans = self.case(text, start, end, chunker)
+                self.assertEqual(scoring.score_evidence(chunks[::-1], ["A.pdf"] * len(chunks), q, anchors, plans)["evidence_coverage"], "pass")
+
+    def test_one_retrieved_chunk_cannot_satisfy_two_identical_required_positions(self):
+        repeated = "".join(f"{i:04d}" for i in range(250))
+        text = "x" * 999 + "a" + repeated * 2 + "c" + "y" * 999
+        q, anchors, chunks, plans = self.case(text, 999, 3001)
+        self.assertEqual(scoring.score_evidence([chunks[0], chunks[1], chunks[3]], ["A.pdf"] * 3, q, anchors, plans)["evidence_coverage"], "fail")
+        self.assertEqual(scoring.score_evidence(chunks, ["A.pdf"] * 4, q, anchors, plans)["evidence_coverage"], "pass")
+
+    def test_planner_rejects_wrong_offsets_and_gaps_with_missing_source_text(self):
+        excerpt = "At six months, adjusted HR was 0.35."
+        anchors = {"a": {"id": "a", "filename": "A.pdf", "excerpt": excerpt,
+                         "text_start": 0, "text_end": len(excerpt)}}
+        q = {"category": "direct_lookup", "answerability": {"status": "answerable"},
+             "related_distractors": []}
+        anchors = {"a": anchors["a"]}
+        text = anchors["a"]["excerpt"]
+        with self.assertRaisesRegex(ValueError, "offset/excerpt mismatch"):
+            scoring.compile_anchor_spans(anchors, {"A.pdf": "x" + text}, lambda t: [t])
+        with self.assertRaisesRegex(ValueError, "unreachable"):
+            scoring.compile_anchor_spans(anchors, {"A.pdf": text}, lambda t: [t[:10], t[20:]])
+        with self.assertRaisesRegex(ValueError, "not a source substring"):
+            scoring.compile_anchor_spans(anchors, {"A.pdf": text}, lambda t: ["invented"])
+
+
 class InputTests(unittest.TestCase):
     def test_combined_dataset_has_valid_unique_cases_and_current_references(self):
         root = Path(__file__).resolve().parents[1]
