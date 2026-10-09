@@ -9,7 +9,7 @@ import unittest
 from unittest.mock import Mock, patch
 from pypdf import PdfWriter
 from pypdf.generic import DictionaryObject, NameObject, DecodedStreamObject
-from ingest_corpus import ingest_file
+from tools.corpus.ingest_corpus import ingest_file
 from tools.corpus import extract_corpus_text as extractor
 from tests.corpus.test_build_corpus_manifest import record
 

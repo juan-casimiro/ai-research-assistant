@@ -98,7 +98,7 @@ Set a new `CHROMA_PATH` and `SEED_ON_EMPTY=false` in the host environment.
 Start `uvicorn main:app --reload`, then ingest from a separate terminal:
 
 ```bash
-python ingest_corpus.py --manifest data/corpus_manifest.json --corpus-dir corpus/mvp
+python -m tools.corpus.ingest_corpus --manifest data/corpus_manifest.json --corpus-dir corpus/mvp
 ```
 
 Use the same `CHROMA_PATH` for evaluation. Do not reset or append to a shared

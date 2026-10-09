@@ -5,11 +5,11 @@ See "Develop and evaluate (host)" in the README for the full setup
 (venv, SEED_ON_EMPTY=false, corpus download). Once that's done:
 
 Usage:
-    1. Run `python reset_collection.py` to reset the collection when
+    1. Run `python -m tools.corpus.reset_collection` to reset the collection when
        ingesting the corpus from scratch.
     2. Start the FastAPI server:
        `uvicorn main:app --reload`
-    3. Run this script to ingest the corpus.
+    3. Run `python -m tools.corpus.ingest_corpus` to ingest the corpus.
 """
 import argparse
 import json
@@ -105,7 +105,7 @@ def main() -> int:
             )
             if answer.strip().lower() not in ("y", "yes"):
                 print(
-                    "Aborted — run reset_collection.py first if you want a clean ingest.\n"
+                    "Aborted — run `python -m tools.corpus.reset_collection` first if you want a clean ingest.\n"
                     "For the full setup, see \"Develop and evaluate (host)\" in the README."
                 )
                 return 1

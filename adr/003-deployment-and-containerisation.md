@@ -148,7 +148,7 @@ on GitHub rather than worked around.** The advisory is a pre-auth RCE in
 Chroma's own FastAPI server component, reachable via
 `POST /api/v2/tenants/{tenant}/databases/{db}/collections` with a malicious
 HuggingFace model reference. This deployment never runs that component:
-`main.py` and `reset_collection.py` both construct
+`main.py` and `tools/corpus/reset_collection.py` both construct
 `chromadb.PersistentClient(path=CHROMA_PATH)`, the embedded, in-process mode.
 There is no `chroma run` server, no `chromadb[server]` extra installed, and
 no Chroma REST API exposed anywhere in this stack — the only HTTP surface is
@@ -231,7 +231,7 @@ documented-and-deliberate reads as judgement.
   `SEED_ON_EMPTY=false`.** The seed corpus and the full 19-document
   corpus share four overlapping articles (see
   `seed_corpus/ATTRIBUTION.md`) — if the host server auto-seeds before
-  `ingest_corpus.py` runs, those four end up ingested twice under
+  `tools/corpus/ingest_corpus.py` runs, those four end up ingested twice under
   different filenames (`.txt` from the seed corpus, `.pdf`-derived from
   the full corpus). Duplicate source identities distort retrieval and evaluation; keep host
   seeding disabled when ingesting a full corpus.
