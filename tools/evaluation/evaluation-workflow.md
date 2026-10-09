@@ -4,6 +4,35 @@ Run from the active repository root using its Python environment. Defaults are
 `data/queries.json`, `data/corpus_manifest.json`, and `corpus/<corpus_name>/`, taken
 from the manifest's top-level `corpus_name` (currently `mvp`).
 
+## Readiness and prerequisite routing
+
+Before retrieval, check the manifest and Q&A inputs, local PDFs and adjacent text,
+and the collection selected by the documented path rule. Use `--check` below for
+input validation; it does not check Chroma. Folder existence alone does not prove
+collection readiness: the evaluator verifies exact stored source/chunk membership
+before any queries run.
+
+If preparation is missing, explain only the missing steps in dependency order:
+
+- Missing manifest or acquired/verified PDFs and text: follow
+  [generate-corpus-metadata](../../.agents/skills/generate-corpus-metadata/SKILL.md),
+  using its existing-manifest flow when a manifest is already available.
+- Missing collection: follow
+  [ingest-corpus](../../.agents/skills/ingest-corpus/SKILL.md), after acquisition
+  is complete, then rerun evaluation validation.
+- Invalid benchmark pins, hashes or evidence, or a stale/incomplete collection:
+  report the specific conflict and stop. Do not rewrite gold, reset data or
+  delete a collection to make evaluation pass.
+
+An evaluation-only request does not authorize missing acquisition or ingestion
+work. An explicit request for the whole flow authorizes the necessary preparation
+within the linked workflows' safeguards. Explain missing steps before starting
+that preparation. If all prerequisites pass, run the requested evaluation directly
+without a prerequisite warning or an extra confirmation. Paid query rewriting
+still requires the explicit approval described below.
+
+## Evaluation
+
 1. Validate Q&A and manifest inputs with `python -m tools.evaluation.evaluate --check`.
    This also checks every local PDF/text hash, evidence offset and span reachability; it runs no
    models, ingestion, retrieval or provider calls. Missing/changed files or
