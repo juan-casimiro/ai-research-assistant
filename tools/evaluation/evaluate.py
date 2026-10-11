@@ -101,12 +101,12 @@ def summarize(results):
     return summary
 
 
-async def run_evaluation(args, retrieve, load_models):
+async def run_evaluation(args, retrieve, load_models, *, inputs=None):
     import main as production
     path = args.output or ROOT / "build/corpus/evaluation-runs" / f"{uuid4().hex}.json"
     output = None
     try:
-        benchmark, manifest, texts = read_inputs(args.queries, args.manifest, args.corpus_dir)
+        benchmark, manifest, texts = inputs if inputs is not None else read_inputs(args.queries, args.manifest, args.corpus_dir)
         requested = {i.strip() for i in args.ids.split(",")} if args.ids is not None else {q["id"] for q in benchmark["queries"]}
         if not requested or requested - {q["id"] for q in benchmark["queries"]}:
             raise ValueError("invalid requested query IDs")
@@ -132,8 +132,8 @@ async def run_evaluation(args, retrieve, load_models):
                             "reranker": getattr(production.reranker, "model_name", None)}
         if args.rewrite:
             from llm_client import DEFAULT_MODELS_BY_PROVIDER
-            provider = os.getenv("LLM_PROVIDER", "anthropic")
-            output["models"]["rewrite"] = {"provider": provider, "model": os.getenv("LLM_MODEL", DEFAULT_MODELS_BY_PROVIDER.get(provider))}
+            provider = os.getenv("LLM_PROVIDER", "anthropic").strip().lower()
+            output["models"]["rewrite"] = {"provider": provider, "model": DEFAULT_MODELS_BY_PROVIDER.get(provider)}
         for query in queries:
             entry = {"id": query["id"], "category": query["category"]}
             output["results"].append(entry)

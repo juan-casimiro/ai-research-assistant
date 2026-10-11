@@ -15,15 +15,16 @@ COMBINATIONS = (("baseline", False, False), ("bm25", True, False),
                 ("rewrite", False, True), ("bm25_rewrite", True, True))
 
 
-async def run_combination(args):
+async def run_combination(args, *, inputs=None):
     """Capture the existing provider invocation; do not make additional calls."""
     import main as production
     import llm_client
 
+    inputs = inputs if inputs is not None else evaluate.read_inputs(args.queries, args.manifest, args.corpus_dir)
     if not args.rewrite:
-        return await evaluate.run_evaluation(args, production.retrieve, production._load_models_and_index)
+        return await evaluate.run_evaluation(args, production.retrieve, production._load_models_and_index, inputs=inputs)
 
-    benchmark, _, _ = evaluate.read_inputs(args.queries, args.manifest, args.corpus_dir)
+    benchmark, _, _ = inputs
     selected = set(args.ids.split(",")) if args.ids else None
     queries = [q for q in benchmark["queries"] if selected is None or q["id"] in selected]
     response_dir = args.output.with_suffix(".responses")
@@ -40,17 +41,23 @@ async def run_combination(args):
             raise ValueError("response log query order differs from evaluation")
         current.update(query_id=query["id"], depth=kwargs["n_results"])
         call_count += 1
-        return await production.retrieve(question, **kwargs)
+        result = await production.retrieve(question, **kwargs)
+        if recorded[(current["query_id"], current["depth"])] != 1:
+            raise ValueError("expected one rewrite response log for this query/depth")
+        return result
 
     async def logged_invoke(runnable, messages, timeout):
+        key = (current["query_id"], current["depth"])
+        if recorded[key]:
+            raise ValueError("duplicate rewrite invocation for this query/depth")
+        provider = os.getenv("LLM_PROVIDER", "anthropic").strip().lower()
         record = {"timestamp": datetime.now(timezone.utc).isoformat(), **current,
-                  "provider": os.getenv("LLM_PROVIDER", "anthropic"),
-                  "model": os.getenv("LLM_MODEL") or llm_client.DEFAULT_MODELS_BY_PROVIDER.get(os.getenv("LLM_PROVIDER", "anthropic")),
+                  "provider": provider,
+                  "model": llm_client.DEFAULT_MODELS_BY_PROVIDER.get(provider),
                   "request_messages": messages}
         try:
             response = await original_invoke(runnable, messages, timeout)
             record["response"] = response.model_dump(mode="json")
-            recorded[(current["query_id"], current["depth"])] += 1
             return response
         except Exception as error:
             record["error_type"] = type(error).__name__
@@ -58,11 +65,13 @@ async def run_combination(args):
         finally:
             with (response_dir / f"{current['query_id']}.jsonl").open("a", encoding="utf-8") as stream:
                 stream.write(json.dumps(record, ensure_ascii=False) + "\n")
+            if "response" in record:
+                recorded[key] += 1
 
     # This CLI runs sequentially in its own process; always restore the hook.
     llm_client._invoke = logged_invoke
     try:
-        status = await evaluate.run_evaluation(args, logged_retrieve, production._load_models_and_index)
+        status = await evaluate.run_evaluation(args, logged_retrieve, production._load_models_and_index, inputs=inputs)
     finally:
         llm_client._invoke = original_invoke
     if status == 0:
@@ -83,7 +92,8 @@ async def main(argv=None):
     args = parser.parse_args(argv)
     args.chroma_path = os.environ.get("CHROMA_PATH")
     try:
-        benchmark, manifest, _ = evaluate.read_inputs(args.queries, args.manifest, args.corpus_dir)
+        inputs = evaluate.read_inputs(args.queries, args.manifest, args.corpus_dir)
+        benchmark, manifest, _ = inputs
         requested = {i.strip() for i in args.ids.split(",")} if args.ids is not None else {q["id"] for q in benchmark["queries"]}
         if not requested or requested - {q["id"] for q in benchmark["queries"]}:
             raise ValueError("invalid requested query IDs")
@@ -99,7 +109,7 @@ async def main(argv=None):
             run_args.bm25, run_args.rewrite = bm25, rewrite
             run_args.output = output_dir / f"eval_results_{name}.json"
             print(f"START {name}")
-            status = await run_combination(run_args)
+            status = await run_combination(run_args, inputs=inputs)
             if status:
                 print(f"Stopped at {name}; preserve incomplete results and logs in {output_dir}")
                 return status
