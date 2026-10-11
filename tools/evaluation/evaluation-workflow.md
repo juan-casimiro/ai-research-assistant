@@ -53,6 +53,21 @@ python -m tools.evaluation.evaluate
 python -m tools.evaluation.evaluate --bm25 --ids q041,q042
 ```
 
+To generate all four V1-style combinations (baseline, BM25, rewriting and both)
+with per-query rewrite response logs, use the batch script. It requires a new
+output directory and stops on the first failed run. The two rewriting runs use
+the configured provider and require approval when paid.
+
+```sh
+python -m tools.evaluation.evaluate_combinations \
+  --output-dir data/evaluations/mvp/<new-run-name>
+```
+
+It writes `eval_results_baseline.json`, `eval_results_bm25.json`,
+`eval_results_rewrite.json` and `eval_results_bm25_rewrite.json`. The same input
+options and `--ids` subset are available; without `--output-dir`, outputs are
+saved under a new ignored `build/corpus/evaluation-runs/` directory.
+
 Explicit inputs use `--queries`, `--manifest`, `--corpus-dir`; `--output` selects
 a new result path. The default is a unique ignored JSON file under
 `build/corpus/evaluation-runs/`. Existing outputs are refused. Failed runs retain
