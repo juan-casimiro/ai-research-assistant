@@ -17,19 +17,70 @@ class CombinationTests(unittest.IsolatedAsyncioTestCase):
         (root / 'chroma').mkdir()
         return root, {'queries': [{'id': 'q001', 'question': 'Some test question?'}]}, {'corpus_name': 'some-test-corpus'}
 
+    def result(self, args, inputs):
+        return {'run_status': 'complete', 'summary': {}, 'requested_ids': ['q001'],
+                'executed_ids': ['q001'], 'results': [{'id': 'q001', 'n3': {}, 'n8': {}}],
+                'config': {'bm25': args.bm25, 'rewrite': args.rewrite, 'depths': [3, 8]},
+                'input_hashes': {'queries': combinations.evaluate.canonical_hash(inputs[0]),
+                                 'manifest': combinations.evaluate.canonical_hash(inputs[1])}}
+
+    async def test_default_layout_and_unique_runs(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root, benchmark, manifest = self.inputs(directory)
+            async def save_run(args, *, inputs=None):
+                args.output.write_text(json.dumps(self.result(args, inputs)))
+                return 0
+            with patch.object(combinations.evaluate, 'ROOT', root), patch.object(combinations.evaluate, 'read_inputs', return_value=(benchmark, manifest, {})), patch.object(combinations, 'run_combination', side_effect=save_run):
+                for _ in range(2):
+                    self.assertEqual(await combinations.main(['--corpus-dir', str(root)]), 0)
+            staged=list((root/'build/corpus/evaluation-runs/some-test-corpus').iterdir())
+            final=list((root/'data/evaluations/some-test-corpus').iterdir())
+            self.assertEqual(len(staged), 2)
+            self.assertEqual({p.name for p in staged}, {p.name for p in final})
+            self.assertTrue(all(p.name.endswith('Z') for p in staged))
+            self.assertTrue(all(len(list(p.iterdir())) == 4 for p in final))
+
+    async def test_incomplete_results_are_not_published(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root, benchmark, manifest = self.inputs(directory)
+            async def save_run(args, *, inputs=None):
+                result=self.result(args, inputs)
+                result['run_status']='incomplete'
+                args.output.write_text(json.dumps(result))
+                return 0
+            with patch.object(combinations.evaluate, 'ROOT', root), patch.object(combinations.evaluate, 'read_inputs', return_value=(benchmark, manifest, {})), patch.object(combinations, 'run_combination', side_effect=save_run):
+                self.assertEqual(await combinations.main(['--corpus-dir', str(root), '--output-dir', str(root/'final')]), 1)
+            self.assertFalse((root/'final').exists())
+            self.assertEqual(len(list((root/'build').rglob('eval_results_*.json'))), 4)
+
+    def test_copy_failure_retains_staged_results(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)
+            stage=root/'stage'
+            stage.mkdir()
+            inputs=({'queries': []}, {'corpus_name': 'some-test-corpus'}, {})
+            for name, bm25, rewrite in combinations.COMBINATIONS:
+                (stage/f'eval_results_{name}.json').write_text(json.dumps(self.result(SimpleNamespace(bm25=bm25, rewrite=rewrite), inputs)))
+            with patch.object(combinations.shutil, 'copy2', side_effect=OSError('some copy failure')):
+                with self.assertRaises(OSError): combinations.publish_results(stage, root/'final', {'q001'}, inputs)
+            self.assertFalse((root/'final').exists())
+            self.assertEqual(len(list(stage.iterdir())), 4)
+
     async def test_four_outputs_and_existing_directory_refusal(self):
         with tempfile.TemporaryDirectory() as directory:
             root, benchmark, manifest = self.inputs(directory)
             output = root / 'results'
             async def save_run(args, *, inputs=None):
-                args.output.write_text(json.dumps({'bm25': args.bm25, 'rewrite': args.rewrite}))
+                args.output.write_text(json.dumps(self.result(args, inputs)))
+                args.output.with_suffix('.responses').mkdir()
+                (args.output.with_suffix('.responses')/'q001.jsonl').write_text('local log')
                 return 0
             runner = AsyncMock(side_effect=save_run)
-            with patch.object(combinations.evaluate, 'read_inputs', return_value=(benchmark, manifest, {})), patch.object(combinations, 'run_combination', runner):
+            with patch.object(combinations.evaluate, 'ROOT', root), patch.object(combinations.evaluate, 'read_inputs', return_value=(benchmark, manifest, {})), patch.object(combinations, 'run_combination', runner):
                 argv = ['--corpus-dir', str(root), '--output-dir', str(output)]
                 self.assertEqual(await combinations.main(argv), 0)
                 self.assertEqual([json.loads((output / f'eval_results_{name}.json').read_text()) for name, _, _ in combinations.COMBINATIONS],
-                                 [{'bm25': b, 'rewrite': r} for _, b, r in combinations.COMBINATIONS])
+                                 [self.result(SimpleNamespace(bm25=b, rewrite=r), (benchmark, manifest, {})) for _, b, r in combinations.COMBINATIONS])
                 original = {p.name: p.read_bytes() for p in output.iterdir()}
                 self.assertEqual(await combinations.main(argv), 1)
                 self.assertEqual(runner.await_count, 4)
@@ -39,10 +90,12 @@ class CombinationTests(unittest.IsolatedAsyncioTestCase):
         with tempfile.TemporaryDirectory() as directory:
             root, benchmark, manifest = self.inputs(directory)
             runner = AsyncMock(side_effect=[0, 1])
-            with patch.object(combinations.evaluate, 'read_inputs', return_value=(benchmark, manifest, {})), patch.object(combinations, 'run_combination', runner):
+            with patch.object(combinations.evaluate, 'ROOT', root), patch.object(combinations.evaluate, 'read_inputs', return_value=(benchmark, manifest, {})), patch.object(combinations, 'run_combination', runner):
                 self.assertEqual(await combinations.main(['--corpus-dir', str(root), '--output-dir', str(root / 'results')]), 1)
                 self.assertEqual(runner.await_count, 2)
                 self.assertFalse(any(call.args[0].rewrite for call in runner.await_args_list))
+                self.assertFalse((root/'results').exists())
+                self.assertEqual(len(list((root/'build/corpus/evaluation-runs/some-test-corpus').iterdir())), 1)
 
     async def test_capture_preserves_messages_usage_and_restores_hook(self):
         import main
@@ -121,12 +174,15 @@ class CombinationTests(unittest.IsolatedAsyncioTestCase):
         with tempfile.TemporaryDirectory() as directory:
             args, article, text = EvaluationRunTests().inputs(directory)
             output=Path(directory)/'batch'
+            manifest=json.loads(args.manifest.read_text())
+            manifest['corpus_name']='some-test-corpus'
+            args.manifest.write_text(json.dumps(manifest))
             collection=SimpleNamespace(get=lambda **kw: {'documents': [text], 'metadatas': [{'source': article['filename']}]})
             original=AsyncMock(return_value=AIMessage(content='Some rewritten query'))
             async def lookup(question, **kwargs):
                 if kwargs['use_query_rewriting']: await llm_client._invoke(None, [{'role': 'user', 'content': question}], 10)
                 return [text], [article['filename']]
-            with patch.dict('os.environ', {'LLM_PROVIDER': ' ANTHROPIC ', 'LLM_MODEL': 'some-not-used-model'}), patch.object(main, 'collection', collection), patch.object(main, '_load_models_and_index'), patch.object(main, 'chunk_text', side_effect=lambda s: [s]), patch.object(main, 'retrieve', side_effect=lookup), patch.object(llm_client, '_invoke', original), patch.object(combinations.evaluate, 'read_inputs', wraps=combinations.evaluate.read_inputs) as read_inputs:
+            with patch.object(combinations.evaluate, 'ROOT', Path(directory)), patch.dict('os.environ', {'LLM_PROVIDER': ' ANTHROPIC ', 'LLM_MODEL': 'some-not-used-model'}), patch.object(main, 'collection', collection), patch.object(main, '_load_models_and_index'), patch.object(main, 'chunk_text', side_effect=lambda s: [s]), patch.object(main, 'retrieve', side_effect=lookup), patch.object(llm_client, '_invoke', original), patch.object(combinations.evaluate, 'read_inputs', wraps=combinations.evaluate.read_inputs) as read_inputs:
                 self.assertEqual(await combinations.main(['--queries', str(args.queries), '--manifest', str(args.manifest), '--corpus-dir', str(args.corpus_dir), '--output-dir', str(output)]), 0)
                 self.assertEqual(read_inputs.call_count, 1)
                 self.assertEqual(original.await_count, 4)
@@ -134,5 +190,7 @@ class CombinationTests(unittest.IsolatedAsyncioTestCase):
                 result=json.loads((output/f'eval_results_{name}.json').read_text())
                 self.assertEqual(result['run_status'], 'complete')
                 self.assertEqual(result['models']['rewrite']['model'], DEFAULT_MODELS_BY_PROVIDER['anthropic'])
-                rows=[json.loads(line) for line in (output/f'eval_results_{name}.responses/some-case.jsonl').read_text().splitlines()]
+                run_dir=next((Path(directory)/'build/corpus/evaluation-runs/some-test-corpus').iterdir())
+                rows=[json.loads(line) for line in (run_dir/f'eval_results_{name}.responses/some-case.jsonl').read_text().splitlines()]
+                self.assertEqual(len(list(output.iterdir())), 4)
                 self.assertTrue(all(row['model']==DEFAULT_MODELS_BY_PROVIDER['anthropic'] for row in rows))

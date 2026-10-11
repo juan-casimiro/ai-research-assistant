@@ -54,19 +54,29 @@ python -m tools.evaluation.evaluate --bm25 --ids q041,q042
 ```
 
 To generate all four V1-style combinations (baseline, BM25, rewriting and both)
-with per-query rewrite response logs, use the batch script. It requires a new
-output directory and stops on the first failed run. The two rewriting runs use
-the configured provider and require approval when paid.
+at depths 3 and 8, use the batch script. The two rewriting runs use the configured
+provider and require approval when paid.
 
 ```sh
-python -m tools.evaluation.evaluate_combinations \
-  --output-dir data/evaluations/mvp/<new-run-name>
+python -m tools.evaluation.evaluate_combinations
 ```
 
-It writes `eval_results_baseline.json`, `eval_results_bm25.json`,
-`eval_results_rewrite.json` and `eval_results_bm25_rewrite.json`. The same input
-options and `--ids` subset are available; without `--output-dir`, outputs are
-saved under a new ignored `build/corpus/evaluation-runs/` directory.
+The batch stages results and per-query provider response logs under ignored
+`build/corpus/evaluation-runs/<corpus_name>/<UTC-timestamp>/`. It stops on the
+first failure and preserves that directory for investigation. After all four
+runs and completeness checks succeed, it copies only `eval_results_baseline.json`,
+`eval_results_bm25.json`, `eval_results_rewrite.json` and
+`eval_results_bm25_rewrite.json` to
+`data/evaluations/<corpus_name>/<UTC-timestamp>/`. Existing destinations are
+refused before retrieval starts. `--output-dir` changes only the final destination;
+logs always remain in build storage. Copy failures remove the new final directory
+and retain staged evidence. The same input options and `--ids` subset are available.
+
+Each rewriting query has its own JSONL log with full request messages, verbatim
+serialized provider responses, usage and response metadata for both depths.
+Logs record the actual provider default model; `LLM_MODEL` is not an override.
+Agents should not load these logs by default. Inspect specific query logs only
+when an investigation requires them.
 
 Explicit inputs use `--queries`, `--manifest`, `--corpus-dir`; `--output` selects
 a new result path. The default is a unique ignored JSON file under
