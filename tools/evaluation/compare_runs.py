@@ -4,6 +4,7 @@ import csv
 import io
 import json
 import math
+import shutil
 from pathlib import Path
 
 from .scoring import CATEGORIES
@@ -106,9 +107,7 @@ def compare_runs(runs):
                                         scored=len(scored), excluded=len(selected)-len(scored), **means,
                                         **{key: sum(r['change'] == key for r in scored)
                                            for key in ('improved', 'regressed', 'unchanged')}))
-    return dict(baseline=baseline, runs={label: {k: run.get(k) for k in
-                ('created_at', 'config', 'models', 'input_hashes', 'requested_ids', 'executed_ids')}
-                for label, run in runs.items()}, summary=summary, changes=changes)
+    return dict(baseline=baseline, summary=summary, changes=changes)
 
 
 def render_summary(report):
@@ -133,7 +132,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('results', nargs='+', type=Path, help='Baseline first, then experiment JSON files')
     parser.add_argument('--check', action='store_true', help='Validate compatibility without writing reports')
-    parser.add_argument('--output-dir', type=Path, help='New directory for summary.md, per_query.csv and comparison.json')
+    parser.add_argument('--output-dir', type=Path, help='New directory for summary.md and per_query.csv')
     args = parser.parse_args()
     try:
         labels = [p.stem.removeprefix('eval_results_') for p in args.results]
@@ -145,13 +144,16 @@ def main():
             print(f'Compatible: {len(runs)} complete runs, {len(next(iter(runs.values()))["requested_ids"])} queries, depths 3 and 8')
         elif args.output_dir:
             args.output_dir.mkdir(parents=True, exist_ok=False)
-            (args.output_dir / 'summary.md').write_text(render_summary(report), encoding='utf-8')
-            (args.output_dir / 'comparison.json').write_text(json.dumps({k: v for k, v in report.items() if k != 'changes'}, indent=2, allow_nan=False) + '\n', encoding='utf-8')
-            output = io.StringIO()
-            writer = csv.DictWriter(output, fieldnames=list(report['changes'][0]), lineterminator='\n')
-            writer.writeheader()
-            writer.writerows(report['changes'])
-            (args.output_dir / 'per_query.csv').write_text(output.getvalue(), encoding='utf-8')
+            try:
+                (args.output_dir / 'summary.md').write_text(render_summary(report), encoding='utf-8')
+                output = io.StringIO()
+                writer = csv.DictWriter(output, fieldnames=list(report['changes'][0]), lineterminator='\n')
+                writer.writeheader()
+                writer.writerows(report['changes'])
+                (args.output_dir / 'per_query.csv').write_text(output.getvalue(), encoding='utf-8')
+            except OSError:
+                shutil.rmtree(args.output_dir)
+                raise
             print(f'Reports saved to {args.output_dir}')
         else:
             print(render_summary(report), end='')

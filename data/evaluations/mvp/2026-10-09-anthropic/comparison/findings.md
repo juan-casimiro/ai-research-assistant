@@ -3,8 +3,8 @@
 The four saved 9 October 2026 runs pass the offline compatibility checks:
 158 unique requested/executed queries, matching query and manifest hashes,
 complete metrics at depths 3 and 8. Each strategy below is paired with baseline.
-The [category summary](summary.md), [per-query changes](per_query.csv) and
-[machine summary/provenance](comparison.json) retain the full accounting.
+The [category summary](summary.md), [per-query changes](per_query.csv) retain the full accounting; the four source
+result files retain configuration and model provenance.
 
 At depth 3, BM25 and BM25 plus rewriting each add three excerpt successes
 (21 to 24 of 147), with no excerpt regressions. Rewriting alone leaves all
@@ -61,5 +61,5 @@ category-dependent. This is one sweep per configuration, with independent
 rewrites by depth and configuration, so it cannot establish a stable ranking,
 statistical significance or attribute the combined differences solely to BM25.
 Pinned-excerpt misses can retain semantic support. No generated answers were
-judged, provider logs were read, or new evaluations run. These current scores
+judged, no provider logs were read, and no new evaluations were run. These current scores
 are not directly comparable to the historical V1 benchmark.

@@ -1,13 +1,15 @@
 """Offline compatibility and paired-metric regression tests."""
 import copy
+import io
 import json
 import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
-from tools.evaluation.compare_runs import compare_runs
+from tools.evaluation.compare_runs import compare_runs, main
 
 
 def test_run():
@@ -94,12 +96,28 @@ class CompareRunsTests(unittest.TestCase):
             self.assertFalse(output.exists())
             completed = subprocess.run(command + ['--output-dir', str(output)], capture_output=True, text=True)
             self.assertEqual(completed.returncode, 0, completed.stderr)
-            self.assertEqual({p.name for p in output.iterdir()}, {'summary.md', 'per_query.csv', 'comparison.json'})
+            self.assertEqual({p.name for p in output.iterdir()}, {'summary.md', 'per_query.csv'})
             self.assertNotIn(b'\r', (output / 'per_query.csv').read_bytes())
-            original = (output / 'comparison.json').read_bytes()
+            original = (output / 'per_query.csv').read_bytes()
             repeated = subprocess.run(command + ['--output-dir', str(output)], capture_output=True, text=True)
             self.assertEqual(repeated.returncode, 1)
-            self.assertEqual((output / 'comparison.json').read_bytes(), original)
+            self.assertEqual((output / 'per_query.csv').read_bytes(), original)
+
+    def test_failed_report_write_removes_own_directory(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            paths = [root / name for name in ('baseline.json', 'experiment.json')]
+            for path in paths:
+                path.write_text(json.dumps(test_run()))
+            output = root / 'reports'
+            with patch.object(sys, 'argv', ['compare_runs', *map(str, paths), '--output-dir', str(output)]), \
+                    patch.object(Path, 'write_text', side_effect=OSError('synthetic write failure')), \
+                    patch('sys.stderr', new_callable=io.StringIO):
+                with self.assertRaises(SystemExit) as raised:
+                    main()
+            self.assertEqual(raised.exception.code, 1)
+            self.assertFalse(output.exists())
+            self.assertTrue(all(path.exists() for path in paths))
 
     def test_saved_mvp_runs(self):
         folder = Path(__file__).resolve().parents[1] / 'data/evaluations/mvp/2026-10-09-anthropic'

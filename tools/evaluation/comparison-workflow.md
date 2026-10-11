@@ -7,14 +7,14 @@ is a legacy V1 document-verdict utility, unsuitable for the current format.
 
 Select a baseline first, then one or more experiment files from the same
 benchmark/corpus sweep. Labels come from file stems, stripping `eval_results_`,
-and must be unique. Configuration and provider/model differences are allowed
-and preserved in the machine report. No current corpus or gold files are needed.
+and must be unique. Configuration and provider/model differences are allowed; the source results
+retain their configuration and model metadata. No current corpus or gold files are needed.
 
 From the active repository root, use its Python environment. For the four saved
 MVP runs, run this compatibility check:
 
 ```sh
-python -m tools.evaluation.compare_runs \
+.venv/bin/python -m tools.evaluation.compare_runs \
   data/evaluations/mvp/2026-10-09-anthropic/eval_results_baseline.json \
   data/evaluations/mvp/2026-10-09-anthropic/eval_results_bm25.json \
   data/evaluations/mvp/2026-10-09-anthropic/eval_results_rewrite.json \
@@ -35,7 +35,6 @@ Run the same command replacing `--check` with
   of improved, regressed, unchanged and excluded queries for each metric/depth.
 - `per_query.csv`: every paired metric, including unchanged and excluded cases,
   with before/after values, numeric delta and direction. Boolean metrics use 0/1.
-- `comparison.json`: machine-readable summaries and run provenance; query changes are in the CSV.
 
 An existing output directory is refused; use a new directory for another report.
 Without an output option, the summary prints to stdout. Reports compare each
@@ -56,4 +55,4 @@ retrieval metrics nor distractor ordering establish generated-answer quality.
 Current results cannot replay or be directly compared to V1 scores. See the
 [metric definitions](../../data/queries-schema.md#metrics).
 
-Offline regression checks: `python -m unittest tests.test_compare_runs -v`.
+Offline regression checks: ` .venv/bin/python -m unittest tests.test_compare_runs -v`.
