@@ -7,7 +7,7 @@ from datetime import datetime, timezone
 import json
 import os
 from pathlib import Path
-from uuid import uuid4
+import shutil
 
 from tools.evaluation import evaluate
 
@@ -82,13 +82,41 @@ async def run_combination(args, *, inputs=None):
     return status
 
 
+def publish_results(run_dir, destination, requested, inputs):
+    """Validate the whole batch before copying only results into a new directory."""
+    hashes = {"queries": evaluate.canonical_hash(inputs[0]),
+              "manifest": evaluate.canonical_hash(inputs[1])}
+    paths = []
+    for name, bm25, rewrite in COMBINATIONS:
+        path = run_dir / f"eval_results_{name}.json"
+        result = json.loads(path.read_text(encoding="utf-8"))
+        ids = [row["id"] for row in result["results"]]
+        if (result["run_status"] != "complete" or result["summary"] is None
+                or result["requested_ids"] != sorted(requested)
+                or sorted(result["executed_ids"]) != sorted(requested)
+                or sorted(ids) != sorted(requested)
+                or result["config"] != {"bm25": bm25, "rewrite": rewrite, "depths": [3, 8]}
+                or result["input_hashes"] != hashes
+                or any(not all(f"n{depth}" in row for depth in (3, 8)) for row in result["results"])):
+            raise ValueError(f"incomplete or inconsistent evaluation: {path}")
+        paths.append(path)
+    destination.mkdir(parents=True, exist_ok=False)
+    try:
+        for path in paths:
+            shutil.copy2(path, destination / path.name)
+    except Exception:
+        # Only remove the directory we just created; retain all staged evidence.
+        shutil.rmtree(destination)
+        raise
+
+
 async def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--queries", type=Path, default=evaluate.ROOT / "data/queries.json")
     parser.add_argument("--manifest", type=Path, default=evaluate.ROOT / "data/corpus_manifest.json")
     parser.add_argument("--corpus-dir", type=Path)
     parser.add_argument("--ids", help="Comma-separated query subset; defaults to all queries")
-    parser.add_argument("--output-dir", type=Path, help="New directory for four results; existing directories are refused")
+    parser.add_argument("--output-dir", type=Path, help="Final results directory; existing paths are refused. Runs/logs stay under build/corpus.")
     args = parser.parse_args(argv)
     args.chroma_path = os.environ.get("CHROMA_PATH")
     try:
@@ -98,11 +126,16 @@ async def main(argv=None):
         if not requested or requested - {q["id"] for q in benchmark["queries"]}:
             raise ValueError("invalid requested query IDs")
         args.ids = ",".join(sorted(requested))
-        from tools.corpus.download_corpus import collection_path, named_corpus_dir
+        from tools.corpus.download_corpus import collection_path, named_corpus_dir, corpus_name
         chroma = collection_path(args.corpus_dir or named_corpus_dir(manifest), args.chroma_path)
         if not chroma.is_dir():
             raise ValueError(f"no collection at {chroma}; ingest the corpus first")
-        output_dir = args.output_dir or evaluate.ROOT / "build/corpus/evaluation-runs" / uuid4().hex
+        name = corpus_name(manifest)
+        timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+        output_dir = evaluate.ROOT / "build/corpus/evaluation-runs" / name / timestamp
+        destination = args.output_dir or evaluate.ROOT / "data/evaluations" / name / timestamp
+        if destination.exists() or destination.is_symlink():
+            raise FileExistsError(f"final destination already exists: {destination}")
         output_dir.mkdir(parents=True, exist_ok=False)
         for name, bm25, rewrite in COMBINATIONS:
             run_args = copy(args)
@@ -113,7 +146,8 @@ async def main(argv=None):
             if status:
                 print(f"Stopped at {name}; preserve incomplete results and logs in {output_dir}")
                 return status
-        print(f"Saved all four evaluations to {output_dir.resolve()}")
+        publish_results(output_dir, destination, requested, inputs)
+        print(f"Saved all four evaluations to {destination.resolve()}; logs remain in {output_dir.resolve()}")
         return 0
     except (OSError, ValueError, KeyError, TypeError) as error:
         print(f"ERROR: {error}")
