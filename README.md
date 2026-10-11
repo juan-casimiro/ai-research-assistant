@@ -125,6 +125,11 @@ setup, verification and optional BM25/query rewriting. Results separate document
 coverage from pinned-evidence coverage; they do not measure generated-answer
 accuracy. Outputs are ignored under `build/corpus/evaluation-runs/`.
 
+Saved current retrieval runs can be compared offline with the
+[comparison workflow](tools/evaluation/comparison-workflow.md) and
+[compare-retrieval-runs skill](.agents/skills/compare-retrieval-runs/SKILL.md).
+The root `compare_evals.py` remains a legacy V1 document-verdict utility.
+
 V1 corpus details, scoring rules and saved results are preserved in the
 [V1 evaluation record](data/archive/v1/README.md), including the original
 [methodology](data/archive/v1/methodology.md) and

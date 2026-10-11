@@ -18,7 +18,8 @@ unavailable, report that and stop before task work.
 
 - `main.py`: startup, ingestion, retrieval and endpoints; `llm_client.py`: provider configuration and bounded LLM calls.
 - `tools/corpus/download_corpus.py`: PMC PDF downloads and browser instructions for the two Ovid exceptions; see [V1 acquisition record](data/archive/v1/corpus-acquisition.md). Missing manual downloads return nonzero status.
-- `tools/evaluation/evaluate.py` and `scoring.py`: current production-path retrieval evaluation; `compare_evals.py`: result comparison.
+- `tools/evaluation/evaluate.py` and `scoring.py`: current production-path retrieval evaluation; `tools/evaluation/compare_runs.py`: current offline comparison;
+  `compare_evals.py`: legacy V1 document-verdict comparison.
 
 - `tools/corpus/build_corpus_manifest.py` / `tools/corpus/fetch_article_metadata.py`: fetch the selection’s latest/pinned PMC metadata and assemble complete records; see the corpus workflow.
 - `tools/corpus/extract_corpus_text.py`: production-equivalent extraction into text beside PDFs and a small failure report.

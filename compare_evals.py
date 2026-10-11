@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""Compare two eval_results.json files side-by-side.
+"""Legacy V1 document-verdict comparison (not the current metrics format).
+
+For current runs use python -m tools.evaluation.compare_runs.
 
 Usage:
     python compare_evals.py data/archive/v1/evaluations/eval_results_baseline.json data/archive/v1/evaluations/eval_results_bm25.json
@@ -15,7 +17,7 @@ def load_results(path: Path) -> dict:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Compare two eval result files.")
+    parser = argparse.ArgumentParser(description="Legacy V1 document-verdict comparison.")
     parser.add_argument("baseline", type=Path)
     parser.add_argument("experiment", type=Path)
     args = parser.parse_args()
