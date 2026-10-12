@@ -43,27 +43,18 @@ Current commands and input rules belong in the
 
 ## Evaluation milestones
 
-**V1 established a production-path retrieval baseline:** 19 biomedical articles,
-133 questions and 111 scored cases. Dense retrieval with cross-encoder reranking
-achieved **96.4% at depth 3 and 98.2% at depth 8**. BM25 and query rewriting
-were tested as opt-in improvements without a net gain on that corpus; the
-incremental experiments and ranking decisions remain recorded in
-[ADR-001](001-chunking-and-retrieval.md).
+The current benchmark uses [55-article corpus metadata](../data/corpus_manifest.json)
+and [158 self-contained queries](../data/queries.json). The
+[saved four-strategy sweep](../data/evaluations/mvp/2026-10-09-anthropic/README.md)
+and [canonical findings](../data/evaluations/mvp/2026-10-09-anthropic/comparison/findings.md)
+separate source coverage from complete evidence and partial fact support.
+Observed direct-lookup gains coexist with regressions and persistent synthesis
+and multi-hop limits; this is one sweep, not a stable ranking or answer evaluation.
 
-V1 used document-level rules: lookup and multi-hop required the expected source;
-synthesis required every expected source; distractor cases additionally required
-the expected source ahead of the decoy. Unanswerable cases were recorded without
-positive scoring. This baseline did not prove that every supporting passage was
-retrieved, or that generated answers were correct.
-
-The current benchmark expands to 55 articles and 158 questions, with pinned
-excerpts and separate evidence metrics. This closes the document-only scoring
-gap and distinguishes absent facts from false premises. Scores from these two
-benchmarks are not directly comparable because corpus, questions and metrics differ.
-The [V1 evaluation record](../data/archive/v1/README.md) preserves its corpus,
-scoring rules, saved results and high-level technical setup.
-Git tag `evaluation-v1-baseline` identifies the main baseline before the evaluator
-transition.
+The [V1 archive](../data/archive/v1/README.md) owns the original 19-article /
+133-query baseline, document-only pass rules, saved results and experiment history.
+Corpus, questions and metrics differ, so its scores are not directly comparable.
+Historical commands require the `evaluation-v1-baseline` tag.
 
 ## Consequences
 

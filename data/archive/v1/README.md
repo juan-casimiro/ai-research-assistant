@@ -26,7 +26,7 @@ search query. Neither flag replaces dense retrieval.
 is the saved sufficiency-flag evaluation: it contains 29 expected-True samples
 and no expected-False samples. The helper uses n=8 with both retrieval flags off;
 the saved file does not record a full model/configuration provenance envelope.
-It is not the complete before/after experiment described in ADR-001.
+It is not the complete before/after [sufficiency experiment](retrieval-history.md#historical-sufficiency-flag-experiment).
 
 ## Scoring and achievements
 
@@ -34,7 +34,7 @@ The 19-article V1 corpus covered cardiology, diabetes, oncology and outlier topi
 Its 133-question benchmark included 111 scored cases. Dense search with
 cross-encoder reranking achieved **96.4% at depth 3 and 98.2% at depth 8**.
 BM25 and query rewriting produced no net improvement on this corpus; their
-incremental experiments remain in [ADR-001](../../../adr/001-chunking-and-retrieval.md).
+incremental experiments remain in the [historical retrieval record](retrieval-history.md).
 
 | Case | V1 pass rule |
 | --- | --- |
@@ -62,5 +62,6 @@ See [ADR-002](../../../adr/002-evaluation-methodology.md) for evaluation strateg
 and the [current workflow](../../../tools/evaluation/evaluation-workflow.md)
 for active commands.
 
-Full historical records: [methodology](methodology.md) and
+Full historical records: [retrieval experiments](retrieval-history.md),
+[methodology](methodology.md) and
 [corpus acquisition](corpus-acquisition.md).

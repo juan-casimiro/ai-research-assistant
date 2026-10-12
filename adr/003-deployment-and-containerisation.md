@@ -8,12 +8,9 @@ environment, blocking model loads baked into request handling. This
 ADR covers the containerisation slice that lifts that floor, and — more
 importantly — what was deliberately left undone and why.
 
-The scope was fixed in advance and timeboxed to ~2 days. The job search
-is active and the CV is going out; the evaluation harness, the measured
-null results on BM25/rewriting, and the honest ADRs are the actual
-differentiators in this portfolio. Containerisation removes a visible
-negative. It is not itself meant to be the differentiator, so the
-target here is a defensible 6/10, not a 10/10.
+Containerisation provides a reproducible local demo. Full-corpus acquisition,
+retrieval evaluation and saved comparisons remain host-side work; see the
+[README reading path](../README.md#current-benchmark-reading-path).
 
 ## Decisions made
 
@@ -205,15 +202,10 @@ documented-and-deliberate reads as judgement.
   in one command, with an honest loading → ready transition and data
   that survives a restart (`docker compose restart` reuses the named
   volume; seeding is skipped once the collection is non-empty).
-- The seed corpus (4 CC-BY-licensed articles, 429 chunks) exists purely
-  so the container isn't empty on first run. It has never been run
-  through the V1 retrieval evaluation and is not represented in the 96.4% (n=3) /
-  98.2% (n=8) figures reported elsewhere in this repo — those numbers
-  belong to the full 19-document corpus, loaded separately via
-  `ingest_corpus.py` against a host-run (non-Docker) instance; see the
-  [V1 acquisition record](../data/archive/v1/corpus-acquisition.md). The
-  README quickstart states this explicitly so the two corpora are never
-  conflated.
+- The seed corpus (4 CC-BY-licensed articles, 429 chunks) exists so the
+  container is queryable on first run. Neither the current 55-article benchmark
+  nor the [historical V1 results](../data/archive/v1/README.md) measures this demo.
+  Corpus acquisition and evaluation use separate host collections.
 - **`docker-compose.yml` pins `SEED_ON_EMPTY` and `CHROMA_PATH` via
   `environment:`, which Compose resolves with higher precedence than
   `env_file:`.** Originally both values reached the container only
@@ -228,7 +220,7 @@ documented-and-deliberate reads as judgement.
   `.env.example`'s comments were updated to state this rather than warn
   against a hazard that no longer exists.
 - **The host development path must independently set
-  `SEED_ON_EMPTY=false`.** The seed corpus and the full 19-document
+  `SEED_ON_EMPTY=false`.** The seed corpus and the historical V1
   corpus share four overlapping articles (see
   `seed_corpus/ATTRIBUTION.md`) — if the host server auto-seeds before
   `tools/corpus/ingest_corpus.py` runs, those four end up ingested twice under
