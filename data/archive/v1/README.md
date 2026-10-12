@@ -5,7 +5,7 @@ This archive preserves the original 19-article biomedical corpus metadata in
 [golden_qa.json](golden_qa.json) (111 retrieval-scored queries, plus unanswerable cases).
 The JSON files retain their original contents and schemas.
 
-Git tag `evaluation-v1-baseline` marks main at `91cee0c` before JUA-130
+Git tag `evaluation-v1-baseline` marks main at `91cee0c` before [PR #60](https://github.com/juan-casimiro/ai-research-assistant/pull/60)
 replaced the V1 evaluator. It preserves the historical utilities for recovery or reruns. The current
 branch retains V1 data and documentation explaining provenance, scoring and
 interpretation; the legacy comparator has been removed. Historical replay is
