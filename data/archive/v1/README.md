@@ -5,7 +5,7 @@ This archive preserves the original 19-article biomedical corpus metadata in
 [golden_qa.json](golden_qa.json) (111 retrieval-scored queries, plus unanswerable cases).
 The JSON files retain their original contents and schemas.
 
-Git tag `evaluation-v1-baseline` marks main at `91cee0c` before JUA-130
+Git tag `evaluation-v1-baseline` marks main at `91cee0c` before [PR #60](https://github.com/juan-casimiro/ai-research-assistant/pull/60)
 replaced the V1 evaluator. It preserves the historical utilities for recovery or reruns. The current
 branch retains V1 data and documentation explaining provenance, scoring and
 interpretation; the legacy comparator has been removed. Historical replay is
@@ -26,7 +26,7 @@ search query. Neither flag replaces dense retrieval.
 is the saved sufficiency-flag evaluation: it contains 29 expected-True samples
 and no expected-False samples. The helper uses n=8 with both retrieval flags off;
 the saved file does not record a full model/configuration provenance envelope.
-It is not the complete before/after experiment described in ADR-001.
+It is not the complete before/after [sufficiency experiment](retrieval-history.md#historical-sufficiency-flag-experiment).
 
 ## Scoring and achievements
 
@@ -34,7 +34,7 @@ The 19-article V1 corpus covered cardiology, diabetes, oncology and outlier topi
 Its 133-question benchmark included 111 scored cases. Dense search with
 cross-encoder reranking achieved **96.4% at depth 3 and 98.2% at depth 8**.
 BM25 and query rewriting produced no net improvement on this corpus; their
-incremental experiments remain in [ADR-001](../../../adr/001-chunking-and-retrieval.md).
+incremental experiments remain in the [historical retrieval record](retrieval-history.md).
 
 | Case | V1 pass rule |
 | --- | --- |
@@ -62,5 +62,6 @@ See [ADR-002](../../../adr/002-evaluation-methodology.md) for evaluation strateg
 and the [current workflow](../../../tools/evaluation/evaluation-workflow.md)
 for active commands.
 
-Full historical records: [methodology](methodology.md) and
+Full historical records: [retrieval experiments](retrieval-history.md),
+[methodology](methodology.md) and
 [corpus acquisition](corpus-acquisition.md).

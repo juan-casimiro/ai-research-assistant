@@ -1,4 +1,4 @@
-# Corpus helpers
+# Corpus and evaluation tools
 
 Run modules from the repository root. The [corpus workflow](corpus/corpus-metadata-workflow.md)
 owns the preparation order, selection evidence, validation and local output rules.
@@ -15,3 +15,19 @@ owns the preparation order, selection evidence, validation and local output rule
 
 Use each module's `--help`. Local preparation artifacts remain ignored; publication
 and conflict resolution follow the workflow. The manifest's `corpus_name` sets the corpus folder: publication moves PDFs and text into `corpus/<corpus_name>/`.
+
+## Retrieval evaluation and saved comparisons
+
+The current inputs are [55-article metadata](../data/corpus_manifest.json) and
+[158 queries](../data/queries.json), explained by the [Q&A field guide](../data/queries-schema.md).
+After acquisition and fresh ingestion, follow the
+[evaluation workflow](evaluation/evaluation-workflow.md) for `tools.evaluation.evaluate`
+and `tools.evaluation.evaluate_combinations`. The latter stages batches locally
+and publishes only complete result files; paid rewriting requires approval.
+
+For saved JSON files, `tools.evaluation.compare_runs` works offline without
+models or provider calls; use the [comparison workflow](evaluation/comparison-workflow.md).
+Read the [saved MVP results](../data/evaluations/mvp/2026-10-09-anthropic/README.md)
+and [strategy findings](../data/evaluations/mvp/2026-10-09-anthropic/comparison/findings.md)
+for category gains, regressions and limits. Retrieval metrics do not judge answers.
+Historical V1 commands and scoring belong in the [V1 archive](../data/archive/v1/README.md).

@@ -53,7 +53,7 @@ python -m tools.evaluation.evaluate
 python -m tools.evaluation.evaluate --bm25 --ids q041,q042
 ```
 
-To generate all four V1-style combinations (baseline, BM25, rewriting and both)
+To generate all four retrieval combinations (baseline, BM25, rewriting and both)
 at depths 3 and 8, use the batch script. The two rewriting runs use the configured
 provider and require approval when paid.
 
@@ -96,3 +96,7 @@ Offline verification: `python -m unittest discover -s tests -t . -v`.
 
 For offline comparisons of saved current result files, follow the
 [comparison workflow](comparison-workflow.md); it does not run retrieval or providers.
+
+The [saved MVP sweep](../../data/evaluations/mvp/2026-10-09-anthropic/README.md)
+and [strategy findings](../../data/evaluations/mvp/2026-10-09-anthropic/comparison/findings.md)
+provide existing result evidence; reading them requires no new evaluation.

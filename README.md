@@ -4,15 +4,38 @@ Research Assistant (RAG)
 
 A FastAPI service for semantic search and question-answering over ingested documents, using local embeddings, Chroma for vector storage, and an LLM (via LangChain) for grounded generation.
 
-The original V1 test corpus is 19 open-access biomedical research articles (PubMed Central Open Access subset and equivalent open-access journals), spanning diabetes, cardiology, oncology, and an outlier cluster covering antimicrobial resistance, gut microbiome/tuberculosis, and AI-assisted diagnosis — see [corpus_manifest.json](./data/archive/v1/corpus_manifest.json) for full per-article metadata, licenses, and sourcing notes. The RAG pipeline itself is domain-agnostic; biomedical literature was chosen as a corpus with genuinely dense, citation-heavy, and terminology-specific text, useful for stress-testing retrieval precision.
+The current host benchmark contains **55 biomedical articles and 158 queries**.
+[Corpus metadata](data/corpus_manifest.json) records public source identities,
+pinned PMC versions, licences and acquisition provenance; [Q&A inputs](data/queries.json)
+retain reference answers, required facts and accepted evidence alternatives.
+The pipeline is domain-agnostic; biomedical literature exercises dense,
+citation-heavy and terminology-specific retrieval.
 
-**Original V1 retrieval accuracy: 96.4% @ n=3, 98.2% @ n=8** on a 133-query golden QA set (111 scored), spanning direct lookup, multi-hop, cross-document distractor, and cross-document synthesis cases. BM25 hybrid search and LLM query rewriting were implemented and evaluated as opt-in additions but measured no net benefit on this corpus — see [ADR-001](./adr/001-chunking-and-retrieval.md) for the full evaluation, including one attributable regression from BM25 alone.
+## Current benchmark reading path
 
-The [current MVP evaluation results](data/evaluations/mvp/2026-10-09-anthropic/README.md)
-save all four combinations on the 55-article, 158-query corpus, with separate
-document and pinned-excerpt coverage metrics.
+1. Start with the [Q&A field guide and metric definitions](data/queries-schema.md).
+2. Prepare local PDFs/text using the [corpus metadata workflow](tools/corpus/corpus-metadata-workflow.md),
+   then create a fresh collection with the [ingestion workflow](tools/corpus/ingestion-workflow.md).
+3. Use the production-path [retrieval evaluation workflow](tools/evaluation/evaluation-workflow.md)
+   or compare saved runs offline with the [comparison workflow](tools/evaluation/comparison-workflow.md).
+4. Read the [four saved strategy runs](data/evaluations/mvp/2026-10-09-anthropic/README.md)
+   and canonical [strategy findings](data/evaluations/mvp/2026-10-09-anthropic/comparison/findings.md),
+   with category summaries and per-query gains/regressions linked there.
 
-CI runs unit tests, builds the Docker image, and smoke-tests `/health` on every pull request and push to `main`. The golden QA evaluation remains manual because it is non-deterministic and calls a paid API. Successful `main` builds publish commit-SHA and `latest` images to `ghcr.io/juan-casimiro/ai-research-assistant`; nothing is deployed automatically. See [ADR-003](./adr/003-deployment-and-containerisation.md).
+In this one observed sweep, BM25 configurations improve depth-8 pinned-excerpt
+coverage mainly on direct lookup. At depth 8, rewriting alone loses document
+coverage; all configurations leave substantial multi-hop and synthesis evidence gaps.
+The combined run has the highest observed depth-8 excerpt coverage, but small,
+category-dependent differences and independent rewrites do not establish a
+stable strategy ranking. These are document/evidence retrieval measurements,
+not generated-answer accuracy; literal excerpt misses can retain semantic support.
+
+The [original V1 archive](data/archive/v1/README.md) owns the earlier 19-article /
+133-query results, scoring interpretation and experiment history. V1 scores
+are not directly comparable to the current benchmark. Neither benchmark describes
+the bundled Docker demo.
+
+CI runs unit tests, builds the Docker image, and smoke-tests `/health` on every pull request and push to `main`. Retrieval evaluation remains manual; optional query rewriting is non-deterministic and can call a paid API. Successful `main` builds publish commit-SHA and `latest` images to `ghcr.io/juan-casimiro/ai-research-assistant`; nothing is deployed automatically. See [ADR-003](./adr/003-deployment-and-containerisation.md).
 
 ## Two ways to run this
 
@@ -21,7 +44,7 @@ CI runs unit tests, builds the Docker image, and smoke-tests `/health` on every 
 | For | Reviewers — one command, bring your own Anthropic API key | Development & evaluation |
 | Corpus | [Bundled seed corpus](./adr/003-deployment-and-containerisation.md) (CC BY) | Current 55-article corpus (locally acquired) |
 | Command | `docker compose up --build` (no API key? see the [Ollama appendix](#appendix-local-llm-with-ollama)) | see below |
-| Evaluation | Demo corpus; headline quality figures do not apply | Current corpus and Q&A benchmark |
+| Evaluation | Demo corpus; benchmark figures do not apply | Current corpus and Q&A benchmark |
 
 ## Run it (Docker)
 
@@ -56,8 +79,8 @@ curl -X POST localhost:8000/query \
 `docker compose restart` reuses the same named volume — seeding is
 skipped and existing data persists.
 
-**The bundled seed corpus is a demo convenience only.** Headline V1 results
-describe a separate 19-article host corpus, not the Docker demo.
+**The bundled seed corpus is a demo convenience only.** Current and historical
+benchmark results describe separately acquired host corpora.
 
 No Anthropic API key? See the [Ollama appendix](#appendix-local-llm-with-ollama)
 for a Docker-based alternative that runs entirely locally, no credentials
@@ -223,34 +246,24 @@ BM25 and query rewriting are opt-in (use_bm25, use_query_rewriting on /query, bo
 
 ## Design decisions and known limitations
  
-See [ADR-001](./adr/001-chunking-and-retrieval.md) for the full history:
-chunking approach, the two-stage retrieval pipeline (dense embeddings +
-cross-encoder reranking), BM25 hybrid search via reciprocal rank fusion,
-and LLM-based query rewriting — including a full evaluation of BM25 and
-rewriting against the golden QA set, with results and the decision to
-keep both opt-in rather than default-on.
+[ADR-001](adr/001-chunking-and-retrieval.md) explains chunking, dense search,
+reranking and opt-in BM25/query rewriting. [ADR-002](adr/002-evaluation-methodology.md)
+explains document/evidence scoring and its limits. The current
+[strategy findings](data/evaluations/mvp/2026-10-09-anthropic/comparison/findings.md)
+show why source coverage alone overstates evidence completeness, especially for
+multi-hop and synthesis. Generated-answer evaluation remains separate work.
 
-See [ADR-002](./adr/002-evaluation-methodology.md) for evaluation strategy,
-scoring decisions and milestones.
- 
-In short: two-stage retrieval (embeddings + reranking) scores 96.4%
-(n=3) / 98.2% (n=8) on the golden QA set (133 queries, 111 scored). BM25
-and query rewriting were implemented and evaluated as opt-in additions
-but did not improve retrieval on this corpus — see ADR-001 for the full
-breakdown, including one attributable regression from BM25 alone and
-why combining it with rewriting recovered it, re-confirmed after the
-corpus expanded from 16 to 19 documents (outlier cluster).
-
+See the [integration record](docs/benchmark-integration.md) for capabilities
+extracted to main and remaining candidates for selection.
 
 ## Possible future improvements
 
 - Isolate BM25 as a standalone retrieval signal (no vector search in the
-  fusion) to measure lexical-only retrieval quality on this corpus,
-  separate from the "does adding BM25 to vector help" question already
-  answered
+  fusion) to measure lexical-only retrieval quality on a fixed benchmark,
+  separately from the additive BM25 experiments
 - Add eval queries where dense retrieval + reranking demonstrably fails
   and lexical exact-match would succeed, to test BM25's upside fairly
-  (the current BM25-favoring queries already pass on vector-only)
+  (the historical V1 exact-match cases already passed on vector-only)
 - HyDE (Hypothetical Document Embeddings) or corpus-aware query rewriting,
   as a way to address vocabulary-specific mismatches that generic
   rewriting does not fix (see ADR-001)
