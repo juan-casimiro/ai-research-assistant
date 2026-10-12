@@ -6,8 +6,10 @@ This archive preserves the original 19-article biomedical corpus metadata in
 The JSON files retain their original contents and schemas.
 
 Git tag `evaluation-v1-baseline` marks main at `91cee0c` before JUA-130
-replaced the V1 evaluator. It preserves the original evaluator and archived
-evidence for reference; historical replay is not required.
+replaced the V1 evaluator. It preserves the historical utilities for recovery or reruns. The current
+branch retains V1 data and documentation explaining provenance, scoring and
+interpretation; the legacy comparator has been removed. Historical replay is
+not required.
 
 All four retrieval result files use dense search and cross-encoder reranking,
 evaluated at n=3 and n=8. BM25 adds hybrid fusion; rewriting adds an LLM-rewritten
@@ -54,9 +56,7 @@ V1 ran on the host using local embeddings, a Chroma collection and a cross-encod
 reranker, through production retrieval. PDFs were acquired separately: 17 articles
 from PMC and two through publisher browser downloads. Text was extracted and
 ingested before evaluation at depths 3 and 8. Optional query rewriting used an LLM.
-The historical evaluator was `eval_golden.py`; it has since been replaced.
-`compare_evals.py` remains a legacy utility for the saved V1 result format.
-Historical replay is not required, and old scripts are not current setup guidance.
+Old scripts are not current setup guidance; recover them from the tag if needed.
 
 See [ADR-002](../../../adr/002-evaluation-methodology.md) for evaluation strategy
 and the [current workflow](../../../tools/evaluation/evaluation-workflow.md)

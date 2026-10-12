@@ -93,3 +93,6 @@ See the [metric definitions and chunk-budget limitation](../../data/queries-sche
 
 Preserve the original archived V1 gold/results. New runs record input hashes and retrieval options and cannot be described as reproductions of historical scores.
 Offline verification: `python -m unittest discover -s tests -t . -v`.
+
+For offline comparisons of saved current result files, follow the
+[comparison workflow](comparison-workflow.md); it does not run retrieval or providers.
