@@ -23,9 +23,9 @@ citation-heavy and terminology-specific retrieval.
    with category summaries and per-query gains/regressions linked there.
 
 In this one observed sweep, BM25 configurations improve depth-8 pinned-excerpt
-coverage mainly on direct lookup. Rewriting alone loses document coverage;
-all configurations leave substantial multi-hop and synthesis evidence gaps.
-The combined run has the highest observed excerpt coverage, but small,
+coverage mainly on direct lookup. At depth 8, rewriting alone loses document
+coverage; all configurations leave substantial multi-hop and synthesis evidence gaps.
+The combined run has the highest observed depth-8 excerpt coverage, but small,
 category-dependent differences and independent rewrites do not establish a
 stable strategy ranking. These are document/evidence retrieval measurements,
 not generated-answer accuracy; literal excerpt misses can retain semantic support.

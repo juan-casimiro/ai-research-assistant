@@ -29,7 +29,4 @@ instructions until an authoritative replacement exists. Generated-answer judging
 is separate work and is not supplied by retrieval scoring.
 
 Final epic-to-main retained-file selection, divergence resolution and release-gate
-review remain separate decisions after integration choices settle. Coordination
-and candidate provenance are recorded in
-[JUA-116](https://linear.app/juan-casimiro-agent/issue/JUA-116/consolidate-and-reduce-the-corpus-benchmark-release-before-merging-to)
-and [JUA-128](https://linear.app/juan-casimiro-agent/issue/JUA-128/add-repository-owned-corpus-management-and-ingestion-skills-for).
+review remain separate decisions after integration choices settle.

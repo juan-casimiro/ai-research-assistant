@@ -8,8 +8,10 @@ environment, blocking model loads baked into request handling. This
 ADR covers the containerisation slice that lifts that floor, and — more
 importantly — what was deliberately left undone and why.
 
-Containerisation provides a reproducible local demo. Full-corpus acquisition,
-retrieval evaluation and saved comparisons remain host-side work; see the
+The containerisation work had a fixed scope and roughly two-day timebox,
+targeting a defensible local demo rather than comprehensive production hardening.
+Full-corpus acquisition, retrieval evaluation and saved comparisons remain
+host-side work; see the
 [README reading path](../README.md#current-benchmark-reading-path).
 
 ## Decisions made
