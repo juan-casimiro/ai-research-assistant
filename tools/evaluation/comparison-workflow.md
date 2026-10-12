@@ -55,4 +55,4 @@ retrieval metrics nor distractor ordering establish generated-answer quality.
 Current results cannot replay or be directly compared to V1 scores. See the
 [metric definitions](../../data/queries-schema.md#metrics).
 
-Offline regression checks: ` .venv/bin/python -m unittest tests.test_compare_runs -v`.
+Offline regression checks: `.venv/bin/python -m unittest tests.test_compare_runs -v`.
