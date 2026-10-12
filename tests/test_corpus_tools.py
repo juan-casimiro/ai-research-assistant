@@ -1,4 +1,4 @@
-"""Offline protection for corpus duplication guards and evaluation comparisons."""
+"""Offline protection for corpus duplication guards."""
 import contextlib
 import io
 import json
@@ -9,7 +9,6 @@ from types import SimpleNamespace
 import unittest
 from unittest.mock import patch
 
-import compare_evals
 from tests.corpus.test_extract_corpus_text import pdf_bytes
 from tools.corpus import download_corpus, ingest_corpus
 
@@ -138,32 +137,3 @@ class CorpusIngestionTests(unittest.TestCase):
         rag_production = FakeProduction()
         self.assertEqual(self.run_tool(rag_production)[0], 1)
         self.assertEqual({source for source, _ in rag_production.stored}, {"first-test.pdf"})
-
-
-class ComparisonTests(unittest.TestCase):
-    def test_comparison_reports_both_flip_directions_and_ignores_unanswerable(self):
-        with tempfile.TemporaryDirectory() as directory:
-            baseline, experiment = Path(directory, "before.json"), Path(directory, "after.json")
-            before = [
-                {"id": "test-a", "category": "direct_lookup", "n3": {"verdict": "fail"}, "n8": {"verdict": "pass"}},
-                {"id": "test-b", "category": "unanswerable", "n3": {"verdict": "not_scored"}, "n8": {"verdict": "not_scored"}},
-            ]
-            after = [
-                {"id": "test-a", "category": "direct_lookup", "n3": {"verdict": "pass"}, "n8": {"verdict": "fail"}},
-                {"id": "test-b", "category": "unanswerable", "n3": {"verdict": "pass"}, "n8": {"verdict": "pass"}},
-            ]
-            baseline.write_text(json.dumps({"results": before}))
-            experiment.write_text(json.dumps({"results": after}))
-            for path, changed in [(experiment, True), (baseline, False)]:
-                output = io.StringIO()
-                with self.subTest(changed=changed), patch("sys.argv", ["compare_evals.py", str(baseline), str(path)]), contextlib.redirect_stdout(output):
-                    compare_evals.main()
-                text = output.getvalue()
-                self.assertNotIn("test-b", text)
-                if changed:
-                    self.assertIn("n=3: 0/1 → 1/1", text)
-                    self.assertIn("n=8: 1/1 → 0/1", text)
-                    self.assertIn("IMPROVED  test-a", text)
-                    self.assertIn("REGRESSED  test-a", text)
-                else:
-                    self.assertIn("No changes between runs.", text)

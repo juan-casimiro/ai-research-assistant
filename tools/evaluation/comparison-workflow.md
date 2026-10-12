@@ -2,8 +2,7 @@
 
 Work offline from current result JSON files. Do not trigger ingestion or new
 evaluations. Do not open provider response logs by default; inspect a specific
-query log only when that query needs investigation. The root `compare_evals.py`
-is a legacy V1 document-verdict utility, unsuitable for the current format.
+query log only when that query needs investigation.
 
 Select a baseline first, then one or more experiment files from the same
 benchmark/corpus sweep. Labels come from file stems, stripping `eval_results_`,

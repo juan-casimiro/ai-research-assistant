@@ -65,7 +65,7 @@ utility scripts. Tests, `.venv`, and audit tooling are excluded, explicitly in
 | All eight files | 133/576 (23.09%) | 526/576 (91.32%) | 15/158 (9.49%) | 134/158 (84.81%) | 20.16% → 89.92% |
 
 Final combined coverage: `eval_golden.py` 97%, `eval_context_sufficient.py` 94%,
-`compare_evals.py` 96%, `ingest_corpus.py` 80%. `reset_collection.py`,
+`ingest_corpus.py` 80%. `reset_collection.py`,
 `show_failures.py`, and `debug_bm25.py` remain 0%, visibly included in the denominator.
 
 The sole uncovered service statement is the second empty-fusion return. With the
@@ -94,7 +94,6 @@ code was rewritten for a score.
 | `eval_golden.main` | 26 | 4 | 0% → 100% | 702 → 26 |
 | `eval_context_sufficient.main` | 24 | 3 | 0% → 100% | 600 → 24 |
 | `eval_golden.score_query` | 15 | 3 | 0% → 100% | 240 → 15 |
-| `compare_evals.main` | 14 | 3 | 0% → 100% | 210 → 14 |
 | `main.chunk_text` | 10 | 3 | 0% → 100% | 110 → 10 |
 | `main._seed_if_empty` | 7 | 2 | 0% → 100% | 56 → 7 |
 | `ingest_corpus.main` | 7 | 2 | 0% → 82.93% | 56 → 7.24 |
@@ -198,7 +197,7 @@ python -m coverage run --data-file="$AUDIT_DIR/final.coverage" -m unittest disco
 python -m coverage report --data-file="$AUDIT_DIR/final.coverage"
 python -m coverage json --data-file="$AUDIT_DIR/final.coverage" -o "$AUDIT_DIR/final.json"
 python quality/quality_hotspots.py "$AUDIT_DIR/final.json" > "$AUDIT_DIR/final-hotspots.json"
-python -m radon cc main.py eval_golden.py eval_context_sufficient.py ingest_corpus.py compare_evals.py -s -a
+python -m radon cc main.py eval_golden.py eval_context_sufficient.py ingest_corpus.py -s -a
 python quality/verify_test_strength.py --output-dir "$AUDIT_DIR/mutations"
 python -m pip check
 git diff --check
