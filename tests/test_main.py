@@ -10,6 +10,28 @@ import main
 
 
 
+class IngestRequestValidationTests(unittest.TestCase):
+    def test_rejects_empty_and_oversized_documents_before_embedding(self):
+        for text in ("", "   ", "x" * 100_001):
+            with self.subTest(length=len(text)):
+                with self.assertRaises(ValidationError):
+                    main.IngestRequest(text=text, source="test.txt")
+
+    def test_rejects_empty_and_oversized_source_labels(self):
+        for source in ("", "   ", "x" * 513):
+            with self.subTest(length=len(source)):
+                with self.assertRaises(ValidationError):
+                    main.IngestRequest(text="test document", source=source)
+
+    def test_accepts_boundaries_and_trims_surrounding_whitespace(self):
+        request = main.IngestRequest(text="x" * 100_000, source="s" * 512)
+        self.assertEqual(len(request.text), 100_000)
+        self.assertEqual(len(request.source), 512)
+        trimmed = main.IngestRequest(text=" test document ", source=" test.txt ")
+        self.assertEqual(trimmed.text, "test document")
+        self.assertEqual(trimmed.source, "test.txt")
+
+
 class QueryRequestValidationTests(unittest.TestCase):
     def test_question_strips_surrounding_whitespace(self):
         request = main.QueryRequest(question="  test question  ")

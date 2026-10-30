@@ -158,6 +158,20 @@ V1 corpus details, scoring rules and saved results are preserved in the
 [acquisition steps](data/archive/v1/corpus-acquisition.md).
 
 
+## Local access boundary
+
+This service has no application authentication or usage quotas. Keep it private:
+Compose publishes only `127.0.0.1:8000`, and host Uvicorn execution must use
+`--host 127.0.0.1`. Do not publish it through a tunnel, reverse proxy or public
+container port. The gateway authenticates its own requests; this does not protect
+a separately exposed RAG API. Other local processes can call the service.
+
+`POST /ingest` accepts nonblank text up to 100,000 characters and a nonblank
+source label up to 512 characters, rejecting larger values before embedding.
+These limits bound a single ingestion operation; they do not replace HTTP body
+limits, authentication, quotas or worker resource limits for a future remote deployment.
+Large corpus imports should use the local ingestion workflow.
+
 ## Features
 
 - **POST /ingest** — chunk and embed a document, storing it for retrieval
