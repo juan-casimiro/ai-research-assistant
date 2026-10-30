@@ -208,8 +208,8 @@ def chunk_text(text: str, chunk_size: int = 1000, overlap: int = 150) -> list[st
 
 
 class IngestRequest(BaseModel):
-    text: str
-    source: str
+    text: Annotated[str, StringConstraints(strip_whitespace=True, min_length=1, max_length=100_000)]
+    source: Annotated[str, StringConstraints(strip_whitespace=True, min_length=1, max_length=512)]
 
 
 class QueryRequest(BaseModel):
